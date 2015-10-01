@@ -39,11 +39,11 @@ Anda diminta untuk membuat tampilan sedemikian hingga mirip dengan tampilan beri
 
 ![](mocks/create.jpg)
 - Tampilan di atas digunakan untuk mengajukan atau mengubah pertanyaan.
-- Perhatikan label dari field berada di dalam field (tidak di luar)
+- Perhatikan label dari field pada form berada di dalam field (tidak di luar)
 
 ![](mocks/detail.jpg)
 - Bagian ini menampilkan pertanyaan. Bentuk icon vote up/down tidak perlu sama. Bagian `datetime` tidak harus ada. Bagian `username` dapat anda isi dengan email.
-- Perhatikan label dari field berada di dalam field (tidak di luar)
+- Perhatikan label dari field pada form berada di dalam field (tidak di luar)
 
 ### List pertanyaan
 
