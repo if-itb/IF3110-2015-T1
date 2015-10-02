@@ -56,6 +56,27 @@
 		return $ret;				
 	}
 
+	function getQuestionbyId($id) {
+		global $conn;
+
+		$query = "SELECT * FROM question WHERE id = ". $id;
+		$result = mysqli_query($conn, $query);
+
+		$row = mysqli_fetch_assoc($result);
+		$question = array();
+		$question["id"] = $row['id'];
+		$question["name"] = $row['name'];
+		$question["email"] = $row["email"];
+		$question["content"] = $row["content"];
+		$question["topic"] = $row["topic"];
+		$question["vote"] = $row["vote"];
+		$question["date_created"] = $row["date_created"];
+		$question["date_edited"] = $row["date_edited"];
+		$question["is_delete"] = $row["is_delete"];
+
+		return $question;				
+	}
+
 	function getAnswerCount($id_q) {
 		global $conn;
 		
@@ -71,6 +92,29 @@
 	}
 
 	/* Answers Related */
+	function getAnswerbyQId($id_q) {
+		global $conn;
+
+		$query = "SELECT * FROM answer WHERE id_q = ". $id_q;
+		$result = mysqli_query($conn, $query);
+
+		$ret = array();		
+
+		if (mysqli_num_rows($result) > 0) {
+		    while($row = mysqli_fetch_assoc($result)) {
+				$answer = array();
+				$answer["id"] = $row['id'];
+				$answer["name"] = $row['name'];
+				$answer["email"] = $row["email"];
+				$answer["content"] = $row["content"];
+				$answer["vote"] = $row["vote"];
+				$answer["date_created"] = $row["date_created"];
+		    	array_push($ret, $answer);
+		    }
+		}
+
+		return $ret;		
+	}
 
 	/* SEO Optimization Functions */
 	function replace_dashes($string) {
