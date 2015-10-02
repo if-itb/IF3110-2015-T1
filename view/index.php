@@ -1,14 +1,24 @@
 <?php
 	include ('../view/layout/header.php');
-?>
 
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+		$results = searchByString($_POST['search']);
+
+		foreach ($results as $question) {
+			makeQuestionPart($question);
+		}
+
+	} else {
+
+?>
 
 	<div id="form">
 
 		<div class="content">
 			<form action="" method="post">
-				<input disabled type="text" id="search" name="search" placeholder="search here...">
-				<button disabled type="submit">Search</button>
+				<input type="text" id="search" name="search" placeholder="search here...">
+				<button type="submit">Search</button>
 			</form>
 		</div>
 
@@ -19,7 +29,8 @@
 
 
 <?php
-	makeFullQList(0);
+		makeFullQList(0);
+	}
 
 	include ('../view/layout/footer.php');
 ?>

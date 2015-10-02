@@ -1,13 +1,8 @@
 <?php 
 	include ('../view/layout/header.php');
-?>
 
-
-<?php
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-?>
 
-<?php
 		$arr = array();
 		$arr['name'] = $_POST['name'];
 		$arr['email'] = $_POST['email'];
@@ -15,13 +10,9 @@
 		$arr['id_q'] = $_POST['id'];
 
 		insertAnswer($arr);
-?>
 
-<?php
 	} else {
-?>
 
-<?php
 		if ( isset($_GET['id']) ) {
 			$id = $_GET['id'];
 

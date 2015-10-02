@@ -37,7 +37,7 @@
 			 "		</div>" .
 			 " 		<div class='data'> " .
 			 " 			<div class='content'>" . $question['content'] . "</div>" .
-			 " 			<div class='control'>asked by " . $question['name'] . " | <a class='edit' href='/edit/question/" . $question['id'] . "'> edit </a> | <a class='delete' onclick='deleteQuestion(" . $question['id'] . ")'>delete</a> </div>" .
+			 " 			<div class='control'>asked by " . $question['name'] . " at " . $question['date_created'] . " | <a class='edit' href='/edit/question/" . $question['id'] . "'> edit </a> | <a class='delete' onclick='deleteQuestion(" . $question['id'] . ")'>delete</a> </div>" .
 			 " 		</div> " .
 			 " </div> ");		
 	}
@@ -51,7 +51,7 @@
 			 "		</div>" .
 			 " 		<div class='data'> " .
 			 " 			<div class='content'>" . $answer['content'] . "</div>" .
-			 " 			<div class='control'>answered by " . $answer['name'] . "</div>" .
+			 " 			<div class='control'>answered by " . $answer['name'] . " at " . $answer['date_created'] . " </div>" .
 			 " 		</div> " .
 			 " </div> ");		
 	}

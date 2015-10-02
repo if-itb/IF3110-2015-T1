@@ -221,6 +221,31 @@
 		}
 	}
 
+	/* Search Engine */
+	function searchByString($string) {
+		global $conn;
+
+		$query = "SELECT * FROM question WHERE is_delete = 0 AND ( name LIKE '%$string%' OR content LIKE '%$string%' ) ORDER BY id DESC";
+		$result = mysqli_query($conn, $query);
+
+		$ret = array();		
+
+		if (mysqli_num_rows($result) > 0) {
+		    while($row = mysqli_fetch_assoc($result)) {
+				$question = array();
+        		$question["id"] = $row['id'];
+        		$question["name"] = $row['name'];
+				$question["topic"] = $row["topic"];
+				$question["content"] = $row["content"];
+				$question["vote"] = $row["vote"];
+				$question["is_delete"] = $row["is_delete"];
+		    	array_push($ret, $question);
+		    }
+		}
+
+		return $ret;
+	}
+
 	/* SEO Optimization Functions */
 	function replace_dashes($string) {
 	    $string = str_replace(" ", "-", $string);

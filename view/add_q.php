@@ -1,12 +1,8 @@
 <?php 
 	include ('../view/layout/header.php');
-?>
 
-<?php
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-?>
 
-<?php
 		$arr = array();
 		$arr['name'] = $_POST['name'];
 		$arr['email'] = $_POST['email'];
@@ -14,9 +10,7 @@
 		$arr['content'] = $_POST['content'];
 
 		insertQuestion($arr);
-?>
 
-<?php
 	} else {
 ?>
 
