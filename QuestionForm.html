@@ -7,11 +7,25 @@
 		<H1>Simple StackExchange</H1>
 		<H2>What's your question?</H2>
 		<form action="SubmitQuestion.php" method="post">
-			<P><input type="text" name="Name" onfocus="if (this.value=='Name') this.value = ''" type="text" value="Name"></P>
-			<P><input type="text" name="Email" onfocus="if (this.value=='Email') this.value = ''" type="text" value="Email"></P>
-			<P><input type="text" name="QuestionTopic" onfocus="if (this.value=='Question Topic') this.value = ''" type="text" value="Question Topic"></P>
-			<P><textarea name="Content" onfocus="if (this.value=='Content') this.value = ''" type="text" value="Content">Content</textarea></P>
-			<P><input type="submit" value="Post"></P>
+			<div class="question-form-input">
+				<label for="Name">Name</label>
+				<input type="text" name="Name" id="Name">
+			</div>
+			<div class="question-form-input">
+				<label for="Email">Email</label>
+				<input type="text" name="Email" id="Email">
+			</div>
+			<div class="question-form-input">
+				<label for="QuestionTopic">Question Topic</label>
+				<input type="text" name="QuestionTopic" id="QuestionTopic">
+			</div>
+			<div class="question-form-input">
+				<label for="Content">Content</label>
+				<textarea name="Content" id="Content"></textarea>
+			</div>
+			<div class="question-form-input">
+				<input type="submit" value="Post">
+			</div>
 		</form>
 	</BODY>
 </HTML>
