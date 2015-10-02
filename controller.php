@@ -8,6 +8,29 @@
 	}
 
 	/* Question Related */
+	function insertQuestion($arr) {
+		global $conn;
+
+		$query = "INSERT INTO question (name, email, topic, content, vote, date_created, is_delete)
+				  VALUES ";
+
+		$name = mysqli_real_escape_string($conn, $arr['name']);
+		$email = mysqli_real_escape_string($conn, $arr['email']);
+		$topic = mysqli_real_escape_string($conn, $arr['topic']);
+		$content = mysqli_real_escape_string($conn, $arr['content']);
+		$vote = 0;
+		$date_created = date("Y-m-d H:i:s");
+		$is_delete = 0;
+
+		$query .= "('$name', '$email', '$topic', '$content', '$vote', '$date_created', '$is_delete')";
+
+		if (mysqli_query($conn, $query)) {
+		    echo "Berhasil membuat Question baru!";
+		} else {
+		    echo "Error: " . $query . "<br>" . mysqli_error($conn);
+		}
+	}
+
 	function getListOfQuestionLimited($start) {
 		global $conn;
 		
