@@ -37,7 +37,7 @@
 		//$start *= 5;
 
 		//$query = "SELECT id, name, topic, vote, is_delete FROM question ORDER BY id DESC LIMIT ". $start .", 5";
-		$query = "SELECT * FROM question ORDER BY id DESC";
+		$query = "SELECT * FROM question WHERE is_delete = 0 ORDER BY id DESC";
 		$result = mysqli_query($conn, $query);
 
 		$ret = array();		
@@ -91,6 +91,18 @@
 		$ret = $row["total"];
 
 		return $ret;			
+	}
+
+	function deleteQuestion($id) {
+		global $conn;
+
+		$query = "UPDATE question SET is_delete = 1 WHERE id = ". $id;
+
+		if (mysqli_query($conn, $query)) {
+		    echo "Questoin deleted successfully";
+		} else {
+		    echo "Error deleting question: " . mysqli_error($conn);
+		}
 	}
 
 	/* Answers Related */

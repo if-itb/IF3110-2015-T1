@@ -2,17 +2,17 @@
 	include ('../controller.php');
 
 	function makeQuestionPart($question) {
-		echo "<a href='/question/" . $question['id'] . "'>";
 		echo(" <div class='question'> " .
 			 " 		<div class='votes'>" . $question['vote'] . "<br> <span class='little-text'>Votes</span></div>" .
 			 " 		<div class='answers'>" . getAnswerCount($question['id']) . "<br> <span class='little-text'>Answers</span></div>" .
 			 " 		<div class='data'> " .
+			 "			<a href='/question/" . $question['id'] . "'>" . 
 			 " 			<div class='topic'>" . $question['topic'] . "</div>" .
+			 "			</a>" .
 			 " 			<div class='content'>" . getShortString($question['content']) . "</div>" .
-			 " 			<div class='control'>asked by " . $question['name'] . " | edit | delete</div>" .
+			 " 			<div class='control'>asked by " . $question['name'] . " | edit | <a class='delete' onclick='deleteQuestion(" . $question['id'] . ")'>delete</a> </div>" .
 			 " 		</div> " .
 			 " </div> ");
-		echo "</a>";
 	}
 
 	function makeFullQList($page) {
@@ -37,7 +37,7 @@
 			 "		</div>" .
 			 " 		<div class='data'> " .
 			 " 			<div class='content'>" . $question['content'] . "</div>" .
-			 " 			<div class='control'>asked by " . $question['name'] . " | edit | delete</div>" .
+			 " 			<div class='control'>asked by " . $question['name'] . " | edit | <a class='delete' onclick='deleteQuestion(" . $question['id'] . ")'>delete</a> </div>" .
 			 " 		</div> " .
 			 " </div> ");		
 	}
