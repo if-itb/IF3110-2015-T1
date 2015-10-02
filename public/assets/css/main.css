@@ -1,0 +1,26 @@
+.thread {
+  padding-top: 10px;
+  border-top: 2px solid #bbb;
+}
+
+.footer {
+  color: #999;
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #ddd;
+  margin: 0 auto;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #ddd;
+  margin: 0 auto;
+}
