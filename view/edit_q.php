@@ -28,7 +28,7 @@
 
 		<div class="title"> Ask Question </div>
 		<div class="content">
-			<form action="" method="post">
+			<form id="ask" action="" method="post" onsubmit="return validateAskForm()">
 				<input type="hidden" id="id" name="id" value="<?php echo($_GET['id']); ?>">
 				<input type="text" id="name" name="name" placeholder="Name" value="<?php echo $question['name']; ?>">
 				<br>

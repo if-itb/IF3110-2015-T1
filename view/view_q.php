@@ -33,7 +33,7 @@
 
 		<div class="title"> Your Answer </div>
 		<div class="content">
-			<form action="" method="post">
+			<form id="answer" action="" method="post" onsubmit="return validateAnswerForm()">
 				<input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
 				<input type="text" id="name" name="name" placeholder="Name">
 				<br>

@@ -24,7 +24,7 @@
 
 		<div class="title"> Ask Question </div>
 		<div class="content">
-			<form action="" method="post">
+			<form id="ask" action="" method="post" onsubmit="return validateAskForm()">
 				<input type="text" id="name" name="name" placeholder="Name">
 				<br>
 				<input type="text" id="email" name="email" placeholder="Email@Email.com">
