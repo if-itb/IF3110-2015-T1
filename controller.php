@@ -92,6 +92,28 @@
 	}
 
 	/* Answers Related */
+	function insertAnswer($arr) {
+		global $conn;
+
+		$query = "INSERT INTO answer (name, email, content, id_q, vote, date_created)
+				  VALUES ";
+
+		$name = mysqli_real_escape_string($conn, $arr['name']);
+		$email = mysqli_real_escape_string($conn, $arr['email']);
+		$content = mysqli_real_escape_string($conn, $arr['content']);
+		$id_q = mysqli_real_escape_string($conn, $arr['id_q']);
+		$vote = 0;
+		$date_created = date("Y-m-d H:i:s");
+
+		$query .= "('$name', '$email', '$content', '$id_q', '$vote', '$date_created')";
+
+		if (mysqli_query($conn, $query)) {
+		    echo "Berhasil membuat Answer!";
+		} else {
+		    echo "Error: " . $query . "<br>" . mysqli_error($conn);
+		}
+	}
+
 	function getAnswerbyQId($id_q) {
 		global $conn;
 

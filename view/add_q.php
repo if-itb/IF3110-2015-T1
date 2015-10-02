@@ -1,5 +1,5 @@
 <?php 
-	include ('../controller.php');
+	include ('../view/layout/header.php');
 ?>
 
 <?php
@@ -37,4 +37,6 @@
 
 <?php
 	}
+	
+	include ('../view/layout/footer.php');
 ?>

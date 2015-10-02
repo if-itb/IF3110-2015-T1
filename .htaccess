@@ -1,0 +1,13 @@
+## Enable Mod Rewrite, this is only required once in each .htaccess file
+RewriteEngine On 
+
+AddType application/x-httpd-php .htm .html
+
+### PseudoURL ###
+RewriteRule    ^home?$    view/index.php    [NC,L]
+RewriteRule    ^question/([0-9]+)?$    view/view_q.php?id=$1    [NC,L]    
+RewriteRule    ^ask?$    view/add_q.php    [NC,L]
+
+RewriteRule    ^favicon?$    /view/favicon.ico    [NC,L]
+RewriteRule    ^404?$    /view/404.php    [NC,L]
+ErrorDocument 404 /404

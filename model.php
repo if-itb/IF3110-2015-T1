@@ -13,10 +13,13 @@
 	}
 
 	function makeFullQList($page) {
+		echo "<div class='list'>";
+		echo "<h3>Recently Asked Questions</h3>";
 		$questions = getListOfQuestionLimited($page); 
 		foreach ($questions as $question) {
 			makeQuestionPart($question);
 		}
+		echo "</div>";
 	}
 
 	function makeQuestionView($id) {
