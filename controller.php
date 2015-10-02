@@ -93,6 +93,30 @@
 		return $ret;			
 	}
 
+	function upVoteQuestion($id) {
+		global $conn;
+
+		$query = "UPDATE question SET vote = vote + 1 WHERE id = ". $id;
+
+		if (mysqli_query($conn, $query)) {
+		    echo "Vote success";
+		} else {
+		    echo "Error voting: " . mysqli_error($conn);
+		}
+	}
+
+	function downVoteQuestion($id) {
+		global $conn;
+
+		$query = "UPDATE question SET vote = vote - 1 WHERE id = ". $id;
+
+		if (mysqli_query($conn, $query)) {
+		    echo "Vote success";
+		} else {
+		    echo "Error voting: " . mysqli_error($conn);
+		}
+	}
+
 	function updateQuestion($arr, $id) {
 		global $conn;
 
@@ -171,6 +195,30 @@
 		}
 
 		return $ret;		
+	}
+
+	function upVoteAnswer($id) {
+		global $conn;
+
+		$query = "UPDATE answer SET vote = vote + 1 WHERE id = ". $id;
+
+		if (mysqli_query($conn, $query)) {
+		    echo "Vote success";
+		} else {
+		    echo "Error voting: " . mysqli_error($conn);
+		}
+	}
+
+	function downVoteAnswer($id) {
+		global $conn;
+
+		$query = "UPDATE answer SET vote = vote - 1 WHERE id = ". $id;
+
+		if (mysqli_query($conn, $query)) {
+		    echo "Vote success";
+		} else {
+		    echo "Error voting: " . mysqli_error($conn);
+		}
 	}
 
 	/* SEO Optimization Functions */

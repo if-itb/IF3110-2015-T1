@@ -59,3 +59,34 @@ function validateEmail(email) {
 	var regex = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm;
 	return regex.test(email);
 }
+
+function voting(id, type, q_a) {
+    if (id == "" || id == null || type == "" || type == null) {
+        return;
+    } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+         		var i = 0;
+
+         		if ( type == "up" ) {
+         			i = 1;
+         		} else if ( type == "down") {
+         			i = -1;
+         		}
+
+                document.getElementById("vote_count_" + id).innerHTML = parseInt( document.getElementById("vote_count_" + id).innerHTML) + i;
+            }
+        }
+
+        xmlhttp.open("GET","/vote/" + q_a + "/" + type + "/" + id, true);
+        xmlhttp.send();
+    }
+}

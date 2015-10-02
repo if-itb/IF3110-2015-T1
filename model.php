@@ -31,9 +31,9 @@
 		echo("<div class='title'> " . $question['topic'] . " </div>" . 
 			 " <div class='qview'> " .
 			 " 		<div class='votes'>" . 
-			 "			<a class='up_vote'></a>" .
-			 "			<div class='vote_count'>" . $question['vote'] . "</div>" .
-			 "			<a class='down_vote'></a>" .
+			 "			<a class='up_vote' onclick=\"voting(" . $question['id'] . ", 'up', 'question')\"></a>" .
+			 "			<div id='vote_count_" . $question['id'] . "' class='vote_count'>" . $question['vote'] . "</div>" .
+			 "			<a class='down_vote' onclick=\"voting(" . $question['id'] . ", 'down', 'question')\"></a>" .
 			 "		</div>" .
 			 " 		<div class='data'> " .
 			 " 			<div class='content'>" . $question['content'] . "</div>" .
@@ -45,9 +45,9 @@
 	function makeAnswerView($answer) {
 		echo(" <div class='aview'> " .
 			 " 		<div class='votes'>" . 
-			 "			<a class='up_vote'></a>" .
-			 "			<div class='vote_count'>" . $answer['vote'] . "</div>" .
-			 "			<a class='down_vote'></a>" .
+			 "			<a class='up_vote' onclick=\"voting(" . $answer['id'] . ", 'up', 'answer')\"></a>" .
+			 "			<div id='vote_count_" . $answer['id'] . "' class='vote_count'>" . $answer['vote'] . "</div>" .
+			 "			<a class='down_vote' onclick=\"voting(" . $answer['id'] . ", 'down', 'answer')\"></a>" .
 			 "		</div>" .
 			 " 		<div class='data'> " .
 			 " 			<div class='content'>" . $answer['content'] . "</div>" .
