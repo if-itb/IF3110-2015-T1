@@ -1,12 +1,7 @@
 <?php
-	include ('../controller.php');
+	include ('../model.php');
 
-	$questions = getListOfQuestionLimited(0); 
-	foreach ($questions as $question) {
-		echo $question['topic'];
-		echo "<br>";
-		echo getAnswerCount($question['id']);
-	}
+	makeFullQList(0);
 
 ?>
 
