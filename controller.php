@@ -31,12 +31,13 @@
 		}
 	}
 
-	function getListOfQuestionLimited($start) {
+	function getListOfQuestion() {
 		global $conn;
 		
-		$start *= 5;
+		//$start *= 5;
 
-		$query = "SELECT id, name, topic, vote, is_delete FROM question ORDER BY id DESC LIMIT ". $start .", 5";
+		//$query = "SELECT id, name, topic, vote, is_delete FROM question ORDER BY id DESC LIMIT ". $start .", 5";
+		$query = "SELECT * FROM question ORDER BY id DESC";
 		$result = mysqli_query($conn, $query);
 
 		$ret = array();		
@@ -47,6 +48,7 @@
         		$question["id"] = $row['id'];
         		$question["name"] = $row['name'];
 				$question["topic"] = $row["topic"];
+				$question["content"] = $row["content"];
 				$question["vote"] = $row["vote"];
 				$question["is_delete"] = $row["is_delete"];
 		    	array_push($ret, $question);
@@ -152,6 +154,15 @@
 
 	function get_clean_string($string) {
 		return replace_dashes(delete_punctuation($string));
+	}
+
+	/* Other Functionality */ 
+	function getShortString($string) {
+		if (strlen($string) > 250) {
+			return substr(strip_tags($string), 0, 250) . '[...]';
+		} else {
+			return $string;
+		}
 	}
 
 ?>
