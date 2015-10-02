@@ -1,5 +1,11 @@
 #header{
     text-align: center;
+    margin-bottom: 40px;
+}
+#content{
+    margin:auto;
+    padding:20px 20px 60px 0px;
+    max-width:1050px;
 }
 #logo{
     font-family: 'Segoe UI', Tahoma, sans-serif;
@@ -24,10 +30,28 @@
 .button:hover{
     cursor: pointer;
 }
+#button_post{
+    float: right;
+}
 .y_link{
     text-decoration: none;
     color:#ffd200;
 }
 p{
     font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+h2,h3{
+    font-family: "Lucida Grande", "Trebuchet MS", sans-serif;
+    border-bottom: 2px solid #000000;
+}
+
+input[type="text"]{
+    margin: 2px 0 2px 0;
+    width : 100%;
+    height: 20px;
+}
+textarea{
+    margin: 2px 0 2px 0;
+    width: 100%;
+    height: 100px;
 }
