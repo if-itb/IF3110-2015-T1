@@ -1,0 +1,33 @@
+#header{
+    text-align: center;
+}
+#logo{
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: xx-large;
+    display:block;
+    margin: 20px 0px 30px 0px;
+}
+#search{
+}
+.searchbar{
+    border : 2px solid;
+    max-width: 475px;
+    width: 100%;
+    height: 25px;
+}
+.button{
+    margin-left: 2px;
+    border : 2px solid black;
+    padding : 7px 20px !important;
+    background-color: whitesmoke;
+}
+.button:hover{
+    cursor: pointer;
+}
+.y_link{
+    text-decoration: none;
+    color:#ffd200;
+}
+p{
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
