@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<HTML>
+	<HEAD>
+		<TITLE>Question Form - Simple StackExchange</TITLE>
+	</HEAD>
+	<BODY>
+		<H1>Simple StackExchange</H1>
+		<H2>What's your question?</H2>
+		<form action="SubmitQuestion.php" method="post">
+			<P><input type="text" name="Name" onfocus="if (this.value=='Name') this.value = ''" type="text" value="Name"></P>
+			<P><input type="text" name="Email" onfocus="if (this.value=='Email') this.value = ''" type="text" value="Email"></P>
+			<P><input type="text" name="QuestionTopic" onfocus="if (this.value=='Question Topic') this.value = ''" type="text" value="Question Topic"></P>
+			<P><textarea name="Content" onfocus="if (this.value=='Content') this.value = ''" type="text" value="Content">Content</textarea></P>
+			<P><input type="submit" value="Post"></P>
+		</form>
+	</BODY>
+</HTML>
