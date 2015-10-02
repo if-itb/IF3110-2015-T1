@@ -8,6 +8,7 @@ RewriteRule    ^home?$    view/index.php    [NC,L]
 RewriteRule    ^question/([0-9]+)?$    view/view_q.php?id=$1    [NC,L]    
 RewriteRule    ^ask?$    view/add_q.php    [NC,L]
 RewriteRule    ^delete/question/([0-9]+)?$    view/del_q.php?id=$1    [NC,L]
+RewriteRule    ^edit/question/([0-9]+)?$    view/edit_q.php?id=$1    [NC,L]
 
 RewriteRule    ^favicon?$    /view/favicon.ico    [NC,L]
 RewriteRule    ^404?$    /view/404.php    [NC,L]
