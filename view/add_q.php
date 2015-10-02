@@ -20,23 +20,26 @@
 	} else {
 ?>
 
-	<form action="" method="post">
-		Name:<br>
-		<input type="text" id="name" name="name">
-		<br>
-		Email:<br>
-		<input type="text" id="email" name="email">
-		<br>
-		Topic:<br>
-		<input type="text" id="topic" name="topic">
-		<br>
-		Content:<br>
-		<textarea id="content" name="content"></textarea>
-		<button type="submit">Add</button>
-	</form>
+	<div id="form">
+
+		<div class="title"> Ask Question </div>
+		<div class="content">
+			<form action="" method="post">
+				<input type="text" id="name" name="name" placeholder="Name">
+				<br>
+				<input type="text" id="email" name="email" placeholder="Email@Email.com">
+				<br>
+				<input type="text" id="topic" name="topic" placeholder="Topic">
+				<br>
+				<textarea id="content" name="content" placeholder="Content" rows="5" cols="40"></textarea>
+				<button type="submit">Add</button>
+			</form>
+		</div>
+		
+	</div>
 
 <?php
 	}
-	
+
 	include ('../view/layout/footer.php');
 ?>

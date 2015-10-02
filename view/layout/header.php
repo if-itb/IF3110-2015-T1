@@ -14,4 +14,4 @@
 	</head>
 	<body>
 		<div id="container">
-			<h1>Simple StackExchange</h1>
+			<center><h1>Simple StackExchange</h1></center>
