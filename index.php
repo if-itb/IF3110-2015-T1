@@ -15,8 +15,8 @@
 	<?php while($row = mysqli_fetch_array($result)) { ?>
 		<div class="divider"></div>
 		<div class="">
-			<?php echo $row['votes'];?> Votes <?php echo $row['count'];?> Answers <a href="question.php"><?php echo $row['topic'];?></a><br>
-			asked by <?php echo $row['name'];?> | <?php echo '<a href=\"edit.php?id='.$id.'\">edit</a> | <a href="javascript:confirmDelete('.$id.')">delete</a>';?>
+			<?php echo $row['votes'];?> Votes <?php echo $row['count'];?> Answers <?php echo '<a href="question.php?id='.$row['id'].'">'.$row['topic'].'</a><br>';?>
+			asked by <?php echo $row['name'];?> | <?php echo '<a href="edit.php?id='.$row['id'].'">edit</a> | <a href="javascript:confirmDelete('.$row['id'].')">delete</a>';?>
 	<?php 
 	};?>
 </body>
