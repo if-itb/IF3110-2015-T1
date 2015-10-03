@@ -53,4 +53,16 @@ class ThreadController extends Controller
             }
         }
     }
+
+    public function delete()
+    {
+        if (isset($_GET["id"])) {
+            $id = $_GET["id"];
+
+            $threadModel = new Thread();
+            $threadModel->deleteById($id);
+        }
+
+        header("Location: /");
+    }
 }

@@ -50,4 +50,11 @@ class Thread extends Model
 
         $this->executeQuery($query);
     }
+
+    public function deleteById($id)
+    {
+        $query = "DELETE FROM thread WHERE id='$id'";
+
+        $this->executeQuery($query);
+    }
 }
