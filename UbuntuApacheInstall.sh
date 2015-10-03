@@ -22,7 +22,9 @@ echo "Please make sure you have these and its dependencies installed:
 +> php5-cgi
 +> mysql
 Please also make sure that the apache2 home directory is in $webserverHTMLdir
-This also will overwrite existing database named \"SimpleStackExchange\""
+This also will overwrite existing database named \"SimpleStackExchange\"
+.....
+Please repeat if any of the steps failed"
 while true
 do
     read -r -p 'Do you want to continue? (y/n)' choice
@@ -43,7 +45,7 @@ fi
 [ -d $installdir ] || mkdir $installdir
 
 #installed files
-filesToCopy=( SubmitQuestion.php QuestionForm.html SiteStyle.css formValidate.js)
+filesToCopy=( SubmitQuestion.php QuestionForm.html SiteStyle.css formValidate.js dbmgr.php displayQuestion.php )
 
 #start copying files
 for i in "${filesToCopy[@]}"
@@ -54,7 +56,8 @@ do
 done
 
 #this part is for setting up mysql database
-echo "creating database..."
-echo "DROP DATABASE IF EXISTS SimpleStackExchange; CREATE DATABASE SimpleStackExchange;" | mysql -u root
-mysql -u root SimpleStackExchange <db.sql
-echo "done"
+echo "creating database... please enter root password if prompted"
+echo "GRANT ALL PRIVILEGES ON *.* TO 'IF3110'@'localhost' IDENTIFIED BY PASSWORD '*1FB87EF4D20580140DEF1E64200EA118DC4ADBE2'" | mysql -u root -p
+echo "DROP DATABASE IF EXISTS SimpleStackExchange; CREATE DATABASE SimpleStackExchange;" | mysql -u IF3110 -pIF3110
+mysql -u IF3110 -pIF3110 SimpleStackExchange <db.sql
+echo "Done"
