@@ -21,7 +21,8 @@ echo "Please make sure you have these and its dependencies installed:
 +> apache2
 +> php5-cgi
 +> mysql
-Please also make sure that the apache2 home directory is in $webserverHTMLdir"
+Please also make sure that the apache2 home directory is in $webserverHTMLdir
+This also will overwrite existing database named \"SimpleStackExchange\""
 while true
 do
     read -r -p 'Do you want to continue? (y/n)' choice
@@ -54,5 +55,6 @@ done
 
 #this part is for setting up mysql database
 echo "creating database..."
-
+echo "DROP DATABASE IF EXISTS SimpleStackExchange; CREATE DATABASE SimpleStackExchange;" | mysql -u root
+mysql -u root SimpleStackExchange <db.sql
 echo "done"
