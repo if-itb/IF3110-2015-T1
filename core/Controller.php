@@ -11,7 +11,7 @@ class Controller
 
     protected function render($viewPath, $data = [])
     {
-        $filePath = APP_PATH . DIRECTORY_SEPARATOR . $viewPath;
+        $filePath = VIEW_PATH . DIRECTORY_SEPARATOR . $viewPath . ".php";
 
         if (is_file($filePath)) {
             if (is_array($data)) {

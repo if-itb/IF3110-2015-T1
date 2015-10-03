@@ -9,7 +9,3 @@ spl_autoload_register(function ($class) {
         require($file);
     }
 });
-
-
-$model = new \stackexchange\core\Model();
-$model->test();
