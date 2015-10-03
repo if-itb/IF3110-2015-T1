@@ -1,0 +1,28 @@
+/*CSS File CV*/ 
+html,body{background-color:#6699CC; }
+body{
+	font: 100% arial,sans-serif;
+	text-align:right;
+}
+/*paragraf dan link*/
+p{margin:0 10px 10px}
+a{padding:5px;  color:#000000;}
+
+/*desain warna dan margin dari div*/
+div#header h1{height:100px;line-height:80px;margin:0;text-align:left;padding-left:10px;background-color:#0000FF;}
+div#container{text-align:left;width :100%; height: 100%}
+div#content p{line-height:1.4}
+div#navigation{background:#F6F0E0;}
+div#navigation ul{margin:15px 0; padding:0; list-style-type:none;}
+div#navigation li{margin-bottom:5px;}
+div#extra{background:#CCC8B3;}
+div#footer{background:#BFBD93;}
+div#footer p{margin:0;padding:5px 10px}
+
+/*posisi div*/
+div#container{width:100%;margin:2% auto}
+div#wrapper{float:left; width:100%}
+div#content{float :left; width:46%; margin: 2% 2%; display: inline-block; }
+div#navigation{float:left; width:21%;margin: 2% 2%; display: inline-block; }
+div#extra{float:left; width:21%;margin: 2% 2%; display: inline-block; }
+div#footer{clear: both;width:100%}
