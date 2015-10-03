@@ -2,26 +2,24 @@
 <HTML>
 	<HEAD>
 		<TITLE>Question Form - Simple StackExchange</TITLE>
+		<link rel="stylesheet" type="text/css" href="SiteStyle.css">
+
 	</HEAD>
 	<BODY>
 		<H1>Simple StackExchange</H1>
 		<H2>What's your question?</H2>
 		<form action="SubmitQuestion.php" method="post">
 			<div class="question-form-input">
-				<label for="Name">Name</label>
-				<input type="text" name="Name" id="Name">
+				<input type="text" name="Name" placeholder="Name">
 			</div>
 			<div class="question-form-input">
-				<label for="Email">Email</label>
-				<input type="text" name="Email" id="Email">
+				<input type="text" name="Email" placeholder="Email">
 			</div>
 			<div class="question-form-input">
-				<label for="QuestionTopic">Question Topic</label>
-				<input type="text" name="QuestionTopic" id="QuestionTopic">
+				<input type="text" name="QuestionTopic" placeholder="Question Topic">
 			</div>
 			<div class="question-form-input">
-				<label for="Content">Content</label>
-				<textarea name="Content" id="Content"></textarea>
+				<textarea name="Content" placeholder="Content"></textarea>
 			</div>
 			<div class="question-form-input">
 				<input type="submit" value="Post">
