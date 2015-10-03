@@ -1,0 +1,27 @@
+div {
+    width: 300px;
+    padding: 25px;
+    border: 25px;
+    margin: 100px;
+}
+
+h1 {
+    text-align: center;
+    font-family: Calibri;
+    font-size: 50px;
+}
+
+h2 {
+	border-style: solid;
+	margin-left: 200px;
+	margin-right: 200px;
+    font-family: Calibri;
+    font-size: 40px;
+}
+
+h2.line {
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	padding-top: 25px;
+}
