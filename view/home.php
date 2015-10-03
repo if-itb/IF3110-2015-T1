@@ -3,8 +3,8 @@
 <head>
     <title>Stack Exchange</title>
 
-    <link rel="stylesheet" type="text/css" href="assets/css/base.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/base.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 </head>
 <body>
 <div class="container">
@@ -23,7 +23,7 @@
 
     <div class="text-center">
         <p>
-            Cannot find what you are looking for? <a href>Ask Here</a>
+            Cannot find what you are looking for? <a href="/thread/add.php">Ask Here</a>
         </p>
     </div>
 
@@ -44,7 +44,7 @@
                             <?= $thread["topic"] ?>
                         </b></p>
                     <p class="text-right footer">
-                        Asked by <?= $thread["author"] ?> | <a href>Edit</a> | <a href>Delete</a>
+                        Asked by <?= $thread["author"] ?> | <a href="/thread/update.php?id=<?= $thread["id"] ?>">Edit</a> | <a href>Delete</a>
                     </p>
                 </div>
             </div>

@@ -26,4 +26,10 @@ class Model
 
         return $result;
     }
+
+    protected function executeQuery($query)
+    {
+        $conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_SCHEMA);
+        $conn->query($query);
+    }
 }
