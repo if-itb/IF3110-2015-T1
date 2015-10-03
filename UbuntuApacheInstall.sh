@@ -24,7 +24,7 @@ fi
 [ -d $installdir ] || mkdir $installdir
 
 #installed files
-filesToCopy=( SubmitQuestion.php QuestionForm.html SiteStyle.css)
+filesToCopy=( SubmitQuestion.php QuestionForm.html SiteStyle.css formValidate.js)
 
 #start copying files
 for i in "${filesToCopy[@]}"

@@ -10,19 +10,20 @@
 		<H2>What's your question?</H2>
 		<form action="SubmitQuestion.php" method="post">
 			<div class="question-form-input">
-				<input type="text" name="Name" placeholder="Name">
+				<input type="text" name="Name" placeholder="Name" class = "requiredInput">
 			</div>
 			<div class="question-form-input">
-				<input type="text" name="Email" placeholder="Email">
+				<input type="text" name="Email" placeholder="Email"  class = "requiredInput emailInput">
 			</div>
 			<div class="question-form-input">
-				<input type="text" name="QuestionTopic" placeholder="Question Topic">
+				<input type="text" name="QuestionTopic" placeholder="Question Topic" class = "requiredInput">
 			</div>
 			<div class="question-form-input">
-				<textarea name="Content" placeholder="Content"></textarea>
+				<textarea name="Content" placeholder="Content" class = "requiredInput"></textarea>
 			</div>
 			<div class="question-form-input">
-				<input type="submit" value="Post">
+				<script src="formValidate.js"></script>
+				<input type="submit" value="Post" onclick="return validateForm()" action="SubmitQuestion.php">
 			</div>
 		</form>
 	</BODY>
