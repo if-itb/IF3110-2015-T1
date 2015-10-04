@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="index.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css" >
 
     <title>Simple StackExchange</title>
 </head>
@@ -12,7 +12,7 @@
                 <input type="text" id="searchBar" name="searchBar" size="21" maxlength="120">
                 <button type="submit" id="searchButton" name="searchButton">Search</button>
         </form>
-        <p>Cannot find what you are looking for? <a id="askHere" href="question-create.php">Ask here</a></p>        
+        <p>Cannot find what you are looking for? <a id="askHere" href="q_create.php">Ask here</a></p>        
     </div>
 
 
@@ -40,4 +40,5 @@
     </div>
 
 </body>
+    <script type="text/javascript" src="/js/script.js"></script>
 </html>
