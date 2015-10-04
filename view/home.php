@@ -11,14 +11,16 @@
             <h1 class="text-center">Simple StackExchange</h1>
 
             <div class="row">
-                <div class="span-8 span-offset-1">
-                    <div class="span-8">
-                        <input type="text" class="form">
+                <form action="/thread/search.php" action="GET">
+                    <div class="span-8 span-offset-1">
+                        <div class="span-8">
+                            <input type="text" class="form" name="q">
+                        </div>
+                        <div class="span-1">
+                            <button class="btn" type="submit">Search</button>
+                        </div>
                     </div>
-                    <div class="span-1">
-                        <button class="btn">Search</button>
-                    </div>
-                </div>
+                </form>
             </div>
 
             <div class="text-center">

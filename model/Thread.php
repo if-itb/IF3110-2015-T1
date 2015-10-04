@@ -30,6 +30,16 @@ class Thread extends Model
         return $this->getQueryResult($query)[0];
     }
 
+    public function search($q)
+    {
+        $query = "SELECT t.*, count(a.id) answer"
+                    . " FROM thread t left JOIN answer a on t.id=a.thread_id"
+                    . " WHERE (t.topic LIKE \"%$q%\") OR (t.content LIKE \"%$q%\")"
+                    . " group by t.id";
+
+        return $this->getQueryResult($query);
+    }
+
     public function insert($author, $authorEmail, $topic, $content)
     {
         $query = "INSERT INTO thread"

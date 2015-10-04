@@ -16,6 +16,19 @@ class ThreadController extends Controller
         $this->render("home", ["threads" => $threads]);
     }
 
+    public function search()
+    {
+        $q = "";
+        if ($_GET["q"]) {
+            $q = $_GET["q"];
+        }
+
+        $threadModel = new Thread();
+        $threads = $threadModel->search($q);
+
+        $this->render("home", ["threads" => $threads]);
+    }
+
     public function view()
     {
         $id = $_GET["id"];
