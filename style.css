@@ -1,0 +1,74 @@
+h1 {
+	padding: 10px;
+	text-align: center;
+	padding-bottom: 30px;
+
+}
+
+h2 {
+	padding-left: 80px;
+	padding-bottom: 0px;
+}
+
+h3 {
+	text-align: center;
+	font-family: Calibri;
+	font-size: 15px;
+
+}
+
+div {
+	margin-right: 80px;
+	margin-left: 80px;
+}
+
+hr {
+	margin-left: 80px;
+	margin-right: 80px;
+	padding-left: 30px;
+}
+
+form {
+	margin-left: 80px;
+	margin-right: 80px;
+}
+
+input {
+	margin-top: 5px;
+	height: 30px;
+	width: 1180px;
+	font-family: arial;
+	font-size: 12px;
+	padding: 5px;
+}
+
+textarea{
+	margin-top: 5px;
+	padding: 5px;
+	width: 1180px;
+	font-family: arial;
+	font-size: 12px;
+}
+
+button {
+	font-size: 14px;
+	padding:5px;
+	font-weight: bold;
+	text-align: right;
+	margin-left: 1140px;
+	margin-top: 10px;
+}
+
+.search {
+	margin-left: 120px;
+	width: 800px;
+}
+
+.buttonsearch {
+	margin: 0px;
+	font-size: 16px;
+	padding: 6px;
+	width: 100px;
+	text-align: center;
+
+}
