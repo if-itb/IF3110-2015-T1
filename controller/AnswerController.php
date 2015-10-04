@@ -16,4 +16,30 @@ class AnswerController extends  Controller
             header("Location: /thread/view.php?id=" . $_GET["thread_id"]);
         }
     }
+
+    public function upvote()
+    {
+        if (isset($_POST["id"])) {
+            $id = $_POST["id"];
+            $answerModel = new Answer();
+            $answerModel->upvote($id);
+
+            $this->jsonResponse(["status" => "OK"]);
+        } else {
+            $this->jsonResponse(["error" => "Missing parameter ID"], 400);
+        }
+    }
+
+    public function downvote()
+    {
+        if (isset($_POST["id"])) {
+            $id = $_POST["id"];
+            $answerModel = new Answer();
+            $answerModel->downvote($id);
+
+            $this->jsonResponse(["status" => "OK"]);
+        } else {
+            $this->jsonResponse(["error" => "Missing parameter ID"], 400);
+        }
+    }
 }

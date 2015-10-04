@@ -15,11 +15,11 @@
                 <div class="row">
 
                     <div class="span-1">
-                        <div class="arrow-up"></div>
+                        <div class="arrow-up" onclick="upvoteThread(<?= $thread["id"] ?>)"></div>
                         <div class="text-center">
-                            <h2><?= $thread["vote"] ?></h2>
+                            <h2 id="question-vote"><?= $thread["vote"] ?></h2>
                         </div>
-                        <div class="arrow-down"></div>
+                        <div class="arrow-down" onclick="downvoteThread(<?= $thread["id"] ?>)"></div>
                     </div>
 
                     <div class="span-9">
@@ -38,11 +38,11 @@
                     <div class="row">
 
                         <div class="span-1">
-                            <div class="arrow-up"></div>
+                            <div class="arrow-up" onclick="upvoteAnswer(<?= $answer["id"] ?>)"></div>
                             <div class="text-center">
-                                <h2><?= $answer["vote"] ?></h2>
+                                <h2 id="answer-vote-<?= $answer["id"] ?>"><?= $answer["vote"] ?></h2>
                             </div>
-                            <div class="arrow-down"></div>
+                            <div class="arrow-down" onclick="downvoteAnswer(<?= $answer["id"] ?>)"></div>
                         </div>
 
                         <div class="span-9">

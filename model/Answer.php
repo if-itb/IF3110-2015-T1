@@ -28,4 +28,24 @@ class Answer extends Model
 
         return $this->executeQuery($query);
     }
+
+    public function upvote($id)
+    {
+        $query = "SELECT vote FROM answer WHERE id='$id'";
+        $vote = $this->getQueryResult($query)[0]["vote"];
+        $vote++;
+
+        $query = "UPDATE answer SET vote='$vote' WHERE id='$id'";
+        return $this->executeQuery($query);
+    }
+
+    public function downvote($id)
+    {
+        $query = "SELECT vote FROM answer WHERE id='$id'";
+        $vote = $this->getQueryResult($query)[0]["vote"];
+        $vote--;
+
+        $query = "UPDATE answer SET vote='$vote' WHERE id='$id'";
+        return $this->executeQuery($query);
+    }
 }

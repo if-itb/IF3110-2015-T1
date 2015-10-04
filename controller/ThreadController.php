@@ -83,4 +83,30 @@ class ThreadController extends Controller
 
         header("Location: /");
     }
+
+    public function upvote()
+    {
+        if (isset($_POST["id"])) {
+            $id = $_POST["id"];
+            $threadModel = new Thread();
+            $threadModel->upvote($id);
+
+            $this->jsonResponse(["status" => "OK"]);
+        } else {
+            $this->jsonResponse(["error" => "Missing parameter ID"], 400);
+        }
+    }
+
+    public function downvote()
+    {
+        if (isset($_POST["id"])) {
+            $id = $_POST["id"];
+            $threadModel = new Thread();
+            $threadModel->downvote($id);
+
+            $this->jsonResponse(["status" => "OK"]);
+        } else {
+            $this->jsonResponse(["error" => "Missing parameter ID"], 400);
+        }
+    }
 }
