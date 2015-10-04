@@ -1,0 +1,16 @@
+.container {
+	text-align: center;
+}
+
+#votes {
+	font-family: verdana;
+}
+
+#question-list {
+	margin-left: 200px;
+	margin-right: 200px;
+}
+
+.question {
+	border-top: solid #000000;
+}
