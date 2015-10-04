@@ -97,6 +97,10 @@ button:hover, input[type="submit"]:hover {
 	width: 80%;
 }
 
+.col.content {
+	width: 90%;
+}
+
 #main-page .questions > h3 {
 	margin-bottom: 0;
 }
