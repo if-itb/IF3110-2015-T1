@@ -8,6 +8,7 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title>Bukan StackExchange - Ask</title>
+        <script src="form_validation.js"></script>
     </head>
     <body>
         <div align="center">
@@ -17,11 +18,11 @@ and open the template in the editor.
             <h2>What's your question?</h2>
         </div>
         <div>
-            <form action="post_question.php">
-                <input type="text" name="name" value="Name"><br>
-                <input type="text" name="email" value="Email"><br>
-                <input type="text" name="topic" value="Question Topic"><br>
-                <input type="text" name="content" value="Content"><br>
+            <form name="question" action="post_question.php" onsubmit="return validateQuestionForm('question')" method="post">
+                <input type="text" name="Name"><br>
+                <input type="text" name="Email"><br>
+                <input type="text" name="Topic"><br>
+                <input type="text" name="Content"><br>
                 <input type="submit" value="Post">
             </form>
         </div>

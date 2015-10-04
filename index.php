@@ -8,13 +8,14 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title>Bukan StackExchange - Home</title>
+        <script src="form_validation.js"></script>
     </head>
     <body>
         <div align="center">
         <h1>Bukan StackExchange</h1>
         <div>
-        <form action="search.php">
-            <input type="text" name="search">
+            <form name="searchform" action="search.php" method="post" onsubmit="return validateField('searchform','searchbox')">
+            <input type="text" name="searchbox">
             <input type="submit" value="Search">
         </form>
         </div>
