@@ -1,23 +1,25 @@
-<html>
-	<head>
-		<title>StackExchange</title>
-	</head>
-	<body>
-	<h1> Simple StackExchange </h1>
-	<div class="inner">
-		<h1>What's your question?</h1>
-		<hr>
-		<form>
-			<input type="text" value="Name" name="name">
-			<input type="email" value="Email" name="email">
-			<input type="text" value="Question Topic" name="qTopic">
-			<input type="text" value="Content" name="content">
-			<input type="submit" value="Post">
+<?php include("header.php"); ?>
+		<br>
+		<h1 class="tag">What's your question?</h1>
+		<form class="form makeQuestion">
+			<div class="innerForm">
+				<input class="textForm" type="text" value="Name" name="name" onclick="this.focus();this.select()">
+			</div>
+			<div class="innerForm">
+				<input class="textForm" type="email" value="Email" name="email" onclick="this.focus();this.select()">
+			</div>
+			<div class="innerForm">
+				<input class="textForm" type="text" value="Question Topic" name="qTopic" onclick="this.focus();this.select()">
+			</div>
+			<div class="innerForm">
+				<textarea class="textArea" name="content" onclick="this.focus();this.select()">Content</textarea>
+			</div>
+			<div class="innerForm">
+				<input class="submitButton" type="submit" value="Post">
+			</div>
 		</form>
-	</div>
 
-	</body>
-</html>
+<?php include("footer.php"); ?>
 
 
 <!--

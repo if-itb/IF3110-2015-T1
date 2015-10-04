@@ -68,7 +68,14 @@
 	//datetime
 
 
-
+//Database Structure
+	//question
+		//id
+		//name
+		//email
+		//topic
+		//content
+		
 
 
 
