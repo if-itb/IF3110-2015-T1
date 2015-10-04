@@ -42,3 +42,21 @@ textarea {
 input[type="submit"]{
 	float: right;
 }
+
+.votediv,.postdiv{
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+}
+
+.votediv{
+	width: 30px;
+}
+
+.postdiv{
+	
+}
+
+.footer{
+	text-align: right;
+}
