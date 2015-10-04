@@ -57,6 +57,13 @@ function postQuestion($data) {
 	return $no_error;
 }
 
+function deleteQuestion($id) {
+	global $dbc;
+	$q = "DELETE FROM question WHERE question_id=$id";
+	$no_error = mysqli_query($dbc, $q);
+	return $no_error;
+}
+
 function getAnswers($question_id, $sort = "vote DESC, create_date DESC") {
 	global $dbc;
 	$q = "SELECT * FROM answer WHERE question_id=$question_id ORDER BY $sort";

@@ -30,6 +30,7 @@
 
 	<div class="questions">
 		<h3>Recently Asked Questions</h3>
+		<?php if (count($questions) === 0) echo "Be the first person to ask the question!" ?>
 		<?php foreach ($questions as $question) : ?>
 			<div class="question">
 					<div class="row">
@@ -51,7 +52,7 @@
 						<div class="controls" align="right">
 							asked by <span class="name"><?php echo $question['name'] ?></span> |
 							<span class="link edit"><a href="ask.php?question_id=<?php echo $question['question_id']?>">edit</a></span> |
-							<span class="link delete"><a href="#">delete</a></span>
+							<span class="link delete"><a href="javascript:deleteQuestion(<?php echo $question['question_id'] ?>)">delete</a></span>
 						</div>
 					</div>
 			</div>

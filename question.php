@@ -42,7 +42,7 @@
 				asked by <span class="email"><?php echo $question['email'] ?></span>
 				at <span class="create-date"><?php echo date( 'D, j F Y H:i', strtotime($question['create_date'])) ?></span> |
 							<span class="link edit"><a href="ask.php?question_id=<?php echo $question['question_id']?>">edit</a></span> |
-							<span class="link delete"><a href="#">delete</a></span>
+							<span class="link delete"><a href="javascript:deleteQuestion(<?php echo $question['question_id'] ?>)">delete</a></span>
 			</div>
 		</div>
 	</div>
