@@ -39,7 +39,7 @@
 				</div>
 			</div>
 			<div class="row info">
-				asked by <span class="email"><?php echo $question['email'] ?></span>
+				asked by <span class="name"><?php echo $question['name'] ?></span> &lt;<span class="email"><?php echo $question['email'] ?>&gt;</span>
 				at <span class="create-date"><?php echo date( 'D, j F Y H:i', strtotime($question['create_date'])) ?></span> |
 							<span class="link edit"><a href="ask.php?question_id=<?php echo $question['question_id']?>">edit</a></span> |
 							<span class="link delete"><a href="javascript:deleteQuestion(<?php echo $question['question_id'] ?>)">delete</a></span>
@@ -68,7 +68,7 @@
 					</div>
 				</div>
 				<div class="row info">
-					answered by <span class="email"><?php echo $answer['email'] ?></span>
+					answered by <span class="name"><?php echo $answer['name'] ?></span> &lt;<span class="email"><?php echo $answer['email'] ?>&gt;</span>
 					at <span class="create-date"><?php echo date( 'D, j F Y H:i', strtotime($answer['create_date'])) ?></span>
 				</div>
 			</div>

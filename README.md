@@ -89,7 +89,28 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+#### Melakukan validasi pada client-side
+
+Validasi dilakukan pada form Question dan Answer, dengan mengecek value tiap `input` pada form. Untuk form Question dilakukan pemanggilan fungsi `validateQuestionForm(theForm)`, sedangkan untuk form Answer dilakukan pemanggilan fungsi `validateAnswerForm(theForm)`. Fungsi-fungsi tersebut menghentikan submisi form apabila ada `input` yang tidak sesuai spesifikasi, dengan cara `return false`.
+
+Fungsi validasi antara lain:
+- `validateRequiredField(field, errorMessage)` dengan `field` adalah nama pada `input` yang harus diisi dan `errorMessage` adalah pesan error bila ada.
+- `validateEmailAddress(field, errorMessage)` dengan `field` adalah nama pada `input` yang harus berisi email valid dan `errorMessage` adalah pesan error bila ada.
+
+Untuk lebih lanjut, dapat dilihat pada file `./js/main.js`
+
+#### Melakukan AJAX pada tombol voting
+
+AJAX dilakukan dengan objek `XMLHTTPRequest` (XHR) metode `POST`, dengan hasil response ditanggapi melalui fungsi yang dipasang pada `xhr.onstatechange`. Agar dapat menyisipkan parameter secara `POST` (yakni pada body request), dilakukan pengubahan `content-type` menjadi `application/x-www-form-urlencoded`. XHR dikirimkan ke file-file pada folder `./ajax`, dalam hal ini untuk voting pada file `./ajax/vote.php`. File tersebut akan melakukan pengubahan value vote sesuai parameternya, yaitu:
+- `action` (`up`/`down`): menambah (up) atau mengurangkan (down) voting
+- `id`: id yang dituju pada `db`
+- `db` (`answer`/`question`): database yang dikenai aksi
+
+Untuk melakukan penambahan voting dipanggil fungsi `voteUp(id, db)` dengan `db` adalah database yang dituju (question atau answer) dan `id` adalah id pada database yang ingin ditambahkan votingnya sebanyak 1.
+
+Untuk melakukan pengurangan voting dipanggil fungsi `voteDown(id, db)` dengan `db` adalah database yang dituju (question atau answer) dan `id` adalah id pada database yang ingin dikurangkan votingnya sebanyak 1. 
+
+Untuk lebih lanjut, dapat dilihat pada file `./js/main.js`
 
 ### Knowledge
 
