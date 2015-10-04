@@ -85,4 +85,13 @@
 			}
 	}
 	window.validateQuestionForm = validateQuestionForm;
+
+	var validateAnswerForm = function(theForm) {
+		if (!validateRequiredField(theForm.name, "Please insert name.") ||
+			!validateEmailAddress(theForm.email, "Please insert appropriate email address.") ||
+			!validateRequiredField(theForm.content, "Please elaborate on question content.")) {
+				return false;
+			}
+	}
+	window.validateAnswerForm = validateAnswerForm;
 })(window);

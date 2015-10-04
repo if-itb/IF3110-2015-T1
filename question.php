@@ -77,7 +77,7 @@
 
 	<div class="section" id="form-answer">
 		<h2>Your Answer</h2>
-		<form class="block" action="question.php?id=<?php echo $_GET['id'] ?>" method="POST">
+		<form class="block" action="question.php?id=<?php echo $_GET['id'] ?>" method="POST" onsubmit="return validateAnswerForm(this);">
 			<input type="text" placeholder="Name" name="name" />
 			<input type="text" placeholder="Email" name="email" />
 			<textarea name="content" placeholder="Content"></textarea>
