@@ -32,4 +32,78 @@ function submitQuestion($Name,$Email,$QuestionTopic,$Content) {
 	return 1;
 }
 
+//untuk mengambil satu question
+//mengembalikan null bila gagal
+//mengembalikan hash table dengan isi qid, AuthorName, Email, QuestionTopic, Content, vote, dan created_at
+function getQuestion($qid){
+	global $servername,$username,$password,$dbname;
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		echo "<p> connection error:". mysqli_connect_error ( void )."</p>";
+		return NULL;
+	}
+
+	$sql = "SELECT qid,AuthorName,Email,QuestionTopic,Content,vote,created_at FROM Question WHERE qid=$qid;";
+
+	$result = $conn->query($sql);
+	
+	if ($result->num_rows > 0) {
+		// output data of each row
+		if($row = $result->fetch_assoc()) {
+			return $row;
+	    	} else {
+			echo "not found";
+			return NULL;
+		}
+	} else {
+		echo "not found";
+		return NULL;
+	}
+
+	return 1;
+}
+//untuk mengambil satu question
+//mengembalikan null bila gagal
+//mengembalikan banyak vote
+function getVote($qid){
+	global $servername,$username,$password,$dbname;
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		echo "<p> connection error:". mysqli_connect_error ( void )."</p>";
+		return NULL;
+	}
+
+	$sql = "SELECT vote FROM Question WHERE qid=$qid;";
+
+	$result = $conn->query($sql);
+	
+	if ($result->num_rows > 0) {
+		// output data of each row
+		if($row = $result->fetch_assoc()) {
+			return $row["vote"];
+	    	} else {
+			echo "not found";
+			return NULL;
+		}
+	} else {
+		echo "not found";
+		return NULL;
+	}
+
+	return 1;
+}
+
+//untuk mengambil semua question
+function getQuestions(){
+
+}
+
+function deleteQuestion(){
+
+}
+
 ?>
