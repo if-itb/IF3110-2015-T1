@@ -1,0 +1,175 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+body {
+	color: #011627;
+	background-color: #FDFFFC;
+	font-family: "Segoe UI", "Ubuntu", "Helvetica Neue", serif;
+}
+
+h1, h2, h3, h4 {
+	font-weight: normal;
+	padding: 5px 0;
+}
+
+
+p {
+	margin: 5px 0;
+}
+
+a {
+	color: #FF9F1C;
+	text-decoration: none;
+}
+
+a:hover, .link.edit > a:hover, .link.delete > a:hover {
+	color: #2EC4B6;
+}
+
+button, input[type="text"], input[type="submit"] {
+	padding: 8px 10px;
+	font-size: 1em;
+}
+
+button, input[type="submit"] {
+	background-color: #FDFFFC;
+	border: 2px solid #FF9F1C;
+	color: #FF9F1C;
+	cursor: pointer;
+	transition: 0.2s color ease-out;
+	transition: 0.2s background-color ease-in;
+}
+
+button:hover, input[type="submit"]:hover {
+	background-color: #FF9F1C;
+	color: #FDFFFC;
+}
+
+.center {
+	text-align: center;
+}
+
+.underline {
+	border-bottom: 2px solid #ccc;
+}
+
+.div {
+	display: block;
+}
+
+.row {
+	display: block;
+	clear: both;
+	margin: 0 10px;
+}
+
+.row:before, .row:after {
+	clear: both;
+	display: table;
+	content: " ";
+}
+
+.col {
+	float: left;
+	width: 50%;
+	padding: 0 5px;
+}
+
+#wrapper {
+	margin: 0 auto;
+	max-width: 800px;
+}
+
+#main-search #search-bar {
+	width: 80%;
+}
+
+.vote, .answers {
+	position: relative;
+	top: 5px;
+	text-align: center;
+	width: 10%;
+}
+
+.title {
+	padding-left: 20px;
+	width: 80%;
+}
+
+#main-page .questions > h3 {
+	margin-bottom: 0;
+}
+
+#main-page .question {
+	padding: 10px 0;
+	border-top: 1px solid #ccc;
+}
+
+
+#main-page .question:hover {
+	background: #FAFAFA;
+}
+
+.link.edit > a {
+	color: #ffcc00;
+}
+
+.link.delete > a {
+	color: #ee0000;
+}
+
+span.name {
+	color: #9900ee;
+}
+
+form.block input[type="text"], form.block textarea {
+	display: block;
+	margin: 10px 0;
+	width: 100%;
+}
+
+textarea {
+	font-family: inherit;
+	font-size: inherit;
+	height: 200px;
+	padding: 8px 10px;
+}
+
+
+form.block input[type="submit"] {
+	float: right;
+}
+
+#form-answer > h2 {
+	color: #999;
+	margin-bottom: 0;
+}
+
+#answers > h2 {
+	margin-bottom: 0;
+}
+
+.answer {
+	padding: 10px 0;
+}
+
+.answer .info, .question .info {
+	text-align: right;
+}
+
+#question-page h2 {
+	border-bottom: 2px solid #ccc;
+}
+
+#question-page .vote {
+	font-size: 1.6em;
+	line-height: 1em;
+	color: #ccc;
+}
+
+.vote #increase-vote , .vote #decrease-vote{
+	display: block;
+	padding: 5px 0 0;
+	margin: 0;
+}

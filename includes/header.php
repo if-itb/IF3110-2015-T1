@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Simple StackExchange</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 	<div id="wrapper">
