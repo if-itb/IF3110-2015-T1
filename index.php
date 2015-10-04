@@ -46,6 +46,14 @@
 							<a href="question.php?id=<?php echo $question['question_id'] ?>">
 								<?php echo $question['title'] ?>
 							</a>
+							<?php
+								$content = $question['content'];
+								if (strlen($content) > 100) {
+									echo substr($question['content'], 0, 110) . '...';
+								} else {
+									echo $content;
+								}
+							?>
 						</div>
 					</div>
 					<div class="row">

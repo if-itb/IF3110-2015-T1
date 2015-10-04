@@ -16,7 +16,7 @@
 
 <h2 class="underline">What's your question?</h2>
 
-<form action="index.php" method="POST" class="block">
+<form action="index.php" method="POST" class="block" onsubmit="return validateQuestionForm(this)">
 	<input type="text" placeholder="Name" name="name" value="<?php echo $data['name'] ?>" />
 	<input type="text" placeholder="Email" name="email" value="<?php echo $data['email'] ?>" />
 	<input type="text" placeholder="Question Topic" name="title" value="<?php echo $data['title'] ?>" />
