@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ae4246f-3a59-4ded-9717-3af5a488efd9" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Index.css" afterPath="$PROJECT_DIR$/Index.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Tugas1_WBD.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,29 +28,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.96069366" vertical-offset="70" max-vertical-offset="1003">
-              <caret line="53" column="6" selection-start-line="53" selection-start-column="6" selection-end-line="53" selection-end-column="6" />
+            <state vertical-scroll-proportion="-26.153847" vertical-offset="0" max-vertical-offset="1020">
+              <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
               <folding>
-                <marker date="1443966656248" expanded="true" signature="35:58" placeholder="SELECT * FRO..questions..." />
-                <marker date="1443966656248" expanded="true" signature="199:238" placeholder="SELECT SUM()..answers..." />
-                <marker date="1443966656248" expanded="true" signature="926:949" placeholder="SELECT * FRO..questions..." />
-                <marker date="1443966656248" expanded="true" signature="1411:1446" placeholder="SELECT SUM()..answers..." />
-                <marker date="1443966656248" expanded="true" signature="1411:1449" placeholder="SELECT * FRO..answers..." />
-                <marker date="1443966656248" expanded="true" signature="1728:1901" placeholder="..." />
-                <marker date="1443966656248" expanded="true" signature="1954:1955" placeholder="..." />
+                <marker date="1443973997563" expanded="true" signature="35:58" placeholder="SELECT * FRO..questions..." />
+                <marker date="1443973997563" expanded="true" signature="199:238" placeholder="SELECT SUM()..answers..." />
+                <marker date="1443973997563" expanded="true" signature="926:949" placeholder="SELECT * FRO..questions..." />
+                <marker date="1443973997563" expanded="true" signature="1411:1446" placeholder="SELECT SUM()..answers..." />
+                <marker date="1443973997563" expanded="true" signature="1411:1449" placeholder="SELECT * FRO..answers..." />
+                <marker date="1443973997563" expanded="true" signature="2022:2137" placeholder="..." />
+                <marker date="1443973997563" expanded="true" signature="2190:2191" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Index.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Index.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1054">
-              <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.8834286" vertical-offset="655" max-vertical-offset="1632">
+              <caret line="84" column="22" selection-start-line="84" selection-start-column="22" selection-end-line="84" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -76,9 +76,9 @@
       <list>
         <option value="$PROJECT_DIR$/mocks/Index.css" />
         <option value="$PROJECT_DIR$/AddQuestion.php" />
-        <option value="$PROJECT_DIR$/Index.css" />
         <option value="$PROJECT_DIR$/as.php" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/Index.css" />
       </list>
     </option>
   </component>
@@ -277,13 +277,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1443966656248" expanded="true" signature="35:58" placeholder="SELECT * FRO..questions..." />
-            <marker date="1443966656248" expanded="true" signature="199:238" placeholder="SELECT SUM()..answers..." />
-            <marker date="1443966656248" expanded="true" signature="926:949" placeholder="SELECT * FRO..questions..." />
-            <marker date="1443966656248" expanded="true" signature="1411:1446" placeholder="SELECT SUM()..answers..." />
-            <marker date="1443966656248" expanded="true" signature="1411:1449" placeholder="SELECT * FRO..answers..." />
-            <marker date="1443966656248" expanded="true" signature="1728:1901" placeholder="..." />
-            <marker date="1443966656248" expanded="true" signature="1954:1955" placeholder="..." />
+            <marker date="1443973997563" expanded="true" signature="35:58" placeholder="SELECT * FRO..questions..." />
+            <marker date="1443973997563" expanded="true" signature="199:238" placeholder="SELECT SUM()..answers..." />
+            <marker date="1443973997563" expanded="true" signature="926:949" placeholder="SELECT * FRO..questions..." />
+            <marker date="1443973997563" expanded="true" signature="1411:1446" placeholder="SELECT SUM()..answers..." />
+            <marker date="1443973997563" expanded="true" signature="1411:1449" placeholder="SELECT * FRO..answers..." />
+            <marker date="1443973997563" expanded="true" signature="2022:2137" placeholder="..." />
+            <marker date="1443973997563" expanded="true" signature="2190:2191" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -309,13 +309,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="527">
           <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="72" />
           <folding>
-            <marker date="1443966656248" expanded="true" signature="35:58" placeholder="SELECT * FRO..questions..." />
-            <marker date="1443966656248" expanded="true" signature="199:238" placeholder="SELECT SUM()..answers..." />
-            <marker date="1443966656248" expanded="true" signature="926:949" placeholder="SELECT * FRO..questions..." />
-            <marker date="1443966656248" expanded="true" signature="1411:1446" placeholder="SELECT SUM()..answers..." />
-            <marker date="1443966656248" expanded="true" signature="1411:1449" placeholder="SELECT * FRO..answers..." />
-            <marker date="1443966656248" expanded="true" signature="1728:1901" placeholder="..." />
-            <marker date="1443966656248" expanded="true" signature="1954:1955" placeholder="..." />
+            <marker date="1443973997563" expanded="true" signature="35:58" placeholder="SELECT * FRO..questions..." />
+            <marker date="1443973997563" expanded="true" signature="199:238" placeholder="SELECT SUM()..answers..." />
+            <marker date="1443973997563" expanded="true" signature="926:949" placeholder="SELECT * FRO..questions..." />
+            <marker date="1443973997563" expanded="true" signature="1411:1446" placeholder="SELECT SUM()..answers..." />
+            <marker date="1443973997563" expanded="true" signature="1411:1449" placeholder="SELECT * FRO..answers..." />
+            <marker date="1443973997563" expanded="true" signature="2022:2137" placeholder="..." />
+            <marker date="1443973997563" expanded="true" signature="2190:2191" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -344,27 +344,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Index.css">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1054">
-          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-          <folding />
+        <state vertical-scroll-proportion="-26.153847" vertical-offset="0" max-vertical-offset="1020">
+          <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+          <folding>
+            <marker date="1443973997563" expanded="true" signature="35:58" placeholder="SELECT * FRO..questions..." />
+            <marker date="1443973997563" expanded="true" signature="199:238" placeholder="SELECT SUM()..answers..." />
+            <marker date="1443973997563" expanded="true" signature="926:949" placeholder="SELECT * FRO..questions..." />
+            <marker date="1443973997563" expanded="true" signature="1411:1446" placeholder="SELECT SUM()..answers..." />
+            <marker date="1443973997563" expanded="true" signature="1411:1449" placeholder="SELECT * FRO..answers..." />
+            <marker date="1443973997563" expanded="true" signature="2022:2137" placeholder="..." />
+            <marker date="1443973997563" expanded="true" signature="2190:2191" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/Index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.96069366" vertical-offset="70" max-vertical-offset="1003">
-          <caret line="53" column="6" selection-start-line="53" selection-start-column="6" selection-end-line="53" selection-end-column="6" />
-          <folding>
-            <marker date="1443966656248" expanded="true" signature="35:58" placeholder="SELECT * FRO..questions..." />
-            <marker date="1443966656248" expanded="true" signature="199:238" placeholder="SELECT SUM()..answers..." />
-            <marker date="1443966656248" expanded="true" signature="926:949" placeholder="SELECT * FRO..questions..." />
-            <marker date="1443966656248" expanded="true" signature="1411:1446" placeholder="SELECT SUM()..answers..." />
-            <marker date="1443966656248" expanded="true" signature="1411:1449" placeholder="SELECT * FRO..answers..." />
-            <marker date="1443966656248" expanded="true" signature="1728:1901" placeholder="..." />
-            <marker date="1443966656248" expanded="true" signature="1954:1955" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.8834286" vertical-offset="655" max-vertical-offset="1632">
+          <caret line="84" column="22" selection-start-line="84" selection-start-column="22" selection-end-line="84" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>

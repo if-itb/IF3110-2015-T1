@@ -37,11 +37,12 @@
                 $s_query = "SELECT * FROM answers WHERE A_ID = $id";
                 $s_result = mysql_query($s_query);
                 $num_answers = mysql_num_rows($s_result);
-                echo"<p> Topic = $topic</p>";
-                echo"<p> Content = $content</p>";
-                echo"<p> Author = $author</p>";
-                echo"<p>Answers = $num_answers</p>";
-                echo"<p>vote = $vote</p>";
+                echo "<div class = 'questions'>";
+                    echo"<div class = 'topic'>$topic</div>";
+                    echo"<span class = 'vote'>$vote<br>Votes</span>";
+                    echo"<span class = 'answer'>$num_answers<br>Answers</span>";
+                    echo"<div class = 'details'>Asked by <span class = 'b_link'>$author </span>|<span class = 'y_link'> edit </span>| <span class = 'r_link'>delete</span><br></div>";
+                echo "</div>";
                 $i++;
             }
             mysql_close();

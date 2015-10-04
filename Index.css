@@ -24,7 +24,7 @@
 .button{
     margin-left: 2px;
     border : 2px solid black;
-    padding : 7px 20px !important;
+    padding : 5px 20px !important;
     background-color: whitesmoke;
 }
 .button:hover{
@@ -36,6 +36,14 @@
 .y_link{
     text-decoration: none;
     color:#ffd200;
+}
+.r_link{
+    text-decoration: none;
+    color: #df0000;
+}
+.b_link{
+    text-decoration: none;
+    color:#0000bb;
 }
 p{
     font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -54,4 +62,30 @@ textarea{
     margin: 2px 0 2px 0;
     width: 100%;
     height: 100px;
+}
+.questions{
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: block;
+    padding: 15px 0px 20px;
+    border-bottom: 1px solid #000000;
+}
+.vote{
+    display:inline-block;
+    text-align: center;
+    padding : 2px 5px 2px 5px;
+    margin-left: 20px;
+}
+.answer{
+    display:inline-block;
+    padding : 2px 5px 2px 5px;
+    text-align: center;
+    margin-left: 10px;
+}
+.topic{
+    font-size: larger;
+    text-align: center;
+}
+.details{
+    text-align: right;
+
 }
