@@ -3,6 +3,7 @@
 namespace stackexchange\controller;
 
 use stackexchange\core\Controller;
+use stackexchange\model\Answer;
 use stackexchange\model\Thread;
 
 class ThreadController extends Controller
@@ -13,6 +14,23 @@ class ThreadController extends Controller
         $threads = $threadModel->getAll();
 
         $this->render("home", ["threads" => $threads]);
+    }
+
+    public function view()
+    {
+        $id = $_GET["id"];
+        $threadModel = new Thread();
+        $thread = $threadModel->getById($id);
+
+        $answerModel = new Answer();
+        $answers = $answerModel->getByThreadId($id);
+
+        $thread["answer"] = count($answers);
+
+        $this->render("thread/view", [
+            "thread" => $thread,
+            "answers" => $answers
+        ]);
     }
 
     public function add()

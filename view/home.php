@@ -41,7 +41,7 @@
                         </div>
                         <div class="span-8">
                             <p><b>
-                                    <?= $thread["topic"] ?>
+                                    <a href="/thread/view.php?id=<?= $thread["id"] ?>"><?= $thread["topic"] ?></a>
                                 </b></p>
                             <p class="text-right footer">
                                 Asked by <?= $thread["author"] ?> | <a href="/thread/update.php?id=<?= $thread["id"] ?>">Edit</a> | <a onclick="deleteThread(<?= $thread["id"] ?>)">Delete</a>
