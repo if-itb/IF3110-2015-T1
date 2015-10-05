@@ -1,14 +1,8 @@
 <?php include("header.php"); ?>
 
 		<?php include("requestSingleQuestion.php") ?>
-
-
-		<div class="containerAnswer">
-			<h1 class="tag">4 Answer</h1>
-			<?php include("answerDiv.php"); ?>
-			<?php include("answerDiv.php"); ?>
-			<?php include("answerDiv.php"); ?>
-			<?php include("answerDiv.php"); ?>
+		<!-- div keluar dari include diatas karena ada penyimpanan jumlah answer -->
+			<?php include("requestAnswers.php"); ?>
 		</div>
 
 		<div id="answerForm">
