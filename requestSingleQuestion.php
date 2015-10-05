@@ -35,8 +35,8 @@ if($result->num_rows > 0){
 	echo "No Question";
 }
 
-echo '<div class="containerAnswer">
-	<h1 class="tag">'.$row[answer].' Answer</h1>';
+/*echo '<div class="containerAnswer">
+	<h1 class="tag">'.$row[answer].' Answer</h1>';*/
 
 $conn->close();
 

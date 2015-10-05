@@ -26,7 +26,7 @@
 	</div>
 	<div class="col navPost">
 		<p>
-			asked by {{name}} | <a class="link edit" href="askhere.php?={{id}}"> edit</a> | <a class="link delete" href="#"> delete </a>
+			asked by {{name}} | <a class="link edit" href="askhere.php?id={{id}}"> edit</a> | <a class="link delete" href="index.php?delete=true&id={{id}}"> delete </a>
 		</p>
 	</div>
 </div>';

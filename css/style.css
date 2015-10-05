@@ -185,6 +185,7 @@ body{
 	border-bottom-style: solid;
 	border-bottom-color: #333333;
 	border-bottom-width: 3px;
+	margin-bottom: 5px;
 }
 
 .innerContent{
@@ -207,6 +208,9 @@ body{
 .col{
 	float: left;
 }
+.countVotes, .countAnswers{
+	margin-top:30px;
+}
 
 .countVotes, .countAnswer, .votesCount{
 	width: 10%;
@@ -220,16 +224,19 @@ body{
 }
 .topic h3{
 	font-weight: 400;
+	margin-left: 10px;
 }
 .topic p{
 	font-weight: 300;
 	font-size: 15px;
 	text-align: left;
-	padding-left: 10px;
-	padding-right: 10px;
+	padding-left: 20px;
 }
 .navPost{
 	width: 30%;
+}
+.navPost p{
+	text-align: right;
 }
 .navPost2{
 	text-align: right;
