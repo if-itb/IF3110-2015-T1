@@ -18,7 +18,7 @@
 				<h2>What's your question?</h2>
 			</div>
 			<div class="child-content">
-				<form role="form" action="" method="post" id="the-form">
+				<form role="form" action="add_question.php" method="post" id="the-form">
 					<input type="text" name="name" placeholder="Name" id="name" autofocus><br>
 					<input type="email" name="email" placeholder="Email" id="email"><br>
 					<input type="text" name="topic" placeholder="Question Topic" id="topic"><br>

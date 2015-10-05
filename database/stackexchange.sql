@@ -31,9 +31,9 @@ CREATE TABLE IF NOT EXISTS `answers` (
   `a_name` varchar(100) NOT NULL,
   `a_email` varchar(100) NOT NULL,
   `a_qid` int(10) NOT NULL,
-  `a_content` text NOT NULL,
+  `a_content` text NOT NULL DEFAULT "",
   `a_datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `a_vote` int(10) NOT NULL
+  `a_vote` int(10) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `q_topic` varchar(200) NOT NULL,
   `q_content` text NOT NULL,
   `q_datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `q_vote` int(10) NOT NULL
+  `q_vote` int(10) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
