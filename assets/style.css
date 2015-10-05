@@ -3,7 +3,10 @@ body{
 }
 .site-title{
 	margin: 20px 0 50px 0;
-	font-size: 40px;
+	font-size: 40pt;
+}
+.site-title a, .site-title a:hover{
+	color:#000000;
 }
 .container{
 	width:70%;
@@ -28,7 +31,7 @@ hr{
 }
 
 #search{
-	padding:0 10% 0 10%;
+	padding:0 2% 0 2%;
 }
 #search-box, #search-submit{
 	
@@ -51,19 +54,22 @@ hr{
 
 #recent-title{
 	margin: 30px 0 10px 0;
-	font-size: 20px;
+	font-size: 20pt;
 }
 
 
-
+/* form ask */
 #form-ask{
 	width:100%;
 	margin:auto;
 }
 #form-ask input, #form-ask textarea{
 	width:100%;
-	margin: 10px 0 10px 0;
-	padding-left: 10px;
+	margin: 3px 0 3px 0;
+	padding: 5px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 #form-ask textarea{
 	font-family: Arial;
@@ -83,6 +89,8 @@ hr{
 #content{
 	resize: none;
 }
+
+/*question list*/
 .question-item table{
 width:100%;
 }
@@ -98,4 +106,17 @@ width:100%;
 }
 .question-item-delete{
 	color: #e5565f;
+}
+.question-item-topic{
+	color: #000000;
+}
+.error{
+	color:#ff0000;
+}
+#form-ask{
+	width:100%;
+}
+
+#whats-question{
+	font-size: 30pt;
 }
