@@ -70,3 +70,14 @@ input[type="submit"]{
 	color: DarkGray;
 	border-bottom-style: none;
 }
+
+.editlink {
+	color: yellow;
+	text-decoration: none;
+}
+
+.deletelink {
+	color: red;
+	text-decoration: none;
+}
+
