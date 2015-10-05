@@ -5,29 +5,30 @@
 	</head>
 	<body>
 		<?php
-			if (!isset($_GET["qid"]) || !is_numeric($_GET["qid"])){
-				echo '<p>Goblok lu</p>';
+			$qid=$_GET["qid"];
+			if (!isset($qid) || !is_numeric($qid)){
+				echo '<p>Goblok lu</p>'; //TODO ganti error message yang serius
 				exit();
 			}
-			if ($_GET["qid"]<1){
-				echo '<p>Goblok lu</p>';
+			if ($qid<1){
+				echo '<p>Goblok lu</p>';//TODO ganti error message yang serius
 				exit();
 			}
 			
 			include "dbmgr.php";
-			$row=getQuestion($_GET["qid"]);
-
-			echo '<h1>Simple StackExchange</h1>';
-			echo '<div class="questionpart">';
-			echo '<h2>'.$row["QuestionTopic"].'</h2>';
-			echo '<div class="votediv">VOTECELL NOT IMPLEMENTED</div>';//TODO buat vote cell
-			echo '<div class="postdiv">';
-			echo '<p>'.$row["Content"].'</p>';
-			echo '<div class = "footer qfooter"> asked by '.$row["Email"]." at ".$row["created_at"] . "</div>";
-			echo '</div>';
-			echo '</div>';
-			echo '<h1> The answer part is not implemented</h1>';
+			$row=getQuestion($qid);
 		?>
+
+		<h1>Simple StackExchange</h1>
+		<div class="questionpart">
+		<h2><?php echo $row["QuestionTopic"];?></h2>
+		<div class="votediv">VOTECELL NOT IMPLEMENTED</div><!--//TODO buat vote cell-->
+		<div class="postdiv">
+		<p><?php echo $row["Content"]?></p>
+		<div class = "footer qfooter"> asked by <?php echo $row["Email"];?> at <?php echo $row["created_at"] ?> </div>";
+		</div>
+		</div>
+		<h2> ANSWER PART NOT IMPLEMENTED</h2>
 	</body>
 </html>
 
