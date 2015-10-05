@@ -8,7 +8,7 @@
 		$email = (!(empty($_POST["email"])))?$_POST["email"]:'';
 		$topic = (!(empty($_POST["topic"])))?$_POST["topic"]:'';
 		$content = (!(empty($_POST["content"])))?$_POST["content"]:'';
-		$error = postQuestion($name,$email,$topic,$content);
+		$error = postQuestion('insert',$name,$email,$topic,$content);
 	}
 ?>
 			<div class="container" id="ask-question">
