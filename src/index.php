@@ -10,7 +10,10 @@
  * 13513090
  */
 
-include_once("const.php");
+include_once("system/const.php");
+include_once("system/loader.php");
+include_once("system/controller.php");
+include_once("system/model.php");
 include_once("config.php");
 
 

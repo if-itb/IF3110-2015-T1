@@ -1,9 +1,17 @@
 <?php
 
-class Questions {
+class Questions extends Controller {
+
+	public function __construct(){
+		parent::__construct();
+	}
 
 	public function index() {
-		echo "a";
+
+		$this->load->view("template/header");
+		$this->load->view("main");
+		$this->load->view("template/footer");
+
 	}
 
 }
