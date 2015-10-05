@@ -1,0 +1,91 @@
+h1,h2,h3,h4,h5 {
+	font-weight: 300;
+}
+
+body {
+  font-size: 1em; 
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: 'Raleway', sans-serif;
+  color: #222; 
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  border-width: 0;
+  border-top: 1px solid #E1E1E1; 
+}
+
+a {
+  color: #DB5C1E; 
+  text-decoration: none ;}
+a:hover {
+  font-weight: 700; 
+
+}
+
+.linkdelete{
+	color: #FF244E;
+}
+
+.linkedit{
+	color: #FFC024;
+}
+
+.linkname{
+	color: #2458FF;
+}
+
+#title {
+	text-align: center;
+	font-size: 3.2em;
+}
+
+.votes, .answers{
+	width: 10%;
+	text-align: center;
+}
+
+.question{
+	width: 55%;
+	vertical-align: top;
+	text-align: justify;
+}
+
+.detail{
+	text-align: right;
+	width: 23%;
+	height: 100%;
+	vertical-align: bottom;
+}
+
+
+.stack{
+	width: 100%;
+}
+
+.stack>div{
+	display: inline-block;
+}
+
+.search{
+	width: 70%;
+	margin: auto;
+	text-align: center;
+}
+
+#searchbar {
+	width: 70%;
+}
+
+#searchsubmit {
+	width: 25%;
+}
+
+.container {
+	width: 1080px;
+	margin: auto ;
+	padding: 0;
+
+}
