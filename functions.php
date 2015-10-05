@@ -1,7 +1,6 @@
 <?php
 $tbl_answer = $tbl_question = "";
 
-
 function connectDB(){
 	if(file_exists("db.php")){
 		require 'db.php';
@@ -33,33 +32,52 @@ function getQuestionRow($id){
 	return $row;
 }
 
-function postQuestion($type,$name,$email,$topic,$content,$id=NULL){
-	$error = "";
-	$valid = true;
-		
-	//name
-	if (!(strlen($name)>0)) {
-		$error.="Nama tidak boleh kosong</br>";
-		$valid = false;
+function validateName($name){
+	$err = "";
+	if (strlen($name)<=0){
+		$err = "Nama tidak boleh kosong</br>";
 	}
-	//email
-	if (!(strlen($email)>0)) {
-		$error.="Email tidak boleh kosong</br>";
-		$valid = false;
+	return $err;
+}
+
+function validateEmail($email){
+	$err = "";
+	if (strlen($email)<=0){
+		$err = "Topic tidak boleh kosong</br>";
 	} else {
 		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-			$error.="Format email salah</br>";
-			$valid = false;
+			$err = "Format email salah</br>";
 		}
 	}
-	if (!(strlen($topic)>0)) {
-		$error.="Topic tidak boleh kosong</br>";
-		$valid = false;
+	return $err;
+}
+
+function validateTopic($topic){
+	$err = "";
+	if (strlen($topic)<=0){
+		$err = "Topic tidak boleh kosong</br>";
 	}
-	if (!(strlen($content)>0)) {
-		$error.="Content tidak boleh kosong</br>";
-		$valid = false;
+	return $err;
+}
+
+function validateContent($content){
+	$err = "";
+	if (strlen($content)<=0){
+		$err = "Content tidak boleh kosong</br>";
 	}
+	return $err;
+}
+
+function postQuestion($type,$name,$email,$topic,$content,$id=NULL){
+	$error = "";
+		
+	$error .= validateName($name);
+	$error .= validateEmail($email);
+	$error .= validateTopic($topic);
+	$error .= validateContent($content);
+	
+	$valid = (strlen($error)>0)?false:true;
+	
 	if($valid){
 		$con = connectDB();
 		$tbl_question = $GLOBALS['tbl_question'];
@@ -77,4 +95,99 @@ function postQuestion($type,$name,$email,$topic,$content,$id=NULL){
 	}
 	return $error;
 }
+
+function postAnswer($name,$email,$content){
+	$error = "";
+		
+	$error .= validateName($name);
+	$error .= validateEmail($email);
+	$error .= validateContent($content);
+	
+	$valid = (strlen($error)>0)?false:true;
+	
+	if($valid){
+		$con = connectDB();
+		$tbl_answer = $GLOBALS['tbl_answer'];		
+		$stmt = $con->prepare("INSERT INTO $tbl_answer(name,email,content,create_date,update_date) VALUES (?,?,?,NOW(),NOW())");
+		$stmt->bind_param('ssss',$name,$email,$topic,$content);
+		$stmt->execute();
+		$stmt->close();
+	}
+	return $error;
+}
+
+function getVoteNumber($type,$id){	
+	$con = connectDB();
+	if(strcmp($type,'q') == 0){
+		$tbl_question = $GLOBALS['tbl_question'];
+		$sql = "SELECT * FROM $tbl_question WHERE id=$id";
+		$result = mysqli_query($con,$sql);
+		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+		return $row["votes"];
+	} else {
+		$tbl_answer = $GLOBALS['tbl_answer'];
+		$sql = "SELECT * FROM $tbl_answer WHERE id=$id";
+		$result = mysqli_query($con,$sql);
+		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+		return $row["votes"];
+	}
+}
+
+function vote($type,$n,$id){
+	$con = connectDB();
+	$tbl_answer = $GLOBALS['tbl_answer'];
+	$tbl_question = $GLOBALS['tbl_question'];
+	$tbl = "";
+	if(strcmp($type,'q') == 0){
+		$tbl = $tbl_question;
+	} else if(strcmp($type,'a') == 0){
+		$tbl = $tbl_answer;
+	}
+	if(isQuestionExist($id)) {
+		$stmt = $con->prepare("UPDATE $tbl SET votes=votes+$n WHERE id=?");
+		$stmt->bind_param('d',$id);
+		$stmt->execute();
+		$stmt->close();
+	}
+	if(strcmp($type,'q') == 0){
+		echo getVoteNumber('q',$id);
+	} else if(strcmp($type,'a') == 0){
+		echo getVoteNumber('a',$id);
+	}
+}
+
+if(isset($_GET['f'])){
+	$id=$_GET['id'];
+	$f=$_GET['f'];
+	if(strcmp($f,"voteQuestionUp") == 0){
+		vote('q',1,$id);
+	} else if (strcmp($f,"voteQuestionDown") == 0){
+		vote('q',-1,$id);
+	} else if (strcmp($f,"voteAnswerUp") == 0){
+		vote('a',1,$id);
+	} else if (strcmp($f,"voteAnswerDown") == 0){
+		vote('a',-1,$id);
+	} 
+}
+
+function getAnswers($id){
+	$con = connectDB();
+	$tbl_answer = $GLOBALS['tbl_answer'];
+	if(isQuestionExist($id)) {
+		$sql = "SELECT * FROM $tbl_answer WHERE question_id=$id";
+		$result = $con->query($sql);	
+	}
+	return $result;
+}
+
+function countAnswers($id){
+	$result = getAnswers($id);
+	return $result->num_rows;
+}
+
+function getAnswerRows($id){
+	$result = getAnswers($id);
+	return $result->fetch_assoc();
+}
+
 ?>
