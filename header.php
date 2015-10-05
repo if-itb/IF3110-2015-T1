@@ -8,9 +8,9 @@
 		<link rel="stylesheet" type="text/css" href="assets/style.css">
 	</head>
 	<body>
-		<div class="main">
+		<div class="container">
 			<div class="site-title">
 				<center>
-					<h1>Simple StackExchange</h1>
+					Simple StackExchange
 				</center>
 			</div>
