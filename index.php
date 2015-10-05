@@ -8,7 +8,7 @@
 	<body>
 		<h1>Simple Stack Exchange</h1>
 		<form>
-			<input type="text" name="search" style="margin-left:200px;width:870px;font-size:16px;">
+			<input type="text" name="search" style="width:94%;font-size:16px;">
 			<input type="submit" value="Search" style="font-size:16px;">
 		</form>
 		<h2>
@@ -25,7 +25,7 @@
 			if (mysqli_connect_errno()) {
 				echo "Failed to connect to MySQL: " . mysqli_connect_error();
 			}
-			$query = "SELECT username,topic,num_vote FROM question";
+			$query = "SELECT username,topic,num_vote FROM question ORDER BY created_date DESC";
 			$result = $con->query($query);
 
 			if ($result->num_rows > 0) {
@@ -36,7 +36,7 @@
         			echo '<td class="number">'. "<b>". $row["num_vote"]. "</b>". "</td>";
         			echo '<td class="number">'. "<b>". "0". "</b>". "</td>";
         			echo '<td class="topic">'. $row["topic"]. "</td>";
-        			echo '<td class="attributeName">'. "</td>";
+        			echo '<td class="empty">'. "</td>";
         			echo '<td class="attribute">'. "</td>";
         			echo '<td class="attribute">'. "</td>";
         			echo "</tr>";

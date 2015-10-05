@@ -24,7 +24,7 @@ body {
 
 hr {
     border: 1px solid #000;
-    text-align: center;
+    width: 99%;
 }
 
 table {
@@ -32,7 +32,7 @@ table {
     font-size: 18px;
     margin-top: 10px;
     table-layout: fixed;
-    width: 1265px;
+    width: 99%;
 }
 
 td.number {
@@ -50,9 +50,9 @@ td.topic {
 }
 
 td.username {
-    width: 100px;
     overflow: hidden;
     text-align: right;
+    padding-right: 1%;
     border-style: solid;
     border-top-style: none;
     border-bottom-style: none;
@@ -60,11 +60,11 @@ td.username {
 }
 
 td.attribute {
-    width: 13px;
+    width: 26px;
 }
 
-td.attributeName {
-    width: 100px;
+td.empty {
+    width: 70px;
 }
 
 td.edit {  
@@ -73,9 +73,11 @@ td.edit {
 
 td.delete {
     border-style: solid;
+    padding-left: 1%;
     border-top-style: none;
     border-bottom-style: none;
     border-right-style: none;
+    text-align: center;
 }
 
 p {

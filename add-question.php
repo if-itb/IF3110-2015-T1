@@ -15,10 +15,6 @@
 		$topic = mysql_real_escape_string($topic);
 		$content = $_POST["content"];
 		$content = mysql_real_escape_string($content);
-		/*echo $name;
-		echo $email;
-		echo $topic;
-		echo $content;*/
 		$sql = "INSERT INTO question (username, email, topic,  content) 
 		VALUES ('$name', '$email', '$topic', '$content')";
 
