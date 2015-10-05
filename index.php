@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Exchange Lyz</title>
-</head>
-<body>
-    <div class="header">Exchange Lyz
-    </div>
+<?php include("header.php"); ?>
     <form action="search.php" method="post">
         <input type="text" id="search_query" autofocus>
         <input type="submit" value="Search"><br>
