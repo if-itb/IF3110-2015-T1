@@ -33,6 +33,7 @@ include("setup_post.php");
 			<div class="content-header">
 				<h2>Recently Asked Questions</h2>
 			</div>
+
 			<?php foreach ($questions as $question) : ?>
 
 			<div class="child-content">
@@ -40,21 +41,23 @@ include("setup_post.php");
 					<div id="votes"><span id="numvotes"><?php echo $question['q_vote'] ?></span><br>Votes</div>
 					<div id="answers"><span id="numanswer"><?php echo $question['q_vote'] ?></span><br>Answers</div>
 				</div>
+
 				<div class="list-content">
-					<div id="questioncontent"><?php echo $question['q_topic'] ?></div>
+					<div id="questioncontent"><a href="thread.php?id=<?php echo $question['q_id']; ?>"><?php echo $question['q_topic'] ?></a></div>
 					<div id="options">asked by 
 						<span class="user-question">
 							<?php echo $question['q_name'] ?>
 						</span> | <a href="#" class="edit-question">edit</a> | <a href="#" class="delete-question">delete</a></div>
 				</div>
 			</div>
-			
+
 			<?php endforeach; ?>
+
 		</div>
 	</div>
-		
-	
-
 </div>
+
+<script type="text/javascript" src="js/main.js"></script>
+
 </body>
 </html>
