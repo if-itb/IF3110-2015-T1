@@ -1,0 +1,34 @@
+
+/*global styling*/
+*{
+	font-family:Arial;
+}
+
+/*specific styling*/
+#MainTitle{
+	text-align:center;
+}
+
+#MainDiv{
+	margin-top:50px;
+	margin-left:200px;
+	margin-right:200px;
+}
+#content{
+	height:150px;
+}
+
+#name, #email, #topic, #content{
+	margin-top:10px;
+	width:100%;
+}
+#post{
+	margin-top:10px;
+	float:right;
+	width:100px;
+}
+hr{
+	background-color:black;
+	height:3px;
+	border-width:0;
+}

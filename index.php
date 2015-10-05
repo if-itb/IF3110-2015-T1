@@ -2,9 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="css/index.css">
-	<title >
-		Simple StackExchange
-	</title>
+	<title >Simple StackExchange</title>
 </head>
 <body>
 	<div id="TopDiv">
@@ -14,7 +12,7 @@
 			<input id="SearchInput" type="text" name="SearchInput" placeholder="Search here...">&nbsp
 			<input id="SearchButton" type="submit" value="Search">
 		</form> 
-		<h5 id="find">Cannot find what you are looking for? &nbsp <a href="askQuestion.php" id="AskHere">Ask here</a></h5>
+		<h5 id="find">Cannot find what you are looking for? &nbsp <a href="ask.php" id="AskHere">Ask here</a></h5>
 		<br>
 	</div>
 	<div id="BottomDiv">
