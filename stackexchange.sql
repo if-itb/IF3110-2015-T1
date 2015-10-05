@@ -67,10 +67,11 @@ CREATE TABLE `question` (
   `topic` varchar(250) NOT NULL,
   `content` text NOT NULL,
   `vote` int(10) NOT NULL,
+  `answer` int(10) NOT NULL,
   `date_created` datetime NOT NULL,
-  `date_edited` datetime NOT NULL,
+  `date_edited` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -79,7 +80,7 @@ CREATE TABLE `question` (
 
 LOCK TABLES `question` WRITE;
 /*!40000 ALTER TABLE `question` DISABLE KEYS */;
-INSERT INTO `question` VALUES (1,'tifa','tifayu@gmail.com','kucing terbang','kucing itu lucu banget deh ga ngerti lagi',0,'2015-06-02 00:01:01','2015-02-03 03:03:02'),(2,'miaw','nyanko@gmail.com','kucing tifa?','quinsy dan bruno kakak beradik',0,'2015-06-02 00:01:01','2015-02-03 03:03:02');
+INSERT INTO `question` VALUES (1,'tifa','tifayu@gmail.com','kucing terbang','kucing itu lucu banget deh ga ngerti lagi',0,0,'2015-06-02 00:01:01','2015-02-03 03:03:02'),(2,'miaw','nyanko@gmail.com','kucing tifa?','quinsy dan bruno kakak beradik',0,0,'2015-06-02 00:01:01','2015-02-03 03:03:02'),(3,'','','','',0,0,'0000-00-00 00:00:00',NULL),(4,'bubu','caca@gaga.com','miaw','ganbatte ne',0,0,'2015-03-10 00:00:02',NULL),(5,'bubu','caca@gaga.com','miaw','ganbatte ne',0,0,'2015-03-10 00:00:02',NULL),(6,'tifa','miaw','miaw','miaw',0,0,'2015-10-06 00:10:50',NULL);
 /*!40000 ALTER TABLE `question` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -92,4 +93,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-10-04 22:43:33
+-- Dump completed on 2015-10-06  5:11:05

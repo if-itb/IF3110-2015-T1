@@ -17,8 +17,10 @@
 				$question["id"] = $row["id"];
 				$question["name"] = $row["name"];
 				$question["email"] = $row["email"];
+				$question["topic"] = $row["topic"];
 				$question["content"] = $row["content"];
 				$question["vote"] = $row["vote"];
+				$question["answer"] = $row["answer"];
 				$question["date_created"] = $row["date_created"];
 				$question["date_edited"] = $row["date_edited"];
 				array_push($arr, $question);
