@@ -6,12 +6,17 @@ body{
 }
 
 .container-brand{
-	/*-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);*/
-	border-bottom-width: 1px;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+	/*border-bottom-width: 1px;
 	border-bottom-style: solid;
-	border-bottom-color: #CCCCCC;
+	border-bottom-color: #CCCCCC;*/
+	padding-bottom: 0.3em;
+	background-color: #F41D4E;
+	position: fixed;
+	width: 100%;
+	opacity: 0.95;
 }
 
 .container-brand a{
@@ -19,17 +24,22 @@ body{
 }
 
 .brand{
-	color: #F41D4E;
+	color: #fff;
 	font-weight: 300;
 	text-align: center;
 	font-size: 30px;
 	margin-bottom: 0.2em;
+	margin-top: 0;
+}
+.brand span{
+	font-size: 15px;
 }
 
 .inner{
 	width: 60%;
 	margin-left: auto;
 	margin-right: auto;
+	padding-top: 3em;
 }
 .containerAnswer{
 	width: 90%;
@@ -55,10 +65,13 @@ body{
 }
 .textForm{
 	font-size: 15px;
+	font-weight: 300;
+	color: #333;
 	width : 40em;
 	height: 30px;
 	border-radius: 5px;
 	border-style: solid;
+	border-width: 2px;
 	border-color: #CCCCCC;
 	padding-right: 5px;
 	padding-left: 5px;
@@ -71,6 +84,8 @@ body{
 
 .textArea{
 	font-size: 15px;
+	font-weight: 300;
+	color: #333;
 	border-radius: 5px;
 	border-style: solid;
 	border-color: #CCCCCC;
@@ -81,6 +96,9 @@ body{
 	resize : none;
 	margin-right: auto;
 	margin-left: auto;
+}
+.textForm:focus, .textArea:focus{
+	color: #333;
 }
 
 .submitButton{
@@ -143,7 +161,7 @@ body{
 	border-bottom-style: solid;
 	border-bottom-color: #CCCCCC;
 	padding-bottom: 0.2em;
-	padding-top: 1em;
+	padding-top: 0.2em;
 	font-weight: 300;
 }
 .innerContent:after{
@@ -171,16 +189,32 @@ body{
 .topic h3{
 	font-weight: 400;
 }
+.topic p{
+	font-weight: 300;
+	font-size: 15px;
+	text-align: left;
+	padding-left: 10px;
+	padding-right: 10px;
+}
 .navPost{
 	width: 30%;
 }
 .navPost2{
 	text-align: right;
 }
+.votesCount{
+	font-weight: 700;
+	font-size: 20px;
+	color: #B3B3B3;
+}
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
 .footer{
 	margin-top: 2em;
 }
-
 
 
 

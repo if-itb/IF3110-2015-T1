@@ -1,13 +1,13 @@
 <div class="innerContent fAnswer">
 	<div class="col votesCount">
 		<div>
-			<span class="up">Up</span>
+			<i class="material-icons md-48">arrow_drop_up</i>
 		</div>
 		<div>
-			0
+			1
 		</div>
 		<div>
-			<span class="down">Down</span>
+			<i class="material-icons md-48">arrow_drop_down</i>
 		</div>
 	</div>
 	<div class="col content">
@@ -22,7 +22,7 @@
 	</div>
 	<div class="navPost2">
 		<p>
-			asked by Fauzan | <a class="link edit" href="#"> edit </a> | <a class="link delete" href="#"> delete </a>
+			answered by Fauzan at Oct 5 | <a class="link edit" href="#"> edit</a> | <a class="link delete" href="#"> delete </a>
 		</p>
 	</div>
 </div>

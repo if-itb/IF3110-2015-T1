@@ -3,19 +3,19 @@
 		<h1 class="tag">What's your question?</h1>
 		<form class="form makeQuestion">
 			<div class="innerForm">
-				<input class="textForm" type="text" value="Name" name="name" onclick="this.focus();this.select()">
+				<input class="textForm" type="text" placeholder="Name" name="name">
 			</div>
 			<div class="innerForm">
-				<input class="textForm" type="email" value="Email" name="email" onclick="this.focus();this.select()">
+				<input class="textForm" type="email" placeholder="Email" name="email">
 			</div>
 			<div class="innerForm">
-				<input class="textForm" type="text" value="Question Topic" name="qTopic" onclick="this.focus();this.select()">
+				<input class="textForm" type="text" placeholder="Question Topic" name="qTopic" >
 			</div>
 			<div class="innerForm">
-				<textarea class="textArea" name="content" onclick="this.focus();this.select()">Content</textarea>
+				<textarea class="textArea" name="content" placeholder="Content" ></textarea>
 			</div>
 			<div class="innerForm">
-				<input class="submitButton" type="submit" value="Post">
+				<input class="submitButton" type="submit" placeholder="Post">
 			</div>
 		</form>
 
