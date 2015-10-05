@@ -1,0 +1,84 @@
+html * {
+	font-family : Microsoft Sans Serif;
+}
+
+h1 {
+	font-size : 48px;
+	font-weight : normal;
+}
+
+h2 {
+	font-size : 24px;
+	font-weight : normal;
+	text-align : left;
+	margin-bottom : 0;
+}
+
+table {
+	border-collapse : collapse;
+	text-align : center;
+	width : 100%;
+}
+
+td {
+	border-style : solid none none none;
+	border-width : 2px;
+	border-color : black;
+	padding : 10px;
+}
+
+td.votes {
+	width : 10%;
+}
+
+td.answers {
+	width : 10%;
+}
+
+td.question {
+	width : 45%;
+	vertical-align : top;
+}
+
+td.asked {
+	width : 25%;
+}
+
+tr.lasttr td {
+	border-style : solid none solid none;
+}
+
+a.yellow {
+	color : #FFA500;
+}
+
+a.blue {
+	color : #5500FF;
+}
+
+a.red {
+	color : #FF0000;
+}
+
+input[type="text"] {
+	border : 2px solid black;
+	background-color : white;
+	height : 30px;
+}
+
+input[type="submit"] {
+	border : 2px solid black;
+	background-color : white;
+	color : black;
+	height : 36px;
+	width : 15%;
+}
+
+div.searchdiv input[type="text"] {
+	width : 85%;
+}
+
+div.searchdiv input[type="submit"] {
+	width : 13%;
+}
+
