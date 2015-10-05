@@ -32,6 +32,34 @@ function submitQuestion($Name,$Email,$QuestionTopic,$Content) {
 	return 1;
 }
 
+//return qid jika berhasil
+//return 0 jika gagal
+function updateQuestion($qid,$Name,$Email,$QuestionTopic,$Content) {
+	global $servername,$username,$password,$dbname;
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		echo "<p> connection error:". mysqli_connect_error ( void )."</p>";
+		return 0;
+	}
+
+	$sql = "UPDATE Question 
+	SET AuthorName='$Name', Email='$Email', QuestionTopic='$QuestionTopic', Content='$Content'
+	WHERE qid=$qid";
+
+	if ($conn->query($sql) === TRUE) {
+		echo "<p>Record updated successfully</p>";
+		return $qid;
+	} else {
+		echo "<p>Error: " . $sql . "<br>" . $conn->error . "</p>";
+		return 0;
+	}
+
+	
+	return 1;
+}
+
 //untuk mengambil satu question
 //mengembalikan null bila gagal
 //mengembalikan hash table dengan isi qid, AuthorName, Email, QuestionTopic, Content, vote, dan created_at
