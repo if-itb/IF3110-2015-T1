@@ -9,7 +9,7 @@ if ($id) {
 	$result = mysqli_query($dbcon, $q_query);
 	$question = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-	$a_query = "SELECT * FROM answers WHERE a_qid=". $id .";";
+	$a_query = "SELECT * FROM answers WHERE a_qid=". $id ." ORDER BY a_vote, a_datetime DESC;";
 
 	$result = mysqli_query($dbcon, $a_query);
 	$answers = array();

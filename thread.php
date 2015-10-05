@@ -67,6 +67,7 @@ include("init_thread.php")
 					<h2>Your Answer</h2>
 				</div>
 				<form role="form" onsubmit="return validateAnswerForm()" action="add_answer.php" method="post" id="the-form">
+					<input type="hidden" name="qid" value="<?php echo $question['q_id']; ?>">
 					<input type="text" name="name" placeholder="Name" id="name"><br>
 					<input type="email" name="email" placeholder="Email" id="email"><br>
 					<textarea name="content" form="the-form" placeholder="Content" id="content"></textarea><br>
@@ -77,5 +78,8 @@ include("init_thread.php")
 	</div>
 	
 </div>
+
+<script type="text/javascript" src="js/main.js"></script>
+
 </body>
 </html>

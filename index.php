@@ -39,7 +39,7 @@ include("setup_post.php");
 			<div class="child-content">
 				<div class="sidebar">
 					<div id="votes"><span id="numvotes"><?php echo $question['q_vote'] ?></span><br>Votes</div>
-					<div id="answers"><span id="numanswer"><?php echo $question['q_vote'] ?></span><br>Answers</div>
+					<div id="answers"><span id="numanswer"><?php echo $question['num_answers'] ?></span><br>Answers</div>
 				</div>
 
 				<div class="list-content">
