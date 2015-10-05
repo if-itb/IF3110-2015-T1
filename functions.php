@@ -17,8 +17,23 @@ function connectDB(){
 	return $con;
 }
 
+function isQuestionExist($id){
+	$con = connectDB();
+	$tbl_question = $GLOBALS['tbl_question'];
+	$result = mysqli_query($con,"SELECT * FROM $tbl_question WHERE id = '$id'");
+	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+	return is_array($row);
+}
 
-function postQuestion($name,$email,$topic,$content){
+function getQuestionRow($id){
+	$con = connectDB();
+	$tbl_question = $GLOBALS['tbl_question'];
+	$result = mysqli_query($con,"SELECT * FROM $tbl_question WHERE id = '$id'");
+	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+	return $row;
+}
+
+function postQuestion($type,$name,$email,$topic,$content,$id=NULL){
 	$error = "";
 	$valid = true;
 		
@@ -48,10 +63,17 @@ function postQuestion($name,$email,$topic,$content){
 	if($valid){
 		$con = connectDB();
 		$tbl_question = $GLOBALS['tbl_question'];
-		$stmt = $con->prepare("INSERT INTO $tbl_question(name,email,topic,content,create_date,update_date) VALUES (?,?,?,?,NOW(),NOW())");
-		$stmt->bind_param('ssss',$name,$email,$topic,$content);
-		$stmt->execute();
-		$stmt->close();
+		if(strcmp("insert",$type) == 0){//insert
+			$stmt = $con->prepare("INSERT INTO $tbl_question(name,email,topic,content,create_date,update_date) VALUES (?,?,?,?,NOW(),NOW())");
+			$stmt->bind_param('ssss',$name,$email,$topic,$content);
+			$stmt->execute();
+			$stmt->close();
+		} else if(strcmp("update",$type) == 0) {//update
+			$stmt = $con->prepare("UPDATE $tbl_question SET name=?,email=?,topic=?,content=?,update_date=NOW() WHERE id=?");
+			$stmt->bind_param('ssssd',$name,$email,$topic,$content,$id);
+			$stmt->execute();
+			$stmt->close();
+		}
 	}
 	return $error;
 }
