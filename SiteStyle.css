@@ -60,3 +60,13 @@ input[type="submit"]{
 .footer{
 	text-align: right;
 }
+
+.answerContainer{
+	border-bottom-style: solid;
+	margin-bottom:5px;
+}
+
+.answerFormContainer h2 {
+	color: DarkGray;
+	border-bottom-style: none;
+}

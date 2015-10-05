@@ -25,12 +25,27 @@
 		<div class="votediv">VOTECELL NOT IMPLEMENTED</div><!--//TODO buat vote cell-->
 		<div class="postdiv">
 		<p><?php echo $row["Content"]?></p>
-		<div class = "footer qfooter"> asked by <?php echo $row["Email"];?> at <?php echo $row["created_at"] ?> </div>";
+		<div class = "footer qfooter"> asked by <?php echo $row["Email"];?> at <?php echo $row["created_at"] ?> </div>"; <!--//TODO edit dan delete-->
 		</div>
 		</div>
-		<h2> NUMNOTIMPLEMENTED Answers</h2>
-		<p> answer display not implemented </p> <!--TODO implementasi -->
-		<div class="answerContainer">
+		<div class = "answerpart">
+		<?php 
+			$answers=getAnswers($qid);
+			echo "<h2>".count($answers)." Answers</h2>";
+			for ($i=0;$i<count($answers);$i++){
+				echo "
+					<div class='answerContainer'>
+					<div class='votediv'>VOTECELL NOT IMPLEMENTED</div>
+					<div class='postdiv'>
+					<p>".$answers[$i]["Content"]."</p>
+					<div class = 'footer afooter'> answered by ".$answers[$i]["Email"]." at ".$answers[$i]["created_at"]."</div>
+					</div>
+					</div>
+				";
+			}				
+		?>
+		</div>
+		<div class="answerFormContainer">
 			<h2>Your Answer</h2>
 			<form action="submitAnswer.php" method="post">
 				<input type="hidden" name="qid" value="<?php echo $qid;?>">

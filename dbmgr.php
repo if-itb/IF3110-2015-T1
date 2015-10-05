@@ -139,4 +139,39 @@ function submitAnswer($qid,$Name,$Email,$Content){
 	return 1;
 }
 
+//returns array of rows of answers
+function getAnswers($qid){
+	//check whether $qid exists
+	if (getQuestion($qid)==NULL){
+		return 0;
+	}
+		
+	//inserts
+	global $servername,$username,$password,$dbname;
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		echo "<p> connection error:". mysqli_connect_error ( void )."</p>";
+		return NULL;
+	}
+
+	$sql = "SELECT * FROM Answer WHERE qid=$qid";
+
+	$result = $conn->query($sql);
+	
+	$retval = array();
+
+	if ($result->num_rows > 0) {
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+			$retval[]=$row;
+	    	}
+	} else {
+		return NULL;
+	}
+
+	return $retval;
+}
+
 ?>
