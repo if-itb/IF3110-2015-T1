@@ -1,0 +1,30 @@
+h1 {
+	font-family:"batang";
+	text-align:center;
+}
+
+h2 {
+	border-bottom:solid;
+	position:relative;
+	left:25%;
+	width: 50%;
+	font-family:"batang";
+}
+
+div.formpos{
+	position: relative;
+	left : 25%;
+}
+
+input.form-textfield{
+	width: 50%;
+	border: 2px solid black;
+	margin : 5px;
+}
+
+textarea.form-textarea{
+	width:50%;
+	height: 200px;
+	border : 2px solid black;
+	margin: 5px;
+}
