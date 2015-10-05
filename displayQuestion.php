@@ -7,11 +7,11 @@
 		<?php
 			$qid=$_GET["qid"];
 			if (!isset($qid) || !is_numeric($qid)){
-				echo '<p>Goblok lu</p>'; //TODO ganti error message yang serius
+				echo '<h2>Something is wrong</h2>';
 				exit();
 			}
 			if ($qid<1){
-				echo '<p>Goblok lu</p>';//TODO ganti error message yang serius
+				echo '<h2>Something is wrong</h2>';
 				exit();
 			}
 			
@@ -28,7 +28,27 @@
 		<div class = "footer qfooter"> asked by <?php echo $row["Email"];?> at <?php echo $row["created_at"] ?> </div>";
 		</div>
 		</div>
-		<h2> ANSWER PART NOT IMPLEMENTED</h2>
+		<h2> NUMNOTIMPLEMENTED Answers</h2>
+		<p> answer display not implemented </p> <!--TODO implementasi -->
+		<div class="answerContainer">
+			<h2>Your Answer</h2>
+			<form action="submitAnswer.php" method="post">
+				<input type="hidden" name="qid" value="<?php echo $qid;?>">
+				<div class="answer-form-input">
+					<input type="text" name="Name" placeholder="Name" class = "requiredInput">
+				</div>
+				<div class="answer-form-input">
+					<input type="text" name="Email" placeholder="Email"  class = "requiredInput emailInput">
+				</div>
+				<div class="answer-form-input">
+					<textarea name="Content" placeholder="Content" class = "requiredInput"></textarea>
+				</div>
+				<div class="answer-form-input">
+					<script src="formValidate.js"></script>
+					<input type="submit" value="Post" onclick="return validateForm()" action="submitAnswer.php">
+				</div>
+			</form>
+		</div>
 	</body>
 </html>
 

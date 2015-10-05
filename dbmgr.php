@@ -106,4 +106,37 @@ function deleteQuestion(){
 
 }
 
+//returns aid
+//inserts answer
+function submitAnswer($qid,$Name,$Email,$Content){
+	//check whether $qid exists
+	if (getQuestion($qid)==NULL){
+		return 0;
+	}
+		
+	//inserts
+	global $servername,$username,$password,$dbname;
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		echo "<p> connection error:". mysqli_connect_error ( void )."</p>";
+		return 0;
+	}
+
+	$sql = "INSERT INTO Answer (qid,AuthorName, Email, Content)
+	VALUES ('$qid', '$Name', '$Email', '$Content')";
+
+	if ($conn->query($sql) === TRUE) {
+		echo "<p>New record created successfully</p>";
+		return $conn->insert_id;
+	} else {
+		echo "<p>Error: " . $sql . "<br>" . $conn->error . "</p>";
+		return 0;
+	}
+
+	
+	return 1;
+}
+
 ?>
