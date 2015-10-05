@@ -152,7 +152,7 @@ function executeFunction(&$resolve, &$controller){
 
 	if (method_exists($controller['instance'] , $resolve['function'])) {
 
-		$executionStatus = call_user_func(
+		$executionStatus = call_user_func_array(
 			array($controller['instance'], $resolve['function']),
 			$resolve['arguments']
 		);
