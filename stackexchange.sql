@@ -70,7 +70,7 @@ CREATE TABLE `question` (
   `date_created` datetime NOT NULL,
   `date_edited` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -79,6 +79,7 @@ CREATE TABLE `question` (
 
 LOCK TABLES `question` WRITE;
 /*!40000 ALTER TABLE `question` DISABLE KEYS */;
+INSERT INTO `question` VALUES (1,'tifa','tifayu@gmail.com','kucing terbang','kucing itu lucu banget deh ga ngerti lagi',0,'2015-06-02 00:01:01','2015-02-03 03:03:02'),(2,'miaw','nyanko@gmail.com','kucing tifa?','quinsy dan bruno kakak beradik',0,'2015-06-02 00:01:01','2015-02-03 03:03:02');
 /*!40000 ALTER TABLE `question` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -91,4 +92,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-10-04  2:04:12
+-- Dump completed on 2015-10-04 22:43:33
