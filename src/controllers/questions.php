@@ -14,4 +14,10 @@ class Questions extends Controller {
 
 	}
 
+	public function search() {
+
+		var_dump($_GET);
+
+	}
+
 }

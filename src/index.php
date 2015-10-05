@@ -56,7 +56,7 @@ function bootstrap(){
 
 function getArrayURL(){
 
-	$uri = $_SERVER['REQUEST_URI'];
+	$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 	$uriArray = explode('/', $uri);
 
 	array_shift($uriArray);
