@@ -2,12 +2,16 @@ h1 {
 	padding: 10px;
 	text-align: center;
 	padding-bottom: 30px;
+	font-size: 250%;
 
 }
 
 h2 {
-	padding-left: 80px;
+	padding-left: 6%;
+	padding-right: 6%;
 	padding-bottom: 0px;
+	font-size: 180%;
+	margin: 0;
 }
 
 h3 {
@@ -17,26 +21,33 @@ h3 {
 
 }
 
+h4 {
+	padding-left: 6%;
+	padding-right: 6%;
+	font-size: 180%;
+	color: #b2b2b2;
+	margin: 0;
+}
+
 div {
-	margin-right: 80px;
-	margin-left: 80px;
+	margin-right: 6%;
+	margin-left: 6%;
 }
 
 hr {
-	margin-left: 80px;
-	margin-right: 80px;
-	padding-left: 30px;
+	margin-left: 6%;
+	margin-right: 6%;
 }
 
 form {
-	margin-left: 80px;
-	margin-right: 80px;
+	margin-left: 6%;
+	margin-right: 6%;
 }
 
 input {
 	margin-top: 5px;
 	height: 30px;
-	width: 1180px;
+	width: 99%;
 	font-family: arial;
 	font-size: 12px;
 	padding: 5px;
@@ -45,30 +56,92 @@ input {
 textarea{
 	margin-top: 5px;
 	padding: 5px;
-	width: 1180px;
+	width: 99%;
 	font-family: arial;
 	font-size: 12px;
 }
 
 button {
-	font-size: 14px;
-	padding:5px;
+	font-size: 90%;
+	padding:0.5%;
 	font-weight: bold;
-	text-align: right;
-	margin-left: 1140px;
+	text-align: center;
+	margin-left: 92%;
 	margin-top: 10px;
+	width: 8%
 }
 
 .search {
-	margin-left: 120px;
-	width: 800px;
+	margin-left: 10%;
+	width: 70%;
 }
 
 .buttonsearch {
-	margin: 0px;
-	font-size: 16px;
-	padding: 6px;
-	width: 100px;
+	margin: 0;
+	font-size: 90%;
+	padding: 0.5%;
+	width: 12%;
 	text-align: center;
 
+}
+
+.ask {
+	color: orange;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+table {
+	margin-left: 6%;
+	margin-right: 6%;
+	width: 88%;
+}
+
+.vote {
+	width: 5%;
+	font-size: 25px;
+	text-align: center;
+}
+
+.topic {
+	padding-left: 50px;
+	width: 50%;
+	font-size: 20px;
+}
+
+.askedby {
+	font-size: 16px;
+	text-align: right;
+	width: 40%;
+}
+
+.vote1 {
+	font-size: 15px;
+	text-align: center;
+}
+
+.user {
+	color: blue;
+}
+
+.time {
+	color: blue;
+}
+
+.edit {
+	color: orange;
+}
+
+.delete {
+	color: red;
+}
+
+.total {
+	width: 5%;
+	text-align: center;
+	font-size: 100%
+}
+
+.qacontent {
+	width: 90%;
 }
