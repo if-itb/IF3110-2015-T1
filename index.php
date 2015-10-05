@@ -52,6 +52,7 @@
 
         		}
 			} else {
+				echo "<hr>";
 			    echo "<p>". "0 results". "</p>";
 			}
 			$con->close();
