@@ -2,8 +2,80 @@
 
 body {
 	font-family: 'Open Sans';
+	padding: 0px 300px
 }
 
-#header {
-    text-align: center;
+.header {
+	text-align: center;
+}
+
+form {
+	margin:50px auto 0px;
+}
+
+input[type=search] {
+	padding: 7px 15px;
+	width: 600px;
+	background-color: #fafafa;
+	color: #207cca;
+	border: 3px solid #207cca;
+	border-radius: 3px;
+}
+
+input[type=submit] {
+	position: relative;
+	left: 6px;
+	padding: 6px 15px;
+	background-color: #fafafa;
+	color: #207cca;
+	border: 3px solid #207cca;
+	border-radius: 3px;
+}
+
+hr {
+
+	border: none;
+	height: 4px;
+	background-color: #207cca;
+}
+
+.purple {
+	color: purple;
+}
+
+.orange {
+	color: orange;
+	text-decoration: none;
+}
+
+.red {
+	color: red;
+	text-decoration: none;
+}
+
+.right {
+	float: right;
+}
+
+.question-list {
+	font-size: 80%;
+	margin-left: 20px;
+}
+.question-list p {
+	margin: 0px;
+}
+
+.question-topic {
+	padding-left: 140px;
+}
+
+.question-detail {
+	padding-left: 140px;
+	text-align: justify;
+}
+
+.stats td {
+	text-align: center;
+	font-weight: bold;
+	padding-right: 20px;
 }
