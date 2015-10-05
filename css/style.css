@@ -41,6 +41,38 @@ body{
 	margin-right: auto;
 	padding-top: 3em;
 }
+
+.popUp{
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+	text-align: center;
+	background-color: #333;
+	color: #fff;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+.popUp p{
+	margin : 0 0;
+	padding: 10px 0;
+}
+.error p{
+	color: #F41D4E;
+}
+.leftIcon{
+	display: table;
+	float: right;
+	padding-right: 5px;
+	color: #000;
+}
+.leftIcon i{
+	margin-top: 50%;
+	cursor: pointer;
+}
+.leftIcon i:hover{
+	color: #fff;
+}
+
 .containerAnswer{
 	width: 90%;
 	margin-left: auto;
@@ -48,7 +80,7 @@ body{
 
 #search{
 	display: table;
-	margin-top: 2em;
+	margin-top: 1.5em;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -206,6 +238,9 @@ body{
 	font-weight: 700;
 	font-size: 20px;
 	color: #B3B3B3;
+}
+.material-icons{
+	vertical-align: middle;
 }
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.md-24 { font-size: 24px; }

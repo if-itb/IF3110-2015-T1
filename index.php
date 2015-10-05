@@ -1,9 +1,11 @@
 <?php include("header.php"); ?>
 
+		<?php include("checkRequest.php"); ?>
+
 		<div id="search">
 			<form>
 				<input class="textForm" type="text" name="search" />
-				<input class="submitButton" type="submit" placeholder="Search" />
+				<input class="submitButton" type="submit" value="Search" />
 			</form>
 		</div>
 		<p class="midText">Cannot find what you are looking for? <a class="submitButton" href="askhere.php" >Ask Here</a></p>

@@ -3,7 +3,7 @@
 		<title>StackExchange</title>
 
 		<link href="css/style.css" rel="stylesheet">
-		<!-- Link berikut merupakan import library icon -->
+		<!-- Link berikut hanya merupakan import library icon -->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 	</head>
