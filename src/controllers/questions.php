@@ -8,6 +8,8 @@ class Questions extends Controller {
 
 	public function index() {
 
+		// list
+
 		$this->load->view("template/header");
 		$this->load->view("main");
 		$this->load->view("template/footer");
@@ -17,6 +19,12 @@ class Questions extends Controller {
 	public function search() {
 
 		var_dump($_GET);
+
+	}
+
+	public function ask() {
+
+		
 
 	}
 
