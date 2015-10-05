@@ -16,4 +16,43 @@ function connectDB(){
 	}
 	return $con;
 }
+
+
+function postQuestion($name,$email,$topic,$content){
+	$error = "";
+	$valid = true;
+		
+	//name
+	if (!(strlen($name)>0)) {
+		$error.="Nama tidak boleh kosong</br>";
+		$valid = false;
+	}
+	//email
+	if (!(strlen($email)>0)) {
+		$error.="Email tidak boleh kosong</br>";
+		$valid = false;
+	} else {
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			$error.="Format email salah</br>";
+			$valid = false;
+		}
+	}
+	if (!(strlen($topic)>0)) {
+		$error.="Topic tidak boleh kosong</br>";
+		$valid = false;
+	}
+	if (!(strlen($content)>0)) {
+		$error.="Content tidak boleh kosong</br>";
+		$valid = false;
+	}
+	if($valid){
+		$con = connectDB();
+		$tbl_question = $GLOBALS['tbl_question'];
+		$stmt = $con->prepare("INSERT INTO $tbl_question(name,email,topic,content,create_date,update_date) VALUES (?,?,?,?,NOW(),NOW())");
+		$stmt->bind_param('ssss',$name,$email,$topic,$content);
+		$stmt->execute();
+		$stmt->close();
+	}
+	return $error;
+}
 ?>
