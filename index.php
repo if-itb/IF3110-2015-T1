@@ -2,7 +2,6 @@
 <head>
     <link rel ="stylesheet" type="text/css" href="Index.css">
     <title>Simple StackExchange</title>
-
 </head>
 
 <body>
@@ -23,7 +22,6 @@
             $database = 'stackex';
             mysql_connect('localhost', $username, $password);
             @mysql_select_db($database) or die("Unable to Select Database");
-
             $query = "SELECT * FROM questions";
             $result = mysql_query($query);
             $num = mysql_num_rows($result);
@@ -37,10 +35,21 @@
                 $s_query = "SELECT * FROM answers WHERE A_ID = $id";
                 $s_result = mysql_query($s_query);
                 $num_answers = mysql_num_rows($s_result);
-                echo "<div class = 'questions'>";
-                    echo"<div class = 'topic'>$topic</div>";
-                    echo"<span class = 'vote'>$vote<br>Votes</span>";
-                    echo"<span class = 'answer'>$num_answers<br>Answers</span>";
+                echo "<div class = 'q_or_a'>";
+                    echo"<div class = 'left'>";
+                        echo"<span class = 'vote'>$vote<br>Votes</span>";
+                        echo"<span class = 'answer'>$num_answers<br>Answers</span>";
+                    echo"</div>";
+                    echo"<div class = 'mid'>";
+                        echo"<a class = 'topic' href='Question.php?id=$id'>$topic<br></a>";
+                        echo"<div class = 'q_content'>";
+                        if(strlen($content)>100){
+                            echo substr($content,0,97).'...';
+                        }
+                        else{
+                            echo $content;
+                        }
+                    echo"</div></div>";
                     echo"<div class = 'details'>Asked by <span class = 'b_link'>$author </span>|<span class = 'y_link'> edit </span>| <span class = 'r_link'>delete</span><br></div>";
                 echo "</div>";
                 $i++;
