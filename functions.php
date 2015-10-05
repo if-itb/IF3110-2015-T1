@@ -115,7 +115,7 @@ function postAnswer($name,$email,$content){
 	}
 	return $error;
 }
-
+ 
 function getVoteNumber($type,$id){	
 	$con = connectDB();
 	if(strcmp($type,'q') == 0){
