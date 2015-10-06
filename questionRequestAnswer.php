@@ -28,6 +28,7 @@
 			$echoQuestion = $answerDiv;
 			$echoQuestion = str_replace("{{id}}", $row["id"], $echoQuestion);
 			$echoQuestion = str_replace("{{name}}", $row["name"], $echoQuestion);
+			$echoQuestion = str_replace("{{email}}", $row["email"], $echoQuestion);
 			$echoQuestion = str_replace("{{content}}", $row["content"], $echoQuestion);
 			$echoQuestion = str_replace("{{vote}}", $row["vote"], $echoQuestion);
 			$echoQuestion = str_replace("{{date}}", $row["date"], $echoQuestion);

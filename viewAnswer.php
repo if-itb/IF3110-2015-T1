@@ -19,7 +19,7 @@
 	</div>
 	<div class="navPost2">
 		<p>
-			answered by {{name}} at {{date}}
+			answered by {{name}} <span>{{email}}</span> at {{date}}
 		</p>
 	</div>
 </div>'

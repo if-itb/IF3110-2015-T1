@@ -89,7 +89,30 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+####Validasi Pada client side
+
+1. Select setiap element form dengan mengacu pada 'name'
+2. Cek setiap elemen value
+	2.1 Jika elemen value kosong maka 'return false' sehingga submit di prevent
+	2.2 Jika elemen value benar
+		2.2.1 Jika elemen email memiliki sub-string '@' 'return false' sehingga submit di prevent
+		2.2.2 Jika elemen email valid 'return true'
+
+####AJAX
+
+1. Pastikan setiap tombol vote memiliki kelas 'vote'
+2. Untuk setiap kelas 'vote' tambahkan 'event listener' dimana ketika di 'click' memanggil fungsi 'sendRequest'
+3. Pada fungsi 'sendRequest' unakan method khusus yaitu 'XMLHttpRequest' dimana
+	#####Javascript
+	3.1 Buka koneksi ke sebuah url php dengan metode get dan menambahkan parsing variable berupa :
+		3.1.1 Kind : Jenis tombol apakah tombol untuk question atau answer
+		3.1.2 ID : Tombol tersebut dimiliki oleh question/answer dengan id yang mana
+		3.1.3 isUp : Apakah tombol tersebut merupakan tombol up/down (periksa dengan melihat isi kelasnya)
+	3.2 Jika koneksi berhasil dan server mengembalikan nilai 'success' ubah nilai pada id terkait ditambah 1/-1
+	#####Server PHP
+	3.3 Server menerima request GET dengan variable Kind,ID,isUp.
+	3.4 Buka koneksi ke MySQL dan lakukan UPDATE sesuai variable yang diterima
+	3.5 Kembalikan nilai success atau error dari UPDATE yang dilakukan
 
 ### Knowledge
 

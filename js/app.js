@@ -81,22 +81,11 @@
 		//answer
 
 	//answer
-		d
 		//name
 		//email
 		//content
 		//date
 		//vote
-		
-
-	CREATE TABLE questions(
-		id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-		name VARCHAR(30),
-		email VARCHAR(50),
-		topic VARCHAR(100),
-
-		content TEXT,
-	)
 
 
 

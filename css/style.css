@@ -246,6 +246,11 @@ body{
 .navPost2{
 	text-align: right;
 }
+.navPost span, .navPost2 span{
+	font-size: 12px;
+	color: #333;
+}
+
 .votesCount{
 	font-weight: 700;
 	font-size: 20px;
