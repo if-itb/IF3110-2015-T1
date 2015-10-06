@@ -37,7 +37,7 @@
 		</div>
 		<div class="answerform">
 		Your Answer
-			<form action="add_question.php" method="post">
+			<form action="add_answer.php" method="post">
 				<input type="text" name="Name" placeholder="Name" >
 				<input type="text" name="Email" placeholder="Email">
 				<textarea placeholder= "Content" name="message"  ></textarea>
