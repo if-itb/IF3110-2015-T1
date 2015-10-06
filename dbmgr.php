@@ -130,8 +130,24 @@ function getQuestions(){
 
 }
 
-function deleteQuestion(){
+//apabila berhasil return true
+//apabila gagal return false
+function deleteQuestion($qid){
+	global $servername,$username,$password,$dbname;
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		echo "<p> connection error:". mysqli_connect_error ( void )."</p>";
+		return NULL;
+	}
 
+	$sql = "DELETE FROM Question WHERE qid=$qid;";
+
+	$result = $conn->query($sql);
+	
+	return $result;
+	
 }
 
 //returns aid
