@@ -29,7 +29,7 @@
     <?php
         echo $question_row["vote"] . PHP_EOL;
         echo $question_row["content"] . PHP_EOL;
-        echo "asked by " . $question_row["name"] . " at " . $question_row["time"] . " | edit | delete" . PHP_EOL;
+        echo "asked by " . $question_row["name"] . " at " . $question_row["time"] . " | <a href=ask.php?id=".$question_row["id"].">edit</a> | delete" . PHP_EOL;
 
         $query = "SELECT * FROM answer WHERE id_question='". $question_row["id"] . "'";
         $answer_result = $mysqli->query($query);

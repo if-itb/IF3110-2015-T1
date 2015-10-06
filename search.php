@@ -14,7 +14,7 @@
             $answer->close();
             echo "<a href=question.php?id=". $row["id"] . ">". $row["topic"] ."</a>";
             echo "<p>". $row["content"] . "</p>";
-            echo "asked by " . $row["name"] . " | edit | delete";
+            echo "asked by " . $row["name"] . " | <a href=ask.php?id='.$row["id"].'>edit</a> | delete";
         }
         echo "<hr>";
     }

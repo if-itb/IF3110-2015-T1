@@ -7,9 +7,16 @@
         $email = $_POST["email"];
         $topic = $_POST["topic"];
         $content = $_POST["content"];
-        $query = "INSERT INTO question (name, email, topic, content) VALUES ('$name', '$email', '$topic', '$content')";
+        if (empty($_POST["id"])) {
+            $query = "INSERT INTO question (name, email, topic, content) VALUES ('$name', '$email', '$topic', '$content')";
+            $id = $mysqli->insert_id;
+        }
+        else {
+            $id = $mysqli->real_escape_string($_POST["id"]);
+            $query = "UPDATE question SET name='$name', email='$email', topic='$topic', content='$content' WHERE id='$id'";
+        }
         $result = $mysqli->query($query);
-        header("Location: question.php?id=". mysqli_insert_id($mysqli));
+        header("Location: question.php?id=". $id);
         $mysqli->close();
         die();
     ?>
@@ -21,11 +28,27 @@
     </div>
     <div class="ask_body">
         <form action="ask.php" method="post">
-            <input type="text" name="name" placeholder="Name" autofocus>
-            <input type="email" name="email" placeholder="Email">
-            <input type="text" name="topic" placeholder="Topic">
-            <input type="text" name="content" placeholder="Content">
-            <input type="submit" value="Ask">
+            <?php
+                $name = ""; $email = ""; $topic = ""; $content = "";
+                if (!empty($_GET["id"])) {
+                    $mysqli = new mysqli("localhost", "root", "", "exchangelyz");
+                    $id = $mysqli->real_escape_string($_GET["id"]);
+                    $query = "SELECT * FROM question WHERE id='$id'";
+                    $result = $mysqli->query($query);
+                    if ($row = $result->fetch_assoc()) {
+                        $name = $row["name"];
+                        $email = $row["email"];
+                        $topic = $row["topic"];
+                        $content = $row["content"];
+                        echo '<input type="hidden" name="id" value="'.$row["id"].'">';
+                    }
+                }
+                echo '<input type="text" name="name" placeholder="Name" autofocus value="'.$name.'">';
+                echo '<input type="email" name="email" placeholder="Email" value="'.$email.'">';
+                echo '<input type="text" name="topic" placeholder="Topic" value="'.$topic.'">';
+                echo '<input type="text" name="content" placeholder="Content" value="'.$content.'">';
+                echo '<input type="submit" value="Post">';
+            ?>
         </form>
     </div>
     </body>
