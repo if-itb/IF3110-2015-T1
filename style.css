@@ -40,3 +40,7 @@ textarea{
 	width: 93%;
 	resize :none;
 }
+.SubTitle{
+	width:100%;
+	border-bottom: 2px solid;
+}
