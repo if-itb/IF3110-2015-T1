@@ -5,6 +5,8 @@
 	
 </head>
 <body>
+	<?php include("DB_connection.php"); ?>
+	
 	<div class="container">
 		<h1>Simple StackExchange</h1>
 		<h2>What's your question?</h2>
