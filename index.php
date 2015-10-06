@@ -9,11 +9,17 @@
 <div class="container">
 
 	<h1>Simple StackExchange</h1>
-		<form action="">
-			<input id="search-box" type="text" name="searchbox">
-			<input id type="submit" value="Search">
+		<form class="search-box" action="">
+			<input  type="text" name="searchbox">
+			<input  type="submit" value="Search">
 		</form>
-		Canot find what you are looking for? <a href="#">Ask here</a>
+		<div class="center" >
+		Canot find what you are looking for? <a href="AskHere.php">Ask here</a>
+		</div>
+		<br>
+		<br>
+		Recently Asked Questions
+		<?php include('AskedQuestion.php');?>
 </div>
 </body>
 </html>
