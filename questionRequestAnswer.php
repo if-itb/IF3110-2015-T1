@@ -20,7 +20,7 @@
 
 	echo '<h1 class="tag">'.$countA['total'].' Answer</h1>';
 
-	$sql = "SELECT * FROM Answers WHERE qID=".$idGET;
+	$sql = "SELECT * FROM Answers WHERE qID=".$idGET." ORDER BY vote DESC";
 	$result = $conn->query($sql);
 
 	if($result->num_rows > 0){

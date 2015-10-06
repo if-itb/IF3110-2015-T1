@@ -3,13 +3,13 @@
 		<h1 class="tag">{{topic}}</h1>
 		<div class="innerContent fQuestion">
 			<div class="col votesCount">
-				<div id="upQuestion{{id}}">
+				<div class="up vote" id="upQuestion{{id}}">
 					<i class="material-icons md-48">arrow_drop_up</i>
 				</div>
 				<div id="questionVote{{id}}">
 					{{vote}}
 				</div>
-				<div id="downQuestion{{id}}">
+				<div class="down vote" id="downQuestion{{id}}">
 					<i class="material-icons md-48">arrow_drop_down</i>
 				</div>
 			</div>

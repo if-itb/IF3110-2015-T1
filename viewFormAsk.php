@@ -1,5 +1,5 @@
 <?php
-	$viewFormAsk = '<form class="form makeQuestion" method="post" action="index.php{{isEdit}}">
+	$viewFormAsk = '<form onsubmit="return validasi(this);" class="form makeQuestion" method="post" action="index.php{{isEdit}}">
 			<div class="innerForm">
 				<input class="textForm" type="text" placeholder="Name" name="name" {{valName}}>
 			</div>

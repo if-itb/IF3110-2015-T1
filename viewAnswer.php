@@ -1,14 +1,14 @@
 <?php 
 	$answerDiv = '
-<div id="{{id}}" class="innerContent fAnswer">
+<div id="answer{{id}}" class="innerContent fAnswer">
 	<div class="col votesCount">
-		<div id="upAnswer{{id}}">
+		<div class="up vote" id="upAnswer{{id}}">
 			<i class="material-icons md-48">arrow_drop_up</i>
 		</div>
 		<div id="answerVote{{id}}">
 			{{vote}}
 		</div>
-		<div id="downAnswer{{id}}">
+		<div class="down vote" id="downAnswer{{id}}">
 			<i class="material-icons md-48">arrow_drop_down</i>
 		</div>
 	</div>

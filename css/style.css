@@ -208,6 +208,11 @@ body{
 .col{
 	float: left;
 }
+
+.vote:hover i,.vote:focus i{
+	color: #333;
+	cursor: pointer;
+}
 .countVotes, .countAnswers{
 	margin-top:30px;
 }
