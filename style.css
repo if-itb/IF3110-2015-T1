@@ -1,0 +1,45 @@
+.header{
+	margin-bottom:75px;
+}
+
+.header p { 
+	text-align: center;
+	font-size: 250%;
+}
+
+.main {
+	
+	margin-right : 400px;
+	margin-left : 400px;
+}
+
+.main p { 
+	border-bottom: 3px solid black ;
+	font-size: 220%;
+	
+}
+.main .form {
+	padding-left:10px;
+	padding-right:10px;
+}
+
+.main .form input{
+    margin-bottom: 0.5%;
+	width:100%;
+	height:100%;
+	border: 1px solid black ;
+	
+}
+
+.main .form input[type=submit]{
+	width:auto;
+	float:right;
+	
+}
+
+.main .form textarea{
+	resize:none;
+	width:99.5%;
+	height:100px;
+	border: 1px solid black ;
+}
