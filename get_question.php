@@ -8,13 +8,13 @@
     }
 
     // query from database
-    if ($result = $mysqli->query("SELECT * FROM question ORDER BY vote DESC LIMIT 10")) {
+    if ($result = $mysqli->query("SELECT * FROM question ORDER BY time DESC LIMIT 10")) {
         while ($row = $result->fetch_assoc()) {
             $id_question = $row["id"];
             $answer = $mysqli->query("SELECT id FROM answer WHERE id_question=$id_question");
-            echo $row["vote"] . " votes " . $answer->num_rows . " answers";
+            echo $row["vote"] . " votes " . $answer->num_rows . " answers" . PHP_EOL;
             $answer->close();
-            echo "<h3>". $row["topic"] ."</h3>";
+            echo "<a href=question.php?id=". $row["id"] . ">". $row["topic"] ."</a>";
             echo "<p>". $row["content"] . "</p>";
             echo "asked by " . $row["name"] . " | edit | delete";
             echo "<hr>";

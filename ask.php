@@ -10,6 +10,7 @@
         $query = "INSERT INTO question (name, email, topic, content) VALUES ('$name', '$email', '$topic', '$content')";
         $result = $mysqli->query($query);
         header("Location: question.php?id=". mysqli_insert_id($mysqli));
+        $mysqli->close();
         die();
     ?>
 <?php else: ?>
