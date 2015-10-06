@@ -32,7 +32,7 @@ include("init_thread.php")
 				<div class="list-content">
 					<div id="questioncontent"><?php echo $question['q_content']; ?></div>
 					<div id="options" class="content-footer">
-						asked by <span class="user-question"><?php echo $question['q_name']; ?></span> at <?php echo $question['q_datetime']; ?> | <a href="#" class="edit-question">edit</a> | <a href="#" class="delete-question">delete</a></div>
+						asked by <span class="user-question"><?php echo $question['q_name']; ?></span> at <?php echo $question['q_datetime']; ?> | <a href="#" class="edit-question">edit</a> | <a href="delete_question.php?id=<?php echo $question['q_id']; ?>" class="delete-question">delete</a></div>
 				</div>
 			</div>	
 		</div>

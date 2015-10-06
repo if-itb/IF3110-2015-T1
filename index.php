@@ -47,7 +47,7 @@ include("setup_post.php");
 					<div id="options">asked by 
 						<span class="user-question">
 							<?php echo $question['q_name'] ?>
-						</span> | <a href="#" class="edit-question">edit</a> | <a href="#" class="delete-question">delete</a></div>
+						</span> | <a href="#" class="edit-question">edit</a> | <a href="delete_question.php?id=<?php echo $question['q_id']; ?>" class="delete-question">delete</a></div>
 				</div>
 			</div>
 
