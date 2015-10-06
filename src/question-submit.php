@@ -20,25 +20,20 @@
 		}
 	?>
 	<head>
-		<title>Simple StackExchange</title>
+		<title>Question Submit</title>
 	</head>
 	
 	<body>
-		<h1>Simple StackExchange</h1>
-		<p>Cannot find what you are looking for? <a href="question-form.php"> Ask here.</a></p>
-		
 		<?php
-			$sql = "SELECT id, topic, votes, answers, name FROM " . $tablename;
-			$result = mysqli_query($link, $sql);
+			$sql = "INSERT INTO " . $tablename . " (name, email, topic, content) VALUES (" . "'" . $_POST["name"] . "', '" . $_POST["email"] . "', '" . $_POST["topic"] . "', '" . $_POST["content"] . "')";
 			
-			if (mysqli_num_rows($result) > 0) {
-				// output data of each row
-				while ($row = mysqli_fetch_assoc($result)) {
-					echo $row["id"] . $row["topic"] . $row["votes"] . $row["answers"] . "<br>";
-				}
+			if (mysqli_query($link, $sql)) {
+				echo "New question created successfully";
+				header("Location: index.php");
+				exit;
 			}
 			else {
-				echo "Empty";
+				echo "Error: " . $sql . "<br>" . mysqli_error($link);
 			}
 		?>
 	</body>
