@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>AskHere</title>
-	
+	<link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<?php include("DB_connection.php"); ?>
@@ -12,7 +12,7 @@
 		<h2>What's your question?</h2>
 		<hr>
 		<div class="questionform">
-			<form action="" method="post">
+			<form action="add_question.php" method="post">
 				<input type="text" name="Name" placeholder="Name" >
 				<input type="text" name="Email" placeholder="Email">
 				<input type="text" name="QuestionTopic" placeholder="Question Topic">
