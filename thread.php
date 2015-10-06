@@ -15,10 +15,11 @@ include("init_thread.php")
 
 <div class="container">
 	<div id="header">
-		<h1>Simple StackExchange</h1>
+		<a href="index.php"><h1>Simple StackExchange</h1></a>
 	</div>
 
 	<div class="main">
+
 		<div class="wrapper" id="the-question">
 			<div class="content-header">
 				<h2><?php echo $question['q_topic']; ?></h2>
@@ -30,9 +31,9 @@ include("init_thread.php")
 					<img src="img/down.png">
 				</div>
 				<div class="list-content">
-					<div id="questioncontent"><?php echo $question['q_content']; ?></div>
-					<div id="options" class="content-footer">
-						asked by <span class="user-question"><?php echo $question['q_name']; ?></span> at <?php echo $question['q_datetime']; ?> | <a href="#" class="edit-question">edit</a> | <a href="delete_question.php?id=<?php echo $question['q_id']; ?>" class="delete-question">delete</a></div>
+					<div class="thread-content"><?php echo "<p>".$question['q_content']."</p>"; ?></div>
+					<div class="content-footer">
+						asked by <span class="user-question"><?php echo $question['q_name']." (".$question['q_email'].")"; ?></span> at <?php echo $question['q_datetime']; ?> | <a href="ask.php?req=edit&id=<?php echo $question['q_id']; ?>" class="edit-question">edit</a> | <a href="delete_question.php?id=<?php echo $question['q_id']; ?>" class="delete-question" onclick="return confirm('Delete this question?')">delete</a></div>
 				</div>
 			</div>	
 		</div>
@@ -47,12 +48,12 @@ include("init_thread.php")
 			<div class="child-content">
 				<div class="sidebar">
 					<img src="img/up.png"><br>
-					<?php echo $answer['a_vote']; ?><br>
+					<div class="vote"><?php echo $answer['a_vote']; ?></div><br>
 					<img src="img/down.png">
 				</div>
 				<div class="list-content">
-					<div id="questioncontent"><?php echo $answer['a_content']; ?></div>
-					<div id="options" class="content-footer">
+					<div class="thread-content"><?php echo "<p>".$answer['a_content']."</p>"; ?></div>
+					<div class="content-footer">
 						answered by <span class="user-question"><?php echo $answer['a_name']; ?></span> at <?php echo $answer['a_datetime']; ?>
 					</div>
 				</div>
@@ -75,6 +76,7 @@ include("init_thread.php")
 				</form>
 			</div>
 		</div>
+
 	</div>
 	
 </div>

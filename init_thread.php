@@ -14,13 +14,12 @@ if ($id) {
 	$result = mysqli_query($dbcon, $a_query);
 	$answers = array();
 	if ($result) {
-		while ($rows = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+		while ($rows = mysqli_fetch_array($result, MYSQLI_ASSOC))
 			$answers[] = $rows;
-		}
 	}
 
 } else {
-	header("index.php");
+	header("Location: index.php");
 	die();
 }
 

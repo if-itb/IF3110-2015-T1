@@ -9,7 +9,7 @@ if (isset($_POST['post'])) {
 	$qid = $_POST['qid'];
 	$name = mysqli_real_escape_string($dbcon, $_POST['name']);
 	$email = mysqli_real_escape_string($dbcon, $_POST['email']);
-	$content = $_POST['content'];
+	$content = mysqli_real_escape_string($dbcon, $_POST['content']);
 
 	// insert the information into database
 	$post_query .= "('".$name."', '".$email."', '".$qid."', '".$content."')";

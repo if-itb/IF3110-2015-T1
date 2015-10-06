@@ -17,11 +17,14 @@ a {
 
 .content-header {
 	text-align: left;
+	padding-top: 10px;
 }
 
 .content-footer {
 	padding-top: 10px;
-	font-size: 15px;
+	font-size: 10px;
+	position: relative;
+	text-align: right;
 }
 
 #answer-form h2 {
@@ -64,14 +67,18 @@ div {
 	/*border: solid 1px;*/
 }
 
-#questioncontent {
+.thread-content {
 	text-align: left;
-	float: left;
+	position: relative;
 }
 
-#options {
-	text-align: right;
-	clear: left;
+.question-title, .question-preview {
+	position: relative;
+	text-align: left;
+}
+
+.question-preview {
+	font-size: 12px;
 }
 
 .list-content {
@@ -85,6 +92,7 @@ input, textarea {
 	margin-top: 10px;
 	padding: 5px 5px 5px 5px;
 	font-family: Verdana;
+	border: solid 1px;
 }
 
 textarea {
@@ -127,13 +135,13 @@ textarea {
 
 #the-question .sidebar,
 #the-answers .sidebar {
-	width: 10%;
+	width: 8%;
 	font-size: 25px;
 }
 
 #the-question .list-content,
 #the-answers .list-content {
-	width: 84%;
+	width: 86%;
 }
 
 .sidebar img {

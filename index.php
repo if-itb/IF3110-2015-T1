@@ -15,7 +15,7 @@ include("setup_post.php");
 
 <div class="container">
 	<div id="header">
-		<h1>Simple StackExchange</h1>
+		<a href="index.php"><h1>Simple StackExchange</h1></a>
 	</div>
 
 	<!-- das searchbox -->
@@ -26,7 +26,7 @@ include("setup_post.php");
 				<input type="submit" id="searchbutton" value="Search" name="search">
 			</form>
 
-			<p>Cannot find what you are looking for? <a href="ask.php">Ask here</a></p>
+			<p>Cannot find what you are looking for? <a href="ask.php?req=new">Ask here</a></p>
 		</div>
 		
 		<div class="wrapper" id="list-questions">
@@ -43,11 +43,13 @@ include("setup_post.php");
 				</div>
 
 				<div class="list-content">
-					<div id="questioncontent"><a href="thread.php?id=<?php echo $question['q_id']; ?>"><?php echo $question['q_topic'] ?></a></div>
-					<div id="options">asked by 
+					<div class="question-title"><a href="thread.php?id=<?php echo $question['q_id']; ?>"><?php echo $question['q_topic'] ?></a></div>
+					<div class="question-preview"><?php echo $question['q_content'] . " ..."; ?></div>
+					<div class="content-footer">asked by 
 						<span class="user-question">
 							<?php echo $question['q_name'] ?>
-						</span> | <a href="#" class="edit-question">edit</a> | <a href="delete_question.php?id=<?php echo $question['q_id']; ?>" class="delete-question">delete</a></div>
+						</span> | <a href="ask.php?req=edit&id=<?php echo $question['q_id']; ?>" class="edit-question">edit</a> | <a href="delete_question.php?id=<?php echo $question['q_id']; ?>" class="delete-question" onclick="return confirm('Delete this question?')">delete</a>
+					</div>
 				</div>
 			</div>
 
