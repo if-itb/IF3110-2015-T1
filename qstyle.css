@@ -1,0 +1,48 @@
+div {
+	font-family: Courier;
+	color: black;
+}
+
+#big {
+	font-size: 47px;
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 80px;
+}
+
+.medium {
+	left:50%;
+	margin-left: 250px;
+	font-size: 18px;
+	margin-top: 10px;
+	width: 800px;
+	border: 2px solid;
+	border-radius: 5px;
+	padding : 10px 10px 10px 10px;
+}
+
+#m1 {
+	padding-bottom: 2px;
+	margin-bottom: 40px;
+	font-size: 32px;
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-radius: 0%;
+}
+
+#content {
+	height: 100px;
+}
+
+#button {
+	position: relative;
+	left: 50%; 
+	margin-top: 20px;
+	margin-left: 370px; 
+	text-align: center;
+	width: 50px;
+	border: 2px solid;
+	border-radius: 5px;
+	padding : 7px 7px 7px 7px;
+}
