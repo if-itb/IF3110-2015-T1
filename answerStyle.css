@@ -1,8 +1,3 @@
-body {
-	margin-left: 50px;
-	margin-right: 50px;
-}
-
 h1 {
     text-align: center;
     font-family: Calibri;
@@ -15,6 +10,10 @@ h2 {
     margin-bottom: 0px;
 }
 
+input {
+   border: 2px solid #000; 
+}
+
 body {
     margin-left: 50px;
     margin-right: 50px;
@@ -23,6 +22,27 @@ body {
 hr {
     border: 1px solid #000;
     width: 100%;
+}
+
+table {
+    font-family: Calibri;
+    margin-top: 10px;
+    table-layout: fixed;
+    width: 100%;
+}
+
+td.number {
+    width: 50px;
+    text-align: center;
+    vertical-align: top;
+    font-size: 30px;
+}
+
+td.content {
+    vertical-align: top;
+    padding-top: 1%;
+    font-size: 20px;
+    width: 500px;
 }
 
 input {
@@ -36,7 +56,7 @@ input.text {
 }
 
 input.button {
-    margin-left: 96.7%;
+    margin-left: 96.3%;
 }
 
 textarea {

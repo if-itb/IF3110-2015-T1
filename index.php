@@ -25,7 +25,7 @@
 			if (mysqli_connect_errno()) {
 				echo "Failed to connect to MySQL: " . mysqli_connect_error();
 			}
-			$query = "SELECT username,topic,num_vote FROM question ORDER BY created_date DESC";
+			$query = "SELECT id_question, username,topic,content,num_vote FROM question ORDER BY created_date DESC";
 			$result = $con->query($query);
 
 			if ($result->num_rows > 0) {
@@ -33,20 +33,19 @@
 					echo "<hr>";
         			echo "<table>";
         			echo "<tr>";
-        			echo '<td class="number">'. "<b>". $row["num_vote"]. "</b>". "</td>";
-        			echo '<td class="number">'. "<b>". "0". "</b>". "</td>";
-        			echo '<td class="topic">'. $row["topic"]. "</td>";
-        			echo '<td class="empty">'. "</td>";
-        			echo '<td class="attribute">'. "</td>";
-        			echo '<td class="attribute">'. "</td>";
+        			echo '<td class="number" rowspan="2">'. "<b>". $row["num_vote"]. "<br>". "Votes". "</b>". "</td>";
+        			echo '<td class="number" rowspan="2">'. "<b>". "0". "<br>". "Votes". "</b>". "</td>";
+        			echo '<td class="topic">'. '<a href="show-answer.php?id='. $row["id_question"].'" style="text-decoration:none;">'. "<font color='black'>". $row["topic"]. "</font>". "</a>". "</td>";
         			echo "</tr>";
+
         			echo "<tr>";
-        			echo '<td class="text">'. "<b>". "Votes". "</b>". "</td>";
-        			echo '<td class="text">'. "<b>". "Answers". "</b>". "</td>";
-        			echo '<td class="text">'. "". "</td>";
-        			echo '<td class="username">'. "<b>". "asked by ". "<font color='purple'>".$row["username"]."</font>". "</td>";
-        			echo '<td class="edit">'.  "<b>". "<a href='edit-question.html' style='text-decoration:none;'>". "<font color='orange'>"."edit"."</font>". "</a>". "</b>". "</td>";
-        			echo '<td class="delete">'.  "<b>". "<font color='red'>"."delete"."</font>". "</b>". "</td>";
+        			echo '<td class="content">'. $row["content"]. "</td>";
+        			echo "</tr>";
+
+        			echo "<tr>";
+        			echo "<td colspan='3' style=text-align:right;>". "<b>". "asked by ". "<font color='purple'>".$row["username"]."</font>". " | ".
+        			"<a href='edit-question.html' style='text-decoration:none;'>". "<font color='orange'>"."edit"."</font>". "</a>". " | ".
+        			"<font color='red'>"."delete"."</font>". "</b>". "</td>";
         			echo "</tr>";
         			echo "</table>";
 

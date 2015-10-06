@@ -17,6 +17,10 @@ h3 {
     margin-bottom: 0px;
 }
 
+input {
+   border: 2px solid #000; 
+}
+
 body {
     margin-left: 50px;
     margin-right: 50px;
@@ -24,20 +28,21 @@ body {
 
 hr {
     border: 1px solid #000;
-    width: 99%;
+    width: 100%;
 }
 
 table {
     font-family: Calibri;
-    font-size: 18px;
+    font-size: 20px;
     margin-top: 10px;
     table-layout: fixed;
-    width: 99%;
+    width: 100%;
 }
 
 td.number {
     width: 50px;
     text-align: center;
+    vertical-align: top;
 }
 
 td.text {
@@ -45,12 +50,10 @@ td.text {
 }
 
 td.topic {
-    width: 300px;
-    overflow: hidden;
+    width: 310px;
 }
 
 td.username {
-    overflow: hidden;
     text-align: right;
     padding-right: 1%;
     border-style: solid;
@@ -78,6 +81,10 @@ td.delete {
     border-bottom-style: none;
     border-right-style: none;
     text-align: center;
+}
+
+td.content {
+    font-size: 16px;
 }
 
 p {
