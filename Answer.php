@@ -38,6 +38,39 @@
 			} else {
 				echo "0 results";
 			}
+			mysqli_close($conn);
+			
+		}
+		
+		function readAnswer($id_Question){
+			$servername = "localhost";
+			$username = "root";
+			$password = "";
+			$dbname = "stackexchange";
+			// Create connection
+			$conn = mysqli_connect($servername, $username, $password, $dbname);
+			// Check connection
+			if (!$conn) {
+				die("Connection failed: " . mysqli_connect_error());
+			}
+			$sql = "SELECT Content, Vote, Email, Date FROM answer WHERE ID_Question ='$id_Question' ORDER BY date";
+			$result = mysqli_query($conn, $sql);
+			if (mysqli_num_rows($result) > 0) {
+				// output data of each row
+				while($row = mysqli_fetch_assoc($result)) {
+				echo '<div class= "containerAnswer">';
+				echo '<div class= "resAnswer">';
+				echo "" . $row["Content"];
+				echo "</div>";
+				echo '<div class= "infoAnswer">';
+				echo " asked by " . $row["Email"]. " at " . $row["Date"];
+				echo "</div>";
+				echo "</div>";
+			}
+			} else {
+				echo "0 results";
+			}
+			mysqli_close($conn);
 			
 		}
 	?>
@@ -62,10 +95,10 @@
 				<h2>Answer</h2>
 				</div>
 				<div class="vote">
-				
+					1
 				</div>
 				<div class="content">
-				
+					<?php readAnswer(1);?>
 				</div>
 		</div>
 		<div class="answer">

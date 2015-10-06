@@ -44,3 +44,9 @@ textarea{
 	width:100%;
 	border-bottom: 2px solid;
 }
+.containerAnswer{
+	border-bottom: 2px solid;
+}
+.answerform{
+	padding-top: 5%;
+}
