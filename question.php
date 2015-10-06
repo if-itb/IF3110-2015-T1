@@ -1,12 +1,12 @@
 <?php include("header.php"); ?>
 
 		<?php
-			include("checkRequestA.php");
+			include("questionCheck.php");
 		?>
 
-		<?php include("requestSingleQuestion.php") ?>
+		<?php include("questionRequestQuestion.php") ?>
 		<div class="containerAnswer">
-			<?php include("requestAnswers.php"); ?>
+			<?php include("questionRequestAnswer.php"); ?>
 		</div>
 
 		<div id="answerForm">

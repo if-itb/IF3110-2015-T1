@@ -1,6 +1,6 @@
 <?php include("header.php"); ?>
 
-		<?php include("checkRequest.php"); ?>
+		<?php include("indexCheck.php"); ?>
 
 		<div id="search">
 			<form>
@@ -11,7 +11,7 @@
 		<p class="midText">Cannot find what you are looking for? <a class="submitButton" href="askhere.php" >Ask Here</a></p>
 		<div id="recentAsk">
 			<h1 class="tag">Recently Asked Question</h1>
-			<?php include("requestQuestions.php"); ?>
+			<?php include("indexRequest.php"); ?>
 		</div>
 
 <?php include("footer.php"); ?>
