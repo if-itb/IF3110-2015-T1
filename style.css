@@ -50,3 +50,9 @@ textarea{
 .answerform{
 	padding-top: 5%;
 }
+
+input#search-box{
+	width:50%;
+	margin:auto;
+	float:Left;
+}
