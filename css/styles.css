@@ -40,6 +40,7 @@ body{
 	width: 80%;
 	margin-right: 20px;
 	height: 25px;
+	padding: 0 10px;
 }
 
 .search-button,
@@ -86,13 +87,13 @@ a:focus{
 }
 
 .asked-by{
-	width: 230px;
-	margin-left: 73%;
+	display: inline-block;
+	width: 100%;
+	text-align: right;
 }
 
 .votes,
-.answers,
-.asked-by{
+.answers{
 	text-align: center;
 	display: inline-block;
 }
@@ -115,13 +116,12 @@ a:focus{
 	min-height: 300px;
 	height: 100%;
 	border-top: 2px solid;
-	width: 85%;
+	width: 84.5%;
 }
 
 .content-question-form{
 	padding-left: 10px;
 	height: 30px;
-	border: 1px solid gray;
 	display: block;
 	width: 97.8%;
 	margin-bottom: 4px;
@@ -130,8 +130,16 @@ a:focus{
 .textarea-question-form{
 	padding-left: 10px;
 	padding-top: 10px;
+	padding-right: 4px;
 	font-family: 'Droid Sans', sans-serif;
 	font-size: 13px;
+}
+
+.search-text,
+.content-question-form,
+.textarea-question-form{
+	border: 1px solid gray;
+	border-radius: 10px;
 }
 
 .post-button{
@@ -153,4 +161,13 @@ a:focus{
 
 .arrow-images{
 	width: 30px;
+}
+
+.full-question{
+	position: absolute;
+	display: inline-block;
+	width: 80%;
+	margin-left: 30px;
+	text-align: justify;
+	height: 50px;
 }
