@@ -19,17 +19,17 @@ function SignIn() {
 		{ 
 			$_SESSION['userName'] = $row['pass'];
 			if ($row['UserNameID'] == 1){
-				header("Location: \ARC\AdminCV.html");
+				header("Location: /ARC/AdminCV.html");
 			 	exit;
 			} else{
-			 	header("Location: \ARC\CV.html");
+			 	header("Location: /ARC/CV.html");
 			 	exit;
 			}
 
 		} 
 		else 
 		{ 
-			header("Location: \ARC\signup.html");
+			header("Location: /ARC/signup.html");
 			exit;
 		} 
 	} 

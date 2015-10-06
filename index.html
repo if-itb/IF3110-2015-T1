@@ -1,24 +1,55 @@
-<!DOCTYPE html>
+<!DOCTYPE>
 <html>
 <head>
-	<title>SIGN IN</title>
-	<meta charset = "utf-8">
-	<link rel="stylesheet" type="text/css" href="styles.css" />
+<title>Stack Exchange</title>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
+<body>
+<div id="container">
+<div id="header"><h1>SIMPLE STACK EXCHANGE</h1></div>
+<div id="wrapper">
+  <div id = "navigation">
+    <p><strong>Navigation</strong></p>
+      <ul>
+        <li><a href="http://satriapriambada.blogspot.com">Kunjungi Blog Tio</a></li>
+        <li><a href="http://satriapriambada.blogspot.com">I'm feeling Lucky</a></li>
+      </ul>
+  </div>
+  <div id = "content">
+    <center>
+      <form action="showDataBase.php">
+        <input type ="textbox" id="searchbox">
+        <button>Search</button> 
+      </form>
+      <h2>Have Question? <a href="postQuestion.html">Ask Here</a></h2>
+    </center>
+    <div id ="1">
+    </div>
+    
 
-<body bgcolor = "#6699CC">
-
-<div id = "header">
-	<fieldset style "width = 10%"><legend> LOGIN HERE </legend>
-
-	<form action="aksi.php" method = "POST" align = "right">
-		User : <input type = "text" name="user">
-		Password : <input type = "password" name = "pass">
-		<input type ="submit" id = "button" name = "submit" value = "Log In">
-	</form>
-	Not yet a member? Sign up <a href = "signup.html" id = > here </a>
+  </div>
+  <div id = "extra">
+    <div class="sticky">There are no stupid question, only curious mind</div>
+    <p><i> - Satria Priambada</i></p>
+  </div>
+  <div id = "footer">
+    <p>Created By : Satria Priambada for Tucil WBD project</p>
+  </div>
 </div>
-
-
-</fieldset>
+  
+</div>
 </body>
+</html>
+
+<script>
+var sticky = document.querySelector('.sticky');
+var origOffsetY = sticky.offsetTop;
+
+function onScroll(e) {
+  window.scrollY >= origOffsetY ? sticky.classList.add('fixed') :
+                                  sticky.classList.remove('fixed');
+}
+
+document.addEventListener('scroll', onScroll);
+</script>
