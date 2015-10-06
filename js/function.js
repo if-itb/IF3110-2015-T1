@@ -59,6 +59,16 @@ for (var i=0;i<voteEl.length;i++){
     voteEl[i].addEventListener("click", sendRequest);
 }
 
+var x = document.getElementById('closePopUp');
+if (x != null){
+	x.addEventListener("click",function(){
+		var myElement = document.querySelector(".popUp");
+		myElement.style.display = "none";
+	});
+}
+
+
+
 
 
 

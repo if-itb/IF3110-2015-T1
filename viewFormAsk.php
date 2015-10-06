@@ -4,7 +4,7 @@
 				<input class="textForm" type="text" placeholder="Name" name="name" {{valName}}>
 			</div>
 			<div class="innerForm">
-				<input class="textForm" type="email" placeholder="Email" name="email" {{valEmail}}>
+				<input class="textForm" type="text" placeholder="Email" name="email" {{valEmail}}>
 			</div>
 			<div class="innerForm">
 				<input class="textForm" type="text" placeholder="Question Topic" name="topic" {{valTopic}}>
