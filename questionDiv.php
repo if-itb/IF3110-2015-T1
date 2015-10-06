@@ -1,5 +1,5 @@
 <?php
-	$questionDiv = '<div id="{{id}}" class="innerContent">
+	$questionDiv = '<div id="question{{id}}" class="innerContent">
 	<div class="col countVotes">
 		<div>
 			<span>{{vote}}</span>

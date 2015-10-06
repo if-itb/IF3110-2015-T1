@@ -28,6 +28,7 @@ if($result->num_rows > 0){
 		$echoQuestion = str_replace("{{content}}", $truncated, $echoQuestion);
 		$echoQuestion = str_replace("{{vote}}", $row["vote"], $echoQuestion);
 		$echoQuestion = str_replace("{{answer}}", $row["answer"], $echoQuestion);
+		
 		echo $echoQuestion;
 	}
 }else{

@@ -18,8 +18,7 @@ $sql = "SELECT COUNT(*) AS total FROM Answers WHERE qID=".$idGET;
 $result = $conn->query($sql);
 $countA = $result->fetch_assoc();
 
-echo '<div class="containerAnswer">
-	<h1 class="tag">'.$countA['total'].' Answer</h1>';
+echo '<h1 class="tag">'.$countA['total'].' Answer</h1>';
 
 $sql = "SELECT * FROM Answers WHERE qID=".$idGET;
 $result = $conn->query($sql);

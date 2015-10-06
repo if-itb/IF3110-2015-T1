@@ -26,7 +26,12 @@
 		$sql = "INSERT INTO Answers (name,email,content,date,vote,qID) VALUES ".$value;
 
 		if ($conn->query($sql) === TRUE) {
-		    echo $popUpA;
+			$sql = "UPDATE Questions SET answer=answer+1 WHERE id=".$id;
+		    if ($conn->query($sql) === TRUE) {
+			    echo $popUpA;
+			} else {
+			    echo $popUpError;
+			}
 		} else {
 		    echo $popUpError;
 		}

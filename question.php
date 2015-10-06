@@ -5,7 +5,7 @@
 		?>
 
 		<?php include("requestSingleQuestion.php") ?>
-		<!-- div keluar dari include diatas karena ada penyimpanan jumlah answer -->
+		<div class="containerAnswer">
 			<?php include("requestAnswers.php"); ?>
 		</div>
 
