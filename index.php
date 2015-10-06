@@ -1,6 +1,6 @@
 <?php include("header.php"); ?>
-    <form action="search.php" method="post">
-        <input type="text" id="search_query" autofocus>
+    <form action="search.php" method="get">
+        <input type="text" name="q" autofocus>
         <input type="submit" value="Search"><br>
         Cannot find what you are looking for? <a href="ask.php">Ask here</a>
     </form>

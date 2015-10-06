@@ -1,0 +1,25 @@
+<?php
+    if (!empty($_GET["q"])) {
+        $mysqli = new mysqli("localhost", "root", "", "exchangelyz");
+        $search = $mysqli->real_escape_string($_GET["q"]);
+        $query = "SELECT * FROM question AS Q1 WHERE Q1.content LIKE '%$search%' UNION SELECT * FROM question AS Q2 WHERE Q2.id=(SELECT id_question FROM answer WHERE content LIKE '%$search%')";
+        $result = $mysqli->query($query);
+        require_once 'header.php';
+        echo "Search for: " . $search;
+        while ($row = $result->fetch_assoc()) {
+            echo "<hr>";
+            $id_question = $row["id"];
+            $answer = $mysqli->query("SELECT id FROM answer WHERE id_question=$id_question");
+            echo $row["vote"] . " votes " . $answer->num_rows . " answers" . PHP_EOL;
+            $answer->close();
+            echo "<a href=question.php?id=". $row["id"] . ">". $row["topic"] ."</a>";
+            echo "<p>". $row["content"] . "</p>";
+            echo "asked by " . $row["name"] . " | edit | delete";
+        }
+        echo "<hr>";
+    }
+    else {
+        header("Location: index.php");
+        die();
+    }
+?>
