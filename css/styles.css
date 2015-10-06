@@ -1,6 +1,7 @@
 body{
 	font-family: 'Droid Sans', sans-serif;
 	margin: 0px;
+	color: #020202;
 }
 
 .container{
@@ -25,6 +26,7 @@ body{
 	max-width: 900px;
 	width: 100%;
 	background: lavender;
+	padding-bottom: 20px;
 }
 
 .search-bar{
@@ -39,8 +41,9 @@ body{
 	height: 25px;
 }
 
-.search-button{
-	height: 35px;
+.search-button,
+.post-button{
+	padding: 5px 10px;
 }
 
 .text-center{
@@ -102,4 +105,33 @@ a:focus{
 
 .delete{
 	color: red;
+}
+
+.question-form{
+	margin: 0 auto;
+	padding: 20px 40px 0px;
+	min-height: 300px;
+	height: 100%;
+}
+
+.content-question-form{
+	padding-left: 10px;
+	height: 30px;
+	border: 1px solid gray;
+	display: block;
+	width: 97.8%;
+	margin-bottom: 4px;
+}
+
+.textarea-question-form{
+	padding-left: 10px;
+	padding-top: 10px;
+	font-family: 'Droid Sans', sans-serif;
+	font-size: 13px;
+}
+
+.post-button{
+	float: right;
+	margin-top: 20px;
+	margin-right: 45px;
 }
