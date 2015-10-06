@@ -1,5 +1,5 @@
 <?php
-	$popUpA = '<div class="popUp">
+	$popUp = '<div class="popUp">
 			<div class="leftIcon">
 				<i id="closePopUp" class="material-icons">close</i>
 			</div>
