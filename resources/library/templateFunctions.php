@@ -8,7 +8,7 @@
 		if (count($variables) > 0){
 			foreach ($variables as $key => $value) {
 				if (strlen($key) > 0){
-					${$key} = value;
+					${$key} = $value;
 				}
 			}
 		}

@@ -6,7 +6,7 @@
 </head>
 
 <body>
-	<div class="header">
+	<div class="header center">
 		<h1>Simple StackExchange</h1>
 	</div>
 	

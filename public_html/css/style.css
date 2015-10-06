@@ -1,16 +1,12 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans);*/
 
 body {
 	font-family: 'Open Sans';
-	padding: 0px 300px
+	padding: 0px 300px;
 }
 
 .header {
-	text-align: center;
-}
-
-form {
-	margin:50px auto 0px;
+	margin:0px auto 50px;
 }
 
 input[type=search] {
@@ -21,6 +17,7 @@ input[type=search] {
 	border: 3px solid #207cca;
 	border-radius: 3px;
 }
+
 
 input[type=submit] {
 	position: relative;
@@ -39,6 +36,20 @@ hr {
 	background-color: #207cca;
 }
 
+.ask-item {
+	padding: 7px 15px;
+	margin: 5px;
+	width: 700px;
+	background-color: #fafafa;
+	color: #207cca;
+	border: 3px solid #207cca;
+	border-radius: 3px;
+}
+
+.ask-button {
+	left: 6px;
+}
+
 .purple {
 	color: purple;
 }
@@ -53,8 +64,12 @@ hr {
 	text-decoration: none;
 }
 
+.center {
+	text-align: center;
+}
+
 .right {
-	float: right;
+	text-align: right;
 }
 
 .question-list {
@@ -66,12 +81,16 @@ hr {
 }
 
 .question-topic {
-	padding-left: 140px;
+	padding-left: 145px;
 }
 
 .question-detail {
-	padding-left: 140px;
+	padding-left: 145px;
 	text-align: justify;
+}
+
+.stats {
+	float: left;
 }
 
 .stats td {
