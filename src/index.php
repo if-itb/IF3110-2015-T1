@@ -1,4 +1,19 @@
 <html>
+	<?php
+		$servername = "localhost";
+		$username = "webuser";
+		$password = "webpass";
+		
+		// Create connection
+		$link = mysql_connect($servername, $username, $password);
+		
+		if (!$link) {
+			die('Could not connect: ' . mysql_error());
+		}
+		
+		echo 'Connected successfully';
+		mysql_close($link);
+	?>
 	<head>
 		<title>Simple StackExchange</title>
 	</head>
