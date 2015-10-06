@@ -2,7 +2,7 @@
     if (!empty($_GET["q"])) {
         $mysqli = new mysqli("localhost", "root", "", "exchangelyz");
         $search = $mysqli->real_escape_string($_GET["q"]);
-        $query = "SELECT * FROM question AS Q1 WHERE Q1.content LIKE '%$search%' UNION SELECT * FROM question AS Q2 WHERE Q2.id=(SELECT id_question FROM answer WHERE content LIKE '%$search%')";
+        $query = "SELECT * FROM question WHERE content LIKE '%$search%' OR topic LIKE '%$search%'";
         $result = $mysqli->query($query);
         require_once 'header.php';
         echo "Search for: " . $search;
