@@ -22,6 +22,7 @@ $keyword=$_POST['keyword'];
 $query = "select * from questions WHERE qcontent LIKE '%".$keyword."%'";
 
 $result = mysqli_query($link, $query) ;
+
 $resArray = array();
 while($row =mysqli_fetch_assoc($result))
 {
@@ -30,6 +31,7 @@ while($row =mysqli_fetch_assoc($result))
 $res = json_encode($resArray);
 
 
+mysqli_close($link);
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +49,7 @@ $res = json_encode($resArray);
         <button class="searchBtn" type="submit">Search</button>
     </form>
     <p class="askHere">Cannot find what you are looking for ? <a href="../create.html">Ask here</a></p>
-    <h4><?php echo count($resArray)?> Question about '<?php echo $keyword ?>' Found</h4>
+    <h4><?php echo count($resArray)?> Question about '<?php echo $keyword ?>' Found | <a href="../list.html">Home</</a></h4>
 </div>
 <script>
 

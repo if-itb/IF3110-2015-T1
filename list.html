@@ -12,66 +12,82 @@
         <input class="searchInput"  name="keyword" type="text" placeholder="Keyword Pencarian"/>
         <button class="searchBtn" type="submit">Search</button>
     </form>
+
+    <form name="hiddenForm" action="php/detail.php" method="POST">
+        <input type="hidden" name="idClicked" value=""/>
+    </form>
     <p class="askHere">Cannot find what you are looking for ? <a href="create.html">Ask here</a></p>
     <h4>Recently Answered Questions</h4>
 </div>
 <script>
-    var xmlhttp = new XMLHttpRequest();
-    var url = "php/list.php";
+    (function(){
+        /* AJAX */
 
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            myFunction(xmlhttp.responseText);
-        }
-    }
-    xmlhttp.open("POST", url, true);
-    xmlhttp.send();
-
-
-    var body = document.getElementsByClassName('container')[0];
-    var listQuestions = document.createElement('div');
-    listQuestions.className="table";
-
-
-    var question,qelemen;
-    function myFunction(response) {
-        var arr = JSON.parse(response);
-        for(var i = 0; i < arr.length; i++) {
-            question = document.createElement('div');
-            question.className = "row clearfix";
-            for (var j = 0; j < 4; j++) {
-                qelemen = document.createElement('div');
-                switch (j) {
-                    case 0 :
-                    {
-                        qelemen.className = "elemValue";
-                        qelemen.innerHTML="<span>" + arr[i].vote+"</span>"+ "<span class='vote'>Votes</span>";
-                        break;
-                    }
-                    case 1 : {
-                        qelemen.className = "elemAnswer";
-                        qelemen.innerHTML="<span>" + arr[i].answer+"</span>"+ "<span class='ans'>Answers</span>";
-                        break;
-                    }
-                    case 2 :
-                    {
-                        qelemen.className = "elemQuestion";
-                        qelemen.innerHTML="<span class='topic'>"+arr[i].qtopic+"</span>"+arr[i].qcontent;
-                        break;
-                    }
-                    case 3 :
-                    {
-                        qelemen.className = "elemAuthor";
-                        qelemen.innerHTML = arr[i].email;
-                        break;
-                    }
-                }
-            question.appendChild(qelemen);
+        var xmlhttp = new XMLHttpRequest();
+        var url = "php/list.php";
+        xmlhttp.onreadystatechange=function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                mainProgram(xmlhttp.responseText);
             }
-            listQuestions.appendChild(question);
         }
-        body.appendChild(listQuestions);
-    }
+        xmlhttp.open("POST", url, true);
+        xmlhttp.send();
+
+        /* Membuat Tabel Dinamis Berdasarkan Hasil */
+        var body = document.getElementsByClassName('container')[0];
+        var listQuestions = document.createElement('div');
+        listQuestions.className="table";
+        var question,qelemen;
+
+        function mainProgram(response) {
+            var arr = JSON.parse(response);
+            for (var i = 0; i < arr.length; i++) {
+                question = document.createElement('div');
+                question.className = "row clearfix";
+                question.id = arr[i].q_id;
+                for (var j = 0; j < 4; j++) {
+                    qelemen = document.createElement('div');
+                    switch (j) {
+                        case 0 :
+                        {
+                            qelemen.className = "elemValue";
+                            qelemen.innerHTML = "<span>" + arr[i].vote + "</span>" + "<span class='vote'>Votes</span>";
+                            break;
+                        }
+                        case 1 :
+                        {
+                            qelemen.className = "elemAnswer";
+                            qelemen.innerHTML = "<span>" + arr[i].answer + "</span>" + "<span class='ans'>Answers</span>";
+                            break;
+                        }
+                        case 2 :
+                        {
+                            qelemen.className = "elemQuestion";
+                            qelemen.innerHTML = "<span class='topic'>" + arr[i].qtopic + "</span>" + arr[i].qcontent;
+                            break;
+                        }
+                        case 3 :
+                        {
+                            qelemen.className = "elemAuthor";
+                            qelemen.innerHTML = arr[i].email;
+                            break;
+                        }
+                    }
+                    question.appendChild(qelemen);
+                }
+                listQuestions.appendChild(question);
+            }
+            body.appendChild(listQuestions);
+            var rows = document.getElementsByClassName("row");
+            for (var i=0;i<rows.length;i++) {
+                rows[i].onclick = function() {
+                    document.getElementsByName('idClicked')[0].value = this.id;
+                    document.hiddenForm.submit();
+                }
+            }
+        }
+
+    })();
 </script>
 </body>
 </html>

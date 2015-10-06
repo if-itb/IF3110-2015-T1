@@ -1,4 +1,11 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: sorlawan
+ * Date: 06/10/15
+ * Time: 14:27
+ */
+
 $user = "tiso";
 $password = "baptiso";
 $database = "stackExchange";
@@ -12,13 +19,3 @@ if (mysqli_connect_errno()) {
 
 $query = "select * from questions";
 $result = mysqli_query($link, $query);
-
-$resArray = array();
-while($row =mysqli_fetch_assoc($result))
-{
-    array_push($resArray,$row);
-}
-echo json_encode($resArray);
-
-//close the db connection
-mysqli_close($link);

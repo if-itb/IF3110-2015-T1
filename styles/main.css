@@ -100,14 +100,17 @@ textarea.error,input.error {
 
 
 .row {
+    width: 100%;
     display: block;
     padding : 20px 0 20px 0;
     border-top: 2px solid #3a3f3b;
+    cursor: pointer;
     /*overflow: hidden;*/
 }
 
 .elemValue,.elemAnswer,.elemQuestion,.elemAuthor {
     float:left;
+
 }
 
 .elemValue,.elemAnswer {
@@ -177,6 +180,60 @@ span {
     font-size: 17px;
 }
 
+
+.rowQuestion{
+    cursor : default;
+}
+
+
+.colVote {
+    float : left;
+    width : 10%;
+    background-color: #ff8dd8;
+}
+
+.colQuestion {
+    background-color: #7dff7d;
+    min-height: 78px;
+    float: left;
+    width : 90%;
+}
+
+.colQuestion p {
+    margin : 0;
+    text-align: left;
+}
+
+.colQuestion span {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.colVote span {
+    font-size: 32px;
+    text-align: center;
+    margin : 5px auto;
+}
+
+
+.arrow-down,.arrow-up {
+    width: 0;
+    height: 0;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.arrow-up {
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #2fd31f;
+}
+
+.arrow-down {
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #e0001d;
+}
 
 
 .clearfix:before,
