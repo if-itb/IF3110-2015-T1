@@ -6,6 +6,11 @@
 	$username = "root";
 	$password = "root";
 	$dbname = "StakeExchange";
+	$query = "";
+
+	if(!empty($_GET["search"])){
+		$query = "WHERE topic LIKE '%".$_GET["search"]."%' OR content LIKE '%".$_GET["search"]."%'";
+	}
 
 	//Create Connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -14,7 +19,7 @@
 	    die("Connection failed: " . $conn->connect_error);
 	}
 
-	$sql = "SELECT * FROM Questions ORDER BY id DESC";
+	$sql = "SELECT * FROM Questions ".$query." ORDER BY id DESC";
 	$result = $conn->query($sql);
 
 	if($result->num_rows > 0){
