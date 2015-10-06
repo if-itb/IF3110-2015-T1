@@ -55,6 +55,19 @@ textarea {
     background-color: #fffef5;
     border-color: #040404;
 }
+.searchBtn {
+    width : 17%;
+    float: right;
+    padding : 7px;
+    border : 2px solid #86857c;
+    background-color: #e1e0d4;
+}
+
+.searchBtn:hover {
+    cursor: pointer;
+    background-color: #fffef5;
+    border-color: #040404;
+}
 
 textarea.error,input.error {
     border : 2px solid #c3251f;
@@ -79,6 +92,56 @@ textarea.error,input.error {
     color: #100243;
 }
 
+.table {
+    table-layout: fixed;
+    width: 100%;
+    /*border: none;*/
+}
+
+
+.row {
+    display: block;
+    padding : 20px 0 20px 0;
+    border-top: 2px solid #3a3f3b;
+    /*overflow: hidden;*/
+}
+
+.elemValue,.elemAnswer,.elemQuestion,.elemAuthor {
+    float:left;
+}
+
+.elemValue,.elemAnswer {
+    vertical-align: middle;
+    width : 8%;
+    text-align: center;
+    background-color: #56d9ff;
+}
+
+
+.elemQuestion {
+    width : 50%;
+    text-align: center;
+    max-height: 160px;
+    overflow: hidden;
+    padding : 0 20px 0 20px;
+    background-color: #7dff7d;
+}
+.elemAuthor {
+    width : 29.3%;
+    padding-left: 8px;
+    text-align: right;
+    color : red;
+    overflow: hidden;
+    background-color: #ffb584;
+}
+
+.topic {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
 input[type="text"].searchInput {
     width : 80%;
     float:left;
@@ -90,3 +153,41 @@ p {
     width : auto;
 }
 
+.askHere {
+    padding-bottom: 25px;
+}
+
+a {
+    color : #b06359;
+    text-decoration: none;
+}
+a:hover {
+    color : #4769ff;
+}
+a:visited {
+    color : #b06359;
+}
+
+span {
+    display: block;
+}
+
+.vote,.ans{
+    font-weight: bold;
+    font-size: 17px;
+}
+
+
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    clear: both;
+    *zoom: 1;
+}
