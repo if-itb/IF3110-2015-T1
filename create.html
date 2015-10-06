@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ask Your Question</title>
+    <link rel="stylesheet" href="styles/create.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <script type="text/javascript" src="scripts/validate.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1>Simple StackExchange</h1>
+    <h2 class="subTitle">What's your question?</h2>
+    <form name="questionForm"  action="php/question.php" method="POST">
+        <input type="text"  id="name" name="name" placeholder="Name"/>
+        <input type="text"  id="email" name="email" placeholder="Email"/>
+        <input type="text" id="qtopic" name="qtopic" placeholder="Question Topic"/>
+        <textarea type="text"  id="qcontent" name="qcontent" placeholder="Content"></textarea>
+        <button  id="submitBtn" class="submitBtn" >Post</button>
+    </form>
+</div>
+
+<script>
+
+(function(){
+    document.getElementById('submitBtn').onclick=function(event){
+        var name = document.getElementById('name');
+        var email = document.getElementById('email');
+        var qtopic = document.getElementById('qtopic');
+        var qcontent = document.getElementById('qcontent');
+        if (validateForm(name, email, qtopic, qcontent)) {
+            document.questionForm.submit();
+        }
+        else
+        {
+            event.preventDefault();
+        }
+    }
+})();
+</script>
+</body>
+</html>
