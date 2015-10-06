@@ -1,0 +1,38 @@
+/*Buat template general */
+
+body {
+    background-color: #d0e4fe;
+	text-align : center;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+p {
+    font-family: "Times New Roman";
+    font-size: 20px;
+}
+
+/* Buat template link */
+a:link {
+    color: orange;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color: pink;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+}
+a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}
