@@ -96,6 +96,8 @@ mysqli_close($link);
     }
     body.appendChild(listQuestions);
 
+
+
 </script>
 </body>
 </html>

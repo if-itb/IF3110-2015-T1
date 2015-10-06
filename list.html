@@ -18,11 +18,14 @@
     </form>
     <p class="askHere">Cannot find what you are looking for ? <a href="create.html">Ask here</a></p>
     <h4>Recently Answered Questions</h4>
+    <input type="hidden" id="refreshed" value="no">
 </div>
 <script>
     (function(){
-        /* AJAX */
 
+        window.onbeforeunload = function() {} //Mencegah page ini agar tidak disimpan di cache browser, tombol back
+
+        /* AJAX */
         var xmlhttp = new XMLHttpRequest();
         var url = "php/list.php";
         xmlhttp.onreadystatechange=function() {

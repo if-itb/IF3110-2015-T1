@@ -17,5 +17,23 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$query = "select * from questions";
+$qID = $_POST['qID'];
+$operation = $_POST['operation'];
+
+if($operation=="plus"){
+    $query = "UPDATE questions  SET vote = vote + 1 WHERE q_id=$qID";
+    mysqli_query($link, $query);
+}
+else
+{
+    $query = "UPDATE questions  SET vote = vote -1 WHERE q_id=$qID";
+    mysqli_query($link, $query);
+}
+
+
+$query = "SELECT vote FROM questions WHERE q_id=$qID";
 $result = mysqli_query($link, $query);
+
+$row =mysqli_fetch_assoc($result);
+
+echo $row['vote'];
