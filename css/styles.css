@@ -1,5 +1,6 @@
 body{
 	font-family: 'Droid Sans', sans-serif;
+	font-size: 14px;
 	margin: 0px;
 	color: #020202;
 }
@@ -79,17 +80,18 @@ a:focus{
 }
 
 .question{
-	width: 470px;
-	
+	width: 690px;
+	display: inline-block;
+	padding-left: 20px;
 }
 
 .asked-by{
 	width: 230px;
+	margin-left: 73%;
 }
 
 .votes,
 .answers,
-.question,
 .asked-by{
 	text-align: center;
 	display: inline-block;
@@ -112,6 +114,8 @@ a:focus{
 	padding: 20px 40px 0px;
 	min-height: 300px;
 	height: 100%;
+	border-top: 2px solid;
+	width: 85%;
 }
 
 .content-question-form{
@@ -133,5 +137,20 @@ a:focus{
 .post-button{
 	float: right;
 	margin-top: 20px;
-	margin-right: 45px;
+	margin-right: 70px;
+}
+
+.vote-place{
+	text-align: center;
+	display: inline-block;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+.vote-place > h1{
+	margin: 0;
+}
+
+.arrow-images{
+	width: 30px;
 }
