@@ -1,0 +1,142 @@
+html {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+}
+
+h3 {
+    margin: 0px;
+    margin-top: 8px;
+}
+
+h3.topic {
+    margin-top: 6px;
+}
+
+p {
+    margin-top: 2px;
+}
+
+.header {
+  text-align: center;
+  font-size: 28px;
+  margin: 32px;
+}
+
+a:link, a:visited {
+    color: #ff7878;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    text-decoration: underline;
+}
+
+a.title {
+    color: black;
+}
+
+a.title:hover {
+    text-decoration: none;
+}
+
+a.topic {
+    color: black;
+}
+
+.div-search {
+    text-align: center;
+    margin: 32px;
+}
+
+hr {
+    border: 0 none;
+    height: 1px;
+    color: #ff9090;
+    background-color: #ff9090;
+}
+
+hr.heading {
+    height: 2px;
+}
+
+hr.item {
+    color: #ffb0b0;
+    background-color: #ffb0b0;
+}
+
+input[type=search] {
+    padding: 8px 16px;
+    width: 600px;
+    color: #ff7878;
+    border: 2px solid #ff7878;
+    border-radius: 3px 0 0 3px;
+    outline: none;
+    margin-bottom: 8px;
+}
+
+.btn-default,
+.btn-search {
+    position: relative;
+    padding: 8px 16px;
+    background-color: white;
+    color: #ff7878;
+    border: 2px solid #ff7878;
+    border-radius: 3px;
+    outline: none;
+}
+
+.btn-search {
+    left: -8px;
+}
+
+.btn-search:hover {
+    background-color: #fdfdfd;
+}
+.container {
+    text-align: center;
+}
+
+.question-list {
+    width: 800px;
+    margin: auto;
+}
+
+.question-item:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.stat {
+    vertical-align: top;
+    float: left;
+    width: 15%;
+    text-align: center;
+    margin: 8px;
+    margin-top: 2px;
+}
+
+.summary {
+    float: right;
+    text-align: justify;
+    width: 80%;
+}
+
+.vote, .answer {
+    display: inline-block;
+    height: 38px;
+    min-width: 38px;
+    margin: 0 3px 0 0;
+    color: #333;
+    padding: 5px 5px 6px 5px;
+    text-align: center;
+}
+
+.timestamp {
+    width: auto;
+    line-height: inherit;
+    padding-top: 4px;
+    white-space: nowrap;
+    float: right;
+    color: #555;
+}
