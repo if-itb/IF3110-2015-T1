@@ -1,12 +1,23 @@
 body {
+	font-family:Calibri;
 	margin-left:20%;
 	margin-right:20%;
 	margin-top:30px;
-	font-family:Calibri;
 }
 
 h1 {
 	text-align:center;
+}
+
+input#searchbar {
+	border:3px solid black;
+	height:30px;
+}
+
+input#searchbutton {
+	background-color:white;
+	border:3px solid black;
+	height:30px;
 }
 
 div.searchbar {
@@ -14,12 +25,40 @@ div.searchbar {
 	margin-right:15px;
 }
 
-p.searchbar {
+p#searchbar {
+	margin-top:0.5em;
 	text-align:center;
 }
 
-strong {
+strong.gold {
 	color:gold;
+}
+
+strong.blue {
+	color:blue;
+}
+
+strong.red {
+	color:red;
+}
+
+p#RecentlyAsked {
+	font-size:19px;
+	margin-bottom:0;
+}
+
+table {
+	width:100%;
+}
+
+td.Votes {
+	width:10%;
+	text-align:center;
+}
+
+td.Answers {
+	width:10%;
+	text-align:center;
 }
 
 hr {
