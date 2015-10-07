@@ -1,0 +1,31 @@
+#header {
+	text-align: center;
+	font-family: Courier New;
+}
+
+.next{
+	margin-left: 20%;
+	margin-right: 20%;
+}
+form textarea{
+	resize: none;
+}
+.coba input,textarea{
+	margin-top: 5px;
+	margin-right: 15px;
+	padding: 5px 0px 5px 15px;
+	border: 1px solid;
+	width: 98%;
+	border-radius: 3px;
+}
+.subtitle{
+	border: solid black;
+	border-width: 0px 0px 3px;
+	padding: 5px 0px;
+}
+
+input.bawah{
+	margin-top: 10px;
+	padding-bottom:7px; 
+	float:right;
+}
