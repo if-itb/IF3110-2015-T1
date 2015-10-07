@@ -1,0 +1,47 @@
+
+
+#container{
+	text-align : center;
+}
+
+#logo{
+    font-family: 'Segoe UI',Tahoma, sans-serif;
+    font-size: 150%;
+}
+
+
+/* Span is inline (margin only horizontal)
+	Div is block (margin vertical and horizontal)
+
+	inline block : inline can work as well as block;
+*/
+#search{
+	display: inline-block;
+	margin-top: 30px;
+	width : 100%;
+}
+
+#search input{
+	border-style: solid;
+	border-width: medium;
+}
+
+.searchBar{
+	width: 80%;
+	max-width: 380px;
+	height: 20px;
+}
+
+.q_createLink{
+	text-decoration: none;
+	color: orange;
+
+}
+
+.submitButton{
+	border-color: black;
+	background-color: whitesmoke;
+	margin-left: 3.5px;
+	height: 27.5px;
+	width: 70px;
+}
