@@ -1,4 +1,6 @@
-<?php require_once "header.php"; ?>
+<?php
+    require_once "header.php";
+?>
     <div class="div-search">
         <form action="search.php" method="get">
             <input class="txt-search" type="search" name="q" placeholder="Search..." autofocus required>
@@ -14,4 +16,6 @@
             displayAllQuestionList();
         ?>
     </div>
-<?php require_once "footer.php" ?>
+<?php
+    require_once "footer.php";
+?>

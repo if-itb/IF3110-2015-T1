@@ -1,6 +1,7 @@
 <?php
+    require_once "db.php";
+
     if (!empty($_GET["q"])) {
-        $mysqli = new mysqli("localhost", "root", "", "exchangelyz");
         $search = $mysqli->real_escape_string($_GET["q"]);
         $query = "SELECT * FROM question WHERE content LIKE '%$search%' OR topic LIKE '%$search%'";
         $result = $mysqli->query($query);
@@ -17,9 +18,12 @@
             echo "asked by " . $row["name"] . " | <a href=ask.php?id='.$row["id"].'>edit</a> | delete";
         }
         echo "<hr>";
+        $mysqli->close();
     }
     else {
-        header("Location: index.php");
-        die();
+        $mysqli->close();
+        backToHome();
     }
+
+    require_once "footer.php";
 ?>

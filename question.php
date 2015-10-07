@@ -1,59 +1,58 @@
-<?php if ($_SERVER["REQUEST_METHOD"] == "POST" &&
-    !empty($_POST["name"]) && !empty($_POST["email"]) &&
-    !empty($_POST["content"] && !empty($_POST["id"]))): ?>
-    <?php
-        $mysqli = new mysqli("localhost", "root", "", "exchangelyz");
+<?php
+    require_once "db.php";
+    require_once "function.php";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST" &&
+        !empty($_POST["name"]) && !empty($_POST["email"]) &&
+        !empty($_POST["content"] && !empty($_POST["id"]))) {
         $name = $mysqli->real_escape_string($_POST["name"]);
         $email = $mysqli->real_escape_string($_POST["email"]);
         $content = $mysqli->real_escape_string($_POST["content"]);
         $id_question = $mysqli->real_escape_string($_POST["id"]);
         $query = "INSERT INTO answer (name, email, content, id_question) VALUES ('$name', '$email', '$content', '$id_question')";
         $mysqli->query($query);
+        $mysqli->close();
         header("Location: question.php?id=". $id_question);
         die();
-    ?>
-<?php elseif ($_SERVER["REQUEST_METHOD"] == "GET" && !empty($_GET["id"])): ?>
-    <?php
-        $mysqli = new mysqli("localhost", "root", "", "exchangelyz");
+    }
+    else if ($_SERVER["REQUEST_METHOD"] == "GET" && !empty($_GET["id"])) {
         $query = "SELECT * FROM question WHERE id='" . $mysqli->real_escape_string($_GET["id"]) . "'";
         $question_result = $mysqli->query($query);
-        if (!$question_result->num_rows) {
-            header("Location: index.php");
-            die();
-        }
+        if (!$question_result->num_rows)
+            backToHome();
         $question_row = $question_result->fetch_assoc();
-        include("header.php");
-    ?>
-    <h3><?php echo $question_row["topic"]; ?></h3>
-    <hr>
-    <?php
-        echo $question_row["vote"] . PHP_EOL;
-        echo $question_row["content"] . PHP_EOL;
-        echo "asked by " . $question_row["name"] . " at " . $question_row["time"] . " | <a href=ask.php?id=".$question_row["id"].">edit</a> | delete" . PHP_EOL;
 
-        $query = "SELECT * FROM answer WHERE id_question='". $question_row["id"] . "'";
-        $answer_result = $mysqli->query($query);
-        echo "<h3>" . $answer_result->num_rows . " Answer</h3>" . PHP_EOL . "<hr>";
-        while ($answer_row = $answer_result->fetch_assoc()) {
-            echo $answer_row["vote"] . PHP_EOL;
-            echo $answer_row["content"] . PHP_EOL;
-            echo "answered by " . $answer_row["name"] . " at " . $answer_row["time"] . PHP_EOL;
-            echo "<hr>";
-        }
-        echo "<h3>Your Answer</h3><hr>\n";
-        echo '<form action="question.php" method="post">';
-        echo '<input name="name" placeholder="Name"></input>';
-        echo '<input name="email" placeholder="Email"></input>';
-        echo '<input name="content" placeholder="Content"></input>';
-        echo '<input type="submit" placeholder="Post"></input>';
-        echo '<input type="hidden" name="id" value="'. $question_row["id"] .'"></input>';
-        echo '</form>';
-    ?>
-    </body>
-    </html>
-<?php else: ?>
-    <?php
-        header("Location: index.php");
-        die();
-    ?>
-<?php endif; ?>
+        require_once "header.php";
+        echo '<div class="container">';
+            echo '<h3>'. $question_row["topic"] .'</h3>';
+            echo '<hr class="heading">';
+            displayQuestion($question_row["id"], $question_row["name"], $question_row["email"],$question_row["content"], $question_row["time"], $question_row["vote"]);
+            echo '<br>';
+            $query = "SELECT * FROM answer WHERE id_question='". $question_row["id"] ."'";
+            $result = $mysqli->query($query);
+            if ($result->num_rows) {
+                echo '<h3>'. $result->num_rows .' Answer'. (($result->num_rows > 1) ?'s':'') .'</h3>';
+                echo '<hr class="heading">';
+                echo '<div class="answer-list">';
+                    $count = 0;
+                    while ($answer_row = $result->fetch_assoc()) {
+                        displayAnswer($answer_row["id"], $answer_row["name"], $answer_row["email"],$answer_row["content"], $answer_row["time"], $answer_row["vote"]);
+                        if (++$count < $result->num_rows)
+                            echo '<hr>';
+                    }
+                echo '</div>';
+            }
+
+            echo '<br>';
+            echo '<hr class="heading">';
+            echo '<h3>Your Answer</h3>';
+            displayAnswerForm($question_row["id"]);
+        echo '</div>';
+        require_once "footer.php";
+        $mysqli->close();
+    }
+    else {
+        $mysqli->close();
+        backToHome();
+    }
+?>

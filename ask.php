@@ -1,13 +1,13 @@
 <?php
+    require_once "db.php";
+
     if ($_SERVER["REQUEST_METHOD"] == "POST" &&
         !empty($_POST["name"]) && !empty($_POST["email"]) &&
-        !empty($_POST["topic"]) && !empty($_POST["content"])): ?>
-    <?php
-        $mysqli = new mysqli("localhost", "root", "", "exchangelyz");
-        $name = $_POST["name"];
-        $email = $_POST["email"];
-        $topic = $_POST["topic"];
-        $content = $_POST["content"];
+        !empty($_POST["topic"]) && !empty($_POST["content"])) {
+        $name = $mysqli->real_escape_string($_POST["name"]);
+        $email = $mysqli->real_escape_string($_POST["email"]);
+        $topic = $mysqli->real_escape_string($_POST["topic"]);
+        $content = $mysqli->real_escape_string($_POST["content"]);
         if (empty($_POST["id"])) {
             $query = "INSERT INTO question (name, email, topic, content) VALUES ('$name', '$email', '$topic', '$content')";
             $id = $mysqli->query($query)->insert_id;
@@ -18,31 +18,31 @@
             $mysqli->query($query);
         }
         header("Location: question.php?id=". $id);
-        $mysqli->close();
         die();
-    ?>
-<?php else: ?>
-    <?php include("header.php"); ?>
-    <div class="container">
-        <h3>What's your question?</h3>
-        <hr class="heading">
-        <?php
-            require_once "function.php";
+    }
+    else {
+        require_once "function.php";
+        require_once "header.php";
+        echo '<div class="container">';
+            echo '<h3>What\'s your question?</h3>';
+            echo '<hr class="heading">';
             if ($_SERVER["REQUEST_METHOD"] == "GET" && !empty($_GET["id"])) {
-                $mysqli = new mysqli("localhost", "root", "", "exchangelyz");
                 $id = $mysqli->real_escape_string($_GET["id"]);
                 $query = "SELECT * FROM question WHERE id='$id'";
                 $result = $mysqli->query($query);
-                if ($row = $result->fetch_assoc())
+                if ($row = $result->fetch_assoc()) {
                     displayAsk($row["name"], $row["email"], $row["topic"], $row["content"], $row["id"]);
-                else
+                }
+                else {
                     backToHome();
-                $mysqli->close();
+                }
             }
             else {
                 displayAsk();
             }
-        ?>
-    </div>
-<?php endif; ?>
+        echo '</div>';
+        require_once "footer.php";
+    }
+    $mysqli->close();
+?>
 

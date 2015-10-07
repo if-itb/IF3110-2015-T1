@@ -57,6 +57,7 @@ hr {
 
 hr.heading {
     height: 2px;
+    margin-bottom: 4px;
 }
 
 hr.item {
@@ -114,7 +115,8 @@ textarea {
     margin: auto;
 }
 
-.question-item:after {
+.question-item:after,
+.answer-item:after {
     content: "";
     display: table;
     clear: both;
@@ -127,12 +129,6 @@ textarea {
     text-align: center;
     margin: 8px;
     margin-top: 2px;
-}
-
-.summary {
-    float: right;
-    text-align: justify;
-    width: 80%;
 }
 
 .vote, .answer {
@@ -152,4 +148,59 @@ textarea {
     white-space: nowrap;
     float: right;
     color: #555;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.vote-panel {
+    vertical-align: top;
+    float: left;
+    width: 10%;
+    text-align: center;
+    min-height: 71px;
+}
+
+.vote-up,
+.vote-down {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    cursor: pointer;
+}
+
+.vote-up {
+    border-bottom: 10px solid black;
+}
+
+.vote-down {
+    border-top: 10px solid black;
+}
+
+.vote-count,
+.answer-count {
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.vote-count-mini,
+.vote-answer-mini {
+    font-size: 12px;
+}
+
+.question-summary,
+.question-content,
+.answer-content {
+    float: right;
+    width: 90%;
+    text-align: justify;
+    position: relative;
+    min-height: 71px;
+}
+
+.question-summary {
+    width: 80%;
 }
