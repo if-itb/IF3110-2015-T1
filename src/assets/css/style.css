@@ -49,21 +49,95 @@
 
 h1 {
   color: red;
-  text-align: center;
   font-size: 400%;
   font-weight: 900;
   font-family: avant-garde;
-  margin: 40;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.form {
+  display: block;
+  margin: 0px 0;
+  border: 1px solid pink;
+  width: 100%;
+  padding: 3px 10px;
+  line-height: 3;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: open-sans-light;
+}
+
+.button {
+  background-color: red;
+  color: white;
+  border: 1px solid white;
+  padding: 6px 12px;
+  height: 60px;
+  font-size: 24px;
+  font-family: open-sans;
+}
+
+.button:hover {
+  background-color: pink;
+  color: white;
+  border: 1px solid white;
+  padding: 6px 12px;
+  height: 60px;
+  font-size: 24px;
+  font-family: open-sans;
+}
+
+p {
+  margin: 8px;
 }
 
 h2 {
+  margin: 0px;
   font-family: open-sans;
+  color: red;
 }
 
 h4 {
   font-family: open-sans-light;
 }
 
-p {
+.item {
+  width: 100%;
+}
+
+.vote {
+  width: 10%;
+}
+
+.answer {
+  width: 10%;
+}
+
+.text {
+  width: 80%;
+}
+
+.line {
+  border: 1px solid pink;
+}
+
+.vote, .answer, .text {
+  float: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: 900px;
+  margin: 0 auto;
   font-family: open-sans-light;
 }
