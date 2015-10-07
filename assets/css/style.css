@@ -13,7 +13,20 @@ a {
 .container {
 	position: relative;
 	text-align: center;
+	background-color: orange;
 	margin: auto;
+	width: 100%;
+}
+
+.header {
+	color: orange;
+	position: relative;
+	text-align: center;
+	background-color: orange;
+	padding: 2px 0;
+	margin: 0 auto;
+	max-width: 1100px;
+	border-radius: 0 0 20px 20px;
 }
 
 .main {
