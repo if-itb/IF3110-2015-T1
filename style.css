@@ -10,6 +10,10 @@ a{
 
 body{
 	color: #000000;
+	position: relative;
+	width: 500px;
+	margin: auto ;
+	padding: 0;
 }
 
 h1{
@@ -58,7 +62,12 @@ input{
 
 .garis{
 	border: 1px solid #000000;
+	border-top-width: 25%;
 	margin-bottom: 10px;
+}
+
+.submit{
+	position: relative;
 }
 
 input.search{
@@ -67,16 +76,11 @@ input.search{
 	border: 3px solid #000000;
 }
 
-input.dummy{
-	width: 500px;
-	height: 1px;
-	border: 1px none #000000;
-}
-
 input.form-field{
 	width: 500px;
 	height: 20px;
 	margin-bottom: 5px;
+	vertical-align: center;
 }
 
 input.button{
@@ -85,7 +89,3 @@ input.button{
 }
 
 /*Contextual Style*/
-
-p input{
-	margin-bottom: -10px;
-}
