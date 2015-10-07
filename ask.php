@@ -11,19 +11,19 @@
 		<a href="index.php"><h1>Simple StackExchange</h1></a>
 		<h2>What's your question?</h2>
 		<div class="garis"></div>
-		<form action="post.php"  method="post" name="ask-form">
+		<form action="addQuestion.php" method="post" name="ask-form">
 			<input type="text" name="Name" class="form-field" placeholder="Name"></input>
 			<br>
 			<input type="text" name="Email" class="form-field" id="Email" placeholder="Email"></input>
 			<br>
 			<input type="text" name="Topic" class="form-field" placeholder="Question Topic"></input>
 			<br>
-			<textarea name="comment" placeholder="Content" class="form-textarea"></textarea>
+			<textarea name="Content" placeholder="Content" class="form-textarea"></textarea>
 			<br>
+			<div align="right">
+				<input type="submit" value="Post" onclick="return validateForm()" action="addQuestion.php">
+			</div>
 		</form>
-		<div align="right">
-			<input type="submit" value="Post" align="right" onclick="return validateForm()"></input>
-		</div>
 	
 	</body>
 </html> 
