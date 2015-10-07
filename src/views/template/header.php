@@ -2,6 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+<title>Simple StackExchange</title>
 <script src="/assets/js/simplify.js"></script>
 <script src="/assets/js/validation.js"></script>
 </head>
