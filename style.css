@@ -1,3 +1,86 @@
 h1 {
 	text-align: center;
+	font-family: "verdana";
+}
+
+h2.header {
+	border-bottom-style: solid; 
+}
+
+#name_box input[type=text] {
+    width: 98%;
+	padding: 5px;
+	font-family: "verdana";
+}
+
+textarea {
+	padding: 5px;
+	font-family: "verdana";
+	width: 98%;
+	height: 100px;
+}
+
+#post_button input[type=submit] {
+	float: right;
+}
+
+#search_box input[type=text] {
+	padding-left: 5px;
+	padding-right: 5px;
+	width: 90%;
+}
+
+p.ask {
+	font-size: 80%;
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+}
+
+a.ask {
+	color: #FF9900;
+}
+
+.list {
+	width: 98%;
+	height: 100px;
+	border-top: 2px black solid;
+	clear: both;
+}
+
+.vote, .answer_count {
+	float: left;
+	text-align: center;
+	width: 10%;
+	height: 70px;
+	padding-top: 30px;
+	padding-bottom: 5px;
+	font-size: 14px;
+}
+
+.question_topic {
+	float: left;
+	width: 50%;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+.asked_by {
+	float: right;
+	width: 25%;
+	text-align: right;
+	padding-top: 80px;
+	font-size: 13px;
+}
+
+hr {
+	clear: both;
+}
+
+body {
+	margin-left: 12%;
+	margin-right: 12%;
+	font-family: "verdana";
 }
