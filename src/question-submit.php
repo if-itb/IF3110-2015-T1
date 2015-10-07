@@ -25,7 +25,7 @@
 	
 	<body>
 		<?php
-			$sql = "INSERT INTO " . $tablename . " (name, email, topic, content) VALUES (" . "'" . $_POST["name"] . "', '" . $_POST["email"] . "', '" . $_POST["topic"] . "', '" . $_POST["content"] . "')";
+			$sql = "INSERT INTO " . $tablename . " (name, email, topic, content, votes, answers) VALUES (" . "'" . $_POST["name"] . "', '" . $_POST["email"] . "', '" . $_POST["topic"] . "', '" . $_POST["content"] . "', 0, 0)";
 			
 			if (mysqli_query($link, $sql)) {
 				echo "New question created successfully";

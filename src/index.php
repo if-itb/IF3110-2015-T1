@@ -33,9 +33,33 @@
 			
 			if (mysqli_num_rows($result) > 0) {
 				// output data of each row
+				echo "<table>";
 				while ($row = mysqli_fetch_assoc($result)) {
-					echo $row["id"] . $row["topic"] . $row["votes"] . $row["answers"] . "<br>";
+					// echo $row["id"] . $row["topic"] . $row["votes"] . $row["answers"] . "<br>";
+					echo "<tr>";
+						echo "<td>";
+							echo $row["votes"];
+						echo "</td>";
+						echo "<td>";
+							echo $row["answers"];
+						echo "</td>";
+						echo '<td rowspan="2" width="60%">';
+							echo $row["topic"];
+						echo "</td>";
+					echo "</tr>";
+					echo "<tr>";
+						echo "<td>";
+							echo "Votes";
+						echo "</td>";
+						echo "<td>";
+							echo "Answers";
+						echo "</td>";
+						echo '<td rowspan="2">';
+							echo "asked by " . $row["name"] . " | edit | delete";
+						echo "</td>";
+					echo "</tr>";
 				}
+				echo "</table>";
 			}
 			else {
 				echo "Empty";
