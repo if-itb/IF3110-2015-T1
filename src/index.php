@@ -5,7 +5,7 @@
 /**
  * Ibrohim Kholilul Islam
  * 
- * AsterMVC framework
+ * my own framework
  *
  * 13513090
  */
@@ -92,7 +92,7 @@ function resolveController($uriArray){
 					$function  = $uriArray[$i+1];
 
 					if (count($uriArray) > $i+2)
-						$arguments = array_slice($uriArray, $i+2);	
+						$arguments = array_slice($uriArray, $i+2);
 					else
 						$arguments = array();
 
@@ -150,20 +150,33 @@ function executeFunction(&$resolve, &$controller){
 
 	assert($controller['status'] == STATUS_OK, 'class not found.');
 
-	if (method_exists($controller['instance'] , $resolve['function'])) {
+	$reflection = new ReflectionObject($controller['instance']);
+	
+	try {
+		
+	    $method = $reflection->getMethod($resolve['function']);
 
-		$executionStatus = call_user_func_array(
-			array($controller['instance'], $resolve['function']),
-			$resolve['arguments']
-		);
+	    if ($method->isPublic()){
+			$executionStatus = call_user_func_array(
+				array($controller['instance'], $resolve['function']),
+				$resolve['arguments']
+			);
+	    } else {
+	    	return array(
+				'status' => STATUS_FILE_NOT_FOUND,
+				'message'  => "Method is private."
+			);
+	    }
 
 		return $executionStatus;
+	
+	} catch (ReflectionException $e) {
 
-	} else {
 		return array(
 				'status' => STATUS_FILE_NOT_FOUND,
 				'message'  => "Method not found."
 			);
+		
 	}
 
 }
