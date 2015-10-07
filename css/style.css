@@ -1,0 +1,55 @@
+body{
+	font-family: sans-serif;
+}
+h1 {
+	text-align: center;
+	margin-bottom: 50px;
+}
+.container {
+	width: 750px;
+	margin-left: auto;
+	margin-right: auto;
+}
+input, textarea {
+	width: 740px;
+	margin: 5px;
+	padding: 5px;
+	font-family: sans-serif;
+	font-size: 14px;
+}
+textarea {
+	height: 200px;
+}
+button {
+	float: right;
+	padding: 5px;
+}
+#forum_search {
+	width: 650px;
+}
+.text-center {
+	text-align: center;
+}
+.question_block {
+	position: relative;
+	height: 75px;
+	vertical-align: middle;
+}
+.votes, .answers, .topic {
+	display: inline-block;
+}
+.votes, .answers {
+	text-align: center;
+	margin-top: 15px;
+	width: 10%;
+}
+.topic {
+	width: 75%;
+	vertical-align: top;
+	margin-left: 10px;
+}
+.details {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
