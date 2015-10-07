@@ -1,0 +1,39 @@
+// Applying style to html base element
+body {
+  font-family: 'Open sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #222;
+  background-color: $body-background;
+}
+
+a,
+a:visited {
+  color: $blue-secondary;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $blue-main;
+}
+
+input {
+  padding: 10px;
+}
+
+input:not([type="submit"]) {
+  border: 1px solid $blue-tertiary;
+}
+
+input[type="submit"] {
+  font-weight: $font-weight__semi-bold;
+  color: #FFF;
+  border: none;
+  background-color: $blue-tertiary;
+  cursor: pointer;
+  transition: background 300ms ease;
+}
+
+input[type="submit"]:hover {
+  background-color: darken($blue-tertiary, 10%);
+}
