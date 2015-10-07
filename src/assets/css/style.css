@@ -47,13 +47,6 @@
   src: url('/assets/open-sans/OpenSans-SemiboldItalic.ttf'); /*URL to font*/
 }
 
-h1 {
-  color: red;
-  font-size: 400%;
-  font-weight: 900;
-  font-family: avant-garde;
-}
-
 .text-center {
   text-align: center;
 }
@@ -98,7 +91,29 @@ p {
   margin: 8px;
 }
 
+h1 {
+  background-color: red;
+  border: 1px solid white;
+  color: white;
+  font-size: 400%;
+  font-weight: 900;
+  height: 150px;
+  width: 900px;
+  font-family: avant-garde;
+  display: table-cell;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
 h2 {
+  font-size: 30px;
+  margin: 0px;
+  font-family: open-sans;
+  color: red;
+}
+
+h3 {
+  font-size: 24px;
   margin: 0px;
   font-family: open-sans;
   color: red;

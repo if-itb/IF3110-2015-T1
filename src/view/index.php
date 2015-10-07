@@ -12,7 +12,7 @@
       <form action="/controller/search.php" action="GET">
         <table>
         <tr>
-          <td width="200%"> <input type="text" class="form" name="q"></td>
+          <td width="200%"> <input placeholder="What are you looking for?" type="text" class="form" name="q"></td>
           <td width="20%"> <button class="button" type="submit">Search</button> </td>
         </tr>
         </table>
@@ -20,7 +20,7 @@
 
       <p class="text-center">Cannot find what you are looking for? Ask here.</p>
 
-      <br/> <h2>Recently Asked Questions</h2>
+      <br/> <h3>Recently Asked Questions</h3>
 
       
       <div class="question">
