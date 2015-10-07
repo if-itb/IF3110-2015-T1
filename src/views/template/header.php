@@ -3,6 +3,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 <script src="/assets/js/simplify.js"></script>
+<script src="/assets/js/validation.js"></script>
 </head>
 <body>
 
