@@ -98,6 +98,44 @@ body {
   color: #222;
   background-color: #DDD; }
 
+a,
+a:visited {
+  color: #0077CC;
+  text-decoration: none; }
+
+a:hover {
+  color: #195398; }
+
+input {
+  padding: 10px; }
+
+input:not([type="submit"]) {
+  border: 1px solid #62B0DF; }
+
+input[type="submit"] {
+  font-weight: 600;
+  color: #FFF;
+  border: none;
+  background-color: #62B0DF;
+  cursor: pointer;
+  transition: background 300ms ease; }
+
+input[type="submit"]:hover {
+  background-color: #389bd6; }
+
+#searchForm input[type="text"] {
+  width: 400px;
+  height: 38px; }
+
+#searchForm {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px; }
+
+.ask-here {
+  text-align: center;
+  margin-bottom: 48px; }
+
 .container {
   width: 960px;
   margin: 48px auto;
@@ -141,7 +179,7 @@ body {
 
 .question-title a,
 .question-title a:visited {
-  color: #0077cc;
+  color: #0077CC;
   text-decoration: none; }
 
 .question-meta {
@@ -149,12 +187,12 @@ body {
 
 .question-edit,
 .question-edit:visited {
-  color: #0077cc;
+  color: #0077CC;
   text-decoration: none; }
 
 .question-delete,
 .question-delete:visited {
-  color: #0077cc;
+  color: #0077CC;
   text-decoration: none; }
 
 .question-status {

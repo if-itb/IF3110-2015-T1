@@ -6,6 +6,12 @@
       <h1>Stack<span>Exchange<span></h1>
     </header>
     
+    <form action="" method="GET" id="searchForm">
+      <input type="text" placeholder="Search...">
+      <input type="submit" value="Search">
+    </form>
+
+    <p class="ask-here">Can't find what you are looking for? <a href="">Ask here</a></p>
 
     <div class="row">
       <div class="secondary-title col-10 col-push-1">
