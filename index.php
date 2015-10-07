@@ -7,6 +7,7 @@
 </head>
 <body>
 	<div class="container">
+	
 		<h1 id="title">My StackExchange</h1>
 		<div class="search">
 			<form action="search.php" method="post">
@@ -14,7 +15,7 @@
 				<input type="submit" id="searchsubmit" value="Search">
 			</form>
 			<br>
-			Can't find what you are looking for? <a href="#">Ask here!</a>
+			Can't find what you are looking for? <a href="questioninput.php">Ask here!</a>
 		</div>
 		<div class="content">
 			<h2>Recently Asked Questions</h2>
@@ -22,14 +23,14 @@
 			<div class="stack">
 				<div class="votes"><div>0</div>Votes</div>
 				<div class="answers"><div>0</div>Answers</div>
-				<div class="question">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-				<div class="detail">asked by <a class="linkname">name</a> | <a class="linkedit">edit</a> | <a class="linkdelete">delete</a></div>
+				<div class="questiontitle">Question Title goes here.</div>
+				<div class="detail">asked by <a class="linkname" href="questionpage.php">name</a> | <a class="linkedit">edit</a> | <a class="linkdelete">delete</a></div>
 				<hr>
 			</div>
 			<div class="stack">
 				<div class="votes"><div>0</div>Votes</div>
 				<div class="answers"><div>0</div>Answers</div>
-				<div class="question">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+				<div class="questiontitle">Question Title goes here.</div>
 				<div class="detail">asked by <a class="linkname">name</a> | <a class="linkedit">edit</a> | <a class="linkdelete">delete</a></div>
 				<hr>
 			</div>

@@ -21,7 +21,7 @@ a {
   color: #DB5C1E; 
   text-decoration: none ;}
 a:hover {
-  font-weight: 700; 
+  text-decoration: underline;
 
 }
 
@@ -42,20 +42,27 @@ a:hover {
 	font-size: 3.2em;
 }
 
-.votes, .answers{
-	width: 10%;
-	text-align: center;
+.title2 {
+	color: #9D9D9D;
 }
 
-.question{
-	width: 55%;
-	vertical-align: top;
+.votes, .answers{
+	width: 8%;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.questiontitle{
+	width: 54%;
+	font-weight: 700;
+	vertical-align: middle;
 	text-align: justify;
+	padding-left: 3em;
 }
 
 .detail{
 	text-align: right;
-	width: 23%;
+	width: 22%;
 	height: 100%;
 	vertical-align: bottom;
 }
@@ -67,6 +74,27 @@ a:hover {
 
 .stack>div{
 	display: inline-block;
+}
+
+
+.stackquestion>.votes, .stackquestion>.content{
+	display: inline-block;
+}
+
+.stackanswer>.votes, .stackanswer>.content{
+	display: inline-block;
+}
+
+.stackquestion>.content, .stackanswer>.content{
+	width: 91.5%;
+	vertical-align: middle;
+	text-align: justify;
+}
+
+.stackquestion>.detail, .stackanswer>.detail{
+	float: right;
+	clear: both;
+	width: auto;
 }
 
 .search{
@@ -84,8 +112,48 @@ a:hover {
 }
 
 .container {
-	width: 1080px;
+	width: 960px;
 	margin: auto ;
 	padding: 0;
+}
 
+.textbox, .textarea{
+	padding-left: .5em;
+	width: 99%;
+	height: 1.5em;
+	margin-bottom: 0.5em;
+	font-weight: 200;
+  	font-family: 'Raleway', sans-serif;	
+}
+
+.textarea {
+	height: 12em;
+}
+
+#post{
+	float: right;
+	clear: both;
+}
+
+form{
+	width: 100%;
+	margin: auto;
+}
+
+.arrow-up {
+	width: 0; 
+	height: 0; 
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	margin: auto;
+	border-bottom: 20px solid #B6B6B6;
+}
+
+.arrow-down {
+	width: 0; 
+	height: 0; 
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	margin: auto;
+	border-top: 20px solid #B6B6B6;
 }
