@@ -1,0 +1,40 @@
+#judul
+{
+	text-align: center;
+}
+
+#garis
+{
+	border-bottom: 2px solid black;
+	text-align: center;
+	width: 30%;
+	margin:0 auto;
+}
+
+#form
+{
+	width:50%;
+	margin: 0 auto;
+}
+
+#boxcontent
+{
+	height: 50%;
+}
+
+#posisipost
+{
+	float: right;
+	margin: 0;
+	padding: 0;
+}
+
+.box
+{
+	width: 100%;
+}
+
+textarea
+{
+	resize: none;
+}
