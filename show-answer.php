@@ -2,6 +2,7 @@
 <html lang = "en">
 	<head>
 		<link rel="stylesheet" type="text/css" href="answerStyle.css">
+		<script type="text/javascript" src="vote.js"></script>
 		<title>Simple Stack Exchange - Show Answer</title>
 	</head>
 	<body>
@@ -23,7 +24,9 @@
 			echo "<hr>";
 			echo "<table>";
 			echo "<tr>";
-			echo "<td class='number'>". "<font color='grey'>". "&#x25B2". "<br>". $row["num_vote"]. "<br>". "&#x25BC". "</font>". "</td>";
+			echo "<td class='number'>". "<a onclick='javascript:voteUp($row[id_question])'>". "&#x25B2". "</a>". "<br>". 
+			"<a id='numvote'>". $row["num_vote"]. "</a>". "<br>". 
+			"<a onclick='javascript:voteDown($row[id_question])'>". "&#x25BC". "</a>". "</td>";
 			echo "<td class='content'>". $row["content"]. "</td>";
 			echo "</tr>";
 			echo "<tr>";

@@ -36,6 +36,7 @@ td.number {
     text-align: center;
     vertical-align: top;
     font-size: 30px;
+    color: grey;
 }
 
 td.content {

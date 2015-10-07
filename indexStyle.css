@@ -45,29 +45,8 @@ td.number {
     vertical-align: top;
 }
 
-td.text {
-    text-align: center;
-}
-
 td.topic {
     width: 310px;
-}
-
-td.username {
-    text-align: right;
-    padding-right: 1%;
-    border-style: solid;
-    border-top-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-}
-
-td.attribute {
-    width: 26px;
-}
-
-td.empty {
-    width: 70px;
 }
 
 td.edit {  
@@ -85,6 +64,10 @@ td.delete {
 
 td.content {
     font-size: 16px;
+}
+
+td.attribute {
+    font-size: 18px;
 }
 
 p {

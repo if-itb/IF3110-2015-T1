@@ -34,7 +34,7 @@
         			echo "<table>";
         			echo "<tr>";
         			echo '<td class="number" rowspan="2">'. "<b>". $row["num_vote"]. "<br>". "Votes". "</b>". "</td>";
-        			echo '<td class="number" rowspan="2">'. "<b>". "0". "<br>". "Votes". "</b>". "</td>";
+        			echo '<td class="number" rowspan="2">'. "<b>". "0". "<br>". "Answers". "</b>". "</td>";
         			echo '<td class="topic">'. '<a href="show-answer.php?id='. $row["id_question"].'" style="text-decoration:none;">'. "<font color='black'>". $row["topic"]. "</font>". "</a>". "</td>";
         			echo "</tr>";
 
@@ -43,7 +43,7 @@
         			echo "</tr>";
 
         			echo "<tr>";
-        			echo "<td colspan='3' style=text-align:right;>". "<b>". "asked by ". "<font color='purple'>".$row["username"]."</font>". " | ".
+        			echo "<td colspan='3' class='attribute' style=text-align:right;>". "<b>". "asked by ". "<font color='purple'>".$row["username"]."</font>". " | ".
         			"<a href='edit-question.html' style='text-decoration:none;'>". "<font color='orange'>"."edit"."</font>". "</a>". " | ".
         			"<font color='red'>"."delete"."</font>". "</b>". "</td>";
         			echo "</tr>";
