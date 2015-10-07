@@ -18,6 +18,7 @@ a {
 .content-header {
 	text-align: left;
 	padding-top: 10px;
+	position: relative;
 }
 
 .content-footer {
@@ -144,7 +145,22 @@ textarea {
 	width: 86%;
 }
 
-.sidebar img {
-	width: 25px;
-	height: 10px
+.voteup {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #ddd;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.votedown {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #ddd;
+  margin: 0 auto;
+  cursor: pointer;
 }

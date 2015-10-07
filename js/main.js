@@ -54,20 +54,25 @@ function validateAnswerForm() {
 		return false;
 }
 
-function getVote(int) {
-  	if (window.XMLHttpRequest) {
-    	// code for IE7+, Firefox, Chrome, Opera, Safari
-    	xmlhttp=new XMLHttpRequest();
-  	} else { // code for IE6, IE5
-   		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  	}
-  	
-  	xmlhttp.onreadystatechange = function() {
-    	if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-    		document.getElementById("vote").innerHTML = xmlhttp.responseText;
-    	}
-  	}
+function voteQuestion(id, value) {
+	if (id == "" || value == null) {
+	    return;
+	} else { 
+	    if (window.XMLHttpRequest) {
+	        // code for IE7+, Firefox, Chrome, Opera, Safari
+	        xmlhttp = new XMLHttpRequest();
+	    } else {
+	        // code for IE6, IE5
+	        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	    }
 
-  	xmlhttp.open("GET","vote.php?vote="+int,true);
-  	xmlhttp.send();
+	    xmlhttp.onreadystatechange = function() {
+	        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	            document.getElementById("questions-vote").innerHTML = parseInt(document.getElementById("questions-vote").innerHTML) + value;
+	        }
+	    }
+
+	    xmlhttp.open("GET","vote.php?id="+id+"&value="+value,true);
+	    xmlhttp.send();
+	}
 }
