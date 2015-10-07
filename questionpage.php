@@ -13,7 +13,18 @@
 </div>
 
 <div class = "container">
-
+	<h2> What's Your Question? <hr> </h2>
+	<form method="POST" action="proses.php">
+		<input type="text" name="name" placeholder="Name">
+		<br>
+		<input type="text" name="email" placeholder="Email">
+		<br> 
+		<input type="text" name="topic" placeholder="Question Topic">
+		<br>
+		<textarea name="content" rows="15" placeholder="Content"></textarea>
+		<br>
+		<input type="submit" id="post" value="Post">
+	</form>
 </div>
 
 </body>
