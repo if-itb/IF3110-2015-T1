@@ -1,3 +1,9 @@
+<?php
+
+	include ("functions.php");
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,25 +24,45 @@
 		</div>
 		<div class="wrapper">
 			<div class="title">
-				<h2>The question topic goes here</h2>
+				<h2>
+					<?php
+						getQuestionByParam("topic");
+					?>
+				</h2>
 			</div>
 
 			<div class="question-container">
 				<div class="vote-place">
 					<img src="images/up-arrow.png" class="arrow-images">
-					<h1>2</h1>
+					<h1>
+						<?php
+							getQuestionByParam("votes");
+						?>
+					</h1>
 					<img src="images/down-arrow.png" class="arrow-images">
 				</div>
 				<div class="full-question">
-					<p>The question content goes here Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<p>
+						<?php
+							getQuestionByParam("content");
+						?>
+					</p>
 				</div>
 				<div class="asked-by">
-					<p>asked by username at datetimes | edit | delete</p>
+					<p>asked by 
+						<span class="name">
+							<?php
+								getQuestionByParam("name");
+							?>
+						</span>
+						at
+						<span class="name">
+							<?php
+								getQuestionByParam("date");
+							?>
+						</span>
+						 | edit | delete
+					</p>
 				</div>
 			</div>
 

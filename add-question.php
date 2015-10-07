@@ -1,6 +1,6 @@
 <?php
 	
-	include("connection.php");
+	require_once ("connection.php");
 
 	$db = mysql_select_db("tubeswbd", $connect);
 
@@ -14,12 +14,13 @@
 			$topic = $_POST["topic"];
 			$content = $_POST["content"];
 
-			$query = mysql_query("INSERT INTO question (name, email, topic, content) VALUES ('$name', '$email', '$topic', '$content')", $connect);
-			if(!$query){
+			$query = "INSERT INTO question (name, email, topic, content) VALUES ('$name', '$email', '$topic', '$content')";
+			$result = mysql_query($query, $connect);
+			if(!$result){
 				die('Invalid query: '.mysql_error());
 			}
 			else{
-				header("Location: index.html");
+				header("Location: index.php");
 			}
 		}
 	}
