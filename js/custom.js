@@ -1,22 +1,24 @@
 function validate () {
-    var valid = true;
     var allForms = document.forms;
-    for (var i = 0; i < valid && allForms.length; ++i) {
-        for (var j = 0; valid && j < allForms[i].elements.length; ++j) {
+    for (var i = 0; i < allForms.length; ++i) {
+        for (var j = 0; j < allForms[i].elements.length; ++j) {
             var elem = allForms[i][j];
-            valid = valid && (elem.value.length > 0);
+            if (elem.value.length == 0) {
+                alert("Please fill out " + elem.name + " field.");
+                elem.focus();
+                return false;
+            }
             if (elem.name === "email") {
                 var re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
                 if (!re.test(elem.value)) {
                     alert("Please use a valid email.");
+                    elem.focus();
                     return false;
                 }
             }
         }
     }
-    if (!valid)
-        alert("Please fill all fields.");
-    return valid;
+    return true;
 }
 
 function vote(type, id, action) {
