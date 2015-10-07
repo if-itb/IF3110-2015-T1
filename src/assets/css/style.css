@@ -1,0 +1,69 @@
+@font-face {
+  font-family: 'hammer-thin'; /*a name to be used later*/
+  src: url('/assets/HammerThin.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'avant-garde'; /*a name to be used later*/
+  src: url('/assets/AvantGarde.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'open-sans-bold'; /*a name to be used later*/
+  src: url('/assets/open-sans/OpenSans-Bold.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'open-sans-bolditalic'; /*a name to be used later*/
+  src: url('/assets/open-sans/OpenSans-BoldItalic.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'open-sans-extrabold'; /*a name to be used later*/
+  src: url('/assets/open-sans/OpenSans-ExtraBold.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'open-sans-extrabolditalic'; /*a name to be used later*/
+  src: url('/assets/open-sans/OpenSans-ExtraBoldItalic.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'open-sans-italic'; /*a name to be used later*/
+  src: url('/assets/open-sans/OpenSans-Italic.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'open-sans-light'; /*a name to be used later*/
+  src: url('/assets/open-sans/OpenSans-Light.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'open-sans-lightitalic'; /*a name to be used later*/
+  src: url('/assets/open-sans/OpenSans-LightItalic.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'open-sans'; /*a name to be used later*/
+  src: url('/assets/open-sans/OpenSans-Regular.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'open-sans-semibold'; /*a name to be used later*/
+  src: url('/assets/open-sans/OpenSans-Semibold.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'open-sans-semibolditalic'; /*a name to be used later*/
+  src: url('/assets/open-sans/OpenSans-SemiboldItalic.ttf'); /*URL to font*/
+}
+
+h1 {
+  color: red;
+  text-align: center;
+  font-size: 400%;
+  font-weight: 900;
+  font-family: avant-garde;
+  margin: 40;
+}
+
+h2 {
+  font-family: open-sans;
+}
+
+h4 {
+  font-family: open-sans-light;
+}
+
+p {
+  font-family: open-sans-light;
+}
