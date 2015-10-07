@@ -8,10 +8,12 @@
 <h1>Simple StackExchange</h1><br>
 <h2>What's your question?</h2>
 <hr>
-<input class="text" type="text" placeholder="Name" size="132"><br>
-<input class="text" type="text" placeholder="Email" size="132"><br>
-<input class="text" type="text" placeholder="Question Topic" size="132"><br>
-<textarea placeholder="Content" rows="5" cols="107"></textarea>
-<input class="button" type="button" value="Post"><br>
+<form action="showask.php" method="post">
+	<input name="name" class="text" type="text" placeholder="Name" size="132"><br>
+	<input name="email" class="text" type="text" placeholder="Email" size="132"><br>
+	<input name="topic" class="text" type="text" placeholder="Question Topic" size="132"><br>
+	<textarea name="content" placeholder="Content" rows="5" cols="107"></textarea>
+	<input class="button" type="submit" value="Post"><br>
+</form>
 </body>
 </html>
