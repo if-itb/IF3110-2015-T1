@@ -99,7 +99,7 @@
 		$query = "UPDATE question SET vote = vote + 1 WHERE id = ". $id;
 
 		if (mysqli_query($conn, $query)) {
-		    echo "Vote success";
+		    //echo "Vote success";
 		} else {
 		    echo "Error voting: " . mysqli_error($conn);
 		}
@@ -111,7 +111,7 @@
 		$query = "UPDATE question SET vote = vote - 1 WHERE id = ". $id;
 
 		if (mysqli_query($conn, $query)) {
-		    echo "Vote success";
+		    //echo "Vote success";
 		} else {
 		    echo "Error voting: " . mysqli_error($conn);
 		}
@@ -197,13 +197,31 @@
 		return $ret;		
 	}
 
+	function getAnswerbyId($id) {
+		global $conn;
+
+		$query = "SELECT * FROM answer WHERE id = ". $id;
+		$result = mysqli_query($conn, $query);
+
+		$row = mysqli_fetch_assoc($result);
+		$question = array();
+		$question["id"] = $row['id'];
+		$question["name"] = $row['name'];
+		$question["email"] = $row["email"];
+		$question["content"] = $row["content"];
+		$question["vote"] = $row["vote"];
+		$question["date_created"] = $row["date_created"];
+
+		return $question;				
+	}
+
 	function upVoteAnswer($id) {
 		global $conn;
 
 		$query = "UPDATE answer SET vote = vote + 1 WHERE id = ". $id;
 
 		if (mysqli_query($conn, $query)) {
-		    echo "Vote success";
+		    //echo "Vote success";
 		} else {
 		    echo "Error voting: " . mysqli_error($conn);
 		}
@@ -215,7 +233,7 @@
 		$query = "UPDATE answer SET vote = vote - 1 WHERE id = ". $id;
 
 		if (mysqli_query($conn, $query)) {
-		    echo "Vote success";
+		    //echo "Vote success";
 		} else {
 		    echo "Error voting: " . mysqli_error($conn);
 		}

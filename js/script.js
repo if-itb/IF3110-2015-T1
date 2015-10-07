@@ -82,7 +82,11 @@ function voting(id, type, q_a) {
          			i = -1;
          		}
 
-                document.getElementById("vote_count_" + id).innerHTML = parseInt( document.getElementById("vote_count_" + id).innerHTML) + i;
+         		if ( q_a == "answer" ) {
+                	document.getElementById("vote_count_a_" + id).innerHTML = xmlhttp.responseText;
+            	} else if ( q_a == "question") {
+            		document.getElementById("vote_count_q_" + id).innerHTML = xmlhttp.responseText;
+            	}
             }
         }
 
