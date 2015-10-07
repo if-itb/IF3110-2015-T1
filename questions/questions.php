@@ -10,7 +10,7 @@
 	 <form name="makequestion" method="post" action="sendquestions.php">
 		 <input type="text" name="name" placeholder="Name" class="medium">
 		 <input type="email" name="email" placeholder="Email" class="medium">
-		 <input type="text" name="question" placeholder="Question" class="medium">
+		 <input type="text" name="question" placeholder="Question Topic" class="medium">
 		 <textarea type="text" name="content" placeholder="Content" class="medium" id="content"></textarea> 
 		 <input type="submit" value="Post" id="button">
 	 </form>
