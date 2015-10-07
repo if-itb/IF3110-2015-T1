@@ -1,0 +1,53 @@
+@import 'reset';
+@import 'variables';
+@import 'grid';
+
+body {
+  font-family: 'Open sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #222;
+  background-color: $body-background;
+}
+
+.container {
+  width: 960px;
+  margin: 48px auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: $container-background;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.main-title {
+  
+}
+
+.main-title h1 {
+  font-size: 30px;
+  font-weight: $font-weight__semi-bold;
+  text-align: center;
+}
+
+.main-title h1 span {
+  color: $title-color;
+}
+
+.secondary-title h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: $font-weight__normal;
+  color: $font-color__secondary;
+}
+
+.question-status {
+  text-align: center;
+}
+
+.question-vote,
+.question-answers {
+  width: 50%;
+  float: left;
+}
