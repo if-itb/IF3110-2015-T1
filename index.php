@@ -6,7 +6,7 @@
             Cannot find what you are looking for? <a href="ask.php">Ask here</a>
         </form>
     </div>
-    <div class="question-list">
+    <div class="container">
         <h3>Recently Asked Questions</h3>
         <hr class="heading">
         <?php
@@ -14,5 +14,4 @@
             displayAllQuestionList();
         ?>
     </div>
-</body>
-</html>
+<?php require_once "footer.php" ?>

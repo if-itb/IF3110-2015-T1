@@ -1,4 +1,4 @@
-html {
+html, body {
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
 }
@@ -64,39 +64,52 @@ hr.item {
     background-color: #ffb0b0;
 }
 
-input[type=search] {
-    padding: 8px 16px;
-    width: 600px;
-    color: #ff7878;
+input[type=search],
+input[type=text],
+textarea {
+    font-family: 'Open Sans', sans-serif;
+    color: #555;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    width: 100%;
     border: 2px solid #ff7878;
-    border-radius: 3px 0 0 3px;
+    border-radius: 3px 3px 3px 3px;
     outline: none;
     margin-bottom: 8px;
 }
 
+input[type=search] {
+    width: 600px;
+    margin-right: 8px;
+}
+
+textarea {
+    resize: none;
+}
+
 .btn-default,
 .btn-search {
+    min-width: 75px;
     position: relative;
     padding: 8px 16px;
-    background-color: white;
-    color: #ff7878;
-    border: 2px solid #ff7878;
+    background-color: #ff5858;
+    color: #ffffff;
+    border: 2px solid #ff5858;
     border-radius: 3px;
     outline: none;
 }
 
-.btn-search {
-    left: -8px;
+.btn-search:hover,
+.btn-default:hover {
+    background-color: #ff5f5f;
+    border: 2px solid #ff5f5f;
 }
 
-.btn-search:hover {
-    background-color: #fdfdfd;
+.btn-right {
+    float: right;
 }
+
 .container {
-    text-align: center;
-}
-
-.question-list {
     width: 800px;
     margin: auto;
 }

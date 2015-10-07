@@ -1,4 +1,4 @@
-<?php if (
+<?php if ($_SERVER["REQUEST_METHOD"] == "POST" &&
     !empty($_POST["name"]) && !empty($_POST["email"]) &&
     !empty($_POST["content"] && !empty($_POST["id"]))): ?>
     <?php
@@ -12,7 +12,7 @@
         header("Location: question.php?id=". $id_question);
         die();
     ?>
-<?php elseif (!empty($_GET["id"])): ?>
+<?php elseif ($_SERVER["REQUEST_METHOD"] == "GET" && !empty($_GET["id"])): ?>
     <?php
         $mysqli = new mysqli("localhost", "root", "", "exchangelyz");
         $query = "SELECT * FROM question WHERE id='" . $mysqli->real_escape_string($_GET["id"]) . "'";

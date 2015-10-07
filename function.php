@@ -1,4 +1,9 @@
 <?php
+    function backToHome() {
+        header("Location: index.php");
+        die();
+    }
+
     function displayAllQuestionList() {
         $mysqli = new mysqli("localhost", "root", "", "exchangelyz");
         // check error
@@ -46,5 +51,21 @@
             echo '</div>';
         echo '</div>';
         echo '<hr class="item">';
+    }
+
+    function displayAsk($name = "", $email = "", $topic = "", $content = "", $id = 0) {
+        echo '<form action="ask.php" method="post">';
+            echo '<input type="text" name="name" placeholder="Name" autofocus value="'.$name.'"></input>';
+            echo '<input type="text" name="email" placeholder="Email" value="'.$email.'"></input>';
+            echo '<input type="text" name="topic" placeholder="Question Topic" value="'.$topic.'"></input>';
+            echo '<textarea  name="content" placeholder="Content" rows="7">'. $content .'</textarea>';
+            echo '<input type="submit" class="btn-default btn-right" value="Post"></input>';
+            if ($id)
+            echo '<input type="hidden" name="id" value="'. $id .'"></input>';
+        echo '</form>';
+    }
+
+    function displayQuestionAnswer() {
+
     }
 ?>
