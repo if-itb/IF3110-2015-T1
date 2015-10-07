@@ -26,10 +26,10 @@ include("init_thread.php")
 			</div>
 			<div class="child-content">
 				<div class="sidebar">
-					<div class="voteup" onclick="voteQuestion(<?php echo $question['q_id']; ?>, 1)">
+					<div class="voteup" onclick="voteThread(<?php echo $question['q_id']; ?>, 'questions', 1)">
 					</div>
 					<div id="questions-vote"><?php echo $question['q_vote']; ?></div>
-					<div class="votedown" onclick="voteQuestion(<?php echo $question['q_id']; ?>, -1)">
+					<div class="votedown" onclick="voteThread(<?php echo $question['q_id']; ?>, 'questions', -1)">
 					</div>
 				</div>
 				<div class="list-content">
@@ -49,10 +49,10 @@ include("init_thread.php")
 
 			<div class="child-content">
 				<div class="sidebar">
-					<div class="voteup" onclick="getVote(<?php echo $answer['a_id']; ?>, 'answers', 1)">
+					<div class="voteup" onclick="voteThread(<?php echo $answer['a_id']; ?>, 'answers', 1)">
 					</div>
 					<div id="answers-vote-<?php echo $answer['a_id']; ?>"><?php echo $answer['a_vote']; ?></div>
-					<div class="votedown" onclick="getVote(<?php echo $answer['a_id']; ?>, 'answers', -1)">
+					<div class="votedown" onclick="voteThread(<?php echo $answer['a_id']; ?>, 'answers', -1)">
 					</div>
 				</div>
 				<div class="list-content">
@@ -85,30 +85,7 @@ include("init_thread.php")
 	
 </div>
 
-<script type="text/javascript">
-	function voteQuestion(id, value) {
-	  	if (id == "" || value == null) {
-	        return;
-	    } else { 
-	        if (window.XMLHttpRequest) {
-	            // code for IE7+, Firefox, Chrome, Opera, Safari
-	            xmlhttp = new XMLHttpRequest();
-	        } else {
-	            // code for IE6, IE5
-	            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	        }
-
-	        xmlhttp.onreadystatechange = function() {
-	            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-	                document.getElementById("questions-vote").innerHTML = parseInt(document.getElementById("questions-vote").innerHTML) + value;
-	            }
-	        }
-
-	        xmlhttp.open("GET","vote.php?id="+id+"&value="+value,true);
-	        xmlhttp.send();
-	    }
-	}
-</script>
+<script type="text/javascript" src="js/main.js"></script>
 
 </body>
 </html>

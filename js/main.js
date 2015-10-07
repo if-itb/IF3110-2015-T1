@@ -54,8 +54,8 @@ function validateAnswerForm() {
 		return false;
 }
 
-function voteQuestion(id, value) {
-	if (id == "" || value == null) {
+function voteThread(id, table, value) {
+	if (id == "" || table == "" || value == null) {
 	    return;
 	} else { 
 	    if (window.XMLHttpRequest) {
@@ -68,11 +68,14 @@ function voteQuestion(id, value) {
 
 	    xmlhttp.onreadystatechange = function() {
 	        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-	            document.getElementById("questions-vote").innerHTML = parseInt(document.getElementById("questions-vote").innerHTML) + value;
+	        	if (table == "questions")
+	            	document.getElementById("questions-vote").innerHTML = parseInt(document.getElementById("questions-vote").innerHTML) + value;
+	            else
+	            	document.getElementById("answers-vote-"+id).innerHTML = parseInt(document.getElementById("answers-vote-"+id).innerHTML) + value;
 	        }
 	    }
 
-	    xmlhttp.open("GET","vote.php?id="+id+"&value="+value,true);
+	    xmlhttp.open("GET","vote.php?id="+id+"&table="+table+"&value="+value,true);
 	    xmlhttp.send();
 	}
 }
