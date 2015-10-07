@@ -2,20 +2,19 @@
 <html>
 	<head>
 		<title>Page Title</title>
+		<link rel="StyleSheet" href="style.css" type="text/css">
 	</head>
 	<body>
-		<h2 align="center"> Simple StackExchange </h2>
-		<h2> What's your question? </h2>
-		<form method="POST">
-			<label for="nama">Name</label>
-			<input type="text" name="nama" id="nama"><br>
-			<label for="email">Email</label>
-			<input type="text" name="email" id="email"><br>
-			<label for="topic">Question Topic</label>
-			<input type="text" name="topic" id="topic"><br>
-			<label for="content">Content</label>
-			<textarea name="topic" id="topic"></textarea><br>
-			<input type="submit" value="Post">
-		</form>
+		<div class="container">
+			<h1>Simple StackExchange</h1><br>
+			<h2>What's your question? </h2><br>
+			<form method="POST">
+				<input type="text" name="nama" id="nama" placeholder="Name"><br>
+				<input type="text" name="email" id="email" placeholder="Email"><br>
+				<input type="text" name="topic" id="topic" placeholder="Question Topic"><br>
+				<textarea name="content" id="content" placeholder="Content"></textarea><br><br>
+				<input type="submit" value="Post">
+			</form>
+		</div>
 	</body>
 </html>

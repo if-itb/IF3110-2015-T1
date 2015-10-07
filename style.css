@@ -1,0 +1,37 @@
+H1 {
+	text-align: center
+}
+
+H2 {
+	margin-bottom:0;
+	border-bottom: 2px solid;
+}
+
+.container {
+    width:50%;
+    margin:auto;
+    padding:1% 5% 5% 5%; 
+	border: 1px solid #000000;
+}
+
+input[type=submit] {
+	width:50px;
+	border: 1px solid;
+	float: right;
+}
+
+input[type=text] {
+	width:99%;
+	display:block;
+	border: 1px solid;
+	height: 25px;
+	padding-left:1%;
+}
+
+textarea {
+	width:98.5%;
+	height:150px;
+	border: 1px solid;
+	resize: none;
+	padding-left:1%;
+}
