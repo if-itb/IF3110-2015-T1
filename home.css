@@ -5,8 +5,17 @@ body {
 	margin-top:30px;
 }
 
+div.searchbar {
+	margin-left:15px;
+	margin-right:15px;
+}
+
 h1 {
 	text-align:center;
+}
+
+hr {
+	border:1px solid black;
 }
 
 input#searchbar {
@@ -20,9 +29,9 @@ input#searchbutton {
 	height:30px;
 }
 
-div.searchbar {
-	margin-left:15px;
-	margin-right:15px;
+p#RecentlyAsked {
+	font-size:19px;
+	margin-bottom:0;
 }
 
 p#searchbar {
@@ -30,30 +39,20 @@ p#searchbar {
 	text-align:center;
 }
 
-strong.gold {
-	color:gold;
-}
-
 strong.blue {
 	color:blue;
+}
+
+strong.gold {
+	color:gold;
 }
 
 strong.red {
 	color:red;
 }
 
-p#RecentlyAsked {
-	font-size:19px;
-	margin-bottom:0;
-}
-
 table {
 	width:100%;
-}
-
-td.Votes {
-	width:10%;
-	text-align:center;
 }
 
 td.Answers {
@@ -61,10 +60,7 @@ td.Answers {
 	text-align:center;
 }
 
-hr {
-	border:1px solid black;
-}
-
-table,tr,td {
-	border:0px solid black;
+td.Votes {
+	width:10%;
+	text-align:center;
 }
