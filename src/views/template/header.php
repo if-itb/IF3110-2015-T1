@@ -11,3 +11,4 @@
 	<a href="/"><h1>Simple StackExchange</h1></a>
 
 </div>
+<div class="container">
