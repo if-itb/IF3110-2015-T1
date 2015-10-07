@@ -81,9 +81,9 @@
 								edit
 								</span>
 								|
-								<span class="del">
+								<a href="javascript:confirmDel(<?php echo $q['id_q'] ?>)"><span class="del">
 								delete
-								</span>
+								</span></a>
 							</td>
 						</tr>
 					</table>
@@ -94,4 +94,12 @@
 
 		?>
 	</body>
+
+	<script type="text/javascript">
+	function confirmDel(id) {
+	    if (confirm("Are you sure to delete this post?") == true) {
+	        location.href = "delQuestion.php?id_q="+id;
+	    }
+	}
+	</script>
 </html>
