@@ -24,7 +24,7 @@
 
         require_once "header.php";
         echo '<div class="container">';
-            echo '<h3>'. $question_row["topic"] .'</h3>';
+            echo '<h3 class="topic"><a class="topic" href="question.php?id='. $question_row["id"] .'">'. $question_row["topic"] .'</a></h3>';
             echo '<hr class="heading">';
             displayQuestion($question_row["id"], $question_row["name"], $question_row["email"],$question_row["content"], $question_row["time"], $question_row["vote"]);
             echo '<br>';
@@ -42,10 +42,9 @@
                     }
                 echo '</div>';
             }
-
             echo '<br>';
-            echo '<hr class="heading">';
             echo '<h3>Your Answer</h3>';
+            echo '<hr class="heading">';
             displayAnswerForm($question_row["id"]);
         echo '</div>';
         require_once "footer.php";

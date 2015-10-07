@@ -34,7 +34,7 @@
                     displayAsk($row["name"], $row["email"], $row["topic"], $row["content"], $row["id"]);
                 }
                 else {
-                    backToHome();
+                    displayAsk();
                 }
             }
             else {

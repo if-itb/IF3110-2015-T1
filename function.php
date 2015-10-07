@@ -5,7 +5,7 @@
     }
 
     function displayAllQuestionList() {
-        $mysqli = new mysqli("localhost", "root", "", "exchangelyz");
+        require_once "db.php";
         // check error
         if ($mysqli->connect_errno) {
             echo "Connect failed: " . $mysqli->connect_error;
@@ -46,7 +46,7 @@
                 echo '<h3 class="topic"><a class="topic" href="question.php?id='. $id .'">'. $topic .'</a></h3>';
                 echo '<p>'. $content .'</p>';
                 echo '<div class="timestamp">';
-                    echo 'asked by '. $name .' at '. $time .' | <a href=ask.php?id='. $id .'>edit</a> | <a href="#">delete</a>';
+                    echo 'asked by '. $name .' at '. $time .' | <a href=ask.php?id='. $id .'>edit</a> | <a href="#" onclick="deleteQuestion('. $id .')">delete</a>';
                 echo '</div>';
             echo '</div>';
         echo '</div>';
@@ -54,7 +54,7 @@
     }
 
     function displayAsk($name = "", $email = "", $topic = "", $content = "", $id = 0) {
-        echo '<form action="ask.php" method="post">';
+        echo '<form onsubmit="return validate()" action="'. $_SERVER["PHP_SELF"] .'" method="post">';
             echo '<input type="text" name="name" placeholder="Name" autofocus value="'.$name.'"></input>';
             echo '<input type="text" name="email" placeholder="Email" value="'.$email.'"></input>';
             echo '<input type="text" name="topic" placeholder="Question Topic" value="'.$topic.'"></input>';
@@ -66,7 +66,7 @@
     }
 
     function displayAnswerForm($id) {
-        echo '<form action="answer.php" method="post">';
+        echo '<form onsubmit="return validate()" action="'. $_SERVER["PHP_SELF"] .'" method="post">';
             echo '<input type="text" name="name" placeholder="Name"></input>';
             echo '<input type="text" name="email" placeholder="Email"></input>';
             echo '<textarea  name="content" placeholder="Content" rows="7"></textarea>';
@@ -78,16 +78,16 @@
     function displayQuestion($id, $name, $email, $content, $time, $vote) {
         echo '<div class="question-item">';
             echo '<div class="vote-panel">';
-                echo '<div class="vote-up"></div>';
+                echo '<div class="vote-up" onclick="vote(\'question\','. $id .',\'up\')"></div>';
                 echo '<div class="vote-count">';
-                    echo '<span title="'. $vote .' votes">'. $vote .'</span>';
+                    echo '<span id="question-'. $id .'">'. $vote .'</span>';
                 echo '</div>';
-                echo '<div class="vote-down"></div>';
+                echo '<div class="vote-down" onclick="vote(\'question\','. $id .',\'down\')"></div>';
             echo '</div>';
             echo '<div class="question-content">';
                 echo '<p>'. $content .'</p>';
                 echo '<div class="timestamp">';
-                    echo 'asked by '. $name .' at '. $time .' | <a href=ask.php?id='. $id .'>edit</a> | <a href="#">delete</a>';
+                    echo 'asked by '. $name .' at '. $time .' | <a href=ask.php?id='. $id .'>edit</a> | <a href="#" onclick="deleteQuestion('. $id .')">delete</a>';
                 echo '</div>';
             echo '</div>';
         echo '</div>';
@@ -96,11 +96,11 @@
     function displayAnswer($id, $name, $email, $content, $time, $vote) {
         echo '<div class="answer-item">';
             echo '<div class="vote-panel">';
-                echo '<div class="vote-up"></div>';
+                echo '<div class="vote-up" onclick="vote(\'answer\','. $id .',\'up\')"></div>';
                 echo '<div class="vote-count">';
-                    echo '<span title="'. $vote .' votes">'. $vote .'</span>';
+                    echo '<span id="answer-'. $id .'">'. $vote .'</span>';
                 echo '</div>';
-                echo '<div class="vote-down"></div>';
+                echo '<div class="vote-down" onclick="vote(\'answer\','. $id .',\'down\')"></div>';
             echo '</div>';
             echo '<div class="answer-content">';
                 echo '<p>'. $content .'</p>';

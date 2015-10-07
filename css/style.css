@@ -31,16 +31,10 @@ a:hover, a:active {
     text-decoration: underline;
 }
 
-a.title {
-    color: black;
-}
-
-a.title:hover {
-    text-decoration: none;
-}
-
+a.title,
 a.topic {
     color: black;
+    text-decoration: none;
 }
 
 .div-search {
@@ -57,7 +51,7 @@ hr {
 
 hr.heading {
     height: 2px;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
 }
 
 hr.item {
