@@ -1,8 +1,11 @@
 .container {
-    width : 80%;
+    width : 70%;
     margin : 0 auto;
 }
 
+span {
+    display: block;
+}
 
 h1 {
     text-align: center;
@@ -104,25 +107,25 @@ textarea.error,input.error {
     display: block;
     padding : 20px 0 20px 0;
     border-top: 2px solid #3a3f3b;
-    cursor: pointer;
-    /*overflow: hidden;*/
 }
 
-.elemValue,.elemAnswer,.elemQuestion,.elemAuthor {
+
+.elemValue,.elemAnswer,.elemQuestion {
     float:left;
 
 }
 
 .elemValue,.elemAnswer {
     vertical-align: middle;
-    width : 8%;
+    width : 11%;
     text-align: center;
     background-color: #56d9ff;
 }
 
 
 .elemQuestion {
-    width : 50%;
+    float: left;
+    width : 73.5%;
     text-align: center;
     max-height: 160px;
     overflow: hidden;
@@ -130,13 +133,23 @@ textarea.error,input.error {
     background-color: #7dff7d;
 }
 .elemAuthor {
-    width : 29.3%;
+    margin-top: 30px;
     padding-left: 8px;
     text-align: right;
     color : red;
     overflow: hidden;
     background-color: #ffb584;
 }
+
+.elemAuthor span {
+    display: inline;
+}
+
+
+.topic,.edit,.delete {
+    cursor : pointer;
+}
+
 
 .topic {
     display: block;
@@ -148,6 +161,47 @@ textarea.error,input.error {
 input[type="text"].searchInput {
     width : 80%;
     float:left;
+}
+
+.author {
+    margin : 0 auto;
+    overflow: hidden;
+}
+
+.name,.edit,.delete .askedBy {
+    font-size: 13px;
+}
+
+.askedBy {
+    display: block;
+    color : black;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.name {
+    color : blue;
+}
+
+.edit:before {
+    content : "|";
+    margin-right: 8px;
+    margin-left: 8px;
+    font-size: 17px;
+}
+
+.delete:before {
+    content : "|";
+    margin-right: 8px;
+    margin-left: 8px;
+    font-size: 17px;
+}
+.edit {
+    color  : yellow;
+}
+
+.delete {
+    color : red;
 }
 
 p {
@@ -171,9 +225,6 @@ a:visited {
     color : #b06359;
 }
 
-span {
-    display: block;
-}
 
 .vote,.ans{
     font-weight: bold;
@@ -181,7 +232,7 @@ span {
 }
 
 
-.rowQuestion{
+.rowQuestion,.rowAnswer{
     cursor : default;
 }
 

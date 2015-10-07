@@ -5,24 +5,31 @@
  * Date: 06/10/15
  * Time: 11:49
  */
+
+require_once("connectDatabase.php");
+
+#Id Question yang di klik client
 $id = $_POST['idClicked'];
-$user = "tiso";
-$password = "baptiso";
-$database = "stackExchange";
-$link = mysqli_connect("localhost", $user, $password, $database);
 
-/* Cek Koneksi Database */
-if (mysqli_connect_errno()) {
-    printf("Connect failed: %s\n", mysqli_connect_error());
-    exit();
-}
 
+#Memperoleh Question yang Bersangkutan
 $query = "SELECT * FROM questions WHERE q_id=$id";
 $result = mysqli_query($link, $query) ;
 $row =mysqli_fetch_assoc($result);
-mysqli_close($link);
 
+
+#Memperoleh Jawaban - Jawaban dari Pertanyaan tersebut
+$rowAnswer = array();
+$query = "SELECT * FROM answers where q_id=$id";
+$resultAnswer = mysqli_query($link, $query);
+while ($rowAns = mysqli_fetch_assoc($resultAnswer))
+{
+    array_push($rowAnswer,$rowAns);
+}
+
+mysqli_close($link);
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -30,6 +37,7 @@ mysqli_close($link);
     <meta charset="UTF-8">
     <title>Detail</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <script src="../scripts/detail.js"></script>
 </head>
 <body>
 <div class="container">
@@ -37,59 +45,49 @@ mysqli_close($link);
     <h2><?php echo $row['qtopic']?></h2>
     <div class="row rowQuestion clearfix">
         <div class="colVote">
-            <div class="arrow-up"></div>
+            <div class="qVote arrow-up"></div>
             <span class="vote"><?php echo $row['vote'] ?></span>
-            <div class="arrow-down"></div>
+            <div class="qVote arrow-down"></div>
         </div>
         <div class="colQuestion">
             <p><?php echo $row['qcontent'] ?></p>
             <span>Asked By <?php echo $row['email']." at ". $row['date'] ?></span>
         </div>
     </div>
+
+
+    <h2><?php echo $row['answer'] ?> Answer</h2>
+    <?php
+    for($i=0;$i<count($rowAnswer);$i++) {
+        echo ' <div class="row rowAnswer clearfix" id='.$rowAnswer[$i]["a_id"].'>
+             <div class="colVote">
+                <div class="aVote arrow-up"></div>
+                <span class="vote">'.$rowAnswer[$i]['vote'].'</span>
+                <div class="aVote arrow-down"></div>
+             </div> ' .
+            '    <div class="colQuestion">
+                <p>'.$rowAnswer[$i]['acontent'].' </p>
+                <span>Asked By'. $rowAnswer[$i]["email"] . 'at'.' '. $rowAnswer[$i]['date'].'</span>
+             </div>
+        </div>';
+    }
+    ?>
+
+    <h2>Your Answer Here</h2>
+    <form name="questionForm"  action="answer.php" method="POST">
+        <input type="text"  id="name" name="name" placeholder="Name"/>
+        <input type="text"  id="email" name="email" placeholder="Email"/>
+        <input type="hidden" id="qID" name="qID" value="<?php echo $id ?>"/>
+        <textarea type="text"  id="acontent" name="acontent" placeholder="Content"></textarea>
+        <button  id="submitBtn" class="submitBtn" >Answer</button>
+    </form>
+
     <p id="idClicked" style="display:none"><?php echo $id?></p>
 </div>
 
 <script>
     (function() {
-        document.getElementsByClassName("arrow-up")[0].onclick = function(event) {
-            //event.preventDefault();
-            var http = new XMLHttpRequest();
-            var url = "getVote.php";
-            var qID = document.getElementById("idClicked").innerHTML;
-            var params = "qID="+qID+"&operation=plus";
-            http.open("POST", url, true);
-
-            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            http.setRequestHeader("Content-length", params.length);
-            http.setRequestHeader("Connection", "close");
-
-            http.onreadystatechange = function() {
-                if(http.readyState == 4 && http.status == 200) {
-                  document.getElementsByClassName("vote")[0].innerHTML = http.responseText;
-                }
-            }
-            http.send(params);
-        }
-
-        document.getElementsByClassName("arrow-down")[0].onclick = function(event) {
-            //event.preventDefault();
-            var http = new XMLHttpRequest();
-            var url = "getVote.php";
-            var qID = document.getElementById("idClicked").innerHTML;
-            var params = "qID="+qID+"&operation=minus";
-            http.open("POST", url, true);
-
-            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            http.setRequestHeader("Content-length", params.length);
-            http.setRequestHeader("Connection", "close");
-
-            http.onreadystatechange = function() {
-                if(http.readyState == 4 && http.status == 200) {
-                    document.getElementsByClassName("vote")[0].innerHTML = http.responseText;
-                }
-            }
-            http.send(params);
-        }
+        createDetail();
     })();
 </script>
 

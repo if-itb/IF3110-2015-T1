@@ -2,6 +2,7 @@
  * Created by sorlawan on 04/10/15.
  */
 
+//Validase form (Semua field terisi dan email merupakan email yang valid)
 function validateForm(inputs){
     var valid = true;
     for(var i=0;i<arguments.length;i++)
@@ -38,11 +39,13 @@ function validateForm(inputs){
 }
 
 
+//Validate email
 function validateEmail(email) {
     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     return re.test(email);
 }
 
+//Menambahkan error styling pada field yang error
 function addErrorClass(c) {
     var cClass= c.className;
     if(cClass.indexOf('error')===-1){ //Belum ada class error
@@ -50,6 +53,7 @@ function addErrorClass(c) {
     }
 }
 
+//Menghapus error styling pada field yang sudah valid
 function removeErrorClass(c) {
     c.className = c.className.replace(/error/,'');
 }
