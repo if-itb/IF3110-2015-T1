@@ -1,29 +1,43 @@
 <html>
+<head>
+	<title>Simple StackExchange</title>
+	<link rel="stylesheet" href="css/main.css">
+</head>
 
 <body>
 <h1>Simple StackExchange</h1>
 <br>
 <h2>The question topic goes here</h2>
 <hr>
-2
-<br>
-The question content goes here.
-<br>
-asked by <username> at <datetime> | edit | delete
+<table>
+	<tr>
+		<td class="VotesQA">2</td>
+		<td>The question content goes here. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td class="Asker">asked by username at datetime | <strong class="gold">edit</strong> | <strong class="red">delete</strong></td>
+	</tr>
+</table>
 <br>
 <h2>1 Answer</h2>
-<br>
-6
-<br>
-The answer content goes here.
-<br>
-answered by <username> at <datetime>
+<hr>
+<table>
+	<tr>
+		<td class="VotesQA">6</td>
+		<td>The answer content goes here. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td class="Answerer">answered by username at datetime</td>
+	</tr>
+</table>
 <hr>
 <h2>Your Answer</h2>
-<input type="text" placeholder="Name"><br>
-<input type="text" placeholder="Email"><br>
-<input type="text" placeholder="Content"><br>
-<input type="button" value="Post">
+<input class="text" type="text" placeholder="Name" size="130"><br>
+<input class="text" type="text" placeholder="Email" size="130"><br>
+<textarea id="question" placeholder="Content"></textarea>
+<input class="button" type="button" value="Post"><br>
 </body>
 
 </html>

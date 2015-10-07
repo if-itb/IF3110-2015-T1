@@ -14,8 +14,22 @@ h1 {
 	text-align:center;
 }
 
+h2 {
+	margin-bottom:0;
+}
+
 hr {
 	border:1px solid black;
+	margin-bottom:1em;
+}
+
+input.button {
+	margin-left:94.4%;
+}
+
+input.text {
+	margin-bottom:0.2em;
+	padding:3px;
 }
 
 input#searchbar {
@@ -55,6 +69,10 @@ table {
 	width:100%;
 }
 
+td.Answerer,td.Asker {
+	text-align:right;
+}
+
 td.Answers {
 	width:10%;
 	text-align:center;
@@ -63,4 +81,23 @@ td.Answers {
 td.Votes {
 	width:10%;
 	text-align:center;
+}
+
+td.VotesQA {
+	width:8%;
+	text-align:center;
+	color:grey;
+	font-size:25;
+}
+
+textarea {
+	margin-bottom:0.2em;
+	padding:3px;
+	font-family:Calibri;
+	font-size:14;
+}
+
+textarea#question {
+	width:809px;
+	height:110px;
 }
