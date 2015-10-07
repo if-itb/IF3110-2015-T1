@@ -1,0 +1,11 @@
+div {
+	font-family: Courier;
+	color: black;
+}
+
+#big {
+	font-size: 47px;
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 80px;
+}
