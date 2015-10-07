@@ -122,12 +122,59 @@ body {
   font-weight: 400;
   color: #5C5C5C; }
 
+.question-list > .row:first-child .question {
+  border-top: 1px solid #B8B8B8; }
+
+.question {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #B8B8B8; }
+
+.question-summary {
+  position: relative;
+  min-height: 74.8px; }
+
+.question-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 1em; }
+
+.question-title a,
+.question-title a:visited {
+  color: #0077cc;
+  text-decoration: none; }
+
+.question-meta {
+  text-align: right; }
+
+.question-edit,
+.question-edit:visited {
+  color: #0077cc;
+  text-decoration: none; }
+
+.question-delete,
+.question-delete:visited {
+  color: #0077cc;
+  text-decoration: none; }
+
 .question-status {
   text-align: center; }
 
+.status-title {
+  font-size: 12px;
+  color: #5C5C5C; }
+
+.status-counts {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #5C5C5C; }
+
 .question-vote,
 .question-answers {
-  width: 50%;
-  float: left; }
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 50%; }
 
 /*# sourceMappingURL=style.css.map */
