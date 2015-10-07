@@ -38,7 +38,7 @@
     <h1>Simple StackExchange</h1>
     <h2>What's your question?</h2>
     <hr>
-    <form action="submit_question.php" method="post" id="q_form" onsubmit="return validateForm()">
+    <form action="submitquestion.php" method="post" id="q_form" onsubmit="return validateForm()">
         <input type="text" class="form-control" placeholder="Name" name="q_name"><br>
         <input type="text" class="form-control" placeholder="Email" name="q_email"><br>
         <input type="text" class="form-control" placeholder="Question Topic" name="q_topic"><br>
