@@ -11,7 +11,7 @@ $conn = mysqli_connect($servername,$username,$password,"stackexchange");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-//echo "Connected successfully";
+
 mysqli_set_charset($conn,'utf8');
 
 function getQuestions($searchQuery = "", $sort = "date DESC") {
@@ -51,7 +51,6 @@ function postQuestion($data)
 		//create new question
 		$question = "INSERT INTO question (name, email, title, content, date)
 			VALUES ('$data[name]', '$data[email]', '$data[title]', '$data[content]', CURRENT_TIMESTAMP)";
-		echo "hahahaa";
 	} 
 	else 
 	{
@@ -64,7 +63,6 @@ function postQuestion($data)
 				content='$data[content]'
 			WHERE
 				question_id = $data[question_id]";
-		echo "haha";
 	}
 				      
 	$q = mysqli_query($conn, $question);
