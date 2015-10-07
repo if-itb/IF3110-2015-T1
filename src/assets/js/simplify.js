@@ -8,14 +8,20 @@ var _;
 var _onload = [];
 var _ElementArray;
 
+
 _ElementArray = function (elementArray) {
   this.elements = elementArray;
 };
 
+_ElementArray.prototype.elements = [];
+
 _ElementArray.prototype.click = function (callback) {
   for (var i = this.elements.length - 1; i >= 0; i--) {
     this.elements[i].onclick = function(e){
-      callback(new _ElementArray([e.srcElement]));
+      if (e.target === undefined)
+        callback(new _ElementArray([e.srcElement]));
+      else
+        callback(new _ElementArray([e.target]));
     };
   };
 }
@@ -26,11 +32,34 @@ _ElementArray.prototype.html = function (string) {
   };
 }
 
-_ElementArray.prototype.val = function (propertyName, value) {
+_ElementArray.prototype.forEach = function(func, callback) {
+  for (var i = this.elements.length - 1; i >= 0; i--) {
+    func(new _ElementArray([this.elements[i]]));
+  };
+  callback();
+}
+
+_ElementArray.prototype.prop = function (propertyName, value) {
   if (value === undefined){
     return this.elements[0].getAttributeNode(propertyName).value;
   } else {
     this.elements[0].getAttributeNode(propertyName).value = value;
+  }
+}
+
+_ElementArray.prototype.val = function (value) {
+  if (value === undefined){
+    return this.elements[0].value;
+  } else {
+    this.elements[0].value = value;
+  }
+}
+
+_ElementArray.prototype.style = function (key, value) {
+  if (value === undefined){
+    return this.elements[0].style[key];
+  } else {
+    this.elements[0].style[key] = value;
   }
 }
 
