@@ -13,7 +13,6 @@ class Questions extends Controller {
 
 		$data['listQuestions'] = $this->questionsModel->listQuestions();
 		$data['subHeader'] = "Recently Added Questions";
-		// list
 
 		$this->load->view('template/header');
 		$this->load->view('main', $data);
@@ -69,8 +68,6 @@ class Questions extends Controller {
 			$data['listQuestions'] = $this->questionsModel->searchQuestions($keyword);
 			$data['subHeader'] = "Related to '".$keyword."':";
 			$data['keyword'] = $keyword;
-
-			// list
 
 			$this->load->view('template/header');
 			$this->load->view('main', $data);
