@@ -40,6 +40,7 @@ div {
 	border: 0px solid;
 	left:50%;
 	margin-left: 250px;
+	margin-top: 25px;
 	width: 63%;
 }
 
@@ -79,4 +80,5 @@ table table {
 
 #asker {
 	text-align: right;
+	padding-bottom: 4%;
 }

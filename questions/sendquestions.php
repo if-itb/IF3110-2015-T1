@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "questions";
+$dbname = "stackoverflow";
 //create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 //check connection
