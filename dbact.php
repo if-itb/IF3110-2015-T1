@@ -28,5 +28,14 @@
 		$res = mysqli_query($db, $qry);
 		return $res;
 	}
+	
+	function delQuestion($id_q){
+		global $db;
+
+		$qry = "DELETE FROM question WHERE id_q=$id_q";
+
+		$res = mysqli_query($db, $qry);
+		return $res;
+	}
 
 ?>
