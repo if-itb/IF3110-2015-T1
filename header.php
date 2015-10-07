@@ -1,0 +1,1 @@
+<?php echo '<html><head><title>Simple Stack Exchange</title><script type="text/javascript" src="js/main.js"></script><style type="text/css" src="css/main.css"></style></head><body><div class="topbar"></div><h1 align="center">Simple Stack Exchange</h1><br><br>';
