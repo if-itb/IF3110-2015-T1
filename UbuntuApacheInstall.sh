@@ -22,8 +22,6 @@ echo "Please make sure you have these and its dependencies installed:
 +> php5-cgi
 +> mysql
 Please also make sure that the apache2 home directory is in $webserverHTMLdir
-This also will overwrite existing database named \"SimpleStackExchange\"
-.....
 Please repeat if any of the steps failed"
 while true
 do
@@ -55,7 +53,16 @@ do
   echo "Done"
 done
 
-#this part is for setting up mysql database
+#this part is for setting up mysql 
+while true
+do
+    read -r -p 'Do you want to install/reinstall the database? (y/n)' choice
+    case "$choice" in
+      n|N) exit;;
+      y|Y) break;;
+      *) echo 'Response not valid';;
+    esac
+done
 echo "creating database... please enter root password if prompted"
 echo "GRANT ALL PRIVILEGES ON *.* TO 'IF3110'@'localhost' IDENTIFIED BY PASSWORD '*1FB87EF4D20580140DEF1E64200EA118DC4ADBE2'" | mysql -u root -p
 echo "DROP DATABASE IF EXISTS SimpleStackExchange; CREATE DATABASE SimpleStackExchange;" | mysql -u IF3110 -pIF3110
