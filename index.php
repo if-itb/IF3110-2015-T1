@@ -1,3 +1,9 @@
+<?php
+
+	require_once "connection.php";
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,13 +30,18 @@
 			</form>
 
 			<div class="text-center">
-				<p>Cannot find what you are looking for? <a href="#">Ask here</a></p>
+				<p>Cannot find what you are looking for? <a href="form-question.php">Ask here</a></p>
 			</div>
 
 			<div class="title">
 				<h3>Recently Asked Question</h3>
 			</div>
 
+			<?php
+				getQuestions();
+			?>
+
+			<!--
 			<div class="question-wrapper">
 				<div class="question-container">
 					<div class="votes">
@@ -44,7 +55,7 @@
 					</div>
 
 					<div class="question">
-						<p>The question topic goes here</p>
+						<h3>The question topic goes here</h3>
 						<p>The question content goes here</p>
 					</div>
 
@@ -68,7 +79,7 @@
 					</div>
 
 					<div class="question">
-						<p>The question topic goes here</p>
+						<h3>The question topic goes here</h3>
 						<p>The question content</p>
 					</div>
 
@@ -80,6 +91,7 @@
 					</div>
 				</div>
 			</div>
+			-->
 		</div>
 	</div>
 	

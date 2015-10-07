@@ -1,3 +1,9 @@
+<?php
+
+	include("connection.php");
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,14 +28,15 @@
 				<h2>What's your question</h2>
 			</div>
 	
-			<form role="form" method="post" class="question-form">
-				<input type="text" placeholder="Name" class="content-question-form">
-				<input type="email" placeholder="Email" class="content-question-form">
-				<input type="text" placeholder="Question Topic" class="content-question-form">
-				<textarea rows="10" cols="106" placeholder="Content" class="textarea-question-form"></textarea>
+			<form role="form" method="post" action="add-question.php" class="question-form">
+				<input type="text" name="name" placeholder="Name" class="content-question-form">
+				<input type="email" name="email" placeholder="Email" class="content-question-form">
+				<input type="text" name="topic" placeholder="Question Topic" class="content-question-form">
+				<textarea rows="10" name="content" cols="106" placeholder="Content" class="textarea-question-form"></textarea>
+
+				<input name="post-button" type="submit" value="Post" class="post-button">
 			</form>
 
-			<input type="button" value="Post" class="post-button">
 		</div>
 	</div>
 </body>
