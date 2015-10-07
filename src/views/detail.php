@@ -34,10 +34,10 @@
 
 <h2>Your Answer</h2>
 
-<form class="ask" action="<?=$actionURL?>" method="post">
+<form class="answer" action="<?=$actionURL?>" method="post" onsubmit="return false || validate(this)">
 <input type="hidden" name="questionID" value="<?=$question['id']?>">
 <input type="text" name="name" placeholder="Name">
-<input type="email" name="email" placeholder="Email">
+<input data-type="email" name="email" placeholder="Email">
 <textarea name="content" placeholder="Content" rows="8"></textarea>
 <input type="submit" name="action" value="submit">
 </form>
@@ -61,18 +61,16 @@
 		});
 
 		_(".answer-vote-up").click(function(elmt){
-			id = elmt.val("data-id");
+			id = elmt.prop("data-id");
 			_.ajax.post("/index.php/answers/voteup", {"id":id}, function(response){
-				console.log(response);
 				var status = JSON.parse(response);
 				_("#answers-vote-count-"+id).html(status.voters);
 			}, 1);
 		});
 
 		_(".answer-vote-down").click(function(elmt){
-			id = elmt.val("data-id");
+			id = elmt.prop("data-id");
 			_.ajax.post("/index.php/answers/votedown", {"id":id}, function(response){
-				console.log(response);
 				var status = JSON.parse(response);
 				_("#answers-vote-count-"+id).html(status.voters);
 			}, 1);
