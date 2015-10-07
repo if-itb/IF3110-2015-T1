@@ -125,9 +125,39 @@ function getVote($qid){
 	return 1;
 }
 
-//untuk mengambil semua question
-function getQuestions(){
+//untuk mengambil semua question dan answer count-nya
+function getQuestionsAndAnswerCount(){
+	//inserts
+	global $servername,$username,$password,$dbname;
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		echo "<p> connection error:". mysqli_connect_error ( void )."</p>";
+		return NULL;
+	}
 
+	$sql = "SELECT * FROM Question AS sd LEFT JOIN (SELECT qid,count(aid) AS anscount FROM Answer GROUP BY qid) AS ss ON sd.qid=ss.qid;";
+
+	$result = $conn->query($sql);
+	
+	$retval = array();
+
+	if ($result->num_rows > 0) {
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+			$retval[]=$row;
+	    	}
+	} else {
+		return NULL;
+	}
+
+	return $retval;
+}
+
+function searchQuestions($sq){
+	echo "<p> SEARCH NOT IMPLEMENTED </p>";
+	return getQuestions();
 }
 
 //apabila berhasil return true
