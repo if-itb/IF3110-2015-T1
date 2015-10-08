@@ -1,0 +1,56 @@
+h1 {
+	text-align: center;
+	font-family: "cure.se medium", Verdana, "Times New Roman";
+	font-size: 40px;
+	padding-top: 20px;
+	padding-bottom: 30px;
+}
+
+a#a1 {
+	text-decoration: none;
+	color: #ffd000;
+}
+
+p#p1 {
+	text-align: center;
+}
+
+p#p2 {
+	text-align: left;
+	padding-left: 8px;
+	font-size: 24px;
+	border-bottom: 2px solid black;
+}
+
+p#p3 {
+	text-align: left;
+	font-size: 28px;
+	border-bottom: 2px solid black;
+}
+
+div#div1 {
+	text-align: center;
+}
+
+div#div2 {
+	width: 700px;
+	padding-left: 230px;
+	padding-right: 230px;
+	margin-left: 100px;
+	margin-right: 100px;
+}
+
+input[type=search] {
+	width: 600px;
+	height: 25px;
+	border-style: solid;
+	border-width: 2px;
+}
+
+input[type=submit] {
+	height: 25px;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	background-color: white;
+}
