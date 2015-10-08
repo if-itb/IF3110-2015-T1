@@ -69,11 +69,11 @@
 
 .box {
   display: block;
-  margin: 0px 0;
+  margin: 0px;
   border: 1px solid pink;
   width: 100%;
   padding: 3px 10px;
-  line-height: 3;
+  line-height: 2;
   font-size: 16px;
   box-sizing: border-box;
   font-family: open-sans-light;

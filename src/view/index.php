@@ -35,33 +35,33 @@
           <div class="item">
             <div class="vote">
               <p class="text-center">
-                <a href="view/question.php?id=<?= $q["id_question"] ?>">
+                <a href="/view/question.php?id=<?= $q["id_question"] ?>">
                   <?= $q["vote"] ?>
                 </a>
               </p>
               <p class="text-center">
-                <a href="view/question.php?id=<?= $q["id_question"] ?>">
+                <a href="/view/question.php?id=<?= $q["id_question"] ?>">
                   Votes
                 </a>
               </p>
             </div>
             <div class="answer">
               <p class="text-center">
-                <a href="view/question.php?id=<?= $q["id_question"] ?>">
+                <a href="/view/question.php?id=<?= $q["id_question"] ?>">
                   <?= $q["answer"] ?>
                 </a>
               </p>
               <p class="text-center">
-                <a href="view/question.php?id=<?= $q["id_question"] ?>">
+                <a href="/view/question.php?id=<?= $q["id_question"] ?>">
                   Answers
                 </a>
               </p>
             </div>
             <div class="text">
-              <p><i><a href="view/question.php?id=<?= $q["id_question"] ?>"> <?= $q["topic"]?></a></i></p>
+              <p><i><a href="/view/question.php?id=<?= $q["id_question"] ?>"> <?= $q["topic"]?></a></i></p>
             </div>
             <div class="text">
-              <p><a href="view/question.php?id=<?= $q["id_question"] ?>"> <?= $q["content"]?></a></p>
+              <p><a href="/view/question.php?id=<?= $q["id_question"] ?>"> <?= $q["content"]?></a></p>
             </div>
             <div class="text-right">
               <p>asked by <?= $q["name"] ?> | <a href="/view/ask.php?id=<?= $q["id_question"] ?>">edit</a> | delete</p>

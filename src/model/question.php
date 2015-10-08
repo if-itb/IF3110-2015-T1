@@ -10,7 +10,7 @@ class Question extends Model {
   }
 
   public function getAll() {
-    $sql = "SELECT * FROM question GROUP BY id_question DESC";
+    $sql = "SELECT * FROM question ORDER BY id_question DESC";
     $result = $this->getResultQuery($sql);
     foreach($result as &$item) {
       $item["answer"] = $this->getAnswerCount($item["id_question"]);
@@ -34,7 +34,6 @@ class Question extends Model {
 
   public function edit($id, $name, $email, $topic, $content) {
     $sql = "UPDATE question SET name='$name', email='$email', topic='$topic', content='$content' WHERE id_question=$id";
-    echo $sql;
     $this->executeQuery($sql);
   }
 

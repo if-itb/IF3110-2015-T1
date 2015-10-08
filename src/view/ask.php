@@ -30,7 +30,7 @@
         <input placeholder="Name" class="form" type="text" name="authorName" value="<?= $q["name"] ?>">
         <input placeholder="Email" class="form" type="text" name="authorEmail" value="<?= $q["email"] ?>">
         <input placeholder="Question Topic" class="form" type="text" name="topic" value="<?= $q["topic"] ?>">
-        <textarea placeholder="Content" class="box" name="content"><?= $q["content"] ?></textarea>
+        <textarea placeholder="Content" rows="4" class="box" name="content"><?= $q["content"] ?></textarea>
         <div class="text-right">
             <button class="button" class="text-right" type="submit">Post</button>
         </div>

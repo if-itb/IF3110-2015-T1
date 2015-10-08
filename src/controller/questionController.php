@@ -10,10 +10,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   $content = $_POST["content"];
   $questionModel = new Question();
   if($id == -1) {
-    echo "ADDING";
     $questionModel->add($name, $email, $topic, $content);
   } else {
-    echo "EDIT";
     $questionModel->edit($id, $name, $email, $topic, $content);
   }
 }
