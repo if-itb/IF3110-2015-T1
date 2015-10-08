@@ -25,7 +25,7 @@ a {
 }
 .subtitle {
   padding: 0 10px;
-  font-size: 120%;
+  font-size: 140%;
   border-bottom: 2px solid #aaa;
 }
 .stacked {
@@ -43,36 +43,52 @@ a {
   height: 35px;
   border: 2px solid #aaa;
 }
-.question {
-  padding: 10px;
-  display: flex;
-  align-items: center;
+.border-bottom {
   border-bottom: 1px solid #aaa;
 }
 .vote-number {
   float: left;
-  width: 10%;
+  width: 100px;
   text-align: center;
+  overflow: auto;
 }
 .answer-number {
   float: left;
-  width: 10%;
+  width: 100px;
   text-align: center;
+  overflow: auto;
 }
 .right-position {
-  width: 80%;
-  float: left;
+  width: auto;
   text-align: right;
 }
-.question-detail {
-  margin-bottom: 10px;
+.answer-question-detail {
+  margin: 0 10px 10px;
   text-align: left;
 }
 .full-length {
-  width: 100%;
+  width: 98%;
   margin: 2px 0;
   padding: 5px 10px;
 }
 #question-form {
-  margin: 20px 5% 0;
+  margin: 20px 30px 0;
+}
+#answer-form-title {
+  padding: 0 10px;
+  font-size: 140%;
+  color: #aaa;
+}
+.same-height-row {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.small-icon {
+  width: 20px;
+  height: auto;
+}
+.big-number {
+  color: #aaa;
+  font-size: 140%;
 }
