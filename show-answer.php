@@ -1,3 +1,29 @@
+<?php
+	// Connect to database
+	$con=mysqli_connect("localhost","root","","stackexchange");
+	// Check connection
+	if (mysqli_connect_errno()) {
+		echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	}
+	
+	if(isset($_GET['delete_id'])) 	{
+		$sql="DELETE FROM question WHERE id_question=".$_GET['delete_id'];
+		if ($con->query($sql) === TRUE) {
+		    header("Location: http://127.0.0.1:8080/stack_exchange/index.php");
+		    $sql="DELETE FROM answer WHERE id_question=".$_GET['delete_id'];
+			if ($con->query($sql) === TRUE) {
+			    header("Location: http://127.0.0.1:8080/stack_exchange/index.php");
+				exit;
+			} else {
+			    echo "Error deleting record: " . $con->error;
+			}
+			exit;
+		} else {
+		    echo "Error deleting record: " . $con->error;
+		}
+	}
+?>
+
 <!DOCTYPE html>
 <html lang = "en">
 	<head>
@@ -5,15 +31,16 @@
 		<script type="text/javascript" src="vote.js"></script>
 		<title>Simple Stack Exchange - Show Answer</title>
 	</head>
+	<script type="text/javascript">
+	function delete_id(id) {
+	     if(confirm('Are you sure to delete this question?')) {
+	        window.location.href='http://127.0.0.1:8080/stack_exchange/index.php?delete_id='+id;
+	     }
+	}
+	</script>
 	<body>
 		<h1>Simple Stack Exchange</h1>
 		<?php
-			// Connect to database
-			$con=mysqli_connect("localhost","root","","stackexchange");
-			// Check connection
-			if (mysqli_connect_errno()) {
-				echo "Failed to connect to MySQL: " . mysqli_connect_error();
-			}
 			$id = $_GET["id"];
 			$id = mysql_real_escape_string($id);
 			$sql = "SELECT * FROM question where id_question = '$id'";
@@ -33,7 +60,7 @@
 			echo "<td colspan='2' class='attribute' style=text-align:right;>". "asked by ". "<font color='purple'>".$row["username"]."</font>". 
 			" at ". $row["created_date"]. " | ".
 			'<a href="edit-question.php?id='. $row["id_question"]. '" style="text-decoration:none;">'. "<font color='orange'>"."edit"."</font>". "</a>". " | ".
-			"<font color='red'>"."delete"."</font>". "</td>";
+			"<a href='javascript:delete_id($row[id_question])' style='text-decoration:none;'>". "<font color='red'>"."delete"."</a>". "</font>". "</td>";
 			echo "</tr>";
 			echo "</table>";
 
