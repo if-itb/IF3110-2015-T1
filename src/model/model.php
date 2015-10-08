@@ -1,5 +1,7 @@
 <?php
 
+require_once '../conf.php';
+
 class Model {
   public function __construct() {
     

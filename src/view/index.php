@@ -61,7 +61,7 @@
               <p><i><a href="view/question.php?id=<?= $q["id_question"] ?>"> <?= $q["topic"]?></a></i></p>
             </div>
             <div class="text">
-              <p><a href="view/question.php?id=<?= $q["id_question"] ?>"> <?= $q["text"]?></a></p>
+              <p><a href="view/question.php?id=<?= $q["id_question"] ?>"> <?= $q["content"]?></a></p>
             </div>
             <div class="text-right">
               <p>asked by <?= $q["name"] ?> | <a href="/view/ask.php?id=<?= $q["id_question"] ?>">edit</a> | delete</p>
