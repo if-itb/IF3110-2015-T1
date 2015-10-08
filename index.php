@@ -31,7 +31,7 @@ include("setup_post.php");
 		
 		<div class="wrapper" id="list-questions">
 			<div class="content-header">
-				<h2>Recently Asked Questions</h2>
+				<h2><?php echo $index_title;?></h2>
 			</div>
 
 			<?php foreach ($questions as $question) : ?>

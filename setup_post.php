@@ -4,7 +4,15 @@ include("database/conn.php");
 
 $questions = array();
 
-$query = "SELECT * FROM questions ORDER BY q_datetime DESC";
+if (isset($_GET['search']) && isset($_GET['searchquery'])) {
+	$searchquery = $_GET['searchquery'];
+	$query = "SELECT * FROM questions WHERE q_content LIKE '%".$searchquery."%' OR q_topic LIKE '%".$searchquery."%';";
+	$index_title = "Search Results for '".$searchquery."'";
+} else {
+	$query = "SELECT * FROM questions ORDER BY q_datetime DESC";
+	$index_title = "Recently Asked Questions";
+}
+
 $result = mysqli_query($dbcon, $query);
 if ($result) {
 	while ($rows = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
