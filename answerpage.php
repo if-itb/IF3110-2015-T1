@@ -46,7 +46,9 @@
 			$last_id = mysqli_insert_id($conn);		
 		}
 
-		$sql = "SELECT J";	
+		$sql = "SELECT answer_id FROM Question INNER JOIN Answer ON Question.question_id=Answer.question_id";
+		$result = mysqli_query($conn, $sql);	
+		$count_answer = mysqli_num_rows ($result);
 
 	?>
 
@@ -66,33 +68,43 @@
 	
 		<div class="vote">
 			<div class="arrow-up"></div>
-			<h3>5</h3>
+			<h3 style="padding-left:50%;">5</h3>
 			<div class="arrow-down"></div>
 		</div>
 		<p> <?php echo $content ?> </p>
 		<p style="float:right"> asked by <?php echo $email ?> at datetime | <a href="" style="color:#FFA500"> edit </a> | <a href="" style="color:#FF0000"> delete </a> </p>
 	</div>
 
-
-	<div class="boxarea">
-		<h2> Answers <hr> </h2>
+	<?php
+		if($count_answer==0) {
+			echo '<div class="boxarea"> <h2> 0 Answers <hr> </h2> </div>';
+		}
+		else {
+			?>
+			<div class="boxarea">
+				<h2> Answers <hr> </h2>
 	
-		<div class="vote">
-			<div class="arrow-up"></div>
-			<h3>5</h3>
-			<div class="arrow-down"></div>
-		</div>
-		<p> <?php echo $content ?> </p>
-		<p style="float:right"> asked by <?php echo $email ?> at datetime | <a href="" style="color:#FFA500"> edit </a> | <a href="" style="color:#FF0000"> delete </a> </p>
-	</div>
-
-
-
-
-	
-
-
-
+				<div class="vote">
+					<div class="arrow-up"></div>
+					<h3>5</h3>
+					<div class="arrow-down"></div>
+				</div>
+				<p> <?php echo $content ?> </p>
+				<p style="float:right"> asked by <?php echo $email ?> at datetime | <a href="" style="color:#FFA500"> edit </a> | <a href="" style="color:#FF0000"> delete </a> </p>
+			</div>
+			<?php
+		}
+	?>
+	<h3> Your Answer </h3>
+	<form method="POST" action="answerpage.php">
+		<input type="text" name="answer_name" id="answer_name" placeholder="Name">
+		<br>
+		<input type="text" name="answer_email" id="answer_email" placeholder="Email">
+		<br> 
+		<textarea name="answer_content" id="answer_content" rows="15" placeholder="Content"></textarea>
+		<br>
+		<input type="submit" id="submit_answer" value="Post">
+	</form>
 
 
 </div>
