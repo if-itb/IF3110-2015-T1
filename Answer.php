@@ -3,6 +3,34 @@
 <head>
 	<title>Answer</title>
 	<link href="style.css" rel="stylesheet" type="text/css">
+	<script>
+			function validateEmail(email) {
+				var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	
+				return re.test(email.value);
+			}
+			function validateForm() {
+				var x = document.forms["myForm"]["Name"].value;
+				if (x == null || x == "") {
+					alert("Name must be filled out");
+					return false;
+				}
+				var x = document.forms["myForm"]["Email"].value;
+				if (x == null || x == "") {
+					alert("email must be filled out");
+					return false;
+				}
+				else if(!validateEmail(document.getElementById("email"))) {
+					alert('Please enter a valid email address.');
+					return false;
+				}
+				var x = document.forms["myForm"]["message"].value;
+				if (x == null || x == "") {
+					alert("Content must be filled out");
+					return false;
+				}
+			}
+	</script>
 </head>
 <body>
 	<?php 
@@ -22,11 +50,16 @@
 			if (mysqli_num_rows($result) > 0) {
 				// output data of each row
 				while($row = mysqli_fetch_assoc($result)) {
-				echo '<div class= "resQuestion">';
-				echo "" . $row["Content"];
-				echo "</div>";
-				echo '<div class= "infoQuestion">';
-				echo " asked by " . $row["Email"]. " at " . $row["Date"] . "<a href='AskHere.php?id=".$id_Question."'>| edit |</a> <a href='delete_question.php?id=".$id_Question."'> delete |</a>";
+				echo '<div class="kotak">';
+						echo "" . $row["Vote"];	
+				echo '</div>';
+				echo '<div class= "question-box">';
+					echo '<div class= "resQuestion">';
+						echo "" . $row["Content"];
+					echo "</div>";
+					echo '<div class= "infoQuestion">';
+						echo " asked by " . $row["Email"]. " at " . $row["Date"] . "<a href='AskHere.php?id=".$id_Question."'>| edit |</a> <a href='delete_question.php?id=".$id_Question."'> delete |</a>";
+					echo "</div>";
 				echo "</div>";
 			}
 			} else {
@@ -83,9 +116,7 @@
 				<div class="SubTitle">
 				<h2>The question topic goes here </h2>
 				</div>
-				<div class="kotak">
-					1
-				</div>
+				
 				<div class="content">
 					<?php readQuestion( $_GET["id"]);?>
 				</div>
@@ -102,10 +133,10 @@
 		
 		<div class="answerform">
 		Your Answer
-			<form action="add_answer.php" method="post">
+			<form name="myForm" onsubmit="return validateForm()" action="add_answer.php" method="post">
 				<input type="text" name="Name" placeholder="Name" >
-				<input type="text" name="Email" placeholder="Email">
-				<input type="hidden" name ="id-question" value="<?php echo $_GET["id"];?>"">
+				<input type="text" id="email" name="Email" placeholder="Email">
+				<input type="hidden" name ="id-question" value="<?php echo $_GET["id"];?>">
 				<textarea placeholder= "Content" name="message"  ></textarea>
 				<input class="button" type="submit" name="Post" value="Post">
 			</form>

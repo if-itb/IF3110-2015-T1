@@ -82,7 +82,14 @@ form.search-box > input[type="submit"]{
 	padding: 4% 2%;
 	text-align:center;
 	width:10%;
+
 	float:left;
+}
+.question-box{
+	width:80%;
+	float: left;
+	padding: 2%;
+	overflow:auto;
 }
 /*
 .vote-question{

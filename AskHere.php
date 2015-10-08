@@ -3,6 +3,42 @@
 <head>
 	<title>AskHere</title>
 	<link href="style.css" rel="stylesheet" type="text/css">
+	<script>
+			function validateEmail(email) {
+				var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	
+				return re.test(email.value);
+			}
+			function validateForm() {
+				var x = document.forms["myForm"]["Name"].value;
+				if (x == null || x == "") {
+					alert("Name must be filled out");
+					return false;
+				}
+				
+				var x = document.forms["myForm"]["Email"].value;
+				if (x == null || x == "") {
+					alert("email must be filled out");
+					return false;
+				}
+				else if(!validateEmail(document.getElementById("email"))) {
+					alert('Please enter a valid email address.');
+					return false;
+				}
+				
+				var x = document.forms["myForm"]["QuestionTopic"].value;
+				if (x == null || x == "") {
+					alert("Topic must be filled out");
+					return false;
+				}
+				
+				var x = document.forms["myForm"]["message"].value;
+				if (x == null || x == "") {
+					alert("Content must be filled out");
+					return false;
+				}
+			}
+	</script>
 </head>
 <body>
 	<?php  
@@ -40,9 +76,9 @@
 		<h2>What's your question?</h2>
 		<hr>
 		<div class="questionform">
-			<form action="add_question.php" method="post">
+			<form name= "myForm" action="add_question.php" onsubmit="return validateForm()" method="post">
 				<input type="text" name="Name" placeholder="Name" value="<?php echo $name; ?>">
-				<input type="text" name="Email" placeholder="Email" value="<?php echo $email?>">
+				<input type="text" id="email" name="Email" placeholder="Email" value="<?php echo $email?>">
 				<input type="text" name="QuestionTopic" placeholder="Question Topic" value="<?php echo $topic?>">
 				<textarea placeholder= "Content" name="message"><?php echo $text?></textarea>
 				<input type="hidden" name="id"  value="<?php echo $id?>">
