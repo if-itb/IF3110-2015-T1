@@ -3,7 +3,7 @@
   <head>
     <title>Question | Overflow48</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-    <link rel="icon" type="image/png" href="/assets/icon.png">
+    <link rel="icon" type="image/png" href="/assets/white-icon.jpg">
   </head>
   <body>
     <div class="container">
