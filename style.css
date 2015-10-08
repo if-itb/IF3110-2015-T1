@@ -1,40 +1,107 @@
-#judul
+.container
 {
-	text-align: center;
+	height: 50%;
+	width: 50%;
+	margin: 0 auto;
 }
 
-#garis
+.editor
 {
-	border-bottom: 2px solid black;
-	text-align: center;
-	width: 30%;
-	margin:0 auto;
+	float: right;
 }
 
-#form
+.boxform
 {
 	width:50%;
 	margin: 0 auto;
 }
 
-#boxcontent
-{
-	height: 50%;
-}
 
-#posisipost
+.posisipost
 {
+    border-radius: 2px;
+	padding: 8px;
 	float: right;
-	margin: 0;
-	padding: 0;
 }
 
 .box
 {
-	width: 100%;
+	width: 99%;
+    font-family: Calibri;
 }
 
-textarea
+
+.vote-up {
+	width: 0; 
+	height: 0; 
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid black;
+}
+
+.vote-down {
+	width: 0; 
+	height: 0; 
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid black;
+}
+
+.vote-count
 {
+	width: 20%;
+	float: left;
+}
+
+.votequest
+{
+	display: block;
+	padding-top: 20px;
+	border-top: 2px solid black;
+}
+
+.question
+{
+	float:left;
+	width: 80%;
+}
+.vote
+{
+	text-align: center;
+	font-size:35px;
+}
+.vote-up,.vote-down,.vote
+{
+	margin:0 auto;
+}
+h1
+{
+	text-align: center;
+}
+h3
+{
+	text-align: center;
+}
+
+input[type="text"],textarea
+{
+	padding:7px 0px 7px 9px;
+	border: 2px solid black;
 	resize: none;
+	border-radius: 10px;
+}
+
+.edit
+{
+    color: yellow;
+}
+
+.delete
+{
+    color: red;
+}
+
+.ask
+{
+    color: orange;
 }
