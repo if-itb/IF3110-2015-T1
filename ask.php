@@ -10,7 +10,8 @@
         $content = $mysqli->real_escape_string($_POST["content"]);
         if (empty($_POST["id"])) {
             $query = "INSERT INTO question (name, email, topic, content) VALUES ('$name', '$email', '$topic', '$content')";
-            $id = $mysqli->query($query)->insert_id;
+            $mysqli->query($query);
+            $id = $mysqli->insert_id;
         }
         else {
             $id = $mysqli->real_escape_string($_POST["id"]);
