@@ -1,0 +1,48 @@
+body {
+	font-family: Segoe UI;
+}
+
+h1 {
+	text-align: center;
+	margin-top: 70px;
+}
+
+#searchbox,
+#name,
+#email,
+#topic,
+#content {
+	width: 450px;
+}
+
+#submitbutton {
+	width: 70px;
+}
+
+#postbutton {
+	margin-left: 410px;
+}
+
+form {
+	text-align: center;
+}
+
+p {
+	margin-top: 1px;
+	text-align: center;
+}
+
+h2 {
+	margin-left: 445px;
+	margin-bottom: 5px;
+}
+
+h3 {
+	margin-left: 380px;
+	margin-bottom: 5px;
+}
+
+hr {
+    width: 600px;
+    margin-top: 5px;
+} 
