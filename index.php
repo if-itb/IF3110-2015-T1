@@ -48,7 +48,7 @@
 
         			echo "<tr>";
         			echo "<td colspan='3' class='attribute' style=text-align:right;>". "<b>". "asked by ". "<font color='purple'>".$row["username"]."</font>". " | ".
-        			"<a href='edit-question.html' style='text-decoration:none;'>". "<font color='orange'>"."edit"."</font>". "</a>". " | ".
+        			'<a href="edit-question.php?id='. $row["id_question"].'" style="text-decoration:none;">'. "<font color='orange'>"."edit"."</font>". "</a>". " | ".
         			"<font color='red'>"."delete"."</font>". "</b>". "</td>";
         			echo "</tr>";
         			echo "</table>";
