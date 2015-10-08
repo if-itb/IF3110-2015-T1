@@ -17,7 +17,30 @@
 			VALUES ('$Name', '$Email', '$Topic', '$content')";
 		
 		$res = mysqli_query($db, $qry);
+		echo "INSERT";
+		return $res;
 		
+	}
+
+	function updateQuestion($id_q, $Name, $Email, $Topic, $content){
+		global $db;
+
+		$qry = "UPDATE question SET Name='$Name', Email='$Email', Topic='$Topic', Content='$content' WHERE id_q=$id_q";
+		
+		$res = mysqli_query($db, $qry);
+		echo "EDIT'";
+		return $res;
+		
+	}
+
+	function getQuestion($id) {
+		global $db;
+		$q = "SELECT * FROM question WHERE id_q='$id'";
+		$res = mysqli_query($db, $q);
+
+		$row = mysqli_fetch_array($res, MYSQLI_ASSOC);
+		
+		return $row;
 	}
 
 	function getAllQuestion(){
@@ -28,7 +51,7 @@
 		$res = mysqli_query($db, $qry);
 		return $res;
 	}
-	
+
 	function delQuestion($id_q){
 		global $db;
 
@@ -37,5 +60,4 @@
 		$res = mysqli_query($db, $qry);
 		return $res;
 	}
-
 ?>
