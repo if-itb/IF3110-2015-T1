@@ -20,7 +20,7 @@
   margin-bottom: 48px;
 }
 
-.container {
+.outer-container {
   width: 960px;
   margin: 48px auto;
   padding-right: 15px;
@@ -29,6 +29,11 @@
   padding-bottom: 60px;
   background-color: $container-background;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.inner-container {
+  margin: 0 auto;
+  width: 770px;
 }
 
 .main-title h1 {
@@ -48,14 +53,14 @@
   color: $font-color__secondary;
 }
 
-.question-list > .row:first-child .question {
-  border-top: 1px solid $border-color;
+.question-list > .inner-container:first-child .question {
+  border-top: 2px solid $border-color;
 }
 
 .question {
   padding-top: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 2px solid $border-color;
 }
 
 .question-summary {
@@ -75,8 +80,11 @@
   text-decoration: none;
 }
 
-.question-meta {
+.question-meta,
+.answer-meta {
   text-align: right;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .question-edit,
@@ -91,7 +99,8 @@
   text-decoration: none;
 }
 
-.question-status {
+.question-status,
+.answer-status {
   text-align: center;
 }
 
@@ -113,4 +122,85 @@
   padding-top: 10px;
   padding-bottom: 10px;
   width: 50%;
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+.question-header h1 {
+  font-size: 24px;
+  font-weight: $font-weight__semi-bold;
+  color: $blue-secondary;
+  margin-bottom: 10px;
+}
+
+.question-item,
+.answer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 2px solid $border-color;
+}
+
+.answer {
+  border-bottom: 2px solid $border-color;
+  margin-bottom: 30px;
+}
+
+.vote-counts {
+  font-size: 30px;
+  font-weight: $font-weight__semi-bold;
+  color: $font-color__secondary;
+}
+
+
+.vote-down a,
+.vote-up a {
+  font-size: 20px;
+  color: $font-color__secondary;
+  transition: color 300ms ease;
+
+  &:hover {
+    color: darken($font-color__secondary, 20%);
+  }
+}
+
+.answer-header h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: $font-weight__normal;
+  color: $font-color__secondary;
+}
+
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+.form-field input,
+.form-field textarea {
+  font-family: 'Open sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display: block;
+  margin-top: 4px;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.form-field textarea {
+  width: 100%;
+  height: 200px;
+}
+
+#answerForm input {
+  height: 38px;
+}
+
+
+.answer-form-header {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: $font-weight__light;
+  color: $font-color__secondary;
 }

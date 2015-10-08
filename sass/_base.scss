@@ -7,22 +7,34 @@ body {
   background-color: $body-background;
 }
 
-a,
-a:visited {
+p {
+  margin-bottom: 1em;
+}
+
+a {
   color: $blue-secondary;
   text-decoration: none;
+
+  &:visited {
+    color: $blue-secondary;
+    text-decoration: none;    
+  }
+
+  &:hover {
+    color: $blue-main;  
+  }
 }
 
-a:hover {
-  color: $blue-main;
-}
-
-input {
+input,
+textarea {
   padding: 10px;
+  border-radius: 2px;
 }
 
-input:not([type="submit"]) {
-  border: 1px solid $blue-tertiary;
+input:not([type="submit"]),
+textarea {
+  background: $container-background;
+  border: 2px solid $blue-tertiary;
 }
 
 input[type="submit"] {
