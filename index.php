@@ -1,3 +1,8 @@
+<?php
+    require_once("./controller.php");
+    $questions = getQuestions();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,8 +23,26 @@
         </div>
 
         <div id="content">
-            <p>Recently Asked Questions</p>
-            <hr>
+            <p class="content_title" id="recently">Recently Asked Questions</p>
+            <div class="question">
+                <div class="left">
+                    <span class="vote">Votes</span>
+                    <span class="answer">Answers</span>
+                </div>
+
+                <div class="middle">
+                    <a href=""></a>
+                    <p></p>
+                </div>
+
+                <div class="right">
+                    <div class="details">
+                        Asked by 
+                    </div>
+                </div>
+
+            </div>           
+
         </div>
 
         <div id="footer">

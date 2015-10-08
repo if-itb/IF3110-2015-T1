@@ -1,3 +1,20 @@
+<?php
+
+  require_once("./controller.php");
+
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $question = array();
+    $question['name'] = $_POST['name'];
+    $question['email'] = $_POST['email'];
+    $question['topic'] = $_POST['topic'];
+    $question['content'] = $_POST['content'];
+    postQuestion($question);
+
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,16 +32,15 @@
     </div>
 
     <div id= "content">
-      <p id="content-title">What's your question?</p>
-      <hr style="width:90%">
+      <p class="content_title">What's your question?</p>
     
       <!--javascript Form Validation -->
-      <form name="question_form" id="question" action="controller.php" onsubmit="return validateQuestionForm()" method="post"  > 
+      <form name="question_form" id="question" action="" onsubmit="return validateQuestionForm()" method="post"  > 
          <input type="text" name="name" placeholder="Name">
          <input type="text" name="email" placeholder="Email" >
          <input type="text" name="topic" placeholder="Question Topic">
          <textarea name="content" placeholder="Content" rows="5" cols="40"></textarea>
-         <input id="submit" type="submit" value="Post"> 
+         <input type="submit" class="submitButton" value="Post"> 
       </form>
     </div>
 
@@ -35,3 +51,6 @@
 </body>
 
 </html>
+
+
+
