@@ -11,7 +11,7 @@
 
 		<div id="answerForm">
 			<h1 class="tag">Your Answer</h1>
-			<form class="form makeQuestion" action="question.php?id=<?php echo $_GET["id"] ?>" method="POST">
+			<form onsubmit="return validasi(this);" class="form makeQuestion" action="question.php?id=<?php echo $_GET["id"] ?>" method="POST">
 				<div class="innerForm">
 					<input class="textForm" type="text" placeholder="Name" name="name">
 				</div>

@@ -3,6 +3,10 @@
 body{
 	font-family: 'Open Sans', sans-serif;
 	margin: 0 0;
+	text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: 'liga', 'kern';
 }
 
 .container-brand{
@@ -36,24 +40,54 @@ body{
 }
 
 .inner{
-	width: 60%;
+	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	padding-top: 3em;
 }
+@media(min-width: 800px){
+	.inner{
+		width: 90%;
+	}
+}
+@media(min-width: 1000px){
+	.inner{
+		width: 70%;
+	}
+}
+@media(min-width: 1200px){
+	.inner{
+		width: 60%;
+	}
+}
 
 .popUp{
-	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+	display: table;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	margin-top: auto;
+	margin-left: 0.5em;
+	margin-bottom: 0.5em;
+	-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
 	text-align: center;
 	background-color: #333;
 	color: #fff;
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
+	min-width: 20em;
+	min-height: 6em;
+	opacity: 0.8;
+	/*border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;*/
+}
+.popUp div{
+	display: table-cell;
+	vertical-align: middle;
 }
 .popUp p{
-	margin : 0 0;
+	margin-top: 10px;
+	margin-left : 29px;
 	padding: 10px 0;
 }
 .error p{
@@ -131,6 +165,27 @@ body{
 }
 .textForm:focus, .textArea:focus{
 	color: #333;
+}
+.errorForm{
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(244, 29, 78, 0.75);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(244, 29, 78, 0.75);
+	box-shadow: 0px 0px 10px 0px rgba(244, 29, 78, 0.75);
+	border-color: #F41D4E;
+}
+.errorForm::-webkit-input-placeholder {
+   color: #E7292B;
+}
+
+.errorForm:-moz-placeholder { /* Firefox 18- */
+   color: #E7292B;  
+}
+
+.errorForm::-moz-placeholder {  /* Firefox 19+ */
+   color: #E7292B;  
+}
+
+.errorForm:-ms-input-placeholder {  
+   color: #E7292B;  
 }
 
 .submitButton{
@@ -238,6 +293,7 @@ body{
 	padding-left: 20px;
 }
 .navPost{
+	position: inherit;
 	width: 30%;
 }
 .navPost p{
@@ -268,7 +324,31 @@ body{
 	margin-top: 2em;
 }
 
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
 
+.fade-in {
+  opacity: 0;
+  animation: fadeIn .5s ease-in 1 forwards;
+}
+
+.is-paused {
+  animation-play-state: paused;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  opacity: 1;
+  animation: fadeIn .5s ease-in 1 forwards;
+}
 
 
 
