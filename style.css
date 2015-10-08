@@ -20,12 +20,29 @@ input[type=submit] {
 	float: right;
 }
 
-input[type=text] {
+#search {
+	width:15%;
+	height: 30px;
+	border: 2px solid;
+	float: right;
+	color-background: #ffffff;
+}
+
+#inputtext1 {
 	width:99%;
 	display:block;
 	border: 1px solid;
 	height: 25px;
 	padding-left:1%;
+}
+
+#inputtext2 {
+	width:82%;
+	display:block;
+	border: 2px solid;
+	height: 25px;
+	padding-left:1%;
+	float: left;
 }
 
 textarea {
