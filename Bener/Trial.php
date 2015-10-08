@@ -23,13 +23,28 @@ echo "Connected successfully";
 ?>
 
 <?php
-$sql = "INSERT INTO Question (question_id, name, email, topic, content, vote)
-VALUES (0001, 'Doe', 'john@example.com', 'Galau', 'Tio malem-malem galau soalnya ganemu runner hew', 10)";
+$sql = "INSERT INTO Question (name, email, topic, content)
+VALUES ('Doe', 'john@example.com', 'Galau', 'Tio malem-malem galau soalnya ganemu runner hew')";
 
 if (mysqli_query($conn, $sql)) {
-    echo "New record created successfully";
+    $last_id = mysqli_insert_id($conn);
+    echo "New record created successfully. Last inserted ID is: " . $last_id;
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+?>
+
+<?php
+$sql = "SELECT name, email, topic, content FROM Question";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "name: " . $row["name"]. " - email: " . $row["email"]. " " . $row["topic"]. "<br>";
+    }
+} else {
+    echo "0 results";
 }
 ?>
 
