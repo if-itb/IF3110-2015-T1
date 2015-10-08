@@ -1,0 +1,40 @@
+body{
+	padding-left: 20%;
+	padding-right: 20%;
+}
+
+h1{
+	text-align: center;
+	margin-top: 60px;
+}
+
+.name{
+	width:98%;	
+	margin-left: 5px;
+	margin-top:15px;
+}
+
+.email{
+	width:98%;	
+	margin-left: 5px;
+	margin-top: 5px;
+}
+
+.topic{
+	width:98%;	
+	margin-left: 5px;
+	margin-top: 5px;
+}
+
+.content{
+	width:98%;	
+	margin-left: 5px;
+	margin-top: 5px;
+	height: 150px;
+}
+
+.submit-button{
+	margin-top: 5px;
+	margin-left:90%;
+	width:75px;
+}
