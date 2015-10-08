@@ -39,9 +39,8 @@
 		echo "<input type=\"email\" name=\"email\" value=\"".$row["email"]."\" placeholder=\"Email\" class=\"medium\">";
 		echo "<input type=\"text\" name=\"question\" value=\"".$row["question"]."\" placeholder=\"Question Topic\" class=\"medium\">";
 		echo "<textarea type=\"text\" name=\"content\" placeholder=\"Content\" class=\"medium\" id=\"content\">".$row["content"]."</textarea>"; 
-		echo "<input type=\"submit\"  name=\"update\" value=\"Edit\" id=\"button\">";
 	$conn->close();
-	?></form>
-	<?php }	?>
+	} ?> <input type="submit"  name="update" value="Edit" id="button">
+	</form>
 </body>
 </html>
