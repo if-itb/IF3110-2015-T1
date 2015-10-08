@@ -1,6 +1,6 @@
 <?php
 
-	include("connection.php");
+	require_once("connection.php");
 
 ?>
 
@@ -15,12 +15,15 @@
 
 	<link href='https://fonts.googleapis.com/css?family=Titillium+Web|Source+Sans+Pro|Droid+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<script type="text/javascript" src="js/validation.js"></script>
 </head>
 
 <body>
 	<div class="container">
 		<div class="header">
-			<h1>Simple StackExchange</h1>
+			<h1>
+				<a href="index.php">Simple StackExchange</a>
+			</h1>
 		</div>
 
 		<div class="wrapper">
@@ -28,9 +31,9 @@
 				<h2>What's your question</h2>
 			</div>
 	
-			<form role="form" method="post" action="add-question.php" class="question-form">
+			<form name="question-form" role="form" method="post" action="add-question.php" onsubmit="return validateForms()" class="question-form">
 				<input type="text" name="name" placeholder="Name" class="content-question-form">
-				<input type="email" name="email" placeholder="Email" class="content-question-form">
+				<input type="text" name="email" placeholder="Email" class="content-question-form">
 				<input type="text" name="topic" placeholder="Question Topic" class="content-question-form">
 				<textarea rows="10" name="content" cols="106" placeholder="Content" class="textarea-question-form"></textarea>
 

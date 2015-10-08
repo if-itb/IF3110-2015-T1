@@ -21,7 +21,9 @@
 <body>
 	<div class="container">
 		<div class="header">
-			<h1>Simple StackExchange</h1>
+			<h1>
+				<a href="index.php">Simple StackExchange</a>
+			</h1>
 		</div>
 		
 		<div class="wrapper">

@@ -52,4 +52,50 @@
 		echo $row[0];
 	}
 
+	function getCountAnswers(){
+		include ("connection.php");
+
+		$db = mysql_select_db("tubeswbd", $connect);
+
+		$query = sprintf("SELECT * FROM answer WHERE id_question = %d", mysql_escape_string($_GET['id']));
+		$result = mysql_query($query, $connect);
+		$numRow = mysql_num_rows($result);
+
+		if($numRow != 0){
+			$output = $numRow." Answers";
+
+			echo '<div class="title">';
+				echo '<h2>';
+					echo $output;
+				echo '</h2>';
+			echo '</div>';
+		}
+	}
+
+	function getAnswers(){
+		include ("connection.php");
+
+		$db = mysql_select_db("tubeswbd", $connect);
+		
+		$query = sprintf("SELECT * FROM answer WHERE id_question = %d", mysql_escape_string($_GET['id']));
+		$result = mysql_query($query, $connect);
+
+		while($row = mysql_fetch_array($result, MYSQL_BOTH)){
+			echo '<div class="answer-container">';
+				echo '<div class="vote-place">';
+					echo '<img src="images/up-arrow.png" class="arrow-images">';
+					echo '<h1>'.$row['votes'].'</h1>';
+					echo '<img src="images/down-arrow.png" class="arrow-images">';
+				echo '</div>';
+				
+				echo '<div class="full-question">';
+					echo '<p>'.$row['content'].'</p>';
+				echo '</div>';
+				echo '<div class="asked-by">';
+					echo '<p>answered by '.$row['name'].' at '.$row['date'].'</p>';
+				echo '</div>';
+			echo '</div>';
+		}
+	}
+
 ?>

@@ -20,7 +20,9 @@
 <body>
 	<div class="container">
 		<div class="header">
-			<h1>Simple StackExchange</h1>
+			<h1>
+				<a href="index.php">Simple StackExchange</a>
+			</h1>
 		</div>
 		<div class="wrapper">
 			<div class="title">
@@ -66,11 +68,16 @@
 				</div>
 			</div>
 
-			<div class="title">
-				<h2>1 Answer</h2>
-			</div>
+			<?php
+				getCountAnswers();
+			?>
+			
+			<?php
+				getAnswers();
+			?>
 
-			<div class="question-container">
+			<!--
+			<div class="answer-container">
 				<div class="vote-place">
 					<img src="images/up-arrow.png" class="arrow-images">
 					<h1>6</h1>
@@ -88,6 +95,7 @@
 					<p>answered by username at datetimes</p>
 				</div>
 			</div>
+			-->
 
 			<form role="form" method="post" class="question-form">
 				<div class="title">
