@@ -1,0 +1,114 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	color: #000000;
+	background-color: #FFFFFF;
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+#title{
+	margin-bottom: 40px;
+	font-size: 40px;
+}
+h1, h2, h3, h4 {
+	font-weight: normal;
+}
+
+h1,h2 {
+	margin: 0 auto;
+	padding-top: 4px;
+	padding-bottom: 0;
+	border: 0;
+}
+
+h2{
+	padding-left: 16px;
+}
+
+hr { 
+    border-style: solid;
+	height: 1px;
+	background-color:black;
+}
+
+#askme{
+	font-size : 20px;
+	margin-bottom: 16px;
+}
+
+.orange{
+	color:orange;
+}
+
+p {
+	margin: 4px 0;
+}
+
+#wrapper {
+	margin: 0 auto;
+	max-width: 940px;
+}
+
+.center {
+	text-align: center;
+}
+
+
+#search-bar {
+	width: 75%;
+	height: 30px;
+	border-style: solid;
+	border-width: medium;
+	margin: auto;
+}
+
+#search-submit{
+	margin: 0;
+	width: 10%;
+	height: 38px;
+	border-style: solid;
+	border-color: #000000;
+	border-width: medium;
+	background-color: #FFFFFF;
+	margin: auto;
+}
+
+#search-bar, #search-submit{
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	font-size: 18px;
+}
+
+.formBar{
+	display: block;
+	width: 95%;
+	height: 30px;
+	border-style: solid;
+	border-width: 1.5px;
+	margin: 4px auto;
+	font-family: inherit;
+	font-size: 16px;
+	border-color:black;
+}
+::-webkit-input-placeholder {
+}
+:-moz-placeholder { /* older Firefox*/
+}
+::-moz-placeholder { /* Firefox 19+ */ 
+} 
+:-ms-input-placeholder { 
+}
+
+textarea.formBar{
+	height: 8em;
+	padding:0;
+	resize: none;
+}
+
+#formArea{
+	padding-top: 16px;
+}
+
+#postQuestion{
+	display: block;
+	float: right;
+	margin-right: 2.5%;
+}
