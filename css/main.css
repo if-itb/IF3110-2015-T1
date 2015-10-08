@@ -1,6 +1,6 @@
 a {
-	color:gold;
 	text-decoration:none;
+	cursor:pointer;
 }
 
 body {
@@ -15,7 +15,7 @@ div.searchbar {
 	margin-right:15px;
 }
 
-form.edit {
+form.delete, form.edit {
 	display:inline;
 }
 
@@ -36,25 +36,27 @@ input.button {
 	margin-left:94.4%;
 }
 
-input.subedit {
+input.delete {
 	background:none!important;
     border:none; 
     padding:0!important;
     font:inherit;
     cursor:pointer;
+	color:red;
+}
+
+input.edit {
+	background:none!important;
+    border:none; 
+    padding:0!important;
+    font:inherit;
+    cursor:pointer;
+	color:gold;
 }
 
 input.text {
 	margin-bottom:0.2em;
 	padding:3px;
-}
-
-input#delete {
-	color:red;
-}
-
-input#edit {
-	color:gold;
 }
 
 input#searchbar {
@@ -66,6 +68,16 @@ input#searchbutton {
 	background-color:white;
 	border:3px solid black;
 	height:30px;
+}
+
+p.content {
+	font-size:auto;
+	margin:0;
+}
+
+p.topic {
+	font-size:20px;
+	margin:0;
 }
 
 p#RecentlyAsked {
