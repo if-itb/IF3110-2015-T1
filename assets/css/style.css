@@ -13,7 +13,6 @@ a {
 .container {
 	position: relative;
 	text-align: center;
-	background-color: orange;
 	margin: auto;
 	width: 100%;
 }
@@ -22,7 +21,6 @@ a {
 	color: orange;
 	position: relative;
 	text-align: center;
-	background-color: orange;
 	padding: 2px 0;
 	margin: 0 auto;
 	max-width: 1100px;
@@ -30,12 +28,17 @@ a {
 }
 
 .main {
-	margin-left: 10vw;
-	margin-right: 10vw;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+	max-width: 900px;
+	width: 100%;
+	padding-bottom: 20px;
 }
 
 .content-header {
 	text-align: left;
+	margin-left: 30px:;
 	padding-top: 10px;
 }
 
@@ -47,7 +50,7 @@ a {
 }
 
 #answer-form h2 {
-	color: gray;
+	color: red;
 }
 
 .content-header > h2 {
@@ -55,13 +58,17 @@ a {
 }
 
 .child-content {
-	border-top: solid #000000;
+	border-top: 2px solid #000000;
+	width: 750px;
+	margin-left: 70px;
 	clear: both;
 }
 
 .child-content form {
 	margin-top: 10px;
 	margin-bottom: 100px;
+	margin-right: 22px;
+	margin-left: 10px;
 }
 
 .sidebar {
@@ -74,6 +81,7 @@ a {
 .wrapper {
 	clear: both;
 	padding: 0 0 0 0;
+	margin-top: 0px;
 }
 
 #votes, #answers {
@@ -89,6 +97,25 @@ div {
 .thread-content {
 	text-align: left;
 	position: relative;
+}
+
+.question-container{
+	border-top: 2px solid;
+	width: 840px;
+	margin: 0px auto 30px;
+}
+
+.title{
+	text-align: left;
+	margin-left: 85px;
+	margin-top: 50px;
+}
+
+.q-title{
+	text-align: left;
+	margin-bottom: 0px;
+	margin-left: 65px;
+	margin-top: 50px;
 }
 
 .question-title, .question-preview {
@@ -127,6 +154,10 @@ textarea {
 
 .main-header {
 	text-align: left;
+}
+
+.text-center{
+	text-align: center;
 }
 
 #searchbox, #searchbutton {

@@ -14,26 +14,48 @@
 
 	<div class="container">
 		<div id="header">
-			<h1>Simple StackExchange</h1></a>
+			<h1>Simple StackExchange</h1>
 		</div>
 
 		<!-- das searchbox -->
 		<div class="main">
-			<div class="wrapper" id="searchbox">
-				<form role="form" action="" method="get">
-					<input type="text" id="searchbox" name="searchquery" required>
-					<input type="submit" id="searchbutton" value="Search" name="search">
-				</form>
+			<form role="form" action="" method="post" id="searchbox">
+				<input type="text" id="searchbox" name="searchquery" required>
+				<input type="submit" id="searchbutton" value="Search" name="search">
+			</form>
 
+			<div class="text-center">
 				<p>Cannot find what you are looking for? <a href="#">Ask here</a></p>
 			</div>
-			
-			<div class="wrapper" id="list-questions">
-				<div class="content-header">
-					<h2>Recently Asked Questions</h2>
-				</div>
 
+			<div class="title">
+				<h3>Recently Asked Question</h3>
 			</div>
+
+
+			<div class="wrapper" id="list-questions">
+				<div class="child-content">
+					<div class="sidebar">
+						<div id="votes"><span id="numvotes"></span><br>Votes</div>
+						<div id="answers"><span id="numanswer"></span><br>Answers</div>
+					</div>
+
+					<div class="list-content">
+						<div class="question-title">
+							<p>haaaai first question</p>
+						</div>
+						<div class="question-preview">
+							<p>lalaaaaaaalakaaaaaaaaaaaaaaaaaalalaaaaaa</p>
+						</div>
+						<div class="content-footer">asked by 
+						<span class="user-question">
+						</span> | <a href="ask.php?req=edit&id=<?php echo $question['q_id']; ?>" class="edit-question">edit</a> | <a href="delete_question.php?id=<?php echo $question['q_id']; ?>" class="delete-question" onclick="return confirm('Delete this question?')">delete</a>
+					</div>
+					</div>
+				</div>
+			<div>
+			
+
 		</div>
 	</div>
 
