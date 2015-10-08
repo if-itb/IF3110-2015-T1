@@ -1,0 +1,95 @@
+html {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-weight: normal;
+}
+
+h2 {
+	text-align: left;
+	font-weight: normal;
+  border-bottom: solid;
+}
+
+.grey-title{
+  text-align: left;
+  font-weight: normal;
+  color: #909090;
+  font-size: 22px;
+}
+
+h3 {
+  text-align: left;
+  font-weight: normal;
+}
+
+h5 {
+  margin-top:5px;
+  text-align: center;
+  font-weight: normal;
+}
+
+textarea {
+  padding: 7px;
+  border: 1;
+  width: 95%;
+  margin: 5px;
+  float: left;
+  text-align: top;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+button {
+  background-color: #FFFFFF;
+  border: 1px solid #909090;
+  padding:10px;
+}
+
+
+.input-search{
+  padding: 6px;
+  border: 2;
+  width: 80%;
+  margin: 7px;
+  margin-left: 10px;
+  float: left;
+  display: inline-block;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.button-right{
+  margin-top: 1px;
+  margin-right: 5%;
+  padding: 6px;
+  float: right;
+  display: inline-block;
+}
+
+.container{
+	margin: auto;
+  width: 55%;
+  padding: 10px;
+}
+
+.content{
+	padding: 10px;
+  margin-top:5px;
+}
+
+.input-group {
+  padding: 7px;
+  border: 1;
+  width: 95%;
+  margin: 5px;
+  float: left;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.button-bottom{
+  margin: 10px;
+  padding: 7px;
+  float: right;
+}
+
