@@ -17,11 +17,12 @@ a {
 
   &:visited {
     color: $blue-secondary;
-    text-decoration: none;    
+    text-decoration: none;
   }
 
   &:hover {
-    color: $blue-main;  
+    color: $blue-main;
+    text-decoration: underline;
   }
 }
 
@@ -33,11 +34,14 @@ textarea {
 
 input:not([type="submit"]),
 textarea {
+  height: 36px;
   background: $container-background;
   border: 2px solid $blue-tertiary;
 }
 
 input[type="submit"] {
+  transform: translateY(1px);
+  height: 37px;
   font-weight: $font-weight__semi-bold;
   color: #FFF;
   border: none;

@@ -6,7 +6,6 @@
 
 #searchForm input[type="text"] {
   width: 400px;
-  height: 38px;
 }
 
 #searchForm {
@@ -184,7 +183,7 @@
   font-family: 'Open sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   display: block;
   margin-top: 4px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   font-size: 14px;
 }
 
@@ -193,14 +192,23 @@
   height: 200px;
 }
 
-#answerForm input {
-  height: 38px;
-}
-
-
 .answer-form-header {
   margin-bottom: 10px;
   font-size: 24px;
   font-weight: $font-weight__light;
   color: $font-color__secondary;
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+.form-wrapper {
+  border-top: 2px solid $border-color;
+  padding-top: 20px;
+}
+
+#askForm #title {
+  width: 300px;
 }

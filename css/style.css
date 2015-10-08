@@ -108,7 +108,8 @@ a {
     color: #0077CC;
     text-decoration: none; }
   a:hover {
-    color: #195398; }
+    color: #195398;
+    text-decoration: underline; }
 
 input,
 textarea {
@@ -117,10 +118,13 @@ textarea {
 
 input:not([type="submit"]),
 textarea {
+  height: 36px;
   background: #FDFDFD;
   border: 2px solid #62B0DF; }
 
 input[type="submit"] {
+  transform: translateY(1px);
+  height: 37px;
   font-weight: 600;
   color: #FFF;
   border: none;
@@ -132,8 +136,7 @@ input[type="submit"]:hover {
   background-color: #389bd6; }
 
 #searchForm input[type="text"] {
-  width: 400px;
-  height: 38px; }
+  width: 400px; }
 
 #searchForm {
   text-align: center;
@@ -272,20 +275,24 @@ input[type="submit"]:hover {
   font-family: 'Open sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   display: block;
   margin-top: 4px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   font-size: 14px; }
 
 .form-field textarea {
   width: 100%;
   height: 200px; }
 
-#answerForm input {
-  height: 38px; }
-
 .answer-form-header {
   margin-bottom: 10px;
   font-size: 24px;
   font-weight: 300;
   color: #5C5C5C; }
+
+.form-wrapper {
+  border-top: 2px solid #B8B8B8;
+  padding-top: 20px; }
+
+#askForm #title {
+  width: 300px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,11 +1,11 @@
-<?php include( 'template/header.php' ); ?> 
+<?php include( 'template/header.php' ); ?>
 
   <div class="outer-container">
-    
+
     <header class="main-title">
       <h1>Stack<span>Exchange<span></h1>
     </header>
-    
+
     <form action="" method="GET" id="searchForm">
       <input type="text" placeholder="Search...">
       <input type="submit" value="Search">
@@ -13,27 +13,25 @@
 
     <p class="ask-here">Can't find what you are looking for? <a href="">Ask here</a></p>
 
-    <div class="row">
-      <div class="question-header col-10 col-push-1">
-        <h1>Question Title</h1>
-      </div>  
-    </div>
-    
     <div class="inner-container">
-        
+
+      <div class="question-header">
+        <h1>Question Title</h1>
+      </div>
+
       <div class="question-item">
-        
+
         <div class="row">
-          
+
           <div class="question-status col-2">
-            
+
             <div class="vote">
               <div class="vote-up">
-                <a class="vote-link" href="">▲</a>  
+                <a class="vote-link" href="">▲</a>
               </div>
 
               <div class="vote-counts">
-                <span>0</span>  
+                <span>0</span>
               </div>
 
               <div class="vote-down">
@@ -60,31 +58,31 @@
 
         </div> <!-- .row -->
 
-      </div> <!-- .question-item -->   
-      
+      </div> <!-- .question-item -->
+
     </div> <!-- .inner-container -->
 
     <div class="row">
       <div class="answer-header col-10 col-push-1">
         <h2>1 Answers</h2>
-      </div>  
+      </div>
     </div>
-    
+
     <div class="inner-container">
 
       <div class="answer">
-        
+
         <div class="row">
-          
+
           <div class="answer-status col-2">
-            
+
             <div class="vote">
               <div class="vote-up">
-                <a class="vote-link" href="">▲</a>  
+                <a class="vote-link" href="">▲</a>
               </div>
 
               <div class="vote-counts">
-                <span>0</span>  
+                <span>0</span>
               </div>
 
               <div class="vote-down">
@@ -111,32 +109,32 @@
 
         </div> <!-- .row -->
 
-      </div> <!-- .answes -->           
+      </div> <!-- .answes -->
 
     </div> <!-- .inner-container -->
 
     <div class="inner-container">
-      
+
       <div class="row">
-        
+
         <div class="answer-form col-10 col-push-2">
-          
+
           <h3 class="answer-form-header">Your Answer</h3>
-          
+
           <form id="answerForm" action="" method="POST">
             <div class="form-field">
               <label for="name">Name</label>
-              <input id="name" type="text">  
+              <input id="name" type="text" placeholder="Name">
             </div>
 
             <div class="form-field">
               <label for="email">Email</label>
-              <input id="email" type="text">  
+              <input id="email" type="text" placeholder="Email">
             </div>
-            
+
             <div class="form-field">
               <label for="content">Answer</label>
-              <textarea></textarea>
+              <textarea placeholder="Your answer goes here"></textarea>
             </div>
           </form>
 
@@ -147,5 +145,5 @@
     </div> <!-- .inner-container -->
 
   </div> <!-- .outer-container -->
-  
-<?php include( 'template/footer.php' ); ?> 
+
+<?php include( 'template/footer.php' ); ?>
