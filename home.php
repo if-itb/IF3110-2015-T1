@@ -4,6 +4,22 @@
 		<title>Simple StackExchange</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <?php
+			$servername = "localhost";
+			$username = "root";
+			$password = "12345";
+			$db = "stackexchange";
+
+			// Create connection
+			$conn = new mysqli($servername, $username, $password,$db);
+			// Check connection
+			if ($conn->connect_error) {
+		    die("Connection failed: " . $conn->connect_error);
+			} 
+			echo "Connected successfully";
+		?>
+
 	</head>
 	<body>
 		<div class="container">
@@ -23,7 +39,6 @@
 			<div class="content">
 				<h3>Recently Asked Questions</h3>
 			</div>
-			
 		</div>
 	</body>
 </html>
