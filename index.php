@@ -11,7 +11,7 @@
             <span id = "search">
                 <input class = "searchbar" type = "text"/>
                 <input class = "button" type = "submit" value="Search"/>
-                <p>Cannot find what you are looking for? <a class="y_link" href = "AddQuestion.php">Ask here</a></p>
+                <p>Cannot find what you are looking for? <a class="y_link" href = "AskQuestion.php">Ask here</a></p>
             </span>
         </div>
         <div id = "content">
@@ -46,11 +46,14 @@
                         if(strlen($content)>100){
                             echo substr($content,0,97).'...';
                         }
-                        else{
+                        else {
                             echo $content;
                         }
                     echo"</div></div>";
-                    echo"<div class = 'details'>Asked by <span class = 'b_link'>$author </span>|<span class = 'y_link'> edit </span>| <span class = 'r_link'>delete</span><br></div>";
+                    echo"<div class = 'details'>Asked by <span class = 'b_link'>$author </span>|
+                        <a href = 'AskQuestion.php?id=$id' class = 'y_link'> edit </a>|
+                        <a href='DeleteQuestion.php?id=$id' class = 'r_link' onclick= \"return confirm('Are You Sure?');\">delete</a><br></div>";
+
                 echo "</div>";
                 $i++;
             }

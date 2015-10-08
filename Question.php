@@ -4,6 +4,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script type = "text/javascript">
+        function validateEmail(email) {
+            var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+            return re.test(email);
+        }
+        function validateForm(){
+            var x = document.forms["q_form"]["name"].value;
+            var y = document.forms["q_form"]["email"].value;
+            var a = document.forms["q_form"]["content"].value;
+            if(x==null || x==''){
+                alert("Name must be filled");
+                return false;
+            }
+            if(y==null || y==''){
+                alert("Email must be filled");
+                return false;
+            }else if(!validateEmail(y)){
+                alert("Email is not a valid email");
+                return false;
+            }
+            if(a==null || a==''){
+                alert("Content must be filled");
+                return false;
+            }
+        }
+    </script>
     <link rel ="stylesheet" type="text/css" href="Index.css">
     <title>Simple StackExchange</title>
 
@@ -59,12 +85,13 @@
 
             echo"<h1>Your Answer</h1>";
         ?>
-        <!--form action="adding_answer.php" method = "post"-->
+        <form name ="q_form" action="adding_answer.php" onsubmit="return validateForm()" method = "post">
             <input type = "text" name = "name" placeholder = "Name"/>
             <input type = "text" name = "email" placeholder = "Email"/>
+            <input type = "hidden" name = "A_ID" value = "<?php echo $id;?>">
             <textarea name = "content" placeholder = "Content"></textarea>
             <input class = "button" id="button_post" type = "submit" value="Post"/>
-        <!--/form-->
+        </form>
     </div>
     <div id = "footer">
 

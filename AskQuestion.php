@@ -1,3 +1,30 @@
+<?php
+    if (isset($_GET['id'])){
+        $update = true;
+        $id = $_GET['id'];
+        $username = 'root';
+        $password = '';
+        $database = 'stackex';
+        mysql_connect('localhost', $username, $password);
+        @mysql_select_db($database) or die("Unable to Select Database");
+        $query = "SELECT * FROM questions WHERE ID = $id";
+        $result = mysql_query($query);
+        $topic = mysql_result($result, 0,"topic");
+        $content = mysql_result($result, 0,"content");
+        $author = mysql_result($result, 0,"author");
+        $email = mysql_result($result,0,"email");
+        mysql_close();
+    }
+    else{
+        $id = 0;
+        $update = false;
+        $topic = "";
+        $content = "";
+        $author = "";
+        $email = "";
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,11 +72,13 @@
     <div id = "content">
         <h2>What's Your Question?</h2>
         <form name = "q_form" action="adding.php" onsubmit="return validateForm()" method = "post">
-            <input type = "text" name = "name" placeholder = "Name"/>
-            <input type = "text" name = "email" placeholder = "Email"/>
-            <input type = "text" name = "topic" placeholder ="Question Topic"/>
-            <textarea name = "content" placeholder = "Content"></textarea>
-            <input class = "button" id="button_post" type = "submit" value="Post"/>
+            <input type = "hidden" name = "id" value = "<?php echo $id; ?>">
+            <input type = "hidden" name = "update" value = "<?php echo $update; ?>">
+            <input type = "text" name = "name" placeholder = "Name" value = "<?php echo $author; ?>">
+            <input type = "text" name = "email" placeholder = "Email"value = "<?php echo $email; ?>">
+            <input type = "text" name = "topic" placeholder ="Question Topic" value = "<?php echo $topic; ?>">
+            <textarea name = "content" placeholder = "Content" ><?php echo $content; ?></textarea>
+            <input class = "button" id="button_post" type = "submit" value=<?php if($update){echo "Update";}else{echo "Post";}?>>
         </form>
     </div>
     <div id = "footer">
