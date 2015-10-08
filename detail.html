@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Detail</title>
+	<link rel="stylesheet" href="style.css">
+	
+</head>
+<body>
+
+		<div class="container">
+			<h1>Simple StackExchange</h1>
+
+		
+			<h3>The Question topic goes here </h3>
+			<div class="votequest">
+				<div class="vote-count">
+					<div class="vote-up"></div>
+					<div class="vote">2</div>
+					<div class="vote-down"></div>
+				</div>
+				<div class="question">
+					Isi nya adalah pertanyaan
+				</div>
+			</div>
+
+			<div class="editor">
+				asked by (username) at (datetime) | <a href="http://localhost/create.html"><span class="edit">edit</span> </a>| <span class="delete">delete</span>			
+			</div>
+		</div>
+    
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="boxform">
+		<h2>Your Answer</h2>	
+		<form action="detail.php" onsubmit="return validateForm()" method="post" name="form" >
+			<br>
+			<input type="text" placeholder="Name" name="name" class="box">
+			<br>
+			<br>
+			<input type="text" placeholder="Email" name="email" class="box">
+			<br>
+			<br>
+			<textarea placeholder="Content" name="content" class="box" rows="5" cols="22"></textarea>
+			<br>
+			<button type="submit" class="posisipost">Post </button>
+		</form>
+		</div>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
+
+

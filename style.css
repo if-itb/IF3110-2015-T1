@@ -10,6 +10,19 @@
 	float: right;
 }
 
+.boxsearch
+{
+    width: 75%;
+    float: left;
+}
+
+.posisisearch
+{
+    border-radius: 2px;
+	padding: 8px;
+	float: left;
+    margin-left: 5px;
+}
 .boxform
 {
 	width:50%;
@@ -83,6 +96,10 @@ h3
 	text-align: center;
 }
 
+h5
+{
+    text-align: center;
+}
 input[type="text"],textarea
 {
 	padding:7px 0px 7px 9px;
@@ -104,4 +121,55 @@ input[type="text"],textarea
 .ask
 {
     color: orange;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+a:hover
+{
+    text-decoration:underline;
+}
+
+.listform
+{
+    border-top: 1px solid black;    
+}
+
+.listform:after
+{
+    content:"";
+    clear:both;
+    display: table;
+}
+
+.listvotes, .listanswer{
+    float: left;
+    width: 10%; 
+    text-align: center;
+    margin-top: 5px;
+}
+
+.listtopic
+{
+    float: left;
+    width: 55%;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.listeditor
+{
+    float: left;
+    width: 25%;
+    text-align: right;
+    margin-top: 5px;
+}
+
+.board
+{
+    margin-left: 20%;
+    margin-right: 20%;
 }
