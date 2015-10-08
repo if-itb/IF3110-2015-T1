@@ -67,6 +67,18 @@
   font-family: open-sans-light;
 }
 
+.box {
+  display: block;
+  margin: 0px 0;
+  border: 1px solid pink;
+  width: 100%;
+  padding: 3px 10px;
+  line-height: 3;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: open-sans-light;
+}
+
 .button {
   background-color: red;
   color: white;
@@ -95,9 +107,9 @@ h1 {
   background-color: red;
   border: 1px solid white;
   color: white;
-  font-size: 400%;
+  font-size: 300%;
   font-weight: 900;
-  height: 150px;
+  height: 100px;
   width: 900px;
   font-family: avant-garde;
   display: table-cell;
@@ -105,10 +117,14 @@ h1 {
   vertical-align: middle;
 }
 
+h1:hover {
+  background-color: pink;
+}
+
 h2 {
   font-size: 30px;
   margin: 0px;
-  font-family: open-sans;
+  font-family: open-sans-light;
   color: red;
 }
 
@@ -121,10 +137,20 @@ h3 {
 
 h4 {
   font-family: open-sans-light;
+  font-size: 16px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.arrow {
+  font-size: 20px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .item {
   width: 100%;
+  display: inline-block;
 }
 
 .vote {
@@ -139,11 +165,16 @@ h4 {
   width: 80%;
 }
 
+.text-long {
+  width: 90%;
+  height: 400%;
+}
+
 .line {
   border: 1px solid pink;
 }
 
-.vote, .answer, .text {
+.vote, .answer, .text, .text-long {
   float: left;
   padding-left: 20px;
   padding-right: 20px;

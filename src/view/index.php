@@ -3,7 +3,7 @@
   <head>
     <title>Overflow48</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-
+    <link rel="icon" type="image/png" href="/assets/icon.png">
   </head>
   <body>
     <div class="container">
@@ -37,49 +37,51 @@
           <div class="text">
             <p>Overflow48 baru saja rilis. Apakah perusahaan ini related dengan AKB48?</p>
           </div>
+          <div class="text-right">
+            asked by Luqman | edit | delete
+          </div>
         </div>
-        <div class="text-right">
-          asked by Luqman | edit | delete
-        </div>
+
       </div>
 
       <div class="question">
         <hr class="line">
         <div class="item">
           <div class="vote">
-            <p class="text-center">-6</p>
+            <p class="text-center">5</p>
             <p class="text-center">Votes</p>
           </div>
           <div class="answer">
-            <p class="text-center">27</p>
+            <p class="text-center">0</p>
             <p class="text-center">Answers</p>
           </div>
           <div class="text">
             <p>Need help. assert(anjing != asu) gives me assertion failed.</p>
           </div>
+          <div class="text-right">
+            asked by Kadal Blinksatan | edit | delete
+          </div>
         </div>
-        <div class="text-right">
-          asked by Kadal Blinksatan | edit | delete
-        </div>
+
       </div>
 
       <div class="question">
         <hr class="line">
         <div class="item">
           <div class="vote">
-            <p class="text-center">2</p>
+            <p class="text-center">5</p>
             <p class="text-center">Votes</p>
           </div>
           <div class="answer">
-            <p class="text-center">1</p>
+            <p class="text-center">0</p>
             <p class="text-center">Answers</p>
           </div>
           <div class="text">
             <p>Resep kentang goreng 2015</p>
           </div>
-        </div>
-        <div class="text-right">
-          asked by Inas Nuha | edit | delete
+          <div class="text-right">
+            asked by Inas Nuha | edit | delete
+          </div>
         </div>
       </div>
 
