@@ -34,7 +34,11 @@
         			echo "<table>";
         			echo "<tr>";
         			echo '<td class="number" rowspan="2">'. "<b>". $row["num_vote"]. "<br>". "Votes". "</b>". "</td>";
-        			echo '<td class="number" rowspan="2">'. "<b>". "0". "<br>". "Answers". "</b>". "</td>";
+        			$sql = "SELECT count(*) AS total FROM answer where id_question = ". $row["id_question"];
+					$result2 = $con->query($sql);
+					$values = $result2->fetch_assoc();
+					$num_rows = $values['total']; 
+        			echo '<td class="number" rowspan="2">'. "<b>". $num_rows. "<br>". "Answers". "</b>". "</td>";
         			echo '<td class="topic">'. '<a href="show-answer.php?id='. $row["id_question"].'" style="text-decoration:none;">'. "<font color='black'>". $row["topic"]. "</font>". "</a>". "</td>";
         			echo "</tr>";
 

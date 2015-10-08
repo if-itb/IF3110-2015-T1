@@ -10,6 +10,14 @@ h2 {
     margin-bottom: 0px;
 }
 
+h3 {
+    font-family: Calibri;
+    font-size: 40px;
+    color: grey;
+    margin-bottom: 0px;
+    margin-top: 20px;
+}
+
 input {
    border: 2px solid #000; 
 }
@@ -46,6 +54,11 @@ td.content {
     width: 500px;
 }
 
+td.attribute {
+    padding-top: 20px;
+    font-size: 18px;
+}
+
 input {
     border: 1px solid #000; 
     font-size: 16px;
@@ -65,4 +78,8 @@ textarea {
     border: 1px solid #000;
     font-family: arial;
     font-size: 16px;
+}
+
+a.vote {
+    cursor: pointer;
 }
