@@ -2,7 +2,8 @@
  * Created by sorlawan on 07/10/15.
  */
 
-function search(arr) {
+function search(str) {
+    var arr =JSON.parse(str);
     var body = document.getElementsByClassName('container')[0];
     var listQuestions = document.createElement('div');
     listQuestions.className="table";
@@ -29,16 +30,21 @@ function search(arr) {
                 }
                 case 2 :
                 {
-                    qelemen.className = "elemQuestion";
-                    qelemen.innerHTML = "<span class='topic'>" + arr[i].qtopic + "</span>" + arr[i].qcontent;
+                    var qelemen1=document.createElement('div');
+                    var qelemen2=document.createElement('div');
+                    qelemen.className = "elemQ"
+                    qelemen1.className = "elemQuestion";
+                    qelemen1.innerHTML = "<span class='topic'>" + arr[i].qtopic + "</span>" + arr[i].qcontent;
+
+                    qelemen2.className = "elemAuthor";
+                    qelemen2.innerHTML = "<span class='askedBy'>Asked By : </span>";
+                    qelemen2.innerHTML += arr[i].email;
+                    qelemen.appendChild(qelemen1);
+                    qelemen.appendChild(qelemen2);
+
                     break;
                 }
-                case 3 :
-                {
-                    qelemen.className = "elemAuthor";
-                    qelemen.innerHTML = arr[i].email;
-                    break;
-                }
+
             }
             question.appendChild(qelemen);
         }

@@ -37,3 +37,5 @@ $result = mysqli_query($link, $query);
 $row =mysqli_fetch_assoc($result);
 
 echo $row['vote'];
+
+mysqli_close($link);

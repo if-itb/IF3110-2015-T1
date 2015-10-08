@@ -38,3 +38,5 @@ $row =mysqli_fetch_assoc($result);
 
 //echo $aID;
 echo $row['vote'];
+
+mysqli_close($link);

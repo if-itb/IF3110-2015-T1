@@ -19,11 +19,15 @@ while($row =mysqli_fetch_assoc($result))
 {
     array_push($resArray,$row);
 }
-$res = json_encode($resArray);
-$res=str_replace("'","\'",$res);
-$res=str_replace('"','\"',$res);
+$json = json_encode($resArray);
 
-mysqli_close($link);
+$json = str_replace('"','\"', $json);
+$json = str_replace("'","\'",$json);
+$json = str_replace("\\r","\\\\r",$json);
+$json = str_replace("\\n","\\\\n",$json);
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -32,19 +36,22 @@ mysqli_close($link);
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="../styles/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,700italic,300' rel='stylesheet' type='text/css'>
     <script src="../scripts/search.js"></script>
 </head>
 <body>
-<h1>Simple StackExchange</h1>
+<div class="header"><a href="../list.html"><h1>Simple StackExhange</h1></a></div>
 <div class="container clearfix">
-    <form class="searchForm" action="search.php" method="POST">
-        <input class="searchInput"  name="keyword" type="text" placeholder="Keyword Pencarian"/>
+    <form class="searchForm clearfix" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+        <div class="searchInput">
+            <input  name="keyword" type="text" placeholder="Keyword Pencarian"/>
+            <p class="askHere">Cannot find what you are looking for ? <a href="../create.html">Ask here</a></p>
+        </div>
         <button class="searchBtn" type="submit">Search</button>
     </form>
     <form name="hiddenForm" action="detail.php" method="POST">
         <input type="hidden" name="idClicked" value=""/>
     </form>
-    <p class="askHere">Cannot find what you are looking for ? <a href="../create.html">Ask here</a></p>
     <h4><?php echo count($resArray)?> Question about '<?php echo $keyword ?>' Found | <a href="../list.html">Home</a></h4>
 </div>
 <script>
@@ -54,7 +61,7 @@ mysqli_close($link);
             document.cookie="refreshed=false";
             window.location.reload();
         }
-        search(JSON.parse('<?php echo $res ?>'));
+        search('<?php echo $json ?>');
     })();
 </script>
 </body>

@@ -3,7 +3,6 @@
  */
 
 function createList(){
-    document.cookie="refreshed=false";
     window.onbeforeunload = function() {} ;
 
     /************************************************
@@ -34,7 +33,7 @@ function createList(){
             question = document.createElement('div');
             question.className = "row clearfix";
             question.id = arr[i].q_id;
-            for (var j = 0; j < 4; j++) {
+            for (var j = 0; j < 3; j++) {
                 qelemen = document.createElement('div');
                 switch (j) {
                     case 0 :
@@ -51,15 +50,17 @@ function createList(){
                     }
                     case 2 :
                     {
-                        qelemen.className = "elemQuestion";
-                        qelemen.innerHTML = "<span class='topic'>" + arr[i].qtopic + "</span>" + arr[i].qcontent;
-                        break;
-                    }
-                    case 3 :
-                    {
-                        qelemen.className = "elemAuthor";
-                        qelemen.innerHTML = "<span class='askedBy'>Asked By : </span>";
-                        qelemen.innerHTML += "<div class='author'><span class='name'>"+arr[i].email+"</span>" + "<span class='edit'>Edit</span><span class='delete'>Delete</span></div>";
+                        var qelemen1=document.createElement('div');
+                        var qelemen2=document.createElement('div');
+                        qelemen.className = "elemQ"
+                        qelemen1.className = "elemQuestion";
+                        qelemen1.innerHTML = "<span class='topic'>" + arr[i].qtopic + "</span>" + arr[i].qcontent;
+
+                        qelemen2.className = "elemAuthor";
+                        qelemen2.innerHTML = "<span class='askedBy'>Asked By : </span>";
+                        qelemen2.innerHTML += "<div class='author'><span class='name'>"+arr[i].email+"</span>" + "<span class='edit'>Edit</span><span class='delete'>Delete</span></div>";
+                        qelemen.appendChild(qelemen1);
+                        qelemen.appendChild(qelemen2);
                         break;
                     }
                 }
@@ -71,9 +72,10 @@ function createList(){
         var rows = document.getElementsByClassName("topic");
         for (var i=0;i<rows.length;i++) {
             rows[i].onclick = function() {
-                document.getElementsByName('idClicked')[0].value = this.parentNode.parentNode.id;
+                document.getElementsByName('idClicked')[0].value = this.parentNode.parentNode.parentNode.id;
                 document.hiddenForm.submit();
             }
         }
+        document.cookie="refreshed=false";
     }
 }
