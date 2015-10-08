@@ -41,17 +41,7 @@ div#navigation ul{margin:15px 0;
 	list-style-type:none;}
 div#navigation li{margin-bottom:5px;}
 div#extra{background:#F6F0E0;}
-.fixed {
-    position: fixed;
-    top: 0;
-  }
-.sticky {
-    width: 100%;
-    background: #F6D565;
-    padding: 25px 0;
-  }
-div#footer{background:#BFBD93;}
-div#footer p{margin:0;padding:5px 10px}
+
 
 /*posisi div*/
 div#container{width:100%;
@@ -70,8 +60,3 @@ div#extra{float:left;
 	width:21%;
 	margin: 2% 2%; 
 	display: inline-block; }
-div#footer{clear: both;
-	width:100%;
-	position:absolute;
-	bottom:0;
-	left:0;}

@@ -2,40 +2,39 @@
 define('DB_HOST', 'localhost'); 
 define('DB_NAME', 'tubeswbd'); 
 define('DB_USER','root'); 
-define('DB_PASSWORD',''); 
-$con = mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("Failed to connect to MySQL: " . mysql_error()); 
+define('DB_content',''); 
+$con = mysql_connect(DB_HOST,DB_USER,DB_content) or die("Failed to connect to MySQL: " . mysql_error()); 
 $db = mysql_select_db(DB_NAME,$con) or die("Failed to connect to MySQL: " . mysql_error()); 
-function NewUser() { 
-	$fullname = $_POST['name']; 
-	$userName = $_POST['user']; 
+function SubmitQuestion() { 
+	$name = $_POST['name']; 
 	$email = $_POST['email']; 
-	$password = $_POST['pass']; 
-	//Insert data to webuser
-	$query = "INSERT INTO webuser (fullname,userName,email,pass) VALUES ('$fullname','$userName','$email','$password')";
-	//Insert data into login username and password
-	$queryLogIn = "INSERT INTO username (userName,pass) VALUES ('$userName', '$password')";
+	$topic = $_POST['topic']; 
+	$content = $_POST['content'];
+	$vote = filter_input(INPUT_POST, '0', FILTER_VALIDATE_INT);
+	$timestamp = date('Y-m-d H:i:s');
+	//Insert data to question table
+	$query = "INSERT INTO question (name,email,topic,content,vote,timeask) VALUES ('$name','$email','$topic','$content','$vote','$timestamp')";
+	//Insert data into question table 
+	//$queryLogIn = "INSERT INTO email (email,pass) VALUES ('$email', '$content')";
 	$data = mysql_query ($query)or die(mysql_error()); 
-	$dataLogIn = mysql_query ($queryLogIn)or die(mysql_error()); 
-	if($data && $dataLogIn) 
+	//$dataLogIn = mysql_query ($queryLogIn)or die(mysql_error()); 
+	if($data) //&& $dataLogIn) 
 	{
-	 echo "YOUR REGISTRATION IS COMPLETED...";
-	 echo "You can get back to the <a href = "index.html"> login </a> page"; 
+	 echo "<script type='text/javascript'>alert('We have noted your question. Thank you and hope you get your answer') 
+		window.location.href='index.php';</script>";
 	} 
 } 
 
-function SignUp() { 
-	if(!empty($_POST['user'])) 
-	//checking the 'user' name which is from Sign-Up.html, is it empty or have some text 
+function CheckSubmission() { 
+	if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['topic']) && !empty($_POST['content']) ) 
+	//checking the name,email, topic and content which cannot be empty
 	{ 
-		$query = mysql_query("SELECT * FROM webuser WHERE userName = '$_POST[user]' AND pass = '$_POST[pass]'") or die(mysql_error()); 
-		if(!$row = mysql_fetch_array($query) or die(mysql_error())) 
-		{ 
-			newuser(); 
-		} else { 
-			echo "SORRY...YOU ARE ALREADY REGISTERED USER..."; 
-		} 
+		SubmitQuestion(); 
+	} else {
+		echo "<script type='text/javascript'>alert('Sorry...There are empty fields... please check that you have filled all the form') 
+		window.location.href='postQuestion.html';</script>";
 	} 
 } 
 
-if(isset($_POST['submit'])) { SignUp(); }
+if(isset($_POST['submit'])) { CheckSubmission(); }
 ?>

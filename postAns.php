@@ -1,43 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>SIGN UP PAGE</title>
-	<meta charset ="utf-8">
-	<link rel = "stylesheet" type = "text/css" href = "styles.css" />
-</head>
-<body>
-	<div id = "header">
-		<h1>SIMPLE STACK EXCHANGE</h1>
-	</div>
-	
-<div align ="center">
-	<h1>What is your Question?</h1>
-	<fieldset style="width:60%" ><legend>Question Form</legend> 
-	
-	<form method="POST" action="postAns.php">
-	<table border="0" align ="left" width="100%">  
-		<tr> 
-			<td> <input type="text" name="name" placeholder="Name" style="width:90%"></td> 
-		</tr> 
-		<tr>  
-			<td><input type="text" name="email" placeholder="E-mail" style="width:90%"></td> 
-		</tr> 
-		<tr> 
-			<td><input type="text" name="topic" placeholder="Question Topic" style="width:90%"></td>
-		</tr> 
-		<tr>  
-			<td><!--input type="text" name="content" placeholder="Content" style="height:90px;width:90%;align:left;"-->
-				<textarea placeholder="Content" rows="5" cols="30" style="width:90%;font-size:20px"></textarea>
-			</td> 
-		</tr> 
-		<tr> 
-			<td align ="right"><input id="button" type="submit" name="submit" value="Post" style="width:10%"></td> 
-		</tr> 
-	</table> 
-	</form> 
-	</fieldset>
+<?php
+define('DB_HOST', 'localhost'); 
+define('DB_NAME', 'tubeswbd'); 
+define('DB_USER','root'); 
+define('DB_content',''); 
+$con = mysql_connect(DB_HOST,DB_USER,DB_content) or die("Failed to connect to MySQL: " . mysql_error()); 
+$db = mysql_select_db(DB_NAME,$con) or die("Failed to connect to MySQL: " . mysql_error()); 
+function SubmitQuestion() { 
+	$name = $_POST['name']; 
+	$email = $_POST['email']; 
+	$topic = $_POST['topic']; 
+	$content = $_POST['content'];
+	$vote = filter_input(INPUT_POST, '0', FILTER_VALIDATE_INT);
+	$timestamp = date('Y-m-d H:i:s');
+	//Insert data to question table
+	$query = "INSERT INTO question (name,email,topic,content,vote,timeask) VALUES ('$name','$email','$topic','$content','$vote','$timestamp')";
+	//Insert data into question table 
+	//$queryLogIn = "INSERT INTO email (email,pass) VALUES ('$email', '$content')";
+	$data = mysql_query ($query)or die(mysql_error()); 
+	//$dataLogIn = mysql_query ($queryLogIn)or die(mysql_error()); 
+	if($data) //&& $dataLogIn) 
+	{
+	 echo "<script type='text/javascript'>alert('We have noted your question. Thank you and hope you get your answer') 
+		window.location.href='index.html';</script>";
+	} 
+} 
 
-</div>
+function CheckSubmission() { 
+	if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['topic']) && !empty($_POST['content']) ) 
+	//checking the name,email, topic and content which cannot be empty
+	{ 
+		SubmitQuestion(); 
+	} else {
+		echo "<script type='text/javascript'>alert('Sorry...There are empty fields... please check that you have filled all the form') 
+		window.location.href='postQuestion.html';</script>";
+	} 
+} 
 
-</body>	
-</html>
+if(isset($_POST['submit'])) { CheckSubmission(); }
+?>
