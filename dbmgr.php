@@ -137,7 +137,7 @@ function getQuestionsAndAnswerCount(){
 		return NULL;
 	}
 
-	$sql = "SELECT * FROM Question AS sd LEFT JOIN (SELECT qid,count(aid) AS anscount FROM Answer GROUP BY qid) AS ss ON sd.qid=ss.qid;";
+	$sql = "SELECT qid,AuthorName,Email,QuestionTopic,Content,vote,created_at,IFNULL(aanscount,0) AS anscount FROM Question AS sd NATURAL LEFT JOIN (SELECT qid,count(aid) AS aanscount FROM Answer GROUP BY qid) AS ss;";
 
 	$result = $conn->query($sql);
 	
