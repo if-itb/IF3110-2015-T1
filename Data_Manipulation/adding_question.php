@@ -15,8 +15,8 @@
         }
         $name = $_POST["name"];
         $email = $_POST["email"];
-        $topic = $_POST["topic"];
         $content = $_POST["content"];
+        $topic = $_POST["topic"];
         $id = $_POST["id"];
         $update = $_POST["update"];
         if($update) {
@@ -37,5 +37,10 @@
         }
         $conn->close();
     }
-    Redirect('index.php', false);
+    if($update){
+        Redirect("../Question.php?id=$id",false);
+    }
+    else {
+        Redirect('../index.php', false);
+    }
 ?>

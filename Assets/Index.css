@@ -8,6 +8,7 @@
     max-width:1050px;
 }
 #logo{
+    text-decoration: none;
     font-family: 'Segoe UI', Tahoma, sans-serif;
     font-size: xx-large;
     display:block;
@@ -112,6 +113,8 @@ textarea{
     margin-bottom: -5px;
 }
 .a_content{
+    text-align: justify;
+    text-justify: inter-word;
     max-width: 600px;
     font-size: small;
 }
@@ -119,6 +122,8 @@ textarea{
     margin: 0 auto;
     max-width: 400px;
     word-wrap: break-word;
+    text-align: justify;
+    text-justify: inter-word;
 }
 .topic{
     text-decoration: none;

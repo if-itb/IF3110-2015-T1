@@ -31,5 +31,5 @@
 
         $conn->close();
     }
-    Redirect('index.php', false);
+    Redirect("../index.php", false);
 ?>

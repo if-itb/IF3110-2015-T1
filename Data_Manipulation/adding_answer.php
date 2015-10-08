@@ -17,7 +17,6 @@
         $email = $_POST["email"];
         $content = $_POST["content"];
         $A_ID = $_POST["A_ID"];
-        //echo "$name $email $A_ID $content";
         $sql = "INSERT INTO answers(A_ID,content, author, vote, email)
                             VALUES('$A_ID','$content','$name',0,'$email')";
         if ($conn->query($sql) === TRUE) {
