@@ -1,1 +1,16 @@
-<?php echo '<html><head><title>Simple Stack Exchange</title><script type="text/javascript" src="js/main.js"></script><style type="text/css" src="css/main.css"></style></head><body><div class="topbar"></div><h1 align="center">Simple Stack Exchange</h1><br><br>';
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Simple Stack Exchange</title>
+  <script src="js/main.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div class="topbar">
+</div>
+<div class="title-box">
+<a href = "/">
+  <h1>Simple Stack Exchange</h1><br><br>
+</a>
+</div>

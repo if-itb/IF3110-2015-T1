@@ -4,7 +4,8 @@ include 'database.php';
 
 $conn = db_init();
 
-$query = "SELECT * FROM question WHERE 'topik == " .$_GET['q']. "OR isi = " .$_GET['q'];
+$q = $_GET['q'];
+$query = "SELECT * FROM question WHERE topik LIKE '%" .$q. "%' OR isi LIKE '%" .$q. "%'";
 $list = mysqli_query($conn, $query);
 if (!$list) 
 {
@@ -13,7 +14,6 @@ if (!$list)
 }
 else 
   $num = mysqli_num_rows($list);
-mysqli_close($conn);
 
 if ($num == 0)
 {
@@ -21,14 +21,43 @@ if ($num == 0)
 }
 else
 {
-  for ($i = 0; $i < $num; $i++)
+  while ($row = mysqli_fetch_assoc($list))
   {
-    $topik = mysql_result($list, $i, 'topik');
-    $name = mysql_result($list, $i, 'uname');
-    $datetime = mysql_result($list, $i, 'datetime');
-    $isi = mysql_result($list, $i, 'isi');
-    echo "<h3>$topik</h3><br>";
-    echo "<p>$isi</p><br>";
-    echo "<h8>Oleh $name pada $datetime</h8><br><br>";
+    $id = $row['Id'];
+    $topik = $row['topik'];
+    $name = $row['username'];
+    $datetime = $row['datetime'];
+    $isi = $row['isi'];
+    $mail = $row['email'];
+    $vote = $row['vote'];
+    echo
+      "<div class='question-summary'>
+        <hr>
+        <div class='votes-counter'>
+          <div class='votes-counter-num'>$vote</div>
+          <div>Votes</div>
+        </div>
+        <div class='answers-counter'>
+          <div class='answers-counter-num'>0</div>
+          <div>Answers</div>
+        </div>
+        <div class='question-text'>
+          <div class='question-topic'>$topik</div>
+          <div class='question-time-menu'>
+            <div class='question-menu'>
+              <a href='edit.php?id=$id'>Edit</a>  
+              <a href='delete.php?id=$id'>Delete</a>              
+            </div>
+            <div class='question-info'>
+              <p>oleh <a href='mailto:$mail'>$name</a> pada $datetime</p>
+            </div>
+          </div>
+        </div>
+      </div>";
   }
 }
+
+mysqli_close($conn);
+?>
+</body>
+</html>

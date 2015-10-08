@@ -1,0 +1,54 @@
+.title-box {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+textarea {
+  resize : none;
+}
+
+.question-summary {
+  text-align: center;
+  /*height: 80px;*/
+  border-bottom: 1px solid;
+  width: 700px;
+  margin: auto;
+  overflow: hidden;
+  margin-top: 30px;
+}
+
+.votes-counter {
+  float: left;
+  width: 7%;  
+}
+
+.answers-counter {
+  float: left;
+  width: 10%;  
+}
+
+.question-text {
+  float: left;
+  text-align: left;
+  width: 83%;  
+}
+
+hr {
+  width: 58%;
+}
+
+.question-menu {
+  width: 14%;
+  height: 20px;
+}
+
+.question-info {
+  /*height: 20px;*/
+  line-height: inherit;
+  float: right;
+  /*text-align: right;*/
+}
