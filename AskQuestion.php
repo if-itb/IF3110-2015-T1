@@ -8,8 +8,8 @@
 		<div class="container">
 			<h1>Simple StackExchange</h1><br>
 			<h2>What's your question? </h2><br>
-			<form method="POST">
-				<input type="text" name="nama" id="nama" placeholder="Name"><br>
+			<form action="addQuestion.php" method="POST">
+				<input type="text" name="name" id="name" placeholder="Name"><br>
 				<input type="text" name="email" id="email" placeholder="Email"><br>
 				<input type="text" name="topic" id="topic" placeholder="Question Topic"><br>
 				<textarea name="content" id="content" placeholder="Content"></textarea><br><br>
