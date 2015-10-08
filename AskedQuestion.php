@@ -10,27 +10,37 @@
 	if (!$conn) {
 		die("Connection failed: " . mysqli_connect_error());
 	}
-	$sql = "SELECT Topic, Content, Vote, Author, Date FROM question ORDER BY Date DESC";
+	$sql = "SELECT ID_Question, Topic, Content, Vote, Author, Date FROM question ORDER BY Date DESC";
 	$result = mysqli_query($conn, $sql);
 	
 	if (mysqli_num_rows($result) > 0) {
 			// output data of each row
 		while($row = mysqli_fetch_assoc($result)) {
 			echo '<div class= "asked-question">';
-				echo '<div class= "vote-question">';
+				echo '<div class= "kotak">';
 					echo "" . $row["Vote"]."<br>";
 					echo "Vote" ;
 				echo "</div>";
-				echo '<div class= "answer-question">';
-					echo "" . $row["Topic"]."<br>";
-					echo "Answer";
+				echo '<div class= "kotak">';
+				$sqlans = "SELECT count(*) AS SUM  FROM  answer WHERE ID_Question = '$row[ID_Question]' ";
+				$resultans = mysqli_query($conn, $sqlans);	
+					$rowans = mysqli_fetch_array($resultans);
+					echo "" . $rowans["SUM"]."<br>";
+					echo "Answer<br>";
+					
 				echo "</div>";
 				echo '<div class= "question">';
 					echo "" . $row["Topic"]."<br>";
-					echo "" . $row["Content"];
+					if(strlen($row["Content"] )>100){
+						$text = substr($row["Content"], 0, 70) . "...";
+					}		
+					else{
+						$text = $row["Content"];
+					}
+					echo '<a href="Answer.php? id=' . $row["ID_Question"] . '" id=link-question>' .  $text . "</a>";
 				echo "</div>";			
 				echo '<div class= "modif-question">';
-					echo "asked by " . $row["Author"] . "|<a href='#'>| edit |</a> ". "<a href='#'>| delete |</a>";
+					echo "asked by " . $row["Author"] . "|<a href='#'> edit </a> |". "<a href='#'>| delete |</a>";
 				echo "</div>";	
 			echo "</div>";
 

@@ -18,8 +18,8 @@
 		</div>
 		<br>
 		<br>
-		Recently Asked Questions
+		<div class="sub-title">Recently Asked Questions</div>
 		<?php include('AskedQuestion.php');?>
 </div>
-</body>
+</body>		
 </html>

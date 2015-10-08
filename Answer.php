@@ -6,12 +6,6 @@
 </head>
 <body>
 	<?php 
-		
-
-		//dummy id question
-		$ID_Q= 1;
-		
-		
 		function readQuestion($id_Question){
 			$servername = "localhost";
 			$username = "root";
@@ -58,13 +52,19 @@
 			if (mysqli_num_rows($result) > 0) {
 				// output data of each row
 				while($row = mysqli_fetch_assoc($result)) {
-				echo '<div class= "containerAnswer">';
-				echo '<div class= "resAnswer">';
-				echo "" . $row["Content"];
-				echo "</div>";
-				echo '<div class= "infoAnswer">';
-				echo " asked by " . $row["Email"]. " at " . $row["Date"];
-				echo "</div>";
+				echo '<div class="content">';
+					echo '<div class="kotak">';
+						echo "" . $row["Vote"];	
+					echo '</div>';
+				
+					echo '<div class= "container-answer">';
+						echo '<div class= "resAnswer">';
+							echo "" . $row["Content"];
+						echo "</div>";
+						echo '<div class= "infoAnswer">';
+							echo " asked by " . $row["Email"]. " at " . $row["Date"];
+						echo "</div>";
+					echo "</div>";
 				echo "</div>";
 			}
 			} else {
@@ -79,41 +79,33 @@
 		<h1>Simple StackExchange</h1>
 		<br><br><br>
 		
-		<div class="question">
+		<div class="box1">
 				<div class="SubTitle">
 				<h2>The question topic goes here </h2>
 				</div>
-				<div class="vote">
+				<div class="kotak">
 					1
 				</div>
 				<div class="content">
-					<?php readQuestion(1);?>
+					<?php readQuestion( $_GET["id"]);?>
 				</div>
 		</div>
-		<div class="answer">
+		<div class="box2">
 				<div class="SubTitle">
 				<h2>Answer</h2>
 				</div>
-				<div class="vote">
-					1
-				</div>
-				<div class="content">
-					<?php readAnswer(1);?>
-				</div>
-		</div>
-		<div class="answer">
-				<div class="vote">
 				
-				</div>
-				<div class="content">
 				
-				</div>
+					<?php readAnswer($_GET["id"]);?>
+				
 		</div>
+		
 		<div class="answerform">
 		Your Answer
 			<form action="add_answer.php" method="post">
 				<input type="text" name="Name" placeholder="Name" >
 				<input type="text" name="Email" placeholder="Email">
+				<input type="hidden" name ="id-question" value="<?php echo $_GET["id"];?>"">
 				<textarea placeholder= "Content" name="message"  ></textarea>
 				<input class="button" type="submit" name="Post" value="Post">
 			</form>
