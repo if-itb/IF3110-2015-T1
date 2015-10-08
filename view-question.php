@@ -24,6 +24,7 @@
 		echo '<p>'.$row['content'].'</p>';
 		echo '<p>Ditanyakan oleh '.$row['name'].' | ';
 		echo ''.$row['email'].'</p>';
+		echo '<a href= "question.php?id='.$row['id'].'">Edit</a>';
 	?>
 	<h2><?php echo $row2['numAns']; ?> Jawaban</h2> <hr>
 	<?php
@@ -38,16 +39,13 @@
 	?>
 	<h2>Beri jawaban :</h2><hr>
 	<form action = 'post-answer.php?id=<?php echo $q_id;?>' method = 'POST' >
-	Nama <br>
-	<input type = 'text' name = 'Nama' maxlength = '60'></input>
+	<input type = 'text' name = 'Nama' placeholder="Nama" maxlength = '60'></input>
 	<br>
-	Email <br>
-	<input type = 'text' name = 'Email' maxlength = '60'></input>
+	<input type = 'text' name = 'Email' placeholder="Email" maxlength = '60'></input>
 	<br>
-	Jawaban <br>
-	<textarea rows = '10' cols = '20' name = 'Jawaban'></textarea>
+	<textarea rows = '10' cols = '20' name = 'Jawaban' placeholder="Jawaban" ></textarea>
 	<br>
-	<input type = 'submit' value = 'Kirim'>
+	<input type = 'submit'  value = 'Kirim'>
 </form>
 	<?php mysql_close($link); ?>
 </body>

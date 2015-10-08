@@ -7,4 +7,5 @@
 	mysql_query($query);
 	mysql_close($link);
 	header("Location: view-question.php?id=$post_id");
+	mysql_close($link);
 ?>
