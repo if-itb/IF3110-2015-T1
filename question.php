@@ -11,7 +11,7 @@ if(!$conn){
 	die("Connection failed: " .mysqli_connect_error());
 }
 
-$sql = "INSERT INTO question (name,email,topik,konten) VALUES ('". $_POST['nama'] ."','". $_POST['email'] ."','". $_POST['topikpertanyaan'] ."','". $_POST['pertanyaan'] ."')";
+$sql = "INSERT INTO question (name,email,topik,konten,vote,answer) VALUES ('". $_POST['nama'] ."','". $_POST['email'] ."','". $_POST['topikpertanyaan'] ."','". $_POST['pertanyaan'] ."',0,0)";
 
 if(mysqli_query($conn,$sql)){
 	echo "New record created successfully";
@@ -20,5 +20,5 @@ if(mysqli_query($conn,$sql)){
 }
 
 mysqli_close($conn);
-header("location: " . $_SERVER["HTTP_REFERER"]);
+header("location: showquestion.php");
 ?>
