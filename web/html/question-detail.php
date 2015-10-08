@@ -6,8 +6,9 @@ Author: Irene Wiliudarsan (13513002) -->
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Simple StackExchange - Question Detail</title>
+    <title>Question Detail</title>
     <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
   </head>
   <body>
     <!-- Title -->

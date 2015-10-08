@@ -15,6 +15,9 @@ a {
 .red {
   color: #F14E58;
 }
+.right {
+  text-align: right;
+}
 .title {
   margin: 20px 0 50px;
   text-align: center;
@@ -30,7 +33,6 @@ a {
 }
 #search-section {
   text-align: center;
-
 }
 #search-box {
   width: 70%;
@@ -65,4 +67,12 @@ a {
 .question-detail {
   margin-bottom: 10px;
   text-align: left;
+}
+.full-length {
+  width: 100%;
+  margin: 2px 0;
+  padding: 5px 10px;
+}
+#question-form {
+  margin: 20px 5% 0;
 }

@@ -6,8 +6,9 @@ Author: Irene Wiliudarsan (13513002) -->
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Simple StackExchange - Ask Question</title>
+    <title>Ask Question</title>
     <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
   </head>
   <body>
     <!-- Title -->
@@ -20,11 +21,11 @@ Author: Irene Wiliudarsan (13513002) -->
       <div class="subtitle">
         What's your question?
       </div>
-      <form id="question-form" action="question-detail.php" method="post">
-        <input class="short-text" name="name" type="text" placeholder="Name">
-        <input class="short-text" name="email" type="text" placeholder="Email">
-        <input class="short-text" name="question-topic" type="text" placeholder="Question Topic">
-        <textarea name="content" placeholder="Content" rows="10" cols="50"></textarea>
+      <form class="right" id="question-form" action="question-detail.php" method="post">
+        <input class="full-length" name="name" type="text" placeholder="Name">
+        <input class="full-length" name="email" type="text" placeholder="Email">
+        <input class="full-length" name="question-topic" type="text" placeholder="Question Topic">
+        <textarea class="full-length" name="content" placeholder="Content" rows="10" cols="50"></textarea>
         <input class="button" type="submit" value="Post">
       </form>
     </div>
