@@ -1,0 +1,74 @@
+body{
+	padding-left: 20%;
+	padding-right: 20%;
+}
+
+h1{
+	text-align: center;
+	margin-top: 60px;
+}
+
+form .search{
+	margin-left: 5%;
+	height:40px;
+}
+
+input.search-bar{
+	width: 79%;
+	height:80%; 
+}
+
+input.submit-button{
+	margin-left:1%;
+	width: 10%;	
+	height:100%; 
+}
+
+p.state1{
+	text-align: center;
+}
+
+p.state1 a{
+	text-decoration: none;
+}
+
+.vote{
+	width:10%;
+	float:left;	
+	text-align: center;
+	margin-top: 16px;
+}
+
+.answer-number{
+	width:10%;
+	float: left;
+	text-align: center;
+	margin-top: 16px;
+}
+
+.topic-question{
+	width:50%;
+	float:left;
+	text-align: center;
+	height: 10px;
+}
+
+.topic-question p{
+	margin-top: 0px;
+}
+
+.id-question{
+	width:30%;
+	float:left;
+	text-align: right;
+	height: 10px;
+}
+
+.id-question p{
+	margin-bottom:0px;
+	margin-top: 48px;
+}
+
+.id-question a{
+	text-decoration: none;
+}
