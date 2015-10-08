@@ -32,7 +32,7 @@
 			echo "<tr>";
 			echo "<td colspan='2' class='attribute' style=text-align:right;>". "asked by ". "<font color='purple'>".$row["username"]."</font>". 
 			" at ". $row["created_date"]. " | ".
-			"<a href='edit-question.html' style='text-decoration:none;'>". "<font color='orange'>"."edit"."</font>". "</a>". " | ".
+			'<a href="edit-question.php?id='. $row["id_question"]. '" style="text-decoration:none;">'. "<font color='orange'>"."edit"."</font>". "</a>". " | ".
 			"<font color='red'>"."delete"."</font>". "</td>";
 			echo "</tr>";
 			echo "</table>";

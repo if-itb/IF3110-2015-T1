@@ -25,7 +25,7 @@
 			$result = $con->query($sql);
 			$row = $result->fetch_assoc();
 			echo '<form action="update-question.php" method="post">';
-			echo '<input type="text" class="text" name="id" value='. $id. ">";
+			echo '<input type="hidden" class="text" name="id" value='. $id. ">";
 			echo '<input placeholder="Name" type="text" name="name" class="text" value='. $row["username"]. '>'. '<br>'. '<br>';
 			echo '<input placeholder="Email" type="text" name="email" class="text" value='. $row["email"]. '>'. '<br>'. '<br>';
 			echo '<input placeholder="Question Topic" type="text" name="topic" class="text" value='. $row["topic"]. '>'. '<br>'. '<br>';
