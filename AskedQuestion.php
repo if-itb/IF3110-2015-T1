@@ -1,4 +1,5 @@
 <?php
+function listQuestion($key){
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
@@ -10,7 +11,12 @@
 	if (!$conn) {
 		die("Connection failed: " . mysqli_connect_error());
 	}
-	$sql = "SELECT ID_Question, Topic, Content, Vote, Author, Date FROM question ORDER BY Date DESC";
+	if($key== "empty"){
+		$sql = "SELECT ID_Question, Topic, Content, Vote, Author, Date FROM question ORDER BY Date DESC";
+	}else{
+		$sql = "SELECT ID_Question, Topic, Content, Vote, Author, Date FROM question WHERE Topic LIKE '%".$key."%' OR Content LIKE '%".$key."%' ORDER BY Date DESC";
+	}
+	
 	$result = mysqli_query($conn, $sql);
 	
 	if (mysqli_num_rows($result) > 0) {
@@ -50,5 +56,5 @@
 		
 	}
 	
-
+}
 ?>
