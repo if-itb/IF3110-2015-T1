@@ -1,0 +1,39 @@
+STR_TO_DATE('1-01-2012', '%d-%m-%Y')
+
+
+mysqldump -u root -p WBD1 > "WBD1.sql"
+
+
+
+
+//inserting questions
+INSERT INTO Questions (name, email, title, content, vote, date)
+VALUE ("Prabowo", "praks@gmail.com", "introduction", "how to start?", 2,
+STR_TO_DATE('1-01-2012', '%d-%m-%Y'));
+
+
+//create table answers
+mysql> create table Answers(
+    -> answer_id int NOT NULL AUTO_INCREMENT,
+    -> question_id int not null,
+    -> name varchar(100) NOT NULL,
+    -> email varchar(100) not null,
+    -> content text not null,
+    -> vote int(11) not null default '0',
+    -> date datetime not null,
+    -> PRIMARY KEY (answer_id),
+    -> foreign key (question_id) references Questions(questionId)
+    -> )
+    -> ;
+	
+	
+	
+	
+//insert answers
+mysql> insert into answers(question_id, name, email, content, vote, date)
+    -> value (1, "megawati", "mega@gmail.com", "yes we can", 5, STR_TO_DATE('1-0
+1-2012', '%d-%m-%Y'));
+	
+	
+	
+	
