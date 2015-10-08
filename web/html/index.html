@@ -8,6 +8,7 @@ Author: Irene Wiliudarsan (13513002) -->
   <head>
     <title>Simple StackExchange - Home</title>
     <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
   </head>
   <body>
     <!-- Title -->
@@ -15,17 +16,16 @@ Author: Irene Wiliudarsan (13513002) -->
       Simple StackExchange
     </div>
 
-    <div class="content" id="search-section">
+    <div class="content">
       <!-- Search Bar -->
-      <div class="stacked">
+      <div class="stacked" id="search-section">
         <input id="search-box" name="search-box" type="text">
         <button class="button" type="button">
           Search
         </button>
-      </div>
-      <div id="stacked">
+        <br>
         Cannot find what you are looking for? 
-        <a class="ask-here" href="ask-question.html">
+        <a class="yellow" href="ask-question.html">
           Ask here
         </a>
       </div>
@@ -47,31 +47,62 @@ Author: Irene Wiliudarsan (13513002) -->
               <br>
               Answers
             </div>
-            <div class="question-detail">
-              <div class="question-topic">
-                The question topic goes here
-              </div>
-              <div class="question-content">
-                The question content goes here
-              </div>
-            </div>
             <div class="right-position">
+              <div class="question-detail">
+                <div class="question-topic">
+                  The question topic goes here
+                </div>
+                <div class="question-content">
+                  The question content goes here
+                  The question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes here
+                </div>
+              </div>
               asked by
-              <span class="name">
+              <span class="blue">
                 name
               </span>
               |
-              <span class="edit">
-                <a href="">
-                  edit
-                </a>
+              <a class="yellow" href="">
+                edit
+              </a>
+              |
+              <a class="red" href="">
+                delete
+              </a>
+            </div>
+          </div>
+          <div class="question">
+            <div class="vote-number">
+              0
+              <br>
+              Votes
+            </div>
+            <div class="answer-number">
+              0
+              <br>
+              Answers
+            </div>
+            <div class="right-position">
+              <div class="question-detail">
+                <div class="question-topic">
+                  The question topic goes here
+                </div>
+                <div class="question-content">
+                  The question content goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes here
+                </div>
+              </div>
+              asked by
+              <span class="blue">
+                name
               </span>
               |
-              <span class="delete">
-                <a href="">
-                  delete
-                </a>
-              </span>
+              <a class="yellow" href="">
+                edit
+              </a>
+              |
+              <a class="red" href="">
+                delete
+              </a>
             </div>
           </div>
         </div>
@@ -79,5 +110,6 @@ Author: Irene Wiliudarsan (13513002) -->
     </div>
 
     <!-- JavaScript -->
+    <script src="js/script.js"></script>
   </body>
 </html>
