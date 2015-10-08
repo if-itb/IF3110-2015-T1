@@ -25,7 +25,7 @@
 			echo"<td id=\"anscontent\">". $row["content"] ."</td>";
 		echo"</tr>";
 		echo"<tr>";
-			echo"<td id=\"asker\">asked by ". $row["email"] ." at ". $row["time"] ." <a href=\"../questions/questions.php\">edit</a> | delete</td>";
+			echo"<td id=\"asker\">asked by ". $row["email"] ." at ". $row["time"] ." <a href=\"../questions/editquestions.php\">edit</a> | delete</td>";
 		echo"</tr>";
 	echo"</table></div>"; 
 	$sum = "SELECT COUNT(*) AS SHIT FROM answers WHERE question_no=11";
