@@ -68,11 +68,11 @@
 		global $conn;
 
 		$sql = "SELECT * FROM question2 ORDER BY q_id DESC";
-		$result = mysqli_query($conn, $query);
+		$result = mysqli_query($conn, $sql);
 
 		$questions = array();
 
-		while($row = mysqli_fetch_assoc($questions)){
+		while($row = mysqli_fetch_assoc($result)){
 			$question = array();
     		$question["id"] = $row['id'];
     		$question["name"] = $row['name'];

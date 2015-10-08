@@ -1,4 +1,9 @@
 
+div.left > span{
+	margin-right: 2px;
+	text-align: center;
+}
+
 /* It means that input is the first child of form with id = question */
 form#question > input[type="submit"]{
 	border-width: thin;
@@ -10,7 +15,9 @@ form#question > input[type="text"]{
 	height: 15px;
 	margin-top: 4px;
 	padding-left: 2px;
-
+	border: solid black thin;
+	font-weight: bold;
+	font-color: black;
 }	
 
 form#question > textarea{
@@ -18,17 +25,11 @@ form#question > textarea{
     height: 120px;
     margin-top: 4px;
     padding-left: 2px;
+	border: solid black thin;
+	font-weight: bold;
+	font-color: black;
 }	
 
-.content_title {
-    font-family: 'Segoe UI',Tahoma, sans-serif;
-    font-size: 130%;
-    text-align: left;
-    margin-left: 11%;
-    margin-right: 11%;
-    border-bottom: 2px solid black;
-    margin-top: 7%;
-}
 
 #container{
 	text-align : center;
@@ -61,17 +62,73 @@ form#question > textarea{
 	border-width: medium;
 }
 
+.answer, .vote{
+	display: inline-block;
+	margin-left: 7%;
+/*    padding : 2px 5px 2px 5px;
+    text-align: center;
+    margin-left: 10px;*/
+}
+
+.content_title {
+    font-family: 'Segoe UI',Tahoma, sans-serif;
+    font-size: 130%;
+    text-align: left;
+    margin-left: 11%;
+    margin-right: 11%;
+    border-bottom: 2px solid black;
+    margin-top: 7%;
+    margin-bottom: 10px;
+}
+
+.left{
+	display: inline-block;
+	text-align: left;
+	width: 30%;
+    font-family: 'Segoe UI',Tahoma, sans-serif;
+    margin-left: 3%;
+    margin-top: 4%;
+}
+
+.middle{
+	display: inline-block;
+	width: 30%;
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.orange_link{
+	text-decoration: none;
+	color: orange;
+}
+
+.question{
+	font-size: 15px;
+	border-bottom: 2px solid black;
+	margin-left: 11%;
+	margin-right: 11%;
+	height: 80px;
+	padding-right: 10px;
+}
+
+.red_link{
+	text-decoration: none;
+	color: red;
+}
+
+.right{
+	display: inline-block;
+	text-align: right;
+	width: 30%;
+	padding-right: 30px;
+}
+
 .searchBar{
 	width: 80%;
 	max-width: 380px;
 	height: 20px;
 }
 
-.q_createLink{
-	text-decoration: none;
-	color: orange;
-
-}
 
 .submitButton{
 	border-color: black;
@@ -79,4 +136,9 @@ form#question > textarea{
 	margin-left: 3.5px;
 	height: 27.5px;
 	width: 70px;
+}
+
+.blue_link{
+	text-decoration: none;
+	color: blue;
 }

@@ -19,30 +19,38 @@
                     <input type="text" class ="searchBar">
                     <input type="submit" class ="submitButton" value="Search">
             </span>
-            <p>Cannot find what you are looking for?<a class="q_createLink" href="create_question.php">Ask here</a></p>        
+            <p>Cannot find what you are looking for?<a class="orange_link" href="create_question.php">Ask here</a></p>        
         </div>
 
         <div id="content">
             <p class="content_title" id="recently">Recently Asked Questions</p>
-            <div class="question">
-                <div class="left">
-                    <span class="vote">Votes</span>
-                    <span class="answer">Answers</span>
-                </div>
+            <?php
+                echo "Hellow World";
+                foreach($questions as $question){
+                    $left = "<div class='left'>
+                                <span class='vote'>0<br>Votes</span>
+                                <span class='answer'>0<br>Answers</span>
+                            </div>";
 
-                <div class="middle">
-                    <a href=""></a>
-                    <p></p>
-                </div>
+                    $middle = " <div class='middle'>
+                                    <a href=''>". $question['topic'] ."</a>
+                                    <p>BLAbajfhajkhfdsj</p>
+                                </div>";
 
-                <div class="right">
-                    <div class="details">
-                        Asked by 
-                    </div>
-                </div>
+                    $right = " <div class='right'>
+                                asked by 
+                                <a class='blue_link' href=''>" . $question['name'] ."</a> | 
+                                <a class='orange_link' href=''>edit</a> |
+                                <a class='red_link' href=''>delete</a>
+                               </div>";
 
-            </div>           
+                    $question_content = "<div class='question'>". $left . $middle . $right . "</div>";
 
+                    echo $question_content;
+                } 
+
+
+            ?>
         </div>
 
         <div id="footer">
