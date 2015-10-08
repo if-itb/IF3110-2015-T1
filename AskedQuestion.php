@@ -30,17 +30,17 @@
 					
 				echo "</div>";
 				echo '<div class= "question">';
-					echo "" . $row["Topic"]."<br>";
+					echo '<a href="Answer.php? id=' . $row["ID_Question"] . '" id=link-question>' . $row["Topic"]."<br>";
 					if(strlen($row["Content"] )>100){
 						$text = substr($row["Content"], 0, 70) . "...";
 					}		
 					else{
 						$text = $row["Content"];
 					}
-					echo '<a href="Answer.php? id=' . $row["ID_Question"] . '" id=link-question>' .  $text . "</a>";
+					echo   $text . "</a>";
 				echo "</div>";			
 				echo '<div class= "modif-question">';
-					echo "asked by " . $row["Author"] . "|<a href='#'> edit </a> |". "<a href='#'>| delete |</a>";
+					echo "asked by $row[Author] | <a href='AskHere.php?id=$row[ID_Question]'> edit </a> | <a href='#'>delete</a>";
 				echo "</div>";	
 			echo "</div>";
 

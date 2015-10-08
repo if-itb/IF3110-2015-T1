@@ -26,7 +26,7 @@
 				echo "" . $row["Content"];
 				echo "</div>";
 				echo '<div class= "infoQuestion">';
-				echo " asked by " . $row["Email"]. " at " . $row["Date"]. "<a href='#'>| edit |</a> ". "<a href='#'>| delete |</a>";
+				echo " asked by " . $row["Email"]. " at " . $row["Date"] . "<a href='AskHere.php?id=".$id_Question."'>| edit |</a> <a href='#'>| delete |</a>";
 				echo "</div>";
 			}
 			} else {
