@@ -24,10 +24,13 @@ input.button{
 }
 .container {
     margin: auto;
-    width: 65%;
-    padding: 20px;
+    width: 60%;
+    padding: 5%;
 	border: 2px solid ;
 	overflow:auto;
+}
+#q{ 
+	border: none;
 }
 .questionform{
 	margin: 20px 8px;
@@ -50,9 +53,7 @@ textarea{
 	margin:auto;
 	border-bottom: 2px solid;
 }
-.container-answer{
-	
-}
+
 .answerform{
 	padding-top: 5%;
 }
@@ -84,6 +85,19 @@ form.search-box > input[type="submit"]{
 	width:10%;
 
 	float:left;
+}
+.container-answer{
+	width: 80%;
+	float:left;
+	padding: 4% 2%;
+}
+.infoQuestion{
+	margin-top:5%;
+	text-align: right;
+}
+.infoAnswer{
+	margin-top:5%;
+	text-align: right;
 }
 .question-box{
 	width:80%;
@@ -133,20 +147,34 @@ a {
 
 }
 a:link {
-    color: #000000;
+    color: black;
 }
 
 /* visited link */
 a:visited {
-    color: #000000;
+    color: black;
 }
 
 /* mouse over link */
 a:hover {
-    color: #000000;
+    color: black;
 }
 
 /* selected link */
 a:active {
-    color: #000000;
+    color: black;
+}
+.arrow {
+	width:24px;
+	height:20px;'
+	
+}
+#down {
+	transform: rotate(180deg);
+}
+#y{
+	color:orange;
+}
+#r{
+	color:red;
 }

@@ -46,7 +46,7 @@ function listQuestion($key){
 					echo   $text . "</a>";
 				echo "</div>";			
 				echo '<div class= "modif-question">';
-					echo "asked by $row[Author] | <a href='AskHere.php?id=$row[ID_Question]'> edit </a> | <a href='delete_question.php?id=$row[ID_Question]'>delete</a>";
+					echo "asked by $row[Author] | <a href='AskHere.php?id=$row[ID_Question]' id='y'> edit </a> | <a id='r' href='delete_question.php?id=$row[ID_Question]'>delete</a>";
 				echo "</div>";	
 			echo "</div>";
 

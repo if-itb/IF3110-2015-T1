@@ -14,7 +14,7 @@
 			<input  type="submit" name="submit" value="Search">
 		</form>
 		<div class="center" >
-		Canot find what you are looking for? <a href="AskHere.php">Ask here</a>
+		Canot find what you are looking for? <a id="y" href="AskHere.php">Ask here</a>
 		</div>
 		<br>
 		<br>

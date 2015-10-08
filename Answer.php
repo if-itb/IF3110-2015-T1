@@ -51,14 +51,16 @@
 				// output data of each row
 				while($row = mysqli_fetch_assoc($result)) {
 				echo '<div class="kotak">';
-						echo "" . $row["Vote"];	
+						echo "<img class='arrow' src='triangle-up.png'  >";
+						echo "<br><br>" . $row["Vote"] ."<br><br>";	
+						echo "<img class='arrow' id='down' src='triangle-up.png'  >";
 				echo '</div>';
 				echo '<div class= "question-box">';
 					echo '<div class= "resQuestion">';
 						echo "" . $row["Content"];
 					echo "</div>";
 					echo '<div class= "infoQuestion">';
-						echo " asked by " . $row["Email"]. " at " . $row["Date"] . "<a href='AskHere.php?id=".$id_Question."'>| edit |</a> <a href='delete_question.php?id=".$id_Question."'> delete |</a>";
+						echo " asked by " . $row["Email"]. " at " . $row["Date"] . "|<a href='AskHere.php?id=".$id_Question."' id='y'> edit </a> |<a id='r' href='delete_question.php?id=".$id_Question."'> delete </a>|";
 					echo "</div>";
 				echo "</div>";
 			}
@@ -80,6 +82,14 @@
 			if (!$conn) {
 				die("Connection failed: " . mysqli_connect_error());
 			}
+			$sqlans = "SELECT count(*) AS SUM  FROM  answer WHERE ID_Question = '$id_Question' ";
+			$resultans = mysqli_query($conn, $sqlans);	
+			$rowans = mysqli_fetch_array($resultans);
+			echo "<div class='SubTitle'>";
+				echo "<h2>" . $rowans["SUM"] . " Answer</h2>";
+			echo "</div>";
+			
+					
 			$sql = "SELECT Content, Vote, Email, Date FROM answer WHERE ID_Question ='$id_Question' ORDER BY date";
 			$result = mysqli_query($conn, $sql);
 			if (mysqli_num_rows($result) > 0) {
@@ -87,7 +97,9 @@
 				while($row = mysqli_fetch_assoc($result)) {
 				echo '<div class="content">';
 					echo '<div class="kotak">';
-						echo "" . $row["Vote"];	
+						echo "<img class='arrow' src='triangle-up.png'  >";
+						echo "<br><br>" . $row["Vote"] ."<br><br>";	
+						echo "<img class='arrow' id='down' src='triangle-up.png'  >";
 					echo '</div>';
 				
 					echo '<div class= "container-answer">';
@@ -117,14 +129,12 @@
 				<h2>The question topic goes here </h2>
 				</div>
 				
-				<div class="content">
+				<div class="content" id="q" >
 					<?php readQuestion( $_GET["id"]);?>
 				</div>
 		</div>
 		<div class="box2">
-				<div class="SubTitle">
-				<h2>Answer</h2>
-				</div>
+				
 				
 				
 					<?php readAnswer($_GET["id"]);?>
