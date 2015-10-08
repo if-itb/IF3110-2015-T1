@@ -37,8 +37,9 @@ class Question extends Model {
     $this->executeQuery($sql);
   }
 
-  public function delete() {
-
+  public function delete($id) {
+    $sql = "DELETE FROM question WHERE id_question=$id";
+    $this->executeQuery($sql);
   }
 }
 

@@ -42,7 +42,7 @@
             <p><?=$q["content"]?></p>
           </div>
           <div class="text-right">
-            <p>asked by <?=$q["name"]?> at <?=$q["date"]?> | <a href="/view/ask.php?id=<?=$id?>">edit</a> | delete</p>
+            <p>asked by <?=$q["name"]?> at <?=$q["date"]?> | <a href="/view/ask.php?id=<?=$id?>">edit</a> | <a href="/controller/deleteController.php?id=<?=$q["id_question"]?>">delete</a></p>
           </div>
         </div>
       </div>
