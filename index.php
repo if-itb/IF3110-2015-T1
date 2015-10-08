@@ -77,9 +77,9 @@
 									?>
 								</span>
 								| 
-								<span class="edit">
+								<a href="ask.php?id_q=+<?php echo $q['id_q'] ?>"><span class="edit">
 								edit
-								</span>
+								</span></a>
 								|
 								<a href="javascript:confirmDel(<?php echo $q['id_q'] ?>)"><span class="del">
 								delete
@@ -99,7 +99,7 @@
 	function confirmDel(id) {
 	    if (confirm("Are you sure to delete this post?") == true) {
 	        location.href = "delQuestion.php?id_q="+id;
-	    }
+    	}
 	}
 	</script>
 </html>
