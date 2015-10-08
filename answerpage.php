@@ -37,14 +37,16 @@
 			$email_temp = "\"" . $email . "\"";
 			$topic_temp = "\"" . $topic . "\"";
 			$content_temp = "\"" . $content . "\"";
-			$sql = "INSERT INTO Question (name, email, topic, content, vote)
+			$sql = "INSERT INTO Question (question_name, question_email, question_topic, question_content, question_vote)
 			VALUES ($name_temp, $email_temp, $topic_temp, $content_temp, 0)";
 
 			if (!mysqli_query($conn, $sql)) {
     			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 			}
 			$last_id = mysqli_insert_id($conn);		
-		}		
+		}
+
+		$sql = "SELECT J";	
 
 	?>
 
@@ -59,10 +61,38 @@
 </div>
 
 <div class = "container">
-	<h2> <?php echo $topic ?> <hr> </h2>
-	<?php
-		echo "<p>" . $content . "</p>";
-	?>
+	<div class="boxarea">
+		<h2> <?php echo $topic ?> <hr> </h2>
+	
+		<div class="vote">
+			<div class="arrow-up"></div>
+			<h3>5</h3>
+			<div class="arrow-down"></div>
+		</div>
+		<p> <?php echo $content ?> </p>
+		<p style="float:right"> asked by <?php echo $email ?> at datetime | <a href="" style="color:#FFA500"> edit </a> | <a href="" style="color:#FF0000"> delete </a> </p>
+	</div>
+
+
+	<div class="boxarea">
+		<h2> Answers <hr> </h2>
+	
+		<div class="vote">
+			<div class="arrow-up"></div>
+			<h3>5</h3>
+			<div class="arrow-down"></div>
+		</div>
+		<p> <?php echo $content ?> </p>
+		<p style="float:right"> asked by <?php echo $email ?> at datetime | <a href="" style="color:#FFA500"> edit </a> | <a href="" style="color:#FF0000"> delete </a> </p>
+	</div>
+
+
+
+
+	
+
+
+
 
 
 </div>
