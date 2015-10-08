@@ -84,7 +84,7 @@
 			echo '<div class="answer-container">';
 				echo '<div class="vote-place">';
 					echo '<img src="images/up-arrow.png" class="arrow-images">';
-					echo '<h1>'.$row['votes'].'</h1>';
+					echo '<h1>'.$row['vote'].'</h1>';
 					echo '<img src="images/down-arrow.png" class="arrow-images">';
 				echo '</div>';
 				
@@ -92,7 +92,7 @@
 					echo '<p>'.$row['content'].'</p>';
 				echo '</div>';
 				echo '<div class="asked-by">';
-					echo '<p>answered by '.$row['name'].' at '.$row['date'].'</p>';
+					echo '<p>answered by <span class="name">'.$row['name'].'</span> at <span class="date">'.$row['date'].'</span></p>';
 				echo '</div>';
 			echo '</div>';
 		}

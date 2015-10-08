@@ -15,6 +15,7 @@
 
 	<link href='https://fonts.googleapis.com/css?family=Titillium+Web|Source+Sans+Pro|Droid+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<script type="text/javascript" src="js/validation.js"></script>
 </head>
 
 <body>
@@ -58,7 +59,7 @@
 							?>
 						</span>
 						at
-						<span class="name">
+						<span class="date">
 							<?php
 								getQuestionByParam("date");
 							?>
@@ -96,18 +97,21 @@
 				</div>
 			</div>
 			-->
+			<?php
+				$actionURL = "add-answer.php?id=".$_GET['id'];
+			?>
 
-			<form role="form" method="post" class="question-form">
+			<form role="form" method="post" action=<?php echo $actionURL ?> onsubmit="return validateForms()" class="question-form">
 				<div class="title">
 					<h1>Your Answer</h1>
 				</div>
 
-				<input type="text" placeholder="Name" class="content-question-form">
-				<input type="email" placeholder="Email" class="content-question-form">
-				<textarea rows="10" cols="106" placeholder="Content" class="textarea-question-form"></textarea>
-			</form>
+				<input name="name" type="text" placeholder="Name" class="content-question-form">
+				<input name="email" type="text" placeholder="Email" class="content-question-form">
+				<textarea name="content" rows="10" cols="106" placeholder="Content" class="textarea-question-form"></textarea>
 
-			<input type="button" value="Post" class="post-button">
+				<input name="post-answer" type="submit" value="Post" class="post-button">
+			</form>
 
 		</div>
 	</div>
