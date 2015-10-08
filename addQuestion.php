@@ -8,14 +8,15 @@
 		<?php 
 			include 'dbact.php';
 
-			if (!(isset($_POST['Name'])&&isset($_POST['Email'])&&isset($_POST['Topic'])&&isset($_POST['Content']))){
-				echo '<h2>Something is wrong</h2>';
+			if (!(isset($_POST['id_q'])&&isset($_POST['Name'])&&isset($_POST['Email'])&&isset($_POST['Topic'])&&isset($_POST['Content']))){
+				echo '<h2>Error</h2>';
 				header("Location: ask.php");
 				exit();
 			}
 
-			$id = addQuestion($_POST['Name'], $_POST['Email'], $_POST['Topic'], $_POST['Content']);
-			// header("Location: displayQuestion.php?qid=".$qid); /* Redirect browser */
+			if ($_POST['id_q'] == '') $id = addQuestion($_POST['Name'], $_POST['Email'], $_POST['Topic'], $_POST['Content']);
+			else $id = updateQuestion($_POST['id_q'], $_POST['Name'], $_POST['Email'], $_POST['Topic'], $_POST['Content']);
+			 //header("Location: index.php?qid="); /* Redirect browser */
 		?>
 	</body>
 </html>
