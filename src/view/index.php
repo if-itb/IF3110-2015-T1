@@ -28,7 +28,6 @@
         $questionModel = new Question();
         $questions = $questionModel->getAll();
       ?>
-      
 
       <?php foreach($questions as $q) { ?>
         <div class="question">
@@ -59,10 +58,13 @@
               </p>
             </div>
             <div class="text">
-              <p><a href="view/question.php?id=<?= $q["id_question"] ?>"> <?= $q["topic"]?></a></p>
+              <p><i><a href="view/question.php?id=<?= $q["id_question"] ?>"> <?= $q["topic"]?></a></i></p>
+            </div>
+            <div class="text">
+              <p><a href="view/question.php?id=<?= $q["id_question"] ?>"> <?= $q["text"]?></a></p>
             </div>
             <div class="text-right">
-              asked by <?= $q["name"] ?> | <a href="/view/ask.php?id=<?= $q["id_question"] ?>">edit</a> | delete
+              <p>asked by <?= $q["name"] ?> | <a href="/view/ask.php?id=<?= $q["id_question"] ?>">edit</a> | delete</p>
             </div>
           </div>
         </div>

@@ -11,19 +11,20 @@
       <br/>
       <h2>What's your question?</h2>
       <?php
-        if(isset($_GET["id"])) {
-          echo $_GET["id"];
-        } else {
-          echo "TAI";
+        require_once '../conf.php';
+        require_once '../model/question.php';
+        $questionModel = new Question();
+        $q = [];
+        if(($id = $_GET["id"]) !== null) {
+          $q = $questionModel->get($id);
         }
-        
       ?>
       <hr class="line">
       <form action="/controller/ask.php" action="POST">
-        <input placeholder="Name" class="form" type="text" name="authorName">
-        <input placeholder="Email" class="form" type="text" name="authorEmail">
-        <input placeholder="Question Topic" class="form" type="text" name="topic">
-        <textarea placeholder="Content" class="box" name="content"></textarea>
+        <input placeholder="Name" class="form" type="text" name="authorName" value="<?= $q["content"] ?>">
+        <input placeholder="Email" class="form" type="text" name="authorEmail" value="<?= $q["email"] ?>">
+        <input placeholder="Question Topic" class="form" type="text" name="topic" value="<?= $q["topic"] ?>">
+        <textarea placeholder="Content" class="box" name="content" value="<?= $q["content"] ?>"></textarea>
         <div class="text-right">
             <button class="button" class="text-right" type="submit">Post</button>
         </div>
