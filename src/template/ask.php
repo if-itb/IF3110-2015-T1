@@ -10,14 +10,6 @@
       <h1 class="text-center">OVERFLOW48</h1>
       <br/>
       <h2>What's your question?</h2>
-      <?php
-        if(isset($_GET["id"])) {
-          echo $_GET["id"];
-        } else {
-          echo "TAI";
-        }
-        
-      ?>
       <hr class="line">
       <form action="/controller/ask.php" action="POST">
         <input placeholder="Name" class="form" type="text" name="authorName">
