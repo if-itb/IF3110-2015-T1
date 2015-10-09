@@ -7,6 +7,7 @@ Author: Irene Wiliudarsan (13513002) -->
 <html>
   <head>
     <title>Question Detail</title>
+    <meta charset="utf-8"/>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="../css/style.css"/>
   </head>
@@ -45,7 +46,7 @@ Author: Irene Wiliudarsan (13513002) -->
               edit
             </a>
             |
-            <a class="red" href="">
+            <a class="red" href="index.html" onclick="deleteConfirmation()">
               delete
             </a>
           </div>
@@ -83,15 +84,16 @@ Author: Irene Wiliudarsan (13513002) -->
         <div id="answer-form-title">
           Your Answer
         </div>
-        <form class="right" id="answer-form" action="question-detail.php" method="post">
-          <input class="full-length" name="name" type="text" placeholder="Name">
-          <input class="full-length" name="email" type="text" placeholder="Email">
-          <textarea class="full-length" name="content" placeholder="Content" rows="10" cols="50"></textarea>
+        <form class="right" id="answer-form" action="question-detail.php" method="post" onsubmit="formValidation()">
+          <input class="full-length" id="name" name="name" type="text" placeholder="Name">
+          <input class="full-length" id="email" name="email" type="text" placeholder="Email">
+          <textarea class="full-length" id="content" name="content" placeholder="Content" rows="10" cols="50"></textarea>
           <input class="button" type="submit" value="Post">
         </form>
       </div>
     </div>
 
     <!-- JavaScript -->
+    <script src="../js/script.js"></script>
   </body>
 </html>
