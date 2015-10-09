@@ -1,7 +1,65 @@
-h1 {
+body {
+	margin: 0;
+	padding: 0;
+	height:100%;
+	width:100%;
+}
+
+header {
 	text-align:center;
+	padding-top: 0.67em;
+	padding-bottom: 2.67em;
+}
+
+h1 {
+	margin-bottom: 0;
+}
+
+@font-face {
+    font-family: ConcursoItalian;
+    src: url("../font/concursoitalian-btn-wide.woff");
+}
+
+@font-face {
+    font-family: BuxtonSkt;
+    src: url("../font/BuxtonSketch.woff");
+}
+
+.tagline {
+	font-family: BuxtonSkt;
+	text-shadow: 0px 0px 6px rgba(220, 255, 181, 0.75);
+	color: #ffffff;
+	font-size:20px;
 }
 
 .center {
 	text-align:center;
 }
+
+.title {
+	font-family: ConcursoItalian;
+	/* text-shadow: 0px 0px 7px rgba(255, 148, 148, 0.75);
+	text-shadow: 0px 0px 7px rgba(255, 220, 220, 0.75);
+	color: #EA1A6A; */
+	text-shadow: 0px 0px 6px rgba(255, 148, 148, 0.75);
+	color: #ffffff;
+	font-size:60px;
+}
+
+.title-section {
+	background-image: url("../img/background-header.png");
+}
+
+.cf:before, .cf:after{
+    content:"";
+    display:table;
+}
+
+.cf:after{
+    clear:both;
+}
+
+.cf{
+    zoom:1;
+}    
+

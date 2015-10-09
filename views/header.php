@@ -9,7 +9,11 @@
 </head>
  
 <body>
-	<header>
-		<h1>Simple StackExchange</h1>
-	</header>
+	<div class="title-section">
+		<header>
+			<strong><h1 class="title">Simple StackExchange</h1></strong>
+			<i class="tagline">A question and answer site for professionals</i>
+			<br>
+		</header>
+	</div>
 	<br>
