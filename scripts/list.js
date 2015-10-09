@@ -4,7 +4,6 @@
 
 function createList(){
     window.onbeforeunload = function() {} ;
-
     /************************************************
      * AJAX
      */
@@ -18,6 +17,10 @@ function createList(){
     }
     xmlhttp.open("POST", url, true);
     xmlhttp.send();
+
+
+
+
 
     /******************************************************
      * Membuat List Dinamis Berdasarkan Hasil dari Database
@@ -68,14 +71,16 @@ function createList(){
             }
             listQuestions.appendChild(question);
         }
+
         body.appendChild(listQuestions);
-        var rows = document.getElementsByClassName("topic");
-        for (var i=0;i<rows.length;i++) {
-            rows[i].onclick = function() {
+        var topics = document.getElementsByClassName("topic");
+        for (var i=0;i<topics.length;i++) {
+            topics[i].onclick = function() {
                 document.getElementsByName('idClicked')[0].value = this.parentNode.parentNode.parentNode.id;
-                document.hiddenForm.submit();
+                document.goToDetail.submit();
             }
         }
-        document.cookie="refreshed=false";
+        createDeleteHandlerForList();
     }
 }
+

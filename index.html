@@ -5,10 +5,11 @@
     <title></title>
     <link href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,700italic,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/handler.js"></script>
     <script src="scripts/list.js"></script>
 </head>
 <body>
-<div class="header"><a href="list.html"><h1>Simple StackExhange</h1></a></div>
+<div class="header"><a href="index.html"><h1>Simple StackExhange</h1></a></div>
 <div class="container clearfix">
     <form class="searchForm clearfix" action="php/search.php" method="POST">
         <div class="searchInput">
@@ -18,12 +19,15 @@
         <button class="searchBtn" type="submit">Search</button>
     </form>
 
-    <form name="hiddenForm" action="php/detail.php" method="POST">
+    <form name="goToDetail" action="php/detail.php" method="POST">
         <input type="hidden" name="idClicked" value=""/>
     </form>
 
+    <form name="goToDelete" action="php/deleteQuestion.php" method="POST">
+        <input type="hidden" name="idDeleted" value=""/>
+    </form>
+
     <h4>Recently Answered Questions</h4>
-    <input type="hidden" id="refreshed" value="no">
 </div>
 
 <script>

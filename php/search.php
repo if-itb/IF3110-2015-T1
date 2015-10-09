@@ -26,8 +26,6 @@ $json = str_replace("'","\'",$json);
 $json = str_replace("\\r","\\\\r",$json);
 $json = str_replace("\\n","\\\\n",$json);
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +38,7 @@ $json = str_replace("\\n","\\\\n",$json);
     <script src="../scripts/search.js"></script>
 </head>
 <body>
-<div class="header"><a href="../list.html"><h1>Simple StackExhange</h1></a></div>
+<div class="header"><a href="../index.html"><h1>Simple StackExhange</h1></a></div>
 <div class="container clearfix">
     <form class="searchForm clearfix" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
         <div class="searchInput">
@@ -49,18 +47,12 @@ $json = str_replace("\\n","\\\\n",$json);
         </div>
         <button class="searchBtn" type="submit">Search</button>
     </form>
-    <form name="hiddenForm" action="detail.php" method="POST">
+    <form name="goToDetail" action="detail.php" method="POST">
         <input type="hidden" name="idClicked" value=""/>
     </form>
-    <h4><?php echo count($resArray)?> Question about '<?php echo $keyword ?>' Found | <a href="../list.html">Home</a></h4>
-</div>
+    <h4><?php echo count($resArray)?> Question about '<?php echo $keyword ?>'</h4>
 <script>
     (function() {
-        if(getCookie("refreshed")=="true")
-        {
-            document.cookie="refreshed=false";
-            window.location.reload();
-        }
         search('<?php echo $json ?>');
     })();
 </script>

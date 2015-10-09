@@ -1,39 +1,5 @@
-
-body {
-    margin : 0 auto;
-    font-family: 'Josefin Slab', serif;
-}
-
-p {
-    margin-bottom: 0;
-}
-
-.container {
-    padding: 200px 50px 50px 50px;
-    background-color: rgba(255, 255, 0, 0.08);
-    width : 70%;
-    margin : auto;
-}
-
-.containerDetail {
-    padding-top: 150px;
-}
-
-span {
-    display: block;
-}
-
-.header {
-    margin: 0;
-    top: 0;
-    width: 100%;
-    height: 100px;
-    background-color: #ffa308;
-    position: fixed;
-}
-
-/*******************************
- * Typography
+/******************************
+ * @typography
  */
 
 h1 {
@@ -58,9 +24,52 @@ h4 {
     margin : 5px;
 }
 
+p {
+    margin-bottom: 0;
+}
+
+
+/********************************
+ * @container
+ */
+
+body {
+    margin : 0 auto;
+    font-family: 'Josefin Slab', serif;
+}
+
+span {
+    display: block;
+}
+
+.container {
+    padding: 200px 50px 50px 50px;
+    background-color: rgba(255, 255, 0, 0.08);
+    width : 70%;
+    margin : auto;
+}
+
+.containerDetail {
+    padding-top: 150px;
+}
+
+
+/**********************************
+ * @header
+ */
+
+.header {
+    margin: 0;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #ffa308;
+    position: fixed;
+}
+
 
 /*********************************
- * Form Area
+ * @form
  */
 
 input,textarea {
@@ -71,7 +80,10 @@ input,textarea {
     color : #3f1132;
 }
 
-
+textarea {
+    height : 180px;
+    line-height: 27px;
+}
 
 input[type="text"],textarea {
     padding : 7px 0 7px 9px;
@@ -84,12 +96,6 @@ input[type="text"],textarea {
     margin-left: 7px;
     float:left;
 }
-
-textarea {
-    height : 180px;
-    line-height: 27px;
-}
-
 
 textarea.error,input.error {
     border : 2px solid #ff1100;
@@ -119,9 +125,8 @@ textarea.error,input.error {
 }
 
 
-
 /*************************************
- * Button
+ * @button
  */
 .searchBtn {
     width : 17%;
@@ -130,22 +135,74 @@ textarea.error,input.error {
 
 button {
     font-family: 'Josefin Slab', Frutiger, Calibri, 'Gill Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
     float: right;
-    padding : 7px;
-    border : 2px solid #907813;
-    background-color: #ffcf24;
+    letter-spacing: 0.2em;
+    font-weight: bold;
+    padding : 7px 8px 7px 8px;
+    border : 2px solid #d78607;
+    background-color: #ffa308;
 }
 
 button:hover {
     cursor: pointer;
-    background-color: #c37a08;
-    border-color: #c37a08;
-    color: #fff2c7;
+    background-color: #d78607;
+    border-color: #d78607;
+    color: #fff9ff;
+}
+
+
+/**************************************
+ * @link
+ */
+
+
+a {
+    color : #ff8e00;
+    text-decoration: none;
+}
+
+a:hover {
+    color : #af6400;
+}
+
+a:visited {
+    color : #ff8e00;
+}
+
+.askHere {
+    padding-bottom: 75px;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+/*************************************
+ * @arrow
+ */
+
+.arrow-down,.arrow-up {
+    width: 0;
+    height: 0;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.arrow-up {
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #2fd31f;
+}
+
+.arrow-down {
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #e0001d;
 }
 
 
 /*********************************
- * Layout Row untuk Question
+ * @list
  */
 
 .row {
@@ -155,11 +212,9 @@ button:hover {
     border-top: 2px solid #ff8e00;
 }
 
-
 .elemValue,.elemAnswer {
     float:left;
     margin-top: 17px;
-
 }
 
 .elemValue,.elemAnswer {
@@ -180,7 +235,7 @@ button:hover {
     padding: 20px 20px 0 20px;
 }
 
-.elemQuestion {
+.elemQuestion,.elemA {
     width: 100%;
     display: block;
     float: left;
@@ -188,6 +243,10 @@ button:hover {
     text-align: left;
     max-height: 197px;
 
+}
+
+.elemA {
+    max-height: none;
 }
 .elemAuthor {
     width: 100%;
@@ -261,39 +320,16 @@ button:hover {
     color : #750006;
 }
 
-/**************************************
- * Link
- */
-
-
-a {
-    color : #ff8e00;
-    text-decoration: none;
-}
-a:hover {
-    color : #af6400;
-}
-a:visited {
-    color : #ff8e00;
-}
-
-
-
-.askHere {
-    padding-bottom: 75px;
-    font-size: 20px;
-    text-align: center;
-}
-
-
 
 .vote,.ans{
     font-weight: bold;
     font-size: 17px;
 }
 
+
+
 /**********************************
- * Question
+ * @question
  */
 
 .colVote {
@@ -316,46 +352,9 @@ a:visited {
 }
 
 
-
-/*************************************
- * Arrow
+/***********************************
+ * @answer
  */
-
-.arrow-down,.arrow-up {
-    width: 0;
-    height: 0;
-    margin: 0 auto;
-    cursor: pointer;
-}
-
-.arrow-up {
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-bottom: 15px solid #2fd31f;
-}
-
-.arrow-down {
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-top: 15px solid #e0001d;
-}
-
-/****************************
- * Clearfix
- */
-
-.clearfix:before,
-.clearfix:after {
-    content: "";
-    display: table;
-}
-.clearfix:after {
-    clear: both;
-}
-.clearfix {
-    clear: both;
-    *zoom: 1;
-}
 
 .answer {
     margin : 70px 0 0 0 ;
@@ -375,4 +374,23 @@ a:visited {
 
 .header a {
     color: rgba(0, 0, 0, 1);
+}
+
+
+
+/***********************************
+ * @clearfix
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    clear: both;
+    *zoom: 1;
 }

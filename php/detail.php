@@ -5,7 +5,6 @@
  * Date: 06/10/15
  * Time: 11:49
  */
-
 require("connectDatabase.php");
 
 
@@ -15,6 +14,9 @@ if(!isset($id)) {
     $id = $_POST['idClicked'];
 }
 
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(-1);
 
 #Memperoleh Question yang Bersangkutan
 $query = "SELECT * FROM questions WHERE q_id=$id";
@@ -24,20 +26,17 @@ mysqli_free_result($result);
 
 #Memperoleh Jawaban - Jawaban dari Pertanyaan tersebut
 $rowAnswer = array();
-$query = "SELECT * FROM answers where q_id=$id ORDER BY a_id DESC ";
+$query = "SELECT * FROM answers where q_id=$id ORDER BY vote DESC ";
 $resultAnswer = mysqli_query($link, $query);
 
 while ($rowAns = mysqli_fetch_assoc($resultAnswer))
 {
     array_push($rowAnswer,$rowAns);
 }
-
-mysqli_close($link);
-
 $json=json_encode($rowAnswer);
 mysqli_close($link);
-
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -46,13 +45,14 @@ mysqli_close($link);
     <title>Detail</title>
     <link rel="stylesheet" href="../styles/main.css">
     <link href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,700italic,300' rel='stylesheet' type='text/css'>
+
     <script src="../scripts/detail.js"></script>
+    <script src="../scripts/handler.js"></script>
     <script src="../scripts/validate.js"></script>
 </head>
 <body>
-<p id="x" style="display: none"><?php echo $json ?></p>
-<p id="y"></p>
-<div class="header"><a href="../list.html"><h1>Simple StackExhange</h1></a></div>
+<p id="x" style="display: none"><?php echo($json) ?></p>
+<div class="header"><a href="../index.html"><h1>Simple StackExhange</h1></a></div>
 <div class="container containerDetail">
     <h2><?php echo $row['qtopic']?></h2>
     <div class="row rowQuestion clearfix">
@@ -70,7 +70,6 @@ mysqli_close($link);
                 </div>
             </div>
         </div>
-        <?php echo $createdElement; ?>
     </div>
 
     <div class="answer">
@@ -89,6 +88,10 @@ mysqli_close($link);
         <p id="idClicked" style="display:none"><?php echo $id?></p>
     </div>
 
+    <form name="goToDelete" action="deleteQuestion.php" method="POST">
+        <input type="hidden" name="idDeleted" value=<?php echo $id ?>/>
+    </form>
+
     <script>
         (function() {
             createDetail();
@@ -97,4 +100,7 @@ mysqli_close($link);
 
 </body>
 </html>
+
+
+
 

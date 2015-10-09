@@ -16,5 +16,5 @@ mysqli_query($link,$query);
 mysqli_close($link);
 
 #Redirect ke List Question
-header("Location: ../list.html");
+header("Location: ../index.html");
 exit();

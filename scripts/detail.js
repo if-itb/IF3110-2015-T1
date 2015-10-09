@@ -1,5 +1,7 @@
 function createDetail() {
+    makePresentation();
     createHandlerVoteQuestion();
+    createDeleteHandlerForDetail()
     document.getElementById('submitBtn').onclick=function(event){
         var name = document.getElementById('name');
         var email = document.getElementById('email');
@@ -12,15 +14,13 @@ function createDetail() {
             event.preventDefault();
         }
     }
-    makePresentation();
-    //document.cookie="refreshed=true;";
+    document.cookie="refreshed=true;";
 }
 
 
 function makePresentation() {
     var x = document.getElementById("x").innerHTML;
     var res = JSON.parse(x);
-
     var answer = document.getElementsByClassName("answer")[0];
     for(var i=0;i<res.length;i++) {
         var row = document.createElement("div");
@@ -46,7 +46,7 @@ function makePresentation() {
         ans.className = "elemQDetail";
 
         var content = document.createElement("div");
-        content.className = "elemQuestion";
+        content.className = "elemQuestion elemA";
         content.innerHTML = res[i].acontent;
 
         var author = document.createElement("div");
@@ -77,7 +77,6 @@ function makePresentation() {
 
     function createHandlerVoteAnswer() {
         var aVote = document.getElementsByClassName("aVote");
-        console.log(aVote.length);
         for(var i=0;i<aVote.length;i++) {
             aVote[i].onclick = function () {
                 var $this = this;
