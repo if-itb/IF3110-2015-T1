@@ -3,3 +3,5 @@
   define("DB_USERNAME", "root");
   define("DB_PASSWORD", "");
   define("DB_SCHEMA", "stack_exchange");
+
+?>
