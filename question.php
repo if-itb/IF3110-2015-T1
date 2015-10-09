@@ -64,7 +64,12 @@
 								getQuestionByParam("date");
 							?>
 						</span>
-						 | edit | delete
+						<?php
+							$editURL = "form-edit.php?id=".$_GET['id'];
+							$deleteURL = "form-edit.php?id=".$_GET['id'];
+						?>
+						 | <a href=<?php echo $editURL ?> class="edit"> edit </a>
+						 | <a href=<?php echo $deleteURL ?> class="delete"> delete </a>
 					</p>
 				</div>
 			</div>

@@ -32,8 +32,10 @@
 
 				echo '<div class="asked-by">';
 					echo '<p>asked by <span class="name">'.$row['name'].'</span> | ';
-						echo '<a href="#" class="edit">edit</a> | ';
-						echo '<a href="#" class="delete">delete</a>';
+						$editURL = "form-edit.php?id=".$row['id'];
+						$deleteURL = "delete-question.php?id=".$row['id'];
+						echo '<a href='.$editURL.' class="edit">edit</a> | ';
+						echo '<a href='.$deleteURL.' class="delete">delete</a>';
 					echo '</p>';
 				echo '</div>';
 		}
@@ -96,6 +98,17 @@
 				echo '</div>';
 			echo '</div>';
 		}
+	}
+
+	function getValueFromQuestion(){
+		include ("connection.php");
+
+		$db = mysql_select_db("tubeswbd", $connect);
+		
+		$query = sprintf("SELECT * FROM question WHERE id = %d", mysql_escape_string($_GET['id']));
+		$result = mysql_query($query, $connect);
+
+		return mysql_fetch_array($result, MYSQL_BOTH);
 	}
 
 ?>
