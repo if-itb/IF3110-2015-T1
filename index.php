@@ -1,6 +1,11 @@
 <?php
 require_once("./sql/mysql.php");
 ?>
+
+<?php
+    $db = new mysqli('localhost','root','','StackExchange')
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,23 +24,28 @@ require_once("./sql/mysql.php");
 
 <div class="question_list">
     <h3>Recently Asked Questions</h3>
-    <div class="question">
-        <hr>
-        <div class="row" align="center">The question topic goes here</div>
-        <div>
-        <table>
-            <tr>
-                <td class="td">0<br>Votes</td>
-                <td class="td">0<br>Answers</td>
-            </tr>
-        </table>
-        </div>
-        <div class="creator">asked by
-            <span class="creator_name">name</span> |
-            <span class="creator_edit"> edit </span>|
-            <span class="creator_edit">delete</span>
-        </div>
-    </div>
+    <?php
+        $q = "SELECT * from question";
+        if(!$result = $db -> query($q)){
+            die('Error Query ['.$db -> error. ']');
+        }
+        while($row = $result->fetch_assoc()){
+            echo '<div class="question">';
+            echo '<hr>';
+            echo '<div>';
+            echo '<table>';
+            echo '<tr>';
+            echo '<td class="td">'.$row['vote'].'<br>Votes</td>';
+            echo '<td class="td">0<br>Answers</td>';
+            echo '<td class="row">'.$row['topic'].'</td>';
+            echo '</tr>';
+            echo '</table>';
+            echo '</div>';
+            echo '<div class="creator">asked by <span class="creator_name">'.$row['name'].'</span> | <a href="ask.php?id='.$row['id'].'" class="creator_edit">edit </a> | <a href="ask.php?id='.$row['id'].'" class="creator_delete">delete</a>';
+            echo '</div>';
+            echo '</div>';
+        }
+    ?>
 
 </div>
 </html>

@@ -7,7 +7,7 @@ body {
     text-align: center;
 }
 
-h1 {
+h1,h2,h3 {
     color: silver;
     text-align: center;
     font-family: "Trebuchet MS";
@@ -15,16 +15,11 @@ h1 {
 }
 
 h2 {
-    color: silver;
-    text-align: center;
-    font-family: "Trebuchet MS";
     font-size: 35px;
 }
 
 h3 {
-    color: silver;
     text-align: left;
-    font-family: "Trebuchet MS";
     font-size: 25px;
 }
 
@@ -135,7 +130,7 @@ h3 {
     margin-left: 920px;
 }
 
-a:link {
+a:link,a:visited {
     color: black;
     text-decoration: none;
 }
@@ -150,15 +145,18 @@ hr {
     border-color: silver;
 }
 
-.row, .creator {
+.creator{
+    text-align: right;
     display: block;
     clear: both;
     margin: 0 10px;
     color: silver;
 }
 
-.creator{
-    text-align: right;
+.row{
+    text-align: center;
+    color: silver;
+    font-size: 20px;
 }
 
 .td{
@@ -167,4 +165,28 @@ hr {
     vertical-align: center;
     text-align: center;
     color: silver;
+}
+
+.creator_name{
+    color: cornsilk;
+}
+
+.creator_edit:link,.creator_edit:visited{
+    color: lightgreen;
+    text-decoration: none;
+}
+
+.creator_edit:hover{
+    color: silver;
+    text-decoration: none;
+}
+
+.creator_delete:link,.creator_delete:visited{
+    color: salmon;
+    text-decoration: none;
+}
+
+.creator_delete:hover{
+    color: silver;
+    text-decoration: none;
 }
