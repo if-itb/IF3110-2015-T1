@@ -70,7 +70,7 @@ echo
   "<div class='thread-editor'>
     <h3>Your answer :</h3>
     <div><hr></div>
-    <form method='post' action='save.php'>
+    <form name='myform' method='post' action='save.php' onsubmit='return validateForm()'>
       <input type='hidden' name='id' value=$qid>
       <input type='hidden' name='ans' value=1>
       <div>

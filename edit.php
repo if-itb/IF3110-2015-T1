@@ -26,7 +26,7 @@ echo
 "<h2>What is your question :</h2>
 <hr>
 <div class='thread-editor'>
-  <form method='post' action='save.php'>
+  <form name='myform' method='post' action='save.php' onsubmit='return validateForm()'>
     <input type='hidden' name='id' value=$qid>
     <div>
       <input type='text' name='name' placeholder='Name' value='$name'>
@@ -35,7 +35,7 @@ echo
       <input type='text' name='email' placeholder='Email' value='$mail'>
     </div>
     <div>
-      <input type='text' name='topic' placeholder='Topic' value='$topic'>
+      <input id='topic' type='text' name='topic' placeholder='Topic' value='$topic'>
     </div>
     <div>
       <textarea name='content' rows='10' maxlength='150' placeholder='Content'>$cont</textarea>
