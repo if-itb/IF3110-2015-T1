@@ -1,4 +1,6 @@
 
+
+
 <!--/**
  * Created by PhpStorm.
  * User: Marco Orlando
@@ -15,8 +17,8 @@
 
     $name = $_POST["name"];
     $email = $_POST["email"];
-    $questionTopic = $_POST["questionTopic"];
     $questionContent = $_POST["questionContent"];
+    $question_id = $_POST["questionId"];
 
     $servername = "localhost";
     $username = "root";
@@ -30,8 +32,8 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "INSERT INTO Questions (name, email, title, content,date)
-          VALUE ('$name', '$email', '$questionTopic', '$questionContent',now())";
+    $sql = "INSERT INTO Answers (question_id,name, email,content,date)
+          VALUE ('$question_id','$name', '$email', '$questionContent',now())";
 
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";

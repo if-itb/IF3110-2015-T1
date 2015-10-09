@@ -8,7 +8,7 @@ mysqldump -u root -p WBD1 > "WBD1.sql"
 
 //inserting questions
 INSERT INTO Questions (name, email, title, content, vote, date)
-VALUE ("Prabowo", "praks@gmail.com", "introduction", "how to start?", 2,
+VALUE ("Juliver", "Jul@gmail.com", "testatestatesting", "how to start?--question", 2,
 STR_TO_DATE('1-01-2012', '%d-%m-%Y'));
 
 
