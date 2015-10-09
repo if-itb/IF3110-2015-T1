@@ -41,6 +41,14 @@
 		return $row;
 	}
 
+	function getLastQid() {
+		global $db;
+		$q = "SELECT * FROM question ORDER BY id_q DESC LIMIT 1";
+		$res = mysqli_query($db, $q);
+		$row = mysqli_fetch_array($res, MYSQLI_ASSOC);
+		return $row;
+	}
+
 	function getAllQuestion(){
 		global $db;
 
