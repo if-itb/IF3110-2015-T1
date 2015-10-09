@@ -9,11 +9,6 @@ h1 {
     color: black;
     text-align: center;
 }
-
-h2 {
-	color : black;
-	text-align : center;
-}
 	
 p {
     font-family: "Times New Roman";
@@ -25,21 +20,42 @@ p1{
 }
 
 p2{
-	margin-left: 20%;
 	font-size: 28px;
 }
 
-p3{
-	margin-right: 17%;
+input {
+	margin : 2px;
+	border : 1px solid;
 }
 
+textarea {
+	margin : 2px;
+	border : 1px solid;
+}
+
+/* Table */
+td {
+	border-top :  2px solid black;
+	padding-top : 25px;
+}
+
+
+/* Align */
 .center {
 	text-align : center;
+	margin-left : auto;
+	margin-right : auto;
+	width : 50%;
 }
 
-.right{
-	margin-right: 17%;
+.left{
+	text-align : left;
 }
+
+.right {
+	text-align : right;
+}
+
 
 /* Buat template link */
 a:link {
@@ -48,12 +64,12 @@ a:link {
     text-decoration: none;
 }
 a:visited {
-    color: pink;
+    color: red;
     background-color: transparent;
     text-decoration: none;
 }
 a:hover {
-    color: red;
+    color: blue;
     background-color: transparent;
     text-decoration: underline;
 }
