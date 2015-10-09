@@ -6,41 +6,57 @@
 </head>
 <body>
 	<h1>Simple StackExchange</h1>
-	<div align="center">
-	<form name:"SearchBox">
-	<input type="text" id="searchbox" name="SearchBox">
+	<div align="center" class="container-4">
+	<form name:"SearchBox" method="post">
+	<input type="text" id="search" name="SearchBox" placeholder="Search here...">
 	<input type="submit" id="submit" value="Search" name="SearchButton">		
-	</form>
 	</div>
-	<p id="judul2">Cannot find what you are looking for? <a href="wbd2.html" id="yellow">Ask here</a></p>
+	<p id="judul2">Cannot find what you are looking for? <a href="wbd2.php" id="yellow">Ask here</a></p>
 	<br>
 	<p id="judul">Recently Asked Questions</p>
-	<div class="content">
-	<table>
-	<hr>
-	<tr>
-	<td id="td1">0<br>Votes</td>
-	<td id="td1">0<br>Answers</td>
-	<td id="td2">The question topic goes here</td>
-	<td id="td3">asked by <a href="wbd2.php" id="blue">name</a> | <a href="wbd2.php" id="yellow">edit</a> | <a href="wbd2.php" id="red">delete</a></td>
-	</tr>
-	</table>
-	</div>
+		<?php
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "WBD";
+
+		// Create connection
+		$conn = mysqli_connect($servername, $username, $password, $dbname);
+		// Check connection
+		if (!$conn) {
+			die("Connection failed: " . mysqli_connect_error());
+		}
+		if($_SERVER['REQUEST_METHOD'] == 'POST'){
+		$sql = "INSERT INTO question (nama, email, topic, content, date, vote)
+		VALUES ('$_POST[InputName]', '$_POST[InputEmail]', '$_POST[InputQuestionTopic]', '$_POST[InputContent]',NOW()),0";
+		$results = mysqli_query($conn,$sql);
+		$edit = "Tambah";
+		if(mysqli_query($conn,$sql))
+		{ 
+		echo "New record created successfully!";
+		}
+		}
+		$q = "SELECT * from question";
+		if (!$result = $conn -> query($q)){
+				die('Error Query['.$conn -> error.']');
+		}
+		while($row = $result -> fetch_assoc()){
+			echo '<div class="content">';
+			echo	'<table>';
+			echo	'<hr>';
+			echo	'<tr>';
+			echo	'<td id="td1">'.$row['vote'].'<br>Votes</td>';
+			echo	'<td id="td1">0<br>Answers</td>';
+			echo 	'<td id="td2">'.$row['topic'].'</td>';
+			echo	'<td id="td3">asked by <a href="wbd2.php" id="blue">'.$row['nama'].'</a> | <a href="wbd2.php" id="yellow">edit</a> | <a href="wbd2.php" id="red">delete</a></td>';
+			echo	'</tr>';
+			echo	'</table>';
+			echo	$row['id'];
+			echo    '</div>';
+			}
+		mysqli_close($conn);
+		?> 
+		</form>
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </html>
