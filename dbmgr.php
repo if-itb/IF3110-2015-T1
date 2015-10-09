@@ -95,7 +95,7 @@ function getQuestion($qid){
 //untuk mengambil satu question
 //mengembalikan null bila gagal
 //mengembalikan banyak vote
-function getVote($qid){
+function getQuestionVote($qid){
 	global $servername,$username,$password,$dbname;
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -122,6 +122,75 @@ function getVote($qid){
 		return NULL;
 	}
 
+	return 1;
+}
+
+//dari answer
+function getAnswerVote($qid,$aid){
+	global $servername,$username,$password,$dbname;
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		echo "<p> connection error:". mysqli_connect_error ( void )."</p>";
+		return NULL;
+	}
+
+	$sql = "SELECT vote FROM Answer WHERE qid=$qid AND aid=$aid;";
+
+	$result = $conn->query($sql);
+	
+	if ($result->num_rows > 0) {
+		// output data of each row
+		if($row = $result->fetch_assoc()) {
+			return $row["vote"];
+	    	} else {
+			echo "not found";
+			return NULL;
+		}
+	} else {
+		echo "not found";
+		return NULL;
+	}
+
+	return 1;
+}
+
+//bila up==true, upvote. otherwise downvote
+function voteQuestion($qid,$up){
+	global $servername,$username,$password,$dbname;
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		echo "<p> connection error:". mysqli_connect_error ( void )."</p>";
+		return NULL;
+	}
+
+	if ($up) $incval=1; else $incval=-1;
+	$sql = "UPDATE Question SET vote=vote+$incval WHERE qid=$qid;";
+
+	$result = $conn->query($sql);
+	return 1;
+}
+
+
+//bila up==true, upvote. otherwise downvote
+function voteAnswer($qid,$aid,$up){
+	global $servername,$username,$password,$dbname;
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		echo "<p> connection error:". mysqli_connect_error ( void )."</p>";
+		return NULL;
+	}
+
+	if ($up) $incval=1; else $incval=-1;
+	$sql = "UPDATE Answer SET vote=vote+$incval WHERE qid=$qid AND aid=$aid;";
+
+	$result = $conn->query($sql);
+	
 	return 1;
 }
 
@@ -157,7 +226,7 @@ function getQuestionsAndAnswerCount(){
 
 function searchQuestions($sq){
 	echo "<p> SEARCH NOT IMPLEMENTED </p>";
-	return getQuestions();
+	return getQuestionsAndAnswerCount();
 }
 
 //apabila berhasil return true

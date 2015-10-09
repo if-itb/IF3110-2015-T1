@@ -2,6 +2,8 @@
 	<head>
 		<title>Display Question - Simple StackExchange</title>
 		<link rel="stylesheet" type="text/css" href="SiteStyle.css">
+		<script src="formValidate.js"></script>
+		<script src="vote.js"></script>
 	</head>
 	<body>
 		<?php
@@ -22,7 +24,11 @@
 		<h1>Simple StackExchange</h1>
 		<div class="questionpart">
 		<h2><?php echo $row["QuestionTopic"];?></h2>
-		<div class="votediv">VOTECELL NOT IMPLEMENTED</div><!--//TODO buat vote cell-->
+		<div class='votediv'>
+			<a href="javascript:void(0)" onclick="upVoteQuestion(<?php echo $qid.', \'q'.$qid ?>')" class='vote-up-off' title='This question shows research effort; it is useful and clear'>up vote</a>
+			<div itemprop='upvoteCount' class='vote-count-post' id="q<?php echo $row['qid']?>"><?php echo $row['vote']?></div>
+			<a href="javascript:void(0)" onclick="downVoteQuestion(<?php echo $qid.', \'q'.$qid ?>')" class='vote-down-off' title='This question does not show any research effort; it is unclear or not useful'>down vote</a>
+		</div>
 		<div class="postdiv">
 		<p><?php echo $row["Content"]?></p>
 		<div class = "footer qfooter"> asked by <?php echo $row["Email"];?> at <?php echo $row["created_at"] ?> | <a href="editQuestion.php?qid=<?php echo $qid ?>" class= "editlink">edit</a> | <a href="deleteQuestion.php?qid=<?php echo $qid ?>" class= "deletelink">delete</a></div>
@@ -35,7 +41,12 @@
 			for ($i=0;$i<count($answers);$i++){
 				echo "
 					<div class='answerContainer'>
-					<div class='votediv'>VOTECELL NOT IMPLEMENTED</div>
+					<div class='votediv'>
+						<a href='javascript:void(0)' onclick='upVoteAnswer(".$answers[$i]['qid'].",".$answers[$i]['aid'].", \"a".$answers[$i]['aid']."\")' class='vote-up-off' title='This question shows research effort; it is useful and clear'>up vote</a>
+						<div itemprop='upvoteCount' class='vote-count-post' id='a".$answers[$i]['aid']."'>".$answers[$i]['vote']."</div>
+						<a href='javascript:void(0)' onclick='downVoteAnswer(".$answers[$i]['qid'].",".$answers[$i]['aid'].", \"a".$answers[$i]['aid']."\")' class='vote-down-off' title='This question does not show any research effort; it is unclear or not useful'>down vote</a>
+					</div>
+
 					<div class='postdiv'>
 					<p>".$answers[$i]["Content"]."</p>
 					<div class = 'footer afooter'> answered by ".$answers[$i]["Email"]." at ".$answers[$i]["created_at"]."| <a href='editAnswer.php?qid=$qid&aid=$aid' class= 'editlink'>edit</a> | <a href='deleteAnswer.php?qid=$qid&aid=$aid' class= 'deletelink'>delete</a></div>
@@ -59,7 +70,6 @@
 					<textarea name="Content" placeholder="Content" class = "requiredInput"></textarea>
 				</div>
 				<div class="answer-form-input">
-					<script src="formValidate.js"></script>
 					<input type="submit" value="Post" onclick="return validateForm()" action="submitAnswer.php">
 				</div>
 			</form>
