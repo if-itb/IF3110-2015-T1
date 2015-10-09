@@ -1,3 +1,6 @@
+<?php
+$id = isset($_GET['id']) ? $_GET['id'] : '';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,11 +20,6 @@
 	<input type="text" id="textbox" name="InputQuestionTopic" placeholder=" Question Topic">
 	<textarea id="textarea" name="InputContent" placeholder=" Content"></textarea>		
 	<input type="submit" id="post" name="Post" value="Post">
+	<input type="hidden" name="id" value="<?php echo $id ?>">
 	</form>
-	</div>
-	<?php
-	if($_SERVER['REQUEST_METHOD'] == 'POST'){
-	echo 'edit/delete?'.$edit;
-	}
-	?>
 </body>
