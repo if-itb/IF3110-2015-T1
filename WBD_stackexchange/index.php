@@ -60,7 +60,7 @@
                         echo"</div>";
 
                         echo"<div class= questionMid>";
-                            echo"<a class ='title'>$title<br></a>";
+                            echo"<a class ='title' href='questionPage.php?questionId=$questionId'>$title<br></a>";
                         echo"</div>";
 
                         echo"<div class= questionRight>";

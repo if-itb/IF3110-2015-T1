@@ -1,3 +1,8 @@
+<?php
+    $questionId = $_GET['questionId'];
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,11 +19,10 @@
         <div id="body">
             <div id="questionAndAnswer">
                 <?php
-
-
-
-
+                require"getQuestionItem.php";
+                require"getQuestionAnswer.php";
                 ?>
+
 
 
             </div>
