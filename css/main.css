@@ -1,6 +1,15 @@
 a {
 	text-decoration:none;
 	cursor:pointer;
+	color:inherit;
+}
+
+a.red {
+	color:red;
+}
+
+a.gold {
+	color:gold;
 }
 
 body {
@@ -15,7 +24,7 @@ div.searchbar {
 	margin-right:15px;
 }
 
-form.delete, form.edit {
+form.delete, form.edit, form.show {
 	display:inline;
 }
 
@@ -33,7 +42,7 @@ hr {
 }
 
 input.button {
-	margin-left:94.4%;
+	margin-left:94.2%;
 }
 
 input.delete {
@@ -52,6 +61,15 @@ input.edit {
     font:inherit;
     cursor:pointer;
 	color:gold;
+}
+
+input.show {
+	background:none!important;
+    border:0; 
+    padding:0!important;
+    font:inherit;
+    cursor:pointer;
+	font-size:20;
 }
 
 input.text {
@@ -90,15 +108,18 @@ p#searchbar {
 	text-align:center;
 }
 
-strong.blue {
+p.blue {
 	color:blue;
+	display:inline;
 }
 
-strong.gold {
+p.gold {
+	display:inline;
 	color:gold;
 }
 
-strong.red {
+p.red {
+	display:inline;
 	color:red;
 }
 

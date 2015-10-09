@@ -9,7 +9,7 @@
 		$password = "";
 		$dbname = "StackExchange";
 		
-		$qid = $_POST["qid"];
+		$qid = $_GET["qid"];
 		
 		//Membuat koneksi
 		$conn = mysqli_connect($servername, $username, $password, $dbname);

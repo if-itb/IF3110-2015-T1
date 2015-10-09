@@ -5,12 +5,12 @@
 </head>
 
 <body>
-<h1>Simple StackExchange</h1><br>
+<h1><a href="home.php">Simple StackExchange</a></h1><br>
 <h2>What's your question?</h2>
 <hr>
 
 <?php 
-	$qid = $_POST["qid"];
+	$qid = $_GET["qid"];
 	
 	$servername = "localhost";
 	$username = "root";
