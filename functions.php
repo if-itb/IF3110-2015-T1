@@ -1,4 +1,5 @@
 <?php
+	
 	function makeDBConnection(){
 		global $db;
 		$dbname = "db_stackexchange";
@@ -10,11 +11,14 @@
 		$db = new PDO('mysql:host='.$servername.';dbname='.$dbname.';charset='.$charset, $username, $password);
 	}
 	
-	function displayListQuestion($_html,  $_title, $_datetime, $_username, $_countVotes, $_countAnswers){
+	function displayListQuestion($_html, $db){
 		$strReplace = array("[[title]]", "[[datetime]]", "[[username]]", "[[countVotes]]", "[[countAnswers]]");
-		$strTarget = array($_title, $_datetime, $_username, $_countVotes, $_countAnswers);
-		
-		echo str_replace($strReplace, $strTarget, $_html);
+		$dbquery = "SELECT * FROM question
+								NATURAL JOIN user";
+		foreach($db->query($dbquery) as $row){
+			$strTarget = array($row["title"], $row["datetime"], $row["name"], $row["countvotes"], $row["countanswers"]);
+			echo str_replace($strReplace, $strTarget, $_html);
+		}
 	}
 
 ?>
