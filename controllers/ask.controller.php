@@ -17,6 +17,8 @@
 		if (mysqli_query($conn, $sql)) {
 			$last_id = mysqli_insert_id($conn);
 			echo "New record created successfully. Last inserted ID is: " . $last_id;
+			header('location: ../question.php?q_id=' . $last_id);
+			//ttp_redirect("../question", array("q_id" => "$last_id"), true, HTTP_REDIRECT_PERM);
 		} else {
 			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		}

@@ -7,7 +7,7 @@
 		<form action="">
 			<input type="text" id="search" name="search" placeholder="Type your search-keywords here...">
 			<input type="submit" value="Search">
-		</form>
+		</form> 	
 		Cannot find what you are looking for? <a href="ask.php">Ask here</a>
 	</div>
 	<br>
