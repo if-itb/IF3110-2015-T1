@@ -1,0 +1,136 @@
+h1 {
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 50px;   
+}
+
+h2 {
+    text-align: left;
+    margin-left: 15%;
+    font-family: 'Ubuntu', sans-serif;
+
+}
+
+h3 {
+    border-bottom: 1px solid #c9b7b7
+}
+
+button {
+    background-color: darkgrey;
+    border-width: thin;
+    display: inline-block;
+    border: 3px solid #000;
+    border-radius: 3px;
+    height: 40px;
+}
+
+.buttonlink button{
+    background:none!important;
+    border:none; 
+    padding:0!important;
+    font: inherit;
+    /*border is optional*/
+    border-radius: 0px;
+    cursor: pointer;
+    height: auto;
+    display: inline-block!important;
+}
+
+input {
+    width: 65%;
+    border: 3px solid #000;
+    border-radius: 3px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    height: 40px;
+    font-family: 'Dosis', sans-serif;
+}
+
+.inputask {
+    width: 90%;
+    border-radius: 3px;
+    border: 10px 5px 10px 5px;
+}
+
+#asknama {
+    border-top: 3px solid #000;
+}
+#contentpost {
+    height: 150px;
+}
+
+p {
+    text-align: center;   
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#searchbar {
+    text-align: center;
+    display: inline-grid;
+}
+
+#askbar {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.questionlist {
+    border-top: 1px solid #9a9896;
+    margin-left: 15%;
+    margin-right: 15%;
+
+}
+
+.questioncontent {
+	margin: 0;
+	z-index: 100;
+	background: #fff;  
+    display: inline-block;
+}
+
+.questiontopic {
+	margin: 0;
+	z-index: 100;
+	background: #fff;  
+    display: block;
+    font-size: 25px;
+    color: #723b3b;
+    font-family: 'Dinpro', sans-serif;
+
+}
+
+.vote {
+    display: inline-block;
+
+}
+
+.answers {
+    display: inline-block;
+}
+
+.angka {
+    display: inline-block;
+}
+
+.questionfooter {
+    text-align: right;
+    display: block;
+}
+
+.ketvote{
+	background: #fff;   
+	margin-right: 10px;
+    font-style: bold;
+    display: inline-block;
+}
+
+.jlhvote{
+	background: #fff;   
+    font-size: 40px;
+    display: block;
+}
+    
+.question {
+     display: inline-block;
+}
