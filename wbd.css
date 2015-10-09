@@ -13,6 +13,10 @@ form{
 	width: 25cm;
 }
 
+#questiontable{
+	width: 25cm;
+}
+
 #SearchBox{
 	border-width: 1px;
 	border-style: solid;
@@ -26,15 +30,24 @@ form{
 }
 
 #p2{
-	margin-left:11cm;
+	margin-left:38%;
 	margin-right:auto;
 	font-weight:bold;
 	font-size:150%;
 	border-bottom: 3px solid black;
+	margin-bottom : 0px;
 }
 
-#FAQ{
-	margin-left:10cm;
+#p10{
+	margin-left:40%;
+	margin-right:auto;
+	font-color : grey;
+	font-size:150%;
+	margin-bottom : 0px;
+}
+
+#recently{
+	margin-left:25%;
 	margin-right: auto;
 }
 
@@ -58,5 +71,76 @@ form{
 }
 
 #PostButton{
-	align: right;
+	margin-top: 10px;
+	margin-left: 12cm;
+	margin-right: auto;
+}
+
+#result{
+	margin-left : 30%;
+	margin-right : auto;
+	font-size : 16px;
+	font-family : arial;
+}
+
+.td1{
+	width : 100px;
+	height : 100px;
+	vertical-align : center;
+	text-align : center;
+}
+
+#td2{
+	width : 500px;
+	height : 100px;
+	vertical-align : top;
+	text-align : center;
+}
+
+#td3{
+	width : 350px;
+	height : 100px;
+	vertical-align : bottom;
+	text-align : right;
+}
+
+#td5{
+	width : 100px;
+	height : 150px;
+	vertical-align : center;
+	text-align : center;
+}
+
+#td6{
+	width : 600px;
+	height : 150px;
+	vertical-align : center;
+	text-align : justify;
+}
+
+#td7{
+	text-align : right;
+}
+
+#hr{
+	border : 2px solid black;
+}
+
+#huruf2{
+	font-size:12px;
+	font-family:arial;
+}
+
+#isipertanyaan{
+	margin-left : 28%;
+	margin-right: 28%;
+	width : 48%;
+}
+
+#jumlahvote{
+	font-size:25px;
+}
+
+#pertanyaan{
+	font-size : 14px
 }
