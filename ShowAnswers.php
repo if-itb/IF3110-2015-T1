@@ -1,3 +1,7 @@
+<script type="text/javascript">
+
+</script>
+
 <?php
     require 'ConnectDatabase.php';
     $query = "SELECT * FROM questions WHERE ID=$id";
@@ -8,11 +12,17 @@
     $vote = mysql_result($result,0,'vote');
     echo"<h3>$topic</h3>";
     echo "<div class = 'q_details'>";
-    echo"<div class = 'a_left'>";
-    echo"<span class = 'vote'>$vote<br>Votes</span>";
-    echo"</div>";
-    echo"<div class = 'a_mid'>";
-    echo"<div class = 'a_content'>$content</div></div>";
+    echo "<div class = 'only_q'>";
+        echo"<div class = 'a_left'>";
+            echo"<div class = 'vote_buttons'>";
+                echo"<div class='up_button' onclick='alert()'><img src='Assets/up.png' width='30' height='30'></div>";
+                echo"<div class = 'vote'>$vote</div>";
+                echo"<div class='down_button'><img src='Assets/down.png' width='30' height='30'></div>";
+            echo"</div>
+        </div>";
+        echo"<div class = 'a_mid'>";
+            echo"<div class = 'a_content'>$content</div></div>";
+        echo"</div>";
     echo"<div class = 'details'>Asked by <span class = 'b_link'>$author </span>|
                 <a href = 'AskQuestion.php?id=$id' class = 'y_link'> edit </a>|
                 <a href='Data_Manipulation/DeleteQuestion.php?id=$id' class = 'r_link' onclick= \"return confirm('Are You Sure?');\">delete</a>";
@@ -28,12 +38,14 @@
         $vote = mysql_result($result,$i,"vote");
         echo "<div class = 'q_or_a'>";
         echo"<div class = 'a_left'>";
-        echo"<span class = 'vote'>$vote<br>Votes</span>";
+        echo"<div class='up_button' onclick='alert()'><img src='Assets/up.png' width='30' height='30'></div>";
+        echo"<div class = 'vote'>$vote</div>";
+        echo"<div class='down_button'><img src='Assets/down.png' width='30' height='30'></div>";
         echo"</div>";
         echo"<div class = 'a_mid'>";
         echo"<div class = 'a_content'>$content</div></div>";
-        echo"<div class = 'details'>Answered by <span class = 'b_link'>$email<br></div>";
         echo "</div>";
+        echo"<div class = 'details'>Answered by <span class = 'b_link'>$email</div>";
         $i++;
     }
     mysql_close();

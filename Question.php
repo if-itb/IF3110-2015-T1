@@ -7,7 +7,6 @@
     <script type = "text/javascript" src="Assets/Validator.js"></script>
     <link rel ="stylesheet" type="text/css" href="Assets/Index.css">
     <title>Simple StackExchange</title>
-
 </head>
 
 <body>

@@ -27,12 +27,11 @@
         else {
             echo $content;
         }
-        echo"</div></div>";
+        echo"</div></div></div>";
         echo"<div class = 'details'>Asked by <span class = 'b_link'>$author </span>|
                             <a href = 'AskQuestion.php?id=$id' class = 'y_link'> edit </a>|
                             <a href='Data_Manipulation/DeleteQuestion.php?id=$id' class = 'r_link' onclick= \"return confirm('Are You Sure?');\">delete</a><br></div>";
 
-        echo "</div>";
         $i++;
     }
     mysql_close();
