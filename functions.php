@@ -190,4 +190,29 @@ function getAnswerRows($id){
 	return $result->fetch_assoc();
 }
 
+function deleteQuestion($id){
+	$con = connectDB();
+
+}
+
+if(isset($_GET['del'])){
+	//header('Location: http://www.example.com/');
+	$con = connectDB();
+	$id=$_GET['del'];
+	$tbl_question = $GLOBALS['tbl_question'];
+	$tbl_answer = $GLOBALS['tbl_answer'];
+	//delete Question
+	if(isQuestionExist($id)) {
+		$stmt = $con->prepare("DELETE FROM $tbl_question WHERE id=?");
+		$stmt->bind_param('d',$id);
+		$stmt->execute();
+		$stmt->close();
+	}
+	//delete Answer
+	$stmt = $con->prepare("DELETE FROM $tbl_answer WHERE question_id=?");
+	$stmt->bind_param('d',$id);
+	$stmt->execute();
+	$stmt->close();
+}
+
 ?>

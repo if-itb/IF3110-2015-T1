@@ -39,7 +39,7 @@ function chkValidity(){
 	return true;
 }
 
-function chkValidityAnswer(){
+function chkValidityQuestion(){
 				
 	//nama
 	var txtName = document.getElementById('name').value;
@@ -108,5 +108,31 @@ function vote(upDown, type, id) {
 			xmlhttp.open("POST","functions.php?f=voteAnswerDown&id=" + id,true);
 		}
 		xmlhttp.send();
+	}
+}
+
+
+function delQuestion(id) {
+    var txt;
+    var r = confirm("Apakah Anda mau menghapus pertanyaan ini?");
+    if (r == true) {
+        //delete Question
+		var xmlhttp;
+		if (window.XMLHttpRequest){
+			xmlhttp=new XMLHttpRequest();
+		} else {
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 		}
+		xmlhttp.onreadystatechange = function()
+		{
+			if(xmlhttp.readyState == 4)
+			{
+				document.getElementById("question-"+id).innerHTML="";
+			}
+		}
+		xmlhttp.open("POST","functions.php?del=" + id,true);
+		xmlhttp.send();
+    } else {
+        //don't delete question
+    }
 }
