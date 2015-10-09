@@ -98,6 +98,7 @@ textarea{
     align-items: center;
     display: flex;
     height:100%;
+    margin-bottom: 30px;
 }
 .vote_buttons{
     top:50%;

@@ -21,7 +21,6 @@
                             VALUES('$A_ID','$content','$name',0,'$email')";
         if ($conn->query($sql) === TRUE) {
             //nothing. YAyy correct
-            echo "yay";
         }
         $conn->close();
     }
