@@ -14,6 +14,45 @@ H2 {
 	border: 1px solid #000000;
 }
 
+table {
+	width: 100%;
+	table-layout: fixed;
+	border-collapse:collapse;
+}
+
+tr
+{
+	border-top: 2px solid #000;
+	height: 80px;
+}
+
+.question {
+	border-top: 2px solid;
+	width:100%;
+	margin:auto;
+}
+
+.vote {
+	width:20%;
+	margin-left:0;
+	margin-right: 0;
+	clear: none; 
+}
+
+.answer {
+	width:20%;
+	margin-left:0;
+	margin-right: 0;
+	clear: none;  
+}
+
+.topic {
+	width:80%;
+	margin:0;
+	float: right; 
+	clear: none; 
+}
+
 input[type=submit] {
 	width:50px;
 	border: 1px solid;
