@@ -1,0 +1,82 @@
+body{
+	padding-left: 20%;
+	padding-right: 20%;
+}
+
+h1{
+	text-align: center;
+	margin-top: 60px;
+}
+
+h2{
+	margin: 0px;
+}
+
+.question-vote{
+	float:left;
+	margin-left: 5%;
+	width:15%;
+}
+
+.question-content{
+	float:left;	
+	width: 75%;
+	margin-right: 5%;
+}
+
+.question-identity{
+	margin-top: 5px;
+	text-align: right;
+}
+
+.answer-vote{
+	float:left;
+	margin-left: 5%;
+	width:15%;
+}
+
+.answer-content{
+	float:left;	
+	width: 75%;
+	margin-right: 5%;
+}
+
+.answer-identity{
+	margin-top: 5px;
+	text-align: right;
+}
+
+
+.name{
+	width:98%;	
+	margin-left: 5px;
+	margin-top:15px;
+}
+
+.email{
+	width:98%;	
+	margin-left: 5px;
+	margin-top: 5px;
+}
+
+.content{
+	width:98%;	
+	margin-left: 5px;
+	margin-top: 5px;
+	height: 150px;
+}
+
+.submit-button{
+	margin-top: 5px;
+	margin-left:90%;
+	width:75px;
+}
+
+h2.answer-form{
+	margin-left: 20px;
+	color:#808080;
+}
+
+input.name{
+	margin-top: 0px;
+}
