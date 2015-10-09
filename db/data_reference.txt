@@ -1,0 +1,5 @@
+thread_id 1 : http://askubuntu.com/questions/683393/how-important-is-the-sudo-password
+
+thread_id 2 : http://android.stackexchange.com/questions/28882/how-to-root-teac-tc-7120
+
+thread_id 3 : http://academia.stackexchange.com/questions/759/timing-an-internship-during-phd
