@@ -1,15 +1,35 @@
 <?php
-	$servername = "127.0.0.1";
+	$servername = "localhost";
 	$username = "root";
 	$password = "";
+	$dbname = "question_answer";
 
 	// Create connection
-	$conn = mysqli_connect($servername, $username, $password);
-
+	$conn = mysql_connect($servername, $username, $password);
+	$db = mysql_select_db($dbname, $conn);
+	
 	// Check connection
 	if (!$conn) {
 		die("Connection failed: " . mysqli_connect_error());
 	}
-	$sql = "INSERT INTO question (firstname, lastname, email) VALUES ('John', 'Doe', 'john@example.com')";
+	
+	if(isset($_POST['question'])){
+		$Name = $_POST['Name'];
+		$Email = $_POST['Email'];
+		$Topic = $_POST['Topic'];
+		$Content = $_POST['Content'];
+		
+		$sql = "INSERT INTO question (Q_Name, Q_Email, Q_Topic, Q_Content) VALUES ('$Name', '$Email', '$Topic', '$Content')";
+		$result = mysql_query($sql, $conn);
+		
+		if(!$result){
+			die("Invalid query: ".mysql_error());
+		}
+		else{
+			header("Location: index.php");
+		}
+	}
+	
+	mysql_close($conn);
 	
 ?>

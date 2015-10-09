@@ -8,7 +8,14 @@
 
 <h1 class="title">Simple StackExchange</h1>
 
-<h2 class="align">What's your question?</h2>
+<h2 class="align">
+	<div>
+		What's your question?
+	</div>
+	<div>
+		<hr>
+	</div>
+</h2>
 
 <form class="align" action="Ask.php" method="post">
 	<div class="kotakform">
@@ -24,7 +31,7 @@
 		<textarea name="Content" class="form_content" placeholder="Content"></textarea>
 	</div>
 	<div class="form_post">
-		<input type="submit" value="Post">
+		<input type="submit" name="question" value="Post">
 	</div>
 </form>
 

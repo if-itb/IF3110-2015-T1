@@ -16,17 +16,9 @@
 
 <p> Cannot find what you are looking for? <a href="Question.php">Ask here</a> <p>
  
-<h2 class="align">
-	<div>
-		Recently Asked Questions
-	</div>
-	<div>
-		
-	</div>
-</h2>
+<h2 class="align"> Recently Asked Questions </h2>
 
 <?php RAQ(); ?>
-
 
 </body>
 </html>
