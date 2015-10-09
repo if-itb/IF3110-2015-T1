@@ -27,3 +27,14 @@ function validateDelete(){
 		return false;
 	}
 }
+
+function vote(id, type, act) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+     document.getElementById(type+"-"+id).innerHTML = xhttp.responseText;
+    }
+  }
+  xhttp.open("GET", "vote.php?id="+id+"&type="+type+"&act="+act, true);
+  xhttp.send();
+} 

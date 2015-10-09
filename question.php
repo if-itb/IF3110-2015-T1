@@ -3,7 +3,6 @@
 	include ("functions.php");
 
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,15 +33,25 @@
 				</h2>
 			</div>
 
+			<?php
+				$voteUpURL = "vote.php?id=".$_GET['id']."&act=up";
+				$voteDownURL = "vote.php?id=".$_GET['id']."&act=down";
+			?>
+
 			<div class="question-container">
 				<div class="vote-place">
-					<img src="images/up-arrow.png" class="arrow-images">
+					<img src="images/up-arrow.png" onclick='vote(<?php echo $_GET['id'] ?>, "question", "up")' class="arrow-images">
 					<h1>
 						<?php
-							getQuestionByParam("votes");
+							$idQuestion = "question-".$_GET['id'];
 						?>
+						<span id=<?php echo $idQuestion; ?> >
+							<?php
+								getQuestionByParam("votes");
+							?>
+						</span>
 					</h1>
-					<img src="images/down-arrow.png" class="arrow-images">
+					<img src="images/down-arrow.png" onclick='vote(<?php echo $_GET['id'] ?>, "question", "down")' class="arrow-images">
 				</div>
 				<div class="full-question">
 					<p>
@@ -55,7 +64,7 @@
 					<p>asked by 
 						<span class="name">
 							<?php
-								getQuestionByParam("name");
+								getQuestionByParam("email");
 							?>
 						</span>
 						at

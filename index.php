@@ -28,9 +28,9 @@
 		</div>
 		
 		<div class="wrapper">
-			<form role="form" method="post" class="search-bar">
-				<input type="text" class="search-text" placeholder="Search here">
-				<input type="button" value="Search" class="search-button">
+			<form role="form" method="get" action="search-question.php" class="search-bar">
+				<input name="keyword" type="text" class="search-text" placeholder="Search here">
+				<input name="search-button" type="submit" value="Search" class="search-button">
 			</form>
 
 			<div class="text-center">

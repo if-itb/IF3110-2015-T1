@@ -85,16 +85,19 @@
 		while($row = mysql_fetch_array($result, MYSQL_BOTH)){
 			echo '<div class="answer-container">';
 				echo '<div class="vote-place">';
-					echo '<img src="images/up-arrow.png" class="arrow-images">';
-					echo '<h1>'.$row['vote'].'</h1>';
-					echo '<img src="images/down-arrow.png" class="arrow-images">';
+					echo '<img src="images/up-arrow.png" onclick=\'vote('.$_GET['id'].', "answer", "up")\' class="arrow-images">';
+					echo '<h1>';
+						$idAnswer = "answer-".$_GET['id'];
+						echo '<span id='.$idAnswer.' >'.$row['votes'].'</span>';
+					echo '</h1>';
+					echo '<img src="images/down-arrow.png" onclick=\'vote('.$_GET['id'].', "answer", "down")\' class="arrow-images">';
 				echo '</div>';
 				
 				echo '<div class="full-question">';
 					echo '<p>'.$row['content'].'</p>';
 				echo '</div>';
 				echo '<div class="asked-by">';
-					echo '<p>answered by <span class="name">'.$row['name'].'</span> at <span class="date">'.$row['date'].'</span></p>';
+					echo '<p>answered by <span class="name">'.$row['email'].'</span> at <span class="date">'.$row['date'].'</span></p>';
 				echo '</div>';
 			echo '</div>';
 		}
