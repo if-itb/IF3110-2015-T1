@@ -1,5 +1,5 @@
 <?php
-include ("viewlist.php");
+include ("viewdetail_question.php");
 
 
     $servername = "localhost";
@@ -13,7 +13,7 @@ include ("viewlist.php");
 	if ($link->connect_error) {
 	    die("Connection failed: " . $link->connect_error);
 	}
-$query = "select * from question;";
+$query = "select * from question where no_question=".$_GET["no_question"];
 $result = $link->query($query);
 	if($result->num_rows > 0)
     {
@@ -26,6 +26,7 @@ $result = $link->query($query);
             $newquery = str_replace("{{topic}}",$row["topic"],$newquery);
             $newquery = str_replace("{{content}}",$row["content"],$newquery);
             $newquery = str_replace("{{no_question}}",$row["no_question"],$newquery);
+            $newquery = str_replace("{{date}}",$row["date"],$newquery);
             
             echo $newquery;
             

@@ -1,34 +1,37 @@
-<?php
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Home Page</title>
+        <link rel="stylesheet" href="style.css" >
+        
+	</head>
 
-$name = $_POST ["name"];
-$email = $_POST["email"];
-$topic = $_POST["topic"];
-$content = $_POST["content"];
+	<body>
+	
+		<h1>Simple StackExchange</h1>
+		<h3>What's Your Question?</h3>
 
-//menyambungkan ke databases
-$link = mysqli_connect("127.0.0.1", "root", "", "WBD");
+		<div class="boxform">
+			
+		<form action="question_insert.php" onsubmit="return validateForm()" method="post" name="form" >
+			<br>
+			<input type="text" placeholder="Name" name="name" class="box">
+			<br>
+			<br>
+			<input type="text" placeholder="Email" name="email" class="box">
+			<br>
+			<br>
+			<input type="text" placeholder="Topic" name="topic" class="box">
+			<br>
+			<br>
+			<textarea placeholder="Content" name="content" class="box" rows="5" cols="22"></textarea>
+			<br>
+			<button type="submit" class="posisipost">Post </button>
+            
+		</form>
+		</div>
+        
+        <script type="text/javascript" src="script.js"></script>
+	</body>	
 
-if (!$link) {
-    echo "Error: Unable to connect to MySQL." . PHP_EOL;
-    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-    exit;
-}
-
-
-//memasukkan query ke databases 
-$query = "insert into question (no_question,name,email,topic,content,answer,vote) values (NULL, '$name' ,'$email','$topic','$content', 0,0)";
-
-if ($link->query($query) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $query . "<br>" . $link->error;
-}
-
-
-mysqli_close($link);
-header("Location: http://localhost/list.html");
-
-?>
-
-
+</html>

@@ -1,31 +1,65 @@
-<?php
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Detail</title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript" src="script.js"></script>
+   
+</head>
+<body>
+    <div class="board">
+        <h1>Simple StackExchange</h1>
+         <?php include "detailquestion_replace.php"; ?>
+    </div>
+    
+    <div class="board">
+        <strong>1 Answer</strong>
+    </div>
+    <div class="board">
+        <div class="votequestform">
+            <div class="vote">
+                <div class="vote-up">
+                
+                </div>
+                
+                <div class="vote-count">
+                    2
+                </div>
+                
+                <div class="vote-down">
+                
+                </div>
+            </div>
+            
+            <div class="question">
+                isi dari jawaban
+            </div>
+            
+            <div class="detaileditor">
+            answered by name at date
+            </div>
+        </div>        
+    </div>
 
-/*$name = $_POST ["name"];
-$email = $_POST["email"];
-$content = $_POST["content"];
-$no_question=$_GET["no_question"];
-//menyambungkan ke databases
-$link = mysqli_connect("127.0.0.1", "root", "", "WBD");
-
-if (!$link) {
-    echo "Error: Unable to connect to MySQL." . PHP_EOL;
-    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-    exit;
-}
-
-
-//memasukkan query ke databases answer
-$query = "insert into answer (no_question,name,email,content,answer,vote) values ('$','$name','$email','$content', 0,0)";
-
-if ($link->query($query) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $query . "<br>" . $link->error;
-}
+    
+    <div class="board">
+        Your Answer
+    <form action="answer_insert.php" onsubmit="return validateForm()" method="post" name="form" >
+			<br>
+			<input type="text" placeholder="Name" name="name" class="box">
+			<br>
+			<br>
+			<input type="text" placeholder="Email" name="email" class="box">
+			<br>
+			<br>
+			<textarea placeholder="Content" name="content" class="box" rows="5" cols="22"></textarea>
+			<br>
+			<button type="submit" class="posisipost">Post </button>
+            
+		</form>
+        </div>
+    
+</body>
+</html>
 
 
-mysqli_close($link);
-header("Location: http://localhost/list.html");*/
-
-?>
