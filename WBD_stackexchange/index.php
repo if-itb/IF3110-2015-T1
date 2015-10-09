@@ -16,11 +16,15 @@
     <div id = "container">
         <div id = "header">
             <span id="Judul">Simple StackExchange</span>
-            <span class="Search">
-                <input class="textbox" type="text"/>
-                <input class="searchButton" type="submit" value="Search"/>
-                <p>Cannot find what you are looking for? <a style="color:red">Ask here</a>
-            </span>
+            <div class="Search">
+                <div id="bar">
+                    <input class="textbox" type="text"/>
+                </div>
+                <div id="submitButton">
+                    <input class="searchButton" type="submit" value="Search"/>
+                </div>
+            </div>
+            <p>Cannot find what you are looking for? <a style="color:red" href="addQuestion.php">Ask here</a>
         </div>
         <div id ="body">
             <h2>Recently Asked Questions</h2>

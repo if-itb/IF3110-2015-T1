@@ -30,8 +30,7 @@ mysql> create table Answers(
 	
 	
 //insert answers
-mysql> insert into answers(question_id, name, email, content, vote, date)
-    -> value (1, "megawati", "mega@gmail.com", "yes we can", 5, STR_TO_DATE('1-0
+insert into answers(name, email, content, vote, date) value ("Anita", "Anita@gmail.com", "Hello there--answering", 5, STR_TO_DATE('1-0
 1-2012', '%d-%m-%Y'));
 	
 	
