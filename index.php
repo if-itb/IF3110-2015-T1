@@ -40,9 +40,11 @@
 							<td>
 							</td>
 							<td class="Topic">
+								<a href="displayQuestion.php?id_q=+<?php echo $q['id_q'] ?>">
 								<?php
 									echo $q['Topic'];
 								?>
+								</a>
 							</td>
 							<td class="Date">
 								<?php
