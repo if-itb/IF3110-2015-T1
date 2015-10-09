@@ -27,7 +27,7 @@
 
 		<div class="wrapper">
 			<div class="title">
-				<h2>What's your question</h2>
+				<h2>Edit your question</h2>
 			</div>
 
 			<?php

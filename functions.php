@@ -27,7 +27,7 @@
 
 				echo '<div class="question">';
 					echo '<h3><a href="question.php?id='.$row['id'].'">'.$row['topic'].'</a></h3>';
-					echo '<p>'.$row['content'].'</p>';
+					echo '<p>'.customEcho($row['content'], 200).'</p>';
 				echo '</div>';
 
 				echo '<div class="asked-by">';
@@ -109,6 +109,17 @@
 		$result = mysql_query($query, $connect);
 
 		return mysql_fetch_array($result, MYSQL_BOTH);
+	}
+
+	function customEcho($var, $length){
+		if(strlen($var) <= $length){
+			echo $var;
+		}
+		else{
+			$var = substr($var, 0, $length);
+			$var = $var." .....";
+			echo $var;
+		}
 	}
 
 ?>
