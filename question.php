@@ -66,10 +66,10 @@
 						</span>
 						<?php
 							$editURL = "form-edit.php?id=".$_GET['id'];
-							$deleteURL = "form-edit.php?id=".$_GET['id'];
+							$deleteURL = "delete-question.php?id=".$_GET['id'];
 						?>
 						 | <a href=<?php echo $editURL ?> class="edit"> edit </a>
-						 | <a href=<?php echo $deleteURL ?> class="delete"> delete </a>
+						 | <a href=<?php echo $deleteURL ?> onclick="return validateDelete()" class="delete"> delete </a>
 					</p>
 				</div>
 			</div>

@@ -16,6 +16,7 @@
 
 	<link href='https://fonts.googleapis.com/css?family=Titillium+Web|Source+Sans+Pro|Droid+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<script type="text/javascript" src="js/validation.js"></script>
 </head>
 
 <body>

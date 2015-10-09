@@ -35,7 +35,7 @@
 						$editURL = "form-edit.php?id=".$row['id'];
 						$deleteURL = "delete-question.php?id=".$row['id'];
 						echo '<a href='.$editURL.' class="edit">edit</a> | ';
-						echo '<a href='.$deleteURL.' class="delete">delete</a>';
+						echo '<a href='.$deleteURL.' onclick="return validateDelete()" class="delete">delete</a>';
 					echo '</p>';
 				echo '</div>';
 		}
