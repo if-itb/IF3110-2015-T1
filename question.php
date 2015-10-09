@@ -6,13 +6,13 @@
 	<body>
 		<div class="header">
 			<div class="container">
-				<p>Simple StackExchange</p> 
+				<p><a href="index.php">Simple StackExchange</a></p> 
 			</div>
 		</div>
 		
 		<div class="main">
 			<div class="container">
-				<p>What's your question?</p>
+				<h1>What's your question?</h1>
 				<form action="index.php" method="post" class="form">
 					<input type="text" name="name" placeholder="Name"><br>
 					<input type="text" name="email" placeholder="Email"><br>
