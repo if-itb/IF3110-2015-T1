@@ -8,7 +8,7 @@
 						<input type="submit" id="search-submit" value="Search">
 					</form>
 					<div id="search-desc">
-						Cannot find what you are looking for. <a href="#">Ask here</a>.
+						Cannot find what you are looking for. <a href="ask.php">Ask here</a>.
 					</div>
 				</center>
 			</div>
@@ -24,8 +24,9 @@
 				<?php
 					if ($result->num_rows > 0){
 						while($row = $result->fetch_assoc()) {
+						$id = $row["id"];
 						?>
-							<div class="question-item">
+							<div class="question-item" id="question-<?php echo $id;?>">
 							<table>
 								<tr>
 									<td>
@@ -38,13 +39,13 @@
 									</td>
 									</td>
 									<td>
-									<?php echo $row["topic"];?></br>
+									<?php echo "<a class=\"question-item-topic\" href=\"view.php?q=".$row["id"]."\"?><strong>".$row["topic"]."</strong></a></br>".$row["content"];?>
 									<div class="question-item-tag">
 										<?php echo "Asked by <span class='question-item-name'>" . $row["name"]."</span>";
 											echo " | ";
-											echo "<a href='edit.php?q=" .$row["id"]. "'>edit</a>";
+											echo "<a href='edit.php?q=" .$id. "'>edit</a>";
 											echo " | ";
-											echo "<span class='question-item-delete'>delete</span>";
+											echo "<span onclick='delQuestion(".$id.")' class='question-item-delete'>delete</span>";
 										?>
 									</div>
 									</td>
@@ -61,9 +62,6 @@
 					}
 				?>	
 				</div>
-			</div>
-			<div class="footer">
-		
 			</div>
 		</div>
 	</body>
