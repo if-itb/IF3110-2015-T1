@@ -18,10 +18,10 @@
 			die("Connection failed: " .mysqli_connect_error());
 		}
 		
-		$sql = "SELECT * FROM question";
-		$result = mysqli_query($conn,$sql);
+		$sql_pertanyaan = "SELECT * FROM question";
+		$pertanyaan = mysqli_query($conn,$sql_pertanyaan);
 		?>
-		<h1 id="header">Simple StackExchange</h1>
+		<a href="showquestion.php"><h1 id="header">Simple StackExchange</h1></a>
 		<div class="next" >
 			<div class="search">
 				<input type="text" name="cari" class="cari">
@@ -30,17 +30,24 @@
 			<p class="ask">Cannot find what you are looking for? <a href="ask.php">Ask here</a></p>
 			<div class="container-judul">
 				Recently Asked Questions
-				<?php while($row = mysqli_fetch_assoc($result)){?>
+				<?php while($row = mysqli_fetch_assoc($pertanyaan)){?>
 				
 				<div class="container-pertanyaan">
 					<div class="vote">
 						<?php echo $row["vote"]; ?><br>Votes
 					</div>
 					<div class="answers">
-						<?php echo $row["answer"]; ?><br>Answers
+						<?php 
+							$sql_jawaban = "SELECT * FROM answer WHERE no_pertanyaan=".$row["No"];
+							$jawaban = mysqli_query($conn,$sql_jawaban);
+							echo mysqli_num_rows($jawaban);
+						
+						?><br>Answers
 					</div>
 					<div class="questiontopic">
-						<?php echo $row["topik"]; ?>
+						<a href="showanswer.php?id=<?php echo $row["No"]?>"><?php echo $row["topik"]; ?></a>
+						<br>
+						<?php echo $row["konten"]?>
 					</div>
 					<div class="infoask">
 						<br>

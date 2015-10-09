@@ -5,7 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="./css/main.css">
 	</head>
 	<body>
-		<h1 id="header">Simple StackExchange</h1>
+		<a href="showquestion.php"><h1 id="header">Simple StackExchange</h1></a>
 		<div class="next">	
 			<h2 class="subtitle">What's your question?</h2>
 			<form action="question.php" method="POST">

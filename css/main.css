@@ -1,6 +1,10 @@
-	#header {
+#header {
 	text-align: center;
 	font-family: Courier New;
+}
+
+h2{
+	margin: 0;
 }
 
 .next{
@@ -92,24 +96,31 @@ form textarea{
 }
 
 .container-pertanyaan-jawaban{
+	margin-top:20px;
 	margin-left:3%;
-	background-color:blue;
+	overflow: auto;
 }
 
 .container-pertanyaan-jawaban .rate{
-	font-size: 30px;
-	padding-top: 5%;
-	background-color:red;
+	color: grey;
+	text-align: center;
+	font-size: 25px;
 	float:left;
 	width:5%;
 }
 
 .container-pertanyaan-jawaban .konten{
-	background-color:red;
 	display: inline-block;
 	width:95%;
 }
 
 p.info-pertanyaan-jawaban{
 	float: right;
+}
+
+.judulanswer{
+	padding-top: 2%;
+	padding-left: 2%;
+	color: grey;
+	font-size: 35px;
 }
