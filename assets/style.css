@@ -16,7 +16,6 @@ body{
 	width:80%;
 	margin:auto;
 }
-
 a{
 	color: #ffae00;
 	text-decoration: none;
@@ -24,12 +23,10 @@ a{
 a:hover{
 	color: #ff0000;
 }
-
 hr{
 	height: 2px;
 	background-color: #000;
 }
-
 #search{
 	padding:0 2% 0 2%;
 }
@@ -50,13 +47,10 @@ hr{
 #search-desc{
 	margin-top: 10px;
 }
-
-
 #recent-title{
 	margin: 30px 0 10px 0;
 	font-size: 20pt;
 }
-
 
 /* form ask */
 #form-ask{
@@ -110,6 +104,9 @@ width:100%;
 .question-item-topic{
 	color: #000000;
 }
+.question-asked	{
+	text-align:right;
+}
 .error{
 	color:#ff0000;
 }
@@ -117,6 +114,10 @@ width:100%;
 	width:100%;
 }
 
-#whats-question{
+#whats-question, #edit-question, #question-topic, #answers-number{
 	font-size: 30pt;
-} 
+}
+table{
+
+	width:100%;
+}
