@@ -11,8 +11,8 @@ body {
 }
 
 hr {
-  margin-top: 1rem;
-  margin-bottom: 1.5rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
   border-width: 0;
   border-top: 1px solid #E1E1E1; 
 }
@@ -53,17 +53,20 @@ a:hover {
 }
 
 .questiontitle{
-	width: 54%;
-	font-weight: 700;
+	width: 40%;
 	vertical-align: middle;
 	text-align: justify;
 	padding-left: 3em;
 }
 
+.questiontitle>a{
+	font-weight: 700;
+	color: #000000;
+}
+
 .detail{
 	text-align: right;
-	width: 22%;
-	height: 100%;
+	width: 36%;
 	vertical-align: bottom;
 }
 
@@ -120,19 +123,22 @@ a:hover {
 .textbox, .textarea{
 	padding-left: .5em;
 	width: 99%;
-	height: 1.5em;
+	height: 2em;
 	margin-bottom: 0.5em;
 	font-weight: 200;
-  	font-family: 'Raleway', sans-serif;	
+  	font-family: 'Raleway', sans-serif;
+	font-size: 1em;	
 }
 
 .textarea {
 	height: 12em;
+	padding-top: .5em;
 }
 
 #post{
 	float: right;
 	clear: both;
+	font-size: 1em;
 }
 
 form{
