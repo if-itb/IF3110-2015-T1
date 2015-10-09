@@ -14,9 +14,20 @@
 				exit();
 			}
 
-			if ($_POST['id_q'] == '') $id = addQuestion($_POST['Name'], $_POST['Email'], $_POST['Topic'], $_POST['Content']);
-			else $id = updateQuestion($_POST['id_q'], $_POST['Name'], $_POST['Email'], $_POST['Topic'], $_POST['Content']);
-			 //header("Location: index.php?qid="); /* Redirect browser */
+			if ($_POST['id_q'] == ''){
+				$id = addQuestion($_POST['Name'], $_POST['Email'], $_POST['Topic'], $_POST['Content']);
+				$q = getLastQid();
+				$id_q = $q['id_q'];
+			}
+			else {
+				$id = updateQuestion($_POST['id_q'], $_POST['Name'], $_POST['Email'], $_POST['Topic'], $_POST['Content']);
+				$id_q=$_POST['id_q'];
+				
+			}
+
+			$id_q=trim($id_q);
+			echo $id_q;
+			header("Location: displayQuestion.php?id_q=+".basename($id_q).""); /* Redirect browser */
 		?>
 	</body>
 </html>
