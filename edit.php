@@ -2,8 +2,6 @@
 include 'header.php';
 include 'database.php';
 
-$conn = db_init();
-
 $topic = "";
 $name = "";
 $mail = "";
@@ -12,6 +10,7 @@ $qid = -1;
 
 if ($_GET)
 {
+  $conn = db_init();
   $qid = $_GET['id'];
   $query = "SELECT * FROM question WHERE Id = $qid";
   $res = mysqli_fetch_assoc(mysqli_query($conn, $query));
@@ -20,6 +19,7 @@ if ($_GET)
   $mail = $res['email'];
   $datetime = $res['datetime'];
   $cont = $res['isi'];
+  mysqli_close($conn);
 }
 
 echo

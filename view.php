@@ -16,23 +16,31 @@ $vote = $res['vote'];
 
 echo 
 "<div class='question-details'>
-  <div><div class='question-title'>
+  <div class='question-title'>
     <h3>$topik</h3>
   </div>
   <div><hr></div>
-  <div class='question-content'>
-    $isi
-  </div>
-  <div class='author-info'>
-    <div class='question-menu'>
-      <a href='edit.php?id=$qid'>Edit</a>  
-      <a href='delete.php?id=$qid'>Delete</a>              
+  <div class='wrapper'>
+    <div class='vote'>
+      <div class='arrow-up' onclick='voter(1, false, $qid, \"votenum-$qid\")'></div>
+      <div class='vote-number' id='votenum-$qid'>$vote</div>
+      <div class='arrow-down' onclick='voter(-1, false, $qid, \"votenum-$qid\")'></div>
     </div>
-    <div>asked by <a href='mailto:$mail'>$name</a> at $datetime</div>
-  </div></div>
-  <div class='answer-list'>";
+    <div class='question-content'>
+      $isi
+      <div class='author-info'>
+        <div class='question-menu'>
+          <a href='edit.php?id=$qid'>Edit</a>  
+          <a href='delete.php?id=$qid' onclick='return deleteConfirm()'>Delete</a>              
+        </div>
+        <div>asked by <a href='mailto:$mail'>$name</a> at $datetime</div>
+      </div>
+    </div>
+  </div>
+</div>  
+<div class='answer-list'>";
 
-$query = "SELECT * FROM answer WHERE qid = $qid ORDER BY datetime DESC";
+$query = "SELECT * FROM answer WHERE qid = $qid ORDER BY vote DESC";
 $list = mysqli_query($conn, $query);
 if (!$list) 
 {
@@ -59,10 +67,17 @@ else
     $vote = $row['vote'];
     echo 
         "<div><hr></div>
-        <div>$isi</div>
-        <div class='author-info'>
-          answered by <a href='mailto:$mail'>$name</a> at $datetime</div>
-      </div>";
+        <div class='wrapper'>
+          <div class='vote'>
+            <div class='arrow-up' onclick='voter(1, true, $id, \"votenum-$qid-$id\")'></div>
+            <div class='vote-number' id='votenum-$qid-$id'>$vote</div>
+            <div class='arrow-down' onclick='voter(-1, true, $id, \"votenum-$qid-$id\")'></div>
+          </div>
+          <div class='question-content'>
+            $isi
+            <div class='author-info'>answered by <a href='mailto:$mail'>$name</a> at $datetime</div>
+          </div>
+        </div>";
   }
 }
 
@@ -86,7 +101,8 @@ echo
       <input type='submit' value='Submit'>
     </form>
   </div>
-</div>";
+</div>
+";
 
 mysqli_close($conn);
 ?>

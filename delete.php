@@ -9,3 +9,4 @@ $query = "DELETE FROM question WHERE Id = $qid";
 mysqli_query($conn, $query);
 $query = "DELETE FROM answer WHERE qid = $qid";
 mysqli_query($conn, $query);
+mysqli_close($conn);
