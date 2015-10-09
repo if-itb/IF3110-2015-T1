@@ -1,7 +1,15 @@
+<?php
+	require_once("./includes/mysql.php");
+?>
+
 <html lang="en">
 <head> 
 	<meta charset="UTF-8">
 	<title>Simple StackExchange </title>
+	<link rel="stylesheet" type="text/css" href="css/mainstyle.css">
+	<script type="text/javascript" src="js/delete.js"></script>
+	<script type="text/javascript" src="js/validate.js"></script>
+	<script type="text/javascript" src="js/vote.js"></script>
 </head>
 
 <body>
@@ -9,9 +17,7 @@
 		<h1 class = "center"> <a href="index.php"> Simple StackExchange </a>
 </h1>
 
-<?php
-	require_once("./includes/mysql.php");
-?>
+
 
 <?php 
 	if (isset($_POST['question_id'])){

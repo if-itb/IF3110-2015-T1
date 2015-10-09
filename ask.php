@@ -6,6 +6,10 @@
 <head> 
 	<meta charset="UTF-8">
 	<title>Simple StackExchange </title>
+	<link rel="stylesheet" type="text/css" href="css/mainstyle.css">
+	<script type="text/javascript" src="js/delete.js"></script>
+	<script type="text/javascript" src="js/validate.js"></script>
+	<script type="text/javascript" src="js/vote.js"></script>
 </head>
 
 <body>
@@ -15,7 +19,6 @@
 
 <?php
 	$question_id = isset($_GET['question_id']) ? $_GET['question_id'] : '';
-
 	$data = $question_id != '' ? getQuestion($question_id) : array();
 	$data['name'] = !isset($data['name']) ? '' : $data['name'];
 	$data['email'] = !isset($data['email']) ? '' : $data['email'];
@@ -24,6 +27,8 @@
 ?>
 
 <h2 class ="underline"> What's your question? </h2>
+
+<form action="index.php" method="POST" class="block" onsubmit="return validateQuestionForm(this)">
 
 <form action="index.php" method="POST" class="block">
 	<input type="text" placeholder="Name" name="name" value="<?php echo $data['name'] ?>" />
