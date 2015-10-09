@@ -21,8 +21,10 @@ function validateForm(){
 	if(d==null || d==""){
 		x+="Content tidak boleh kosong\n";
 	}
-	alert(x);
-	return false;
+	if (x!=""){
+		alert(x);
+		return false;
+	}
 }
 
 function validateEmail(email) {
