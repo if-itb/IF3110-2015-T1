@@ -12,19 +12,19 @@
 	<input type="submit" id="submit" value="Search" name="SearchButton">		
 	</form>
 	</div>
-	<p id="judul2">Cannot find what you are looking for? <a href="wbd2.php" style="color:#FFA000">Ask here</a></p>
+	<p id="judul2">Cannot find what you are looking for? <a href="wbd2.html" id="yellow">Ask here</a></p>
 	<br>
 	<p id="judul">Recently Asked Questions</p>
 	<div class="content">
+	<table>
 	<hr>
-	<p align="center">The question topic goes here</p>
-		<div>
-		 0
-			<div>
-			0
-			</div>
-		</div>
-	<p align="left">votes  answer</p>
+	<tr>
+	<td id="td1">0<br>Votes</td>
+	<td id="td1">0<br>Answers</td>
+	<td id="td2">The question topic goes here</td>
+	<td id="td3">asked by <a href="wbd2.php" id="blue">name</a> | <a href="wbd2.php" id="yellow">edit</a> | <a href="wbd2.php" id="red">delete</a></td>
+	</tr>
+	</table>
 	</div>
 </body>
 
