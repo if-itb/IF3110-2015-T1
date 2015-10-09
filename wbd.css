@@ -7,15 +7,28 @@ h2 {text-align : left;
 	font-family : serif;
 }
 body {margin-left : 20%;
-		margin-right : 20%;}
+		margin-right : 20%;
+		background : aliceblue
+}
+		
 #searchbox {border-style: solid;
 			border-width: 5px;
 			border-color : black;
-			margin: 0 auto;
-			margin-top: 45px;
 			width: 550px;
 			height: 20px;
 			
+}
+.container-4 input#search{
+  width: 550px;
+  height: 30px;
+  background: snow;
+  border: 2px solid;
+  font-size: 10pt;
+  color: black;
+  padding-left: 15px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 #textbox {border-style: solid;
 			border-width: 2px;
@@ -67,12 +80,13 @@ body {margin-left : 20%;
 	  vertical-align : center;
 	  text-align : center;
 }
-#td2 {width : 500px;
+#td2 {width : 450px;
 	  height : 100px;
 	  vertical-align: top;
 	  text-align : center;
+	  font-size : 24px;
 }
-#td3 {width : 350px;
+#td3 {width : 450px;
 	  height : 100px;
 	  vertical-align: bottom;
 	  text-align : right;
@@ -80,9 +94,12 @@ body {margin-left : 20%;
 hr {border : 2px solid;
 	border-color : black;
 }
-#blue {color : blue;}
-#yellow {color : #ffa000;}
-#red {color : #ff0055;}
-.content {font-size : 16px;
+#blue {color : blue;
+		text-align : right;}
+#yellow {color : #ffa000;
+		text-align : right;}
+#red {color : #ff0055;
+		text-align : right;}
+.content {font-size : 15px;
 		  font-family : arial;
 }
