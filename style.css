@@ -82,6 +82,8 @@ input{
 	color: #FF0000;
 }
 
+
+
 input.search{
 	width: 300px;
 	height: 20px;
@@ -138,11 +140,22 @@ td.Content{
 	height: 30px;
 }
 
+td.dContent{
+	font-size: 90%;
+	vertical-align: text-top;
+	width: 500px;
+}
 
 td.Date{
 	text-align: right;
 	vertical-align: bottom;
 	font-size: 70%;
 	height: 30px;
+}
+
+td.vote{
+	text-align: center;
+	vertical-align: center;
+	width: 100px;
 }
 /*Contextual Style*/
