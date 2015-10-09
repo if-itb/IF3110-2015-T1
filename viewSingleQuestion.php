@@ -20,7 +20,7 @@
 			</div>
 			<div class="navPost2">
 				<p>
-					asked by {{name}} <span>{{email}}</span> at {{date}} | <a class="link edit" href="askhere.php?id={{id}}"> edit</a> | <a class="link delete" href="index.php?delete=true&id={{id}}"> delete </a>
+					asked by {{name}} <span>{{email}}</span> at {{date}} | <a class="link edit" href="askhere.php?id={{id}}"> edit</a> | <a class="link delete" href="index.php?delete=true&id={{id}}" onclick="return validateDelete();"> delete </a>
 				</p>
 			</div>
 		</div>';

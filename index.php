@@ -15,27 +15,3 @@
 		</div>
 
 <?php include("footer.php"); ?>
-
-
-<!--
-//Home - laman utama
-	//brand
-	-//#searchBar
-	//askHere
-	//questionTag
-	-//#question * NQuestion
-
-
-	//#searchBar
-	//textForm - query
-	//submitForm
-
-
-	//#questionDiv
-	//Votes
-	//Answers
-	//Topic
-	//asked by
-	//edit
-	//delete
--->

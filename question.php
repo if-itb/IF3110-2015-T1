@@ -28,39 +28,3 @@
 		</div>
 	
 <?php include("footer.php"); ?>
-
-
-<!--
-//Question?id=Qno - laman untuk setiap pertanyaan
-	//brand
-	//topic
-	-//#focusQuestionDiv
-	//answerTag
-	-//#focusAnswerDiv
-	-//#answerForm
-
-	//#answerForm
-		//answerTag
-		//textForm - name
-		//textForm - email
-		//textForm - content
-		//submitForm
-
-	//#focusQuestionDiv
-		//Increase Votes button
-		//Votes
-		//Decrease Votes button
-		//content
-		//asked by
-		//datetime
-		//edit
-		//delete
-
-	//#focusAnswerDiv
-		//Increase Votes button
-		//Votes
-		//Decrease Votes button
-		//content
-		//answered by
-		//datetime
--->

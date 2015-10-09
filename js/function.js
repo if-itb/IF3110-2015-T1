@@ -1,3 +1,11 @@
+function validateDelete(){
+	if(confirm("Are you sure wanna delete this question?")){
+		return true;
+	}else{
+		return false;
+	}
+}
+
 function validasi(form){
 	if(form.name.value){
 		form.name.setAttribute("class", "textForm");
@@ -97,8 +105,6 @@ var el = document.querySelector('.js-fade');
 if (el.classList.contains('is-paused')){
   	el.classList.remove('is-paused');
 }
-
-
 
 
 

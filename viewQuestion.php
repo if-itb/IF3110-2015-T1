@@ -26,7 +26,7 @@
 	</div>
 	<div class="col navPost">
 		<p>
-			asked by {{name}} | <a class="link edit" href="askhere.php?id={{id}}"> edit</a> | <a class="link delete" href="index.php?delete=true&id={{id}}"> delete </a>
+			asked by {{name}} | <a class="link edit" href="askhere.php?id={{id}}"> edit</a> | <a class="link delete" href="index.php?delete=true&id={{id}}" onclick="return validateDelete();"> delete </a>
 		</p>
 	</div>
 </div>';

@@ -31,6 +31,8 @@
 			$echoMessage = str_replace("{{valTopic}}", $mock.$row["topic"]."'", $echoMessage);
 			$echoMessage = str_replace("{{valContent}}", $row["content"], $echoMessage);
 			echo $echoMessage;
+		}else{
+			echo "<a class='link' href='askhere.php'>Refresh</a>";
 		}
 
 	}else{
