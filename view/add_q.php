@@ -9,7 +9,9 @@
 		$arr['topic'] = $_POST['topic'];
 		$arr['content'] = $_POST['content'];
 
-		insertQuestion($arr);
+		$id = insertQuestion($arr);
+
+		redirectTo("/home");
 
 	} else {
 ?>

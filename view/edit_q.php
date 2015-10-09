@@ -11,6 +11,8 @@
 
 		updateQuestion($arr, $_POST['id']);
 
+		redirectTo("/question/" . $_POST['id']);
+
 	} else {
 
 		if ( isset($_GET['id']) ) {

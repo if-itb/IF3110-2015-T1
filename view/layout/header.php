@@ -14,4 +14,5 @@
 	</head>
 	<body>
 		<div id="container">
-			<center><h1>Simple StackExchange</h1></center>
+			<br>
+			<center><a href="/home"><h1>Simple StackExchange</h1></a></center>

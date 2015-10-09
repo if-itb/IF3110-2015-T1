@@ -29,6 +29,7 @@
 		} else {
 		    echo "Error: " . $query . "<br>" . mysqli_error($conn);
 		}
+
 	}
 
 	function getListOfQuestion() {
@@ -61,7 +62,7 @@
 	function getQuestionbyId($id) {
 		global $conn;
 
-		$query = "SELECT * FROM question WHERE id = ". $id;
+		$query = "SELECT * FROM question WHERE id = ". $id . " AND is_delete = 0 ";
 		$result = mysqli_query($conn, $query);
 
 		$row = mysqli_fetch_assoc($result);
@@ -171,6 +172,7 @@
 		} else {
 		    echo "Error: " . $query . "<br>" . mysqli_error($conn);
 		}
+
 	}
 
 	function getAnswerbyQId($id_q) {

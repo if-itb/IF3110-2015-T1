@@ -5,6 +5,7 @@
 
 		$results = searchByString($_POST['search']);
 
+		echo "<div class='title'> Here is your search result... </div>";
 		foreach ($results as $question) {
 			makeQuestionPart($question);
 		}

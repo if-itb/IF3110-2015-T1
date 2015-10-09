@@ -11,6 +11,8 @@
 
 		insertAnswer($arr);
 
+		redirectTo("/question/" . $arr['id_q']);
+
 	} else {
 
 		if ( isset($_GET['id']) ) {
