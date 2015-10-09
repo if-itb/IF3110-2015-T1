@@ -1,6 +1,4 @@
-<?php
-include 'header.php';
-?>
+<?php include 'header.php'; ?>
 
 <div class='searchbar' align='center'>
   <tr>
@@ -17,6 +15,7 @@ include 'header.php';
   <input type='submit' value='New Question'></input>
 </form>
 </div>
+<h3>Recent question :</h3>
 <hr>
 
 <?php
@@ -35,7 +34,7 @@ else
 
 if ($num == 0)
 {
-  echo "There is no quesiton so far";
+  echo "<h3 align='center'>There is no question so far</h3>";
 }
 else
 {
@@ -48,7 +47,8 @@ else
     $mail = $row['email'];
     $vote = $row['vote'];
     echo 
-      "<div class='question-summary'>
+      "<a href='view.php?id=$id'>
+      <div class='question-summary'>
         <div class='votes-counter'>
           <div class='votes-counter-num'>$vote</div>
           <div>Votes</div>
@@ -64,15 +64,16 @@ else
               <a href='edit.php?id=$id'>Edit</a>  
               <a href='delete.php?id=$id'>Delete</a>              
             </div>
-            <div class='question-info'>
-              <p>oleh <a href='mailto:$mail'>$name</a> pada $datetime</p>
+            <div class='author-info'>
+              oleh <a href='mailto:$mail'>$name</a> pada $datetime
             </div>
           </div>
         </div>
-      </div>";
+      </div></a>";
   }
 }
 mysqli_close($conn);
 ?>
+
 </body>
 </html>

@@ -5,7 +5,7 @@ include 'database.php';
 $conn = db_init();
 
 $q = $_GET['q'];
-$query = "SELECT * FROM question WHERE topik LIKE '%" .$q. "%' OR isi LIKE '%" .$q. "%'";
+$query = "SELECT * FROM question WHERE topik LIKE '%$q%' OR isi LIKE '%$q%'";
 $list = mysqli_query($conn, $query);
 if (!$list) 
 {
@@ -15,9 +15,10 @@ if (!$list)
 else 
   $num = mysqli_num_rows($list);
 
+echo '<hr>';
 if ($num == 0)
 {
-  echo "Question not found";
+  echo "<h3 align='center'>Question not found</h3>";
 }
 else
 {
@@ -31,8 +32,8 @@ else
     $mail = $row['email'];
     $vote = $row['vote'];
     echo
-      "<div class='question-summary'>
-        <hr>
+      "<a href='view.php?id=$id'>
+      <div class='question-summary'>
         <div class='votes-counter'>
           <div class='votes-counter-num'>$vote</div>
           <div>Votes</div>
@@ -48,12 +49,12 @@ else
               <a href='edit.php?id=$id'>Edit</a>  
               <a href='delete.php?id=$id'>Delete</a>              
             </div>
-            <div class='question-info'>
+            <div class='author-info'>
               <p>oleh <a href='mailto:$mail'>$name</a> pada $datetime</p>
             </div>
           </div>
         </div>
-      </div>";
+      </div></a>";
   }
 }
 

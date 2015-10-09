@@ -11,6 +11,6 @@
 </div>
 <div class="title-box">
 <a href = "/">
-  <h1>Simple Stack Exchange</h1><br><br>
+  <h1>Simple Stack Exchange</h1><br>
 </a>
 </div>
