@@ -18,6 +18,9 @@
 		    die("Connection failed: " . $conn->connect_error);
 			}
 
+			session_start();
+			$qid = $_SESSION['questionid'];
+
 			if (isset($_POST['savequestion'])) { 
 				$name = mysqli_real_escape_string($conn,$_POST['name']);
 				$email = mysqli_real_escape_string($conn,$_POST['email']);
@@ -26,6 +29,22 @@
 
 				$sql = "INSERT INTO question (name, email, topic, content,vote)
 				VALUES ('$name', '$email', '$topic', '$content', 0)";
+
+				if ($conn->query($sql) === TRUE) {
+			    //do nothing
+				} else {
+				  echo "Error: " . $sql . "<br>" . $conn->error;
+				}
+
+			} else if (isset($_POST['editquestion'])) { 
+				$name = mysqli_real_escape_string($conn,$_POST['name']);
+				$email = mysqli_real_escape_string($conn,$_POST['email']);
+				$topic = mysqli_real_escape_string($conn,$_POST['topic']);
+				$content = mysqli_real_escape_string($conn,$_POST['content']);
+
+				$sql = "UPDATE question
+				SET name='$name', email='$email', topic='$topic', content='$content'
+				WHERE id=$qid;";
 
 				if ($conn->query($sql) === TRUE) {
 			    //do nothing
