@@ -16,12 +16,13 @@
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$name = $_POST["name"];
 		$email = $_POST["email"];
-		$topic = $_POST["topic"];
 		$content = $_POST["content"];
-		$sql = "INSERT INTO question (name, email, question_topic, content) VALUES ('$name', '$email', '$topic', '$content')";
+		$questionID = $_POST["questionID"];
+		$sql = "INSERT INTO answer (name, email, content, questionID) VALUES ('$name', '$email', '$content', '$questionID')";
+		$conn->query($sql);
+		$sql = "UPDATE question SET answers=answers+1 WHERE questionID='$questionID'";
 		$conn->query($sql);
 	}
-	$last_id = mysqli_insert_id($conn);
-	header("Location: /stackExchange/ShowQuestion.php?id=".$last_id);
-	exit;
+	header("Location: /stackExchange/ShowQuestion.php?id=".$questionID);
+    exit;
 ?>

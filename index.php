@@ -37,6 +37,8 @@
 				    		<td style="width:10%; text-align:center">'
 				    			.$row["answers"].'<br>Answers
 				    		</td>
+				    		<td style="width:2%;">
+				    		</td>
 				    		<td style="vertical-align:top">'
 				    			.$link.'<br>'.$row["content"].'<br>
 				    			<p style="text-align:right">asked by '.$row["email"].'|edit|delete</p>
