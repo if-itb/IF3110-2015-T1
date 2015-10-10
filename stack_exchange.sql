@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 09, 2015 at 06:04 PM
+-- Generation Time: Oct 10, 2015 at 06:45 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -30,19 +30,20 @@ CREATE TABLE IF NOT EXISTS `answer` (
   `question_id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `content` longtext NOT NULL
+  `content` longtext NOT NULL,
+  `votes` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `answer`
 --
 
-INSERT INTO `answer` (`question_id`, `name`, `email`, `content`) VALUES
-(1, 'Dino', 'dino@itb.ac.id', 'Saya Dino.\r\nKamu siapa ?'),
-(1, 'dina', 'dina@ymail.com', 'Saya Dina.'),
-(2, 'Bill', 'bill@microsoft.com', 'Di kampus'),
-(3, 'Jack', 'jack@jack.co.id', 'karena keinginan'),
-(3, 'Vince', 'vince@std.stei.itb.ac.id', 'karena kebetulan.');
+INSERT INTO `answer` (`question_id`, `name`, `email`, `content`, `votes`) VALUES
+(1, 'Dino', 'dino@itb.ac.id', 'Saya Dino.\r\nKamu siapa ?', 0),
+(1, 'dina', 'dina@ymail.com', 'Saya Dina.', 0),
+(2, 'Bill', 'bill@microsoft.com', 'Di kampus', 0),
+(3, 'Jack', 'jack@jack.co.id', 'karena keinginan', 0),
+(3, 'Vince', 'vince@std.stei.itb.ac.id', 'karena kebetulan.', 0);
 
 -- --------------------------------------------------------
 
@@ -55,17 +56,20 @@ CREATE TABLE IF NOT EXISTS `question` (
   `name` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
   `topic` varchar(50) NOT NULL,
-  `content` longtext NOT NULL
+  `content` longtext NOT NULL,
+  `votes` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `question`
 --
 
-INSERT INTO `question` (`question_id`, `name`, `email`, `topic`, `content`) VALUES
-(1, 'Andi', 'andi@gmail.com', 'Siapa Anda', 'Siapa Anda ?'),
-(2, 'Budi', 'budi@yahoo.com', 'Di Mana ', 'Ada di mana saya ?'),
-(3, 'Joe', 'joe@hotmail.com', 'Kenapa Anda ', 'Kenapa Anda berada di sini ?');
+INSERT INTO `question` (`question_id`, `name`, `email`, `topic`, `content`, `votes`) VALUES
+(1, 'Andi', 'andi@gmail.com', 'Siapa Anda', 'Siapa Anda ?', 0),
+(2, 'Budi', 'budi@yahoo.com', 'Di Mana ', 'Ada di mana saya ?', 0),
+(3, 'Joe', 'joe@hotmail.com', 'Kenapa Anda ', 'Kenapa Anda berada di sini ?', 0),
+(4, 'John', 'john@hotmail.com', 'Who Am I', 'Who am I ?\r\nDo you know me ?\r\nhaha...', 0),
+(5, 'Greg', 'greg@hello.com', 'Stack Exchange', 'What is stack exchange ?', 0);
 
 --
 -- Indexes for dumped tables
