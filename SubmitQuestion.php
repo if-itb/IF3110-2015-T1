@@ -12,14 +12,27 @@
 					exit();
 				}
 			
-			include 'qDBFunct.php';
-			$qid = submitQuestion($_POST['name'],$_POST['email'],$_POST['qtopic'],$_POST['content']);
-			if($qid != 0){
-				echo 'Redirecting...';
-				header('Location: index.php');
-			}
-			else {
-				echo 'Error Submitting Question';
+			include 'qDBFunct.php';			
+			if ($_POST['qid']!=""){
+				$update = updateQuestion($_POST['qid'],$_POST['name'],$_POST['email'],$_POST['qtopic'],$_POST['content']);
+				if($update != 0){
+					echo 'Redirecting...';
+					header('Location: index.php');
+				}
+				else {
+					echo 'Error Submitting Question';
+				}
+
+			}else{
+				$posted = submitQuestion($_POST['name'],$_POST['email'],$_POST['qtopic'],$_POST['content']);
+				if($posted != 0){
+					echo 'Redirecting...';
+					header('Location: index.php');
+				}
+				else {
+					echo 'Error Submitting Question';
+				}
+
 			}
 		?>
 	</body>
