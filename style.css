@@ -1,0 +1,79 @@
+body {
+	font-family: Sans-Serif;
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
+h1 {
+	text-align: center;
+}
+
+h2 {
+	border-bottom: 2px solid;
+}
+
+h3 {
+	font-size: 100%;
+}
+
+p {
+	text-align: center;
+	font-size: 80%;
+}
+
+form {
+	text-align: center;
+}
+
+input.searchBox{
+	border: 3px solid;
+	width: 80%;
+}
+
+input.submitButton{
+	border: 3px solid;
+	background: white;
+	width: 10%;
+}
+
+input.postButton{
+	border: 1px solid;
+	background: white;
+	width: 10%;
+}
+
+input.textBox {
+	border: 1px solid;
+	width: 100%;
+	font-size: 15px;
+}
+
+textarea {
+	border: 1px solid;
+	background: white;
+	width: 99.5%;
+	height: 200px;
+	font-size: 15px;
+}
+
+div {
+	text-align: center;
+	font-size: 80%;
+}
+
+.left {
+	text-align: left;
+}
+
+.right {
+	text-align: right;
+}
+
+.center {
+	text-align: center;
+}
+
+.justify {
+	text-align: justify;
+}
+
