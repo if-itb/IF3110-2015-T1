@@ -27,9 +27,16 @@
             </thead>
             <tbody>
                 <?php
+                    $maxLen = 263;
+
                     if (sizeof($data['questions']) > 0) {
                         foreach ($data['questions'] as $question){
-                            echo '<tr data-id=' . $question->id . '><td width="75"> ', $question->votes ,' <br>Votes</td><td width="75"> ', $question->answers, ' <br>Answers</td><td><div class="questions-body-wrapper"><a href="#" class="topic"> ', $question->topic, ' </a><div class="action"> Asked by <span class="name"> ', $question->by, ' </span> at ', $question->create_time ,' | <a href="#" class="edit">Edit</a> | <a href="#" class="delete">Delete</a></div></div></td></tr>';
+
+                            if (strlen($question->content) > $maxLen){
+                                $question->content = substr($question->content, $maxLen) . ' ...';
+                            }
+
+                            echo '<tr data-id=' . $question->id . '><td width="75"> ', $question->votes ,' <br>Votes</td><td width="75"> ', $question->answers, ' <br>Answers</td><td><div class="questions-body-wrapper"><a href="#" class="topic"> ', $question->topic, ' </a><br/><br/><span> ' . $question->content . '</span><div class="action"> Asked by <span class="name"> ', $question->by, ' </span> at ', $question->create_time ,' | <a href="#" class="edit">Edit</a> | <a href="#" class="delete">Delete</a></div></div></td></tr>';
                         }
                     }
                 ?>
