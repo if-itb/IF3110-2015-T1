@@ -1,3 +1,4 @@
+var xhttp;
 
 //Email  Regex Vaidation
 function validateEmail(email) {
@@ -63,4 +64,33 @@ function validateAnswerForm(){
 	}
 
 	return true;
+};
+
+function initXMLHTTPRequest(){
+	if (window.XMLHttpRequest) {
+		//Code for (Chrome, IE7+, Firefox, Safari, and Opera
+	    xhttp = new XMLHttpRequest();
+	} 
+	else {
+	    // code for IE6, IE5
+		xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+};
+
+function vote(id,is_question,is_voteup){
+	initXMLHTTPRequest();
+	xhttp.onreadystatechange = function(){
+	    if (xhttp.readyState == 4 && xhttp.status == 200) {
+	    	
+	    	if (is_question){
+		      document.getElementById("q_vote").innerHTML = xhttp.responseText;		      	    		
+	    	}
+	    	else{
+		      document.getElementById("a_vote").innerHTML = xhttp.responseText;
+	    	}
+
+	    }
+	};
+	xhttp.open("GET","vote.php?id="+id+"&q="+is_question+"&v="+is_voteup,true);
+	xhttp.send();
 };

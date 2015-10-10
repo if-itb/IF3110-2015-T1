@@ -27,7 +27,7 @@
       <div class="question_detail">
         <div id="vote_icon">
           <span class="vote">
-            <img id="vote_up" src="up_arrow.png">
+            <img id="vote_up" src="up_arrow.png" >
             <?php echo 1 . "\n";?>
             <img id="vote_down" src="down_arrow.png">
           </span>

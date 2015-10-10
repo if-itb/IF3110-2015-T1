@@ -179,5 +179,31 @@
 		return $answers;		
 	}
 
+	/************ FUNCTION FOR VOTE (BOTH ASNWER & QUESTION) *************/
+	function vote($id,$is_question,$is_up){
+		global $conn;
+
+		if ($is_question){
+			$database = "question";
+		}
+		else{
+			$database = "answer";
+		}
+
+		if ($is_up){
+			$sql = "UPDATE $database SET vote = vote + 1 WHERE $q_id = $id";
+		}
+		else{
+			$sql = "UPDATE $database SET vote = vote - 1 WHERE $q_id = $id";			
+		}
+
+		if (mysqli_query($conn, $sql)) {
+		    echo "Vote Success";
+		} 
+		else {
+		    echo "Error: " . $sql . "<br>" . $conn->error;
+		}
+	}
+
 
 ?>
