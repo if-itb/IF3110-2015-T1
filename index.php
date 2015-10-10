@@ -37,11 +37,11 @@ require_once("./sql/mysql.php");
             echo '<tr>';
             echo '<td class="td">'.$row['vote'].'<br>Votes</td>';
             echo '<td class="td">0<br>Answers</td>';
-            echo '<td class="row">'.$row['topic'].'</td>';
+            echo '<td class="row"><a href="question.php?id='.$row['id'].'">'.$row['topic'].'</a></td>';
             echo '</tr>';
             echo '</table>';
             echo '</div>';
-            echo '<div class="creator">asked by <span class="creator_name">'.$row['name'].'</span> | <a href="ask.php?id='.$row['id'].'" class="creator_edit">edit </a> | <a href="ask.php?id='.$row['id'].'" class="creator_delete">delete</a>';
+            echo '<div class="creator">asked by <span class="creator_name">'.$row['name'].'</span> | <a href="ask.php?id='.$row['id'].'" class="creator_edit">edit </a> | <a href="index.php?id='.$row['id'].'" class="creator_delete">delete</a>';
             echo '</div>';
             echo '</div>';
         }
@@ -49,5 +49,9 @@ require_once("./sql/mysql.php");
 
 </div>
 </html>
+
+<?php
+$db->close();
+?>
 
 

@@ -15,6 +15,7 @@ h1,h2,h3 {
 }
 
 h2 {
+    text-align: left;
     font-size: 35px;
 }
 
@@ -153,10 +154,18 @@ hr {
     color: silver;
 }
 
-.row{
+.row,.vote,.content{
     text-align: center;
     color: silver;
     font-size: 20px;
+}
+
+.vote{
+    font-size: 30px;
+}
+
+.content {
+    padding-left:20px;
 }
 
 .td{
