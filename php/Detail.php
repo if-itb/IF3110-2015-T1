@@ -5,18 +5,9 @@
  * Date: 06/10/15
  * Time: 11:49
  */
-require("connectDatabase.php");
+require_once("connectDatabase.php");
 
-
-#Id Question yang di klik client
-$id=$_GET['id'];
-if(!isset($id)) {
-    $id = $_POST['idClicked'];
-}
-
-ini_set('display_errors',1);
-ini_set('display_startup_errors',1);
-error_reporting(-1);
+$id = $_POST['idClicked'];
 
 #Memperoleh Question yang Bersangkutan
 $query = "SELECT * FROM questions WHERE q_id=$id";
@@ -26,7 +17,7 @@ mysqli_free_result($result);
 
 #Memperoleh Jawaban - Jawaban dari Pertanyaan tersebut
 $rowAnswer = array();
-$query = "SELECT * FROM answers where q_id=$id ORDER BY vote DESC ";
+$query = "SELECT * FROM answers where q_id=$id ORDER BY vote DESC , a_id DESC ";
 $resultAnswer = mysqli_query($link, $query);
 
 while ($rowAns = mysqli_fetch_assoc($resultAnswer))
@@ -77,7 +68,7 @@ mysqli_close($link);
 
     <div class="yourAnswer">
         <h2 class="yourAnswerTitle">Your Answer Here</h2>
-        <form name="questionForm"  action="answer.php" method="POST">
+        <form name="questionForm"  action="addAnswer.php" method="POST">
             <input type="text"  id="name" name="name" placeholder="Name"/>
             <input type="text"  id="email" name="email" placeholder="Email"/>
             <input type="hidden" id="qID" name="qID" value="<?php echo $id ?>"/>
@@ -91,8 +82,9 @@ mysqli_close($link);
         <input type="hidden" name="idDeleted" value="<?php echo $id ?>"/>
     </form>
 
-    <form name="goToEdit" action="EditQuestion.php" method="POST">
+    <form name="goToEdit" action="editQuestion.php" method="POST">
         <input type="hidden" name="idEdited" value="<?php echo $id ?>"/>
+        <input type="hidden" name="isFromDetailPage" value="true"/>
     </form>
 
     <script>

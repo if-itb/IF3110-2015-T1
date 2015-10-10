@@ -8,6 +8,8 @@
 require_once("connectDatabase.php");
 $idEdited = $_POST["idEdited"];
 
+$isFromDetailPage = $_POST["isFromDetailPage"];
+
 $query = "SELECT * FROM questions WHERE q_id=$idEdited";
 $result = mysqli_query($link,$query);
 
@@ -31,12 +33,13 @@ mysqli_close($link);
 <div class="header"><a href="../index.html"><h1>Simple StackExhange</h1></a></div>
 <div class="container">
     <h2>What's your question?</h2>
-    <form name="questionForm"  action="question.php" method="POST">
+    <form name="questionForm"  action="addQuestion.php" method="POST">
         <input type="text"  id="name" name="name" placeholder="Name" value="<?php echo $row['name'] ?>"/>
         <input type="text"  id="email" name="email" placeholder="Email" value="<?php echo $row['email'] ?>"/>
         <input type="text" id="qtopic" name="qtopic" placeholder="Question Topic" value="<?php echo $row['qtopic'] ?>"/>
         <textarea  id="qcontent" name="qcontent" placeholder="Content" ><?php echo $row['qcontent'] ?></textarea>
         <input type="hidden" name="idEdited" value="<?php echo $idEdited ?>"/>
+        <input type="hidden" name="isFromDetailPage" value="<?php echo $isFromDetailPage ?>"/>
         <button  id="submitBtn" class="submitBtn" >Edit</button>
     </form>
 </div>

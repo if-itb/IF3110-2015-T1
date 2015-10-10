@@ -9,7 +9,7 @@ function createList(){
      */
 
     var xmlhttp = new XMLHttpRequest();
-    var url = "php/list.php";
+    var url = "php/getList.php";
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             createResult(xmlhttp.responseText);

@@ -47,7 +47,7 @@ $json = str_replace("\\n","\\\\n",$json);
         </div>
         <button class="searchBtn" type="submit">Search</button>
     </form>
-    <form name="goToDetail" action="detail.php" method="POST">
+    <form name="goToDetail" action="Detail.php" method="POST">
         <input type="hidden" name="idClicked" value=""/>
     </form>
     <h4><?php echo count($resArray)?> Question about '<?php echo $keyword ?>'</h4>

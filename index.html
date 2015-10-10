@@ -11,7 +11,7 @@
 <body>
 <div class="header"><a href="index.html"><h1>Simple StackExhange</h1></a></div>
 <div class="container clearfix">
-    <form class="searchForm clearfix" action="php/search.php" method="POST">
+    <form class="searchForm clearfix" action="php/Search.php" method="POST">
         <div class="searchInput">
         <input  name="keyword" type="text" placeholder="Keyword Pencarian"/>
         <p class="askHere">Cannot find what you are looking for ? <a href="create.html">Ask here</a></p>
@@ -19,7 +19,7 @@
         <button class="searchBtn" type="submit">Search</button>
     </form>
 
-    <form name="goToDetail" action="php/detail.php" method="POST">
+    <form name="goToDetail" action="php/Detail.php" method="POST">
         <input type="hidden" name="idClicked" value=""/>
     </form>
 
@@ -27,8 +27,9 @@
         <input type="hidden" name="idDeleted" value=""/>
     </form>
 
-    <form name="goToEdit" action="php/EditQuestion.php" method="POST">
+    <form name="goToEdit" action="php/editQuestion.php" method="POST">
         <input type="hidden" name="idEdited" value=""/>
+        <input type="hidden" name="isFromDetailPage" value="false"/>
     </form>
 
     <h4>Recently Answered Questions</h4>
