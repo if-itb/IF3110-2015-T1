@@ -19,7 +19,7 @@
 <html>
 	<head>
 		<title>Simple StackExchange</title>
-		
+		<script type="text/javascript" src="main.js"></script>
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
@@ -77,9 +77,9 @@
 					</div>
 					
 					<div class="controls"  align="right">
-						asked by <span class="name"><?php echo $question['name'] ?></span> |
-						<span class="link edit"><a href="ask.php?question_id=<?php echo $question['question_id']?>">edit</a></span> |
-						<span class="link delete"><a href="">delete</a></span>
+						asked by <span class="name"><font color="blue"><?php echo $question['name'] ?></font></span> |
+						<span class="link_edit"><a class="link_edit" title="Click here to edit" href="ask.php?question_id=<?php echo $question['question_id']?>">edit</a></span> |
+						<span class="link_delete"><a class="link_delete" title="Click here to delete" href="home.php" onclick="return deleteQuestion(<?php echo $question['question_id'] ?>);return false;">delete</a></span>
 					</div>
 					
 			</div>

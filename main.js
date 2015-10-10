@@ -25,5 +25,18 @@
 		xhttp.send("action=down&id=" + id + "&db=" + db);
 	}
 	window.voteDown = voteDown;
+	
+	var deleteQuestion = function(id) {
+		
 
+		if (confirm("Are you sure you want to delete this question?")) {
+			var xhttp = new XMLHttpRequest();
+			xhttp.open("POST", "delete.php", true);
+			xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+			xhttp.send("id=" + id);
+		}
+	}
+	window.deleteQuestion = deleteQuestion;
+
+	
 })(window);

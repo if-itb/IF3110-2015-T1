@@ -48,10 +48,10 @@
 					</div>
 				</div>
 				<div class="controls" style="border-bottom:0px" align="right">
-					asked by <span class="name"><?php echo $question['name'] ?></span> &lt;<span class="email"><?php echo $question['email'] ?>&gt;</span>
+					asked by <span class="name"><font color="blue"><?php echo $question['name'] ?></font></span> &lt;<span class="email"><?php echo $question['email'] ?>&gt;</span>
 					at <span class="create-date"><?php echo date( 'D, j F Y H:i', strtotime($question['date'])) ?></span> |
-								<span class="link edit"><a href="ask.php?question_id=<?php echo $question['question_id']?>">edit</a></span> |
-								<span class="link delete"><a href="javascript:deleteQuestion(<?php echo $question['question_id'] ?>)">delete</a></span>
+								<span class="link_edit"><a class="link_edit" title="Click here to edit" href="ask.php?question_id=<?php echo $question['question_id']?>">edit</a></span> |
+								<span class="link_delete"><a class="link_delete" title="Click here to delete" href="home.php" onclick="return deleteQuestion(<?php echo $question['question_id'] ?>);return false;">delete</a></span>
 				</div>
 			</div>
 		</div>
@@ -77,7 +77,7 @@
 						</div>
 					</div>
 					<div class="controls" style="border-bottom:0px" align="right">
-						answered by <span class="name"><?php echo $answer['name'] ?></span> &lt;<span class="email"><?php echo $answer['email'] ?>&gt;</span>
+						answered by <span class="name"><font color="blue"><?php echo $answer['name'] ?></font></span> &lt;<span class="email"><?php echo $answer['email'] ?>&gt;</span>
 						at <span class="create-date"><?php echo date( 'D, j F Y H:i', strtotime($answer['date'])) ?></span>
 					</div>
 				</div>

@@ -72,10 +72,11 @@ function postQuestion($data)
 
 function deleteQuestion($id) {
 	global $conn;
-	$q = "DELETE FROM question WHERE question_id=$id;
-		  ALTER TABLE question AUTO_INCREMENT = $id";
-	$no_error = mysqli_query($dbc, $q);
-	return $no_error;
+	$q = "DELETE FROM question WHERE question_id=$id";
+	$rq = mysqli_query($conn, $q);
+	$q = "ALTER TABLE question AUTO_INCREMENT = $id";
+	$rq = mysqli_query($conn, $q);
+	return $rq;
 }
 
 function getAnswers($id, $sort = "vote DESC, date DESC") {

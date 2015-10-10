@@ -93,3 +93,27 @@ h2 {
 	position:relative;
 	top : 20px;
 }
+
+a.link_edit:link {
+	color : green;
+}
+
+a.link_edit:visited {
+	color : green;
+}
+
+a.link_edit:hover {
+	color : blue;
+}
+
+a.link_delete:link {
+	color : red;
+}
+
+a.link_delete:visited {
+	color : red;
+}
+
+a.link_delete:hover {
+	color : blue;
+}
