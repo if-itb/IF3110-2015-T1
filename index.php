@@ -76,7 +76,8 @@
         			echo "</tr>";
 
         			echo "<tr>";
-        			echo '<td class="content">'. $row["content"]. "</td>";
+        			$truncated = (strlen($row["content"]) > 100) ? substr($row["content"], 0, 100) . '...' : $row["content"];
+        			echo '<td class="content">'. $truncated. "</td>";
         			echo "</tr>";
 
         			echo "<tr>";
