@@ -48,7 +48,7 @@
 			<input id="email" type="text" name="Email" placeholder="Email"> <br>
 			<input id="topic" type="text" name="QuestionTopic" placeholder="Question Topic"> <br>
 			<textarea id="content" type="text" name="Content" placeholder="Content"></textarea> <br>
-			<input id="post" type="submit" value="Post">
+			<input id="post" type="submit" value="Post" onclick="location.href='index.php'" >
 		</form>
 	</div>
 	

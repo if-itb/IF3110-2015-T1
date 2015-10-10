@@ -38,13 +38,15 @@
 			die("Error: Unable to connect to database\n");
 		}
 		else{
-			$query_result = mysqli_query($link,"SELECT COUNT(question_id) FROM question");
+			$query = "SELECT COUNT(question_id) FROM question";
+			$query_result = mysqli_query($link,$query);
 			$num_question = mysqli_fetch_assoc($query_result);
-			//echo $num_question['COUNT(question_id)'];
+
 			if(!$num_question)
 				echo "<h5>No question has been asked yet</h5>";
 			else{
-				$query_result = mysqli_query($link,"SELECT * FROM question");
+				$query = "SELECT * FROM question ORDER by question_id DESC";
+				$query_result = mysqli_query($link, $query);
 				while($row = mysqli_fetch_row($query_result)){
 					echo	'<div id="QuestionList">
 								<div id="votes">0<br>Votes</div>
@@ -59,6 +61,7 @@
 				}
 			}
 		}
+		mysqli_close($link);
 	?>
 </body>
 </html>
