@@ -16,20 +16,20 @@ h2 ,h3{
 .titlefont{
 	font-family:"batang";
 }
-div.formpos{
+.formpos{
 	position: relative;
-	left : 25%;
+	left : 15%;
 }
 .search{
 	position:relative;
 	left :25%;
-	width : 80%;
+	width : 70%;
 	margin:0;
 }
 .searchstyle{
 	float:right;
 	position: relative;
-	right:49%;
+	right:30%;
 }
 .compactbox{
 	display: inline-block;
@@ -49,24 +49,22 @@ div.formpos{
 	position:relative;
 	clear:left;
 	left:75%;
-	width:30%;
+	width:50%;
 }
-.verticalalignbottom{
-	vertical-align:bottom;
-}
+
 .collection{
 	position:relative;
 	left:15%;
 	width: 75%;
 }
 input.form-textfield{
-	width: 50%;
+	width: 70%;
 	border: 2px solid black;
 	margin : 5px;
 }
 
 textarea.form-textarea{
-	width:50%;
+	width:70%;
 	height: 200px;
 	border : 2px solid black;
 	margin: 5px;
@@ -76,14 +74,20 @@ textarea.form-textarea{
 	text-align:center;
 }
 
-#linkstyle1{
-	color:orange;
+a:link{
 	text-decoration:none;
 }
-#linkstyle2{
+
+#orange{
+	color:orange;
 }
-#linkstyle3{
+#red{
+	color:red;
 }
-#linkstyle4{
+#yellow{
+	color:yellow;
+}
+#blue{
+	color:blue;
 }
 
