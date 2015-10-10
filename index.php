@@ -24,14 +24,15 @@ require_once("./sql/mysql.php");
 
 <div class="question_list">
     <h3>Recently Asked Questions</h3>
+	<hr>
     <?php
         $q = "SELECT * from question";
         if(!$result = $db -> query($q)){
+			
             die('Error Query ['.$db -> error. ']');
         }
         while($row = $result->fetch_assoc()) : ?>
             <div class="question">
-                <hr>
                 <?php
                     $q = "SELECT COUNT(id) AS count from answer where question_id= $row[id]";
                     $rq = mysqli_query($db, $q);
@@ -41,7 +42,7 @@ require_once("./sql/mysql.php");
                     <tr>
                         <td class="td"><?php echo $row['vote'] ?><br>Votes</td>
                         <td class="td"><?php echo $answer ?><br>Answers</td>
-                        <td class="row"><a href="question.php?id=<?php echo $row['id'] ?>&type=question"><?php echo $row['topic'] ?></a></td>
+                        <td class="row"><a href="question.php?id=<?php echo $row['id'] ?>&type=question_answer"><?php echo $row['topic'] ?></a></td>
                     </tr>
                 </table>
                 <div class="creator">asked by <span class="creator_name"><?php echo $row['name']?></span> |
@@ -49,6 +50,7 @@ require_once("./sql/mysql.php");
                     <a href="index.php?id=<?php echo $row['id'] ?>&type=delete" class="creator_delete">delete</a>
                 </div>
             </div>
+			<hr>
     <?php endwhile;?>
 </div>
 </html>
