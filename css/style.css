@@ -1,8 +1,35 @@
 html {
 	font-family: 'PT Sans', sans-serif;
+	margin-left: 70px;
+	margin-right: 70px;
 }
 
 h1 {
 	font-family: 'Lato', sans-serif;
 	font-weight: 400;
+}
+
+#vote, #answer {
+	display: inline-block;
+	width: 5%;
+	text-align: center;
+	vertical-align: top;
+	border-right: solid;
+	border-right-width: 1px;
+}
+
+.question {
+	margin-left: 20px;
+}
+
+#question-form {
+	margin-left: 100px;
+	margin-right: 100px;
+}
+
+#question-form input[type=text], textarea {
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	float: center;
 }

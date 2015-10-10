@@ -17,7 +17,7 @@
 Cannot find what you're looking for? Ask <a href="ask_question.php">here</a>.
 </center>
 
-<h2>Recently Asked Question</h2>
+<h2>Recently Asked Questions</h2>
 <?php
 	$servername = "localhost";
 	$username = "root";
@@ -32,16 +32,26 @@ Cannot find what you're looking for? Ask <a href="ask_question.php">here</a>.
 	    echo("Connection failed: " . mysqli_connect_error());
 	}
 	
-	$sql = "SELECT name, topic, email, vote FROM `question` ORDER BY date_created LIMIT 3";
+	$sql = "SELECT name, topic, email, content, vote FROM `question` ORDER BY date_created DESC LIMIT 3";
 	$result = mysqli_query($conn,$sql);
 
 	$idx = 1;
 	if(mysqli_num_rows($result) > 0) {
 		while($row = mysqli_fetch_assoc($result)) {
-    		echo "<hr>";
-    		echo "<span>".$row["vote"]." votes</span><span>0 answer</span><span>".$row["topic"]."</span>";
-    		echo "<br>asked by: ".$row["name"]." | Edit | Delete";
-	    	echo "<br>";
+    		echo "<hr size='5' NOSHADE>";
+?>
+<div class="question">
+<?php
+    		echo "
+    		<span id=\"vote\">".$row["vote"]."<br>votes</span>
+    		<span id=\"answer\">0<br>answer</span>
+    		<span id=\"question-content\">
+    			<p id=\"question-title\">".$row["topic"]."</p>
+    			<p id=\"question-content\">".$row["content"]."</p>
+    		<br>asked by: ".$row["name"]." | Edit | Delete<br>";
+?>
+</div>
+<?php
 	    	$idx++;
 	    	if($idx==5) break;
     	}
@@ -49,5 +59,6 @@ Cannot find what you're looking for? Ask <a href="ask_question.php">here</a>.
 
 	mysqli_close($conn);
 ?>
+
 </body>
 </html>
