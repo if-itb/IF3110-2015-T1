@@ -31,6 +31,11 @@ h5 {
   font-weight: normal;
 }
 
+p{
+  font-size:14px;
+  margin:2px;
+}
+
 textarea {
   padding: 7px;
   border: 1;
@@ -61,7 +66,7 @@ button {
 
 .button-right{
   margin-top: 1px;
-  margin-right: 5%;
+  margin-right: 3%;
   padding: 6px;
   float: right;
   display: inline-block;
@@ -76,6 +81,11 @@ button {
 .content{
 	padding: 10px;
   margin-top:5px;
+}
+
+.question-home{
+  padding: 10px;
+  border-top: solid;
 }
 
 .input-group {
@@ -93,3 +103,34 @@ button {
   float: right;
 }
 
+#vote, #answer {
+  display: inline-block;
+  width: 10%;
+  text-align:center;
+  vertical-align: top;
+  font-size:13px;
+}
+
+#question-content {
+  display: inline-block;
+  width: 75%;
+}
+
+#question-title{
+  font-size: 14px;
+}
+
+#question-description{
+  font-size: 12px;
+}
+
+.question-sign{
+  padding: 10px;
+  margin-top:0px;
+  width:95%;
+  text-align: right;
+}
+
+.question-sign p{
+  font-size:13px;
+}
