@@ -29,29 +29,28 @@ require_once("./sql/mysql.php");
         if(!$result = $db -> query($q)){
             die('Error Query ['.$db -> error. ']');
         }
-        while($row = $result->fetch_assoc()){
-            echo '<div class="question">';
-            echo '<hr>';
-            echo '<div>';
-            echo '<table>';
-            echo '<tr>';
-            echo '<td class="td">'.$row['vote'].'<br>Votes</td>';
-            echo '<td class="td">0<br>Answers</td>';
-            echo '<td class="row"><a href="question.php?id='.$row['id'].'">'.$row['topic'].'</a></td>';
-            echo '</tr>';
-            echo '</table>';
-            echo '</div>';
-            echo '<div class="creator">asked by <span class="creator_name">'.$row['name'].'</span> | <a href="ask.php?id='.$row['id'].'" class="creator_edit">edit </a> | <a href="index.php?id='.$row['id'].'" class="creator_delete">delete</a>';
-            echo '</div>';
-            echo '</div>';
-        }
-    ?>
-
+        while($row = $result->fetch_assoc()) : ?>
+            <div class="question">
+                <hr>
+                <?php
+                    $q = "SELECT COUNT(id) AS count from answer where question_id= $row[id]";
+                    $rq = mysqli_query($db, $q);
+                    $answer = mysqli_fetch_array($rq, MYSQLI_ASSOC)['count'];
+                ?>
+                <table>
+                    <tr>
+                        <td class="td"><?php echo $row['vote'] ?><br>Votes</td>
+                        <td class="td"><?php echo $answer ?><br>Answers</td>
+                        <td class="row"><a href="question.php?id=<?php echo $row['id'] ?>&type=question"><?php echo $row['topic'] ?></a></td>
+                    </tr>
+                </table>
+                <div class="creator">asked by <span class="creator_name"><?php echo $row['name']?></span> |
+                    <a href="ask.php?id=<?php echo $row['id'] ?>&type=edit" class="creator_edit">edit </a> |
+                    <a href="index.php?id=<?php echo $row['id'] ?>&type=delete" class="creator_delete">delete</a>
+                </div>
+            </div>
+    <?php endwhile;?>
 </div>
 </html>
-
-<?php
-$db->close();
-?>
 
 

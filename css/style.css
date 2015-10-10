@@ -180,6 +180,10 @@ hr {
     color: cornsilk;
 }
 
+.creator_date{
+    color: skyblue;
+}
+
 .creator_edit:link,.creator_edit:visited{
     color: lightgreen;
     text-decoration: none;

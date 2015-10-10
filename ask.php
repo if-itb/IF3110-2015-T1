@@ -21,6 +21,23 @@ else{
     $row['content'] = '';
 }
 ?>
+<script type="text/javascript">
+    function validateQuestionForm() {
+        var re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        if (document.forms["questionform"]["name"].value == null || document.forms["questionform"]["name"].value == "" ||
+            document.forms["questionform"]["email"].value == null || document.forms["questionform"]["email"].value == "" ||
+            document.forms["questionform"]["topic"].value == null || document.forms["questionform"]["topic"].value == "" ||
+            document.forms["questionform"]["content"].value == null || document.forms["questionform"]["content"].value == "") {
+            alert("All required fields must be filled out");
+            return false;
+        }
+        else if(!re.test(document.forms["questionform"]["email"].value)){
+            alert("Incorrect email address");
+            return false;
+        }
+
+    }
+</script>
 
 <!DOCTYPE html>
 <html>
@@ -29,14 +46,14 @@ else{
     <h2>What's your question?</h2>
 </head>
 <hr>
-<form action="index.php" method="POST" class="block" name="questionform">
+<form action="index.php" method="POST" class="block" name="questionform" onsubmit="return validateQuestionForm()">
     <input type="text" placeholder="Name" name="name" id="namebox" value="<?php echo $row['name']?>" />
     <input type="text" placeholder="Email" name="email" id="emailbox" value="<?php echo $row['email']?>" />
     <input type="text" placeholder="Question Topic" name="topic" id="topicbox" value="<?php echo $row['topic']?>"/>
     <textarea name="content" placeholder="Content" id="contentbox"><?php echo $row['content']?></textarea>
     <input type="submit" value="Post" name="Submit" id="submit"/>
     <input type="hidden" name="type" value="question" />
-    <input type="hidden" name="id" value="<?php echo $id ?>"  />
+    <input type="hidden" name="ask_id" value="<?php echo $id ?>"  />
 </form>
 </html>
 
