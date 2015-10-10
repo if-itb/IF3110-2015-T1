@@ -14,7 +14,7 @@
 			return 0;
 		}
 		$sql = "INSERT INTO Questions (qName,qEmail,qTopic,qContent)
-		VALUES('$nama','$email','$topic','$content')";
+		VALUES('$nama','$email','$topic','$content');";
 		
 		if(mysqli_query($conn,$sql)){
 			echo "New Record created successfully";
@@ -35,7 +35,7 @@
 		}
 
 		// sql to delete a record
-		$sql = "DELETE FROM Questions WHERE qid=$qid";
+		$sql = "DELETE FROM Questions WHERE qid=$qid;";
 
 		if (mysqli_query($conn, $sql)) {
 			echo "Record deleted successfully";
@@ -56,18 +56,20 @@
 			die("Connection failed: " . mysqli_connect_error());
 		}
 
-		$sql = "UPDATE Questions SET qBame='$name', qEmail='$email', qTopic='$topic',qtopic  WHERE id=2";
+		$sql = "UPDATE Questions SET qName='$nama', qEmail='$email', qTopic='$topic', qContent='$content'  WHERE qid=$qid";
 
 		if (mysqli_query($conn, $sql)) {
 			echo "Record updated successfully";
+			return 1;
 		} else {
 			echo "Error updating record: " . mysqli_error($conn);
+			return 0;
 		}
 
 		mysqli_close($conn);
 	}
 	
-	function getAllQuestion(){
+	function getAllQuestionOrderByDate(){
 		global $servername, $username,$password,$dbname;
 		//Create connection
 		$conn = mysqli_connect($servername,$username,$password,$dbname);
@@ -75,10 +77,22 @@
 		if (!$conn) {
 			die("Connection failed: " . mysqli_connect_error());
 		}
-		$sql = "SELECT * FROM Questions";
+		$sql = "SELECT * FROM Questions order by qDate DESC;";
 		$result = mysqli_query($conn,$sql);
 		return $result;
+		mysqli_close($conn);
 	}
 	function getQuestion($qid){
+		global $servername, $username,$password,$dbname;
+		//Create connection
+		$conn = mysqli_connect($servername,$username,$password,$dbname);
+		//Check Connection
+		if (!$conn) {
+			die("Connection failed: " . mysqli_connect_error());
+		}
+		$sql = "SELECT * FROM Questions WHERE qid=$qid;";
+		$result = mysqli_query($conn,$sql);
+		return $result;
+		mysqli_close($conn);
 	}
 ?>
