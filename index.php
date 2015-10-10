@@ -69,8 +69,8 @@ else
           <div>$isi</div>
           <div class='question-time-menu'>
             <div class='question-menu'>
-              <a href='edit.php?id=$id'>Edit</a>  
-              <a href='delete.php?id=$id' onclick='return deleteConfirm()'>Delete</a>              
+              | <a href='edit.php?id=$id' id='edit-menu'>edit</a>  
+              | <a href='delete.php?id=$id' onclick='return deleteConfirm()' id='delete-menu'>delete</a>
             </div>
             <div class='author-info'>
               oleh <a href='mailto:$mail'>$name</a> pada $datetime

@@ -30,8 +30,8 @@ echo
       $isi
       <div class='author-info'>
         <div class='question-menu'>
-          <a href='edit.php?id=$qid'>Edit</a>  
-          <a href='delete.php?id=$qid' onclick='return deleteConfirm()'>Delete</a>              
+          | <a href='edit.php?id=$qid' id='edit-menu'>edit</a>  
+          | <a href='delete.php?id=$qid' onclick='return deleteConfirm()' id='delete-menu'>delete</a>              
         </div>
         <div>asked by <a href='mailto:$mail'>$name</a> at $datetime</div>
       </div>
@@ -52,7 +52,7 @@ else
 
 if ($num == 0)
 {
-  echo "<div class='not-available'><h3>There is no answer so far</h3></div>";
+  echo "<br><div class='not-available'><h3>There is no answer so far</h3>Do you want to answer?</div><br>";
 }
 else
 {
@@ -83,9 +83,9 @@ else
 
 echo
   "<div class='thread-editor'>
-    <h3>Your answer :</h3>
     <div><hr></div>
     <form name='myform' method='post' action='save.php' onsubmit='return validateForm()'>
+      <br><h3>Your answer :</h3>
       <input type='hidden' name='id' value=$qid>
       <input type='hidden' name='ans' value=1>
       <div>
@@ -95,10 +95,10 @@ echo
         <input type='text' name='email' placeholder='Email'>
       </div>
       <div>
-        <textarea name='content' rows='10' maxlength='150' placeholder='Content'></textarea>
+        <textarea name='content' rows='10' maxlength='1500' placeholder='Content'></textarea>
       </div>
       <br>
-      <input type='submit' value='Submit'>
+      <input id='submit' type='submit' value='Submit' width=40>
     </form>
   </div>
 </div>

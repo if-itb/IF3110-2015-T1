@@ -38,10 +38,10 @@ echo
       <input id='topic' type='text' name='topic' placeholder='Topic' value='$topic'>
     </div>
     <div>
-      <textarea name='content' rows='10' maxlength='150' placeholder='Content'>$cont</textarea>
+      <textarea name='content' rows='10' maxlength='1500' placeholder='Content'>$cont</textarea>
     </div>
     <br>
-    <input type='submit' value='Submit'>
+    <input id='submit' type='submit' value='Submit'>
   </form>
 </div>
 </body>
