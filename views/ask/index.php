@@ -40,12 +40,12 @@
                     <a href="#" class="btn post-btn">Post</a>
                 </div>
             </div>
-            <?php
-                if (isset($question)){
-                    echo '<input type="hidden" id="question-id" data-id="', $question->id, '">';
-                }
-            ?>
         </form>
+        <?php
+            if (isset($question)){
+                echo '<input type="hidden" id="question-id" data-id="', $question->id, '">';
+            }
+        ?>
     </section>
         
     
