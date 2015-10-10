@@ -10,6 +10,14 @@
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Simple StackExchange</title>
+    <script type="text/javascript">
+        function deleteConfirmation() {
+            if (confirm("Delete Question?")) {
+                href = "deleteQuestion.php?questionId=$questionId";
+                alert("OK... you chose to proceed with deletion of");
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -47,6 +55,7 @@
                     // Write the value of the column FirstName (which is now in the array $row)
                     $name = $row['name'];
                     $title = $row['title'];
+                    $content=$row['content'];
                     $vote = $row['vote'];
                     $questionId = $row['questionId'];
                     $query_2="SELECT * FROM Answers where question_id=$questionId";
@@ -61,10 +70,16 @@
 
                         echo"<div class= questionMid>";
                             echo"<a class ='title' href='questionPage.php?questionId=$questionId'>$title<br></a>";
-                        echo"</div>";
+                            echo"<div class =questionContent>";
+                                if(strlen($content)>100){
+                                    echo substr($content,0,97).'...';
+                                }else{
+                                    echo $content;
+                                }
+                             echo"</div>";
 
                         echo"<div class= questionRight>";
-                            echo"asked by <span class='questionSubject'>$name</span>|<a class='editQuestion'>edit</a>|<a class='deleteQuestion'>delete</a>";
+                            echo"asked by <span class='questionSubject'>$name</span>|<a class='editQuestion' href='addQuestion.php?questionId=$questionId'>edit</a>|<a class='deleteQuestion' onclick= 'deleteConfirmation()'>delete</a>";
                         echo"</div>";
                     echo"</div>";
                 }

@@ -33,7 +33,7 @@
                         <input type="text" name="name" placeholder="Name"><br>
                         <input type="text" name="email" placeholder="Email"><br>
                         <textarea name="questionContent" placeholder="Content"></textarea><br>
-                        <input type="submit" placeholder="Post">
+                        <input type="submit" value="Post">
                         <input type="hidden" name="questionId" value="<?php echo $questionId;?>">
                     </form>
                 </div>
