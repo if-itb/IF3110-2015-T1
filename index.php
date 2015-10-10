@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="style.css">
+		<script type="text/javascript" src="function.js"></script>
 		<title>Stack Exchange</title>
 	</head>
 	<body>
@@ -23,7 +24,7 @@
 		
 		<?php
 		// Get all data
-		$sql = "SELECT asker_name, question_topic, question_vote FROM question";
+		$sql = "SELECT question_id, asker_name, question_topic, question_vote FROM question";
 		$result = mysqli_query($conn, $sql);
 		
 		if (mysqli_num_rows($result) > 0) {
@@ -32,8 +33,8 @@
 				echo "<div class='list'>";
 				echo "<div class='vote'>".$row["question_vote"]."<br>Votes</div>";
 				echo "<div class='answer_count'>0<br>Answers</div>";
-				echo "<div class='question_topic'>".$row["question_topic"]."</div>";
-				echo "<div class='asked_by'>asked by ".$row["asker_name"]." | edit | delete</div>";
+				echo "<div class='question_topic'><a href='detail.php?id=".$row["question_id"]."'>".$row["question_topic"]."</a></div>";
+				echo "<div class='asked_by'>asked by <span class='name'>".$row["asker_name"]."</span> | <a href='#' class='edit'>edit</a> | <a href='#' class='delete'>delete</a></div>";
 				echo "</div>";
 			}
 		} else {
