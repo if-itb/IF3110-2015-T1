@@ -13,6 +13,10 @@ h1, h2, h3, h4 {
 	font-weight: normal;
 }
 
+.div{
+	display: block;
+}
+
 h1,h2 {
 	margin: 0 auto;
 	padding-top: 4px;
@@ -28,6 +32,7 @@ hr {
     border-style: solid;
 	height: 1px;
 	background-color:black;
+	clear: both;
 }
 
 #askme{
@@ -88,14 +93,6 @@ p {
 	font-size: 16px;
 	border-color:black;
 }
-::-webkit-input-placeholder {
-}
-:-moz-placeholder { /* older Firefox*/
-}
-::-moz-placeholder { /* Firefox 19+ */ 
-} 
-:-ms-input-placeholder { 
-}
 
 textarea.formBar{
 	height: 8em;
@@ -111,4 +108,61 @@ textarea.formBar{
 	display: block;
 	float: right;
 	margin-right: 2.5%;
+}
+
+.questionbox{
+	position: relative;
+	margin-top: 0px;
+}
+.qvote, .avote, .qboxtopic, .voteanswer, .qmeta{
+	display: inline-block;
+}
+
+.qmeta{
+	position:absolute;
+	right:0;
+	bottom: 6px;
+}
+
+.qboxtopic{
+	width: 56%;
+	height: 100%;
+	font-size: 18px;
+	position: relative;
+	top: 0px;
+}
+
+.voteanswer{
+	width: 20%;
+	position: relative;
+	height: 60px;
+}
+
+.avote,.qvote{
+	width: 50%;
+	height: 100%;
+	padding:0px;
+	margin:0px;
+}
+.word{
+	text-align: center;
+	position: relative;
+	top: 14px
+}
+.avote{
+	right:0;
+	position: absolute;
+}
+
+.qvote{
+	left:0;
+	position: relative;
+}
+
+
+
+.counter{
+	text-align: center;
+	position: relative;
+	top: 8px
 }

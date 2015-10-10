@@ -28,8 +28,8 @@ function validateForm() {
     if (qtopic == null || qtopic == "") {
         alert("Topic must be filled out");
         return false;
-    } else if (qtopic.length > 20) {
-		alert("Topic name cannot exceed 20 characters");
+    } else if (qtopic.length > 50) {
+		alert("Topic name cannot exceed 50 characters");
 		return false;
 	}
 	
