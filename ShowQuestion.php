@@ -20,18 +20,8 @@
 			    die("Connection failed: " . $conn->connect_error);
 			} 
 
-			// Add to database
-			if ($_SERVER["REQUEST_METHOD"] == "POST") {
-				$name = $_POST["name"];
-				$email = $_POST["email"];
-				$topic = $_POST["topic"];
-				$content = $_POST["content"];
-				$vote = 0;
-				$answers = 0;
-				$sql = "INSERT INTO question (name, email, question_topic, content) VALUES ('$name', '$email', '$topic', '$content')";
-				$conn->query($sql);
-			}
-			else if ($_SERVER["REQUEST_METHOD"] == "GET") {
+			// Get data from database
+			if ($_SERVER["REQUEST_METHOD"] == "GET") {
 				$id = $_GET["id"];
 				$sql = "SELECT * FROM question WHERE questionID=$id";
 				$result = mysqli_query($conn, $sql);
@@ -63,10 +53,10 @@
 				    </td>
 				</tr>
 			</table>
-			<p style="text-align:right">asked by <?php echo $name ?> at <?php echo 'tanggal' ?>|edit|delete</p>
+			<p style="text-align:right">asked by <?php echo $email ?> at <?php echo '<datetime>' ?>|edit|delete</p>
 			<h2><?php echo $answers ?> Answer</h2><br>
 			<p style="font-size:30px; margin:0; color:grey"> Your Answer </p>
-			<form method="POST">
+			<form action="AddAnswer.php" method="POST">
 				<input type="text" name="name" id="inputtext1" placeholder="Name"><br>
 				<input type="text" name="email" id="inputtext1" placeholder="Email"><br>
 				<textarea name="content" id="content" placeholder="Content"></textarea><br><br>
