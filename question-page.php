@@ -7,44 +7,14 @@
 
 	<?php
 
+		$id = $_GET["id"];
+		$id = (int) $id;
 		include 'dbfunctions.php';
 		$conn=ConnectToDatabase();
-
-		session_start();
-        ini_set('max_execution_time', 600);
-        if (!isset($_POST['name']) && !isset($_POST['email']) && !isset($_POST['topic']) && !isset($_POST['content'])) {
-        	$name = $_SESSION['name'];
-    		$email = $_SESSION['email'];
-    		$topic = $_SESSION['topic'];
-    		$content = $_SESSION['content'];
-    		$last_id = $_SESSION['last_id'];
-
+		$question = GetQuestion($id);
+		$answer_result = GetAllAnswers($id);
+		$count_answer = mysqli_num_rows ($answer_result);
     		
-		} else {
-
-    		$name = $_POST["name"]; $_SESSION['name'] = $name;
-			$email = $_POST["email"]; $_SESSION['email'] = $email;
-			$topic = $_POST["topic"]; $_SESSION['topic'] = $topic;
-			$content = $_POST["content"]; $_SESSION['content'] = $content;
-			$name_temp = mysqli_real_escape_string($conn,$name);
-			$email_temp = mysqli_real_escape_string($conn,$email);
-			$topic_temp = mysqli_real_escape_string($conn,$topic);
-			$content_temp = mysqli_real_escape_string($conn,$content);
-			$sql = "INSERT INTO Question (question_name, question_email, question_topic, question_content, question_vote)
-			VALUES ('$name_temp', '$email_temp', '$topic_temp', '$content_temp', 0)";
-
-			if (!mysqli_query($conn, $sql)) {
-    			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-			}
-			$last_id = mysqli_insert_id($conn);	$_SESSION['last_id'] = $last_id;	
-		}
-
-		$_GET["id"] = $last_id;
-
-		$sql = "SELECT * FROM Question INNER JOIN Answer ON Question.question_id=$last_id AND Question.question_id=Answer.question_id";
-		$result = mysqli_query($conn, $sql);	
-		$count_answer = mysqli_num_rows ($result);
-
 		?>
 
 	
@@ -61,15 +31,15 @@
 
 <div class = "container">
 	<div class="boxarea">
-		<h2> <?php echo $topic ?> <hr> </h2>
+		<h2> <?php echo $question["question_topic"] ?> <hr> </h2>
 	
 		<div class="vote">
 			<div class="arrow-up"></div>
 			<h3 style="padding-left:50%;">0</h3>
 			<div class="arrow-down"></div>
 		</div>
-		<p> <?php echo $content ?> </p>
-		<p style="float:right"> asked by <?php echo $email ?> at datetime | <a href="" style="color:#FFA500"> edit </a> | <a href="" style="color:#FF0000"> delete </a> </p>
+		<p> <?php echo $question["question_content"] ?> </p>
+		<p style="float:right"> asked by <?php echo $question["question_email"] ?> at datetime | <a href="" style="color:#FFA500"> edit </a> | <a href="" style="color:#FF0000"> delete </a> </p>
 	</div>
 
 	<?php
@@ -77,10 +47,13 @@
 			echo '<div class="boxarea"> <h2> 0 Answers <hr> </h2> </div>';
 		}
 		else {
-			 while($row = mysqli_fetch_assoc($result)) {
+			 echo '<h2>'; 
+			 echo $count_answer; 
+			 echo' Answers <hr> </h2>';
+			 while($row = mysqli_fetch_assoc($answer_result)) {
 			?>
 				<div class="boxarea">
-					<h2> Answers <hr> </h2>
+					
 	
 					<div class="vote">
 						<div class="arrow-up"></div>
@@ -90,10 +63,12 @@
 					<p> <?php echo $row["answer_content"]  ?> </p>
 					<p style="float:right"> asked by <?php echo $row["answer_name"] ?> at datetime | <a href="" style="color:#FFA500"> edit </a> | <a href="" style="color:#FF0000"> delete </a> </p>
 				</div>
+				<br><hr>
 				<?php
 			}
 		}
 	?>
+
 	<br>
 
 	<h3> Your Answer </h3>

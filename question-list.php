@@ -10,6 +10,16 @@
 		include 'dbfunctions.php';
 		$conn = ConnectToDatabase();
 
+		function limit_output($x, $length) {
+  			if(strlen($x)<=$length) {
+    			echo $x;
+  			}
+ 			else {
+    			$y=substr($x,0,$length) . '...';
+    			echo $y;
+  			}
+		}
+
 	?>
 </head>
 
@@ -32,7 +42,7 @@
 	</form>
 	<h2> Recently Asked Question <hr> </h2>
 	<?php
-		$result = GetAllQuestion();
+		$result = GetAllQuestions();
 		$count_question = mysqli_num_rows ($result);
 		if($count_question==0) {
 		}
@@ -47,11 +57,17 @@
 					</div>
 
 					<div class="vote" style="margin-left:5%">
-						<h3><?php echo $row["question_vote"] ?></h3>
+						<?php
+							$id = $row["question_id"];
+							$answer = GetAllAnswers($id);
+							$count_answer = mysqli_num_rows ($answer);
+						?>
+						<h3><?php echo $count_answer ?></h3>
 						Answers
 					</div>
 
-					<p style="margin-left:25%"><?php echo $row["question_topic"] ?></p>
+					<h4 style="margin-left:25%"><a href=question-page.php?id=<?php echo $row["question_id"]?>> <?php echo $row["question_topic"] ?></a></h4>
+					<p style="margin-left:25%"> <?php echo limit_output($row["question_content"], 150); ?> </p>
 					<p style="float:right"> asked by <?php echo $row["question_name"] ?> at datetime | <a href="" style="color:#FFA500"> edit </a> | <a href="" style="color:#FF0000"> delete </a> </p>
 				</div>
 				<hr>

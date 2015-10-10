@@ -13,7 +13,7 @@
 			$content_temp = mysqli_real_escape_string($conn,$answer_content);
 			$id_temp = mysqli_real_escape_string($conn,$id);
 
-			echo $id . '<br>' . $answer_name  . '<br>' . $answer_email . '<br>' . $answer_content;
+			
 			$sql = "INSERT INTO Answer (question_id, answer_name, answer_email, answer_content, answer_vote)
 			VALUES ('$id_temp', '$name_temp', '$email_temp', '$content_temp', 0)";
 
@@ -22,7 +22,7 @@
 			}
 			$answer_id = mysqli_insert_id($conn);
 			
-			header('Location: question-page.php');
+			header('Location: question-page.php?id=<?php echo $id ?>');
 		}
 	
 

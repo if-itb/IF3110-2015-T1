@@ -18,13 +18,32 @@
 		return $conn;
 	}
 
-	function GetAllQuestion() {
+	function GetAllQuestions() {
 
 		$conn = ConnectToDatabase();
 		$sql = "SELECT * FROM Question";
 		$result = mysqli_query($conn, $sql);
 
 		return $result;	
+	}
+
+	function GetAllAnswers($id) {
+		$conn = ConnectToDatabase();
+		$sql = "SELECT * FROM Question INNER JOIN Answer ON Question.question_id=$id AND Question.question_id=Answer.question_id";
+		$result = mysqli_query($conn, $sql);	
+
+		return $result;
+
+	}
+
+	function GetQuestion($id) {
+		$conn = ConnectToDatabase();
+		$sql = "SELECT * FROM Question WHERE Question.question_id=$id";
+		$result = mysqli_query($conn, $sql);	
+
+		$row = mysqli_fetch_assoc($result);
+
+		return $row;
 	}
 
 

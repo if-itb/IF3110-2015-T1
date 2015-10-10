@@ -17,16 +17,16 @@
 
 <div class = "container">
 	<h2> What's Your Question? <hr> </h2>
-	<form method="POST" action="question-page.php">
-		<input type="text" name="name" id="name" placeholder="Name">
+	<form method="POST" action="add-question.php">
+		<input type="text" name="question_name" id="question_name" placeholder="Name">
 		<br>
-		<input type="text" name="email" id="email" placeholder="Email">
+		<input type="text" name="question_email" id="question_email" placeholder="Email">
 		<br> 
-		<input type="text" name="topic" id="topic" placeholder="Question Topic">
+		<input type="text" name="question_topic" id="question_topic" placeholder="Question Topic">
 		<br>
-		<textarea name="content" id="content" rows="15" placeholder="Content"></textarea>
+		<textarea name="question_content" id="question_content" rows="15" placeholder="Content"></textarea>
 		<br>
-		<input type="submit" id="post" value="Post">
+		<input type="submit" id="submit_question" name="submit_question" value="Post">
 	</form>
 </div>
 
