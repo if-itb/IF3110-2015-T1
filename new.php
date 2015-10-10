@@ -1,4 +1,4 @@
-<html>
+<!DOCTYPE html>
 <head>
 	<title>Simple StackExchange</title>
 </head>
@@ -6,7 +6,7 @@
 	<div class="big_title">Simple StackExchange</div><br>
 
 	What's your question?
-	<form method="post" action="backend/add.php">
+	<form method="post" action="backend/add_question.php">
 		<input type="text" name="name" placeholder="Name"><br>
 		<input type="text" name="email" placeholder="Email"><br>
 		<input type="text" name="topic" placeholder="Question Topic"><br>

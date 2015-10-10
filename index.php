@@ -1,4 +1,4 @@
-<html>
+<!DOCTYPE html>
 <head>
 	<title>Simple StackExchange</title>
 	<?php include('backend/all_questions.php');?>
@@ -20,12 +20,4 @@
 	<?php 
 	};?>
 </body>
-
-<script type="text/javascript">
-	function confirmDelete(id) {
-	    var x;
-	    if (confirm("Are you sure to delete this post?") == true) {
-	        location.href = "delete.php?id="+id;
-    	}
-	}
-</script>
+<script src="js/delete_question.js"></script>

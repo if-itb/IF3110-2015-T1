@@ -5,9 +5,12 @@
 	$name = $_POST['name'];
 	$email = $_POST['email'];
 	$content = $_POST['content'];
-	$sql = "INSERT INTO answer (id, name, email, content) VALUES ('$id', '$name', '$email', '$content')";
-	if (!mysqli_query($con,$sql)) {
-	  die('Error: ' . mysqli_error($con));
+	if($id != null){
+		$sql = "INSERT INTO answer (id, name, email, content) VALUES ('$id', '$name', '$email', '$content')";
+		if (!mysqli_query($con,$sql)) {
+		  die('Error: ' . mysqli_error($con));
+		}
 	}
 	mysqli_close($con);
+	header('Location: ajax_answer.php?id='.$id);
 ?>

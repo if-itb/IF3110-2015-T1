@@ -1,4 +1,4 @@
-<html>
+<!DOCTYPE html>
 <head>
 	<title>Simple StackExchange</title>
 	<?php include('backend/question.php');?>
