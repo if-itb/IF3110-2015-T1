@@ -78,7 +78,7 @@
 						<input type="text" name="name" placeholder="Name"><br>
 						<input type="text" name="email" placeholder="Email"><br>
 						<textarea name="content" placeholder="Content"></textarea>
-						<input type="submit" value="Post" align="right">
+						<input type="submit" value="Post">
 					</form>
 				</div>
 			</div>

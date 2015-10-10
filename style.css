@@ -53,7 +53,7 @@
 .main .form input[type=submit]{
 	width:auto;
 	float:right;
-	
+	align:right;
 }
 
 .main .search input{
@@ -88,24 +88,43 @@ a{
 	font-size: 100%;
 }
 
-.main .column{
+.main .columnsmall{
 	display:inline-block;
 	margin:0;
-	width:25%
+	width:15%
+}
+.main .columnlarge{
+	display:inline-block;
+	margin:0;
+	width:35%
 }
 
 .left{
+	font-weight:bold;
 	text-align:center;
 	vertical-align:middle;
 }
 
 
 .center{
-	text-align:center !important;
+	text-align:left;
 	vertical-align:top;
-	padding-top:0 !important;
+	padding-top:10;
+}
+
+.center a{
+	color:black;
 }
 .right{
 	text-align:center;
 	vertical-align:bottom;
+}
+.name{
+	color:purple;
+}
+.edit{
+	color:yellow;
+}
+.delete{
+	color:red;
 }
