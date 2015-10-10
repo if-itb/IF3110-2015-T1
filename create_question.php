@@ -39,8 +39,9 @@
          <input type="text" name="name" placeholder="Name">
          <input type="text" name="email" placeholder="Email" >
          <input type="text" name="topic" placeholder="Question Topic">
-         <textarea name="content" placeholder="Content" rows="5" cols="40"></textarea>
+         <textarea name="content" placeholder="Content"></textarea>
          <input type="submit" class="submitButton" value="Post"> 
+        
       </form>
     </div>
 

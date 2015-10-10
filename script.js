@@ -1,9 +1,9 @@
 
 //Email  Regex Vaidation
-function validateEmail(email){
-	var re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm;
-	return re.test(email.val());
-}
+function validateEmail(email) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return re.test(email);
+};
 
 //Javascript Form Validation
 function validateQuestionForm(){
@@ -18,7 +18,7 @@ function validateQuestionForm(){
 	  alert("Name must be filled");
 	  return false;
 	}
-	else if (!validateEmail){
+	else if (!validateEmail(email)){
 	  alert("Please enter a valid email address");
 	  return false;          
 	}
@@ -36,4 +36,4 @@ function validateQuestionForm(){
 	}
 
 	return true;
-}
+};

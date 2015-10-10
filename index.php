@@ -25,7 +25,6 @@
         <div id="content">
             <p class="content_title" id="recently">Recently Asked Questions</p>
             <?php
-                echo "Hellow World";
                 foreach($questions as $question){
                     $left = "<div class='left'>
                                 <span class='vote'>0<br>Votes</span>

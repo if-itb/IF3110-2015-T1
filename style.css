@@ -1,17 +1,32 @@
 
+
 div.left > span{
 	margin-right: 2px;
 	text-align: center;
 }
 
+div.mid-right > p{
+	display: block;
+	max-width: 100px;
+}
+
+form#question {
+	margin-left: 10%;
+	height: 300px;
+	margin-right: 10%;
+}
+
 /* It means that input is the first child of form with id = question */
 form#question > input[type="submit"]{
 	border-width: thin;
-	margin-left: 20px;
+	display: block;
+	margin-top: 10px;
+	float: right;
 }	
 
 form#question > input[type="text"]{
-	width: 75%;
+	display: block;
+	width: 100%;
 	height: 15px;
 	margin-top: 4px;
 	padding-left: 2px;
@@ -21,7 +36,8 @@ form#question > input[type="text"]{
 }	
 
 form#question > textarea{
-    width: 75%;
+    display:block;
+    width: 100%;
     height: 120px;
     margin-top: 4px;
     padding-left: 2px;
@@ -62,12 +78,39 @@ form#question > textarea{
 	border-width: medium;
 }
 
+/* ID Vote_icon using class .left attribute*/
+#vote_icon{		
+	display: inline-block;
+	text-align: left;
+	width: 10%;
+    font-family: 'Segoe UI',Tahoma, sans-serif;
+    margin-top: 4%;
+    float: left;
+    margin-left: 2%;
+}
+
+#vote_up, #vote_down{
+	display: block;
+}
+
+.answer_title{
+    font-family: 'Segoe UI',Tahoma, sans-serif;
+    font-size: 130%;
+    text-align: left;
+    margin-left: 11%;
+    margin-right: 11%;
+    margin-top: 7%;
+    margin-bottom: 2px;	
+}
+
 .answer, .vote{
 	display: inline-block;
 	margin-left: 7%;
-/*    padding : 2px 5px 2px 5px;
-    text-align: center;
-    margin-left: 10px;*/
+}
+
+.blue_link{
+	text-decoration: none;
+	color: blue;
 }
 
 .content_title {
@@ -97,6 +140,12 @@ form#question > textarea{
 	text-align: left;
 }
 
+.mid-right{
+	display: inline-block;
+	width: 85%;
+	text-align: left;
+}
+
 .orange_link{
 	text-decoration: none;
 	color: orange;
@@ -107,8 +156,16 @@ form#question > textarea{
 	border-bottom: 2px solid black;
 	margin-left: 11%;
 	margin-right: 11%;
-	height: 80px;
 	padding-right: 10px;
+	height: 100px;
+}
+
+.question_detail{
+	font-size: 15px;
+	margin-left: 11%;
+	margin-right: 11%;
+	padding-right: 10px;
+	height: 100px;	
 }
 
 .red_link{
@@ -138,7 +195,3 @@ form#question > textarea{
 	width: 70px;
 }
 
-.blue_link{
-	text-decoration: none;
-	color: blue;
-}
