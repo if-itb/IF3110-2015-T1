@@ -28,7 +28,7 @@
 <html lang = "en">
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/indexStyle.css">
-		<title>Simple Stack Exchange</title>
+		<title>Simple Stack Exchange - Search Result</title>
 	</head>
 	<script type="text/javascript">
 		function delete_id(id) {
@@ -36,18 +36,10 @@
 		        window.location.href='http://127.0.0.1:8080/stack_exchange/index.php?delete_id='+id;
 		     }
 		}
-		function validateForm() {
-		    var w = document.forms["searchBar"]["search"].value;
-
-		    if (w == null || w == "") {
-		        alert("Please fill the text box");
-		        return false;
-		    }
-		}
 	</script>
 	<body>
 		<h1>Simple Stack Exchange</h1>
-		<form name="searching" action="search.php" onsubmit="return validateForm()" method="post">
+		<form name="searching" action="search.php?go" id="searchform" onsubmit="return validateForm()" method="post">
 			<input type="text" name="search" style="width:94%;font-size:16px;">
 			<input type="submit" value="Search" style="font-size:16px;">
 		</form>
@@ -55,11 +47,13 @@
 			Cannot find what you are looking for? <a href="ask-question.html" style="text-decoration:none;"><font color="orange">Ask here</font></a>
 		</h2>
 		<h3>
-			Recently Asked Question
+			Search Results
 		</h3>
 
 		<?php
-			$query = "SELECT * FROM question ORDER BY created_date DESC";
+			$go = $_POST["search"];
+			$id = mysql_real_escape_string($go);
+			$query = "SELECT * FROM question WHERE (topic LIKE '%$go%' OR content LIKE '%$go%') ORDER BY created_date DESC";
 			$result = $con->query($query);
 			if ($result->num_rows > 0) {
 				while($row = $result->fetch_assoc()) {

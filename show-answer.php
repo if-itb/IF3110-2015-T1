@@ -27,8 +27,8 @@
 <!DOCTYPE html>
 <html lang = "en">
 	<head>
-		<link rel="stylesheet" type="text/css" href="answerStyle.css">
-		<script type="text/javascript" src="vote.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/answerStyle.css">
+		<script type="text/javascript" src="../js/vote.js"></script>
 		<title>Simple Stack Exchange - Show Answer</title>
 	</head>
 	<script type="text/javascript">
