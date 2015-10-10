@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple StackExchange</title>
+<link rel="stylesheet" type="text/css" href="ask.css">
+</head>
+<body>
+	<br>
+	<h1>Simple StackExchange</h1>
+	<p class="what">What's your question?</p>
+	<hr>
+	<form action="index.html" onsubmit="return validateForm()" id="Question">
+		<input type="text" name="Name" id="Name" onfocus="focusName()" onblur="blurName()" value = "Name" style="color: #808080;">
+		<input type="text" name="Email" id="Email" onfocus="focusEmail()" onblur="blurEmail()" value = "Email" style="color: #808080;">
+		<input type="text" name="Topic" id="Topic" onfocus="focusTopic()" onblur="blurTopic()" value = "Question Topic" style="color: #808080;">
+		<!input type="textarea" name="Content" id="Content" onfocus="focusContent()" onblur="blurContent()" value = "Content" style="color: #808080;">
+		<input type="submit" value="Post">
+	</form>
+	<textarea form ="Question" name="Content" id="Content" onfocus="focusContent()" onblur="blurContent()" rows="12" wrap="soft" style="color: #808080;">Content</textarea>
+	<script src="questionform.js"></script>
+</body>
+</html>
