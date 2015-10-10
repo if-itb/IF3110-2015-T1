@@ -16,9 +16,11 @@
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-		<div class="container">
-			<h1 class="center">Simple StackExchange</h1>
-	
+		<div class="container">	
+			<div class="header">
+				<h1 class="center">Simple StackExchange</h1>
+			</div>
+			
 			<h2 class="underline">What's your question?</h2>
 
 			<form action="home.php" method="POST">

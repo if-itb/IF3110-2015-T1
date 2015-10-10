@@ -22,9 +22,10 @@ function getQuestions($searchQuery = "", $sort = "date DESC") {
 	else
 		$q = "SELECT * FROM question WHERE title LIKE '%$searchQuery%' OR content LIKE '%$searchQuery%' ORDER BY $sort";
 	$rq = mysqli_query($conn, $q);
-
+	
 	$r = array();
-	while ($row = mysqli_fetch_array($rq, MYSQLI_ASSOC)) {
+	while ($row = mysqli_fetch_array($rq, MYSQLI_ASSOC)) 
+	{
 		$row['answer'] = getAnswerCount($row['question_id']);
 		$r[] = $row;		
 	}
@@ -69,6 +70,24 @@ function postQuestion($data)
 	return $q;
 }
 
+function deleteQuestion($id) {
+	global $conn;
+	$q = "DELETE FROM question WHERE question_id=$id;
+		  ALTER TABLE question AUTO_INCREMENT = $id";
+	$no_error = mysqli_query($dbc, $q);
+	return $no_error;
+}
+
+function getAnswers($id, $sort = "vote DESC, date DESC") {
+	global $conn;
+	$q = "SELECT * FROM answer WHERE question_id = $id ORDER BY $sort";
+	$rq = mysqli_query($conn, $q);
+	$r = array();
+	while ($row = mysqli_fetch_array($rq,MYSQLI_ASSOC))
+		$r[] = $row;
+	return $r;
+}
+
 function getAnswerCount($questionId) {
 	global $conn;
 	$q = "SELECT COUNT(answer_id) AS c FROM answer WHERE question_id=$questionId";
@@ -77,5 +96,30 @@ function getAnswerCount($questionId) {
 	return $r;
 }
 
+function postAnswer($data) {
+	global $conn;
+	$q = "INSERT INTO answer (question_id, name, email, content, date)
+          VALUES ('$data[question_id]','$data[name]','$data[email]', '$data[content]', CURRENT_TIMESTAMP)";
+		  
+	$rq = mysqli_query($conn, $q);
+	return $rq;
+}
+	
+function vote($db, $id, $count) {
+	global $conn;
+	$q = "UPDATE $db SET vote=(vote + $count) WHERE " . $db . "_id=$id";
+	$rq = mysqli_query($conn, $q);
+	return $rq;
+}
+
+function getVoteCount($db, $id) {
+	global $conn;
+	$q = "SELECT vote FROM $db WHERE " . $db . "_id=$id";
+	$rq = mysqli_query($conn, $q);
+	$r = mysqli_fetch_array($rq, MYSQLI_ASSOC)['vote'];
+	return $r;
+}
+
 
 ?>
+
