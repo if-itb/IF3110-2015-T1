@@ -8,6 +8,10 @@ $conn = db_init();
 $name = $_POST['name'];
 $mail = $_POST['email'];
 $cont = $_POST['content'];
+echo nl2br($cont);
+$cont = str_replace("'", "\\'", $cont);
+$cont = str_replace("\"", "\\\"", $cont);
+echo nl2br($cont);
 $qid = $_POST['id'];
 
 if (!empty($_POST['ans']))

@@ -10,7 +10,9 @@ $res = mysqli_fetch_assoc(mysqli_query($conn, $query));
 $topik = $res['topik'];
 $name = $res['username'];
 $datetime = $res['datetime'];
-$isi = $res['isi'];
+$isi = nl2br($res['isi']);
+// $isi = str_replace(" ", "&nbsp;", $isi);
+$isi = str_replace("\t", "&nbsp;&nbsp;", $isi);
 $mail = $res['email'];
 $vote = $res['vote'];
 
@@ -19,7 +21,6 @@ echo
   <div class='question-title'>
     <h3>$topik</h3>
   </div>
-  <div><hr></div>
   <div class='wrapper'>
     <div class='vote'>
       <div class='arrow-up' onclick='voter(1, false, $qid, \"votenum-$qid\")'></div>
@@ -35,7 +36,7 @@ echo
         </div>
         <div>asked by <a href='mailto:$mail'>$name</a> at $datetime</div>
       </div>
-    </div>
+  
   </div>
 </div>  
 <div class='answer-list'>";
@@ -52,22 +53,25 @@ else
 
 if ($num == 0)
 {
-  echo "<br><div class='not-available'><h3>There is no answer so far</h3>Do you want to answer?</div><br>";
+  echo "<br><div class='not-available'><b>There is no answer so far</b><br>
+  Do you want to answer?</div><br>";
 }
 else
 {
-  echo "<div><h3>$num Answer</h3></div>";
+  echo "<div style='border-bottom: solid 2px;'><h3>$num Answer",($num > 1 ? "s":""),"</h3></div>";
   while ($row = mysqli_fetch_assoc($list))
   {
     $id = $row['Id'];
-    $isi = $row['isi'];
+    $isi = nl2br($row['isi']);
+    // $isi = str_replace(" ", "&nbsp;", $isi);
+    $isi = str_replace("\t", "&nbsp;&nbsp;", $isi);
     $name = $row['username'];
     $datetime = $row['datetime'];
     $mail = $row['email'];
     $vote = $row['vote'];
     echo 
-        "<div><hr></div>
-        <div class='wrapper'>
+        "
+        <div class='wrapper' id='answer-box'>
           <div class='vote'>
             <div class='arrow-up' onclick='voter(1, true, $id, \"votenum-$qid-$id\")'></div>
             <div class='vote-number' id='votenum-$qid-$id'>$vote</div>
@@ -83,7 +87,6 @@ else
 
 echo
   "<div class='thread-editor'>
-    <div><hr></div>
     <form name='myform' method='post' action='save.php' onsubmit='return validateForm()'>
       <br><h3>Your answer :</h3>
       <input type='hidden' name='id' value=$qid>
@@ -95,7 +98,7 @@ echo
         <input type='text' name='email' placeholder='Email'>
       </div>
       <div>
-        <textarea name='content' rows='10' maxlength='1500' placeholder='Content'></textarea>
+        <textarea name='content' id='content' rows='10' maxlength='1500' placeholder='Content'></textarea>
       </div>
       <br>
       <input id='submit' type='submit' value='Submit' width=40>

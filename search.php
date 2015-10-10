@@ -1,6 +1,19 @@
-<?php
-include 'header.php';
-include 'database.php';
+<?php include 'header.php'; ?>
+
+<div class='searchbar' align='center'>
+  <tr>
+    <form method='get' action='search.php'><td>
+      <input type='text' name='q' size='89'>
+    </td> 
+    <td>
+      <input type='submit' value='Search'>
+    </td></form>
+  </tr>
+</div>
+<div align='center'>Cannot find what you are looking for? <a href='edit.php'>Ask here</a></div><br>
+<div id='recent-question'><h3>Search results :</h3></div>
+
+<?php include 'database.php';
 
 $conn = db_init();
 
@@ -16,10 +29,9 @@ else
   $num = mysqli_num_rows($db_result);
 }
 
-echo '<hr>';
 if ($num == 0)
 {
-  echo "<h3 align='center'>Question not found</h3>";
+  echo "<br><h3 align='center'>Question not found</h3>";
 }
 else
 {
@@ -34,7 +46,9 @@ else
     $datetime = $row['datetime'];
     $mail = $row['email'];
     $vote = $row['vote'];
-    $isi = $row['isi'];
+    $isi = nl2br($row['isi']);
+    // $isi = str_replace(" ", "&nbsp;", $isi);
+    $isi = str_replace("\t", "&nbsp;&nbsp;", $isi);
     $query = "SELECT COUNT(*) FROM answer WHERE qid = $id";
     $ans = mysqli_fetch_array(mysqli_query($conn, $query))[0];
     echo 
@@ -53,8 +67,8 @@ else
           <div>$isi</div>
           <div class='question-time-menu'>
             <div class='question-menu'>
-              <a href='edit.php?id=$id'>Edit</a>  
-              <a href='delete.php?id=$id' onclick='return deleteConfirm()'>Delete</a>              
+              | <a href='edit.php?id=$id' id='edit-menu'>edit</a>  
+              | <a href='delete.php?id=$id' onclick='return deleteConfirm()' id='delete-menu'>delete</a>
             </div>
             <div class='author-info'>
               oleh <a href='mailto:$mail'>$name</a> pada $datetime

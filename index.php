@@ -10,13 +10,8 @@
     </td></form>
   </tr>
 </div>
-<div class='newbutton' align='center'>
-<form method='get' action='edit.php'>
-  <input type='submit' value='New Question'></input>
-</form>
-</div>
-<h3>Recent question :</h3>
-<hr>
+<div align='center'>Cannot find what you are looking for? <a href='edit.php'>Ask here</a></div><br>
+<div id='recent-question'><h3>Recent question :</h3></div>
 
 <?php
 include 'database.php';
@@ -50,7 +45,9 @@ else
     $datetime = $row['datetime'];
     $mail = $row['email'];
     $vote = $row['vote'];
-    $isi = $row['isi'];
+    $isi = nl2br($row['isi']);
+    // $isi = str_replace(" ", "&nbsp;", $isi);
+    $isi = str_replace("\t", "&nbsp;&nbsp;", $isi);
     $query = "SELECT COUNT(*) FROM answer WHERE qid = $id";
     $ans = mysqli_fetch_array(mysqli_query($conn, $query))[0];
     echo 
