@@ -3,11 +3,19 @@
 	font-size: 40px;
 }
 
+.black{
+	color: black;
+}
+
 .align {
     margin: auto;
     width: 60%;
     padding: 15px;
-	margin-bottom: 5px;
+}
+
+h3{
+	color: grey;
+	font-size: 30px;
 }
 
 .RAQ{
@@ -15,6 +23,18 @@
     width: 60%;
     padding: 5px;
 	margin-bottom: 85px;
+}
+
+.answers{
+	margin: auto;
+    width: 60%;
+	margin-bottom: 120px;
+	margin-top: 5px;
+}
+
+.Margin{
+	margin: auto;
+    width: 60%;
 }
 
 .vote {
@@ -43,12 +63,38 @@
     width: 300px;
     height: 80px;
     padding: 10px;	
+	text-decoration: none;
+}
+
+.topic_link{
+	color: black;
+	font-weight: bold;
 }
 
 .asked {
     position: absolute;
-    right: 300px;
-    width: 200px;
+    right: 100px;
+    width: 300px;
+    height: 80px;
+	padding: 60px;
+}
+
+.name{
+	color: blue;
+}
+
+.color_yellow{
+	color: yellow;
+}
+
+.delete{
+	color: red;
+}
+
+.asked_email{
+	position: absolute;
+    right: 100px;
+    width: 300px;
     height: 80px;
 	padding: 60px;
 }
@@ -71,15 +117,16 @@
 }
 
 .form_question{
-	width: 700px;
+	width: 800px;
 	height:20px;
 	border : 2px solid;
 }
 
 .form_content{
-	width: 700px;
+	width: 800px;
 	height:100px;
 	border : 2px solid;
+	resize : none;
 }
 
 .kotakform{
@@ -91,7 +138,7 @@
 	border-width: 25px;
 	padding: 3px;
 	position: absolute;
-    right: 120px;
+    right: 20px;
     width: 300px;
 }
 
@@ -104,3 +151,6 @@ h2{
 	font-size: 22px;
 }
 
+a{
+	text-decoration: none;
+}

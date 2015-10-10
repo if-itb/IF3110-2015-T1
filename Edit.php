@@ -13,7 +13,7 @@
 		die("Connection failed: " . mysqli_connect_error());
 	}
 	$ID = $_GET['id'];
-	$sql = "SELECT Q_Name, Q_Email, Q_Topic, Q_Content FROM question WHERE Q_id=$ID";
+	$sql = "SELECT Q_id, Q_Name, Q_Email, Q_Topic, Q_Content FROM question WHERE Q_id=$ID";
 	$question = mysql_query($sql, $conn);
 	while($row = mysql_fetch_assoc($question)) {
 		echo "<html>
@@ -45,14 +45,16 @@
 					<input type=\"text\" name=\"Topic\" class=\"form_question\" placeholder=\"Question Topic\" value=\"".$row["Q_Topic"]."\">
 				</div>
 				<div class=\"kotakform\">
-					<textarea name=\"Content\" class=\"form_content\" placeholder=\"Content\" value=\"".$row["Q_Content"]."\"></textarea>
+					<textarea name=\"Content\" class=\"form_content\" placeholder=\"Content\" >".$row["Q_Content"]. "</textarea>
 				</div>
+				<input type=\"hidden\" name=\"id\"  value=\"".$row["Q_id"]."\">
 				<div class=\"form_post\">
-					<input type=\"submit\" name=\"question\" value=\"Post\">
+					<input type=\"submit\" name=\"edit\" value=\"Post\">
 				</div>
 			</form>
 
 			</body>
 			</html>";
 	}
+	mysql_close($conn);
 ?>

@@ -6,8 +6,12 @@
 		}
 		$sql = "SELECT Q_Name, Q_Vote, Q_Topic, Q_Content, Q_id FROM question";
 		$question = mysqli_query($conn, $sql);
+		
 		if (mysqli_num_rows($question) > 0) {
 			while($row = mysqli_fetch_assoc($question)) {
+				$ID = $row['Q_id'];
+				$sql2 = "SElECT Q_id FROM answer WHERE Q_id=$ID";
+				$answer = mysqli_query($conn,$sql2);
 				echo "<div class=\"RAQ\">
 					<hr>
 						<div class=\"vote\">
@@ -20,22 +24,24 @@
 						</div>
 				
 						<div class=\"answer\">
-							<div class=\"number\">
-								0
-							</div>
+							<div class=\"number\">".
+								mysqli_num_rows($answer)
+							."</div>
 							<div>
 								Answers
 							</div>		
 						</div>
 					
-						<div class=\"topic\">".
+						<div class=\"topic\">
+							<a href=\"Answer.php?id=".$row["Q_id"]."\" class=\"topic_link\">".
 							$row["Q_Topic"].						
-						"<br>".
+						"</a>
+						<br>".
 							$row["Q_Content"].
 						"</div>
 					
 						<div class=\"asked\">
-							asked by " . $row["Q_Name"] ." | <a href=\"Edit.php?id=".$row["Q_id"]."\">edit<a> | <a href=\"Delete.php?id=".$row["Q_id"]."\">delete<a>
+							asked by <span class=\"name\">" . $row["Q_Name"] ."</span> | <a href=\"Edit.php?id=".$row["Q_id"]."\"class=\"color_yellow\">edit<a> | <a href=\"Delete.php?id=".$row["Q_id"]."\"class=\"delete\">delete<a>
 						</div>
 				</div>";
 			}

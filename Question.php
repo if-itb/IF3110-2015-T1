@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<h1 class="title">Simple StackExchange</h1>
+<a href="index.php" class="black"><h1 class="title">Simple StackExchange</h1></a>
 
 <h2 class="align">
 	<div>

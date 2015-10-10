@@ -21,4 +21,5 @@
 	else{
 		header("Location: index.php");
 	}
+	mysql_close($conn);
 ?>
