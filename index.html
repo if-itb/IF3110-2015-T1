@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,700italic,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/handler.js"></script>
+    <script src="scripts/list.js"></script>
+</head>
+<body>
+<div class="header"><a href="index.html"><h1>Simple StackExhange</h1></a></div>
+<div class="container clearfix">
+    <form class="searchForm clearfix" action="php/Search.php" method="POST">
+        <div class="searchInput">
+        <input  name="keyword" type="text" placeholder="Keyword Pencarian"/>
+        <p class="askHere">Cannot find what you are looking for ? <a href="create.html">Ask here</a></p>
+        </div>
+        <button class="searchBtn" type="submit">Search</button>
+    </form>
+
+    <!-- Hidden form untuk post id pertanyaan ke halaman Detail.php-->
+    <form name="goToDetail" action="php/Detail.php" method="POST">
+        <input type="hidden" name="idClicked" value=""/>
+    </form>
+
+    <!-- Hidden form untuk post id pertanyaan yang akan di delete ke halaman deleteQuestion.php-->
+    <form name="goToDelete" action="php/deleteQuestion.php" method="POST">
+        <input type="hidden" name="idDeleted" value=""/>
+    </form>
+
+    <!-- Hidden form untuk post id pertanyaan yang akan di edit ke halaman editQuestion.php-->
+    <form name="goToEdit" action="php/editQuestion.php" method="POST">
+        <input type="hidden" name="idEdited" value=""/>
+        <input type="hidden" name="isFromDetailPage" value="false"/>
+    </form>
+
+    <h4>Recently Answered Questions</h4>
+</div>
+
+<script>
+    (function() {
+        createList();
+    })();
+</script>
+
+</body>
+</html>
