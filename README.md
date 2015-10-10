@@ -89,7 +89,13 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+#### Validasi form pada client side
+
+Validasi dilakukan dengan menggunakan javascript. Fungsi **validateForm** dipanggil saat form submit. Fungsi tsb akan mengecek field masing-masing input form dan jika masih kosong akan muncul dialog peringatan dan mengembalikan nilai **false**. Jika tidak ada field yang kosong, maka fungsi memanggil fungsi lain **validateEmail** untuk mengecek email dengan regex yang didapat dari internet.
+
+#### AJAX
+
+Ketika tombol vote ditekan, tombol akan memanggil fungsi **voter** dengan parameter jenis vote (upvote/downvote), jenis elemen (question/answer) dan id question/answer. Lalu fungsi membuat obyek XMLHttpRequest yang akan mengubah nilai vote ketika status telah ready. Fungsi juga mengirim POST request ke file `vote.php` untuk menyimpan nilai vote yang baru ke dalam database.
 
 ### Knowledge
 
