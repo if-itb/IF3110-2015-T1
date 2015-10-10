@@ -1,6 +1,6 @@
 <?php
 
-    namespace routes\answer;
+    namespace router\answer;
 
     if(!isset($_GET["id"])) {
       exit();
@@ -8,7 +8,7 @@
 
     $question_id = $_GET["id"];
 
-    define("ROOT", $_SERVER['DOCUMENT_ROOT'] ."/../");
+    define("ROOT", $_SERVER['DOCUMENT_ROOT']);
 
     require_once(ROOT . '/models/answer/answer.php');
     require_once(ROOT . '/models/question/question.php');
@@ -25,7 +25,7 @@
     // Get Question's Details
     $sql = "
         SELECT 
-            id, name, topic, content, votes, create_time
+            id, name, email, topic, content, votes, create_time
         FROM 
             questions
         WHERE
@@ -46,7 +46,7 @@
     // Get Answers' Details
     $sql = "
         SELECT 
-            id, name, content, votes, create_time
+            id, question_id, name, content, votes, create_time
         FROM 
             answers
         WHERE
@@ -69,4 +69,4 @@
     mysql\close($conn);
 
     response\render("answer/index.php", $params);
-?>
+?>a

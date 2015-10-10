@@ -1,8 +1,8 @@
 <?php
 
-    namespace routes;
+    namespace router;
 
-    define("ROOT", $_SERVER['DOCUMENT_ROOT'] ."/../");
+    define("ROOT", $_SERVER['DOCUMENT_ROOT']);
 
     require_once(ROOT . '/models/question/question.php');
     require_once(ROOT . '/utils/mysql/connection.php');
@@ -16,7 +16,7 @@
 
     $sql = "
         SELECT 
-            Q.id, Q.name, Q.topic, Q.content, Q.votes, Q.create_time, A.answers 
+            Q.id, Q.email, Q.name, Q.topic, Q.content, Q.votes, Q.create_time, A.answers 
         FROM 
             questions Q 
                 LEFT JOIN 

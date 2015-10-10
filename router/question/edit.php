@@ -1,6 +1,6 @@
 <?php
 
-    namespace routes\question;
+    namespace router\question;
 
     if(!isset($_GET["id"])) {
       exit();
@@ -8,7 +8,7 @@
 
     $question_id = $_GET["id"];
 
-    define("ROOT", $_SERVER['DOCUMENT_ROOT'] ."/../");
+    define("ROOT", $_SERVER['DOCUMENT_ROOT']);
 
     require_once(ROOT . '/models/question/question.php');
     require_once(ROOT . '/utils/mysql/connection.php');
