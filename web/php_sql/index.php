@@ -12,6 +12,16 @@ Author: Irene Wiliudarsan (13513002) -->
     <link rel="stylesheet" type="text/css" href="../css/style.css"/>
   </head>
   <body>
+    <?php
+      $servername = "localhost";
+      $username = "root";
+      $password = "";
+      $dbname = "simple_stackexchange";
+      $connection = new mysqli($servername, $username, $password, $dbname); // Create connection
+      if ($connection->connect_error) {
+        die("Connection failed: " . $connection->connect_error);
+      }
+    ?>
     <!-- Title -->
     <div class="title">
       Simple StackExchange
