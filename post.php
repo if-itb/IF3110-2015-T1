@@ -18,11 +18,7 @@
   <?php    
         include "connect.php";  
         $name = $email = $topic =$content = "";
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-          $name = $_POST["name"];
-          $email = $_POST["email"];
-          $topic = $_POST["topic"];
-          $content = $_POST["content"];}
+       
   ?>
 	<form name="QForm" method="post" onsubmit="return validateQForm()" action="ask.php">
       <input name="name" class="span4" type="text" placeholder="name" value="<?php echo $name;?>">
