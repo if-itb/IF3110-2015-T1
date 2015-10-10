@@ -30,3 +30,23 @@ function validateForm() {
 	} 
 	return true;
 }
+
+function validateAnswerForm() {
+	var name = document.forms["answerForm"]["answerer_name"].value;
+	var email = document.forms["answerForm"]["answerer_email"].value;
+	var content = document.forms["answerForm"]["content"].value;
+	if(isNotValid(name)) {
+		alert("Name must be filled out");
+		return false;
+	} else if(isNotValid(email)) {
+		alert("Email must be filled out");
+		return false;
+	} else if(!isEmailvalid(email)) {
+		alert("Email is not valid");
+		return false;
+	} else if(isNotValid(content)) {
+		alert("Content must be filled out");
+		return false;
+	} 
+	return true;
+}
