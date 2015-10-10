@@ -21,6 +21,7 @@
 	<head>
 		<title>Simple StackExchange</title>
 		<link rel="stylesheet" href="style.css">
+		<script type="text/javascript" src="main.js"></script>
 	</head>
 	<body>
 	<div class="container">
@@ -32,11 +33,11 @@
 			<div class="question" id="question-<?php echo $question['question_id'] ?>">
 				<div class="row">
 					<div class="col_vote">
-						<a href="" id="increase-vote">
+						<a title="Click to Upvote" href="question.php" onclick="voteUp(<?php echo $question['question_id'] ?>, 'question');return false;" id="increase-vote">
 							<img src="img/up.png" width="32" height="32"><br>
 						</a>
 						<span id="question-vote-count-<?php echo $question['question_id'] ?>"><font size = "5" color ="blue"><?php echo $question['vote'] ?></font></span><br>
-						<a href="" id="decrease-vote">
+						<a title="Click to Downvote" href="question.php" onclick="voteDown(<?php echo $question['question_id'] ?>, 'question');return false;" id="decrease-vote">
 							<img src="img/down.png" width="32" height="32">
 						</a>
 					</div>
@@ -50,7 +51,7 @@
 					asked by <span class="name"><?php echo $question['name'] ?></span> &lt;<span class="email"><?php echo $question['email'] ?>&gt;</span>
 					at <span class="create-date"><?php echo date( 'D, j F Y H:i', strtotime($question['date'])) ?></span> |
 								<span class="link edit"><a href="ask.php?question_id=<?php echo $question['question_id']?>">edit</a></span> |
-								<span class="link delete"><a href="">delete</a></span>
+								<span class="link delete"><a href="javascript:deleteQuestion(<?php echo $question['question_id'] ?>)">delete</a></span>
 				</div>
 			</div>
 		</div>
@@ -61,11 +62,11 @@
 				<div class="answer underline" style="width:100%" id="answer-<?php echo $answer['answer_id'] ?>">
 					<div class="row">
 						<div class="col_vote">
-							<a href="" id="increase-vote">
+							<a title="Click to Upvote" href="question.php" onclick="voteUp(<?php echo $answer['answer_id'] ?>, 'answer');return false;" id="increase-vote">
 								<img src="img/up.png" width="32" height="32"><br>
 							</a>
 							<span id="answer-vote-count-<?php echo $answer['answer_id'] ?>"><font size = "5" color ="blue"><?php echo $answer['vote'] ?></font></span><br>
-							<a href="" id="decrease-vote">
+							<a title="Click to Downvote" href="question.php" onclick="voteDown(<?php echo $answer['answer_id'] ?>, 'answer');return false;" id="decrease-vote">
 								<img src="img/down.png" width="32" height="32">
 							</a>
 						</div>
