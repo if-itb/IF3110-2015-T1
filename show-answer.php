@@ -32,11 +32,25 @@
 		<title>Simple Stack Exchange - Show Answer</title>
 	</head>
 	<script type="text/javascript">
-	function delete_id(id) {
-	     if(confirm('Are you sure to delete this question?')) {
-	        window.location.href='http://127.0.0.1:8080/stack_exchange/index.php?delete_id='+id;
-	     }
-	}
+		function delete_id(id) {
+		     if(confirm('Are you sure to delete this question?')) {
+		        window.location.href='http://127.0.0.1:8080/stack_exchange/index.php?delete_id='+id;
+		     }
+		}
+		function validateForm() {
+		    var w = document.forms["answer"]["name"].value;
+		    var x = document.forms["answer"]["email"].value;
+		    var z = document.forms["answer"]["content"].value;
+			var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+		    if (w == null || w == "" || x == null || x == "" || z == null || z == "") {
+		        alert("Please fill all the text box");
+		        return false;
+		    } else if (!re.test(x)) {
+		    	alert("Please enter a valid e-mail");
+		    	return false;
+		    }
+		}
 	</script>
 	<body>
 		<h1>Simple Stack Exchange</h1>
@@ -91,7 +105,7 @@
         		}
 			}
 			echo "<h3>". "Your Answer". "</h3>";
-			echo '<form action="add-answer.php" method="post">';
+			echo '<form name="answer" action="add-answer.php" onsubmit="return validateForm()" method="post">';
 			echo '<input type="hidden" class="text" name="id" value='. $id. ">";
 			echo '<input placeholder="Name" type="text" name="name" class="text">'. "<br>". "<br>";
 			echo '<input placeholder="Email" type="text" name="email" class="text">'. "<br>". "<br>";

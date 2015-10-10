@@ -31,15 +31,23 @@
 		<title>Simple Stack Exchange</title>
 	</head>
 	<script type="text/javascript">
-	function delete_id(id) {
-	     if(confirm('Sure To Remove This Record ?')) {
-	        window.location.href='http://127.0.0.1:8080/stack_exchange/index.php?delete_id='+id;
-	     }
-	}
+		function delete_id(id) {
+		     if(confirm('Are you sure to delete this question?')) {
+		        window.location.href='http://127.0.0.1:8080/stack_exchange/index.php?delete_id='+id;
+		     }
+		}
+		function validateForm() {
+		    var w = document.forms["searchBar"]["search"].value;
+
+		    if (w == null || w == "") {
+		        alert("Please fill the text box");
+		        return false;
+		    }
+		}
 	</script>
 	<body>
 		<h1>Simple Stack Exchange</h1>
-		<form>
+		<form name="searchBar" onsubmit="return validateForm()">
 			<input type="text" name="search" style="width:94%;font-size:16px;">
 			<input type="submit" value="Search" style="font-size:16px;">
 		</form>
