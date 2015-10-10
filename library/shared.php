@@ -3,7 +3,7 @@
 	/* Main Call Function 
 	 * Parsing url-parameter dan menginstansiasi objek controller
 	 *
-	 * HOST/controllerName/actionName/queryString
+	 * HOST/ControllerName/ActionName/QueryString
 	 */
 	 
 	function callHook() {
@@ -19,7 +19,7 @@
 		$queryString = $urlArray;
  
     $controllerName = $controller;
-    $controller = ucwords($controller);
+    $controller = ucwords($controller); 
     $model = rtrim($controller, 's');
 
     $controller .= 'Controller';

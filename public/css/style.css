@@ -1,0 +1,271 @@
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: black;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: black;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: black;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: black;
+}
+
+p {
+	font-size: 15px;
+}
+
+h1 {
+	font-size: 35px
+}
+
+h2 {
+	font-size: 18px
+}
+
+h3 {
+	font-size: 17px;
+}
+
+h4 {
+	font-size: 16px;
+}
+
+h4 > a {
+	color: black;
+}
+
+h2 > a {
+	color: black;
+}
+
+hr {
+	border-width: 1px;
+	height: 0px;
+	border-color: black;
+}
+
+a {
+	text-decoration: none;
+	color: orange;
+}
+
+.name {
+	color: blue;
+}
+
+.delete {
+	color: red;
+}
+
+.container {
+	width: 50%;
+	margin: 30px auto;
+	padding: 10px 100px 30px 100px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.align-center {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: auto;
+	text-align: center;
+	clear: both;
+}
+
+.pull-left {
+	float: left;
+	margin: auto;
+}
+
+.pull-right {
+	float: right;
+	margin: auto;
+}
+
+#title {
+	position: relative;
+	top: 0px;
+}
+
+#search-form {
+	width: 530px;
+	height: 35px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-style: solid;
+	border-color: black;
+	border-width: 3px;
+	border-radius: 5px;
+}
+
+#search-btn {
+	height: 35px;
+	border-style: solid;
+	border-color: black;
+	border-width: 3px;
+	background: none;
+	border-radius: 5px;
+}
+
+#search {
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-top: 50px;
+}
+
+#ask {
+	position: relative;
+	top: 5px;
+}
+
+#thread-list-title {
+	padding-left: 5px;
+	margin-top: 30px;
+	margin-bottom: -10px;
+}
+
+#thread-new-title {
+	margin-top: 100px;
+	margin-bottom: -15px;
+}
+
+#thread-new-title > h2 {
+	font-size: 25px;
+}
+
+#thread-detail-title {
+	margin-top: 100px;
+	margin-bottom: -15px;
+}
+
+#thread-detail-title > h2 {
+	font-size: 25px;
+}
+
+#thread-answer-title {
+	margin-top: 20px;
+	margin-bottom: -20px;
+}
+
+#thread-answer-title > h2 {
+	font-size: 25px;
+}
+
+#your-answer {
+	padding-left: 30px;
+	margin-top: 20px;
+}
+
+#your-answer > h2 {
+	color: #999;
+	font-size: 25px;
+}
+
+#answer-form {
+	margin-top: -20px;
+	position: relative;
+	left: -10px;
+	width: 99.7%;
+}
+
+.floating-box {
+	display: inline-block;
+	text-align: center;
+	margin-left: 30px;
+	vertical-align: text-top;
+	margin-top: -15px;
+}
+
+.edit {
+	text-align: right;
+	clear: both;
+}
+
+.topic {
+	position: relative;
+	left: 20px;
+	text-align: justify;
+	padding-right: 20px;
+}
+
+.form {
+	margin-left: 10px;
+	margin-top: 20px;
+	margin-bottom: 50px;
+	padding: 2px;
+}
+
+form > input, textarea {
+	width: 98%;
+	margin: 2px;
+	padding: 5px;
+	border: solid black 1px;
+	border-radius: 2px;
+}
+
+textarea {
+	resize: none;
+}
+
+#submit {
+	float: right;
+	width: 50px;
+	margin-top: 10px;
+	margin-right: -2px;
+	border-radius: 2px;
+}
+
+#question, .answer {
+	margin-left: 30px;
+}
+
+table {
+	border: none;
+}
+
+.vote {
+	color: #999;
+	padding-right: 20px;
+	padding-top: 20px;
+	vertical-align: top;
+}
+
+#question-content, .answer-content {
+	text-align: justify;
+	vertical-align: text-top;
+}
+
+.answered {
+	text-align: right;
+	clear: both;
+	margin-right: 30px;
+}
+
+.upvote {
+	width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+	border-bottom: 10px solid #999;
+}
+
+.votes {
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 25px;
+}
+
+.downvote {
+	width: 0; 
+  height: 0; 
+  border-top: 10px solid #999;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
