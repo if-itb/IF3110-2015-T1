@@ -1,15 +1,12 @@
 <?php 
 	require_once("database.php");
 	
-	if (isset($_POST['type'])) {
-		if ($_POST['type'] == 'ask')
+	if (!empty($_POST)) {
 			postQuestion($_POST);
 	}
 	
-	$q = '';
-	if (isset($_GET['q']) && !is_null($_GET['q'])) {
-		$q = $_GET['q'];
-		$questions = getQuestions($_GET['q']);
+	if (isset($_GET['search']) && !is_null($_GET['search'])) {
+		$questions = getQuestions($_GET['search']);
 	} else {
 		$questions = getQuestions();
 	}	
@@ -29,20 +26,15 @@
 			</div>
 		
 			<div class ="searchbar">
-                <form action="/thread/search.php" action="GET">
+                <form action="home.php" action="GET">
                         <input type="text" class="form" style="width: 92%" name="search"> 
-						<input type="submit" value="Search">
-					    
-                        
-                            
-                    
-       
+						<input type="submit" value="Search">					                                                    
                 </form>
 			</div>
 		
 			<div class="center">
                 <p>
-                    Cannot find what you are looking for? <a href="ask.php">Ask Here</a>
+                    Cannot find what you are looking for? <a class="link_edit" href="ask.php">Ask Here</a>
                 </p>
             </div>
 		
@@ -68,7 +60,7 @@
 							<?php
 							$content = $question['content'];
 							if (strlen($content) > 100) {
-								echo substr($question['content'], 0, 110) . '...';
+								echo substr($question['content'], 0, 80) . '...' . "<font color=blue>[Click question to know more]</font>";
 							} else {
 								echo $content;
 							}

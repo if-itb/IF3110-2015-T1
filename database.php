@@ -46,7 +46,7 @@ function getQuestion($id)
 function postQuestion($data)
 {
 	global $conn;
-	$question = NULL;
+	$data['content'] = htmlspecialchars($data['content'], ENT_QUOTES);
 	if ($data['question_id'] == '')
 	{
 		//create new question
@@ -64,8 +64,7 @@ function postQuestion($data)
 				content='$data[content]'
 			WHERE
 				question_id = $data[question_id]";
-	}
-				      
+	}      
 	$q = mysqli_query($conn, $question);
 	return $q;
 }
@@ -99,6 +98,7 @@ function getAnswerCount($questionId) {
 
 function postAnswer($data) {
 	global $conn;
+	$data['content'] = htmlspecialchars($data['content'], ENT_QUOTES);
 	$q = "INSERT INTO answer (question_id, name, email, content, date)
           VALUES ('$data[question_id]','$data[name]','$data[email]', '$data[content]', CURRENT_TIMESTAMP)";
 		  

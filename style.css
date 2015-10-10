@@ -14,7 +14,7 @@ h2 {
 
 .searchbar{
 	width:80%;
-	margin : auto;
+	margin : 0 auto;
 }
 
 .center {
@@ -95,11 +95,11 @@ h2 {
 }
 
 a.link_edit:link {
-	color : green;
+	color : #FFA500;
 }
 
 a.link_edit:visited {
-	color : green;
+	color : #FFA500;
 }
 
 a.link_edit:hover {

@@ -30,7 +30,6 @@
 				<input type="text" class="form" placeholder="Question Topic" name="title" value="<?php echo $data['title'] ?>"" >
 				<textarea class="form" placeholder="Content" rows="5" name="content"><?php echo $data['content'] ?></textarea>
 				<input type="hidden" name="question_id" value="<?php echo $question_id ?>">
-				<input type="hidden" name="type" value="ask">
 				<div class="right">
 					<input type="submit" value="Post">
 				</div>

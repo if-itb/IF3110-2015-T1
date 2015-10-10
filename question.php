@@ -1,10 +1,8 @@
 <?php 
 	require_once("database.php");
 
-	if (isset($_POST['question_id'])) {
-		if ($_POST['type'] == 'answer') {
+	if (!empty($_POST)) {
 			postAnswer($_POST);
-		}
 	}
 
 	if (!isset($_GET['id'])) {
@@ -94,7 +92,6 @@
 			<div class="right" style="margin-bottom:50px"> 
 				<input type="submit" value="Post" >
 			</div>
-			<input type="hidden" name="type" value="answer" />
 			<input type="hidden" name="question_id" value="<?php echo $_GET['id'] ?>" />
 		</form>
 		</div>
