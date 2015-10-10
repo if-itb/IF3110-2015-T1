@@ -50,7 +50,7 @@
     }
 
     // Query untuk mengambil data dari MySQL 
-    $sql="SELECT content, email, topic, id  FROM qlist";
+    $sql="SELECT content, email, topic, id  FROM qlist ORDER BY id DESC";
 
     // Hasil dari query yang sudah diambil
     $result=mysqli_query($link,$sql);
