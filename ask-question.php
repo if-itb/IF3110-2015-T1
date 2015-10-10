@@ -17,7 +17,7 @@
 
 <div class = "container">
 	<h2> What's Your Question? <hr> </h2>
-	<form method="POST" action="answerpage.php">
+	<form method="POST" action="question-page.php">
 		<input type="text" name="name" id="name" placeholder="Name">
 		<br>
 		<input type="text" name="email" id="email" placeholder="Email">
