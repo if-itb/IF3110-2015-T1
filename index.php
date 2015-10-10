@@ -31,8 +31,14 @@
         $email = $_POST["email"];
         $topic = $_POST["topic"];
         $content = $_POST["content"];
+        $id = $_POST["id"];
+    if ($id == "NULL"){
+        $sql="INSERT INTO qlist (name, email, topic, content)  VALUES ('$name', '$email', '$topic', '$content')";
+    }
+    else {
+        $sql="UPDATE qlist SET name='$name', email='$email', topic='$topic', content='$content' WHERE id='$id'";
 
-    $sql="INSERT INTO qlist (name, email, topic, content)  VALUES ('$name', '$email', '$topic', '$content')";
+    }
     $result=mysqli_query($link,$sql);
     }
 
