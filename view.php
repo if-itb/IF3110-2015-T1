@@ -101,7 +101,7 @@ echo
         <textarea name='content' id='content' rows='10' maxlength='1500' placeholder='Content'></textarea>
       </div>
       <br>
-      <input id='submit' type='submit' value='Submit' width=40>
+      <input id='submit' type='submit' value='Submit'>
     </form>
   </div>
 </div>

@@ -7,8 +7,6 @@
   <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-<div class="topbar">
-</div>
 <div class="title-box">
 <a href = "/">
   <h1>Simple Stack Exchange</h1><br>

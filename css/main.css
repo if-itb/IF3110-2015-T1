@@ -11,7 +11,7 @@ a { text-decoration: none; }
 
 h3, h2 { font-family: sans-serif, Helvetica; }
 .searchbar { margin-top: 20px; }
-body { width: 700px; margin: auto; }
+body { max-width: 700px; margin: auto; }
 p, h3 { margin-top: 0em; margin-bottom: 0em; }
 textarea { resize : none; }
 .question-details h3 { font-size: 26; }
@@ -27,7 +27,7 @@ textarea { resize : none; }
 .question-summary a, .question-details a { color: black; }
 
 .question-menu { margin-left: 10px; float: right;}
-.question-content { padding-left: 30px; float: left; width: 646;}
+.question-content { padding-left: 30px; float: left; max-width: 646px;}
 .votes-counter { float: left; width: 7%; }
 .answers-counter { float: left; width: 10%; }
 
@@ -48,7 +48,7 @@ hr { width: 100%; }
 
 .thread-editor div * {
   margin-top: 5px;
-  width: 700px;
+  width: 100%;
 }
 
 .vote { width: 16; float: left; }
