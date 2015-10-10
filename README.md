@@ -89,7 +89,9 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+Validasi pada client-side dilakukan dengan mengecek tiap kotak input apakah isi kotak input masih kosong ketika user melakukan postingan baik untuk pertanyaan maupun jawaban. Untuk pengecekan validasi email, digunakan regular expression untuk memastikan bahwa email tersebut adalah email yang valid.
+
+Pada saat user mengklik tombol vote (baik upvote maupun downvote), terdapat sebuah flag untuk menandakan apakah browser sedang melakukan AJAX atau tidak, sehingga pada satu saat, user hanya dapat melakukan satu buah AJAX yang gunanya untuk memastikan AJAX yang sebelumnya telah dilakukan berhasil sebelum melakukan AJAX yang baru. Lalu, ketika ingin melakukan AJAX, javascript membuat object XHR (create) lalu mempersiapkan (prepare) data data yang ingin dikirimkan dan juga memberikan masing masing callback yang akan dieksekusi jika berhasil atau tidaknya AJAX tersebut. Setelah itu, XHR pun dikirimkan (send) kepada URL yang bersangkutan. Apabila response dari server adalah berhasil, maka vote akan ditambahkan langsung pada tampilan depan. Jika gagal, maka vote tidak akan ditambahkan pada halaman depan. Ini berlaku untuk kedua tipe vote (upvote dan downvote)
 
 ### Knowledge
 
