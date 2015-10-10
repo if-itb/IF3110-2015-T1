@@ -1,0 +1,180 @@
+i, b {
+  font-style: normal;
+  font-weight: 400;
+}
+
+body, html {
+  margin-left: 15%;
+  background-color: #ffffff;
+}
+
+body, td, input, textarea {
+  font-family: Myriad pro;
+  font-size: 26px;
+  line-height: 1.5;
+  color: #111111;
+} 
+
+button {
+  cursor: pointer;
+  margin left:100%;
+}
+
+h1{
+
+}
+
+.vote{
+  float: left; 
+  width:15%;
+  text-align: center;
+
+}
+.votes{
+  margin-top: 2%;
+  margin-left:3%;
+  float: left; 
+  font-size: 34px;
+  text-align: center;
+}
+.voteas{
+   font-size: 40px;
+  text-align: center;
+  margin-left: 10%;
+
+}
+#voteq{
+  font-size: 40px;
+  text-align: center;
+   margin-left: 10%;
+}
+.konten{
+
+  float: left;
+  margin-top: 20px;
+  margin-left:8%;
+  width: 70%;
+}
+.tekskuning{
+  color: #ffd71b;
+}
+.teksbiru{
+  color:blue;
+}
+.teksmerah{
+  color: red;
+}
+.answer{
+  float: left;
+  width:15%;
+  text-align:center;
+}
+.quest{
+  float: left;
+  width:35%;
+  margin-left:3%;
+}
+.asked{
+  float: left;
+  width:30%;
+  text-align: right;
+
+   margin-top:2%;
+
+}
+.by{
+   margin-top:12%;
+  margin-left: 60%;
+  text-align: right;
+  width:35%;
+
+}
+.error{
+    color: red;
+}
+.byans{
+  margin-top:12%;
+  margin-left: 60%;
+  text-align: right;
+  width:35%;
+}
+
+.brands{
+  text-align: center;
+  background-color: #12617b;
+  color: #ffffff;
+}
+.atas{
+  background-color: #12617b;
+  margin-left: -14.9%;
+  width: 92.2%;
+}
+.bawah{
+  background-color: #efefef;
+  width:92.2%;
+  margin-left: -15%;
+}
+
+.middle{
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+.header{
+  font-size: 30px;
+  line-height: 1.5;
+  margin-right: 25%;
+  text-align: right;
+}
+.headers{
+  font-size: 45px;
+  line-height: 1.5;
+  margin-right: 25%;
+  text-align: right;
+}.headersk{
+  font-size: 45px;
+  line-height: 1.5;
+  margin-right: 74%;
+  text-align: right;
+}
+.line{
+  display: block;
+  height: 3px;
+  border: 1px;
+  width:100%;
+  border-top: 6px solid #ffffff;
+  margin: 1em 0;
+  padding: 0;
+}
+.span4{
+  width: 80%;
+  border: 3px solid #e1e1e1;
+  margin-top: 1%;
+  margin-left: 4%;
+  background-color: #ffffff;
+  height: 50px;
+}
+.span41{
+  width: 80%;
+  border: 3px solid #e1e1e1;
+  background-color: #ffffff;
+  height: 300px;
+  margin-top: 1%;
+  margin-left: 4%;
+}
+.span42{
+  margin-left: 6%;
+  width: 80%;
+   height: 50px;
+  border: 4px solid #efefef;
+  margin-bottom: 10px;
+}
+* {
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+   
+}
+ .css-input { border-style:solid; border-radius:18px; font-size:16px; background-color:#d6d6d6; border-color:#d6d6d6; border-width:7px; text-align:center; font-family:cursive; font-weight:normal; color:#5ea8dd; padding:0px;  } 
+     .css-input:focus { outline:none; } 
+
