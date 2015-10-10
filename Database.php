@@ -1,44 +1,49 @@
 <?php
 
-include("./Connect.php");
+include("Connect.php");
 
-function countVote(){
+/* Fungsi buat Question */
 
-
-}
-
-function vote(){
-
-
-}
 
 function countAnswer($qID){
+	
+	
+}
+
+function getQuestion(){
 	global $conn;
-	$query = "SELECT answer FROM question WHERE id = $qID";
+	$query = "SELECT * FROM question";
 	$rquery = mysqli_query($conn, $query);
-	$result = mysqli_fetch_array($rquery, MYSQLI_ASSOC)["answer"];
+	$questions = array();
+	
+	while ($row = mysqli_fetch_array($rquery, MYSQLI_ASSOC)){
+		$questions[] = $row;
+	}
+	
+	return $questions;
+
+}
+
+function getQuestionByID($qID){
+	global $conn;
+	$query = "SELECT * FROM question WHERE q_id = $qID";
+	$rquery = mysqli_query($conn, $query);
+	$result = mysqli_fetch_array($rquery, MYSQLI_ASSOC);
 	return $result;
 }
+
+/* Fungsi buat Answer */
 
 function getAnswer(){
 
 
 }
 
-function postAnswer(){
-
-
-}
-
-
-function getQuestion($qID){
+/* Delete Question */
+function deleteQuestion($qID){
 	global $conn;
-	$query = "SELECT * FROM question WHERE id = $qID";
+	$query = "DELETE FROM question WHERE q_id = $qID";
 	$rquery = mysqli_query($conn, $query);
-	
-	$row = mysqli_fetch_array($rquery, MYSQLI_ASSOC);
-	return $row;
-
-}
-
+	return $rquery;
+}	
 ?>

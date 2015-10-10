@@ -1,10 +1,8 @@
 <?php
+	require_once("./Database.php");
 	include("./Header.php");
 ?>
 
-<head>
-
-<link rel="stylesheet" href="style.css">
 
 <script>	
 function validateForm() {
@@ -54,31 +52,41 @@ function loadDoc(){
 		}
 	}
 
-	xhttp.open("POST", "/AJAX/Ask_post.php", true);
+	xhttp.open("POST", "Ask_post.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send(askPost);
 }
 
 </script>
 
-</head>
-
-
-<body>
+<?php
+	$question = getQuestionByID($_GET['id']);
+?>
 
 <!-- Question -->
 <div class = "center">
 	<div class = "left">
-		<p2> What's your question? </p2>
+		<p2> <?php echo $question["q_topic"];?> </p2>
 	</div>
 	
+	<table>
+		<tr>
+			<td>
+				<?php echo $question["q_vote"];?>
+				
+			</td>
+			<td>
+				<?php echo $question["q_content"];?>
+			</td>
+		</tr>
+
+	</table>
 	<table>
 		<tr>
 			<td>
 				<form action = "Home.php" method = "post" name = "Ask">
 					<input type= "text" name= "Name" size = "64" placeholder = "Name" id = "Name"/><br/>	
 					<input type= "text" name= "Email" size = "64" placeholder = "Email" id = "Email"/><br/>
-					<input type= "text" name= "Topic" size = "64" placeholder = "Question Topic" id = "Topic"/><br/>
 					<textarea name = "Content" rows="4" cols="65" placeholder = "Content" id = "Content"></textarea><br/>
 		
 					<div class = "right"><input type = "button" onclick = "validateForm()" value = "Post" /> </div>
