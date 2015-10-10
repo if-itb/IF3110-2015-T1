@@ -55,7 +55,9 @@
 							echo "Answers";
 						echo "</td>";
 						echo '<td rowspan="2">';
-							echo "asked by " . $row["name"] . " | edit | delete";
+							$delete_hyperlink = 'href="question-delete.php?id=' . $row["id"] . '">';
+							$delete_hyperlink = str_replace(' ', '', $delete_hyperlink);
+							echo "asked by " . $row["name"] . ' | edit | <a ' . $delete_hyperlink . 'delete</a>';
 						echo "</td>";
 					echo "</tr>";
 				}
