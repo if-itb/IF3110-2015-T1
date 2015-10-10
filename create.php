@@ -3,7 +3,7 @@
 	<head>
 		<title>Home Page</title>
         <link rel="stylesheet" href="style.css" >
-        
+        <script type="text/javascript" src="script_question.js"></script>
 	</head>
 
 	<body>
@@ -31,7 +31,7 @@
 		</form>
 		</div>
         
-        <script type="text/javascript" src="script.js"></script>
+        
 	</body>	
 
 </html>

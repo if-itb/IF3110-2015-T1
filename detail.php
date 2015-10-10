@@ -3,7 +3,7 @@
 <head>
 	<title>Detail</title>
 	<link rel="stylesheet" href="style.css">
-	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="script_answer.js"></script>
    
 </head>
 <body>
@@ -12,34 +12,9 @@
          <?php include "detailquestion_replace.php"; ?>
     </div>
     
-    <div class="board">
-        <strong>1 Answer</strong>
-    </div>
-    <div class="board">
-        <div class="votequestform">
-            <div class="vote">
-                <div class="vote-up">
-                
-                </div>
-                
-                <div class="vote-count">
-                    2
-                </div>
-                
-                <div class="vote-down">
-                
-                </div>
-            </div>
-            
-            <div class="question">
-                isi dari jawaban
-            </div>
-            
-            <div class="detaileditor">
-            answered by name at date
-            </div>
-        </div>        
-    </div>
+    <?php include "detailanswer_replace.php" ?>
+    
+   
 
     
     <div class="board">
