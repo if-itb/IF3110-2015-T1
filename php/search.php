@@ -12,7 +12,7 @@ require_once("connectDatabase.php");
 $keyword=$_POST['keyword'];
 
 #Ambil data dari database
-$query = "select * from questions WHERE qcontent LIKE '%".$keyword."%'";
+$query = "select * from questions WHERE (qcontent LIKE '%".$keyword."%') OR (qtopic LIKE '%".$keyword."%')";
 $result = mysqli_query($link, $query) ;
 $resArray = array();
 while($row =mysqli_fetch_assoc($result))

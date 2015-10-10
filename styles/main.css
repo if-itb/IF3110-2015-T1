@@ -247,6 +247,7 @@ a:visited {
 
 .elemA {
     max-height: none;
+    margin-top: 10px;
 }
 .elemAuthor {
     width: 100%;

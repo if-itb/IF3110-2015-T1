@@ -45,7 +45,6 @@ mysqli_close($link);
     <title>Detail</title>
     <link rel="stylesheet" href="../styles/main.css">
     <link href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,700italic,300' rel='stylesheet' type='text/css'>
-
     <script src="../scripts/detail.js"></script>
     <script src="../scripts/handler.js"></script>
     <script src="../scripts/validate.js"></script>
@@ -89,7 +88,11 @@ mysqli_close($link);
     </div>
 
     <form name="goToDelete" action="deleteQuestion.php" method="POST">
-        <input type="hidden" name="idDeleted" value=<?php echo $id ?>/>
+        <input type="hidden" name="idDeleted" value="<?php echo $id ?>"/>
+    </form>
+
+    <form name="goToEdit" action="EditQuestion.php" method="POST">
+        <input type="hidden" name="idEdited" value="<?php echo $id ?>"/>
     </form>
 
     <script>

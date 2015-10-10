@@ -1,7 +1,8 @@
 function createDetail() {
     makePresentation();
     createHandlerVoteQuestion();
-    createDeleteHandlerForDetail()
+    createDeleteHandlerForDetail();
+    createEditHandlerForDetail();
     document.getElementById('submitBtn').onclick=function(event){
         var name = document.getElementById('name');
         var email = document.getElementById('email');
