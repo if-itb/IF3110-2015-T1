@@ -39,7 +39,7 @@
 	<title >Ask A Question</title>
 </head>
 <body>
-		<h1 id="MainTitle">Simple StackExhange</h1>
+		<h1 id="MainTitle">Simple StackExchange</h1>
 	<div id="MainDiv">	
 		<h3 id="SubTitle">What's your question?</h3>
 		<hr>
