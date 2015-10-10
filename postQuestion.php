@@ -11,14 +11,13 @@ function SubmitQuestion() {
 	$topic = $_POST['topic']; 
 	$content = $_POST['content'];
 	$vote = filter_input(INPUT_POST, '0', FILTER_VALIDATE_INT);
+	$init_ans = filter_input(INPUT_POST, '0', FILTER_VALIDATE_INT);
 	$timestamp = date('Y-m-d H:i:s');
 	//Insert data to question table
-	$query = "INSERT INTO question (name,email,topic,content,vote,timeask) VALUES ('$name','$email','$topic','$content','$vote','$timestamp')";
-	//Insert data into question table 
-	//$queryLogIn = "INSERT INTO email (email,pass) VALUES ('$email', '$content')";
+	$query = "INSERT INTO question (name,email,topic,content,vote,timeask,num_ans) VALUES ('$name','$email','$topic','$content','$vote','$timestamp','$init_ans')";
+	//Insert data into question table
 	$data = mysql_query ($query)or die(mysql_error()); 
-	//$dataLogIn = mysql_query ($queryLogIn)or die(mysql_error()); 
-	if($data) //&& $dataLogIn) 
+	if($data)
 	{
 	 echo "<script type='text/javascript'>alert('We have noted your question. Thank you and hope you get your answer') 
 		window.location.href='index.php';</script>";

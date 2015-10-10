@@ -27,49 +27,38 @@
     </center>
     <div>
       <?php
-      echo "<table style='border: solid 1px black;'>";
-      echo "<tr><th>Id</th><th>Topic</th><th>name</th></tr>";
-
-      class TableRows extends RecursiveIteratorIterator { 
-          function __construct($it) { 
-              parent::__construct($it, self::LEAVES_ONLY); 
-          }
-
-          function current() {
-              return "<td style='width:150px;border:1px solid black;'>" . parent::current(). "</td>";
-          }
-
-          function beginChildren() { 
-              echo "<tr>"; 
-          } 
-
-          function endChildren() { 
-              echo "</tr>" . "\n";
-          } 
-      } 
-
-      $servername = "localhost";
-      $username = "root";
-      $password = "";
-      $dbname = "tubeswbd";
-
-      try {
-          $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-          $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-          $stmt = $conn->prepare("SELECT topic,name FROM question LIMIT 10"); 
-          $stmt->execute();
-
-          // set the resulting array to associative
-          $result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-          foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $key=>$value) { 
-              echo $value;
-          }
-      }
-      catch(PDOException $e) {
-          echo "Error: " . $e->getMessage();
-      }
-      $conn = null;
-      echo "</table>";
+         $dbhost = 'localhost';
+         $dbuser = 'root';
+         $dbpass = '';
+         
+         $conn = mysql_connect($dbhost, $dbuser, $dbpass);
+         
+         if(! $conn )
+         {
+            die('Could not connect: ' . mysql_error());
+         }
+         
+         $sql = 'SELECT name, topic, vote, num_ans FROM question';
+         mysql_select_db('tubeswbd');
+         $retval = mysql_query( $sql, $conn );
+         
+         if(! $retval )
+         {
+            die('Could not get data: ' . mysql_error());
+         }
+         
+         while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
+         {
+            echo 
+                "EMP ID :{$row['id']}  <br> ".
+               "EMP NAME : {$row['name']} <br> ".
+               "EMP SALARY : {$row['topic']} <br> ".
+               "<br>";
+         }
+         
+         echo "More here\n";
+         
+         mysql_close($conn);
       ?>
     </div>
     
