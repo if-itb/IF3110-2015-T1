@@ -3,7 +3,7 @@
     namespace utils\response;
 
     function render($filename, $data){
-        $path = ROOT . 'views/' . $filename;
+        $path = ROOT . '/views/' . $filename;
         include $path;
     };
 
