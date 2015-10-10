@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css">
+		<title>Stack Exchange</title>
+	</head>
+	<body>
+		<h1>Simple StackExchange</h1>
+		<br>
+		<h2 class="header">The question topic goes here</h2>
+		<p>Question</p>
+		<h2 class="header">1 Answer</h2>
+		<div class="question_box">
+			<div class = "vote_box">
+				vote
+			</div>
+			<div class="question_detail">
+				lorem ipsum
+			</div>
+			<div class="asked_by_detail">asked by name | edit | delete</div>
+		</div>
+		<div class="question_box">
+			<div class = "vote_box">
+				vote
+			</div>
+			<div class="question_detail">
+				lorem ipsum
+			</div>
+			<div class="asked_by_detail">asked by name | edit | delete</div>
+		</div>
+		<div class="question_box">
+			<div class = "vote_box">
+				vote
+			</div>
+			<div class="question_detail">
+				lorem ipsum
+			</div>
+			<div class="asked_by_detail">asked by name | edit | delete</div>
+		</div>
+		<p>Your Answer</p>
+		<form>
+			<div id = "name_box">
+				<input type="text" name="asker_name" placeholder="Name"><br>
+				<input type="text" name="asker_email" placeholder="Email"><br>
+			</div>
+			<div>
+				<textarea placeholder="Content"></textarea><br><br>
+			</div>
+			<div id = "post_button">
+				<input type="submit" value="Post">
+			</div>
+		</form>
+	</body>
+</html>

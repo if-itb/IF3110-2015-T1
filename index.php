@@ -5,33 +5,37 @@
 		<title>Stack Exchange</title>
 	</head>
 	<body>
-		<h1>Simple StackExchange</h1>
+		<h1>Simple StackExchange</h1><br>
+		<form>
+			<div id="search_box">
+				<input type="text" name="search" placeholder="Search">
+				<input type="submit" name="search_button" value="Search">
+			</div>
+		</form>
+		<p class="ask">Cannot find what you are looking for? <a class="ask" href=#>Ask here</a></p>
+		<br>
+		<p>Recently Asked Question</p>
+		<div class="list">
+			<div class="vote">0<br>Votes</div>
+			<div class="answer_count">0<br>Answers</div>
+			<div class="question_topic">The question topic goes here</div>
+			<div class="asked_by">asked by name | edit | delete</div>
+		</div>
+		<div class="list">
+			<div class="vote">0<br>Votes</div>
+			<div class="answer_count">0<br>Answers</div>
+			<div class="question_topic">The question topic goes here</div>
+			<div class="asked_by">asked by name | edit | delete</div>
+		</div>
+		<div class="list">
+			<div class="vote">0<br>Votes</div>
+			<div class="answer_count">0<br>Answers</div>
+			<div class="question_topic">The question topic goes here</div>
+			<div class="asked_by">asked by name | edit | delete</div>
+		</div>
 	</body>
-	<?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$db_name = "stack_exchange";
-	
-	$conn = new mysqli($servername, $username, $password, $db_name);
-	
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-	} 
-	
-	$sql = "SELECT * FROM question";
-	$result = $conn->query($sql);
-	
-	$row = $result->fetch_assoc();
-	while($row) {
-		echo "Nama : ".$row["asker_name"]."<br>Email : ".$row["asker_email"]."<br>Topic : ".$row["question_topic"]."<br>Content : ".$row["question_content"]."<br>Vote : ".$row["question_vote"]."<br>";
-		$sql = "SELECT count(answer_id) FROM answer WHERE question_id=" . $row["question_id"];
-		//echo $sql;
-		$count = $conn->query($sql);
-		$row = $count->fetch_assoc();
-		echo "Jumlah jawaban : ".$row["count(answer_id)"]."<br><br>";
-		$row = $result->fetch_assoc();
-	}
-	$conn->close();
-	?>
 </html>
+
+
+
+
