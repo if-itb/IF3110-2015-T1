@@ -29,6 +29,16 @@
 				$sql = "INSERT INTO question (name, email, question_topic, content) VALUES ('$name', '$email', '$topic', '$content')";
 				$conn->query($sql);
 			}
+			else if ($_SERVER["REQUEST_METHOD"] == "GET") {
+				$id = $_GET["id"];
+				$sql = "SELECT * FROM question WHERE questionID=$id";
+				$result = mysqli_query($conn, $sql);
+				$row = mysqli_fetch_assoc($result);
+				$name = $row["name"];
+				$email = $row["email"];
+				$topic = $row["question_topic"];
+				$content = $row["content"];
+			}
 
 			// Close connection
 			mysqli_close($conn);
