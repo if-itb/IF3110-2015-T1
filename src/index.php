@@ -44,7 +44,7 @@
 							echo $row["answers"];
 						echo "</td>";
 						echo '<td rowspan="2" width="60%">';
-							echo $row["topic"];
+							echo '<a href="question-detail.php?id=' . $row["id"] . '">' . $row["topic"] . '</a>';
 						echo "</td>";
 					echo "</tr>";
 					echo "<tr>";

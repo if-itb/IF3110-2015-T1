@@ -20,11 +20,13 @@
 	
 	$sql = "DELETE FROM " . $tablename . " WHERE id=".$_GET["id"];
 	if (mysqli_query($link, $sql)) {
-		echo "New question created successfully";
+		echo "Question deleted successfully";
 		header("Location: index.php");
 		exit;
 	}
 	else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($link);
 	}
+	
+	mysql_close($link);
 ?>
