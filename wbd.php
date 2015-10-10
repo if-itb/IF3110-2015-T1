@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="wbd.css">
+	<link rel="stylesheet" type="text/css" href="wbd1.css">
 	<title>13513018_Steven Andianto</title>
 </head>
 <body>
@@ -47,6 +47,12 @@
 		echo "New record created successfully!";
 		}
 		}
+		else if($_SERVER['REQUEST_METHOD'] == 'GET'){
+			if(isset($_GET['id'])) {
+				$id = $_GET['id'];
+				$conn ->query("DELETE FROM question WHERE id = $id");
+			}
+		}
 		$q = "SELECT * from question";
 		if (!$result = $conn -> query($q)){
 				die('Error Query['.$conn -> error.']');
@@ -58,8 +64,8 @@
 			echo	'<tr>';
 			echo	'<td id="td1">'.$row['vote'].'<br>Votes</td>';
 			echo	'<td id="td1">0<br>Answers</td>';
-			echo 	'<td id="td2">'.$row['topic'].'</td>';
-			echo	'<td id="td3">asked by <a href="wbd2.php" id="blue">'.$row['nama'].'</a> | <a href="wbd2.php?id='.$row['id'].'" id="yellow">edit</a> | <a href="wbd2.php" id="red">delete</a></td>';
+			echo 	'<td id="td2"><a href="wbd3.php?id='.$row['id'].'" id="blue">'.$row['topic'].'</a></td>';
+			echo	'<td id="td3">asked by <blue>'.$row['nama'].'</blue>  | <a href="wbd2.php?id='.$row['id'].'"><yellow>edit</yellow></a> | <a href="wbd.php?id='.$row['id'].'"><red>delete</red></a></td>';
 			echo	'</tr>';
 			echo	'</table>';
 			echo	$row['id'];
