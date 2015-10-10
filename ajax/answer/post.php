@@ -5,7 +5,7 @@
    $content = $_POST["content"];
    $question_id = $_POST["id"];
 
-   define("ROOT", $_SERVER['DOCUMENT_ROOT'] ."/../");
+   define("ROOT", $_SERVER['DOCUMENT_ROOT']);
 
    require_once(ROOT . '/utils/response/render.php');
    require_once(ROOT . '/utils/mysql/connection.php');

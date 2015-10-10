@@ -2,7 +2,7 @@
     
     $question_id = $_GET["id"];
 
-    define("ROOT", $_SERVER['DOCUMENT_ROOT'] ."/../");
+    define("ROOT", $_SERVER['DOCUMENT_ROOT']);
 
     require_once(ROOT . '/utils/response/render.php');
     require_once(ROOT . '/utils/mysql/connection.php');
