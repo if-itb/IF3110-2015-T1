@@ -1,6 +1,6 @@
 <?php
     if (isset($_GET['id'])){
-        require 'ConnectDatabase.php';
+        require 'Data/ConnectDatabase.php';
         $update = true;
         $id = $_GET['id'];
         $query = "SELECT * FROM questions WHERE ID = $id";
@@ -24,8 +24,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script type = "text/javascript" src="Assets/Validator.js"></script>
-    <link rel ="stylesheet" type="text/css" href="Assets/Index.css">
+    <script type = "text/javascript" src="Assets/js/Validator.js"></script>
+    <link rel ="stylesheet" type="text/css" href="Assets/css/Index.css">
     <title>Simple StackExchange</title>
 
 </head>
@@ -37,7 +37,7 @@
     </div>
     <div id = "content">
         <h2>What's Your Question?</h2>
-        <form name = "q_form" action="Data_Manipulation/adding_question.php" onsubmit="return validate_QForm()" method = "post">
+        <form name = "q_form" action="Data/adding_question.php" onsubmit="return validate_QForm()" method = "post">
             <input type = "hidden" name = "id" value = "<?php echo $id; ?>">
             <input type = "hidden" name = "update" value = "<?php echo $update; ?>">
             <input type = "text" name = "name" placeholder = "Name" value = "<?php echo $author; ?>">

@@ -1,6 +1,18 @@
+<script type="text/javascript" src='Assets/js/Confirmation.js'></script>
 <?php
-    require 'ConnectDatabase.php';
-    $query = "SELECT * FROM questions";
+    $search = '';
+    if($_SERVER['REQUEST_METHOD']=='GET'){
+        if(isset($_GET['search'])){
+            $search =$_GET['search'];
+        }
+    }
+    require 'Data/ConnectDatabase.php';
+    if($search=='') {
+        $query = "SELECT * FROM questions";
+    }
+    else{
+        $query = "SELECT * FROM questions WHERE topic LIKE '%{$search}%' OR content LIKE '%{$search}%'";
+    }
     $result = mysql_query($query);
     $num = mysql_num_rows($result);
     $i = 0;
@@ -30,7 +42,7 @@
         echo"</div></div></div>";
         echo"<div class = 'details'>Asked by <span class = 'b_link'>$author </span>|
                             <a href = 'AskQuestion.php?id=$id' class = 'y_link'> edit </a>|
-                            <a href='Data_Manipulation/DeleteQuestion.php?id=$id' class = 'r_link' onclick= \"return confirm('Are You Sure?');\">delete</a><br></div>";
+                            <a href='Data/DeleteQuestion.php?id=$id' class = 'r_link' onclick= \"return confirm('Are You Sure?');\">delete</a><br></div>";
 
         $i++;
     }
