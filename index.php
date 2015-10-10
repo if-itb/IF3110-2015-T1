@@ -39,10 +39,11 @@ while ($row = $result->fetch_assoc()) {
 	echo '<tr>';
 	echo '<td class = "votes">' . $row['Votes'] . '<br>Votes</td>';
 	echo '<td class = "answers">' . $row['Answers'] . '<br>Answers</td>';
-	echo '<td class = "question"><a href = "answer.php?id=' . $row['QuestionID'] . '">' . $row['Topic'] . '</a><br>' . $row['Question'] . '</td>';
+	echo '<td class = "content"><a href = "answer.php?id=' . $row['QuestionID'] . '">' . $row['Topic'] . '</a><br>' . $row['Question'] . '</td>';
 	echo '<td class = "asked">asked by <a class = "blue">' . $row['Name'] . '</a> at <a class = "blue">' . $row['Datetime'] . '</a> | <a href = "ask.php?id=' . $row['QuestionID'] . '" class = "yellow">edit</a> | <a class = "red" href = "index.php?id=' . $row['QuestionID'] . '">delete</a></td>';
-	echo '<tr>';
+	echo '</tr>';
 }
+echo '<tr></tr>';
 $db->close();
 ?>
 </table>
