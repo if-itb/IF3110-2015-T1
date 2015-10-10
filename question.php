@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 
      <?php
+			ini_set('short_open_tag', 'on');
 			$servername = "localhost";
 			$username = "root";
 			$password = "12345";
@@ -54,6 +55,8 @@
 
 			} else if (isset($_GET['id'])){
 				$id = (int)$_GET['id'];
+				$edit="edit.php?id=".$id;
+				$delete="delete.php?id=".$id;
 
 				$listq = "SELECT name, email, topic, content, vote FROM question WHERE id=$id";
 				$result = $conn->query($listq);
@@ -83,7 +86,7 @@
 				<h2><?php echo $topic?></h2>
 				<p><?php echo $content?></p>
 				<div class="question-sign">
-					<p>asked by <?php echo $name?> | edit | delete</p>
+					<p>asked by <?php echo $name?> | <a href=<?=$edit ?>>edit</a> | <a href=<?=$delete ?>>delete</a></p>
 				</div>
 			</div>
 			

@@ -48,6 +48,7 @@
 			    while($row = $result->fetch_assoc()) {
 						$url="question.php?id=".$row["id"];
 						$edit="edit.php?id=".$row["id"];
+						$delete="delete.php?id=".$row["id"];
 						echo
 						"<div class=\"question-home\">
 								<span id=\"vote\">". $row["vote"]."<br>Votes</span>
@@ -58,7 +59,7 @@
 								</span>
 						</div>
 						<div class=\"question-sign\">
-							<p>asked by ".$row["name"]." | <a href=".$edit.">edit</a> | delete</p>
+							<p>asked by ".$row["name"]." | <a href=".$edit.">edit</a> | <a href=".$delete.">delete</a></p>
 						</div>
 						";
 
