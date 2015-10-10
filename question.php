@@ -21,20 +21,39 @@ else{
     $row = $result->fetch_assoc();
 }
 ?>
+
+<script type="text/javascript">
+    function vote(id,type,result){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+				if(type == 'question')
+					document.getElementById("questionvote").innerHTML = xhttp.responseText;
+				else
+					document.getElementById("answervote"+id).innerHTML = xhttp.responseText;
+            }
+        }
+        xhttp.open("POST", "./vote.php", true);
+        xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        xhttp.send("action=" +result+ "&id=" + id + "&type=" + type);
+    }
+
+</script>
+
 <div class="question_section">
     <h2><?php echo $row['topic'] ?></h2>
     <hr>
     <div class="question_content">
         <table>
             <tr>
-                <td><a id="increase_vote"><img src="img/up.png" width="32" height="32"></a></td>
+                <td><a href=javascript:vote(<?php echo $id?>,'question','up')><img src="img/up.png" width="32" height="32"></a></td>
                 <td class="content" rowspan="3"><?php echo $row['content'] ?></td>
             </tr>
             <tr>
-                <td class="vote"><?php echo $row['vote'] ?></td>
+                <td class="vote" id="questionvote"><?php echo $row['vote'] ?></td>
             </tr>
             <tr>
-                <td><a id="decrease_vote"><img src="img/down.png" width="32" height="32"></a></td>
+                <td><a href=javascript:vote(<?php echo $id?>,'question','down')><img src="img/down.png" width="32" height="32"></a></td>
             </tr>
         </table>
         <div class="creator">asked by <span class="creator_name"><?php echo $row['name'] ?></span>
@@ -63,14 +82,14 @@ else{
     <div class="answer_content">
         <table>
             <tr>
-                <td><a id="increase_vote"><img src="img/up.png" width="32" height="32"></a></td>
+                <td><a href=javascript:vote(<?php echo $row['id']?>,'answer','up')><img src="img/up.png" width="32" height="32"></a></td>
                 <td class="content" rowspan="3"><?php echo $row['content']?></td>
             </tr>
             <tr>
-                <td class="vote"><?php echo $row['vote']?></td>
+                <td class="vote" id="answervote<?php echo$row['id']?>"><?php echo $row['vote']?></td>
             </tr>
             <tr>
-                <td><a id="decrease_vote"><img src="img/down.png" width="32" height="32"></a></td>
+                <td><a href=javascript:vote(<?php echo $row['id']?>,'answer','down')><img src="img/down.png" width="32" height="32"></a></td>
             </tr>
         </table>
     </div>
@@ -103,7 +122,7 @@ else{
         <input type="text" placeholder="Email" name="email" id="emailbox" />
         <textarea name="content" placeholder="Content" id="contentbox"></textarea>
         <input type="submit" value="Post" name="Submit" id="submit"/>
-        <input type="hidden" name="type" value="answer"  />
+        <input type="hidden" name="type" value="answer_input"  />
         <input type="hidden" name="question_id" value="<?php echo $id ?>"  />
     </form>
 </div>

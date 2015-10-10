@@ -1,17 +1,12 @@
 <?php
-DEFINE('USER','root');
-DEFINE('PASSWORD','');
-DEFINE('HOST','localhost');
-DEFINE('NAME','StackExchange');
-
-$conn = mysqli_connect(HOST, USER, PASSWORD, NAME);
-if(!$conn){
+$db = mysqli_connect('localhost', 'root', '', 'StackExchange');
+if(!$db){
     die("Connection unsuccessful".mysqli_connect_error());
 }
 $sql = NULL;
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if($_POST['type'] == 'question'){
+    if($_POST['type'] == 'question_input'){
 		if ($_POST['ask_id'] == '') {
             $sql = "INSERT INTO question (name, email, topic, content, date, vote)
         VALUES ('$_POST[name]','$_POST[email]','$_POST[topic]','$_POST[content]', NOW(),0)";
@@ -27,27 +22,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 				id = $_POST[ask_id]";
         }
     }
-    else if($_POST['type'] == 'answer'){
+    else if($_POST['type'] == 'answer_input'){
         $sql = "INSERT INTO answer (name, question_id, email, content, date, vote)
         VALUES ('$_POST[name]','$_POST[question_id]','$_POST[email]','$_POST[content]', NOW() ,0)";
     }
-	if (mysqli_query($conn,$sql)) {
-        echo "New records inserted successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+	$rq = mysqli_query($db,$sql);
 }
 else if($_SERVER['REQUEST_METHOD'] == 'GET') {
 		if (isset($_GET['id']) && $_GET['type'] == 'delete') {
 			$sql = "DELETE from question WHERE id=$_GET[id]";
-			if (mysqli_query($conn,$sql)) {
-				echo "Records deleted successfully";
-			} else {
-				echo "Error: " . $sql . "<br>" . $conn->error;
-			}
+			$rq = mysqli_query($db,$sql);
 		}
 }
     
-$conn->close();
+$db->close();
 
 ?>

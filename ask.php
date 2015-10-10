@@ -52,7 +52,7 @@ else{
     <input type="text" placeholder="Question Topic" name="topic" id="topicbox" value="<?php echo $row['topic']?>"/>
     <textarea name="content" placeholder="Content" id="contentbox"><?php echo $row['content']?></textarea>
     <input type="submit" value="Post" name="Submit" id="submit"/>
-    <input type="hidden" name="type" value="question" />
+    <input type="hidden" name="type" value="question_input" />
     <input type="hidden" name="ask_id" value="<?php echo $id ?>"  />
 </form>
 </html>
