@@ -56,8 +56,8 @@
 						echo "</td>";
 						echo '<td rowspan="2">';
 							$delete_hyperlink = 'href="question-delete.php?id=' . $row["id"] . '">';
-							$delete_hyperlink = str_replace(' ', '', $delete_hyperlink);
-							echo "asked by " . $row["name"] . ' | edit | <a ' . $delete_hyperlink . 'delete</a>';
+							$edit_hyperlink = 'href="question-edit.php?id=' . $row["id"] . '">';
+							echo "asked by " . $row["name"] . ' | <a ' . $edit_hyperlink . 'edit</a> | <a ' . $delete_hyperlink . 'delete</a>';
 						echo "</td>";
 					echo "</tr>";
 				}
