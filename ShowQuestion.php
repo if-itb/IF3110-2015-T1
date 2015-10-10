@@ -26,6 +26,8 @@
 				$email = $_POST["email"];
 				$topic = $_POST["topic"];
 				$content = $_POST["content"];
+				$vote = 0;
+				$answers = 0;
 				$sql = "INSERT INTO question (name, email, question_topic, content) VALUES ('$name', '$email', '$topic', '$content')";
 				$conn->query($sql);
 			}
@@ -38,6 +40,8 @@
 				$email = $row["email"];
 				$topic = $row["question_topic"];
 				$content = $row["content"];
+				$vote = $row["vote"];
+				$answers = $row["answers"];
 			}
 
 			// Close connection
@@ -47,10 +51,27 @@
 		<div class="container">
 			<h1>Simple StackExchange</h1><br>
 			<h2><?php echo $topic ?></h2><br>
-			<p>
-				<?php echo $content ?>
-			</p>
-			<p> asked by <?php echo $name ?> at <?php echo 'tanggal' ?>|edit|delete</p>
+			<table>
+				<tr>
+					<td style="width:15%; text-align:center">
+						<img src="up.png" style="width:20px;height:20px;"><br>
+				    	<p style="font-size:40px; margin:0; color:lightgrey"> <?php echo $vote ?> </p>
+						<img src="down.png" style="width:20px;height:20px;">
+				    </td>
+				    <td style="vertical-align:top">
+				    	<?php echo $content ?><br>
+				    </td>
+				</tr>
+			</table>
+			<p style="text-align:right">asked by <?php echo $name ?> at <?php echo 'tanggal' ?>|edit|delete</p>
+			<h2><?php echo $answers ?> Answer</h2><br>
+			<p style="font-size:30px; margin:0; color:grey"> Your Answer </p>
+			<form method="POST">
+				<input type="text" name="name" id="inputtext1" placeholder="Name"><br>
+				<input type="text" name="email" id="inputtext1" placeholder="Email"><br>
+				<textarea name="content" id="content" placeholder="Content"></textarea><br><br>
+				<input type="submit" value="Post">
+			</form>
 		</div>
 		
 	</body>

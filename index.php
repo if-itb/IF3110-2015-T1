@@ -25,12 +25,12 @@
 				$sql = "SELECT * FROM question";
 				$result = mysqli_query($conn, $sql);
 				if (mysqli_num_rows($result) > 0) {
-					echo "<table>";
+					echo '<table style="table-layout: fixed">';
 					while($row = mysqli_fetch_assoc($result)) {
 						$mlink = "/stackExchange/ShowQuestion.php?id=";
 						$link = '<a href='.$mlink.$row["questionID"].' style="color: black; text-decoration:none">'.$row["question_topic"]."</a>";
 				    	echo
-				    	'<tr>
+				    	'<tr style="border-top: 2px solid #000; height: 80px;">
 				    		<td style="width:10%; text-align:center">'
 				    			.$row["vote"].'<br>Votes
 				    		</td>
