@@ -1,7 +1,10 @@
 <?php
 	include "connect.php"; 
-	//$id = mysqli_real_escape_string($conn, $_GET['id']);
-	//echo htmlspecialchars($_SERVER["PHP_SELF"]);
+	 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+          $name = $_POST["name"];
+          $email = $_POST["email"];
+          $topic = $_POST["topic"];
+          $content = $_POST["content"];}
 	date_default_timezone_set('Asia/Jakarta');
 	$datetime = date('Y/m/d h:i:s a', time());
 	$sql = "INSERT INTO question (Q_name, Q_email, Q_topic, Q_content, Q_Datetime) 
