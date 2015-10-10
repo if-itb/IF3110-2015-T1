@@ -10,7 +10,7 @@ body, html {
 
 body, td, input, textarea {
   font-family: Myriad pro;
-  font-size: 26px;
+  font-size: 20px;
   line-height: 1.5;
   color: #111111;
 } 
@@ -66,7 +66,7 @@ h1{
 }
 .answer{
   float: left;
-  width:15%;
+  width:10%;
   text-align:center;
 }
 .quest{
@@ -76,7 +76,7 @@ h1{
 }
 .asked{
   float: left;
-  width:30%;
+  width:35%;
   text-align: right;
 
    margin-top:2%;
@@ -84,9 +84,9 @@ h1{
 }
 .by{
    margin-top:12%;
-  margin-left: 60%;
+  margin-left: 40%;
   text-align: right;
-  width:35%;
+  width:55%;
 
 }
 .error{
@@ -94,9 +94,9 @@ h1{
 }
 .byans{
   margin-top:12%;
-  margin-left: 60%;
+  margin-left: 40%;
   text-align: right;
-  width:35%;
+  width:55%;
 }
 
 .brands{
