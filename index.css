@@ -1,0 +1,46 @@
+h1 {
+	text-align:center;
+}
+
+input[type="search"]{
+    position: absolute;
+    top: 150px;
+    left: 400px;
+    width: 476px;
+    padding: 5px;
+    border:3px solid #000000;
+}
+
+input[type="submit"]{
+	position: absolute;
+	top: 150px;
+	left: 886px;
+	width: 80px;
+	padding: 5px;
+    border:3px solid #000000;
+    background-color: #FFFFFF;
+}
+
+p.cannot{
+	position: absolute;
+    text-align: center;
+    top: 170px;
+    left: 400px;
+    width: 476px;
+}
+
+a.ask{
+	position: absolute;
+	top: 185px;
+	left: 763px;
+	width: 100px;
+	color: #FFD700;
+	text-decoration: none;
+}
+
+p.recent{
+	position: absolute;
+	top: 200px;
+	left: 390px;
+	font-size: 22px;
+}
