@@ -6,21 +6,19 @@
  * Time: 14:37
  */
 
-ini_set('display_errors',1);
-ini_set('display_startup_errors',1);
-error_reporting(-1);
-
+#Sambungan database
 require("connectDatabase.php");
 
+#Variable id pertanyaan yang akan dihapus
 $idDeleted = $_POST['idDeleted'];
 
 #Execute Query
 
-#Menghapus jawaban - jawaban dari pertanyaan yang akan dihapus
+//Menghapus jawaban - jawaban dari pertanyaan yang akan dihapus
 $query = "DELETE FROM answers WHERE q_id='$idDeleted'";
 mysqli_query($link,$query);
 
-#Menghapus pertanyaan
+//Menghapus pertanyaan
 $query1 = "DELETE FROM questions WHERE q_id='$idDeleted'";
 mysqli_query($link,$query1);
 

@@ -12,7 +12,7 @@ $password = "baptiso";
 $database = "stackExchange";
 $link = mysqli_connect("localhost", $user, $password, $database);
 
-
+#Cek apakah terjadi error
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
     exit();

@@ -4,10 +4,8 @@
 
 function createList(){
     window.onbeforeunload = function() {} ;
-    /************************************************
-     * AJAX
-     */
 
+    // AJAX request
     var xmlhttp = new XMLHttpRequest();
     var url = "php/getList.php";
     xmlhttp.onreadystatechange=function() {
@@ -19,19 +17,14 @@ function createList(){
     xmlhttp.send();
 
 
-
-
-
-    /******************************************************
-     * Membuat List Dinamis Berdasarkan Hasil dari Database
-     */
+    //Membuat List Dinamis Berdasarkan Hasil dari Database
     var body = document.getElementsByClassName('container')[0];
     var listQuestions = document.createElement('div');
     listQuestions.className="table";
     var question,qelemen;
 
     function createResult(response) {
-        var arr = JSON.parse(response);
+        var arr = JSON.parse(response); // Parsing data JSON dari AJAX response
         for (var i = 0; i < arr.length; i++) {
             question = document.createElement('div');
             question.className = "row clearfix";
@@ -71,8 +64,9 @@ function createList(){
             }
             listQuestions.appendChild(question);
         }
-
         body.appendChild(listQuestions);
+
+        // Membuat handler untuk klik pada topik pertanyaan akan menuju ke halaman detail
         var topics = document.getElementsByClassName("topic");
         for (var i=0;i<topics.length;i++) {
             topics[i].onclick = function() {
@@ -80,8 +74,8 @@ function createList(){
                 document.goToDetail.submit();
             }
         }
-        createDeleteHandlerForList();
-        createEditHandlerForList();
+        createDeleteHandlerForList(); // Membuat handler untuk delete pertanyaan
+        createEditHandlerForList(); // Membuat handler untuk edit pertanyaan
     }
 }
 

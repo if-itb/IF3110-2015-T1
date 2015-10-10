@@ -5,18 +5,24 @@
  * Date: 10/10/15
  * Time: 12:01
  */
+
+#Sambungan database
 require_once("connectDatabase.php");
+
+#ID pertanyaan yang akan diedit
 $idEdited = $_POST["idEdited"];
 
+#Apakah request berasal dari Detail page , jika YA akan redirect kembali ke Detail page
 $isFromDetailPage = $_POST["isFromDetailPage"];
 
+#Mengambil field-field dari pertanyaan yang akan diedit
 $query = "SELECT * FROM questions WHERE q_id=$idEdited";
 $result = mysqli_query($link,$query);
 
+#Mem-fetch hasilnya
 $row =mysqli_fetch_assoc($result);
 
 mysqli_close($link);
-
 
 ?>
 
@@ -32,7 +38,8 @@ mysqli_close($link);
 <body>
 <div class="header"><a href="../index.html"><h1>Simple StackExhange</h1></a></div>
 <div class="container">
-    <h2>What's your question?</h2>
+    <h2>Edit your question!</h2>
+<!--Field dari form diIsi dengan field-field yang telah diperoleh dari database-->
     <form name="questionForm"  action="addQuestion.php" method="POST">
         <input type="text"  id="name" name="name" placeholder="Name" value="<?php echo $row['name'] ?>"/>
         <input type="text"  id="email" name="email" placeholder="Email" value="<?php echo $row['email'] ?>"/>
@@ -45,8 +52,8 @@ mysqli_close($link);
 </div>
 
 <script>
-
     (function(){
+        //Melakukan validasi
         document.getElementById('submitBtn').onclick=function(event){
             var name = document.getElementById('name');
             var email = document.getElementById('email');
@@ -57,6 +64,7 @@ mysqli_close($link);
             }
             else
             {
+                //Mencegah submit jika field masih belum valid
                 event.preventDefault();
             }
         }

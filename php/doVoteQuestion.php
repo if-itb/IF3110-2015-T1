@@ -6,20 +6,14 @@
  * Time: 14:27
  */
 
-$user = "tiso";
-$password = "baptiso";
-$database = "stackExchange";
-$link = mysqli_connect("localhost", $user, $password, $database);
+#Sambungan database
+require_once("connectDatabase.php");
 
-/* Cek Koneksi Database */
-if (mysqli_connect_errno()) {
-    printf("Connect failed: %s\n", mysqli_connect_error());
-    exit();
-}
-
+#ID pertanyaan yang akan diVote
 $qID = $_POST['qID'];
-$operation = $_POST['operation'];
+$operation = $_POST['operation'];  // voteUp atau voteDown
 
+#Update vote dari database
 if($operation=="plus"){
     $query = "UPDATE questions  SET vote = vote + 1 WHERE q_id=$qID";
     mysqli_query($link, $query);
@@ -31,11 +25,14 @@ else
 }
 
 
+#Mengambil vote yang sudah diupdate
 $query = "SELECT vote FROM questions WHERE q_id=$qID";
 $result = mysqli_query($link, $query);
 
+#Mem-Fetch hasilnya
 $row =mysqli_fetch_assoc($result);
 
+#Meng-echo hasilnya sebagai AJAX response
 echo $row['vote'];
 
 mysqli_close($link);

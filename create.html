@@ -25,6 +25,7 @@
 
 (function(){
     document.getElementById('submitBtn').onclick=function(event){
+        // Validasi form
         var name = document.getElementById('name');
         var email = document.getElementById('email');
         var qtopic = document.getElementById('qtopic');
@@ -34,6 +35,7 @@
         }
         else
         {
+            // Mencegah submit apabila form belum valid
             event.preventDefault();
         }
     }

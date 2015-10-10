@@ -3,11 +3,12 @@
  */
 
 function search(str) {
-    var arr =JSON.parse(str);
+    var arr =JSON.parse(str); // Parse data JSON
+
+    // Membuat elemen HTML berdasarkan array hasil search
     var body = document.getElementsByClassName('container')[0];
     var listQuestions = document.createElement('div');
     listQuestions.className="table";
-
     var question,qelemen;
     for (var i = 0; i < arr.length; i++) {
         question = document.createElement('div');
@@ -51,6 +52,8 @@ function search(str) {
         listQuestions.appendChild(question);
     }
     body.appendChild(listQuestions);
+
+    // Membuat Handler untuk menuju ke halaman detail apabila user klik ke salah satu pertanyaan
     var rows = document.getElementsByClassName("row");
     for (var i=0;i<rows.length;i++) {
         rows[i].onclick = function() {

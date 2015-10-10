@@ -1,9 +1,12 @@
 function createDetail() {
-    makePresentation();
-    createHandlerVoteQuestion();
-    createDeleteHandlerForDetail();
-    createEditHandlerForDetail();
+    makePresentation();         // Membuat presentasi detail dalam bentuk elemen HTML
+    createHandlerVoteQuestion(); // Membuat handler untuk Vote pertanyaan
+    createDeleteHandlerForDetail(); // Membuat handler untuk Delete pertanyaan
+    createEditHandlerForDetail();   // Membuat handler untuk Edit pertanyaan
+
+    // Handler untuk submit jawaban
     document.getElementById('submitBtn').onclick=function(event){
+        //Validasi form
         var name = document.getElementById('name');
         var email = document.getElementById('email');
         var acontent = document.getElementById('acontent');
@@ -12,17 +15,19 @@ function createDetail() {
         }
         else
         {
+            // Mencegah submit apabila form belum valid
             event.preventDefault();
         }
     }
-    document.cookie="refreshed=true;";
 }
 
 
 function makePresentation() {
     var x = document.getElementById("x").innerHTML;
-    var res = JSON.parse(x);
+    var res = JSON.parse(x); // Parse JSON data menjadi array Javascript
     var answer = document.getElementsByClassName("answer")[0];
+
+    // Membuat elemen HTML berdasarkan array yang telah diperoleh
     for(var i=0;i<res.length;i++) {
         var row = document.createElement("div");
         row.className = "row clearfix";
@@ -74,5 +79,5 @@ function makePresentation() {
         answer.appendChild(row);
     }
 
-    createHandlerVoteAnswer();
+    createHandlerVoteAnswer();  // Membuat handler untuk vote Jawaban
 }

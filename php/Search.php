@@ -6,21 +6,27 @@
  * Time: 6:50
  */
 
+#Sambungan database
 require_once("connectDatabase.php");
 
 #Keyword yang diinput oleh user
 $keyword=$_POST['keyword'];
 
-#Ambil data dari database
+#Ambil data dari database sesuai keyword
 $query = "select * from questions WHERE (qcontent LIKE '%".$keyword."%') OR (qtopic LIKE '%".$keyword."%')";
 $result = mysqli_query($link, $query) ;
+
+#Fetch hasilnya ke dalam array
 $resArray = array();
 while($row =mysqli_fetch_assoc($result))
 {
     array_push($resArray,$row);
 }
+
+#Encode array hasil menjadi data JSON
 $json = json_encode($resArray);
 
+#Escape beberapa Karakter spesial
 $json = str_replace('"','\"', $json);
 $json = str_replace("'","\'",$json);
 $json = str_replace("\\r","\\\\r",$json);
@@ -47,9 +53,12 @@ $json = str_replace("\\n","\\\\n",$json);
         </div>
         <button class="searchBtn" type="submit">Search</button>
     </form>
+
+    <!-- Hidden form untuk post id pertanyaan Detail.php-->
     <form name="goToDetail" action="Detail.php" method="POST">
         <input type="hidden" name="idClicked" value=""/>
     </form>
+
     <h4><?php echo count($resArray)?> Question about '<?php echo $keyword ?>'</h4>
 <script>
     (function() {
