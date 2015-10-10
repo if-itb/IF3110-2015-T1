@@ -1,6 +1,31 @@
 <!DOCTYPE html>
 <html>
 	<head>
+        
+        <script>
+        function validateForm() {
+           var x = document.forms["answer"]["name"].value;
+            if (x == null || x == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+            var x = document.forms["answer"]["email"].value;
+            if (x == null || x == "") {
+                alert("Email must be filled out");
+                return false;
+            }
+            else{
+                var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+                return re.test(email);
+            }
+            var x = document.forms["answer"]["content"].value;
+            if (x == null || x == "") {
+                alert("Content must be filled out");
+                return false;
+            }
+        }
+        </script>
+        
 		<?php
 			if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$con = mysqli_connect("localhost","root","","wbd");
@@ -12,9 +37,20 @@
 				  }
 				else
 				{
+                    $sql =  "SELECT * FROM question WHERE question_id=".$_GET["id"];
+								$result = $con->query($sql);
+
+								if ($result->num_rows > 0) {
+									while($row = $result->fetch_assoc()) {	
+                                        
+                                        $ans=$row["answer"]+1;
+										 mysqli_query($con,"UPDATE question SET answer='$ans' WHERE question_id='$_GET[id]'");
+									}
+								}
+                    
 					mysqli_query($con,"INSERT INTO answer (name,email,content,question_id,vote,date) 
 					VALUES ('$_POST[name]','$_POST[email]','$_POST[content]',".$_GET["id"].",0,NOW())");
-
+                    
 					mysqli_close($con);
 				}
 			}
@@ -46,24 +82,44 @@
 						if ($result->num_rows > 0) {	
 							while($row = $result->fetch_assoc()) {	
 								echo "<div>";
-								echo "<h1>".$row["questiontopic"]."</h1>";
-								echo "<p>".$row["content"]."</p>";
-								
+                                    echo "<h2>".$row["questiontopic"]."</h2>";
+                                    echo '<div class="columnsmall left"><p>'. $row["vote"].'</p>'.'<p>Votes</p>'.'</div>';
+                                    echo '<div class="columnlargest center">';
+                                       
+                                        echo "<p>".$row["content"]."</p>";
+                                        $answer=$row["answer"];
+                                    echo "</div>";
+								echo "</div>";
+                                echo '<div class="footer">';
+                                   echo '<p>asked by 
+												'. $row["name"].' at '.$row["date"].' |
+												<a class="edit" href="question.php?id='.$row["question_id"].'">edit</a> |
+												<a class="delete" href="index.php?id='.$row["question_id"].'&rule=delete" onclick="return checkDelete()">delete</a>
+								        </p>';
 								echo "</div>";
 							}
 						}
 						
 						echo "<div>";
-						echo "<h1>".$row["answer"]." Answer</h1>";
+						echo "<h2>".$answer." Answer</h2>";
 						$anssql = "SELECT * FROM answer WHERE question_id=".$_GET["id"];
 						$ansresult = $con->query($anssql);
 
 						if ($ansresult->num_rows > 0) {	
 							while($row = $ansresult->fetch_assoc()) {	
 								echo "<div class='answer'>";
-								echo "<p>".$row["content"]."</p>";
-								
+								    echo '<div class="columnsmall left"><p>'. $row["vote"].'</p>'.'<p>Votes</p>'.'</div>';
+                                    echo '<div class="columnlargest center">';
+                                       
+                                        echo "<p>".$row["content"]."</p>";
+                                    echo "</div>";
+								echo '<div class="footer">';
+                                        echo '<p>answered by 
+												'. $row["name"].' at '.$row["date"];'
+								        </p>';
 								echo "</div>";
+								echo "</div>";
+                               
 							}
 						}
 						echo "</div>";
@@ -74,7 +130,7 @@
 				?>
 				<div>
 					<h3>Your Answer</h3>
-					<?php echo '<form action="answer.php?id='.$_GET["id"]. '" method="post" class="form">' ?>
+					<?php echo '<form name="answer" action="answer.php?id='.$_GET["id"]. '" method="post" onsubmit="return validateForm()" class="form">' ?>
 						<input type="text" name="name" placeholder="Name"><br>
 						<input type="text" name="email" placeholder="Email"><br>
 						<textarea name="content" placeholder="Content"></textarea>

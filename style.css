@@ -23,11 +23,18 @@
 	font-size: 220%;
 }
 
+.main h2 {
+	font-weight:normal;
+	border-bottom: 3px solid black ;
+    margin-bottom: 0px;
+	font-size: 220%;
+}
 
 .main h5 {
 	font-weight:normal;
 	font-size:150%;
 	margin-top:5px;
+    margin-bottom: 0px;
 }
 
 .main h6 {
@@ -88,6 +95,12 @@ a{
 	font-size: 100%;
 }
 
+.main .answer {
+	font-weight:normal;
+	border-bottom: 3px solid black ;
+	font-size: 100%;
+}
+
 .main .columnsmall{
 	display:inline-block;
 	margin:0;
@@ -97,6 +110,11 @@ a{
 	display:inline-block;
 	margin:0;
 	width:35%
+}
+.main .columnlargest{
+	display:inline-block;
+	margin:0;
+	width:85%
 }
 
 .left{
@@ -127,4 +145,8 @@ a{
 }
 .delete{
 	color:red;
+}
+
+.footer{
+    text-align:right;
 }
