@@ -1,0 +1,77 @@
+body
+{
+	font-family : calibri;
+	text-align : center;
+	margin-left : 20%;
+	margin-right : 20%;
+}
+
+.header
+{
+	font-size : 30px;
+	color : blue;
+}
+
+.judulform
+{
+	font-size : 28px;
+	font-weight: bold;
+	border-bottom : 3.5px solid;
+	margin-bottom : 4px;
+}
+
+.header2
+{
+	font-size : 20px;
+}
+
+.link
+{
+	color : yellow;
+	text-decoration : none
+}
+
+.text-center 
+{
+	text-align : center;
+}
+
+.text-right
+{
+	text-align : right;
+}
+
+.text-left
+{
+	text-align : left;
+}
+
+.text-justify
+{
+	text-align : justify;
+}
+
+.form-submit
+{
+	border : 2px solid;
+	margin : 0.5cm;
+	padding : 5px 8px 5px 8px;
+	width : 80px;
+	height : 30px;
+	font-size : 14px;	
+}
+
+.form-textbox 
+{
+	border : 2px solid;
+	height : 25px;
+	width : 805px;
+	font-size : 14px;
+}
+
+textarea
+{
+	width : 800px;
+	border : 2px solid;
+	font-size : 15px;
+}
