@@ -98,18 +98,21 @@ Validasi form pada client side, dilakukan dengan menggunakan javascript. Setiap 
 `var name = document.getElementById('name');`.
 
 Semua field tersebut dipassing sebagai argumen ke sebuah fungsi yang melakukan validasi. Iterasi untuk semua field , lakukan :
-1.**Pengecekan apakah setiap field sudah terisi**, menggunakan `if(arguments[i].value.trim()==='')`
+
+ 1. **Pengecekan apakah setiap field sudah terisi**.
+Menggunakan `if(arguments[i].value.trim()==='')`
 Jika bernilai true, maka field kosong, tidak valid dan return false. Jika semua field valid untuk pengecekan pertama, lanjut ke pengecekan kedua.
-2. **Cek apakah format email valid**. 
-Pertama - tama cek apakah field yang sedang di periksa adalah field untuk email, hal ini bisa dilakukan dengan mencek id/name/class dari field tersebut :
-`if(arguments[i].id==="email")`. Jika field tersebut adalah  email, kita lakukan validasi, dengan membandingkan apakah value dari email yang diisi sesuai dengan regular expression untuk sebuah email yang valid.
+
+ 2. **Cek apakah format email valid**. 
+Pertama - tama cek apakah field yang sedang di periksa adalah field untuk email, hal ini bisa dilakukan dengan mencek id/name/class dari field tersebut : `if(arguments[i].id==="email")`. 
+Jika field tersebut adalah  email, kita lakukan validasi, dengan membandingkan apakah value dari email yang diisi sesuai dengan regular expression untuk sebuah email yang valid.
 
     `var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     return re.test(email);`
-  
-   Regular expression diatas bisa dimodifikasi sesuai dengan kompleksitas yang diinginkan.
-    
- Validasi diatas dilakukan sampai form valid. Jika belum valid, diberikan peringatan kepada user, dalam hal ini ditambahkan error styling pada  setiap field yang belum valid (Border input berwarna merah).
+
+Regular expression diatas bisa dimodifikasi sesuai dengan kompleksitas yang diinginkan.
+
+Validasi diatas dilakukan sampai form valid. Jika belum valid, diberikan peringatan kepada user, dalam hal ini ditambahkan error styling pada  setiap field yang belum valid (Border input berwarna merah).
 
 
 ----------
@@ -118,7 +121,8 @@ Pertama - tama cek apakah field yang sedang di periksa adalah field untuk email,
 #### Melakukan AJAX untuk Vote
 
 Pada saat user menekan tombol vote, kita ambil id dari pertanyaan/jawaban yang sedang di vote. Kemudian dilakukan langkah - langkah sebagai berikut :
-1. **AJAX request**
+
+ 1. **AJAX request**
     - Membuat objek httprequest : `var http = new XMLHttpRequest();`
     - Set URL untuk request, contohnya untuk vote pertanyaan  : `var url = "doVoteQuestion.php";`
     - Tambahkan parameter, dalam hal ini, nilai ID dari pertanyaan yang akan di vote dan operasi nya ( voteUp/voteDown ). Contoh :
@@ -129,18 +133,18 @@ Pada saat user menekan tombol vote, kita ambil id dari pertanyaan/jawaban yang s
     `http.setRequestHeader("Content-length", params.length);`
      `http.setRequestHeader("Connection", "close");`
     - Mengirim parameter : `http.send(params);`
-2. AJAX request diatas **diterima oleh sisi server**, dalam hal ini `doVoteQuestion.php`. Dilakukan :
+ 
+ 2. AJAX request diatas **diterima oleh sisi server**, dalam hal ini `doVoteQuestion.php`. Dilakukan :
     - Menerima parameter postnya dengan `$_POST`, yakni untuk `qID` dan `operation`.
     - Berdasarkan operatornya dilakukan update nilai vote ( yang nilai `q_ID = qID` ) dari tabel `questions` yang ada pada database. Vote ditambah/dikurangi 1 berdasarkan `operation` yang dipost.
     - Vote yang telah diupdate kemudian di `SELECT` dari tabel `questions` pada database sesuai dengan `qID`nya.
     - Melakukan `echo/print` dari hasi select diatas, sebagai response text yang akan diterima oleh client side
-3. Pada sisi client, setelah mengirim request pada no 1, menunggu dan **menerima response** dari server pada no 2.
-
-    http.onreadystatechange = function () {
+ 3. Pada sisi client, setelah mengirim request pada no 1, menunggu dan **menerima response** dari server pada no 2.
+    `http.onreadystatechange = function () {
                 if (http.readyState == 4 && http.status == 200) {
                     document.getElementsByClassName("qVoteVal")[0].innerHTML = http.responseText;
                 }
-            }
+            }`
     
 
 Di dalam `if` diatas, dilakukan update pada elemen HTML yang menunjukkan jumlah vote dari pertanyaan yang bersangkutan, dimana nilainya menjadi = `http.responseText` atau hasil response dari server (`doVoteQuestion.php`).
@@ -163,5 +167,3 @@ Asisten IF 3110 2015
 Fahziar | Gilang | Lingga | Reza | Sudib | Tito | Willy K2 | Yafi
 
 Dosen : Yudistira Dwi Wardhana | Riza Satria Perdana
-
-
