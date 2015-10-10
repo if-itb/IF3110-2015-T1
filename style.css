@@ -10,21 +10,21 @@ div.mid-right > p{
 	max-width: 100px;
 }
 
-form#question {
+form#question ,form#answer{
 	margin-left: 10%;
 	height: 300px;
 	margin-right: 10%;
 }
 
 /* It means that input is the first child of form with id = question */
-form#question > input[type="submit"]{
+form#question > input[type="submit"] , form#answer > input[type="submit"]{
 	border-width: thin;
 	display: block;
 	margin-top: 10px;
 	float: right;
 }	
 
-form#question > input[type="text"]{
+form#question > input[type="text"], form#answer > input[type="text"]{
 	display: block;
 	width: 100%;
 	height: 15px;
@@ -35,7 +35,7 @@ form#question > input[type="text"]{
 	font-color: black;
 }	
 
-form#question > textarea{
+form#question > textarea, form#answer > textarea{
     display:block;
     width: 100%;
     height: 120px;
@@ -151,7 +151,7 @@ form#question > textarea{
 	color: orange;
 }
 
-.question{
+.question {
 	font-size: 15px;
 	border-bottom: 2px solid black;
 	margin-left: 11%;

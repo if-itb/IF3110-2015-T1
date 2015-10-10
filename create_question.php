@@ -1,16 +1,41 @@
 <?php
 
   require_once("./controller.php");
+  
+  $question = array();
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      if (isset($id)){
+        updateQuestion($question,$id);
+      }
+      else{
+        $question['q_id'] = $POST['q_id'];
+        $question['name'] = $_POST['name'];
+        $question['email'] = $_POST['email'];
+        $question['topic'] = $_POST['topic'];
+        $question['content'] = $_POST['content'];
+        $question['q_update'] = $_POST['q_update'];    
+        postQuestion($question);        
+      }
 
-    $question = array();
-    $question['name'] = $_POST['name'];
-    $question['email'] = $_POST['email'];
-    $question['topic'] = $_POST['topic'];
-    $question['content'] = $_POST['content'];
-    postQuestion($question);
+  }
 
+  if (isset($_GET['id'])){
+      $id = $_GET['id'];
+      $question = getQuestion($id);
+      $name = $question['name']; 
+      $email = $question['email']; 
+      $topic = $question['topic'];
+      $content = $question['content'];
+      $update = $question['q_update'];    
+  }
+  else{
+      $id = 0;
+      $name = "";
+      $email = "";
+      $topic = "";
+      $content = "";
+      $update = false;
   }
 
 ?>
@@ -36,11 +61,13 @@
     
       <!--javascript Form Validation -->
       <form name="question_form" id="question" action="" onsubmit="return validateQuestionForm()" method="post"  > 
-         <input type="text" name="name" placeholder="Name">
-         <input type="text" name="email" placeholder="Email" >
-         <input type="text" name="topic" placeholder="Question Topic">
-         <textarea name="content" placeholder="Content"></textarea>
-         <input type="submit" class="submitButton" value="Post"> 
+        <input type="hidden" name="q_id" value="<?php echo $id; ?>">
+        <input type="text" name="name" placeholder="Name" value="<?php echo $name; ?>">
+        <input type="text" name="email" placeholder="Email" value="<?php echo $email; ?>">
+        <input type="text" name="topic" placeholder="Question Topic" value="<?php echo $topic; ?>">
+        <textarea name="content" placeholder="Content"><?php echo $content; ?></textarea>
+        <input type="hidden" name="q_update" value="<?php echo $update; ?>">
+        <input type="submit" class="submitButton" value="<?php echo ($update)? 'Update' : 'Post'; ?>"> 
         
       </form>
     </div>
