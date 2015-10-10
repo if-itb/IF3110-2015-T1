@@ -91,6 +91,21 @@ body {margin-left : 20%;
 	  vertical-align: bottom;
 	  text-align : right;
 }
+#tdq1 {width : 200px;
+		height : 100px;
+		vertical-align : center;
+		text-align : center;
+}
+#tdq2 {width : 800px;
+		height : 100px;
+		vertical-align : top;
+		text-align : left;
+}
+#tdq3 {width : 1000px;
+		height : 100px;
+		vertical-align : top;
+		text-align : right;
+}
 hr {border : 2px solid;
 	border-color : black;
 }
