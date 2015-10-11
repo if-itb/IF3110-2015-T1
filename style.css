@@ -40,6 +40,18 @@ div#div2 {
 	margin-right: 100px;
 }
 
+div#div3 {
+	width: 700px;
+	padding-left: 230px;
+	padding-right: 230px;
+	margin-left: 100px;
+	margin-right: 100px;
+}
+
+div#div4 {
+	border-bottom: 2px solid black;
+}
+
 input[type=search] {
 	width: 600px;
 	height: 25px;
