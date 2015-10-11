@@ -61,7 +61,7 @@ a.ask {
 
 .list {
 	width: 98%;
-	height: 100px;
+	height: 150px;
 	border-top: 2px black solid;
 	clear: both;
 }
@@ -71,35 +71,48 @@ a.ask {
 	text-align: center;
 	width: 10%;
 	height: 70px;
-	padding-top: 30px;
+	padding-top: 60px;
 	padding-bottom: 5px;
 	font-size: 14px;
+	
 }
 
-.question_topic {
+.question {
 	float: left;
-	width: 50%;
+	width: 53%;
+	font-size: 13px;
 	padding-left: 10px;
-	padding-top: 10px;
+	padding-top: 20px;
+	text-align: justify;
+}
+
+a.question_topic {
+	font-size: 16px;
 }
 
 .asked_by {
 	float: right;
 	width: 25%;
 	text-align: right;
-	padding-top: 80px;
-	font-size: 13px;
+	padding-top: 130px;
+	font-size: 12px;
 }
 
 .asked_by_detail {
 	clear: left;
 	float: right;
-	width: 25%;
+	width: 50%;
 	text-align: right;
 	font-size: 13px;
 }
 
 .question_box {
+	width: 100%;
+	height: 220px;
+}
+
+
+.answer_box {
 	width: 100%;
 	height: 220px;
 	border-bottom: 2px solid black;
@@ -115,6 +128,8 @@ a.ask {
 .question_detail {
 	float: left;
 	width: 87%;
+	font-size: 14px;
+	text-align: justify;
 	margin-top: 15px;
 	margin-left: 2%;
 	height: 180px;
