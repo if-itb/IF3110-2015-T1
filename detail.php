@@ -19,7 +19,7 @@
     
     <div class="board">
         Your Answer
-    <form action="answer_insert.php" onsubmit="return validateForm()" method="post" name="form" >
+    <form action="answer_insert.php?no_question=<?php echo $no_question ?>" onsubmit="return validateForm()" method="post" name="form" >
 			<br>
 			<input type="text" placeholder="Name" name="name" class="box">
 			<br>

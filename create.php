@@ -11,7 +11,7 @@
 		<h1>Simple StackExchange</h1>
 		<h3>What's Your Question?</h3>
 
-		<div class="boxform">
+		<div class="board">
 			
 		<form action="question_insert.php" onsubmit="return validateForm()" method="post" name="form" >
 			<br>

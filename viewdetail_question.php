@@ -21,7 +21,7 @@
             </div>
             
             <div class="detaileditor">
-            asked by {{name}} at {{date}} | <a href="create.php"><span class="edit">edit</span></a> | <span class="delete">delete</span>
+            asked by {{name}} at {{date}} | <a href="formedit.php?no_question={{no_question}}"><span class="edit">edit</span></a> | <span class="delete">delete</span>
             </div>
         </div>';
 ?>
