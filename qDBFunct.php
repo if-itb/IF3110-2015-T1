@@ -18,7 +18,7 @@
 		
 		if(mysqli_query($conn,$sql)){
 			echo "New Record created successfully";
-			return 1; 
+			return mysqli_insert_id($conn); 
 		} else {
 			echo "Error: ", $sql."<br>" . mysqli_error($conn);
 			return 0;
@@ -60,7 +60,7 @@
 
 		if (mysqli_query($conn, $sql)) {
 			echo "Record updated successfully";
-			return 1;
+			return $qid;
 		} else {
 			echo "Error updating record: " . mysqli_error($conn);
 			return 0;
