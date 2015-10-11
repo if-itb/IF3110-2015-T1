@@ -17,7 +17,7 @@
         <hr>
         <?php
             include 'connect.php';
-            $sql = "SELECT q_name, q_topic FROM questions";
+            $sql = "SELECT q_votes, q_answers, q_id, q_topic, q_name FROM questions";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -25,8 +25,8 @@
                 while($row = $result->fetch_assoc()) {
                     echo '<div class="question-block">';
                     echo '    <div class="votes">'. $row['q_votes'] . '<br>Votes</div>';
-                    echo '    <div class="answers">0<br>Answers</div>';
-                    echo '    <div class="topic">' . $row['q_topic']. '</div>';
+                    echo '    <div class="answers">' .$row['q_answers'] .'<br>Answers</div>';
+                    echo '    <div class="topic"><a href="view.php?id=' .$row['q_id'] .'">' . $row['q_topic']. '</a></div>';
                     echo '    <div class="details">asked by ' . $row['q_name']. ' | edit | delete</div> ';   
                     echo '</div>';
                     echo '<hr>';
