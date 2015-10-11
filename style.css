@@ -91,6 +91,19 @@ div#idx_content {
 	
 }
 
+div#ask_box {
+	width: 700px;
+	padding-left: 230px;
+	padding-right: 230px;
+	margin-left: 100px;
+	margin-right: 100px;
+	text-align: center;
+}
+
+div#ask_submit {
+	text-align: right; 
+}
+
 span#idx_name {
 	color: blue;
 }
@@ -113,4 +126,15 @@ input[type=submit] {
 	border-color: black;
 	border-width: 2px;
 	background-color: white;
+}
+
+input[type=text] {
+	width: 700px;
+	height: 25px;
+	margin-bottom: 2px;
+}
+
+textarea {
+	width: 700px;
+	height: 300px;
 }
