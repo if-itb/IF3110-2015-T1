@@ -49,8 +49,51 @@ div#div3 {
 }
 
 div#div4 {
+	display: block;
+	clear: both;
 	border-bottom: 2px solid black;
 }
+
+div#div5 {
+	text-align: right;
+	display: block;
+	clear: both;
+}
+
+div#idx_vote {
+	float: left;
+	position: relative;
+	top: 5px;
+	text-align: center;
+	width: 10%;
+}
+
+div#idx_answer {
+	float: left;
+	position: relative;
+	top: 5px;
+	text-align: center;
+	width: 10%;
+}
+
+div#idx_title {
+	position: relative;
+	font-weight: bold;
+	width: 80%;
+}
+
+div#idx_content {
+	
+}
+
+span#idx_name {
+	color: blue;
+}
+
+span#idx_edit {
+	color: #ffd000;
+}
+
 
 input[type=search] {
 	width: 600px;
