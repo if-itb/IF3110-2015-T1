@@ -32,12 +32,13 @@ Cannot find what you're looking for? Ask <a href="ask_question.php">here</a>.
 	    echo("Connection failed: " . mysqli_connect_error());
 	}
 	
-	$sql = "SELECT name, topic, email, content, vote FROM `question` ORDER BY date_created DESC LIMIT 3";
+	$sql = "SELECT * FROM `question` ORDER BY date_created DESC LIMIT 3";
 	$result = mysqli_query($conn,$sql);
 
 	$idx = 1;
 	if(mysqli_num_rows($result) > 0) {
 		while($row = mysqli_fetch_assoc($result)) {
+			$q_id = $row["question_id"];
     		echo "<hr size='5' NOSHADE>";
 ?>
 <div class="question">
@@ -48,7 +49,7 @@ Cannot find what you're looking for? Ask <a href="ask_question.php">here</a>.
     		<span id=\"question-content\">
     			<p id=\"question-title\">".$row["topic"]."</p>
     			<p id=\"question-content\">".$row["content"]."</p>
-    		<br>asked by: ".$row["name"]." | Edit | Delete<br>";
+    		<br>asked by: ".$row["name"]." | Edit | <a href='delete_question.php?q_id=$q_id'>Delete</a><br>";
 ?>
 </div>
 <?php
