@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+	require_once("./database.php");
+?>
+
+<?php
+	if (isset ($_GET['q_id'])) {
+		$q_id = $_GET['q_id'];
+	}
+	else {
+		$q_id = '';
+	}
+
+	if ($q_id == '') {
+		$data = array();
+		$data['Name'] = '';
+		$data['Email'] = '';
+		$data['Title'] = '';
+		$data['Content'] = '';
+	}
+	else {
+		$data = getQuestion($q_id);
+	}
+?>
+
 <html>
 	<head>
 		<title> Simple StackExchange </title>
