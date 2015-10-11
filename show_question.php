@@ -2,23 +2,19 @@
     require("./controller.php");
     if (isset($_GET['id'])){
       $id = $_GET['id'];     
-      $question = getQuestion($id);    
+      $question = getQuestion($id);
+      $answers = getAnswers($id);    
     }
 
    
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-      $question['q_id'] = $_POST['q_id'];
-      $question['name'] = $_POST['name'];
-      $question['email'] = $_POST['email'];
-      $question['topic'] = $_POST['topic'];
-      $question['content'] = $_POST['content'];
+      $new_answer = array();
+      $new_answer['q_id'] = $id;
+      $new_answer['name'] = $_POST['name'];
+      $new_answer['email'] = $_POST['email'];
+      $new_answer['content'] = $_POST['content'];
 
-      if (isset($_GET['id'])){
-        updateQuestion($question,$id);
-      }
-      else{
-        postQuestion($question);        
-      }
+      postAnswer($new_answer);
 
   }
 ?>
@@ -60,25 +56,29 @@
     </div>
 
     <div id= "content">
-      <p class="content_title">1 Answer</p>
-      <div class="question">
-        <div id="vote_icon">
-          <span class="vote">
-            <img id="vote_up" src="up_arrow.png">
-            <?php echo 1 . "\n";?>
-            <img id="vote_down" src="down_arrow.png">
-          </span>
-        </div>    
-        <div class="mid-right">
-          <p>BLAbajfhajkhfdsjjfdfs;adjfahkjdfakfshdd
-            shkjfdshhfglhaglhakjhgjahdgkjhaskljghajksghjahghaflasjfjdashkjdsghasgjhasjkghkshfdkashdghasfjkhsjalklhdgjdaghajkshfahgklkjghl</p>
-        </div>
-        <div class="right" style="float:right;">
-          asked by name at datetime | 
-          <a class='orange_link' href=''>edit</a> |
-          <a class='red_link' href=''>delete</a>          
-        </div>
-      </div>
+      <p class="content_title"><?php echo getAnswerCount($id); ?> Answers</p>
+      
+     <?php 
+        foreach ($answers as $answer) {
+          $left =  "<div id='vote_icon'>
+                      <span class='vote'>
+                        <img id='vote_up' src='up_arrow.png'>" .$answer['vote']. 
+                        "<img id='vote_down' src='down_arrow.png'>
+                      </span>
+                    </div>";
+
+          $mid = "<div class='mid-right'><p>" . $answer['content'] ."</p></div>";
+
+          $right = "<div class='right' style='float:right;''>
+                        asked by name at " .$answer['create_date']. " | 
+                    </div>";
+
+          $answer_content = "<div class='question'>" .$left. $mid . $right . "</div>";
+
+          echo $answer_content;
+        }
+     ?>
+    
     </div>
 
       <p class="answer_title">Your Answer</p>

@@ -142,12 +142,12 @@
 		$a_id = $answer['a_id'];
 		$name = $answer['name'];
 	    $email = $answer['email'];
-	    $content = $question['content'];
+	    $content = $answer['content'];
 	   	$vote = 0;
 	   	$create_date = date("Y-m-d H:i:s");
-
-		$sql = "INSERT INTO answer (q_id,name, email, content,vote, create_date)
-		VALUES ('$id','$name', '$email', '$content','$vote','$create_date')";
+	   	echo $q_id;
+		$sql = "INSERT INTO answers (q_id,name, email, content,vote, create_date)
+		VALUES ('$q_id','$name', '$email', '$content','$vote','$create_date')";
 
 		if (mysqli_query($conn, $sql)) {
 		    echo "New answer created successfully";
@@ -157,10 +157,10 @@
 		}
 	}
 
-	/*function getAnswers($question_id){
+	function getAnswers($question_id){
 		global $conn;
 
-		$sql = "SELECT * FROM answer WHERE q_id = $question_id";
+		$sql = "SELECT * FROM answers WHERE q_id = $question_id";
 		$result = mysqli_query($conn, $sql);
 
 		$answers = array();		
@@ -178,7 +178,17 @@
 	    }
 	
 		return $answers;		
-	}*/
+	}
+
+	function getAnswerCount($q_id){
+		global $conn;
+
+		$sql = "SELECT COUNT(*) as total FROM answers WHERE q_id = ". $q_id;
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_assoc($result);
+		$answer_count = $row['total'];
+		return $answer_count;
+	}
 
 	/************ FUNCTION FOR VOTE (BOTH ASNWER & QUESTION) *************/
 	function vote($id,$is_question,$is_up){

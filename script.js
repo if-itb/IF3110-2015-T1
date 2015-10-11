@@ -58,8 +58,8 @@ function validateAnswerForm(){
 	  alert("Please enter a valid email address");
 	  return false;          
 	}
-	else if (topic == null || topic == ""){
-	  alert("Topic must be filled");
+	else if (content == null || content == ""){
+	  alert("Content must be filled");
 	  return false;
 	}
 
