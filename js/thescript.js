@@ -87,3 +87,17 @@ var confirmIt = function (e) {
 for (var i = 0, l = elems.length; i < l; i++) {
 	elems[i].addEventListener('click', confirmIt, false);
 }
+
+function changeVote(spin,id,type){
+	var xhttp = new XMLHttpRequest();
+  	xhttp.onreadystatechange = function() {
+		var changed = type.concat("vote").concat(id);
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			document.getElementById(changed).innerHTML = xhttp.responseText;
+		}
+  	}
+  	xhttp.open("GET", "vote.php?spin=".concat(spin).concat("&type=").concat(type).concat("&id=").concat(id), true);
+ 	xhttp.send();
+}
+
+

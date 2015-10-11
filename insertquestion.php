@@ -10,6 +10,6 @@
 		$conn->query($sql);
 		$conn->close();
 	}
-	header("Location: {$_SERVER['HTTP_REFERER']}"); 
+	header("Location: index.php"); 
 	exit;
 ?>

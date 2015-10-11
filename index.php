@@ -90,7 +90,11 @@
                                         </div>           
                                         <div class="qboxcontent">
                                             <?php 
-												$stringcontent=substr($row['content'],0,500).". . .";
+												if (strlen($row['content'])>500){
+													$stringcontent=substr($row['content'],0,500).". . .";
+												} else {
+													$stringcontent=$row['content'];
+												}
 												echo"$stringcontent";
 											?>
                                         </div>     

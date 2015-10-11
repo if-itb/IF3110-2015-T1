@@ -4,6 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Simple Stack Exchange</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="js/thescript.js"></script>
     <?php require_once('dbconnect.php'); ?>
 </head>
 
@@ -39,13 +40,13 @@
                             <div class="thecontent">
                                 <div class="votecontent">
                                     <div class="votebutton">
-                                        <div class="upbutton">
+                                        <div class="upbutton" onclick="changeVote('up',<?=$row['id']?>,'q')">
                                             <img src="assets/upbutton.png" class="buttonimg">
                                         </div>
-                                        <div class="votenumber">
+                                        <div class="votenumber" id="qvote<?=$row['id']?>">
                                             <?= $row["vote"] ?>
                                         </div>
-                                        <div class="downbutton">
+                                        <div class="downbutton" onclick="changeVote('down',<?=$row['id']?>,'q')">
                                             <img src="assets/downbutton.png" class="buttonimg">
                                         </div>
                                     </div>             
@@ -76,7 +77,9 @@
 						FROM
 							question INNER JOIN answers
 						ON
-							answers.qid='$id'";
+							answers.qid=question.id
+						WHERE
+							question.id='$id'";
 				$result = $conn->query($sql);
 				if ($result->num_rows == 0) { 
 					echo"<br>";
@@ -99,13 +102,13 @@
                         <div class="thecontent">
                             <div class="votecontent">
                                 <div class="votebutton">
-                                    <div class="upbutton">
+                                    <div class="upbutton" onclick="changeVote('up',<?=$row['aid']?>,'a')">
                                         <img src="assets/upbutton.png" class="buttonimg">
                                     </div>
-                                    <div class="votenumber">
+                                    <div class="votenumber" id="avote<?=$row['aid']?>">
                                         <?= $row['avote'] ?>
                                     </div>
-                                    <div class="downbutton">
+                                    <div class="downbutton" onclick="changeVote('down',<?=$row['aid']?>,'a')">
                                         <img src="assets/downbutton.png" class="buttonimg">
                                     </div>
                                 </div>             
@@ -135,7 +138,6 @@
                	</form>
            </div>
         </div>
-        <script src="js/thescript.js"></script>
 
     </div>
     
