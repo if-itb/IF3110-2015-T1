@@ -21,6 +21,10 @@ Author: Irene Wiliudarsan (13513002) -->
       if ($connection->connect_error) {
         die("Connection failed: " . $connection->connect_error);
       }
+
+      // Execute query to take all questions in databases
+      $query = "SELECT id_question, topic, content, vote_num, datetime, question.id_user, name FROM question, user WHERE question.id_user = user.id_user";
+      $questions = $connection->query($query);
     ?>
     <!-- Title -->
     <div class="title">
@@ -36,7 +40,7 @@ Author: Irene Wiliudarsan (13513002) -->
         </button>
         <br>
         Cannot find what you are looking for? 
-        <a class="yellow" href="ask-question.html">
+        <a class="yellow" href="ask-question.php">
           Ask here
         </a>
       </div>
@@ -47,30 +51,38 @@ Author: Irene Wiliudarsan (13513002) -->
           Recently Asked Questions
         </div>
         <div class="questions-list">
+          <?php
+            if ($questions->num_rows > 0) {
+              while($question = $questions->fetch_assoc()) {
+                // Count answer number
+                $id_question = $question["id_question"];
+                $query = "SELECT COUNT(id_answer) FROM answer, question WHERE answer.id_question = $id_question";
+                $answer_num_result = $connection->query($query);
+                $answer_num = $answer_num_result->fetch_assoc();
+          ?>
           <div class="same-height-row border-bottom">
             <div class="vote-number">
-              0
+              <?php echo $question["vote_num"] ?>
               <br>
               Votes
             </div>
             <div class="answer-number">
-              0
+              <?php echo $answer_num["COUNT(id_answer)"] ?>
               <br>
               Answers
             </div>
             <div class="right-position">
               <div class="answer-question-detail">
                 <div class="question-topic">
-                  The question topic goes here
+                  <?php echo $question["topic"] ?>
                 </div>
                 <div class="question-content">
-                  The question content goes here
-                  The question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes here
+                  <?php echo $question["content"] ?>
                 </div>
               </div>
               asked by
               <span class="blue">
-                name
+                <?php echo $question["name"] ?>
               </span>
               |
               <a class="yellow" href="">
@@ -82,45 +94,21 @@ Author: Irene Wiliudarsan (13513002) -->
               </a>
             </div>
           </div>
-          <div class="same-height-row border-bottom">
-            <div class="vote-number">
-              0
-              <br>
-              Votes
-            </div>
-            <div class="answer-number">
-              0
-              <br>
-              Answers
-            </div>
-            <div class="right-position">
-              <div class="answer-question-detail">
-                <div class="question-topic">
-                  The question topic goes here
-                </div>
-                <div class="question-content">
-                  The question content goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes hereThe question topic goes here
-                </div>
-              </div>
-              asked by
-              <span class="blue">
-                name
-              </span>
-              |
-              <a class="yellow" href="">
-                edit
-              </a>
-              |
-              <a class="red" href="index.html" onclick="deleteConfirmation()">
-                delete
-              </a>
-            </div>
-          </div>
+          <?php
+              } // End of while
+            } else {
+              echo "Sorry, there is still no questions in the database.";
+            } // End of if
+          ?>
         </div>
       </div>
     </div>
 
     <!-- JavaScript -->
     <script src="../js/script.js"></script>
+    <?php
+      mysqli_free_result($questions);
+      mysqli_free_result($answer_num_result);
+    ?>
   </body>
 </html>
