@@ -32,5 +32,29 @@
 		$row = mysqli_fetch_array($rq, MYSQLI_ASSOC);
 		return $row;
 	}
+	
+	function postQuestion($data) {
+		global $connect;
+		$q = NULL;
+		if ($data['q_id'] == '') {
+			//create new question
+			$q = "INSERT INTO question (Name, Email, Title, Content, Date)
+				VALUES ('$data[Name]', '$data[Email]', '$data[Title]', '$data[Content]', CURRENT_TIMESTAMP)";
+		} else {
+			//update question
+			$q = "UPDATE question
+				SET
+					Name='$data[Name]',
+					Email='$data[Email]',
+					Title='$data[Title]',
+					Content='$data[Content]'
+				WHERE
+					Q_ID = $data[Q_ID]";
+		}
+					
+		$no_error = mysqli_query($connect, $q);
+		return $no_error;
+	}
+
 
 ?>
