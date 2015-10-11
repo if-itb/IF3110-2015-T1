@@ -1,0 +1,180 @@
+body{
+	font-family: 'Droid Sans', sans-serif;
+	font-size: 14px;
+	margin: 0px;
+	color: #020202;
+}
+
+.container{
+	position: relative;
+	width: 100%;
+}
+
+.header{
+	position: relative;
+	text-align: center;
+	background-color: orange;
+	padding: 2px 0;
+	margin: 0 auto;
+	max-width: 1100px;
+	border-radius: 0 0 20px 20px;
+	box-shadow: 5px 5px 5px #888888;
+}
+
+.header a{
+	text-decoration: none;
+	color: black;
+}
+
+.wrapper{
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+	max-width: 900px;
+	width: 100%;
+	background: lavender;
+	padding-bottom: 20px;
+	margin-top: 6px;
+	box-shadow: 5px 5px 5px #888888;
+}
+
+.search-bar{
+	margin-top: 20px;
+	width: 100%;
+	text-align: center;
+}
+
+.search-text{
+	width: 80%;
+	margin-right: 20px;
+	height: 25px;
+	padding: 0 10px;
+}
+
+.search-button,
+.post-button{
+	padding: 5px 10px;
+}
+
+.text-center{
+	text-align: center;
+}
+
+a{
+	text-decoration: none;
+	color: orange;
+}
+
+a:hover,
+a:focus{
+	color: black;
+}
+
+.title{
+	margin-left: 30px;
+}
+
+.answer-container,
+.question-container{
+	border-top: 2px solid;
+	width: 840px;
+	margin: 0px auto 30px;
+}
+
+.question{
+	width: 670px;
+	display: inline-block;
+	padding: 0 20px;
+}
+
+.asked-by{
+	display: inline-block;
+	width: 100%;
+	text-align: right;
+}
+
+.votes,
+.answers{
+	text-align: center;
+	display: inline-block;
+	width: 60px;
+}
+
+.name{
+	color: blue;
+}
+
+.edit{
+	color: orange;
+}
+
+.delete{
+	color: red;
+}
+
+.date{
+	color: green;
+}
+
+.question-form{
+	margin: 0 auto;
+	padding: 20px 40px 0px;
+	min-height: 300px;
+	height: 100%;
+	border-top: 2px solid;
+	width: 84.5%;
+}
+
+.content-question-form{
+	padding-left: 10px;
+	height: 30px;
+	display: block;
+	width: 97.8%;
+	margin-bottom: 4px;
+}
+
+.textarea-question-form{
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-right: 4px;
+	font-family: 'Droid Sans', sans-serif;
+	font-size: 13px;
+}
+
+.search-text,
+.content-question-form,
+.textarea-question-form{
+	border: 1px solid gray;
+	border-radius: 10px;
+}
+
+.post-button{
+	float: right;
+	margin-top: 20px;
+	margin-right: 5px;
+}
+
+.vote-place{
+	text-align: center;
+	display: inline-block;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+.vote-place > h1{
+	margin: 0;
+	color: #818185;
+}
+
+.arrow-images{
+	width: 30px;
+}
+
+.full-question{
+	position: absolute;
+	display: inline-block;
+	width: 81%;
+	margin-left: 30px;
+	text-align: justify;
+	height: 50px;
+}
