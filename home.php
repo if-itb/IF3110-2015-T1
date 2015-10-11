@@ -16,6 +16,28 @@
 	<?php
 		$conn = mysql_connect('localhost', 'root', '08161955342');
 		mysql_select_db('simplestackexchange', $conn);
+
+		if ($_POST['type'] == 'ask') {
+			$insert = "INSERT INTO question (name, email, topic, content) VALUES (
+				'".$_POST["name"]."',
+				'".$_POST["email"]."',
+				'".$_POST["topic"]."',
+				'".$_POST["content"]."'
+			)";
+			mysql_query($insert);
+		}
+		else if ($_POST['type'] == 'update') {
+			$update = "UPDATE
+							question
+						SET
+							name='".$_POST["name"]."',
+							email='".$_POST['email']."',
+							topic='".$_POST['topic']."',
+							content='".$_POST['content']."'
+						WHERE
+							id='".$_POST['question_id']."'";
+			mysql_query($update);
+		}
 		$sql = "SELECT * FROM question";
 		$result = mysql_query($sql);
 	?>
@@ -24,7 +46,7 @@
 		<?php echo $row['vote'] . " "; ?>
 		<?php echo $row['topic'] . " "; ?>
 		<?php echo "aksed by ". $row['name'] . " "; ?>
-		| edit | delete
+		| <a href="create.php?question_id=<?php echo $row['id']; ?>">edit</a> | delete
 		<br>
 		<hr width="75%" align="center">
 	<?php } ?>
