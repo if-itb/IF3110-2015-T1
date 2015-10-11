@@ -6,7 +6,13 @@ include("Connect.php");
 
 
 function countAnswer($qID){
+	global $conn;
+	$query = "SELECT COUNT(*) FROM answer WHERE q_id = $qID";
+	$rquery = mysqli_query($conn, $query);
+	$result = mysqli_fetch_array($rquery, MYSQLI_ASSOC);
 	
+	print_r($result);
+	return $result;
 	
 }
 
@@ -34,8 +40,17 @@ function getQuestionByID($qID){
 
 /* Fungsi buat Answer */
 
-function getAnswer(){
-
+function getAnswer($qID){
+	global $conn;
+	$query = "SELECT * FROM answer WHERE q_id = $qID";
+	$rquery = mysqli_query($conn, $query);
+	$answers = array();
+	
+	while ($row = mysqli_fetch_array($rquery, MYSQLI_ASSOC)){
+		$answers[] = $row;
+	}
+	
+	return $answers;
 
 }
 
@@ -44,6 +59,16 @@ function deleteQuestion($qID){
 	global $conn;
 	$query = "DELETE FROM question WHERE q_id = $qID";
 	$rquery = mysqli_query($conn, $query);
+	deleteAnswer($qID);
+	
 	return $rquery;
-}	
+}
+
+function deleteAnswer($qID){
+	global $conn;
+	$query = "DELETE FROM answer WHERE q_id = $qID";
+	$rquery = mysqli_query($conn, $query1);
+	return $rquery;
+}
+
 ?>

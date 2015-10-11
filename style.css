@@ -43,7 +43,8 @@ td {
 }
 
 table{
-	width : 480px;
+	min-width : 600px;
+	max-width : 600px;
 }
 
 /* Align */

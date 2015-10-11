@@ -55,6 +55,8 @@ function delQuestion(qID){
 		</td>
 		<td>
 			<?php 
+				$answer = getAnswer($question["q_id"]);
+				echo count($answer);
 			 ?><br/>
 			Answer(s)
 		</td>
@@ -69,7 +71,7 @@ function delQuestion(qID){
 			<?php echo "asked by ";
 				echo $question["q_name"];
 				echo " | " ?>
-			<a href = "Edit.php">edit</a> | 
+			<a href = "Edit.php?id=<?= $question["q_id"] ?>">edit</a> | 
 			<a href = "#" onclick = "delQuestion(<?= $question["q_id"] ?>)" id = "delete<?= $question["q_id"] ?>"> delete</a> 		
 		</td>
 	</tr>

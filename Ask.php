@@ -30,7 +30,7 @@ function validateForm() {
         return false;
     }
 	
-	loadDoc();
+	postQuestion();
 	
 }
 </script>
@@ -38,7 +38,7 @@ function validateForm() {
 
 <p id = "Ask"></p>
 <script>
-function loadDoc(){
+function postQuestion(){
 	var xhttp = new XMLHttpRequest();
 	
 	var name = document.getElementById("Name").value;
@@ -58,6 +58,7 @@ function loadDoc(){
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send(askPost);
 }
+
 
 </script>
 
