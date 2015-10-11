@@ -16,8 +16,8 @@
 <html>
 	<head>
 		<title>Simple StackExchange</title>
-		<script type="text/javascript" src="main.js"></script>
-		<link rel="stylesheet" href="style.css">
+		<script type="text/javascript" src="js/main.js"></script>
+		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
 		<div class="container">

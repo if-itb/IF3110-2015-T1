@@ -7,7 +7,7 @@
 			  document.getElementById(db + "-vote-count-" + id).innerHTML = xhttp.responseText;
 			}
 		}
-		xhttp.open("POST", "vote.php", true);
+		xhttp.open("POST", "./ajax/vote.php", true);
 		xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 		xhttp.send("action=up&id=" + id + "&db=" + db);
 	}
@@ -20,7 +20,7 @@
 			  document.getElementById(db + "-vote-count-" + id).innerHTML = xhttp.responseText;
 			}
 		}
-		xhttp.open("POST", "vote.php", true);
+		xhttp.open("POST", "./ajax/vote.php", true);
 		xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 		xhttp.send("action=down&id=" + id + "&db=" + db);
 	}
@@ -31,7 +31,7 @@
 
 		if (confirm("Are you sure you want to delete this question?")) {
 			var xhttp = new XMLHttpRequest();
-			xhttp.open("POST", "delete.php", true);
+			xhttp.open("POST", "./ajax/delete.php", true);
 			xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 			xhttp.send("id=" + id);
 		}
@@ -70,20 +70,20 @@
 		return true;
 	}
 
-	var validateQuestionForm = function(theForm) {
-		if (!validateRequiredField(theForm.name, "Please insert name.") ||
-			!validateEmailAddress(theForm.email, "Please insert appropriate email address.") ||
-			!validateRequiredField(theForm.title, "Please insert question topic.") ||
-			!validateRequiredField(theForm.content, "Please insert content.")) {
+	var validateQuestionForm = function(Form) {
+		if (!validateRequiredField(Form.name, "Please insert name.") ||
+			!validateEmailAddress(Form.email, "Please insert appropriate email address.") ||
+			!validateRequiredField(Form.title, "Please insert question topic.") ||
+			!validateRequiredField(Form.content, "Please insert content.")) {
 				return false;
 			}
 	}
 	window.validateQuestionForm = validateQuestionForm;
 
-	var validateAnswerForm = function(theForm) {
-		if (!validateRequiredField(theForm.name, "Please insert name.") ||
-			!validateEmailAddress(theForm.email, "Please insert appropriate email address.") ||
-			!validateRequiredField(theForm.content, "Please insert content.")) {
+	var validateAnswerForm = function(Form) {
+		if (!validateRequiredField(Form.name, "Please insert name.") ||
+			!validateEmailAddress(Form.email, "Please insert appropriate email address.") ||
+			!validateRequiredField(Form.content, "Please insert content.")) {
 				return false;
 			}
 	}

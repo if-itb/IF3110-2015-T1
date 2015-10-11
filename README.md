@@ -73,7 +73,6 @@ Jawaban pertanyaan berisi email, nama, dan konten jawabannya. Gunakan HTTP POST 
 
 
 ### Vote (vote up, vote down)
-
 Pengguna dapat melakukan vote up atau vote down ke suatu pertanyaan. Ketika pengguna menekan tombol vote, halaman tidak boleh refresh tapi jumlah vote akan berubah dan tersimpan ke basis data. Jumlah vote yang akan berubah sesuai dengan banyaknya vote yang ada di basis data (jadi tidak asal nambah satu saja). 
 
 
@@ -89,7 +88,26 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+### Melakukan validasi pada client-side
+
+Pada form Question dan Answer akan dilakukan validasi pada tiap input yang dimasukkan. Pada form Question akan dipanggil fungsi `validateQuestionForm(Form)`, sedangkan pada form Answer akan dipanggil fungsi `validateAnswerForm(Form)`. Jika user memasukkan input yang tidak sesuai, maka fungsi akan mengembalikan false / `return false`.
+Dalam fungsi `validateQuestionForm(Form)` dan `validateAnswerForm(Form) terdapat 2 fungsi validasi yaitu :
+- `validateRequiredField(field, errorMessage)` dengan `field` adalah nama pada input yang harus diisi dan `errorMessage` adalah pesan error bila ada.
+- `validateEmailAddress(field, errorMessage)` dengan `field` adalah nama pada input yang harus berisi email valid dan`errorMessage` adalah pesan error bila ada.
+ 
+### Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah)
+
+Menggunakan objek `XMLHTTPRequest`, pada tugas ini saya menggunakan metode `POST`.
+Lalu perintah atau kode yang diinginkan diassign ke `xmlhttp.onstatechange`. Perintah yang dimaksud dalam tugas ini adalah melakukan penggantian
+angka pada innerhtml suatu id dengan menulis perintah `document.getElementById(id).innerhtml = xmlhttp.responseText` dimana responseText adalah output dari file yang di-open, 
+dengan paramater yang dikirimkan sebagai berikut :
+- `action (up/down)` : menambah (up) atau mengurangkan (down) voting
+- `id` : id yang dituju pada `db`
+- `db(answer/question)` : database yang dikenai aksi
+
+Penambahan vote dilakukan dengan memanggil fungsi `voteUp(id,db)` dengan `db` adalah database yang dituju (question atau answer) dan `id` adalah id pada database yang ingin ditambahkan votingnya sebanyak 1.
+
+Pengurangan vote dilakukan dengan memanggil fungsi `voteDown(id, db)` dengan `db` adalah database yang dituju (question atau answer) dan `id` adalah id pada database yang ingin dikurangkan votingnya sebanyak 1.
 
 ### Knowledge
 
