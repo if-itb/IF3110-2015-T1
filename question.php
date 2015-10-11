@@ -133,14 +133,30 @@
 				<h2><?php echo $topic?></h2>
 				<p><?php echo $content?></p>
 				<div class="question-sign">
-					<p>asked by <?php echo $name?> | <a href=<?=$edit ?>>edit</a> |
-						<a href=<?=$delete ?> onClick="return confirm('Are you sure you want to delete this question?')">delete</a></p>
+					<p>asked by <font color="#008080"><?php echo $name?></font> | <a class="edit" href=<?=$edit ?>>edit</a> |
+						<a class="delete" href=<?=$delete ?> onClick="return confirm('Are you sure you want to delete this question?')">delete</a></p>
 				</div>
 			</div>
 			
 			<div class="content">
-				<h2 style="margin-bottom:0px;">Answer</h2>
 				<?php
+					$countsql = "SELECT count(id_ans) FROM answer WHERE id=$id";
+					$countans = $conn->query($countsql);
+
+					if ($countans->num_rows > 0) {
+					    // output data of each row
+					    while($row = $countans->fetch_assoc()) {
+					    	if ($row["count(id_ans)"]>1)
+					    		echo "<h2 style=\"margin-bottom:0px;\">".$row["count(id_ans)"]." Answers</h2>";
+					    	else if ($row["count(id_ans)"]==1)
+					    		echo "<h2 style=\"margin-bottom:0px;\">".$row["count(id_ans)"]." Answer</h2>";
+					    	else
+					    		echo "<h2 style=\"margin-bottom:0px;\">No Answer</h2>";
+					    }
+					} else {
+					    echo "0 results";
+					}
+				
 					$listq = "SELECT id_ans, name_ans, content_ans, vote_ans FROM answer WHERE id=$id";
 					$result = $conn->query($listq);
 
@@ -151,7 +167,7 @@
 								"<div class=\"answer-list\">
 									<p>".$row["content_ans"]."</p>
 									<div class=\"question-sign\">
-										<p>answered by ".$row["name_ans"]."</p>
+										<p>answered by <font color=\"#008080\">".$row["name_ans"]."</font></p>
 									</div>
 								</div>
 								";
