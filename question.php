@@ -28,11 +28,7 @@
 					FROM question WHERE question.id='$id'";
 			$result = $conn->query($sql);
 			if ($result->num_rows > 0) {
-				$result_list = array();
 				while($row = $result->fetch_assoc()) {
-					$result_list[] = $row;
-				}
-				foreach($result_list as $row) {
 		?>
                     <div class="contents">
                         <div class="questioncontent">
@@ -55,16 +51,19 @@
                                     </div>             
                                 </div>
                                 <div class="qcontent">
-                                    ASD
+                                    <?= $row["content"]?>
                                 </div>
                                 
                             </div>
                                 <div class="qmetaq">
-                                    Asked by  <?= $row["email"]?> | <a href="">edit</a> | <a href="">delete</a> 
+                                    Asked by  <span class="blue"><?= $row["email"]?></span> | <a href="askme.php?id=<?=$row['id']?>" class="orange">edit</a> | <a href="deletequestion.php?id=<?=$row['id']?>" class="delete red">delete</a> 
                                 </div>
                        </div>
            	<?php 
 				}
+			} else {
+				header("Location: index.php");
+				exit;
 			}
 			?>
             <?php

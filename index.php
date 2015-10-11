@@ -86,10 +86,10 @@
                                         </div>
                                     </div>
                                     <div class="qboxtopic">
-										<a href="question.php?id=<?= $row['id']?>"><?=$row["qtopic"]?></a>
+										<a href="question.php?id=<?= $row['id']?>" class="qlink"><?=$row["qtopic"]?></a>
                                     </div>                
                                     <div class="qmeta">
-                                        Asked by  <?=$row["email"]?> | <a href="">edit</a> | <a href="">delete</a> 
+                                        Asked by  <span class="blue"><?=$row["email"]?></span> | <a href="askme.php?id=<?=$row['id']?>" class="orange">edit</a> | <a href="deletequestion.php?id=<?=$row['id']?>" class="delete red">delete</a> 
                                     </div>
                                 <hr>
 							</div>
@@ -102,6 +102,6 @@
             </div>
         </div>
     </div>
-
+	<script src="js/thescript.js"></script>
 </body>
 </html>

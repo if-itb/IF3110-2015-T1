@@ -48,6 +48,12 @@ hr {
 .orange{
 	color:orange;
 }
+.red{
+	color:red;
+}
+.blue{
+	color:blue;
+}
 
 p {
 	margin: 4px 0;
@@ -236,4 +242,9 @@ textarea.formBar{
 .atitle{
 	width:95%;
 	margin: 4px auto;
+}
+
+a.qlink{
+	text-decoration: none;
+	color: #000000;
 }
