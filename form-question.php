@@ -30,7 +30,7 @@
 			</div>
 	
 			<form name="question-form" role="form" method="post" action="add-question.php" onsubmit="return validateForms()" class="question-form">
-				<input type="text" name="name" placeholder="Name" class="content-question-form">
+				<input type="text" name="name" placeholder="Name" class="content-question-form" autofocus>
 				<input type="text" name="email" placeholder="Email" class="content-question-form">
 				<input type="text" name="topic" placeholder="Question Topic" class="content-question-form">
 				<textarea rows="10" name="content" cols="106" placeholder="Content" class="textarea-question-form"></textarea>

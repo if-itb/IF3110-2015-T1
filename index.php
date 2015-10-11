@@ -29,7 +29,7 @@
 		
 		<div class="wrapper">
 			<form role="form" method="get" action="search-question.php" class="search-bar">
-				<input name="keyword" type="text" class="search-text" placeholder="Search here">
+				<input name="keyword" type="text" class="search-text" placeholder="Search question by topic or content">
 				<input name="search-button" type="submit" value="Search" class="search-button">
 			</form>
 
@@ -45,57 +45,6 @@
 				getQuestions();
 			?>
 
-			<!--
-			<div class="question-wrapper">
-				<div class="question-container">
-					<div class="votes">
-						<p>0</p>
-						<p>Votes</p>
-					</div>
-
-					<div class="answers">
-						<p>0</p>
-						<p>Answers</p>
-					</div>
-
-					<div class="question">
-						<h3>The question topic goes here</h3>
-						<p>The question content goes here</p>
-					</div>
-
-					<div class="asked-by">
-						<p>asked by <a href="#" class="name">name</a> | 
-							<a href="#" class="edit">edit</a> | 
-							<a href="#" class="delete">delete</a>
-						</p>
-					</div>
-				</div>
-
-				<div class="question-container">
-					<div class="votes">
-						<p>0</p>
-						<p>Votes</p>
-					</div>
-
-					<div class="answers">
-						<p>0</p>
-						<p>Answers</p>
-					</div>
-
-					<div class="question">
-						<h3>The question topic goes here</h3>
-						<p>The question content</p>
-					</div>
-
-					<div class="asked-by">
-						<p>asked by <a href="#" class="name">name</a> | 
-							<a href="#" class="edit">edit</a> | 
-							<a href="#" class="delete">delete</a>
-						</p>
-					</div>
-				</div>
-			</div>
-			-->
 		</div>
 	</div>
 	

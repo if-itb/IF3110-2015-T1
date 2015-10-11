@@ -38,6 +38,7 @@
 						echo '<a href='.$deleteURL.' onclick="return validateDelete()" class="delete">delete</a>';
 					echo '</p>';
 				echo '</div>';
+			echo '</div>';
 		}
 
 	}
@@ -85,12 +86,12 @@
 		while($row = mysql_fetch_array($result, MYSQL_BOTH)){
 			echo '<div class="answer-container">';
 				echo '<div class="vote-place">';
-					echo '<img src="images/up-arrow.png" onclick=\'vote('.$_GET['id'].', "answer", "up")\' class="arrow-images">';
+					echo '<img src="images/up-arrow.png" onclick=\'vote('.$row['id'].', "answer", "up")\' class="arrow-images">';
 					echo '<h1>';
-						$idAnswer = "answer-".$_GET['id'];
+						$idAnswer = "answer-".$row['id'];
 						echo '<span id='.$idAnswer.' >'.$row['votes'].'</span>';
 					echo '</h1>';
-					echo '<img src="images/down-arrow.png" onclick=\'vote('.$_GET['id'].', "answer", "down")\' class="arrow-images">';
+					echo '<img src="images/down-arrow.png" onclick=\'vote('.$row['id'].', "answer", "down")\' class="arrow-images">';
 				echo '</div>';
 				
 				echo '<div class="full-question">';
@@ -124,5 +125,63 @@
 			echo $var;
 		}
 	}
+
+
+	function getSearchResult(){
+		include ("connection.php");
+
+		$db = mysql_select_db("tubeswbd", $connect);
+
+		if(isset($_GET['search-button'])){
+			$keyword = sprintf("%s",mysql_escape_string($_GET['keyword']));
+
+			$query = "SELECT * FROM question WHERE topic LIKE '%$keyword%' OR content LIKE '%$keyword%'";
+
+			$result = mysql_query($query, $connect);
+			if(!$result){
+				die('Invalid query: '.mysql_error());
+			}
+			else{
+				while($row = mysql_fetch_array($result, MYSQL_BOTH)){
+					echo '<div class="question-container">';
+						/* votes */
+						echo '<div class="votes">';
+							echo '<p>'.$row['votes'].'</p>';
+							echo '<p>Votes</p>';
+						echo '</div>';
+
+						/* get count answers*/
+						$query = sprintf("SELECT * FROM answer WHERE id_question = %d",mysql_escape_string($row['id']));
+						$res = mysql_query($query, $connect);
+						$countAnswers = mysql_num_rows($res);
+
+						echo '<div class="answers">';
+							echo '<p>'.$countAnswers.'</p>';
+							echo '<p>Answers</p>';
+						echo '</div>';
+
+						echo '<div class="question">';
+							echo '<h3><a href="question.php?id='.$row['id'].'">'.$row['topic'].'</a></h3>';
+							echo '<p>'.customEcho($row['content'], 200).'</p>';
+						echo '</div>';
+
+						echo '<div class="asked-by">';
+							echo '<p>asked by <span class="name">'.$row['name'].'</span> | ';
+								$editURL = "form-edit.php?id=".$row['id'];
+								$deleteURL = "delete-question.php?id=".$row['id'];
+								echo '<a href='.$editURL.' class="edit">edit</a> | ';
+								echo '<a href='.$deleteURL.' onclick="return validateDelete()" class="delete">delete</a>';
+							echo '</p>';
+						echo '</div>';
+					echo '</div>';
+				}
+			}
+		}
+
+		mysql_close($connect);
+	}
+	
+
+	
 
 ?>

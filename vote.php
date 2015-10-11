@@ -32,7 +32,6 @@
 	$result = mysql_query($vote, $connect);
 	$row = mysql_fetch_array($result, MYSQL_BOTH);
 	echo $row['votes'];
-	//echo "sue";
 
 	mysql_close($connect);
 
