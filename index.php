@@ -21,6 +21,22 @@ require_once("./sql/mysql.php");
         </div>
         <p class="cannot">Cannot find what you are looking for? <a href="ask.php" >Ask here</a></p>
     </div>
+	
+<script type="text/javascript">
+function confirmDelete(id) {
+	if (confirm("Are you sure to delete this question?") == true) {
+		var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+				document.getElementById("question_section"+id).innerHTML = xhttp.responseText;
+            }
+        }
+        xhttp.open("POST", "./ajax/delete.php", true);
+        xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        xhttp.send("id=" + id);
+	}
+}
+</script>
 
 <div class="question_list">
     <h3>Recently Asked Questions</h3>
@@ -32,7 +48,7 @@ require_once("./sql/mysql.php");
             die('Error Query ['.$db -> error. ']');
         }
         while($row = $result->fetch_assoc()) : ?>
-            <div class="question">
+            <div class="question" id="question_section<?php echo$row['id']?>">
                 <?php
                     $q = "SELECT COUNT(id) AS count from answer where question_id= $row[id]";
                     $rq = mysqli_query($db, $q);
@@ -47,10 +63,10 @@ require_once("./sql/mysql.php");
                 </table>
                 <div class="creator">asked by <span class="creator_name"><?php echo $row['name']?></span> |
                     <a href="ask.php?id=<?php echo $row['id'] ?>&type=edit" class="creator_edit">edit </a> |
-                    <a href="index.php?id=<?php echo $row['id'] ?>&type=delete" class="creator_delete">delete</a>
+                    <a href="javascript:confirmDelete(<?php echo $row['id'] ?>)" class="creator_delete">delete</a>
                 </div>
+				<hr>
             </div>
-			<hr>
     <?php endwhile;?>
 </div>
 </html>

@@ -28,13 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 	$rq = mysqli_query($db,$sql);
 }
-else if($_SERVER['REQUEST_METHOD'] == 'GET') {
-		if (isset($_GET['id']) && $_GET['type'] == 'delete') {
-			$sql = "DELETE from question WHERE id=$_GET[id]";
-			$rq = mysqli_query($db,$sql);
-			header( "Location: index.php" );
-		}
-}
+
     
 $db->close();
 

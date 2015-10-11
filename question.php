@@ -33,17 +33,33 @@ else{
 					document.getElementById("answervote"+id).innerHTML = xhttp.responseText;
             }
         }
-        xhttp.open("POST", "./vote.php", true);
+        xhttp.open("POST", "./ajax/vote.php", true);
         xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         xhttp.send("action=" +result+ "&id=" + id + "&type=" + type);
     }
 
 </script>
 
+<script type="text/javascript">
+function confirmDelete(id) {
+	if (confirm("Are you sure to delete this question?") == true) {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+				if (xhttp.readyState == 4 && xhttp.status == 200) {
+				  location.href = "./index.php";
+				}
+			}
+        xhttp.open("POST", "./ajax/delete.php", true);
+        xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        xhttp.send("id=" + id);
+	}
+}
+</script>
+
 <div class="question_section">
     <h2><?php echo $row['topic'] ?></h2>
     <hr>
-    <div class="question_content">
+    <div class="question_content" id="question_content">
         <table>
             <tr>
                 <td><a href=javascript:vote(<?php echo $id?>,'question','up')><img src="img/up.png" width="32" height="32"></a></td>
@@ -59,7 +75,7 @@ else{
         <div class="creator">asked by <span class="creator_name"><?php echo $row['name'] ?></span>
             at <span class="creator_date"><?php echo $row['date'] ?></span> |
             <a href="ask.php?id=<?php echo $row['id'] ?>&type=edit" class="creator_edit">edit </a> |
-            <a href="index.php?id=<?php echo $row['id'] ?>&type=delete" class="creator_delete">delete</a>
+            <a href="javascript:confirmDelete(<?php echo $row['id'] ?> )" target="_parent" class="creator_delete">delete</a>
         </div>
     </div>
 </div>
