@@ -1,11 +1,15 @@
 <?php namespace Lyz;
 
+use Lyz\Http\Request;
+use Lyz\Http\Route;
+use Lyz\Render\View;
+
 class App {
 	public function __construct() {
-	}
-	private function initiate() {
+		include 'routes.php';
+
 		$params = null;
-		$method= $_SERVER['REQUEST_METHOD'];
+		$method = $_SERVER['REQUEST_METHOD'];
 		$uri = $_SERVER['REQUEST_URI'];
 
 		switch ($method) {
@@ -16,9 +20,6 @@ class App {
 		$this->request = new Request($uri, $method, $params);
 	}
 	public function run() {
-		$this->initiate();
-
-		$this->response = new Route($this->request);
 	}
 	public function __destruct() {
 	}

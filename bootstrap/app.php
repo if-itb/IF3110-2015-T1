@@ -2,6 +2,8 @@
 
 require_once __DIR__ . '/autoload.php';
 
-$app = new lyz\App;
+echo 'BOOT';
+$app = new Lyz\App();
+echo 'BOOTS';
 
 return $app;

@@ -3,7 +3,7 @@
 require_once __DIR__ . '/consts.php';
 
 function __autoload($class_name) {
-	$class_path = BASE_PATH . str_replace('\\', DIRECTORY_SEPARATOR, $class_name) . '.php'; 
+	$class_path = BASE_PATH . lcfirst(str_replace('\\', DIRECTORY_SEPARATOR, $class_name)) . '.php'; 
 	if (file_exists($class_path)) {
 		include $class_path;
 	}

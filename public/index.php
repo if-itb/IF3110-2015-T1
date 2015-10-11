@@ -1,5 +1,14 @@
 <?php
 
+/* Create the application
+ */
+
+echo 'YES';
+
 $app = require_once __DIR__ . '/../bootstrap/app.php';
 
-$app->send();
+/* Run the application
+ */
+
+$app->run();
+
