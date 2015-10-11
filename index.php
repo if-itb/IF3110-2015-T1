@@ -1,3 +1,8 @@
+<?php
+	require_once "connection.php";
+	include "function.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,24 +13,25 @@
 	<title>Simple StackExchange | Home</title>
 	
 	<link rel="stylesheet" href="assets/css/style.css">
+	<script type="text/javascript" src="js/validation.js"></script>
 </head>
 
 <body>
 
 	<div class="container">
 		<div id="header">
-			<h1>Simple StackExchange</h1>
+			<h1><a href="index.php">Simple StackExchange</a></h1>
 		</div>
 
 		<!-- das searchbox -->
 		<div class="main">
-			<form role="form" action="" method="post" id="searchbox">
+			<form role="form" action="" method="get" id="searchbox">
 				<input type="text" id="searchbox" name="searchquery" required>
 				<input type="submit" id="searchbutton" value="Search" name="search">
 			</form>
 
 			<div class="text-center">
-				<p>Cannot find what you are looking for? <a href="#">Ask here</a></p>
+				<p>Cannot find what you are looking for?<a href="ask-question.php">Ask here</a></p>
 			</div>
 
 			<div class="title">
