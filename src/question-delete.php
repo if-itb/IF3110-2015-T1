@@ -4,6 +4,7 @@
 	$password = "webpass";
 	$dbname = "simple_stackexchange";
 	$tablename = "Question";
+	$anstabname = "Answer";
 	
 	// Create connection
 	$link = mysqli_connect($servername, $username, $password);
@@ -19,8 +20,9 @@
 	}
 	
 	$sql = "DELETE FROM " . $tablename . " WHERE id=".$_GET["id"];
-	if (mysqli_query($link, $sql)) {
-		echo "Question deleted successfully";
+	$anssql = "DELETE FROM " . $anstabname . " WHERE parent_id=".$_GET["id"];
+	if (mysqli_query($link, $sql) && mysqli_query($link, $anssql)) {
+		echo "Question and related answers are deleted successfully";
 		header("Location: index.php");
 		exit;
 	}
