@@ -21,7 +21,7 @@
 		public static function all() {
 			$list = [];
 			$db = Connection::getInstance();
-			$req = $db->query('SELECT * FROM sse_thread');
+			$req = $db->query('SELECT * FROM sse_thread ORDER BY thread_id DESC');
 
 			foreach($req->fetchAll() as $thread) {
 				$list[] = new Thread($thread['thread_id'], $thread['user_name'], $thread['thread_topic'], $thread['thread_content'], $thread['n_vote'], $thread['n_answer'], $thread['thread_date']);
