@@ -1,5 +1,10 @@
-h1 {
-	text-align:center;
+a {
+	position: absolute;
+	font-size: 40px;
+	text-decoration: none;
+	color: #000000;
+	top: 50px;
+	left: 490px;
 }
 
 hr {
