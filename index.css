@@ -1,16 +1,10 @@
-a.header {
-	position: absolute;
-	font-size: 40px;
-	text-decoration: none;
-	color: #000000;
-	top: 50px;
-	left: 490px;
+h1 {
+	text-align:center;
 }
-
 
 input[type="search"]{
     position: absolute;
-    top: 135px;
+    top: 150px;
     left: 400px;
     width: 476px;
     padding: 5px;
@@ -19,7 +13,7 @@ input[type="search"]{
 
 input[type="submit"]{
 	position: absolute;
-	top: 135px;
+	top: 150px;
 	left: 886px;
 	width: 80px;
 	padding: 5px;
@@ -30,14 +24,14 @@ input[type="submit"]{
 p.cannot{
 	position: absolute;
     text-align: center;
-    top: 155px;
+    top: 170px;
     left: 400px;
     width: 476px;
 }
 
 a.ask{
 	position: absolute;
-	top: 170px;
+	top: 185px;
 	left: 763px;
 	width: 100px;
 	color: #FFD700;
@@ -46,100 +40,7 @@ a.ask{
 
 p.recent{
 	position: absolute;
-	top: 185px;
+	top: 200px;
 	left: 390px;
 	font-size: 22px;
-}
-
-hr.garis{
-	position: absolute; 
-	border-width:1px; 
-	border-color: #000000; 
-	width: 600px; 
-	left: 383px; 
-}
-
-p.votes{
-	position: absolute;
-	left: 400px; 
-	font-size: 18px;
-}
-
-p.answers{
-	position: absolute;
-	left: 460px; 
-	font-size: 18px;
-}
-
-p.vote{
-	position: absolute;
-	left: 400px; 
-	font-size: 18px; 
-	text-align: center; 
-	width: 40px;
-}
-
-p.answer{
-	position: absolute;
-	left: 460px; 
-	font-size: 18px; 
-	text-align: center; 
-	width: 60px;
-}
-
-a.delete{
-	position: absolute;
-	right: 383px; 
-	font-size: 15px; 
-	color: #FF0000;
-	text-decoration: none;
-}
-
-p.batasi{
-	position: absolute;
-	right: 422px;
-	font-size: 15px;
-}
-
-a.edit{
-	position: absolute;
-	right: 428px; 
-	font-size: 15px; 
-	color: #FFD700; 
-	text-decoration:none;
-}
-
-p.batasii{
-	position: absolute;
-	right: 453px; 
-	font-size: 15px;
-}
-
-p.askedby{
-	position: absolute;
-	right: 459px; 
-	font-size: 15px;
-}
-
-p.name{
-	position: absolute;
-	right: 459px; 
-	font-size: 15px; 
-	color: #0000FF;
-}
-
-p.topic{
-	position: absolute;
-	left: 530px; 
-	font-size: 20px; 
-	width: 300px; 
-	overflow: hidden;
-}
-
-p.content{
-	position: absolute;
-	left: 530px; 
-	font-size: 13px; 
-	width: 355px; 
-	overflow: hidden;
 }
