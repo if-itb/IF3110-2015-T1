@@ -15,7 +15,7 @@ require_once("./sql/mysql.php");
     <div class="search">
         <div class="container">
             <form action="index.php" method="GET">
-                <input type="text"  id="search" placeholder="Search question topic or content here...">
+                <input type="text" id="search" name="search" placeholder="Search question topic or content here...">
                 <input type="image" src="img/search.png" id="submit">
             </form>
         </div>
@@ -42,7 +42,11 @@ function confirmDelete(id) {
     <h3>Recently Asked Questions</h3>
 	<hr>
     <?php
-        $q = "SELECT * from question";
+		if (isset($_GET['search']) && !is_null($_GET['search'])) {
+			$q = "SELECT * from question where topic LIKE '%$_GET[search]%' OR content LIKE '%$_GET[search]%'";
+		}
+		else
+			$q = "SELECT * from question";
         if(!$result = $db -> query($q)){
 			
             die('Error Query ['.$db -> error. ']');

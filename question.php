@@ -59,7 +59,7 @@ function confirmDelete(id) {
 <div class="question_section">
     <h2><?php echo $row['topic'] ?></h2>
     <hr>
-    <div class="question_content" id="question_content">
+    <div class="question_content">
         <table>
             <tr>
                 <td><a href=javascript:vote(<?php echo $id?>,'question','up')><img src="img/up.png" width="32" height="32"></a></td>
