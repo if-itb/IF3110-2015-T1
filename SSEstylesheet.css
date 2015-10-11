@@ -1,0 +1,48 @@
+<head>
+<style>
+body {
+    background-color: white;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+    font-family: "arial";
+}
+h4.relative {
+    position: relative;
+    color: black;
+    font-family: "Century Gothic";
+    left: -250px;
+}
+
+hr {
+    display: block;
+    margin-top: 0.1 em;
+    margin-bottom: 0.1 em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
+p {
+    font-family: "Dosis";
+    font-size: 20px;
+}
+
+a {
+    color: orange;
+    text-decoration: none;
+}
+#bluelink{
+    color: blue;
+    text-decoration: none;
+}
+#redlink{
+    color: red;
+    text-decoration: none;
+}
+
+</style>
+  </head>
