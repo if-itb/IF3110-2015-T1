@@ -28,9 +28,17 @@
     }
 
 
-    $sql = "DELETE FROM Questions WHERE questionId=$questionId";
+    //DELETE ANSWERS
+    $sql = "DELETE FROM Answers WHERE question_id='$questionId'";
+    if ($conn->query($sql) === TRUE) {
+        echo "Record deleted successfully";
+    } else {
+        echo "Error deleting record: " . $conn->error;
+    }
 
 
+    //DELETE QUESTION
+    $sql = "DELETE FROM Questions WHERE questionId='$questionId'";
     if ($conn->query($sql) === TRUE) {
         echo "Record deleted successfully";
     } else {

@@ -10,14 +10,6 @@
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Simple StackExchange</title>
-    <script type="text/javascript">
-        function deleteConfirmation() {
-            if (confirm("Delete Question?")) {
-                href = "deleteQuestion.php?questionId=$questionId";
-                alert("OK... you chose to proceed with deletion of");
-            }
-        }
-    </script>
 </head>
 
 <body>
@@ -79,7 +71,7 @@
                              echo"</div>";
 
                         echo"<div class= questionRight>";
-                            echo"asked by <span class='questionSubject'>$name</span>|<a class='editQuestion' href='addQuestion.php?questionId=$questionId'>edit</a>|<a class='deleteQuestion' onclick= 'deleteConfirmation()'>delete</a>";
+                            echo"asked by <span class='questionSubject'>$name</span>|<a class='editQuestion' href='addQuestion.php?questionId=$questionId'>edit</a>|<a class='deleteQuestion' href = 'deleteQuestion.php?questionId=$questionId' onclick= \"return confirm('Confirm Delete?');\";>delete</a>";
                         echo"</div>";
                     echo"</div>";
                 }

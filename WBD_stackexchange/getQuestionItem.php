@@ -1,3 +1,7 @@
+<script type="text/javascript" src="voteXmlHttp.js"></script>
+
+
+
 <?php
 /**
  * Created by PhpStorm.
@@ -33,13 +37,13 @@ echo "<div class='questionAnswerItem''>";
 
     echo"<div class ='questionAnswerBody'>";
         echo"<div class ='questionAnswerVote'>";
-            echo"<div class='questionAnswerVoteUpArrow'>";
+            echo"<div class='questionAnswerVoteUpArrow' onclick='voteUpdate(question,$questionId, up)'>";
                 echo "panah atas";
             echo"</div>";
             echo"<div class='questionAnswerVoteNumber'>";
                 echo "$vote";
             echo"</div>";
-            echo"<div class='questionAnswerVoteDownArrow'>";
+            echo"<div class='questionAnswerVoteDownArrow' onclick='voteUpdate(question,$questionId, down)' >";
                 echo "panah bawah";
             echo"</div>";
         echo"</div>";
