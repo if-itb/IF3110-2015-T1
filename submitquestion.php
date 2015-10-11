@@ -12,10 +12,11 @@ $sql = "INSERT INTO questions (q_name, q_email, q_topic, q_content, q_date)
 VALUES ('$q_name', '$q_email', '$q_topic', '$q_content', '$q_date')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+	$q_id = mysqli_insert_id($conn);
+	$conn->close();
+	echo "<script>window.location = 'view.php?id=". $q_id ."'</script>";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
+	$conn->close();
 }
-
-$conn->close();
 ?>
