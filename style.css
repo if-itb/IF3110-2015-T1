@@ -141,7 +141,7 @@ a.question_topic {
 	margin-left: 38%;
 }
 
-#voteNumber {
+.voteNumber {
 	text-align: center;
 	font-size: 35px;
 	color: #CCCCD7;

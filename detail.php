@@ -25,9 +25,9 @@
 		
 		echo "<div class='question_box'>";
 		echo "<div class = 'vote_box'>";
-		echo "<img class='voteImage' src='img/up.png'></img>";
-		echo "<div id='voteNumber'>".$row["question_vote"]."</div>";
-		echo "<img class='voteImage' src='img/down.png'></img>";
+		echo "<img class='voteImage' src='img/up.png' onclick='incrementQuestionVote(".$row["question_id"].")'></img>";
+		echo "<div class='voteNumber' id='questionVote'>".$row["question_vote"]."</div>";
+		echo "<img class='voteImage' src='img/down.png' onclick='decrementQuestionVote(".$row["question_id"].")'></img>";
 		echo "</div>";
 		echo "<div class='question_detail'>".$row["question_content"];
 		echo "</div>";
@@ -53,9 +53,9 @@
 			while($row = mysqli_fetch_assoc($result)) {
 				echo "<div class='answer_box'>";
 				echo "<div class = 'vote_box'>";
-				echo "<img class='voteImage' src='img/up.png'></img>";
-				echo "<div id='voteNumber'>".$row["answer_vote"]."</div>";
-				echo "<img class='voteImage' src='img/down.png'></img>";
+				echo "<img class='voteImage' src='img/up.png' onclick='incrementAnswerVote(".$row["answer_id"].")'></img>";
+				echo "<div class='voteNumber' id='answerVote".$row["answer_id"]."'>".$row["answer_vote"]."</div>";
+				echo "<img class='voteImage' src='img/down.png' onclick='decrementAnswerVote(".$row["answer_id"].")'></img>";
 				echo "</div>";
 				echo "<div class='question_detail'>".$row["answer_content"];
 				echo "</div>";
