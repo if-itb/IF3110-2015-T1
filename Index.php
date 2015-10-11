@@ -26,10 +26,14 @@
 		<hr>
 		<?php
 			include 'qDBFunct.php';
+			include 'aDBFunct.php';
 			$Questions = getAllQuestionOrderByDate();
 			if($Questions != null){
 				foreach($Questions as $Question){
 					$qid=$Question['qid'];
+					$Answers = getAllAnswerOrderByVote($qid);
+					$nAns = count($Answers)-1;
+			
 					echo '<br><div class="collection">
 					<div class="compactbox">
 						<div class="textcentering">
@@ -41,13 +45,13 @@
 					<div class="compactbox">
 						<div class="textcentering">
 							<div class="voteansweridxstyle">
-								belum diimplement 
+								<h1>'.$nAns.'</h1><h2>Answers</h2>
 							</div>
 						</div>
 					</div>
 					<div class="compactbox">
 						<div class="topicidxstyle">
-							'. $Question['qTopic'].'
+							<a id = black href="DisplayQuestion.php?qid='.$qid.'">'. $Question['qTopic'].'</a>
 						</div>
 					</div>
 					<div class="choicebox">
