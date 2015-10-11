@@ -4,23 +4,17 @@ class View {
 	/* View parameters */
 	protected $params = [];
 
-	/* View content */
-	protected $content = '';
+	/* View file */
+	protected $file = '';
 
 	public function __construct($template) {
 		$view_file =  VIEWS_PATH . strtolower($template) . '.php';
 		if (file_exists($view_file)) {
-			ob_start();
-			include $view_file;
-			$this->content = ob_get_clean();
-			ob_end_clean();
+			$this->file = $view_file;
 		}
 		else {
 			throw new \Exception('Template ' . $view_file . ' not found.');
 		}
-		return $this;
-	}
-	private function render() {
 	}
 
 	public function params($params) {
@@ -32,6 +26,12 @@ class View {
 
 	public function __toString() {
 		extract($this->params);
+
+		ob_start();
+		include $this->file;
+		$this->content = ob_get_clean();
+		ob_end_clean();
+
 		return $this->content;
 	}
 }
