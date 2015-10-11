@@ -1,0 +1,71 @@
+.StackExchange{
+	margin-right: 200px;
+	margin-left: 200px;
+}
+
+input{
+	width: 700px;
+	height: 30px;
+	margin-bottom: 5px;
+}
+
+.Search button{
+	width: 100px;
+	height: 35px;
+}
+
+hr{
+	width: 900px;
+	border: 1.5px solid;
+}
+
+.Question h3{
+	margin-left: 20px;
+}
+
+.votes{
+	display: inline-block;
+	float: left;
+	padding: 5px 5px 5px 5px;
+}
+
+.answer{
+	display: inline-block;
+	float: left;
+	padding: 5px 5px 5px 5px;
+}
+
+.count{
+	margin-left: 8px;
+	padding: 5px 5px 5px 5px;
+}
+
+.question-list p{
+	margin-top: 25px;
+	margin-left: 20px;
+}
+.asked-description{
+	float: right;
+	padding-top: 70px;
+}
+
+.Question p{
+	display: inline-block;
+	float: left;
+	padding: 5px 5px 5px 5px;	
+}
+
+.question-form h2{
+	margin-left: 100px;
+}
+
+.question-form textarea{
+	width: 700px;
+	height: 200px;
+}
+
+.question-form button{
+	width: 100px;
+	height: 30px;
+	margin-left: 600px;
+}
