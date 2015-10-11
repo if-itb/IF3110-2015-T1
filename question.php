@@ -4,6 +4,7 @@
 		<title>Simple StackExchange: Question</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script type="text/javascript" src="js/validate.js"></script>
 
      <?php
 			ini_set('short_open_tag', 'on');
@@ -184,12 +185,12 @@
 
 			<div class="content" style="margin-top:30px;">
 				<div class="grey-title">Your Answer</div>
-				<form method="post">
+				<form method="post" name="saveanswer" action="question.php" onsubmit="return (validateAnswer())">
 					<input type="text" class="input-group" placeholder="Name" name="name_ans">
 					<input type="text" class="input-group" placeholder="Email" name="email_ans">
-					<textarea placeholder="Content" rows="5" name="content_ans"></textarea>
+					<textarea placeholder="Content" rows="5" name="content_ans" resize="none"></textarea>
 				<div class="button-bottom">
-					<button type="submit" name="saveanswer">Post</button>
+					<button type="submit" name="saveanswer" value="Submit">Post</button>
 				</div>
 			</form>
 			</div>

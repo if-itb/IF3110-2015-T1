@@ -4,6 +4,8 @@
 		<title>Simple StackExchange: Edit Question</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script type="text/javascript" src="js/validate.js"></script>
+    
     <?php
     	ini_set('short_open_tag', 'on');
     	session_start();
@@ -52,13 +54,13 @@
 			</div>
 			
 			<div class="content">
-				<form method="post" action="question.php">
+				<form method="post" name="editquestion" action="question.php" onsubmit="return (validateEdit())">
 					<input type="text" class="input-group" placeholder="Name" name="name" value="<?=$name ?>">
 					<input type="text" class="input-group" placeholder="Email" name="email" value="<?=$email ?>">
 					<input type="text" class="input-group" placeholder="Question Topic" name="topic" value="<?=$topic ?>">
 					<textarea placeholder="Content" rows="5" name="content" resize="none"><?=$content ?></textarea>
 					<div class="button-bottom">
-						<button type="submit" name="editquestion">Post</button>
+						<button type="submit" name="editquestion" value="Submit">Post</button>
 					</div>
 				</form>
 
