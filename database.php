@@ -49,7 +49,7 @@
 					Title='$data[Title]',
 					Content='$data[Content]'
 				WHERE
-					Q_ID = $data[Q_ID]";
+					Q_ID = $data[q_id]";
 		}
 					
 		$no_error = mysqli_query($connect, $q);
