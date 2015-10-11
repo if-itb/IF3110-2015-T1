@@ -51,7 +51,7 @@
 					echo	'<div id="QuestionList">
 								<div id="votes">0<br>Votes</div>
 								<div id="answers">0<br>Answers</div>
-								<a href="" id="topic">'.$row[3].'</a>
+								<a href="question.php?id='.$row[0].'" id="topic">'.$row[3].'</a>
 								<a href="delete.php" id="delete">delete</a>
 								<div class="char">|</div> <a href="ask.php" id="edit">edit</a>
 								<div class="char">|</div> <div id="name">'.$row[1].'</div>								
@@ -63,5 +63,6 @@
 		}
 		mysqli_close($link);
 	?>
+	<br>
 </body>
 </html>
