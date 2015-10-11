@@ -10,8 +10,17 @@
 		$action = $_GET['action'];
 	}
 	else { // default 
-		$controller = 'pages';
+		$controller = 'thread';
 		$action = 'home';
 	}
+
+	if (isset($_GET['query'])) {
+		$queryString = $_GET['query'];
+	}
+	else {
+		$queryString = '';
+	}
+
+	require_once(ROOT . DS . 'application' . DS . 'view' . DS . 'layout.php');
 
 ?>

@@ -52,6 +52,22 @@ a {
 	color: orange;
 }
 
+form > input, textarea {
+	width: 98%;
+	margin: 2px;
+	padding: 5px;
+	border: solid black 1px;
+	border-radius: 2px;
+}
+
+textarea {
+	resize: none;
+}
+
+table {
+	border: none;
+}
+
 .name {
 	color: blue;
 }
@@ -88,13 +104,78 @@ a {
 	margin: auto;
 }
 
+.floating-box {
+	display: inline-block;
+	text-align: center;
+	margin-left: 30px;
+	vertical-align: text-top;
+	margin-top: -15px;
+	height: 150px;
+}
+
+.edit {
+	text-align: right;
+	clear: both;
+}
+
+.topic {
+	position: relative;
+	left: 20px;
+	text-align: left;
+	padding-right: 20px;
+}
+
+.form {
+	margin-left: 10px;
+	margin-top: 20px;
+	margin-bottom: 50px;
+	padding: 2px;
+}
+
+.vote {
+	color: #999;
+	padding-right: 20px;
+	padding-top: 20px;
+	vertical-align: top;
+}
+
+.answered {
+	text-align: right;
+	clear: both;
+	margin-right: 30px;
+}
+
+.upvote {
+	width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+	border-bottom: 10px solid #999;
+}
+
+.votes {
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 25px;
+}
+
+.downvote {
+	width: 0; 
+  height: 0; 
+  border-top: 10px solid #999;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+
 #title {
 	position: relative;
 	top: 0px;
 }
 
 #search-form {
-	width: 530px;
+	width: 520px;
 	height: 35px;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -174,45 +255,6 @@ a {
 	width: 99.7%;
 }
 
-.floating-box {
-	display: inline-block;
-	text-align: center;
-	margin-left: 30px;
-	vertical-align: text-top;
-	margin-top: -15px;
-}
-
-.edit {
-	text-align: right;
-	clear: both;
-}
-
-.topic {
-	position: relative;
-	left: 20px;
-	text-align: justify;
-	padding-right: 20px;
-}
-
-.form {
-	margin-left: 10px;
-	margin-top: 20px;
-	margin-bottom: 50px;
-	padding: 2px;
-}
-
-form > input, textarea {
-	width: 98%;
-	margin: 2px;
-	padding: 5px;
-	border: solid black 1px;
-	border-radius: 2px;
-}
-
-textarea {
-	resize: none;
-}
-
 #submit {
 	float: right;
 	width: 50px;
@@ -225,47 +267,7 @@ textarea {
 	margin-left: 30px;
 }
 
-table {
-	border: none;
-}
-
-.vote {
-	color: #999;
-	padding-right: 20px;
-	padding-top: 20px;
-	vertical-align: top;
-}
-
 #question-content, .answer-content {
-	text-align: justify;
+	text-align: left;
 	vertical-align: text-top;
-}
-
-.answered {
-	text-align: right;
-	clear: both;
-	margin-right: 30px;
-}
-
-.upvote {
-	width: 0; 
-  height: 0; 
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-	border-bottom: 10px solid #999;
-}
-
-.votes {
-	text-align: center;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	font-size: 25px;
-}
-
-.downvote {
-	width: 0; 
-  height: 0; 
-  border-top: 10px solid #999;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
 }
