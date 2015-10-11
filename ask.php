@@ -39,19 +39,19 @@
 		<div id="ask_box">
 			<form action="index.php" method="POST">
 				<div id="ask_namebox">
-					<input type="text" placeholder="Name" name="name" value="<?php echo $data['Name'] ?>" />
+					<input type="text" placeholder="Name" name="Name" value="<?php echo $data['Name'] ?>" />
 				</div>
 				
 				<div id="ask_emailbox">
-					<input type="text" placeholder="Email" name="email" value="<?php echo $data['Email'] ?>" />
+					<input type="text" placeholder="Email" name="Email" value="<?php echo $data['Email'] ?>" />
 				</div>
 				
 				<div id="ask_titlebox">
-					<input type="text" placeholder="Question Topic" name="title" value="<?php echo $data['Title'] ?>" />
+					<input type="text" placeholder="Question Topic" name="Title" value="<?php echo $data['Title'] ?>" />
 				</div>
 				
 				<div id="ask_contentbox">
-					<textarea name="content" placeholder="Content"><?php echo $data['Content'] ?></textarea>
+					<textarea name="Content" placeholder="Content"><?php echo $data['Content'] ?></textarea>
 				</div>
 
 				<div id="ask_submit">
