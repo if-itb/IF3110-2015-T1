@@ -17,7 +17,7 @@
 				$update = updateQuestion($_POST['qid'],$_POST['name'],$_POST['email'],$_POST['qtopic'],$_POST['content']);
 				if($update != 0){
 					echo 'Redirecting...';
-					header('Location: index.php');
+					header('Location: DisplayQuestion.php?qid='.$_POST['qid'].'');
 				}
 				else {
 					echo 'Error Submitting Question';
@@ -27,7 +27,7 @@
 				$posted = submitQuestion($_POST['name'],$_POST['email'],$_POST['qtopic'],$_POST['content']);
 				if($posted != 0){
 					echo 'Redirecting...';
-					header('Location: index.php');
+					header('Location: DisplayQuestion.php?qid='.$posted.'');
 				}
 				else {
 					echo 'Error Submitting Question';
