@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<hmtl>
+<head>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="stackExchange">
+		<center><h1>Simple StackExchange</h1><br><br></center>
+		<h1>What's your question?</h1>
+		<hr>
+		<form class="question-form" action="data-question.php" method="POST">
+			<div class="question-container">
+				<label class="name">
+					<input type="text" name="name" placeholder="Name">
+				</label>
+				<label class="email">
+					<input type="text" name="email" placeholder="Email">
+				</label>
+				<label class="topic">
+					<input type="text" name="topic" placeholder="Question Topic">
+				</label>
+				<label class="content">
+					<textarea type="text" name="content" placeholder="Content"></textarea>
+				</label>
+			</div>
+			<button class="post-button" type="submit" value="Submit"><b>Post</b></button>
+		</form>
+	</div>
+</body>
+</html>
