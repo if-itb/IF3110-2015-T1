@@ -1,57 +1,103 @@
 <?php
-    require_once "db.php";
-    require_once "function.php";
-
     if ($_SERVER["REQUEST_METHOD"] == "POST" &&
         !empty($_POST["name"]) && !empty($_POST["email"]) &&
         !empty($_POST["content"] && !empty($_POST["id"]))) {
+        require_once "db.php";
+        $mysqli = DB::getInstance();
         $name = $mysqli->real_escape_string($_POST["name"]);
         $email = $mysqli->real_escape_string($_POST["email"]);
         $content = $mysqli->real_escape_string($_POST["content"]);
         $id_question = $mysqli->real_escape_string($_POST["id"]);
         $query = "INSERT INTO answer (name, email, content, id_question) VALUES ('$name', '$email', '$content', '$id_question')";
         $mysqli->query($query);
-        $mysqli->close();
         header("Location: question.php?id=". $id_question);
         die();
     }
     else if ($_SERVER["REQUEST_METHOD"] == "GET" && !empty($_GET["id"])) {
+        require_once "db.php";
+        $mysqli = DB::getInstance();
         $query = "SELECT * FROM question WHERE id='" . $mysqli->real_escape_string($_GET["id"]) . "'";
         $question_result = $mysqli->query($query);
-        if (!$question_result->num_rows)
-            backToHome();
+        if (!$question_result->num_rows) {
+            header("Location: ". $_SERVER["HTTP_REFERER"]);
+            die();
+        }
         $question_row = $question_result->fetch_assoc();
-
-        require_once "header.php";
-        echo '<div class="container">';
-            echo '<h3 class="topic"><a class="topic" href="question.php?id='. $question_row["id"] .'">'. $question_row["topic"] .'</a></h3>';
-            echo '<hr class="heading">';
-            displayQuestion($question_row["id"], $question_row["name"], $question_row["email"],$question_row["content"], $question_row["time"], $question_row["vote"]);
-            echo '<br>';
-            $query = "SELECT * FROM answer WHERE id_question='". $question_row["id"] ."'";
-            $result = $mysqli->query($query);
-            if ($result->num_rows) {
-                echo '<h3>'. $result->num_rows .' Answer'. (($result->num_rows > 1) ?'s':'') .'</h3>';
-                echo '<hr class="heading">';
-                echo '<div class="answer-list">';
-                    $count = 0;
-                    while ($answer_row = $result->fetch_assoc()) {
-                        displayAnswer($answer_row["id"], $answer_row["name"], $answer_row["email"],$answer_row["content"], $answer_row["time"], $answer_row["vote"]);
-                        if (++$count < $result->num_rows)
-                            echo '<hr>';
-                    }
-                echo '</div>';
-            }
-            echo '<br>';
-            echo '<h3>Your Answer</h3>';
-            echo '<hr class="heading">';
-            displayAnswerForm($question_row["id"]);
-        echo '</div>';
-        require_once "footer.php";
-        $mysqli->close();
+        $answer_rows = array();
+        $query = "SELECT * FROM answer WHERE id_question='". $question_row["id"] ."'";
+        $result = $mysqli->query($query);
+        while ($answer_row = $result->fetch_assoc()) {
+            $answer_rows[] = $answer_row;
+        }
+        $answer_count = count($answer_rows);
     }
     else {
-        $mysqli->close();
-        backToHome();
+        header("Location: ". $_SERVER["HTTP_REFERER"]);
+        die();
     }
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/custom.js"></script>
+    <title>Exchange Lyz</title>
+</head>
+<body>
+    <?php require_once "header.php" ?>
+    <div class="container">
+        <h3 class="topic"><a class="topic" href="question.php?id=<?= $question_row["id"] ?>"><?= $question_row["topic"] ?></a></h3>
+        <hr class="heading">
+            <div class="question-item">
+                <div class="vote-panel">
+                    <div class="vote-up" onclick="vote('question',<?= $question_row["id"] ?>,'up')"></div>
+                    <div class="vote-count">
+                        <span id="question-<?= $question_row["id"] ?>"><?= $question_row["vote"] ?></span>
+                    </div>
+                    <div class="vote-down" onclick="vote('question',<?= $question_row["id"] ?>,'down')"></div>
+                </div>
+                <div class="question-content">
+                    <p><?= $question_row["content"] ?></p>
+                    <div class="timestamp">
+                        asked by <?= $question_row["name"] ?> at <?= $question_row["time"] ?> | <a href=ask.php?id=<?= $question_row["id"] ?>>edit</a> | <a href="#" onclick="deleteQuestion(<?= $question_row["id"] ?>)">delete</a>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <?php if ($answer_count): ?>
+                <h3><?= $answer_count ?> Answer<?php if ($answer_count > 1): ?><? ="s" ?><?php endif; ?></h3>
+                <hr class="heading">
+                <div class="answer-list">
+                <?php foreach($answer_rows as $answer_row): ?>
+                    <div class="answer-item">
+                        <div class="vote-panel">
+                            <div class="vote-up" onclick="vote('answer',<?= $answer_row["id"] ?>,'up')"></div>
+                            <div class="vote-count">
+                                <span id="answer-<?= $answer_row["id"] ?>"><?= $answer_row["vote"] ?></span>
+                            </div>
+                            <div class="vote-down" onclick="vote('answer',<?= $answer_row["id"] ?>,'down')"></div>
+                        </div>
+                        <div class="answer-content">
+                            <p><?= $answer_row["content"] ?></p>
+                            <div class="timestamp">
+                                answered by <?= $answer_row["name"] ?> at <?= $answer_row["time"] ?>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <br>
+            <h3>Your Answer</h3>
+            <hr class="heading">
+            <form onsubmit="return validate()" action="<?= $_SERVER["PHP_SELF"] ?>" method="post">
+                <input type="text" name="name" placeholder="Name"></input>
+                <input type="text" name="email" placeholder="Email"></input>
+                <textarea  name="content" placeholder="Content" rows="7"></textarea>
+                <input type="submit" class="btn-default btn-right" value="Post"></input>
+                <input type="hidden" name="id" value="<?= $question_row["id"] ?>"></input>
+            </form>
+        </div>
+</body>
+</html>

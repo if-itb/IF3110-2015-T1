@@ -1,7 +1,8 @@
 <?php
-    require_once "db.php";
-    if ($_SERVER["REQUEST_METHOD"] == "GET" && !empty($_GET["action"]) &&
-        !empty($_GET["type"]) && !empty($_GET["id"])) {
+    if ($_SERVER["REQUEST_METHOD"] == "GET" &&
+        !empty($_GET["action"]) && !empty($_GET["type"]) && !empty($_GET["id"])) {
+        require_once "db.php";
+        $mysqli = DB::getInstance();
         $id = $mysqli->real_escape_string($_GET["id"]);
         $table = $mysqli->real_escape_string($_GET["type"]);
         $query = "SELECT vote FROM ". $table ." WHERE id='". $id ."'";
@@ -17,5 +18,4 @@
                 echo $row["vote"];
         }
     }
-    $mysqli->close();
 ?>
