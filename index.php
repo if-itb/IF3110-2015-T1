@@ -26,6 +26,7 @@
       <h2>Have Question? <a href="postQuestion.html">Ask Here</a></h2>
     </center>
     <div>
+      <table width = "100%" frame = "below">
       <?php
          $dbhost = 'localhost';
          $dbuser = 'root';
@@ -38,7 +39,7 @@
             die('Could not connect: ' . mysql_error());
          }
          
-         $sql = 'SELECT name, topic, vote, num_ans FROM question';
+         $sql = 'SELECT name, topic, vote, num_ans, id FROM question ORDER BY ID DESC LIMIT 10';
          mysql_select_db('tubeswbd');
          $retval = mysql_query( $sql, $conn );
          
@@ -50,16 +51,20 @@
          while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
          {
             echo 
-                "EMP ID :{$row['id']}  <br> ".
-               "EMP NAME : {$row['name']} <br> ".
-               "EMP SALARY : {$row['topic']} <br> ".
-               "<br>";
+                "<thead><th colspan =\"5\"> <a href=\"postAns.php\"> {$row['topic']} </a></th></thead> ".
+                " <tr> <td> Vote : {$row['vote']} </td> ".
+                " <td> Answer : {$row['num_ans']} </td>".
+                " <td> Asked by : {$row['name']} </td>".
+                " <td> <form method=\"GET\" target=\"showDataBase.php\">".
+                "   <input id=\"{$row['id']}\" type=\"submit\" value=\"edit\" </td>".
+                " <td> <form method=\"GET\" target=\"postQuestion.html\">".
+                "   <input id=\"{$row['id']}\" type=\"submit\"  value=\"delete\" </td>".
+                "</tr>";
          }
-         
-         echo "More here\n";
          
          mysql_close($conn);
       ?>
+      </table>
     </div>
     
 
