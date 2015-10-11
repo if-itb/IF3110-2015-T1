@@ -4,7 +4,7 @@
 	<div class="content">
 		<h2>What's your question?</h2>
 		<div class="bottom-line"> </div>
-		<form onsubmit="return validate(this);" method="post">
+		<form action="questionAskReq.php" method="post">
 			<div class="form">
 				<input class="formContent" type="text" name="name" placeholder="Name" size="159px">
 			</div>
