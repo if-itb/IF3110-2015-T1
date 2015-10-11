@@ -6,14 +6,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Coppeng Exchange</title>
+	<meta charset="utf-8">
+    <title>Coppeng Exchange</title>
+    <link rel="stylesheet" media="screen" href="css/style.css" >
+	<script type="text/javascript" src="js/coppeng.js"></script>
 </head>
 <body>
 	<h1>Coppeng Exchange</h1>
 	<hr>
-	<form action = 'search.php' method = 'GET'>
-		<input type = 'text' name = 'key' maxlength = '160'>
-		<input type = 'submit' value = 'Cari'>
+	<form action = 'search.php' class = 'general-form' method = 'GET'>
+		<ul>
+			<input type = 'text' name = 'key' maxlength = '160'>
+			<button type = 'submit' class = 'submit'>Cari</button>
+		</ul>
 	</form>
 	<p> 
 		Tidak dapat menemukan yang anda cari ? Tanyakan <a href = "question.php">disini!</a>
@@ -39,14 +44,5 @@
 	?>
 	
 	<?php mysql_close($link); ?>
-	<script type="text/javascript">
-		function delete_question(id)
-		{
-			 if(confirm('Apakah anda ingin menghapus pertanyaan ini ?'))
-			 {
-				window.location.href='delete.php?id='+id;
-			 }
-		}
-	</script>
 </body>
 <html>
