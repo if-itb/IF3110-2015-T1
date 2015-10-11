@@ -1,10 +1,26 @@
 <?php
-    $id = $_GET['id'];
-    //$question = getQuestion($id);
-    $question['name'] = "Albert";
-    $question['topic'] = "IF";
-    $question['content'] = "Albert Tri Adrian";
-    $question['email'] = "alberttri23@gmail.com";
+    require("./controller.php");
+    if (isset($_GET['id'])){
+      $id = $_GET['id'];     
+      $question = getQuestion($id);    
+    }
+
+   
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $question['q_id'] = $_POST['q_id'];
+      $question['name'] = $_POST['name'];
+      $question['email'] = $_POST['email'];
+      $question['topic'] = $_POST['topic'];
+      $question['content'] = $_POST['content'];
+
+      if (isset($_GET['id'])){
+        updateQuestion($question,$id);
+      }
+      else{
+        postQuestion($question);        
+      }
+
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,16 +43,16 @@
       <div class="question_detail">
         <div id="vote_icon">
           <span class="vote">
-            <img id="vote_up" src="up_arrow.png" >
+            <img id="vote_up" src="up.jpg" >
             <?php echo 1 . "\n";?>
-            <img id="vote_down" src="down_arrow.png">
+            <img id="vote_down" src="down.png">
           </span>
         </div>    
         <div class="mid-right">
           <p><?php echo $question['content']; ?></p>
         </div>
         <div class="right" style="float:right;">
-          asked by <?php echo $question['name']; ?> at datetime | 
+          asked by <?php echo $question['name']; ?> at <?php echo $question['create_date']; ?> | 
           <a class='orange_link' href='create_question.php?id=$id'>edit</a> |
           <a class='red_link' href=''>delete</a>          
         </div>

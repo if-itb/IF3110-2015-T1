@@ -1,20 +1,20 @@
 <?php
 
-  require_once("./controller.php");
+  require("./controller.php");
   
   $question = array();
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-      if (isset($id)){
+      $question['q_id'] = $_POST['q_id'];
+      $question['name'] = $_POST['name'];
+      $question['email'] = $_POST['email'];
+      $question['topic'] = $_POST['topic'];
+      $question['content'] = $_POST['content'];
+
+      if (isset($_GET['id'])){
         updateQuestion($question,$id);
       }
       else{
-        $question['q_id'] = $POST['q_id'];
-        $question['name'] = $_POST['name'];
-        $question['email'] = $_POST['email'];
-        $question['topic'] = $_POST['topic'];
-        $question['content'] = $_POST['content'];
-        $question['q_update'] = $_POST['q_update'];    
         postQuestion($question);        
       }
 
@@ -27,7 +27,7 @@
       $email = $question['email']; 
       $topic = $question['topic'];
       $content = $question['content'];
-      $update = $question['q_update'];    
+      $update = true;    
   }
   else{
       $id = 0;

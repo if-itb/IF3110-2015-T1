@@ -55,12 +55,11 @@
 	    $email = $question['email'];
 	    $topic = $question['topic'];
 	    $content = $question['content'];
-	    $update = $question['q_update'];
 		$vote = 0;
 		$create_date = date("Y-m-d H:i:s");
 
-		$sql = "INSERT INTO question (q_id,name, email, topic,content,q_update,vote,create_date)
-		VALUES ('$id','$name', '$email', '$topic', '$content','$update','$vote','$create_date')";
+		$sql = "INSERT INTO questions (q_id,name, email, topic,content,vote,create_date)
+		VALUES ('$id','$name', '$email', '$topic', '$content','$vote','$create_date')";
 
 		if (mysqli_query($conn, $sql)) {
 		    echo "New record created successfully";
@@ -73,7 +72,7 @@
 	function getQuestions(){
 		global $conn;
 
-		$sql = "SELECT * FROM question ORDER BY q_id DESC";
+		$sql = "SELECT * FROM questions ORDER BY q_id DESC";
 		$result = mysqli_query($conn, $sql);
 
 		$questions = array();
@@ -85,7 +84,6 @@
     		$question["email"] = $row["email"];
 			$question["topic"] = $row["topic"];
 			$question["content"] = $row["content"];
-			$question["q_udpate"] = $row["q_update"];
 			$question["vote"] = $row["vote"];
 			$question["create_date"] = $row["create_date"];
 	    	array_push($questions, $question);			
@@ -95,52 +93,54 @@
 
 	function getQuestion($id) {
 		global $conn;
-
-		$sql = "SELECT * FROM question WHERE q_id = $id". ;
+		$sql = "SELECT * FROM questions WHERE q_id ='$id'" ;
 		$result = mysqli_query($conn, $sql);
 
 		$row = mysqli_fetch_assoc($result);
-
 		$question = array();
 		$question["q_id"] = $row['q_id'];
 		$question["name"] = $row['name'];
 		$question["email"] = $row["email"];
 		$question["topic"] = $row["topic"];
 		$question["content"] = $row["content"];
-		$question["q_update"] = $row["q_update"];
 		$question["vote"] = $row["vote"];
 		$question["create_date"] = $row["create_date"];
 		return $question;				
 	}
-
+	
 	function updateQuestion($question, $id){
 		global $conn;
-
 
 		$id = $question['q_id'];
 	    $name = $question['name'];
 	    $email = $question['email'];
 	    $topic = $question['topic'];
 	    $content = $question['content'];
-	    $update = $question['q_update'];
 
-		$sql = " UPDATE question SET name='$name', 
-				email='$email', topic='$topic', content='$content' 
-				WHERE id= " .$id;
+		$sql = "UPDATE questions SET name='$name', 
+				email='$email', content='$content' 
+				WHERE q_id= '$id'";
 
-		if (mysqli_query($conn, $query)) {
+		if (mysqli_query($conn, $sql)) {
 			echo "Question is updated successfully.";
 		} else {
 		    echo "Error updating question: " . mysqli_error($conn);
 		}
 	}
 
+	function deleteQuestion($id){
+		global $conn;
+
+
+	}
+
 	/************ FUNCTION FOR ANSWER *************/
 	function postAnswer($answer){
 		global $conn;
 
-		$id = $answer['q_id'];
-	    $name = $answer['name'];
+		$q_id = $answer['q_id'];
+		$a_id = $answer['a_id'];
+		$name = $answer['name'];
 	    $email = $answer['email'];
 	    $content = $question['content'];
 	   	$vote = 0;
@@ -157,7 +157,7 @@
 		}
 	}
 
-	function getAnswers($question_id){
+	/*function getAnswers($question_id){
 		global $conn;
 
 		$sql = "SELECT * FROM answer WHERE q_id = $question_id";
@@ -168,6 +168,7 @@
 	    while($row = mysqli_fetch_assoc($result)) {
 			$answer = array();
 			$answer["q_id"] = $row['q_id'];
+			$answer["a_id"] = $row['a_id'];
 			$answer["name"] = $row['name'];
 			$answer["email"] = $row["email"];
 			$answer["content"] = $row["content"];
@@ -177,17 +178,17 @@
 	    }
 	
 		return $answers;		
-	}
+	}*/
 
 	/************ FUNCTION FOR VOTE (BOTH ASNWER & QUESTION) *************/
 	function vote($id,$is_question,$is_up){
 		global $conn;
 
 		if ($is_question){
-			$database = "question";
+			$database = "questions";
 		}
 		else{
-			$database = "answer";
+			$database = "answers";
 		}
 
 		if ($is_up){

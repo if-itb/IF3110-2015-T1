@@ -1,5 +1,5 @@
 <?php
-    require_once("./controller.php");
+    require("./controller.php");
     $questions = getQuestions();
 ?>
 
@@ -26,20 +26,20 @@
             <p class="content_title" id="recently">Recently Asked Questions</p>
             <?php
                 foreach($questions as $question){
+
                     $left = "<div class='left'>
                                 <span class='vote'>0<br>Votes</span>
                                 <span class='answer'>0<br>Answers</span>
                             </div>";
-
                     $middle = " <div class='middle'>
-                                    <a href=''>". $question['topic'] ."</a>
+                                    <a href='show_question.php?id=". $question['q_id']."'>". $question['topic'] ."</a>
                                     <p>BLAbajfhajkhfdsj</p>
                                 </div>";
 
                     $right = " <div class='right'>
                                 asked by 
                                 <a class='blue_link' href=''>" . $question['name'] ."</a> | 
-                                <a class='orange_link' href=''>edit</a> |
+                                <a class='orange_link' href='create_question.php?id=". $question['q_id'] . "'>edit</a> |
                                 <a class='red_link' href=''>delete</a>
                                </div>";
 

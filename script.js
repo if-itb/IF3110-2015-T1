@@ -19,13 +19,13 @@ function validateQuestionForm(){
 	  alert("Name must be filled");
 	  return false;
 	}
-	else if (!validateEmail(email)){
-	  alert("Please enter a valid email address");
-	  return false;          
-	}
 	else if (email == null || email == ""){
 	  alert("Email must be filled");
 	  return false;
+	}
+	else if (!validateEmail(email)){
+	  alert("Please enter a valid email address");
+	  return false;          
 	}
 	else if (topic == null || topic == ""){
 	  alert("Topic must be filled");
@@ -50,13 +50,13 @@ function validateAnswerForm(){
 	  alert("Name must be filled");
 	  return false;
 	}
-	else if (!validateEmail(email)){
-	  alert("Please enter a valid email address");
-	  return false;          
-	}
 	else if (email == null || email == ""){
 	  alert("Email must be filled");
 	  return false;
+	}
+	else if (!validateEmail(email)){
+	  alert("Please enter a valid email address");
+	  return false;          
 	}
 	else if (topic == null || topic == ""){
 	  alert("Topic must be filled");
