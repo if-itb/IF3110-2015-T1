@@ -1,0 +1,36 @@
+.container {
+	position: relative;
+	text-align: center;
+	width: 100%;
+	font-family: 'Open Sans',Helvetica, Arial, sans-serif;
+	margin: auto;
+}
+
+.header {
+	position: relative;
+	text-align: center;
+	width: 1000px;
+	margin: 0 auto;
+	color: #e53600;
+}
+
+.wrapper{
+
+}
+
+.search-tab {
+	width: 1000px;
+	margin: 30px auto;
+	text-align: center;
+}
+
+#search-bar {
+	margin-top: 20px;
+	width: 70%;
+	height: 25px;
+}
+
+#search-button {
+	margin-left: 10px;
+	height: 35px;
+}
