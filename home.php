@@ -38,14 +38,23 @@
 							id='".$_POST['question_id']."'";
 			mysql_query($update);
 		}
+		else if ($_POST['type'] == 'answer') {
+			$answer = "INSERT INTO answer (question_id, name, email, content) VALUES (
+				'".$_POST['question_id']."',
+				'".$_POST['name']."',
+				'".$_POST['email']."',
+				'".$_POST['content']."'
+			)";
+			mysql_query($answer);
+		}
 		$sql = "SELECT * FROM question";
 		$result = mysql_query($sql);
 	?>
 	<div align="center">
 	<?php while ($row = mysql_fetch_assoc($result)) { ?>
 		<?php echo $row['vote'] . " "; ?>
-		<?php echo $row['topic'] . " "; ?>
-		<?php echo "aksed by ". $row['name'] . " "; ?>
+		<a href="answer.php?question_id=<?php echo $row['id']; ?>"><?php echo $row['topic'] . " "; ?></a>
+		<?php echo "asked by ". $row['name'] . " "; ?>
 		| <a href="create.php?question_id=<?php echo $row['id']; ?>">edit</a> | delete
 		<br>
 		<hr width="75%" align="center">
