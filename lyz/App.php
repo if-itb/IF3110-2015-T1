@@ -20,6 +20,14 @@ class App {
 		$this->request = new Request($uri, $method, $params);
 	}
 	public function run() {
+		$cont_info = Route::resolve($this->request);
+		$class_name = $cont_info['class'];
+		$method_name = $cont_info['method'];
+
+		echo $class_name . ' ' . $method_name . '\n';
+
+		$controller = new $class_name();
+		$controller->$method_name();
 	}
 	public function __destruct() {
 	}
