@@ -28,7 +28,7 @@
 		</div>
 		
 		<div class="wrapper">
-			<form role="form" method="get" action="search-question.php" class="search-bar">
+			<form role="form" method="get" action="search-question.php" onsubmit="return validateForms()" class="search-bar">
 				<input name="keyword" type="text" class="search-text" placeholder="Search question by topic or content">
 				<input name="search-button" type="submit" value="Search" class="search-button">
 			</form>

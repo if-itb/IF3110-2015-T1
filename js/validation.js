@@ -8,11 +8,10 @@ function validateForms(){
 			}
 			if(forms[i][j].name == "email"){
 				var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    		if(!re.test(forms[i][j].value)){
-    			alert("Please use the correct email format\nexample: user@email.com");
-    			forms[i][j].focus();
-    			return false;
-    		}
+				if(!re.test(forms[i][j].value)){
+					alert("Please use the correct email format\nexample: user@email.com");
+					return false;
+				}
 			}
 		}
 	}

@@ -89,7 +89,20 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+#### Validasi pada Client Side
+
+Validasi dilakukan dengan melakukan pengecekan pada setiap elemen dari form. Tahap - tahap pengecekan:
+1. Cek apakah ada elemen yang bernilai kosong, jika ada maka 'return false'
+2. Jika tidak ada elemen yang bernilai, maka cek apakah ada elemen form yang bernama "email", apabila ada maka cek apakah sesuai dengan format email dengan menggunakan regex
+3. Apabila seluruh elemen valid, maka 'return true'
+
+#### AJAX
+
+- Pada saat vote tombol up/down di klik, maka fungsi 'vote()' akan berjalan dimana fungsi vote mengirimkan parameter id, type, dan act
+- Dalam fungsi vote dibuat objek XMLHttpRequest yang mengirimkan request ke page vote.php
+- Dalam vote.php dilakukan perubahan nilai vote dalam database dengan menggunakan variabel GET yang membaca type(question/answer), id, act(up/down), hasil perubahan di echo
+- Echo hasil perubahan nilai vote masuk sebagai respons dalam innerHTML ke elemen dengan id yg sudah ditentukan
+- Respons masuk dan output echo akan ditampilkan sehingga nilai vote berubah ke nilai terbaru
 
 ### Knowledge
 
