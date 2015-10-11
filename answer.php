@@ -2,6 +2,9 @@
 <html>
 	<head>
         
+       <script src="votequestion.js"></script> 
+        
+        
         <script>
         function validateForm() {
            var x = document.forms["answer"]["name"].value;
@@ -16,7 +19,10 @@
             }
             else{
                 var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-                return re.test(email);
+                 if(!re.test(x)){
+                    alert("Email Invalid");
+                     return false;
+                }
             }
             var x = document.forms["answer"]["content"].value;
             if (x == null || x == "") {
@@ -83,7 +89,10 @@
 							while($row = $result->fetch_assoc()) {	
 								echo "<div>";
                                     echo "<h2>".$row["questiontopic"]."</h2>";
-                                    echo '<div class="columnsmall left"><p>'. $row["vote"].'</p>'.'<p>Votes</p>'.'</div>';
+                                    echo '<div class="columnsmall left" id="ajax">
+                                        <img src="up.png" alt="up" height="42" width="42" onclick="voteup('.$_GET["id"].')">
+                                            <p>'. $row["vote"].'</p>'.
+                                        '<img src="down.png" alt="down" height="42" width="42" onclick="votedown('.$_GET["id"].')"></div>';
                                     echo '<div class="columnlargest center">';
                                        
                                         echo "<p>".$row["content"]."</p>";
@@ -106,9 +115,13 @@
 						$ansresult = $con->query($anssql);
 
 						if ($ansresult->num_rows > 0) {	
-							while($row = $ansresult->fetch_assoc()) {	
+							while($row = $ansresult->fetch_assoc()) {
 								echo "<div class='answer'>";
-								    echo '<div class="columnsmall left"><p>'. $row["vote"].'</p>'.'<p>Votes</p>'.'</div>';
+								    echo '<div class="columnsmall left" id="ajax'.$row["answer_id"].'">
+                                            <img src="up.png" alt="up" height="42" width="42" onclick="voteupans('.$row["answer_id"].')">
+                                            <p>'. $row["vote"].'</p>'.
+                                            '<img src="down.png" alt="down" height="42" width="42" onclick="votedownans('.$row["answer_id"].')">
+                                        </div>';
                                     echo '<div class="columnlargest center">';
                                        
                                         echo "<p>".$row["content"]."</p>";

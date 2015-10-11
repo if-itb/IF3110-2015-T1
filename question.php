@@ -18,8 +18,8 @@
                 var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
                 if(!re.test(x)){
                     alert("Email Invalid");
+                    return false;
                 }
-                return re.test(x);
             }
             var x = document.forms["question"]["topic"].value;
             if (x == null || x == "") {
