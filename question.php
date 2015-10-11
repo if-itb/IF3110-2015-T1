@@ -20,9 +20,11 @@
 			}
 
 			session_start();
-			$qid = $_SESSION['questionid'];
+			if (isset($_SESSION['questionid']))
+					$id = $_SESSION['questionid'];
 
-			if (isset($_POST['savequestion'])) { 
+			// How to fetch from and insert into database
+			if (isset($_POST['savequestion'])) { // if the previous page was the Ask a Question page
 				$name = mysqli_real_escape_string($conn,$_POST['name']);
 				$email = mysqli_real_escape_string($conn,$_POST['email']);
 				$topic = mysqli_real_escape_string($conn,$_POST['topic']);
@@ -37,7 +39,19 @@
 				  echo "Error: " . $sql . "<br>" . $conn->error;
 				}
 
-			} else if (isset($_POST['editquestion'])) { 
+				$selectid = "SELECT id from question ORDER BY id DESC LIMIT 1";
+				$result = $conn->query($selectid);
+
+				if ($result->num_rows > 0) {
+			    // output data of each row
+			    while($row = $result->fetch_assoc()) {
+						$id=$row["id"];
+			    }
+				} else {
+				    echo "0 results";
+				}
+
+			} else if (isset($_POST['editquestion'])) { // if the previous page was the Edit Question page
 				$name = mysqli_real_escape_string($conn,$_POST['name']);
 				$email = mysqli_real_escape_string($conn,$_POST['email']);
 				$topic = mysqli_real_escape_string($conn,$_POST['topic']);
@@ -45,7 +59,7 @@
 
 				$sql = "UPDATE question
 				SET name='$name', email='$email', topic='$topic', content='$content'
-				WHERE id=$qid;";
+				WHERE id=$id;";
 
 				if ($conn->query($sql) === TRUE) {
 			    //do nothing
@@ -53,11 +67,38 @@
 				  echo "Error: " . $sql . "<br>" . $conn->error;
 				}
 
-			} else if (isset($_GET['id'])){
-				$id = (int)$_GET['id'];
-				$edit="edit.php?id=".$id;
-				$delete="delete.php?id=".$id;
+			} else if (isset($_POST['saveanswer'])) { // if the previous action was submitting answer
+				$name_ans = mysqli_real_escape_string($conn,$_POST['name_ans']);
+				$email_ans = mysqli_real_escape_string($conn,$_POST['email_ans']);
+				$content_ans = mysqli_real_escape_string($conn,$_POST['content_ans']);
 
+				$sql = "INSERT INTO answer (id, name_ans, email_ans, content_ans, vote_ans)
+				VALUES ('$id', '$name_ans', '$email_ans', '$content_ans', 0)";
+
+				if ($conn->query($sql) === TRUE) {
+			    //do nothing
+				} else {
+				  echo "Error: " . $sql . "<br>" . $conn->error;
+				}
+
+				$listq = "SELECT name, email, topic, content, vote FROM question WHERE id=$id";
+				$result = $conn->query($listq);
+
+				if ($result->num_rows > 0) {
+				    // output data of each row
+				    while($row = $result->fetch_assoc()) {
+				    	$name=$row["name"];
+				    	$email=$row["email"];
+				    	$topic=$row["topic"];
+				    	$content=$row["content"];
+				    	$vote=$row["vote"];
+				    }
+				} else {
+				    echo "0 results";
+				}
+
+			}else if (isset($_GET['id'])){ // if the previous page was the homepage
+				$id = (int)$_GET['id'];
 				$listq = "SELECT name, email, topic, content, vote FROM question WHERE id=$id";
 				$result = $conn->query($listq);
 
@@ -75,7 +116,13 @@
 				}
 			}
 
-			$conn->close();
+			// set session for question id
+			if (isset($id)){
+				$_SESSION['questionid']=$id;
+				$edit="edit.php?id=".$id;
+				$delete="delete.php?id=".$id;
+			}
+
 		?>
 		
 	</head>
@@ -86,23 +133,47 @@
 				<h2><?php echo $topic?></h2>
 				<p><?php echo $content?></p>
 				<div class="question-sign">
-					<p>asked by <?php echo $name?> | <a href=<?=$edit ?>>edit</a> | <a href=<?=$delete ?>>delete</a></p>
+					<p>asked by <?php echo $name?> | <a href=<?=$edit ?>>edit</a> |
+						<a href=<?=$delete ?> onClick="return confirm('Are you sure you want to delete this question?')">delete</a></p>
 				</div>
 			</div>
 			
 			<div class="content">
-				<h2>Answer</h2>
+				<h2 style="margin-bottom:0px;">Answer</h2>
+				<?php
+					$listq = "SELECT id_ans, name_ans, content_ans, vote_ans FROM answer WHERE id=$id";
+					$result = $conn->query($listq);
+
+					if ($result->num_rows > 0) {
+					    // output data of each row
+					    while($row = $result->fetch_assoc()) {
+								echo
+								"<div class=\"answer-list\">
+									<p>".$row["content_ans"]."</p>
+									<div class=\"question-sign\">
+										<p>answered by ".$row["name_ans"]."</p>
+									</div>
+								</div>
+								";
+
+					    }
+					} else {
+					    echo "0 results";
+					}
+
+					$conn->close();
+
+				?>
 			</div>
 
-			<div class="content">
+			<div class="content" style="margin-top:30px;">
 				<div class="grey-title">Your Answer</div>
-				<form>
-					<input type="text" class="input-group" placeholder="Name">
-					<input type="text" class="input-group" placeholder="Email">
-					<input type="text" class="input-group" placeholder="Question Topic">
-					<textarea placeholder="Content" rows="5"></textarea>
+				<form method="post">
+					<input type="text" class="input-group" placeholder="Name" name="name_ans">
+					<input type="text" class="input-group" placeholder="Email" name="email_ans">
+					<textarea placeholder="Content" rows="5" name="content_ans"></textarea>
 				<div class="button-bottom">
-					<button type="submit">Post</button>
+					<button type="submit" name="saveanswer">Post</button>
 				</div>
 			</form>
 			</div>

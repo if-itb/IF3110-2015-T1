@@ -59,7 +59,8 @@
 								</span>
 						</div>
 						<div class=\"question-sign\">
-							<p>asked by ".$row["name"]." | <a href=".$edit.">edit</a> | <a href=".$delete.">delete</a></p>
+							<p>asked by ".$row["name"]." | <a href=".$edit.">edit</a> | 
+							<a href=".$delete." onClick=\"return confirm('Are you sure you want to delete this question?')\">delete</a></p>
 						</div>
 						";
 
