@@ -1,29 +1,26 @@
-<html>
-<head>
-	<title>Stack Exchange</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
+<?php
+	include("header.php");
+?>
+	<div class="content">
+		<h2>What's your question?</h2>
+		<div class="bottom-line"> </div>
+		<form onsubmit="return validate(this);" method="post">
+			<div class="form">
+				<input class="formContent" type="text" name="name" placeholder="Name" size="159px">
+			</div>
+			<div class="form">  
+		    	<input class="formContent" type="text" name="email" placeholder="Email" size="159px">
+		    </div>
+		    <div class="form">
+		    	<input class="formContent" type="text" name="topic" placeholder="Question Topic" size="159px">
+		    </div>
+		    <div class="textArea">
+				<textarea class="formContent" name="content" placeholder="Contents" rows="10" cols="161"></textarea>
+		    </div>
+		    	<input class="button" type="submit" value="Post" > 
+		</form>
+	</div>
 
-<body>
-	<div class="banner">
-	<form>
-	<input type="text" name="name" title="Enter your name" placeholder="Your Name" />
-    <div id="namemsg"></div><br/>
-
-    <input type="text" name="email" title="Enter a valid email address" placeholder="me@example.com"/>
-    <div id="emailmsg">  </div><br/>
-
-    <input type="text" name="topic" title="Enter your question topic" placeholder="Your topic"/>
-    <div id="emailmsg">  </div><br/>
-
-	<textarea name="comment" title="Enter your comments" placeholder="Enter your comments." /></textarea>
-    <div id="commentmsg">  </div>
-
-    <input type="submit" value="Post" > 
-	</form>
-
-
-	
-
-</body>
-</html>
+<?php
+	include("footer.php");
+?>
