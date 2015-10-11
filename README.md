@@ -89,7 +89,21 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+#### Validasi Form pada client-side
+
+Validasi pada Question dan Answer Form dilakukan dengan mengecek apakah setiap input yang dimasukkan tidak bernilai NULL atau input email sesuai dengan format yang ditetapkan.
+Validasi Question diatur oleh fungsi javascript validateQuestionForm() sementara validasi Answer diatur oleh fungsi validateAnswerForm().
+Validasi email dilakukan dengan mencocokkan input dengan sebuah variabel regex.
+
+
+#### Fitur voting dengan AJAX
+
+AJAX menggunakan objek xhttp bertipe`XMLHTTPRequest` dengan metode `POST`.
+Objek xhttp selanjutnya akan dikirim ke vote.php beserta beberapa parameter untuk mengaktifkannya.
+Parameter yang dikirim antara lain:
+- action (up/down): increase atau decrease jumlah vote
+- id: id pada database
+- type (answer/question): jenis vote(vote answer/ vote question)
 
 ### Knowledge
 
