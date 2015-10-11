@@ -5,8 +5,12 @@ use Lyz\Http\Route;
 use Lyz\View\View;
 
 class App {
-	protected $response = 'No content.';
+	protected $response = '';
 
+	/* Application initialization: 
+	 * - Initialize URI table lookup
+	 * - Assign request to application
+	 */
 	public function __construct() {
 		include 'routes.php';
 
@@ -21,6 +25,8 @@ class App {
 
 		$this->request = new Request($uri, $method, $params);
 	}
+
+	/* Run app based on received request */
 	public function run() {
 		$route = Route::resolve($this->request);
 		$class_name = $route['class'];
@@ -28,9 +34,13 @@ class App {
 
 		$controller = new $class_name();
 		$this->response = $controller->$method_name();
+
+		return $this;
 	}
 
+	/* Send response to client */
 	public function send() {
 		echo $this->response;
+		return $this;
 	}
 }

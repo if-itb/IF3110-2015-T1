@@ -1,5 +1,5 @@
 <form action='questions.php' method='POST'>
-	<input class='form_input' type='text' placeholder='Name'>
+	<input class='form_input' type='text' placeholder='<?= $name ?>'>
 	<input class='form_input' type='text' placeholder='Email'>
 	<input class='form_input' type='text' placeholder='Question Topic'>
 	<input class='form_input' type='textarea' placeholder='Content'>

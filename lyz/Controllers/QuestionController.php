@@ -4,8 +4,14 @@ use Lyz\View\View;
 
 class QuestionController {
 	public function index() {
-		$view = new View('questions/form');
-		return $view->params([ 'name' => 'Hehe' ]);
+		$view_form = new View('questions/form');
+		$view = new View('layout');
+		return $view->params([ 
+			'title' => 'Asklyz',
+			'content' => (string)$view_form->params([
+					'name' => 'Hehehe'
+				])
+		]);
 	}
 	public function getCreate() {
 		return new View('questions/card');
