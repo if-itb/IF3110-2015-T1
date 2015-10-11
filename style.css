@@ -11,6 +11,11 @@ a#a1 {
 	color: #ffd000;
 }
 
+a#a2 {
+	text-decoration: none;
+	color: #ffd000;
+}
+
 p#p1 {
 	text-align: center;
 }
