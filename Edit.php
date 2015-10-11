@@ -16,14 +16,16 @@
 	$sql = "SELECT Q_id, Q_Name, Q_Email, Q_Topic, Q_Content FROM question WHERE Q_id=$ID";
 	$question = mysql_query($sql, $conn);
 	while($row = mysql_fetch_assoc($question)) {
-		echo "<html>
+		echo "<!DOCTYPE html>
+			<html>
 			<head>
-			<title>Question</title>
+			<title>Edit Question</title>
 			<link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\">
+			<script type=\"text/javascript\" src=\"Validasi.js\"></script>
 			</head>
 			<body>
 
-			<h1 class=\"title\">Simple StackExchange</h1>
+			<a href=\"index.php\" class=\"black\"><h1 class=\"title\">Simple StackExchange</h1></a>
 
 			<h2 class=\"align\">
 				<div>
@@ -34,7 +36,7 @@
 				</div>
 			</h2>
 
-			<form class=\"align\" action=\"Ask.php\" method=\"post\">
+			<form class=\"align\" action=\"Ask.php\" method=\"post\" name=\"question\" onsubmit=\"return validateForm()\">
 				<div class=\"kotakform\">
 					<input type=\"text\" name=\"Name\" class=\"form_question\" placeholder=\"Name\" value=\"".$row["Q_Name"]."\">
 				</div>

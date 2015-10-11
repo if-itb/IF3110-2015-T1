@@ -41,7 +41,7 @@
 						"</div>
 					
 						<div class=\"asked\">
-							asked by <span class=\"name\">" . $row["Q_Name"] ."</span> | <a href=\"Edit.php?id=".$row["Q_id"]."\"class=\"color_yellow\">edit<a> | <a href=\"Delete.php?id=".$row["Q_id"]."\"class=\"delete\">delete<a>
+							asked by <span class=\"name\">" . $row["Q_Name"] ."</span> | <a href=\"Edit.php?id=".$row["Q_id"]."\"class=\"color_yellow\">edit<a> | <a onclick=\"return confirm_delete()\" href=\"Delete.php?id=".$row["Q_id"]."\"class=\"delete\">delete<a>
 						</div>
 				</div>";
 			}

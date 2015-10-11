@@ -3,6 +3,7 @@
 <head>
 <title>Question</title>
 <link href="style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="Validasi.js"></script>
 </head>
 <body>
 
@@ -17,7 +18,7 @@
 	</div>
 </h2>
 
-<form class="align" action="Ask.php" method="post">
+<form class="align" action="Ask.php" method="post" name="question" onsubmit="return validateForm()">
 	<div class="kotakform">
 		<input type="text" name="Name" class="form_question" placeholder="Name">
 	</div>

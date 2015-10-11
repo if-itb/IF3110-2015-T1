@@ -3,6 +3,7 @@
 <head>
 <title>Search</title>
 <link href="style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="Validasi.js"></script>
 <?php include 'RAQ.php';?>
 </head>
 <body>
