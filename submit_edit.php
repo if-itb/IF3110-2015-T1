@@ -11,12 +11,11 @@
 	if (!$conn) {
 	    echo("Connection failed: " . mysqli_connect_error());
 	}
-	
-	$sql = "DELETE FROM `question` WHERE question_id=".$_GET["q_id"];
-	mysqli_query($conn,$sql);
-
+	$q_id = $_GET["q_id"];
+	$sql = "UPDATE `question` SET `name`='".$_POST["name"]."', `email`='".$_POST["email"]."', `topic`='".$_POST["topic"]."', `content`='".$_POST["content"]."' WHERE question_id=$q_id";
+	if(mysqli_query($conn,$sql)) echo "yes";
 	mysqli_close($conn);
+
 	header("Location: index.php"); /* Redirect browser */
 	exit();
-
 ?>

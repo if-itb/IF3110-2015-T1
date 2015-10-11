@@ -11,8 +11,8 @@
 <center><h1>Simple StackExchange</h1></center>
 
 <center><form action="search.php" method="post">
-	<input type="text" name="search">
-	<button type="submit" name="search">Search</button>
+	<input type="text" name="search" placeholder="topic/question">
+	<button type="submit">Search</button>
 </form>
 Cannot find what you're looking for? Ask <a href="ask_question.php">here</a>.
 </center>
@@ -47,9 +47,12 @@ Cannot find what you're looking for? Ask <a href="ask_question.php">here</a>.
     		<span id=\"vote\">".$row["vote"]."<br>votes</span>
     		<span id=\"answer\">0<br>answer</span>
     		<span id=\"question-content\">
-    			<p id=\"question-title\">".$row["topic"]."</p>
-    			<p id=\"question-content\">".$row["content"]."</p>
-    		<br>asked by: ".$row["name"]." | Edit | <a href='delete_question.php?q_id=$q_id'>Delete</a><br>";
+    			<p id=\"question-title\">".$row["topic"]."</p>";
+    			$content = $row["content"];
+    			if(strlen($content)>330) $content=substr($content, 0, 327)."...";
+    		echo "
+    			<p id=\"question-content\">$content</p>
+    		<br>asked by: ".$row["name"]." | <a href='edit_question.php?q_id=$q_id'>Edit</a> | <a href='delete_question.php?q_id=$q_id'>Delete</a><br>";
 ?>
 </div>
 <?php

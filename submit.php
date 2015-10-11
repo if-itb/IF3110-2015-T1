@@ -13,8 +13,7 @@
 	}
 	$sql = "INSERT INTO `question` (`name`, `email`, `topic`, `content`, `vote`, `date_created`) VALUES ('".$_POST["name"]."','".$_POST["email"]."','".$_POST["topic"]."','".$_POST["content"]."',0,now())";
 
-	if(mysqli_query($conn,$sql)) echo "yes";
-	else echo "no :(";
+	mysqli_query($conn,$sql);
 	mysqli_close($conn);
 
 	header("Location: index.php"); /* Redirect browser */
