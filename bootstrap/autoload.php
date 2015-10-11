@@ -8,6 +8,6 @@ function __autoload($class_name) {
 		include $class_path;
 	}
 	else {
-		throw new exception('Class ' . $class_name . ' not found in ' . $class_path . '.');
+		throw new \Exception('Class ' . $class_name . ' not found in ' . $class_path . '.');
 	}
 }
