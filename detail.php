@@ -3,6 +3,7 @@
 	<head>
 		<link rel="stylesheet" href="style.css">
 		<script type="text/javascript" src="validation.js"></script>
+		<script type="text/javascript" src="function.js"></script>
 		<title>Stack Exchange</title>
 	</head>
 	
@@ -17,11 +18,23 @@
 		
 		<?php
 		$id = $_GET["id"];
-		$sql = "Select question_topic, question_content From question Where question_id=".$id;
+		$sql = "Select question_id, question_topic, asker_email, question_content, question_vote From question Where question_id=".$id;
 		$result = mysqli_query($conn,$sql);
 		$row = mysqli_fetch_assoc($result);
 		echo "<h2 class='header'>".$row["question_topic"]."</h2>";
-		echo "<p>".$row["question_content"]."</p>";
+		
+		echo "<div class='question_box'>";
+		echo "<div class = 'vote_box'>";
+		echo "<img class='voteImage' src='img/up.png'></img>";
+		echo "<div id='voteNumber'>".$row["question_vote"]."</div>";
+		echo "<img class='voteImage' src='img/down.png'></img>";
+		echo "</div>";
+		echo "<div class='question_detail'>".$row["question_content"];
+		echo "</div>";
+		echo "<div class='asked_by_detail'>asked by ".$row["asker_email"]." | <a href='question.php?id=".$row["question_id"]."' class='edit'>edit</a> | 
+		<a onclick='return confirmDelete()' href='delete.php?id=".$row["question_id"]."' class='delete'>delete</a></div>";
+		echo "</div>";
+		
 		?>
 		
 		<?php
@@ -32,13 +45,13 @@
 		
 		echo "<h2 class='header'>".$count." Answers</h2>";
 		
-		$sql = "Select answerer_name, answer_content, answer_vote From answer Where question_id=".$id;
+		$sql = "Select answer_id, answerer_email, answer_content, answer_vote From answer Where question_id=".$id;
 		$result = mysqli_query($conn, $sql);
 		
 		if (mysqli_num_rows($result) > 0) {
 			// output data
 			while($row = mysqli_fetch_assoc($result)) {
-				echo "<div class='question_box'>";
+				echo "<div class='answer_box'>";
 				echo "<div class = 'vote_box'>";
 				echo "<img class='voteImage' src='img/up.png'></img>";
 				echo "<div id='voteNumber'>".$row["answer_vote"]."</div>";
@@ -46,7 +59,7 @@
 				echo "</div>";
 				echo "<div class='question_detail'>".$row["answer_content"];
 				echo "</div>";
-				echo "<div class='asked_by_detail'>asked by <span class='name'>".$row["answerer_name"]."</span> | <a href = '#' class='edit'>edit</a> | <a href = '#' class='delete'>delete</a></div>";
+				echo "<div class='asked_by_detail'>answered by ".$row["answerer_email"]."</div>";
 				echo "</div>";
 			}
 		} else {
