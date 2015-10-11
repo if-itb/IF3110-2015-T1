@@ -33,11 +33,9 @@ function postQuestion($data) {
 	global $dbc;
 	$q = NULL;
 	if ($data['question_id'] == '') {
-		//create new question
 		$q = "INSERT INTO question (name, email, title, content, create_date)
 			VALUES ('$data[name]', '$data[email]', '$data[title]', '$data[content]', CURRENT_TIMESTAMP)";
 	} else {
-		//update question
 		$q = "UPDATE question
 			SET
 				name='$data[name]',

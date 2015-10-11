@@ -26,7 +26,7 @@
 		}
 	}
 	
-	if (isset($_GET['id'])){
+	if (!isset($_GET['id'])){
 		echo "<div class=\"error\">Please give us the question id so we can show you the question.</div>";
 	} else {
 		$question = getQuestion($_GET['id']);
