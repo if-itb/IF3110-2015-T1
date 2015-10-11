@@ -49,4 +49,6 @@ function validateAnswerForm() {
 		return false;
 	} 
 	return true;
+	
+	
 }
