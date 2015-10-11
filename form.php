@@ -10,9 +10,20 @@
 
 <center><h1>Simple StackExchange</h1></center>
 <br>
+<?php if ($_GET["idx"]==1) { ?>
+<form id="question-form" action="submit.php?idx=1" method="post">
+	<center>
+		<input type="text" name="name" placeholder="name"><br>
+		<input type="text" name="email" placeholder="email"><br>
+		<input type="text" name="topic" placeholder="topic"><br>
+		<textarea name="content" placeholder="content"></textarea><br>
+	</center>	
+		<button type="submit" name="search">Submit</button>
+</form>
+<?php } ?>
 
-<?php
-	include "database.php";
+<?php if($_GET["idx"]==2) {
+	include "function/database.php";
 	$conn = connect_database();
 	
 	$sql = "SELECT * FROM `question` WHERE question_id=".$_GET["q_id"];
@@ -31,5 +42,5 @@
 	</center>	
 		<button type="submit" name="search">Submit</button>
 </form>
-
+<?php } ?>
 </body>

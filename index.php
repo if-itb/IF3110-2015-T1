@@ -14,52 +14,18 @@
 	<input type="text" name="search" placeholder="topic/question">
 	<button type="submit">Search</button>
 </form>
-Cannot find what you're looking for? Ask <a href="ask_question.php">here</a>.
+Cannot find what you're looking for? Ask <a href="form.php?idx=1">here</a>.
 </center>
 
 <h2>Recently Asked Questions</h2>
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "stackexchange";
-
-	// Create connection
-	$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-	// Check connection
-	if (!$conn) {
-	    echo("Connection failed: " . mysqli_connect_error());
-	}
+	include "function/database.php";
+	$conn = connect_database();
 	
-	$sql = "SELECT * FROM `question` ORDER BY date_created DESC LIMIT 3";
+	$sql = "SELECT * FROM `question` ORDER BY date_created DESC LIMIT 5";
 	$result = mysqli_query($conn,$sql);
 
-	$idx = 1;
-	if(mysqli_num_rows($result) > 0) {
-		while($row = mysqli_fetch_assoc($result)) {
-			$q_id = $row["question_id"];
-    		echo "<hr size='5' NOSHADE>";
-?>
-<div class="question">
-<?php
-    		echo "
-    		<span id=\"vote\">".$row["vote"]."<br>votes</span>
-    		<span id=\"answer\">0<br>answer</span>
-    		<span id=\"question-content\">
-    			<p id=\"question-title\">".$row["topic"]."</p>";
-    			$content = $row["content"];
-    			if(strlen($content)>330) $content=substr($content, 0, 327)."...";
-    		echo "
-    			<p id=\"question-content\">$content</p>
-    		<br>asked by: ".$row["name"]." | <a href='edit_question.php?q_id=$q_id'>Edit</a> | <a href='delete_question.php?q_id=$q_id'>Delete</a><br>";
-?>
-</div>
-<?php
-	    	$idx++;
-	    	if($idx==5) break;
-    	}
-	}
+	show_query($result);
 
 	mysqli_close($conn);
 ?>

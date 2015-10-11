@@ -1,21 +1,8 @@
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "stackexchange";
-
-	// Create connection
-	$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-	// Check connection
-	if (!$conn) {
-	    echo("Connection failed: " . mysqli_connect_error());
-	}
-	$sql = "INSERT INTO `question` (`name`, `email`, `topic`, `content`, `vote`, `date_created`) VALUES ('".$_POST["name"]."','".$_POST["email"]."','".$_POST["topic"]."','".$_POST["content"]."',0,now())";
-
-	mysqli_query($conn,$sql);
-	mysqli_close($conn);
-
-	header("Location: index.php"); /* Redirect browser */
-	exit();
+	include "function/database.php";
+	$conn = connect_database();
+	$data = $_POST;
+	if(isset($_GET["q_id"])) $data["question_id"] = $_GET["q_id"];
+	
+	update_database($_GET["idx"],$conn,$data);
 ?>
