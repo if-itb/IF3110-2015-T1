@@ -4,7 +4,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Simple Stack Exchange</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <!--<script type="text/javascript" src="javascript/javascript.js"></script>-->
 	<?php require_once('dbconnect.php'); ?>
 </head>
 
@@ -14,7 +13,7 @@
         <div id="header">
         
             <div id="title">
-                <p class="center">Simple StackExchange</p>
+                <a href="index.php" class="center"><p>Simple StackExchange</p></a>
             </div>
             
             <div class="center">
@@ -27,19 +26,17 @@
         </div>
         <div id="nav">
         	<div id="askme">
-            	<p class="center">Cannot find what you are looking for? <a href="askme.html" class="orange">Ask Here</a></p>
+            	<p class="center">Cannot find what you are looking for? <a href="askme.php" class="orange">Ask Here</a></p>
             </div>
         </div>
-        <div id="contents">
+        <div class="contents">
         	<h2><p>Recently Asked Questions</p></h2>
             <hr>
             <div id="questions">
             	<div class="questionbox">
                 	<?php
-					
-						
-						//$sql = "SELECT name,email,qtopic,content,vote FROM question ORDER BY id DESC";
 						$sql = "SELECT
+									question.id as id,
 									question.name as name,
 									question.email as email,
 									question.qtopic as qtopic,
@@ -50,12 +47,19 @@
 								left join answers
 								on (question.id = answers.qid)
 								group by
+									question.id,
 									question.name,
 									question.email,
 									question.qtopic,
 									question.content,
-									question.vote";
+									question.vote
+								order by
+									question.id
+								desc";
 						$result = $conn->query($sql);
+						if ($result->num_rows == 0){
+							echo"<h2>There is no question.. be the first to ask!</h2>";
+						} else
 						if ($result->num_rows > 0) {
 							$result_list = array();
 							while($row = $result->fetch_assoc()) {
@@ -82,7 +86,7 @@
                                         </div>
                                     </div>
                                     <div class="qboxtopic">
-                                         <?=$row["qtopic"]?>
+										<a href="question.php?id=<?= $row['id']?>"><?=$row["qtopic"]?></a>
                                     </div>                
                                     <div class="qmeta">
                                         Asked by  <?=$row["email"]?> | <a href="">edit</a> | <a href="">delete</a> 
@@ -98,5 +102,6 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>

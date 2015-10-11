@@ -17,6 +17,11 @@ h1, h2, h3, h4 {
 	display: block;
 }
 
+a.center{
+	text-decoration:none;
+	color:#000000;
+}
+
 h1,h2 {
 	margin: 0 auto;
 	padding-top: 4px;
@@ -67,7 +72,6 @@ p {
 }
 
 #search-submit{
-	margin: 0;
 	width: 10%;
 	height: 38px;
 	border-style: solid;
@@ -87,7 +91,7 @@ p {
 	width: 95%;
 	height: 30px;
 	border-style: solid;
-	border-width: 1.5px;
+	border-width: 2px;
 	margin: 4px auto;
 	font-family: inherit;
 	font-size: 16px;
@@ -159,10 +163,77 @@ textarea.formBar{
 	position: relative;
 }
 
-
+.p{
+	font-family: inherit;
+}
 
 .counter{
 	text-align: center;
 	position: relative;
 	top: 8px
+}
+
+#postQuestion{
+	width: 10%;
+	height: 38px;
+	border-style: solid;
+	border-color: #000000;
+	border-width: 2px;
+	background-color: #FFFFFF;
+	margin: auto;
+	position: relative;
+	right: 21px;
+	font-family:inherit;
+	font-size:16px;
+}
+
+.thecontent{
+	border-collapse:separate;
+	position: relative;
+	display: table;
+	border-spacing: 10px 0px;
+	margin: 0px -10px;
+}
+
+.buttonimg{
+	width: 48px;
+	height: 48px;
+}
+
+.votenumber{
+	text-align:center;
+}
+
+.qcontent,.votecontent{
+	display:table-cell;
+	
+}
+
+.votecontent{
+}
+
+.qmetaq{
+	float: right;
+	display: block;
+}
+
+.qcontent{
+	width: 100%;
+	padding-left: 10px;
+	padding-top: 10px;
+	height: 20em;
+	vertical-align:top;
+}
+
+.votebutton{
+	padding-top: 0px;
+}
+
+.answerForm{
+	margin-top: 32px;
+}
+
+.atitle{
+	width:95%;
+	margin: 4px auto;
 }
