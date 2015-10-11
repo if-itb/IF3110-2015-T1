@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<?php
+	require_once("./database.php");
+?>
+
+<?php
+	$questions = getQuestions();
+?>
+
 <html>
 	<head>
 		<title> Simple StackExchange </title>
@@ -23,6 +30,17 @@
 			<p id="p2">
 				Recently Asked Questions
 			</p>
+		</div>
+		<div id="div3">
+			<?php foreach ($questions as $question) : ?> 
+			<div id="div4">
+				<?php echo $question['Name'] ?>
+				<br>
+				<?php echo $question['Content'] ?>
+				<br>
+				<br>
+			</div>
+			<?php endforeach; ?>
 		</div>
 	</body>
 </html>
