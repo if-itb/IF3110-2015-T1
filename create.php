@@ -44,7 +44,7 @@
 		<br>
 		<input type="text" name="topic" value="<?php echo $data['topic']; ?>" placeholder="Question Topic">
 		<br>
-		<input type="text" name="content" value="<?php echo $data['content']; ?>" placeholder="Content">
+		<textarea name="content" placeholder="Content" rows="5"><?php echo $data['content']; ?></textarea>
 		<br>
 		<input type="hidden" name="type" value="<?php echo $type; ?>">
 		<input type="hidden" name="question_id" value="<?php echo $question_id; ?>">
