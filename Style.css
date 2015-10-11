@@ -1,4 +1,10 @@
-
+.h1style{
+	position:relative;
+	left:15%;
+	margin-bottom:1px;
+	width: 50%;
+	
+}
 hr{
 	border-top: 2px solid black; 
 	margin-top: 1px;
@@ -38,18 +44,30 @@ h2 ,h3{
 }
 
 .voteansweridxstyle{
-	width: 100px;
-	height: 125px;
+	width: 150px;
+	height: 175px;
+	border : 2px solid black;
+}
+.votestyle{
+	width: 150px;
+	height:175px;
 }
 .topicidxstyle{
-	width: 300px;
+	width: 650px;
 	height: 125px;
+	border: 2px solid black;
+}
+.topicstyle{
+	border: 2px black solid;
+	width :800px;
+	height:125px;
 }
 .choicebox{
 	position:relative;
 	clear:left;
-	left:75%;
+	left:60%;
 	width:50%;
+	border:2px solid black;
 }
 
 .collection{
@@ -84,8 +102,8 @@ a:link{
 #red{
 	color:red;
 }
-#yellow{
-	color:yellow;
+#black{
+	color:black;
 }
 #blue{
 	color:blue;
