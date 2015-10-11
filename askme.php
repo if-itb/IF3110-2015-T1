@@ -52,7 +52,7 @@
                         </div>
                     <?php
                     }
-                }
+                } 
             } else { ?>
                         <div class="contents">
                             <h1><p>What's your question?</p></h1>

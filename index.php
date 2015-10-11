@@ -33,7 +33,6 @@
         	<h2><p>Recently Asked Questions</p></h2>
             <hr>
             <div id="questions">
-            	<div class="questionbox">
                 	<?php
 						$sql = "SELECT
 									question.id as id,
@@ -85,14 +84,23 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="qboxtopic">
-										<a href="question.php?id=<?= $row['id']?>" class="qlink"><?=$row["qtopic"]?></a>
-                                    </div>                
-                                    <div class="qmeta">
-                                        Asked by  <span class="blue"><?=$row["email"]?></span> | <a href="askme.php?id=<?=$row['id']?>" class="orange">edit</a> | <a href="deletequestion.php?id=<?=$row['id']?>" class="delete red">delete</a> 
+                                    <div class="qbox">
+                                        <div class="qboxtopic">
+                                            <a href="question.php?id=<?= $row['id']?>" class="qlink"><?=$row["qtopic"]?></a>
+                                        </div>           
+                                        <div class="qboxcontent">
+                                            <?php 
+												$stringcontent=substr($row['content'],0,500).". . .";
+												echo"$stringcontent";
+											?>
+                                        </div>     
+                                        <div class="qmeta">
+                                            Asked by  <span class="blue"><?=$row["email"]?></span> | <a href="askme.php?id=<?=$row['id']?>" class="orange">edit</a> | <a href="deletequestion.php?id=<?=$row['id']?>" class="delete red">delete</a> 
+                                        </div>
                                     </div>
-                                <hr>
+                                
 							</div>
+                            <hr>
 							<?php
 							}
 						}					

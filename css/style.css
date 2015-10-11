@@ -121,52 +121,56 @@ textarea.formBar{
 }
 
 .questionbox{
-	position: relative;
-	margin-top: 0px;
+	bborder-collapse: separate;
+    position: relative;
+    display: table;
+    border-spacing: 10px 0px;
+    margin: 0px -10px;
+	width: 960px;
 }
-.qvote, .avote, .qboxtopic, .voteanswer, .qmeta{
-	display: inline-block;
+.qvote, .avote{
+	display: table-cell;
+	width:50%;
+	height: 100%;
+	position: absolute;
+}
+.avote{
+	right:0;
+}
+.voteanswer{
+	width:20%;
+	height: 10em;
+	position: relative;
+}
+
+.qbox, .voteanswer {
+	display: table-cell;
 }
 
 .qmeta{
 	position:absolute;
-	right:0;
+	right:0px;
 	bottom: 6px;
 }
 
+.qbox{
+	width: 100%;
+    vertical-align: top;
+	position: relative;
+}
+
 .qboxtopic{
-	width: 56%;
-	height: 100%;
 	font-size: 18px;
-	position: relative;
-	top: 0px;
+	text-decoration:underline;
 }
 
-.voteanswer{
-	width: 20%;
-	position: relative;
-	height: 60px;
+.qboxcontent{
+	font-size: 16px;
 }
 
-.avote,.qvote{
-	width: 50%;
-	height: 100%;
-	padding:0px;
-	margin:0px;
-}
 .word{
-	text-align: center;
-	position: relative;
-	top: 14px
-}
-.avote{
-	right:0;
-	position: absolute;
-}
-
-.qvote{
-	left:0;
-	position: relative;
+	text-align:center;
+	margin-top: 10px;
 }
 
 .p{
@@ -176,7 +180,7 @@ textarea.formBar{
 .counter{
 	text-align: center;
 	position: relative;
-	top: 8px
+	margin-top: 50px
 }
 
 #postQuestion{
