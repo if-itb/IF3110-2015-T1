@@ -1,0 +1,43 @@
+.container {
+  width: 1080px;
+  margin: 0 auto;
+}
+
+.form {
+  display: block;
+  margin: 5px 0;
+  border: 2px solid #ddd;
+  border-color: black;
+  width: 100%;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+hr{
+  border-color:black;
+  border-width:2px;
+}
+
+.button {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  padding: 8px 12px;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.align-center{
+  text-align: center;
+}
+
+.align-right{
+  text-align: right;
+}
+
+.margin-bot{
+  margin-bottom: 50px;
+}
