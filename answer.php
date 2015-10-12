@@ -77,7 +77,6 @@
 	        var re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 	        if (document.forms["askform"]["name"].value == null || document.forms["askform"]["name"].value == "" ||
 	            document.forms["askform"]["email"].value == null || document.forms["askform"]["email"].value == "" ||
-	            document.forms["askform"]["topic"].value == null || document.forms["askform"]["topic"].value == "" ||
 	            document.forms["askform"]["content"].value == null || document.forms["askform"]["content"].value == "") {
 		            alert("All required fields must be filled out");
 		            return false;
