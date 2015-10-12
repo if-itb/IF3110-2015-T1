@@ -42,8 +42,7 @@
 				var xhttp = new XMLHttpRequest();
 		        xhttp.onreadystatechange = function() {
 		            if (xhttp.readyState == 4 && xhttp.status == 200) {
-						document.getElementById("questionlist"+id).innerHTML = xhttp.responseText;
-						location.href = "home.php";
+						location.href = "./home.php";
 		            }
 		        }
 		        xhttp.open("POST", "./ajax/delete.php", true);
