@@ -2,8 +2,9 @@
 <html>
 <head>
 	<title>
-		What's your Question?
+		Ask a Question
 	</title>
+	<link rel='stylesheet' type="text/css" href="css/sst.css">
 </head>
 
 <body>
@@ -32,23 +33,41 @@
 	</h1>
 	<br>
 	<br>
-	<h2 align="center">
+	<h3 align="center">
 		What's your question?
-	</h2>
-	<hr width="75%" align="center">
+	</h3>
+	<hr>
 	<br>
-	<form action="home.php" method="POST">
-		<input type="text" name="name" value="<?php echo $data['name']; ?>" placeholder="Name">
+
+	<script type="text/javascript">
+	    function validateAnswerForm() {
+	        var re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+	        if (document.forms["answerform"]["name"].value == null || document.forms["answerform"]["name"].value == "" ||
+	            document.forms["answerform"]["email"].value == null || document.forms["answerform"]["email"].value == "" ||
+	            document.forms["answerform"]["topic"].value == null || document.forms["answerform"]["topic"].value == "" ||
+	            document.forms["answerform"]["content"].value == null || document.forms["answerform"]["content"].value == "") {
+		            alert("All required fields must be filled out");
+		            return false;
+	        }
+	        else if(!re.test(document.forms["answerform"]["email"].value)) {
+	            alert("Incorrect email address");
+	            return false;
+	        }
+	    }
+	</script>
+
+	<form name="answerform" action="home.php" class="form" method="POST" onsubmit="return validateAnswerForm()">
+		<input type="text" name="name" value="<?php echo $data['name']; ?>" placeholder="Name" id="name">
 		<br>
-		<input type="text" name="email" value="<?php echo $data['email']; ?>" placeholder="Email">
+		<input type="text" name="email" value="<?php echo $data['email']; ?>" placeholder="Email" id="email">
 		<br>
-		<input type="text" name="topic" value="<?php echo $data['topic']; ?>" placeholder="Question Topic">
+		<input type="text" name="topic" value="<?php echo $data['topic']; ?>" placeholder="Question Topic" id="topic">
 		<br>
-		<textarea name="content" placeholder="Content" rows="5"><?php echo $data['content']; ?></textarea>
+		<textarea name="content" placeholder="Content" rows="5" id="content"><?php echo $data['content']; ?></textarea>
 		<br>
+		<input type="submit" value="Post" id="submit">
 		<input type="hidden" name="type" value="<?php echo $type; ?>">
 		<input type="hidden" name="question_id" value="<?php echo $question_id; ?>">
-		<input type="submit" name="post" value="Post">
 	</form>
 	<?php mysql_close($conn); ?>
 </body>
