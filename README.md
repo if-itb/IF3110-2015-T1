@@ -95,7 +95,7 @@ Validasi menggunakan fungsi javascript validateAskForm() dan validateAnswerForm(
 
 #### Voting dengan AJAX
 
-Sebuah 'XMLHTTPRequest' dengan metode 'POST' akan dikirimkan ke vote.php dengan beberapa parameter. Vote.php akan melakukan perubahan terhadap database sesuai dengan parameter tersebut. Parameter yang dikirimkan adalah id, tipe (pertanyaan/jawaban), dan vote up/down.
+Sebuah `XMLHTTPRequest` dengan metode `POST` akan dikirimkan ke vote.php dengan beberapa parameter. Vote.php akan melakukan perubahan terhadap database sesuai dengan parameter tersebut. Parameter yang dikirimkan adalah id, tipe (pertanyaan/jawaban), dan vote up/down.
 
 ### Knowledge
 
