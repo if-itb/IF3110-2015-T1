@@ -47,7 +47,7 @@
             $id = mysql_result($result, $i, "id");
             echo "<div class = 'q_or_a'>";
             echo "<div class = 'a_left'>";
-            echo "<div class='up_button' onclick='VoteUp(false,$id)'><img src='Assets/up.png' width='30' height='30'></div>";
+            echo "<div class='up_button' onclick='VoteUp(false,$id)'><img src='Assets/images/up.png' width='30' height='30'></div>";
             echo "<div class = 'vote' id='vote$id'>$vote</div>";
             echo "<div class='down_button' onclick= 'VoteDown(false,$id)'><img src='Assets/images/down.png' width='30' height='30'></div>";
             echo "</div>";
