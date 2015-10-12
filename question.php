@@ -7,7 +7,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Bukan StackExchange - </title>
+        <title>Bukan StackExchange - Question</title>
         <script src="./js/form_validation.js"></script>
     </head>
     <body>
@@ -23,7 +23,6 @@
             <?php endif ?>
                 
             <?php foreach ($questions as $question) :
-                echo $question['question_id'] . "<br>";
                 echo $question['name'] . "<br>";
                 echo $question['email'] . "<br>";
                 ?>
@@ -35,7 +34,7 @@
                     echo $question['vote'] . "<br>";
                     echo $question['time'] . "<br>";
                 ?>
-                <a href="ask.php?id=<?php echo $question['question_id'] ?>">
+                <a href="edit.php?id=<?php echo $question['question_id'] ?>">
                     Edit | 
                 </a>
                 <a href="delete.php?id=<?php echo $question['question_id'] ?>">
