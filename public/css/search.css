@@ -4,13 +4,13 @@
 	margin-bottom: 16px;
 }
 
-.search-bar {
+input[type=search] {
 	max-width: 70%;
 	margin: 5px;
 	width: 100%;
 }
 
-.search-bar:focus {
+input[type=search]:focus {
 	border-color: #4585d9;
 
 	outline: none !important;

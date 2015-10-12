@@ -12,6 +12,7 @@
 			<div class="header">
 				<h1 id="title">Asklyz</h1>
 			</div>
+			<?= $search ?>
 			<div class="content">
 				<?= $content ?>
 			</div>

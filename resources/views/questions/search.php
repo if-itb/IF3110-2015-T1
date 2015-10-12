@@ -1,6 +1,6 @@
 <div class='search'>
 	<form class='search-form' method='GET' action='/public/search'>
-		<input class='search-bar' type='search' name='params' placeholder='Search Lyz here...'>
+		<input type='search' name='params' placeholder='Search Lyz here...'>
 		<button class='search-button' type='submit'>Submit</button>
 	</form>
 	<div class='search-not-found'>

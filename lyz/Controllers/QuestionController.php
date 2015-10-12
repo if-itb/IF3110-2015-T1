@@ -4,11 +4,14 @@ use Lyz\View\View;
 
 class QuestionController {
 	public function index() {
-		$content = new View('questions/search');
+		$search_content = new View('questions/search');
+		$content = null;
+		
 
 		$view = new View('layout');
 		$view = $view->params([
 			'title' => 'Asklyz',
+			'search' => (string)$search_content,
 			'content' => (string)$content
 		])->styles(['layout', 'search']);
 		return $view;

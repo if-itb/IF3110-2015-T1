@@ -1,8 +1,9 @@
 <?php namespace Lyz\Database;
 
 class DB {
-	public static $initialized = false;
-	public static function Query($query) {
+	/* Database Connection */
+	public static $connection = null;
+	public static function query($query) {
 		
 	}
 }
