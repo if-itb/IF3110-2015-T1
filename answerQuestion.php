@@ -12,9 +12,9 @@
 		$email = $_POST["Email"];
 		$content = $_POST["Content"];
 		$votes = 0;
-		/*echo $question_id.PHP_EOL;
-		echo $answer_id.PHP_EOL;
-		echo $name.PHP_EOL;
+		//echo $question_id.PHP_EOL;
+		//echo $answer_id.PHP_EOL;
+		/*echo $name.PHP_EOL;
 		echo $email.PHP_EOL;
 		echo $content.PHP_EOL;
 		echo $votes;*/

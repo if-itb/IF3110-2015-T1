@@ -14,7 +14,7 @@
 			<input id="SearchInput" type="text" name="SearchInput" placeholder="Search here...">&nbsp
 			<input id="SearchButton" type="submit" value="Search">
 		</form> 
-		<h4 id="find">Cannot find what you are looking for? &nbsp <a href="ask.php" id="AskHere">Ask here</a></h4>
+		<h4 id="find">Cannot find what you are looking for? &nbsp <a href="ask.html" id="AskHere">Ask here</a></h4>
 		<br>
 	</div>
 	<div id="BottomDiv">
@@ -31,8 +31,7 @@
 		else{
 			$query = "SELECT COUNT(question_id) FROM question";
 			$query_result = mysqli_query($link,$query);
-			$num_question = mysqli_fetch_assoc($query_result);
-
+			$num_question = mysqli_fetch_row($query_result);
 			if(!$num_question)
 				echo "<h5>No question has been asked yet</h5>";
 			else{
@@ -47,7 +46,7 @@
 									<p id="content">'.$row[4].'</p>
 								</div>
 								<a href="delete.php" id="delete">delete</a>
-								<div class="char">|</div> <a href="ask.php" id="edit">edit</a>
+								<div class="char">|</div> <a href="edit.php?id='.$row[0].'" id="edit">edit</a>
 								<div class="char">|</div> <div id="name">'.$row[1].'</div>								
 								<div id="askedby">asked by</div>
 							</div><br>
