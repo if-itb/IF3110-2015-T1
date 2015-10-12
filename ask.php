@@ -31,7 +31,7 @@
 		    //"Error: " . $sql . "<br>" . mysqli_error($conn);
 		}
 
-		mysqli_close($conn);	
+		mysqli_close($conn);
 	?>
 </body>
 </html>

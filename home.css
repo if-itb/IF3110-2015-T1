@@ -30,6 +30,7 @@ p.state1{
 
 p.state1 a{
 	text-decoration: none;
+	color: orange;
 }
 
 .question{
@@ -75,4 +76,16 @@ p.state1 a{
 
 .id-question a{
 	text-decoration: none;
+}
+
+.name{
+	color:blue;
+}
+
+.edit a{
+	color:orange;
+}
+
+.delete a{
+	color:red;
 }

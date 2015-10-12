@@ -8,13 +8,13 @@
 	<h1> Simple StackExchange</h1>
 	<br><br>
 
-	<form action="answer.php" class ="input" method="get"> 
+	<form action="answer.php" class ="input" method="post"> 
 	<div class="search">
 		<input class="search-bar" type="text" name="cari" value="" >
 		<input class="submit-button" type="submit" value="Submit">
 	</div>
 	</form>
-	<p class="state1"> Cannot find what are you are looking for ?<a href="ask.php" > Ask here </a> </p>
+	<p class="state1"> Cannot find what are you are looking for ?<a href="ask.html" > Ask here </a> </p>
 	<br>
 	<p class="state2"> Recently Asked Questions</p>
 
@@ -33,8 +33,6 @@
 
 		$sql = "SELECT ID, Nama, Email, Topik, Konten, Vote, Jmlh_Jawaban FROM pertanyaan";
 		$result = mysqli_query($conn, $sql);
-		$row = mysqli_fetch_assoc($result);
-
 		if (mysqli_num_rows($result) > 0) {
 			while($row = mysqli_fetch_assoc($result)){
 				?>
