@@ -11,7 +11,7 @@
 
 	<body>
 	
-		<div class="header">
+		<div class="font30 color-blue">
 			<h1>
 				Simple StackExchange
 			</h1>
@@ -25,18 +25,40 @@
 
 		<br>
 		
-		<form action="page1.php" method="post">
-			<div class="text-left">
-					<input class="form-textbox" type="text" name="name" placeholder="Name"><br><br>
-					<input class="form-textbox" type="text" name="email" placeholder="Email"><br><br>
-					<input class="form-textbox" type="text" name="question" placeholder="Question Topic"><br><br>
-					<textarea name="content" placeholder="Content" rows="10"></textarea><br><br>
-			</div>
-		
-			<div class="text-right">
-				<input class="form-submit" type="submit" name="post" value="Post">
-			</div>
-		</form>
+<?php
+		if (!isset($_GET["id"]))
+		{
+			echo'
+			<form action="insertQuestion.php" method="post">
+				 <div class="text-left">
+						 <input class="form-textbox" type="text" name="name" placeholder="Name"><br><br>
+						 <input class="form-textbox" type="text" name="email" placeholder="Email"><br><br>
+						 <input class="form-textbox" type="text" name="topic" placeholder="Question Topic"><br><br>
+						 <textarea name="question" placeholder="Content"></textarea><br><br>
+				 </div>
+			
+				 <div class="text-right">
+					 <input class="form-submit" type="submit" name="post" value="Post">
+				 </div>
+			 </form>';
+		}
+		else
+		{
+			echo'
+			<form action="updateQuestion.php?id=' . $_GET['id'] . '" method="post">
+				 <div class="text-left">
+						 <input class="form-textbox" type="text" name="name" placeholder="Name"><br><br>
+						 <input class="form-textbox" type="text" name="email" placeholder="Email"><br><br>
+						 <input class="form-textbox" type="text" name="topic" placeholder="Question Topic"><br><br>
+						 <textarea name="question" placeholder="Content"></textarea><br><br>
+				 </div>
+			
+				 <div class="text-right">
+					 <input class="form-submit" type="submit" name="post" value="Post">
+				 </div>
+			 </form>';
+		}
+?>
 
 	</body>
 </html>
