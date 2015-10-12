@@ -50,7 +50,14 @@
 					<div> Votes </div>
 				</div>
 				<div id="idx_answer">
-					<div> <?php echo 0 ?> </div> 
+					<div> 
+						<?php 
+							$count = countAnswers($question['Q_ID']);
+						?> 
+						<?php
+							echo $count;
+						?> 
+					</div> 
 					<div> Answer </div>
 				</div>
 				<div id="idx_title">
