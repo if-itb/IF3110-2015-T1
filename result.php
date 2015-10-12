@@ -4,6 +4,7 @@
 		<title>Simple StackExchange: Search Results</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script type="text/javascript" src="js/validate.js"></script>
 
     <?php
 			ini_set('short_open_tag', 'on');
@@ -28,7 +29,7 @@
 			<a href="home.php"><h1>Simple StackExchange</h1></a>
 			
 			<div class="content">
-				<form method="post" action="result.php" name="search">
+				<form method="post" action="result.php" name="search" onsubmit="return (validateSearch())">
 					<input type="text" class="input-search" placeholder="Search Simple StackExchange" name="searchkey">
 					<div class="button-right"><button type="submit" name="search" value="Submit">Search</button></div>
 				</form>

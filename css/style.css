@@ -112,6 +112,10 @@ button {
   margin-top:5px;
 }
 
+textarea {
+  resize:none;
+}
+
 .question-home{
   padding: 10px;
   border-top: solid;

@@ -37,7 +37,7 @@
 					<input type="text" class="input-group" placeholder="Name" name="name">
 					<input type="text" class="input-group" placeholder="Email" name="email">
 					<input type="text" class="input-group" placeholder="Question Topic" name="topic">
-					<textarea placeholder="Content" rows="5" name="content" resize="none"></textarea>
+					<textarea placeholder="Content" rows="5" name="content"></textarea>
 					<div class="button-bottom">
 						<button type="submit" name="savequestion" value="Submit">Post</button>
 					</div>

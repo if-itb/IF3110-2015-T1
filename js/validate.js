@@ -15,7 +15,7 @@ function validateQuestion(){
     dotpos = emailID.lastIndexOf(".");
 
     if (atpos < 1 || ( dotpos - atpos < 2 )) {
-      alert("Please enter correct email ID")
+      alert("Please enter a correct email address")
       document.savequestion.email.focus() ;
       return false;
     }
@@ -53,7 +53,7 @@ function validateAnswer(){
     dotpos = emailID.lastIndexOf(".");
 
     if (atpos < 1 || ( dotpos - atpos < 2 )) {
-      alert("Please enter correct email ID")
+      alert("Please enter a correct email address")
       document.saveanswer.email_ans.focus() ;
       return false;
     }
@@ -85,7 +85,7 @@ function validateEdit(){
     dotpos = emailID.lastIndexOf(".");
 
     if (atpos < 1 || ( dotpos - atpos < 2 )) {
-      alert("Please enter correct email ID")
+      alert("Please enter a correct email address")
       document.editquestion.email.focus() ;
       return false;
     }
@@ -104,4 +104,12 @@ function validateEdit(){
   }
 
   return (true);
+}
+
+function validateSearch(){      
+  if(document.search.searchkey.value == "") {
+    document.search.searchkey.focus() ;
+    return false;
+  }
+  return true;
 }

@@ -202,7 +202,7 @@
 				<form method="post" name="saveanswer" action="question.php" onsubmit="return (validateAnswer())">
 					<input type="text" class="input-group" placeholder="Name" name="name_ans">
 					<input type="text" class="input-group" placeholder="Email" name="email_ans">
-					<textarea placeholder="Content" rows="5" name="content_ans" resize="none"></textarea>
+					<textarea placeholder="Content" rows="5" name="content_ans"></textarea>
 				<div class="button-bottom">
 					<button type="submit" name="saveanswer" value="Submit">Post</button>
 				</div>
