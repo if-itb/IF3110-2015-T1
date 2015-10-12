@@ -72,6 +72,7 @@ function confirmDelete(id) {
 <head>
 	<title> Simple StackExchange </title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="ICON" href="icon.ico" type="image/ico"/>
 </head>
 
 <body>
