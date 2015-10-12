@@ -15,7 +15,7 @@ and open the template in the editor.
             $name = $email = $topic = $content = "";
             
             $servername = "localhost";
-            $username = "root";
+            $username = "stckxchg";
             $password = "";
             $dbname = "stackExchange";
             
