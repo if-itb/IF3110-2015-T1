@@ -32,6 +32,10 @@ p.state1 a{
 	text-decoration: none;
 }
 
+.question{
+	height:100px;
+}
+
 .vote{
 	width:10%;
 	float:left;	
@@ -58,7 +62,7 @@ p.state1 a{
 }
 
 .id-question{
-	width:30%;
+	width:100%;
 	float:left;
 	text-align: right;
 	height: 10px;
@@ -66,7 +70,7 @@ p.state1 a{
 
 .id-question p{
 	margin-bottom:0px;
-	margin-top: 48px;
+	margin-top: 5px;
 }
 
 .id-question a{
