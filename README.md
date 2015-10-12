@@ -89,7 +89,11 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+- Melakukan validasi pada client-side
+   melakukan validasi pada client-side terbagi menjadi dua fungsi, yaitu validasi pada Pengisian form question dan validasi pada pengisian form answer. saya menggunakan fungsi document.forms["<name form>","<name input>"].value pada javascript untuk mengambil nilai yang terisi di input. lalu dicompare dengan nilai null, dan ditambah fungsi validateEmail() yang didalamnya dilakukan pengetesan regex untuk pengecekan validasi email. jika dicompare dengan nilai null  ataupun string "" ataupun untuk email tidak valid salah satu dapat memberikan nilai true (pada if statement) , maka javascript akan merubah dokumen html pada bagian span class error pada masing2 form dan fungsi akan mereturn false sehingga tidak dapat mengeksekusi action pada form. namun, jika dicompare memberikan nilai false semua untuk if statement di dalam fungsi, maka fungsi pada javascript akan mengembalikan nilai true sehingga dapat mengeksekusi action 
+- Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah). 
+pengguna ketika mengklik tombol vote, function di vote.js akan dipanggil dengan parameter yaitu ID dari answer ataupun question. jika parameter belum diassign, javascript akan merewrite angka vote dengan string "". namun jika parameter diassign, fungsi akan membuat objek xmlhttprequest setelah dicek browser mempunyai xmlhttprequest. jika tidak punya, maka akan membuat objek xmlhttprequest juga namun dengan metode lain yaitu ActiveXObject("Microsoft.XMLHTTP"); lalu setelah objek dibuat, objek diberi fungsi onreadystatechange. fungsi ini melakukan ketika readyState dari objek xmlhttp == 4 dan status dari objek xmlhttp == 200, maka akan merubah value html dengan mengassign objek html yang mempunyai id tertentu dengan response yang diberikan oleh file php. setelah memberikan fungsi pada objek xmlhttp yang telah dibuat diatas, objek tersebut dilakukan .open("GET",<link php>,true); dan .send(); ke <link php> untuk meminta response. di fungsi php, dilakukan mendapatkan id dari link <<link php>?id=xx> lalu id yang didapatkan dilakukan untuk mengupdate data dengan query dan menggunakan id untuk seleksi data mana yang diupdate. setelah diupdate, php mengambil data lagi dengan seleksi id lalu diechokan agar vote.js menerima responseText untuk merubah dokumen.
+
 
 ### Knowledge
 
