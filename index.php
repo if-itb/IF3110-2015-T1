@@ -34,9 +34,9 @@
 		if ((!empty( $_POST['email'] ))&&(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))) {
 
 		?>
-		  <script type="text/javascript">
-				window.alert("Error : Invalid email format!"); 
-			</script>
+		<script type="text/javascript">
+			window.alert("Error : Invalid email format!"); 
+		</script>
 		
 		<?php } else {
 		// Only process the form if $_POST isn't empty
@@ -86,29 +86,23 @@
 
 		// Create connection
 		$conn = new mysqli($servername, $username, $password, $dbname);
-		// Check connection
-		// if ($conn->connect_error) {
-		//     die("Connection failed: " . $conn->connect_error);
-		// } 
-
 		
 		if (! empty( $_GET["key"])) {
-			$sql = "SELECT username, num_vote, content, topic, id_question FROM question WHERE topic='".$_GET["key"]."'";
+			$sql = "SELECT username, num_vote, content, topic, id_question FROM question WHERE topic LIKE '%".$_GET["key"]."%' OR content LIKE '%".$_GET["key"]."%'";
 		} else {
 			$sql = "SELECT username, num_vote, content, topic, id_question FROM question";	
 		}
 
-		
 		$result = $conn->query($sql);
 
 		if ($result->num_rows > 0) {
 		    // output data of each row
-		    $count = 0;
 		    while($row = $result->fetch_assoc()) {
 		    	echo "<table>";
 		    	echo "<tr>";
-	    		echo '<td class="vote" rowspan="2">'. $row["num_vote"].'</td>';
-	    		echo '<td class="vote" rowspan="2">0</td>';
+	    		echo '<td class="vote" rowspan="2">'.$row["num_vote"].'</td>';
+	    		echo '<td class="vote" rowspan="2" id="numans" onload="countAns('.$row["id_question"].');">0';
+	    		echo '</td>';
 	    		echo '<td class="topic"><a href="answer.php?id='.$row["id_question"].'" class="topic">'. $row["topic"].'</a></td>';
 	    		echo '<td class="askedby"></td>';
 	  			echo "</tr>";
@@ -160,7 +154,6 @@
 	  			echo '</tr>';
 		        echo "</table>";
 		        echo "<hr>";
-		        $count++;
 		        
 		    }
 		    
@@ -180,5 +173,21 @@
 
 </body>
 
+<script type="text/javascript">
+	function countAns(id_question) {
+		var id = id_question;
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function () {
+			if (xhttp.readyState == 4) {
+				// if ok, update
+				document.getElementById("numans").innerHTML = xhttp.responseText;
+				// if not, show error
+			}
+		}
+
+		xhttp.open("GET","numberans.php?id=" + id, true);
+		xhttp.send();
+	}
+</script>
 
 </html> 
