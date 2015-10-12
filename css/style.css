@@ -171,10 +171,3 @@ form.block input[type="submit"] {
 	line-height: 1em;
 	color: #ccc;
 }
-
-.vote #increase-vote , .vote #decrease-vote{
-	display: block;
-	padding: 5px 0 0;
-	margin: 0;
-}
-
