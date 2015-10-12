@@ -34,19 +34,21 @@ body {margin-left : 20%;
 			border-width: 2px;
 			border-color : black;
 			margin: 0 auto;
-			margin-top: 20px;
+			margin-top: 15px;
 			width: 100%;
 			height: 30px;
 			font-family : arial;
+			word-wrap :break-word;
 }
 #textarea {border-style: solid;
 			border-width: 2px;
 			border-color : black;
 			margin: 0 auto;
-			margin-top: 20px;
+			margin-top: 15px;
 			width: 100%;
 			height: 200px;
 			font-family : arial;
+			word-wrap :break-word;
 }
 #submit {padding:5px 15px; border:1;
 		 border-width : 2px;
@@ -69,52 +71,76 @@ body {margin-left : 20%;
 		font-size : 20px;
 		font-family: arial;
 		margin: 0 auto;
-	
+		word-wrap :break-word;
+}
+#judulbesar {text-align : left;
+		font-size : 30px;
+		font-family: arial;
+		margin: 0 auto;
+		color: #999999;
+		word-wrap :break-word;
 }
 #judul2 {text-align : center;
 	font-size : 16px;
 	font-family : arial;
+	word-wrap :break-word;
 }
 #td1 {width : 100px;
 	  height : 100px;
 	  vertical-align : center;
 	  text-align : center;
+	  word-wrap :break-word;
 }
 #td2 {width : 450px;
 	  height : 100px;
 	  vertical-align: top;
 	  text-align : center;
 	  font-size : 24px;
+	  word-wrap :break-word;
 }
 #td3 {width : 450px;
 	  height : 100px;
 	  vertical-align: bottom;
 	  text-align : right;
+	  word-wrap :break-word;
 }
-#tdq1 {width : 200px;
-		height : 100px;
-		vertical-align : center;
-		text-align : center;
+#td4 {width : 200px;
+	  height : 75px;
+	  vertical-align : center;
+	  text-align : center;
+	  font-size : 30px;
+	  font-family : arial;
 }
-#tdq2 {width : 800px;
-		height : 100px;
-		vertical-align : top;
-		text-align : left;
+#td5 {width : 600px;
+	  height : 75px;
+	  vertical-align: top;
+	  text-align : left;
+	  font-size : 14px;
+	  font-family : arial;
+	  word-wrap: break-word;
 }
-#tdq3 {width : 1000px;
-		height : 100px;
-		vertical-align : top;
-		text-align : right;
+#td6 {width : 800px;
+	  height : 50px;
+	  vertical-align: bottom;
+	  text-align : right;
+	  font-family : arial;
+}
+#img {width : 42px;
+	  height: 42px;
 }
 hr {border : 2px solid;
 	border-color : black;
 }
-#blue {color : blue;
-		text-align : right;}
-#yellow {color : #ffa000;
-		text-align : right;}
-#red {color : #ff0055;
-		text-align : right;}
+blue {color : blue;
+		text-align : right;
+		word-wrap :break-word;}
+yellow {color : #ffa000;
+		text-align : right;
+		word-wrap :break-word;}
+red {color : #ff0055;
+		text-align : right;
+		word-wrap :break-word;}
 .content {font-size : 15px;
 		  font-family : arial;
+		  word-wrap :break-word;
 }
