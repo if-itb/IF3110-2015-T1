@@ -1,0 +1,205 @@
+body {
+    margin-left: 15%;
+    margin-right: 15%;
+    font-family: "Arial";
+}
+
+h1,h2,h3 {
+    color: black;
+    text-align: center;
+    font-size: 50px;
+}
+
+h2 {
+    text-align: left;
+    font-size: 35px;
+}
+
+h3 {
+    text-align: left;
+    font-size: 20px;
+}
+
+h3#recent {
+    text-align: left;
+    font-size: 20px;
+}
+
+h3#ask_here {
+    text-align: center;
+    font-size: 20px;
+}
+
+.question {
+    font-size: 15px;
+}
+
+.question #votes {
+    float: left;
+    text-align: center;
+    padding: 10px;
+}
+
+.question #voteupdown {
+    float: left;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.question #answers {
+    float: left;
+    text-align: center;
+    padding: 10px;
+}
+
+.question #topic {
+    float: left;
+    width: 400px;
+    padding: 10px;
+}
+
+.question #content {
+    float: left;;
+    width: 730px;
+    height: 100px;
+    padding: 10px;
+    word-wrap: break-word;
+}
+
+.question #asked_by {
+    text-align: right;
+    vertical-align: bottom;
+}
+
+.answer {
+    font-size: 15px;
+}
+
+.answer #votes {
+    float: left;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.answer #content {
+    float: left;;
+    width: 730px;
+    height: 100px;
+    padding: 10px;
+    word-wrap: break-word;
+}
+
+.answer #answered_by {
+    text-align: right;
+    vertical-align: bottom;
+}
+
+.container{
+    width: 300px;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+}
+
+.container input#search{
+    width: 700px;
+    height: 40px;
+    background: #2b303b;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: #63717f;
+    padding-left: 45px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 15px;
+}
+
+.container input#submit{
+    width: 40px;
+    height: 40px;
+}
+
+.form {
+    font-family: "Arial";
+    margin-left: 65px;
+}
+
+.form input#name{
+    width: 750px;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom:20px;
+    border-radius: 15px;
+    border: none;
+    background: #cccccc;
+    color: #000000;
+    font-size: 10pt;
+    float: left;
+    padding-left: 15px;
+}
+
+.form input#email{
+    width: 750px;
+    height: 40px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    background: #cccccc;
+    color: #000000;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    padding-left: 15px;
+}
+
+.form input#topic{
+    width: 750px;
+    height: 40px;
+    margin-bottom:20px;
+    border-radius: 15px;
+    background: #cccccc;
+    color: #000000;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    padding-left: 15px;
+}
+
+.form textarea#content{
+    width: 750px;
+    height: 150px;
+    margin-bottom:20px;
+    border-radius: 15px;
+    background: #cccccc;
+    color: #000000;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    padding-left: 15px;
+    padding-top: 15px;
+    font-family: "Arial";
+}
+
+.form input#submit{
+    border-width: 1px;
+    border-radius: 15px;
+    margin-left: 720px;
+}
+
+a:link,a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: silver;
+    text-decoration: none;
+}
+
+hr {
+    border: 2px solid;
+    border-color: black;
+    width: 900px;
+}
