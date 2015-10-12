@@ -1,0 +1,10 @@
+.search-bar {
+	width: 100%;
+	max-width: 50%;
+	margin: 0px 5px 0px 5px;
+}
+
+.search-button {
+	width: 20%;
+	margin: 0px 5px 0px 5px;
+}

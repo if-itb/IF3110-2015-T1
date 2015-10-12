@@ -1,6 +1,9 @@
-<div>
-	<div class='votes'>0</div>
-	<div class='answers'>0</div>
-	<div class='topic'>0</div>
-	<div class='control'>0</div>
+<div class='question-card'>
+	<div class='votes'><?= $votes ?></div>
+	<div class='answers'><?= $answers ?></div>
+	<div class='question-detail'>
+		<div class='topic'><?= $topic ?></div>
+		<div class='detail'><?= $detail ?></div>
+	</div>
+	<div class='control'><?= $control ?></div>
 </div>

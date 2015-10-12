@@ -1,0 +1,9 @@
+#title {
+	text-align:center;
+}
+
+body > div {
+	width: 80%;
+	text-align: center;
+	margin: auto;
+}

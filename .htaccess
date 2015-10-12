@@ -1,4 +1,4 @@
 RewriteEngine on
 
-RewriteCond %{REQUEST_FILENAME} !index.php
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule .* public/index.php?url=$0 [QSA,L]

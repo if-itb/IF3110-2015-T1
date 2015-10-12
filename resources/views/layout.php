@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta>
+		<?= $metas ?>
+		<?= $styles ?>
+		<?= $scripts ?>
 		<title><?= $title ?></title>
 	</head>
 	<body>
-		<div class="header"></div>
-		<div class="content">
-			<?= $content ?>
+		<div align='center'>
+			<div class="header">
+				<h1 id="title">Asklyz</h1>
+			</div>
+			<div class="content">
+				<?= $content ?>
+			</div>
+			<div class="footer"></div>
 		</div>
-		<div class="footer"></div>
 	</body>
 </html>
-
