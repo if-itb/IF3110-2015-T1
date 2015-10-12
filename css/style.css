@@ -258,6 +258,7 @@ input[type="submit"]:hover {
 .vote-down a,
 .vote-up a {
   font-size: 20px;
+  text-decoration: none;
   color: #5C5C5C;
   transition: color 300ms ease; }
   .vote-down a:hover,
