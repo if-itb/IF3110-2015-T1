@@ -125,22 +125,26 @@ function vote(upDown, type, id) {
 }
 
 
-function delQuestion(id) {
+function delQuestion(id,isList) {
     var txt;
     var r = confirm("Apakah Anda mau menghapus pertanyaan ini?");
-    if (r == true) {
+    if (r == true) { 
         //delete Question
 		var xmlhttp;
 		if (window.XMLHttpRequest){
 			xmlhttp=new XMLHttpRequest();
-		} else {
+		} else { 
 			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 		}
 		xmlhttp.onreadystatechange = function()
 		{
 			if(xmlhttp.readyState == 4)
 			{
-				document.getElementById("question-"+id).innerHTML="";
+				if(isList){
+					document.getElementById("question-"+id).innerHTML="";
+				} else {
+					document.getElementById("view-question").innerHTML="Question Deleted. Go to <a href='index.php'>home</a>";
+				}
 			}
 		}
 		xmlhttp.open("POST","functions.php?del=" + id,true);
