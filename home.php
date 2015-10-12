@@ -52,33 +52,63 @@
 		$sql = "SELECT * FROM question";
 		$result = mysql_query($sql);
 	?>
+
+	<script type="text/javascript">
+		function confirmDelete(id) {
+			if (confirm("Are you sure you want to delete this question?") == true) {
+				var xhttp = new XMLHttpRequest();
+		        xhttp.onreadystatechange = function() {
+		            if (xhttp.readyState == 4 && xhttp.status == 200) {
+						document.getElementById("questionlist"+id).innerHTML = xhttp.responseText;
+		            }
+		        }
+		        xhttp.open("POST", "./ajax/delete.php", true);
+		        xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+		        xhttp.send("id=" + id);
+			}
+		}
+	</script>
+
 	<div class="question">
-	<?php while ($row = mysql_fetch_assoc($result)) { ?>
-		<div class="question" id="votes">
-			<?php echo $row['vote'] . " "; ?> <div>Vote(s)</div>
-		</div>
-		<div class="question" id="answers">
-			<?php
-				$answer_count_sql = "SELECT count(id) as c FROM answer WHERE question_id='".$row['id']."'";
-				$answer_count = mysql_fetch_assoc(mysql_query($answer_count_sql));
-				echo $answer_count['c'];
-			?> <div>Answer(s)</div>
-		</div>
-		<div class="question" id="topic">
-			<a href="answer.php?question_id=<?php echo $row['id']; ?>"><?php echo $row['topic'] . " "; ?></a>
-		</div>
-		<div class="question" id="asked_by">
-			<br>
-			<br>
-			<?php echo "asked by "?>
-			<font color="#0024ff">
-				<?php echo $row['name'] . " "; ?>
-			</font>
-			| <a href="create.php?question_id=<?php echo $row['id']; ?>"><font color="ffdb00">edit</font></a> | 
-			<font color="#ff1a00">delete</font>
-		</div>
-		<hr>
-	<?php } ?>
+		<?php while ($row = mysql_fetch_assoc($result)) { ?>
+			<div class="questionlist<?php echo $row['id']; ?>">
+				<div class="question" id="votes">
+					<?php echo $row['vote'] . " "; ?> <div>Vote(s)</div>
+				</div>
+				<div class="question" id="answers">
+					<?php
+						$answer_count_sql = "SELECT count(id) as c FROM answer WHERE question_id='".$row['id']."'";
+						$answer_count = mysql_fetch_assoc(mysql_query($answer_count_sql));
+						echo $answer_count['c'];
+					?> <div>Answer(s)</div>
+				</div>
+				<div class="question" id="topic">
+					<a href="answer.php?question_id=<?php echo $row['id']; ?>"><?php echo $row['topic'] . " "; ?></a>
+				</div>
+				<div class="question" id="content">
+					<?php
+						$content = $row['content'];
+						if (strlen($content) > 100)
+							echo substr($content, 0, 110) . '...';
+						else
+							echo $content;
+					?>
+				</div>
+				<div class="question" id="asked_by">
+					<?php echo "asked by "?>
+					<font color="#0024ff">
+						<?php echo $row['name'] . " "; ?>
+					</font>
+					| <a href="create.php?question_id=<?php echo $row['id']; ?>"><font color="ffdb00">edit</font></a> | 
+					<a href="javascript:confirmDelete(<?php echo $row['id']; ?>)">
+						<font color="#ff1a00">
+							delete
+						</font>
+					</a>
+				</div>
+				<hr>
+			</div>
+		<?php } ?>
 	</div>
 	<?php mysql_close($conn); ?>
 </body>
