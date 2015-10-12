@@ -15,7 +15,7 @@
 		</form>
 		<p class="ask">Cannot find what you are looking for? <a class="ask" href="question.php">Ask here</a></p>
 		<br>
-		<p>Recently Asked Question</p>
+		<p>Question Results</p>
 		
 		<?php
 		include 'header.php';
@@ -23,8 +23,10 @@
 		?>
 		
 		<?php
+		
+		$key = $_POST["search"];
 		// Get all data
-		$sql = "SELECT question_id, asker_name, question_topic, question_content, question_vote FROM question";
+		$sql = "SELECT question_id, asker_name, question_topic, question_content, question_vote FROM question Where question_content Like '%".$key."%' Or question_topic Like '%".$key."%'";
 		$result = mysqli_query($conn, $sql);
 		
 		if (mysqli_num_rows($result) > 0) {
@@ -48,7 +50,7 @@
 				echo "</div>";
 			}
 		} else {
-			echo "<p>No Question available, be the first person to ask a question</p>";
+			echo "<p>Question was not found</p>";
 		}
 		?>
 		
