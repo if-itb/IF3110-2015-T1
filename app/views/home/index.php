@@ -6,80 +6,49 @@
 </div>
     
 <div class="question-list">
-    <div class="inner-container">
-        <div class="question">
-            <div class="row">
-                <div class="question-status col-3">
-                    <div class="question-vote">
-                        <div class="status-counts">
-                            <span>0</span>
-                        </div>
-                        <div class="status-title">
-                            <span>vote</span>
-                        </div>
-                    </div>
-                    <div class="question-answers">
-                        <div class="status-counts">
-                            <span>0</span>
-                        </div>
-                        <div class="status-title">
-                            <span>answer</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="question-summary col-9">
-                    <h2 class="question-title">
-                        <a href="<?= ROOT_URL; ?>/question">iOS periodic background location updates which depends not only on significant location change</a>
-                    </h2>
-                </div>
-                <div class="question-meta">
-                    <span>
-                        Asked by
-                        Name |
-                        <a href="<?= ROOT_URL; ?>/question/edit" class="question-edit">Edit</a> |
-                        <a href="delete.php" class="question-delete">Delete</a>
-                    </span>
-                </div>
-            </div> <!-- .row -->
-        </div> <!-- .question -->
-    </div> <!-- .inner-container -->
 
-    <div class="inner-container">
-        <div class="question">
-            <div class="row">
-                <div class="question-status col-3">
-                    <div class="question-vote">
-                        <div class="status-counts">
-                            <span>0</span>
+    <?php if ($data['questions']): ?>
+        <?php foreach($data['questions'] as $question): ?>
+
+            <div class="inner-container">
+                <div class="question">
+                    <div class="row">
+                        <div class="question-status col-3">
+                            <div class="question-vote">
+                                <div class="status-counts">
+                                    <span>0</span>
+                                </div>
+                                <div class="status-title">
+                                    <span>vote</span>
+                                </div>
+                            </div>
+                            <div class="question-answers">
+                                <div class="status-counts">
+                                    <span>0</span>
+                                </div>
+                                <div class="status-title">
+                                    <span>answer</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="status-title">
-                            <span>vote</span>
+                        <div class="question-summary col-9">
+                            <h2 class="question-title">
+                                <a href="<?= ROOT_URL; ?>/question/<?= $question->id_question; ?>"><?= $question->topic; ?></a>
+                            </h2>
                         </div>
-                    </div>
-                    <div class="question-answers">
-                        <div class="status-counts">
-                            <span>0</span>
+                        <div class="question-meta">
+                            <span>
+                                Asked by
+                                Name |
+                                <a href="<?= ROOT_URL; ?>/question/edit/<?= $question->id_question; ?>" class="question-edit">Edit</a> |
+                                <a href="<?= ROOT_URL; ?>" class="question-delete">Delete</a>
+                            </span>
                         </div>
-                        <div class="status-title">
-                            <span>answer</span>
-                        </div>
-                    </div>
-                </div> <!-- .question-status -->
-                <div class="question-summary col-9">
-                    <h2 class="question-title">
-                        <a href="<?= ROOT_URL; ?>/question">How to avoid generating empty .deflate files for a Hive query?</a>
-                    </h2>
-                </div> <!-- .question-summary -->
-                <div class="question-meta">
-                    <span>
-                        Asked by
-                        Name |
-                        <a href="<?= ROOT_URL; ?>/question/edit" class="question-edit">Edit</a> |
-                        <a href="" class="question-delete">Delete</a>
-                    </span>
-                </div>
-            </div> <!-- .row -->
-        </div> <!-- .question -->
-    </div> <!-- .inner-container -->
+                    </div> <!-- .row -->
+                </div> <!-- .question -->
+            </div> <!-- .inner-container -->
+
+        <?php endforeach; ?>
+    <?php endif; ?>
+
 </div> <!-- .question-list -->
-

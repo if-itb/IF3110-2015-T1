@@ -3,7 +3,7 @@
 class Controller {
 
     public function getDb(){
-        return new PDO('mysql:host=localhost;dbname=website', 'root', '');
+        return new PDO('mysql:host=localhost;dbname=stackexchange', 'root', '');
     }
 
     protected function model($model) {

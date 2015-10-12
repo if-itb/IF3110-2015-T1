@@ -12,7 +12,11 @@ class Questions {
     }
 
     public function getAll() {
+        $query = "SELECT * FROM questions";
         
+        if($questions = $this->db->query($query)) {
+            return $questions->fetchAll(PDO::FETCH_OBJ);
+        }
     }
 
     public function add() {
