@@ -89,7 +89,13 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+#### Validasi pada client-side
+
+Validasi menggunakan fungsi javascript validateAskForm() dan validateAnswerForm() yang melakukan pengecekan terhadap value dari setiap input form. Jika salah satu kosong maka akan muncul alert. Jika semua input sudah terisi akan dilakukan pengecekan terhadap input email, jika tidak sesuai dengan regular expression maka akan muncul alert.
+
+#### Voting dengan AJAX
+
+Sebuah `XMLHTTPRequest` dengan metode `POST` akan dikirimkan ke vote.php dengan beberapa parameter. Vote.php akan melakukan perubahan terhadap database sesuai dengan parameter tersebut. Parameter yang dikirimkan adalah id, tipe (pertanyaan/jawaban), dan vote up/down.
 
 ### Knowledge
 
