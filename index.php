@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>Simple StackExchange</title>
-<<!--	<link rel="stylesheet" type="text/css" href="SiteStyle.css"> -->
+	<link rel="stylesheet" type="text/css" href="SiteStyle.css"> 
 </head>
 
 <body>

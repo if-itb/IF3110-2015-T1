@@ -11,6 +11,7 @@ h1 {
 
 h2 {
 	border-bottom-style: solid;
+	padding-bottom: 5px;
 }
 
 p {
@@ -49,8 +50,32 @@ input[type="submit"]{
 	width: 100%;
 }
 
+.votediv,.anscountdiv,.postdiv{
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+}
+
 .votediv{
-	width: 30px;
+	width: 37px;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 50%;
+}
+
+.votediv p{
+	line-height: 40%
+}
+
+.anscountdiv{
+	width: 42px;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 50%;
+}
+
+.anscountdiv p{
+	line-height: 40%
 }
 
 .postdiv{
@@ -64,6 +89,19 @@ input[type="submit"]{
 .answerContainer{
 	border-bottom-style: solid;
 	margin-bottom:5px;
+	padding-bottom: 5px;
+}
+
+.questionContainer{
+	border-bottom-style: solid;
+	margin-bottom:5px;
+	padding-bottom: 5px;
+}
+
+
+.questionContainer .postdiv p a{
+	text-decoration: none;
+	color: black;
 }
 
 .answerFormContainer h2 {
@@ -81,3 +119,26 @@ input[type="submit"]{
 	text-decoration: none;
 }
 
+.search-container{
+	text-align: center;
+	display: block;
+	width: 100%;
+}
+
+.search-container input[name="searchquery"]{
+	text-align: center;
+	display: inline-block;
+	width: 85%;
+}
+
+.search-container input[type="submit"]{
+	float: none;
+	text-align: center;
+	display: inline-block;
+	width: 50px;
+}
+
+.cannotfindthenask-container a{
+	color: yellow;
+	text-decoration: none;
+}
