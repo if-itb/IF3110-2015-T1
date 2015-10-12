@@ -4,6 +4,7 @@
     <title>Ask Question | Overflow48</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     <link rel="icon" type="image/png" href="/assets/white-icon.jpg">
+    
   </head>
   <body>
     <div class="container">
@@ -25,16 +26,18 @@
         }
       ?>
       <hr class="line">
-      <form id="ask" action="/controller/questionController.php" method="POST">
+      <form id="ask" action="/controller/questionController.php" onsubmit="return validateAsk()" method="POST">
         <input name="id" type="hidden" value="<?=$id?>">
-        <input placeholder="Name" class="form" type="text" name="authorName" value="<?= $q["name"] ?>">
-        <input placeholder="Email" class="form" type="text" name="authorEmail" value="<?= $q["email"] ?>">
-        <input placeholder="Question Topic" class="form" type="text" name="topic" value="<?= $q["topic"] ?>">
-        <textarea placeholder="Content" rows="4" class="box" name="content"><?= $q["content"] ?></textarea>
+        <input id="authorName" placeholder="Name" class="form" type="text" name="authorName" value="<?= $q["name"] ?>">
+        <input id="authorEmail" placeholder="Email" class="form" type="text" name="authorEmail" value="<?= $q["email"] ?>">
+        <input id="topic" placeholder="Question Topic" class="form" type="text" name="topic" value="<?= $q["topic"] ?>">
+        <textarea id="content" placeholder="Content" rows="4" class="box" name="content"><?= $q["content"] ?></textarea>
         <div class="text-right">
             <button class="button" class="text-right" type="submit">Post</button>
         </div>
       </form>
     </div>
+    
+    <script type="text/javascript" src="/assets/js/validation.js"></script>
   </body>
 </html>

@@ -42,7 +42,7 @@
             <p><?=$q["content"]?></p>
           </div>
           <div class="text-right">
-            <p>asked by <?=$q["name"]?> at <?=$q["date"]?> | <a href="/view/ask.php?id=<?=$id?>">edit</a> | <a href="/controller/deleteController.php?id=<?=$q["id_question"]?>">delete</a></p>
+            <p>asked by <?=$q["name"]?> at <?=$q["date"]?> | <a href="/view/ask.php?id=<?=$id?>">edit</a> | <a href="#" onclick="confirmDelete(<?=$id?>)">delete</a></p>
           </div>
         </div>
       </div>
@@ -74,13 +74,15 @@
 
       <form id="answer" action="/controller/answerController.php" method="POST">
         <input name="id" type="hidden" value=<?=$id?>>
-        <input placeholder="Name" class="form" type="text" name="authorName">
-        <input placeholder="Email" class="form" type="text" name="authorEmail">
-        <textarea placeholder="Content" class="box" name="content"></textarea>
+        <input id="authorName" placeholder="Name" class="form" type="text" name="authorName">
+        <input id="authorEmail" placeholder="Email" class="form" type="text" name="authorEmail">
+        <textarea id="content" placeholder="Content" class="box" name="content"></textarea>
         <div class="text-right">
             <button class="button" class="text-right" type="submit">Post</button>
         </div>
       </form>
     </div>
+
+    <script type="text/javascript" src="/assets/js/validation.js"></script>
   </body>
 </html>
