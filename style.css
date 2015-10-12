@@ -1,5 +1,6 @@
 body {
 	font-family: Segoe UI;
+	font-size: 16px;
 	/*width: 750px;
 	margin: 0 auto;*/
 }
@@ -25,25 +26,32 @@ p {
 }
 
 h2 {
-	margin-left: 445px;
-	margin-bottom: 5px;
+	margin-left: 320px;
+	margin-bottom: 0px;
 }
 
 h3 {
-	margin-left: 380px;
+	margin-left: 325px;
 	margin-bottom: 5px;
 }
 
-hr {
-    width: 600px;
-    margin-top: 5px;
-} 
+.linehome,
+.lineanswer {
+    width: 700px;
+    margin-left: 320px;
+}
+
+.linequestion {
+    width: 700px;
+    margin-left: 320px;
+    margin-top: 20px;
+}
 
 .vote {
-	margin-left: 0px;
 	width: 50px;
 	float: left;
-	margin: 0 auto;
+	margin-left: 320px;
+	text-align: center;
 }
 
 .vote-count {
@@ -57,7 +65,7 @@ hr {
 }
 
 .answer {
-	width: 100px;
+	width: 50px;
 	float: left;
 }
 
@@ -77,13 +85,15 @@ hr {
 	margin-bottom: 20px;
 	float: left;
 	width: 350px;
+	text-align: center;
 }
 
 .modif-question {
 	margin-left: 0px;
-	margin-bottom: 20px;
+	margin-top: 40px;
 	float: left;
-	width: 350px;
+	width: 300px;
+	font-size: 12px;
 }
 
 #searchbox,
@@ -101,6 +111,40 @@ hr {
 	margin-left: 410px;
 }
 
-#questioncontainer {
+.questioncontainer {
 	text-align: center;
+}
+
+.youranswer {
+	font-size: 25px;
+	font-weight: bold;
+	margin-left: 320px;
+	color: grey;
+}
+
+.qtopic {
+	font-size: 25px;
+	font-weight: bold;
+	margin-left: 320px;
+	margin-bottom: 0px;
+}
+
+.answeredby {
+	margin-top: 50px;
+	float: left;
+	width: 300px;
+	font-size: 12px;
+	text-align: center;
+}
+
+.qdetail {
+	margin-top: 50px;
+	float: left;
+	width: 300px;
+	font-size: 12px;
+	text-align: center;
+}
+
+#askhere {
+	color: orange;
 }

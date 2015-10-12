@@ -16,14 +16,12 @@
 		</form>
 	</div>
 	<?php include('getQID.php') ?>
-	<p>Cannot find what you are looking for? <a href="askform.php?id=0"> Ask here </a></p>
+	<p>Cannot find what you are looking for? <a href="askform.php?id=0" id="askhere"> Ask here </a></p>
 	<br>
 	<h3>Recently Asked Question</h3>
-	<hr>
-	<div id="questioncontainer">
-		<?php
-			include("QuestionsList.php");
-		?>
-	</div>
+	<div class="linehome"> <hr> </div>
+	<?php
+		include("QuestionsList.php");
+	?>
 </body>
 </html>

@@ -6,6 +6,7 @@
 
 	while($row = mysqli_fetch_assoc($result)) 
     {
+    echo "<div class='questioncontainer'>";
         echo "<div class='vote'>".
 								$row["Vote"].
 					"			<br>".
@@ -31,11 +32,15 @@
 		echo "<div class='modif-question'>".
 		 		"asked by $row[Name] | ".
 		 		"<a href='askform.php?id=$row[ID]' id='edit'> edit </a> | ".
-		 		"<a href='delete.php?id=$row[ID]' onclick=\"return confirm('Are you sure you want to delete this item?')\" id='delete_link'>delete</a>";
+		 		"<a href='delete.php?id=$row[ID]' onclick=\"return confirm('Are you sure you want to delete this item?')\" id='delete_link'>delete</a>".
 		 	 "</div>";
 		echo "<br>";
 		echo "<br>";
-		echo "<hr>";
+		//echo "<br>";
+		echo "<div class='linequestion'>".
+			 "	<hr>".
+			 "</div>";
+	echo "</div>";
     }
 
 	mysqli_close($conn);

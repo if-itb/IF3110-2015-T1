@@ -13,7 +13,9 @@
 	</div>
 
 	<h2>What's your question?</h2>
-	<hr>
+	<div class="linehome">
+		<hr>
+	</div>
 	<br>
 	<div id="form">
 		<div class="content">
