@@ -19,10 +19,11 @@ function retrieveQuestions() {
         //$row['answer'] = getAnswerCount($row['question_id']);
         $questions[] = $row;     
     }
-    
-    return $questions;
         
     $conn->close();
+    
+    return $questions;
+    
 }
 
 ?>
