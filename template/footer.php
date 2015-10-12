@@ -1,3 +1,4 @@
-  <script src="js/app.js"></script>
+    </div> <!-- .outer-container -->
+    <script src="js/app.js"></script>
 </body>
 </html>
