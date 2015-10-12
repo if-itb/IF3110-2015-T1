@@ -189,53 +189,49 @@
 	function voteQuestion($q_id,$is_up){
 		global $conn;
 
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        $vote = $row['vote'];
-
-
-		if ($is_up){
-			$sql = "UPDATE questions SET vote = vote + 1 WHERE q_id = $q_id";
-		}
-		else{
-			$sql = "UPDATE questions SET vote = vote - 1 WHERE q_id = $q_id";			
-		}
-
-		$sql = "SELECT vote FROM questions ";
-        $result = $conn->query($sql);
+		$sql = "SELECT * FROM questions WHERE q_id = $q_id";
+        $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
         $vote = $row['vote'];
+		if ($is_up == "true"){
+			$vote = $vote + 1;
+		}
+		else{
+			$vote = $vote - 1;
+		}
+
+		$sql = "UPDATE questions SET vote=$vote WHERE q_id=$q_id";
 
 		if (mysqli_query($conn, $sql)) {
 			echo $vote;
 		} else {
-		    echo "Error updating question: " . mysqli_error($conn);
+		    echo "Error Vote Question: " . mysqli_error($conn);
 		}
-
 
 	}
 
 	function voteAnswer($q_id,$a_id,$is_up){
 		global $conn;
 
-		if ($is_up){
-			$sql = "UPDATE answers SET vote = vote + 1 WHERE q_id = $q_id AND a_id = $a_id";
-		}
-		else{
-			$sql = "UPDATE answers SET vote = vote - 1 WHERE q_id = $q_id AND a_id = $a_id";			
-		}
-
-
-		$sql = "SELECT vote FROM questions ";
-        $result = $conn->query($sql);
+		$sql = "SELECT * FROM answers WHERE q_id = $q_id AND a_id = $a_id";
+        $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
         $vote = $row['vote'];
+
+		if ($is_up == "true"){
+			$vote = $vote + 1;
+		}
+		else{
+			$vote = $vote - 1;
+		}
+
+		$sql = "UPDATE answers SET vote=$vote WHERE q_id=$q_id AND a_id = $a_id";
 
 		if (mysqli_query($conn, $sql)) {
 			echo $vote;
 		} else {
-		    echo "Error updating question: " . mysqli_error($conn);
+		    echo "Error Vote Answer: " . mysqli_error($conn);
 		}
-
 	}
 
 ?>

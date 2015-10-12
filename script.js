@@ -1,4 +1,3 @@
-var xhttp;
 
 //Email  Regex Vaidation
 function validateEmail(email) {
@@ -77,26 +76,28 @@ function initXMLHTTPRequest(){
 	}
 };
 
-function voteQuestion(q_id,is_voteup){
-	initXMLHTTPRequest();
+function voteQuestion(q_id,is_question,is_voteup){
+	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function(){
 	    if (xhttp.readyState == 4 && xhttp.status == 200) {
-	    	document.getElementById("q_vote").innerHTML = xhttp.responseText;
+		   	document.getElementById("q_vote").innerHTML = xhttp.responseText;
 	    }
+
 	};
 
-	xhttp.open("GET","vote.php?q_id="+q_id+"&v="+is_voteup,true);
+	xhttp.open("GET","vote.php?q_id="+q_id+"&q="+is_question+"&v="+is_voteup,true);
 	xhttp.send();
 };
 
-function voteAnswer(q_id,a_id,is_voteup){
+function voteAnswer(q_id,a_id,is_question,is_voteup){
 	initXMLHTTPRequest();
+
 	xhttp.onreadystatechange = function(){
 	    if (xhttp.readyState == 4 && xhttp.status == 200) {
-		   	document.getElementById("a_vote").innerHTML = xhttp.responseText;
+		   	document.getElementById("a_vote-" + a_id).innerHTML = xhttp.responseText;
 	    }
 	};
 	
-	xhttp.open("GET","vote.php?q_id="+q_id+"&a_id="+a_id+"&v="+is_voteup,true);
+	xhttp.open("GET","vote.php?q_id="+q_id+"&a_id="+a_id+"&q="+is_question+"&v="+is_voteup,true);
 	xhttp.send();
 };

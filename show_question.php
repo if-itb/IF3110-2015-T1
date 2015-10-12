@@ -1,3 +1,5 @@
+    <script type="text/javascript" src="script.js"></script>
+
 <?php
     require("./controller.php");
     if (isset($_GET['id'])){
@@ -22,8 +24,6 @@
 <head>
     <link rel="stylesheet" href="style.css" type="text/css">
 
-    <script type="text/javascript" src="script.js"></script>
-
     <title>Simple StackExchange</title>
 
 </head>
@@ -38,9 +38,9 @@
       <div class="question_detail">
         <div id="vote_icon">
           <span class="vote">
-            <a href="javascript:voteAnswer($question['q_id'],true)"><img id="vote_up" src="up.png" ></a>
-            <?php echo 1 . "\n";?>
-            <a href="javascript:voteAnswer($question['q_id'],false)"><img id="vote_down" src="down_arrow.png"></a>
+            <a href="javascript:voteQuestion(<?php echo $question['q_id']?>,true,true);"><img id="vote_up" src="up.png" ></a>
+            <div id ="q_vote"><?php echo $question['vote']; ?></div>
+            <a href="javascript:voteQuestion(<?php echo $question['q_id']?>,true,false);"><img id="vote_down" src="down_arrow.png"></a>
           </span>
         </div>    
         <div class="mid-right">
@@ -56,13 +56,12 @@
 
     <div id= "content">
       <p class="content_title"><?php echo getAnswerCount($id); ?> Answers</p>
-      <!--<a href="javascript:voteUp(<?php echo $answer['answer_id'] ?>, 'answer')" id="increase-vote">-->
-     <?php 
+    <?php 
         foreach ($answers as $answer) {
           $left =  "<div id='vote_icon'>
                       <span class='vote'>
-                        <a href=\"javascript:voteAnswer(".$answer['q_id'].",".$answer['a_id'].",true)\"><img id='vote_up' src='up.png'></a>" .$answer['vote']. 
-                        "<a href=\"javascript:voteAnswer(".$answer['q_id'].",".$answer['a_id'].",false)\"><img id='vote_down' src='down_arrow.png'></a>
+                        <a href=\"javascript:voteAnswer(".$answer['q_id'].",".$answer['a_id'].",false,true)\"><img id='vote_up' src='up.png'></a><div id=\"a_vote-".$answer['a_id']."\">" .$answer['vote']. 
+                        "</div><a href=\"javascript:voteAnswer(".$answer['q_id'].",".$answer['a_id'].",false,false)\"><img id='vote_down' src='down_arrow.png'></a>
                       </span>
                     </div>";
 
