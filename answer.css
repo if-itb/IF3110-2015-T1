@@ -18,9 +18,13 @@ h2{
 
 .question-vote{
 	float:left;
-	margin-left: 5%;
+	margin-left: 1%;
 	width:5%;
 	height:90%;
+}
+
+.question-vote p{
+	text-align: center;
 }
 
 .question-content{
@@ -43,9 +47,13 @@ h2{
 
 .answer-vote{
 	float:left;
-	margin-left: 5%;
+	margin-left: 1%;
 	width:5%;
 	height:90%;
+}
+
+.answer-vote p{
+	text-align: center;
 }
 
 .answer-content{

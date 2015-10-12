@@ -35,13 +35,13 @@
 	<div class="question">
 		<div class="question-vote">
 			<div class="question-vote-up">
-				<p>X</p>
+				<p>&#9650;</p>
 			</div>
 			<div class="question-vote-number">
 				<p><?php echo $row["Vote"] ?></p>
 			</div>
 			<div class="-question-vote-down">
-				<p>X</p>
+				<p>&#9660;</p>
 			</div>
 		</div>
 		<div class="question-content">
@@ -50,8 +50,8 @@
 		<br>
 		<div class="question-identity">
 			<p> asked by <?php echo $row["Nama"] ?> at <?php echo $row["Tanggal"] ?>  | 
-				<span class="edit"> <a href="ask.php"> edit </a> </span> | 
-				<span class="delete"> <a href="ask.php"> delete </a> </span> 
+				<span class="edit">  <a href="ask.php?ID=<?php echo $id ?>">edit</a> </span> | 
+				<span class="delete"> <a href="delete.php?ID=<?php echo $id ?>">delete</a> </span> 
 			</p>
 		</div>
 	</div>
@@ -66,13 +66,13 @@
 				<hr>
 				<div class="answer-vote">
 					<div class="answer-vote-up">
-						<p>X</p>
+						<p>&#9650;</p>
 					</div>
 					<div class="answer-vote-number">
 						<p><?php echo $row2["Vote"] ?></p>
 					</div>
 					<div class="answer-vote-down">
-						<p>X</p>
+						<p>&#9660;</p>
 					</div>
 				</div>
 				<div class="answer-content">
@@ -89,7 +89,7 @@
 		else {
 			echo "Tidak Ada Pertanyaan Yang Masuk";
 		}
-		?>
+	?>
 	
 	<hr>
 	<h2 class="answer-form">Your Answer</h2>
