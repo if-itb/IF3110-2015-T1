@@ -100,7 +100,6 @@ function getAnswerCount($questionId) {
 function postAnswer($data) {
 	global $conn;
 	$data['content'] = htmlspecialchars($data['content'], ENT_QUOTES);
-	$data['title'] = htmlspecialchars($data['title'], ENT_QUOTES);
 	$q = "INSERT INTO answer (question_id, name, email, content, date)
           VALUES ('$data[question_id]','$data[name]','$data[email]', '$data[content]', CURRENT_TIMESTAMP)";
 		  
