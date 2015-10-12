@@ -34,7 +34,7 @@
 		<?php 
 		if($isQuestionExist) { ?>
 		<br><br><br>
-		<form id="question-form" action="submit.php?q_id=<?php echo $q_id."&idx=4";?>" method="post">
+		<form id="question_form" action="submit.php?q_id=<?php echo $q_id."&idx=4";?>" method="post">
 			<center>
 				<input type="text" name="name" placeholder="name"><br>
 				<input type="text" name="email" placeholder="email"><br>

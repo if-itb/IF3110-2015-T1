@@ -27,3 +27,17 @@ function validateForm() {
     }
     return true;
 }
+
+function Update_Vote(up,question,id) {
+	var ajaxRequest = new XMLHttpRequest();
+	ajaxRequest.open("POST", "function/vote.php?up="+up+"&question="+question+"&id="+id,true);
+	ajaxRequest.onreadystatechange = function(){
+		if(ajaxRequest.readyState == 4 && ajaxRequest.status == 200){
+			var ajaxDisplay;
+			if(question==1) ajaxDisplay = document.getElementById('vote_question');
+			else ajaxDisplay = document.getElementById('vote_answer');
+			ajaxDisplay.innerHTML = ajaxRequest.responseText;
+		}
+	}
+	ajaxRequest.send(null);
+}

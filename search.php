@@ -20,7 +20,7 @@
 
 			echo "<h2>".mysqli_num_rows($result)." Result(s)</h2>";
 
-			show_query($result);
+			show_query_ask($result);
 			mysqli_close($conn);
 		?>
 	</div>

@@ -29,7 +29,7 @@
 		}
 		// $idx = 2 --> update question
 		else if($idx==2) {
-			$sql = "UPDATE `question` SET `name`='".$data["name"]."', `email`='".$data["email"]."', `topic`='".$data["topic"]."', `content`='".$data["content"]."' WHERE question_id=".$data["question_id"];
+			$sql = "UPDATE `question` SET `name`='".$data["name"]."', `email`='".$data["email"]."', `topic`='".$data["topic"]."', `content`='".mysql_real_escape_string($data["content"])."' WHERE question_id=".$data["question_id"];
 	
 		}
 		// $idx = 3 --> delete question
@@ -60,8 +60,7 @@
 	    		echo "<hr size='2' NOSHADE>";
 				echo "<div class=\"question\">";
 	    		echo "
-	    		<span class=\"vote\"><img src=\"icon/arrow_up.png\" style=\"width: 80%; height: auto; margin-bottom: 5px;\"></img><br>".$row["vote"]."<br><img src=\"icon/arrow_down.png\"style=\"width: 80%; height: auto; margin-top: 5px;\"></img></span>
-	    		<span class=\"answer\"></span>
+	    		<span class=\"vote\"><img src=\"icon/arrow_up.png\" onclick = Update_Vote(1,1,".$q_id.") style=\"width: 80%; height: auto; margin-bottom: 5px;\"></img><div id=\"vote_question\">".$row["vote"]."</div><img src=\"icon/arrow_down.png\" onclick = Update_Vote(0,1,".$q_id.") style=\"width: 80%; height: auto; margin-top: 5px;\"></img></span>
 	    		<span id=\"question\">";
 	    		if(isset($row["topic"])) echo "<p id=\"question-title\"><a href='question.php?q_id=$q_id'>".$row["topic"]."</a></p>";
 	    		$content = $row["content"];
@@ -82,11 +81,11 @@
 		if(mysqli_num_rows($result) > 0) {
 			while($row = mysqli_fetch_assoc($result)) {
 				$q_id = $row["question_id"];
+				$a_id = $row["answer_id"];
 	    		echo "<hr size='2' NOSHADE>";
 				echo "<div class=\"question\">";
 	    		echo "
-	    		<span class=\"vote\">".$row["vote"]."<br>votes</span>
-	    		<span class=\"answer\"></span>
+	    		<span class=\"vote\"><img src=\"icon/arrow_up.png\" onclick = Update_Vote(1,0,".$a_id.") style=\"width: 80%; height: auto; margin-bottom: 5px;\"></img><div id=\"vote_answer\">".$row["vote"]."</div><img src=\"icon/arrow_down.png\" onclick = Update_Vote(0,0,".$a_id.") style=\"width: 80%; height: auto; margin-top: 5px;\"></img></span>
 	    		<span id=\"question\">";
 	    		if(isset($row["topic"])) echo "<p id=\"question-title\"><a href='question.php?q_id=$q_id'>".$row["topic"]."</a></p>";
 	    		$content = $row["content"];
@@ -104,7 +103,7 @@
 	}
 
 	function show_question($conn) {
-		$sql = "SELECT * FROM `question` ORDER BY date_created DESC LIMIT 5";
+		$sql = "SELECT * FROM `question` ORDER BY date_created DESC";
 		$result = mysqli_query($conn,$sql);
 		if(mysqli_num_rows($result) > 0) {
 			while($row = mysqli_fetch_assoc($result)) {
@@ -143,4 +142,3 @@
 	}
 	
 ?>
-

@@ -22,7 +22,7 @@
 	$q_id = $_GET["q_id"];
 ?>
 
-<form id="question-form" action="submit.php?q_id=<?php echo $q_id."&idx=2";?>" method="post">
+<form id="question_form" action="submit.php?q_id=<?php echo $q_id."&idx=2";?>" method="post">
 	<center>
 		<input type="text" name="name" placeholder="name" value="<?php echo $row['name']?>"><br>
 		<input type="text" name="email" placeholder="email" value="<?php echo $row['email']?>"><br>

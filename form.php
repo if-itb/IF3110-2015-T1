@@ -19,7 +19,7 @@
 			<input type="text" name="name" placeholder="Name"><br>
 			<input type="text" name="email" placeholder="Email"><br>
 			<input type="text" name="topic" placeholder="Topic"><br>
-			<textarea name="content" placeholder="Content"></textarea><br>
+			<textarea rows=5 name="content" placeholder="Content"></textarea><br>
 		</center>	
 			<button type="submit" name="search">Submit</button>
 	</form>
@@ -36,12 +36,12 @@
 		$q_id = $_GET["q_id"];
 	?>
 
-	<form id="question-form" action="submit.php?q_id=<?php echo $q_id."&idx=2";?>" method="post">
+	<form id="question_form" action="submit.php?q_id=<?php echo $q_id."&idx=2";?>" method="post">
 		<center>
 			<input type="text" name="name" placeholder="Name" value="<?php echo $row['name']?>"><br>
 			<input type="text" name="email" placeholder="Email" value="<?php echo $row['email']?>"><br>
 			<input type="text" name="topic" placeholder="Topic" value="<?php echo $row['topic']?>"><br>
-			<textarea name="content" placeholder="Content"><?php echo $row['content']?></textarea><br>
+			<textarea rows=5 name="content" placeholder="Content"><?php echo $row['content']?></textarea><br>
 		</center>	
 			<button type="submit" name="search">Submit</button>
 	</form>
