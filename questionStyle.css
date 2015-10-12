@@ -21,14 +21,14 @@ div {
 	/*padding: 40px;*/
 }
 .header2 {
-	left:50%;
+	/*left:50%;*/
     /*margin-left: 250px;*/
 	font-size: 18px; 
 	margin-top: 0px;
 	width: 800px; 
-	border: 2px solid; 
-	border-radius: 50px;
-	padding: 10px 10px 0px 10px;
+	border: 2px solid;
+	border-radius: 0px;
+	padding: 10px 0px 0px 10px;
 }
 
 .kotaksearch { 
@@ -62,6 +62,17 @@ div {
 	color: orange; 
 	text-decoration: none; 
 }
+
+.link1 { 
+	color: black; 
+	text-decoration: none; 
+}
+
+.link2{ 
+	color: red;
+	text-decoration: none; 
+}
+
 .header3 {
 	left:50%;
     /*margin-left: 250px;*/
@@ -101,11 +112,12 @@ div {
 
 #button {
 	position: fixed; 
-	left: 53.5%; 
+	/*left: 55%; */
 	margin-top: 20px; 
-	margin-left: 350px; 
+	margin-left: 770px; 
 	margin-bottom: 20px;
 	text-align: center; 
+	text-indent: -5px;
 	width: 50px; 
 	border: 2px solid; 
 	border-radius: 3px; 
@@ -119,26 +131,31 @@ div {
 }
 
 .vote{
-	margin-left: 0px; 
 	width: 50px; 
 	float: left;
+	/*border: 2px solid;*/
+	
+	/*border: 2px solid;
+	border-radius: 50px;
+	padding: 10px 10px 10px 10px;*/
 }
 
 .vote-counts { 
 	margin-left: 50px;
-	margin-bottom: 10px;
+	/*margin-bottom: 4px;*/
 
 }
 
 .vote-title { 
 	margin-left: 40px;
-	margin-bottom: 4px;
+	margin-bottom: 20px;
 }
 
 .answer{
 	/*margin-left: 20px;*/
 	width: 180px;
 	float: left; 
+	/*border: 2px solid;*/
 }
 
 .answer-counts { 
@@ -148,20 +165,35 @@ div {
 
 .answer-title { 
 	margin-left: 50px;
-	margin-bottom: 4px; 
+	margin-bottom: 20px; 
 }
 
 .topic { 
 	margin-left: 0px;
-	margin-bottom: 20px; 
-	float:left;
-	width: 350px;
+		 
+
+	
+	/*float:left;
+	width: 350px;*/
 	/*border: 3px solid #8AC007;*/
 
 }
 
 .asked { 
-	margin-left: 20px;
-	float:left;
+	/*margin-right: 20px;*/
+	width: 310px; 
+	margin-left: 590px; 
+	margin-bottom: 10px; 
+	
 
+}
+
+.garis { 
+	width: 805px; 
+	margin-bottom: 20px;
+	/*float:left;*/
+	border: 2px solid;
+	border-top: 0px; 
+	border-left: 0px; 
+	border-right: 0px;
 }
