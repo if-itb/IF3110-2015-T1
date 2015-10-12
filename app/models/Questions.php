@@ -7,8 +7,12 @@ class Questions {
         $this->db = $db;    
     }
 
-    public function get() {
-
+    public function get($id) {
+        $query = "SELECT * FROM questions WHERE id_question = {$id}";
+        
+        if ($question = $this->db->query($query)) {
+            return $question->fetch(PDO::FETCH_OBJ);
+        }
     }
 
     public function getAll() {

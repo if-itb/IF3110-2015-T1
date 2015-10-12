@@ -2,10 +2,18 @@
 
 class Question extends Controller {
     
-    public function index() {
-        $this->view('templates/header');
-        $this->view('question/index');
-        $this->view('templates/footer');
+    public function index($id = null) {
+        $questionsModel = $this->model('Questions');
+
+        if ($id) {
+            $id = (int)$id;
+            
+            if ($question = $questionsModel->get($id)) {
+                $this->view('templates/header');
+                $this->view('question/index', ['question' => $question]);
+                $this->view('templates/footer');
+            }
+        }
     }
 
     public function add() {
