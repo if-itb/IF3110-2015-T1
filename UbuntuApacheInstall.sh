@@ -43,13 +43,13 @@ fi
 [ -d $installdir ] || mkdir $installdir
 
 #installed files
-filesToCopy=( SubmitQuestion.php QuestionForm.html SiteStyle.css formValidate.js dbmgr.php displayQuestion.php submitAnswer.php editQuestion.php editAnswer.php deleteQuestion.php deleteAnswer.php updateQuestion.php index.php vote.js vote.php)
+filesToCopy=( SubmitQuestion.php QuestionForm.html SiteStyle.css formValidate.js dbmgr.php displayQuestion.php submitAnswer.php editQuestion.php editAnswer.php deleteQuestion.php deleteAnswer.php updateQuestion.php index.php vote.js vote.php images/upvote.svg images/downvote.svg)
 
 #start copying files
 for i in "${filesToCopy[@]}"
 do
   echo "Copying $i to $installdir/$i ..."
-  cp $i $installdir/$i
+  cp $i $installdir --parents
   echo "Done"
 done
 
