@@ -89,7 +89,19 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+### Melakukan validasi pada client-side
+
+Validasi dilakukan dengan cara memanggil fungsi tertentu saat button submit ditekan (onsubmit). 
+Fungsi yang dipanggil yaitu `validateQForm()` untuk form question dan `validateAForm()` untuk answer, berada di `js/thescript.js`
+Pada fungsi-fungsi tersebut, setiap field dicek kebenarannya (kebenaran tidak boleh kosong, regex email, dan panjang huruf), jika salah maka akan memberikan alert pesan kesalahan dan mereturn value false, sehingga form tidak akan tersubmit.
+
+### Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
+
+Ajax dilakukan dengan cara memanggil fungsi `changeVote(spin,id,type)` pada javascript.
+spin (vote up or down), id(id dari answer/question), type(answer/question (a/q))
+Fungsi ini akan membuat objek `xhttp` yang berupa `XMLHttpRequest()`.
+lalu xhttp akan melakukan `xhttp.open` dengan metode `get`, membuka page `vote.php?spin=(spin)+&type=(type)+&id=(id)` (contoh:vote.php?spin=up&type=q&id=1), yang akan mengubah row di database pada table type (question atau answers), dengan value spin (bertambah 1 atau berkurang 1), dengan key berupa id. Pada `vote.php` akan meng `echo` value pada vote yang diubah tadi.
+Hasil echo dari `vote.php` akan ditangkap oleh `xhttp.onreadystatechange` yang akan mengubah elemen yang ditekan (elemen dengan id (type)+"vote"+(id) , contoh: "avote4"), sehingga elemen tersebut terupdate.
 
 ### Knowledge
 

@@ -3,9 +3,9 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // collect value of input field
         $qid = $_POST['qid'];
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $content = $_POST['content'];
+        $name = $conn->real_escape_string($_POST['name']);
+        $email = $conn->real_escape_string($_POST['email']);
+        $content = $conn->real_escape_string($_POST['content']);
         $sql = "INSERT INTO answers(name,email,qid,a_content) VALUES ('$name','$email','$qid','$content')";
         $conn->query($sql);
         $conn->close();

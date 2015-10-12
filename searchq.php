@@ -30,10 +30,11 @@
             </div>
         </div>
         <div class="contents">
-        	<h2><p>Recently Asked Questions</p></h2>
+        	<h2><p>Results</p></h2>
             <hr>
             <div id="questions">
                 	<?php
+						$squery = $conn->real_escape_string($_GET['search']);
 						$sql = "SELECT
 									question.id as id,
 									question.name as name,
@@ -45,6 +46,8 @@
 								from question
 								left join answers
 								on (question.id = answers.qid)
+								where
+									question.content LIKE '%$squery%' OR question.qtopic LIKE '%$squery%'
 								group by
 									question.id,
 									question.name,
@@ -57,7 +60,7 @@
 								desc";
 						$result = $conn->query($sql);
 						if ($result->num_rows == 0){
-							echo"<h2>There is no question.. be the first to ask!</h2>";
+							echo"<h2>There is no questions. . .</h2>";
 						} else
 						if ($result->num_rows > 0) {
 							$result_list = array();

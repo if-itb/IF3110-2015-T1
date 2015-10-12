@@ -57,7 +57,7 @@
                                 
                             </div>
                                 <div class="qmetaq">
-                                    Asked by  <span class="blue"><?= $row["email"]?></span> | <a href="askme.php?id=<?=$row['id']?>" class="orange">edit</a> | <a href="deletequestion.php?id=<?=$row['id']?>" class="delete red">delete</a> 
+                                    Asked by  <span><?= $row["email"]?></span> | <a href="askme.php?id=<?=$row['id']?>" class="orange">edit</a> | <a href="deletequestion.php?id=<?=$row['id']?>" class="delete red">delete</a> 
                                 </div>
                        </div>
            	<?php 

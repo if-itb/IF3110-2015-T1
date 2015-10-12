@@ -3,10 +3,10 @@
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		// collect value of input field
 		$id = $_POST['id'];
-		$name = $_POST['name'];
-		$email = $_POST['email'];
-		$qtopic = $_POST['qtopic'];
-		$content = $_POST['content'];
+		$name = $conn->real_escape_string($_POST['name']);
+		$email = $conn->real_escape_string($_POST['email']);
+		$qtopic = $conn->real_escape_string($_POST['qtopic']);
+		$content =$conn->real_escape_string($_POST['content']);
 		$sql = "UPDATE question
 				SET name='$name',
 					email='$email',
