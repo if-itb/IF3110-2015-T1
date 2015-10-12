@@ -14,7 +14,7 @@
 		<input class="submit-button" type="submit" value="Submit">
 	</div>
 	</form>
-	<p class="state1"> Cannot find what are you are looking for ?<a href="ask.php" > Ask here </a> </p>
+	<p class="state1"> Cannot find what are you are looking for ?<a href="ask.php?ID=0" > Ask here </a> </p>
 	<br>
 	<p class="state2"> Recently Asked Questions</p>
 
@@ -51,15 +51,14 @@
 					</div>
 					<div class="id-question">
 						<p> asked by <span class="name"><?php echo $row["Nama"] ?></span> | 
-							<span class="edit"> <a href="ask.php"> edit </a> </span> | 
+							<span class="edit"> <a href="ask.php?ID=<?php echo $row["ID"] ?>"> edit </a> </span> | 
 							<span class="delete"> <a href="delete.php?ID=<?php echo $row["ID"] ?>"> delete </a> </span> 
 						</p>
 					</div>
 				</div>
 				<?php
 			}
-		}
-		else {
+		}else {
 			echo "Tidak Ada Pertanyaan Yang Masuk";
 		}
 		mysqli_close($conn);

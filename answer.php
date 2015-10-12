@@ -97,7 +97,7 @@
 		<form action="add_answer.php" method="post">
 			<input class="name" type="text" name="nama" value="" placeholder="Name"> <br>
 			<input class="email" type="text"  name="email" value="" placeholder="Email"> <br>
-			<textarea class="content" type="text" name="konten" value="" placeholder="Content"> </textarea><br>
+			<textarea class="content" type="text" name="konten" placeholder="Content"></textarea><br>
 			<input class="question-id" type="hidden" name="q_id" value="<?php echo $id ?>">
 			<input class="submit-button" type="submit" value="Post">
 		</form>		

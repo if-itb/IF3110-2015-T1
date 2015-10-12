@@ -14,6 +14,7 @@
 		$email = $_POST["email"];
 		$topic = $_POST["topik"];
 		$content = $_POST["konten"];
+		$id = $_POST["id"];
 
 		// Create connection
 		$conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -22,8 +23,13 @@
 		    die("Connection failed: " . mysqli_connect_error());
 		}
 
-		$sql = "INSERT INTO pertanyaan (Nama, Email, Topik, Konten)
-		VALUES ('$name', '$email', '$topic', '$content')";
+		if ($id == 0) {
+			$sql = "INSERT INTO pertanyaan (Nama, Email, Topik, Konten)
+			VALUES ('$name', '$email', '$topic', '$content')";
+		} else {
+			$sql = "UPDATE pertanyaan SET Nama='$name', Email='$email', Topik='$topic', Konten='$content'
+			WHERE ID = '$id'";
+		}
 
 		if (mysqli_query($conn, $sql)) {
 		    //"New record created successfully";
