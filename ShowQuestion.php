@@ -53,7 +53,7 @@
 				    </td>
 				</tr>
 			</table>
-			<p style="text-align:right">asked by <?php echo $email ?> at <?php echo '<datetime>' ?> | <a href=/stackExchange/EditQuestion.php?id=<?php echo $id ?> style="color: orange; text-decoration:none">edit</a> | delete</p>
+			<p style="text-align:right">asked by <?php echo $email ?> at <?php echo '<datetime>' ?> | <a href=/stackExchange/EditQuestion.php?id=<?php echo $id ?> style="color: orange; text-decoration:none">edit</a> | <a href=/stackExchange/DeleteQuestion.php?id=<?php echo $id ?> style="color: red; text-decoration:none" onclick="return confirm('Are you sure you want to delete this item?');">delete</a></p>
 			<h2><?php echo $answers ?> Answer</h2><br>
 
 			<?php
