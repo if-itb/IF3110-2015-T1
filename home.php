@@ -10,30 +10,20 @@
 		<h1>Simple StackExchange</h1>
 		<br>
 	</div>
-	<div id="search">
-	<form>
-		<input id="searchbox" type="text" name="searchQuery"> <input id="submitbutton" type="submit" value="Search"> <br>
-	</form>
-</div>
-	<p>Cannot find what you are looking for? <a href="inputquestion.php">Ask here</a></p>
+	<div class="search">
+		<form>
+			<input id="searchbox" type="text" name="searchQuery"> <input id="submitbutton" type="submit" value="Search"> <br>
+		</form>
+	</div>
+	<?php include('getQID.php') ?>
+	<p>Cannot find what you are looking for? <a href="askform.php?id=0"> Ask here </a></p>
 	<br>
 	<h3>Recently Asked Question</h3>
-	<div class='questionlist'>
-		<hr>
+	<hr>
+	<div id="questioncontainer">
 		<?php
-			include('ConnectDatabase.php');
-
-			$sql = "SELECT ID, Vote, Name, Email, Topic, Content FROM Questions";
-			$result = mysqli_query($conn, $sql);
-
-			while($row = mysqli_fetch_assoc($result)) 
-    		{
-        		echo "<div class='questionlist'>".$row["Vote"]."     "."2"."    ".$row["Topic"]."</div>"."<br>";
-    		}
-
-			mysqli_close($conn);
-		?> 
+			include("QuestionsList.php");
+		?>
 	</div>
 </body>
-
 </html>
