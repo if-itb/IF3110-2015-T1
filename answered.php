@@ -5,7 +5,7 @@
 		<title>ASK a Question</title>
 	</head>
 	<body>
-		<H2>SIMPLE STACK EXCHANGE</H2>	
+		<a href="index.php"><H2>SIMPLE STACK EXCHANGE</H2></a>
 		<?php
 		$servername = "localhost";
 		$username = "root";
