@@ -28,7 +28,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<h1>Simple StackExchange</h1>
+		<h1><a id="a3" href="index.php">Simple StackExchange</a></h1>
 		<br>
 		<div id="div2">
 			<p id="p3">
