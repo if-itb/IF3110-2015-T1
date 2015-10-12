@@ -36,6 +36,23 @@
 	    }
 	</script>
 
+	<script type="text/javascript">
+		function confirmDelete(id) {
+			if (confirm("Are you sure you want to delete this question?") == true) {
+				var xhttp = new XMLHttpRequest();
+		        xhttp.onreadystatechange = function() {
+		            if (xhttp.readyState == 4 && xhttp.status == 200) {
+						document.getElementById("questionlist"+id).innerHTML = xhttp.responseText;
+						location.href = "home.php";
+		            }
+		        }
+		        xhttp.open("POST", "./ajax/delete.php", true);
+		        xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+		        xhttp.send("id=" + id);
+			}
+		}
+	</script>
+
 	<div class="question">
 		<div class="question" id="voteupdown">
 			<div>
@@ -57,7 +74,10 @@
 		</div>
 		<div class="question" id="asked_by">
 			asked by <?php echo $question['email']; ?>
-			| <a href="create.php?question_id=<?php echo $question_id; ?>"><font color="#ffdb00">edit</font></a> | <font color="ff1a00">delete</font>
+			| <a href="create.php?question_id=<?php echo $question_id; ?>"><font color="#ffdb00">edit</font></a> | 
+			<a href="javascript:confirmDelete(<?php echo $question_id; ?>)">
+				<font color="ff1a00">delete</font>
+			</a>
 		</div>
 	</div>
 
