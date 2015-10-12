@@ -105,3 +105,13 @@ function validateEmail(emailID) {
          else
          	return true;
 }
+
+function validateDelete(id) {
+	var txt;
+    var r = confirm("Do you really want to delete this question?");
+    if (r == true) {
+    	var location = "del-question.php?del=" + id;
+        window.location.href=location;
+
+    } 
+}

@@ -4,6 +4,7 @@
 
 	<title>Stack Exchange</title>
 	<link rel="StyleSheet" href="css/style.css" type="text/css">
+	<script src="js/script.js"></script>
 
 	<?php
 
@@ -66,9 +67,9 @@
 						Answers
 					</div>
 
-					<h4 style="margin-left:25%"><a href=question-page.php?id=<?php echo $row["question_id"]?>> <?php echo $row["question_topic"] ?></a></h4>
+					<h4 style="margin-left:25%"><a href="question-page.php?id=<?php echo $row['question_id']?>"> <?php echo $row["question_topic"] ?></a></h4>
 					<p style="margin-left:25%"> <?php echo limit_output($row["question_content"], 150); ?> </p>
-					<p style="float:right"> asked by <?php echo $row["question_name"] ?> | <a href="" style="color:#FFA500"> edit </a> | <a href="" style="color:#FF0000"> delete </a> </p>
+					<p style="float:right"> asked by <?php echo $row["question_name"] ?> | <a href="ask-question.php?edit=<?php echo $row['question_id']?>" style="color:#FFA500"> edit </a> | <a href="#" onclick="validateDelete(<?php echo $row['question_id'] ?>);" style="color:#FF0000"> delete </a> </p>
 				</div>
 				<hr>
 				<?

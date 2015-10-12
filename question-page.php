@@ -40,7 +40,7 @@
 			<div class="arrow-down"></div>
 		</div>
 		<p> <?php echo $question["question_content"] ?> </p>
-		<p style="float:right"> asked by <?php echo $question["question_email"] ?> at <?php echo $question["question_date"] ?> | <a href="" style="color:#FFA500"> edit </a> | <a href="" style="color:#FF0000"> delete </a> </p>
+		<p style="float:right"> asked by <?php echo $question["question_email"] ?> at <?php echo $question["question_date"] ?> | <a href=ask-question.php?edit=<?php echo $question['question_id']?> style="color:#FFA500"> edit </a> | <a href="" style="color:#FF0000"> delete </a> </p>
 	</div>
 
 	<?php
@@ -62,7 +62,7 @@
 						<div class="arrow-down"></div>
 					</div>
 					<p> <?php echo $row["answer_content"]  ?> </p>
-					<p style="float:right"> answer by <?php echo $row["answer_email"] ?> at <?php echo $row["answer_date"] ?> | <a href="" style="color:#FFA500"> edit </a> | <a href="" style="color:#FF0000"> delete </a> </p>
+					<p style="float:right"> answer by <?php echo $row["answer_email"] ?> at <?php echo $row["answer_date"] ?> </p>
 				</div>
 				<br><hr>
 				<?php
