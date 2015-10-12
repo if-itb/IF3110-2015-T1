@@ -21,6 +21,11 @@ a#a3 {
 	color: black;
 }
 
+a#a4 {
+	text-decoration: none;
+	color: red;
+}
+
 p#p1 {
 	text-align: center;
 }
