@@ -17,6 +17,22 @@
 	}
 ?>
 
+<script type="text/javascript">
+function confirmDelete(id) {
+	if (confirm("Do you want to delete this question?") == true) {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+				if (xhttp.readyState == 4 && xhttp.status == 200) {
+				  location.href = "./index.php";
+				}
+			}
+        xhttp.open("POST", "./delete.php", true);
+        xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        xhttp.send("id=" + id);
+	}
+}
+</script>
+
 <html>
 	<head>
 		<title> Simple StackExchange </title>
@@ -75,7 +91,7 @@
 				</div>
 				<div id="div5">
 					<p>
-						asked by <span id="idx_name"> <?php echo $question['Name'] ?> </span> | <span id="idx_edit"> <a id="a2" href="ask.php?q_id=<?php echo $question['Q_ID'] ?>"> edit </a> </span>
+						asked by <span id="idx_name"> <?php echo $question['Name'] ?> </span> | <span id="idx_edit"> <a id="a2" href="ask.php?q_id=<?php echo $question['Q_ID'] ?>"> edit </a> </span> | <span id="idx_delete"><a id="a4" href="javascript:confirmDelete(<?php echo $question['Q_ID'] ?> )" target="_parent" class="creator_delete"> delete </a> </span>
 					</p>
 				</div>
 			</div>
