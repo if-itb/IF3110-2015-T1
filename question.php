@@ -2,33 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="css/question.css">
-	<script>
-		function validateAnswer(){
-			var name = document.forms["AnswerForm"]["AnswerName"].value;
-			var email = document.forms["AnswerForm"]["AnswerEmail"].value;
-			var content = document.forms["AnswerForm"]["AnswerContent"].value;
-			var DefaultRegex= /[^ \t]/i;
-			// validate name
-			var DefaultTest = DefaultRegex.test(name);
-			if(!DefaultTest){
-				alert("Name must be filled");
-				return false;
-			}
-			// validate email
-			var EmailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-			var EmailTest = EmailRegex.test(email);
-			if(email == null || email == "" || !EmailTest){
-				alert("Email must be filled correctly");
-				return false;
-			}
-			//validate content
-			DefaultTest = DefaultRegex.test(content);
-			if(!DefaultTest){
-				alert("Content must be filled");
-				return false;
-			}
-		}
-	</script>
+	<script src="validator.js"></script>
 	<title>Question</title>
 </head>
 <body>
@@ -82,7 +56,7 @@
 						<input id="AnswerName" type="text" name="Name" placeholder="Name"> <br>
 						<input id="AnswerEmail" type="text" name="Email" placeholder="Email"> <br>
 						<textarea id="AnswerContent" type="text" name="Content" placeholder="Content"></textarea> <br>
-						<input id="AnswerPost" type="submit" value="Post" onclick="location.href" >
+						<input id="AnswerPost" type="submit" value="Post" >
 					</form>';
 		?>
 		

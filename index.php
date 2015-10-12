@@ -2,18 +2,9 @@
 <html>
 <head>
 	<link rel="stylesheet" href="css/index.css">
+	<script src="validator.js"></script>
 	<title >Simple StackExchange</title>
-	<script>
-		function validateSearch(){
-			var SearchInput = document.forms["SearchBar"]["SearchInput"].value;
-			var DefaultRegex = /[^ \t]/i;
-			var DefaultTest = DefaultRegex.test(SearchInput);
-			if(!DefaultTest){
-				alert("Search key must be filled");
-				return false;
-			}
-		}
-	</script>
+	
 </head>
 <body>
 	<div id="TopDiv">
