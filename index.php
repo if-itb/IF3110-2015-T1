@@ -17,8 +17,7 @@
 			<hr>
 			<?php
 				$con = connectDB();
-				$sql = "SELECT * FROM $tbl_question";
-				$result = $con->query($sql);
+				$result = getAllQuestions();
 				?>
 				<div class="question-list">
 				<?php
@@ -34,7 +33,7 @@
 									Votes
 									</td>
 									<td>
-									<?php echo $row["answers"];?></br>
+									<?php echo countAnswers($id);?></br>
 									Answers
 									</td>
 									</td>
@@ -45,7 +44,7 @@
 											echo " | ";
 											echo "<a href='edit.php?q=" .$id. "'>edit</a>";
 											echo " | ";
-											echo "<a class=''><span onclick='delQuestion(".$id.")' class='question-item-delete'>delete</span></a>";
+											echo "<a class=''><span onclick='delQuestion(".$id.",true)' class='question-item-delete'>delete</span></a>";
 										?>
 									</div>
 									</td>
