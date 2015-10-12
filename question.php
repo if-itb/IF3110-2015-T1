@@ -41,7 +41,7 @@
                   "<div class=\"konten\">".$result['Q_Content']."</div>".
                   "<br><div class=\"by\">asked by ".$result['Q_Name']." at ".$result['Q_Datetime'].
                   "| <a class=\"tekskuning\" href=\"edit.php?id=".$result["Q_ID"]."\">"."edit</a> | 
-                  <a class=\"teksmerah\" href=\"delete.php?id=".$result["Q_ID"]."\">"."delete</a>"." </div><br>
+                  <a class=\"teksmerah\" href=# onclick=\"confirmDelete(".$result["Q_ID"].")\">"."delete</a>"." </div><br>
                   </div>".
                   "<div class=\"headers\">".$result['Q_SumAns']." Answer </div>".
               "</div><div class=\"bawah\">";
