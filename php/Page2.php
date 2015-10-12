@@ -3,7 +3,8 @@
 <html>
 
 	<head>
-		<link rel="stylesheet" type="text/css" href="style1.css">
+		<link rel="stylesheet" type="text/css" href="wbd.css">
+		<script type="text/javascript" src="wbd.js"></script>
 		<title>
 			Page 2 - TuCil WBD
 		</title>
@@ -29,7 +30,7 @@
 		if (!isset($_GET["id"]))
 		{
 			echo'
-			<form action="insertQuestion.php" method="post">
+			<form name="questionForm" action="insertQuestion.php" method="post" onsubmit="return validateQue()">
 				 <div class="text-left">
 						 <input class="form-textbox" type="text" name="name" placeholder="Name"><br><br>
 						 <input class="form-textbox" type="text" name="email" placeholder="Email"><br><br>
@@ -45,7 +46,7 @@
 		else
 		{
 			echo'
-			<form action="updateQuestion.php?id=' . $_GET['id'] . '" method="post">
+			<form name="questionForm" action="updateQuestion.php?id=' . $_GET['id'] . '" method="post" onsubmit="return validateQue()">
 				 <div class="text-left">
 						 <input class="form-textbox" type="text" name="name" placeholder="Name"><br><br>
 						 <input class="form-textbox" type="text" name="email" placeholder="Email"><br><br>

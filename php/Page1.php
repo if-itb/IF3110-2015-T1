@@ -3,7 +3,7 @@
 <html>
 
 	<head>
-		<link rel="stylesheet" type="text/css" href="style1.css">
+		<link rel="stylesheet" type="text/css" href="wbd.css">
 		<title>
 			Page 1 - TuCil WBD
 		</title>

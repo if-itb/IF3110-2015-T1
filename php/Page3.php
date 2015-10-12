@@ -3,7 +3,8 @@
 <html>
 
 	<head>
-		<link rel="stylesheet" type="text/css" href="style1.css">
+		<link rel="stylesheet" type="text/css" href="wbd.css">
+		<script type="text/javascript" src="wbd.js"></script>
 		<title>
 			Page 3 - TuCil WBD
 		</title>
@@ -134,7 +135,7 @@
 				</h1>
 			<hr>
 			
-			<form action="insertAnswers.php?id=' . $_GET['id'] . '" method="post">
+			<form name="answerForm" action="insertAnswers.php?id=' . $_GET['id'] . '" method="post" onsubmit="return validateAns()">
 				 <div class="text-left">
 						 <input class="form-textbox" type="text" name="name" placeholder="Name"><br><br>
 						 <input class="form-textbox" type="text" name="email" placeholder="Email"><br><br>
