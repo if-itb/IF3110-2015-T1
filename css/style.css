@@ -1,0 +1,51 @@
+
+.container{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.center{
+	text-align: center;
+}
+
+.right{
+	text-align: right;
+}
+
+.searchbar{
+	width:500px;
+}
+
+.questions{
+	border-top: solid 2px;
+}
+
+.row{
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+.row:after{
+	display: table;
+	content: " ";
+	clear: both;
+}
+
+.col-1, .col-2, .col-8{
+	position: relative;
+	float: left;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.col-1{
+	width:5%;
+}
+
+.col-2{
+	width:10%;
+}
+
+.col-8{
+	width: 80%;
+}
