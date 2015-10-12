@@ -61,7 +61,7 @@
 										</b></p>	
 										<br>'.$subContent.'</br>
 										<p class = "align-right footer">
-											asked by <blue>email</blue> | <a class="text-link" href><orange>edit</orange></a> | <a class="text-link" href><red>delete</red></a>
+											asked by <blue>'.$row["Email"].'</blue> | <a class="text-link" href><orange>edit</orange></a> | <a class="text-link" href><red>delete</red></a>
 										</p>
 									</div>
 								</div>
