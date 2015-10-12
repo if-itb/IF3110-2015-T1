@@ -1,12 +1,23 @@
 <?php
     require("./controller.php");
-    $questions = getQuestions();
+    
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+        $keyword = $_POST['search_keyword'];
+        $questions = searchQuestion($keyword);
+    }
+    else{
+        $questions = getQuestions();
+
+    }
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <link rel="stylesheet" href="style.css" type="text/css" >
+    <script type="text/javascript" src="script.js"></script>
 
     <title>Simple StackExchange</title>
 </head>
@@ -15,10 +26,10 @@
 
         <div id="header">
             <p id="logo">Simple StackExchange</p>
-            <span id="search" >
-                    <input type="text" class ="searchBar">
-                    <input type="submit" class ="submitButton" value="Search">
-            </span>
+            <form id="search" action="" method="POST">
+                <input type="text" class ="searchBar" name="search_keyword">
+                <input type="submit" class ="submitButton" value="Search">
+            </form>
             <p>Cannot find what you are looking for?<a class="orange_link" href="create_question.php">Ask here</a></p>        
         </div>
 
@@ -59,5 +70,4 @@
     </div>
 </body>
 
-    <script type="text/javascript" src="/js/script.js"></script>
 </html>

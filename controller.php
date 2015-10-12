@@ -234,4 +234,29 @@
 		}
 	}
 
+	/************ FUNCTION FOR SEARCHING BAR *************/
+	function searchQuestion($keyword){
+		global $conn;
+
+		$sql = "SELECT * FROM questions WHERE topic LIKE '%$keyword%' OR content LIKE '%$keyword%' ORDER BY q_id DESC";
+		$result = mysqli_query($conn, $sql);
+
+		$questions = array();
+
+	    while($row = mysqli_fetch_assoc($result)) {
+			$question = array();
+    		$question["q_id"] = $row['q_id'];
+    		$question["name"] = $row['name'];
+			$question["topic"] = $row["topic"];
+			$question["content"] = $row["content"];
+			$question["vote"] = $row["vote"];
+			$question["create_date"] = $row["create_date"];
+	    	array_push($questions, $question);
+	    }
+
+		return $questions;
+	}
+
+
+
 ?>
