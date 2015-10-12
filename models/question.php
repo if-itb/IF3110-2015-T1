@@ -1,16 +1,16 @@
 <?php
 	class Question {
 		public $qid;
-		public $authorid;
+		public $author;
 		public $topic;
 		public $content;
 		public $datetime;
 		public $countvotes;
 		public $countanswers;
 		
-		public function __construct($qid, $authorid, $topic, $content, $datetime, $countvotes, $countanswers){
+		public function __construct($qid, $author, $topic, $content, $datetime, $countvotes, $countanswers){
 			this->id = $qid;
-			this->authorid = $authorid;
+			this->author = $author;
 			this->topic = $topic;
 			this->content = $content;
 			this->datetime = $datetime;
