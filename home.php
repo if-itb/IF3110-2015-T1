@@ -14,7 +14,7 @@
 		<input class="submit-button" type="submit" value="Submit">
 	</div>
 	</form>
-	<p class="state1"> Cannot find what are you are looking for ?<a href="ask.html" > Ask here </a> </p>
+	<p class="state1"> Cannot find what are you are looking for ?<a href="ask.php" > Ask here </a> </p>
 	<br>
 	<p class="state2"> Recently Asked Questions</p>
 
@@ -31,7 +31,7 @@
 		    die("Connection failed: " . mysqli_connect_error());
 		}
 
-		$sql = "SELECT ID, Nama, Email, Topik, Konten, Vote, Jmlh_Jawaban FROM pertanyaan";
+		$sql = "SELECT ID, Nama, Topik, Vote, Jmlh_Jawaban FROM pertanyaan";
 		$result = mysqli_query($conn, $sql);
 		if (mysqli_num_rows($result) > 0) {
 			while($row = mysqli_fetch_assoc($result)){
@@ -47,10 +47,13 @@
 						<span>Answer</span>
 					</div>
 					<div class="topic-question">
-						<?php echo $row["Topik"]?>
+						<a href="answer.php?ID=<?php echo $row["ID"] ?>"><?php echo $row["Topik"]?></a>
 					</div>
 					<div class="id-question">
-						<p> asked by <span class="name"><?php echo $row["Nama"] ?></span> | <span class="edit"> <a href="ask.php"> edit </a> </span> | <span class="delete"> <a href="ask.php"> delete </a> </span> </p>
+						<p> asked by <span class="name"><?php echo $row["Nama"] ?></span> | 
+							<span class="edit"> <a href="ask.php"> edit </a> </span> | 
+							<span class="delete"> <a href="ask.php"> delete </a> </span> 
+						</p>
 					</div>
 				</div>
 				<?php
@@ -60,7 +63,6 @@
 			echo "Tidak Ada Pertanyaan Yang Masuk";
 		}
 		mysqli_close($conn);
-
 	?>
 
 </body>

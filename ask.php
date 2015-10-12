@@ -2,36 +2,21 @@
 <html>
 <head>
 	<title>Ask</title>
-	<meta http-equiv="refresh" content="0; URL='home.php'">
+	<link rel="stylesheet" href="ask.css">
 </head>
 <body>
-	<?php
-		$servername = "localhost";
-		$username = "root";
-		$password = "";
-		$dbname = "wbd";
-		$name = $_POST["nama"];
-		$email = $_POST["email"];
-		$topic = $_POST["topik"];
-		$content = $_POST["konten"];
+	<h1> Simple StackExchange</h1>
+	<br>
+	<h2> What's your question ? </h2>
+	<hr>
 
-		// Create connection
-		$conn = mysqli_connect($servername, $username, $password, $dbname);
-		// Check connection
-		if (!$conn) {
-		    die("Connection failed: " . mysqli_connect_error());
-		}
+	<form action="add_question.php" method="post">
+		<input name="nama" class="name" type="text" value="" placeholder="Name"> <br>
+		<input class="email" type="text"  name="email" value="" placeholder="Email"> <br>
+		<input class="topic" type="text" name="topik" value="" placeholder="Question Topic"> <br>
+		<textarea class="content" type="text" name="konten" value="" placeholder="Content"> </textarea><br>
+		<input class="submit-button" type="submit" value="Post">
+	</form>	
 
-		$sql = "INSERT INTO pertanyaan (Nama, Email, Topik, Konten)
-		VALUES ('$name', '$email', '$topic', '$content')";
-
-		if (mysqli_query($conn, $sql)) {
-		    //"New record created successfully";
-		} else {
-		    //"Error: " . $sql . "<br>" . mysqli_error($conn);
-		}
-
-		mysqli_close($conn);
-	?>
 </body>
 </html>

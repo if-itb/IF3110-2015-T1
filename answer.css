@@ -12,38 +12,64 @@ h2{
 	margin: 0px;
 }
 
+.question{
+	height:140px;
+}
+
 .question-vote{
 	float:left;
 	margin-left: 5%;
-	width:15%;
+	width:5%;
+	height:90%;
 }
 
 .question-content{
 	float:left;	
-	width: 75%;
+	width: 60%;
 	margin-right: 5%;
+	height:70%;
+	text-align: center;
 }
 
 .question-identity{
-	margin-top: 5px;
+	margin-top: 100px;
 	text-align: right;
+	width: 100%;
+}
+
+.answer{
+	height: 150px;
 }
 
 .answer-vote{
 	float:left;
 	margin-left: 5%;
-	width:15%;
+	width:5%;
+	height:90%;
 }
 
 .answer-content{
 	float:left;	
-	width: 75%;
+	width: 60%;
 	margin-right: 5%;
+	height:70%;
+	text-align: center;
 }
 
 .answer-identity{
-	margin-top: 5px;
+	margin-top: 100px;
 	text-align: right;
+	width: 100%;
+}
+
+.edit a{
+	text-decoration: none;
+	color:orange;
+}
+
+.delete a{
+	text-decoration: none;
+	color:red;
 }
 
 

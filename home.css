@@ -78,6 +78,11 @@ p.state1 a{
 	text-decoration: none;
 }
 
+.topic-question a{
+	text-decoration: none;
+	color:black;
+}
+
 .name{
 	color:blue;
 }
