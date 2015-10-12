@@ -22,5 +22,31 @@
 			$question["date_edited"] = $row["date_edited"];
 		}
 		return $question;
-	}		
+	}
+
+	function retrieveAnswers($id) {
+		global $conn;
+
+		$sql = "SELECT * FROM answer WHERE q_id='$id'";
+		$result = mysqli_query($conn, $sql);
+		$arr = array();
+
+		if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_assoc($result)) {
+				// Assign every data to a variable
+				$answer = array();
+				$answer["id"] = $row["id"];
+				$answer["name"] = $row["name"];
+				$answer["email"] = $row["email"];
+				$answer["content"] = $row["content"];
+				$answer["vote"] = $row["vote"];
+				$answer["date_created"] = $row["date_created"];
+				$answer["q_id"] = $row["q_id"];
+				array_push($arr, $answer);
+			}
+		}
+		return $arr;
+	}
+
+
 ?>
