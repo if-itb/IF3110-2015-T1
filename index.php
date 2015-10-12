@@ -14,7 +14,7 @@
 			</p>
 		</form>	
 		<H4>Recently Asked Questions</H4>
-		<?php
+		<?php		
 		$servername = "localhost";
 		$username = "root";
 		$password = "";
@@ -28,6 +28,14 @@
 		}
 		
 		//SQL Query
+		if (count($_GET)>0) {		
+			$sql = "Delete from answer where qid=".$_GET['a'];
+			$conn->query($sql);
+			$sql = "Delete from question where qid=".$_GET['a'];
+			$conn->query($sql);
+		}
+		
+		
 		$sql ="select * from question";
 		$result = mysqli_query($conn, $sql);
 		
@@ -49,11 +57,15 @@
 				<input type='hidden' name='topic' value='".$row["topic"]."'>
 				<input type='hidden' name='qcontent' value='".$row["content"]."'>				
 				<button>Edit</button>
-			</form>
-			| Delete <br>";
+			</form>		
+			<a href='index.php?a=".$row['qid']."'>				
+				<button>Delete</button>
+			</a>			
+			<br><br>
+			";
 		    }
 		} else {
-		    echo "0 results";
+		    echo "No question has ben asked recently";
 		}
 		
 		mysqli_close($conn);
