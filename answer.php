@@ -1,6 +1,6 @@
 <html>
 <head>
-	<meta http-equiv="refresh" content="0;URL='question.php?qid=<?php echo $_POST["qid"]?>'"
+	<meta http-equiv="refresh" content="0;URL='question.php?qid=<?php echo $_POST["qid"]?>'">
 </head>
 <body>
 <?php

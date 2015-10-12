@@ -1,56 +1,70 @@
 <html>
+	<head>
+		<title>
+			Simple StackExchange
+		</title>
+		<link rel="stylesheet" href="css/main.css">
+		<script src="js/delete.js"></script>
+	</head>
+	
+	<body>
 
-<head>
-	<title>Simple StackExchange</title>
-	<link rel="stylesheet" href="css/main.css">
-	<script src="js/delete.js"></script>
-</head>
-<body>
+		<h1>
+			Simple StackExchange
+		</h1>
+		<br>
+		<div class="searchbar">
+			<input id="searchbar" type="text">
+			<input id="searchbutton" type="button" value="Search"><br>
+			<p id="searchbar">
+				Cannot find what you are looking for?
+				<a class="gold" href="ask.html">
+					Ask here
+				</a>
+			</p>
+		</div>
 
-<h1>Simple StackExchange</h1><br>
-<div class="searchbar">
-	<input id="searchbar" type="text" size="113">
-	<input id="searchbutton" type="button" value="Search"><br>
-	<p id="searchbar">Cannot find what you are looking for?
-		<a class="gold" href="ask.html">
-			Ask here
-		</a>
-	</p>
-</div>
+		<p id="RecentlyAsked">
+			Recently Asked Questions
+		</p>
+		<hr>
 
-<p id="RecentlyAsked">Recently Asked Questions</p>
-<hr>
+		<?php
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "StackExchange";
 
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "StackExchange";
+		//Membuat koneksi
+		$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-//Membuat koneksi
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-//Cek koneksi
-if (!$conn) {
-	die("Connection failed : ". mysqli_connect_error());
-}
+		//Cek koneksi
+		if (!$conn) {
+			die("Connection failed : ". mysqli_connect_error());
+		}
 
-$sql = "SELECT qid, nama, topic, votes, content, answers FROM question ORDER BY datetime DESC";
-$result = mysqli_query($conn, $sql);
+		$sql = "SELECT qid, nama, topic, votes, content, answers FROM question ORDER BY datetime DESC";
+		$result = mysqli_query($conn, $sql);
 
-if (mysqli_num_rows($result)>0) {
-	while ($row = mysqli_fetch_assoc($result)) {
-?>
+		if (mysqli_num_rows($result)>0) {
+			while ($row = mysqli_fetch_assoc($result)) {
+		?>
+		
 		<table>
 			<tr>
 				<td class="Votes" rowspan="2">
 					<b>
-						<?php echo $row["votes"] ?><br>Votes
+						<?php echo $row["votes"] ?>
+						<br>
+						Votes
 					</b>
 				</td>
 				<td class="Answers" rowspan="2">
 					<b>
 						<?php echo $row["answers"] ?>
-					<br>Answers</b>
+						<br>
+						Answers
+					</b>
 				</td>
 				<td>
 					<p class="topic">
@@ -66,9 +80,9 @@ if (mysqli_num_rows($result)>0) {
 			<tr>
 				<td class="Asker">
 					asked by
-						<p class="blue">
-							<?php echo $row["nama"] ?>
-						</p> | 
+					<p class="blue">
+						<?php echo $row["nama"] ?>
+					</p> | 
 					<a class="gold" href="edit.php?qid=<?php echo $row["qid"] ?>">
 						edit
 					</a> | 
@@ -79,14 +93,15 @@ if (mysqli_num_rows($result)>0) {
 			</tr>
 		</table>
 		<hr>
-<?php
-	}
-} else {
+		
+		<?php
+			}
+		} else {
 	
-}
+		}
 
-mysqli_close($conn);
-?>
+		mysqli_close($conn);
+		?>
 
-</body>
+	</body>
 </html>

@@ -1,7 +1,6 @@
 a {
-	text-decoration:none;
-	cursor:pointer;
 	color:inherit;
+	text-decoration:none;
 }
 
 a.red {
@@ -24,8 +23,8 @@ div.searchbar {
 	margin-right:15px;
 }
 
-form.delete, form.edit, form.show {
-	display:inline;
+div#VotesQ {
+	padding-bottom:7px;
 }
 
 h1 {
@@ -42,60 +41,44 @@ hr {
 }
 
 input.button {
-	margin-left:94.2%;
-}
-
-input.delete {
-	background:none!important;
-    border:none; 
-    padding:0!important;
-    font:inherit;
-    cursor:pointer;
-	color:red;
-}
-
-input.edit {
-	background:none!important;
-    border:none; 
-    padding:0!important;
-    font:inherit;
-    cursor:pointer;
-	color:gold;
-}
-
-input.show {
-	background:none!important;
-    border:0; 
-    padding:0!important;
-    font:inherit;
-    cursor:pointer;
-	font-size:20;
+	margin-left:93%;
+	width:7.2%;
 }
 
 input.text {
 	margin-bottom:0.2em;
 	padding:3px;
+	width:100%;
 }
 
 input#searchbar {
 	border:3px solid black;
 	height:30px;
+	width:87%;
 }
 
 input#searchbutton {
 	background-color:white;
 	border:3px solid black;
 	height:30px;
+	width:12%;
+}
+
+p.blue {
+	color:blue;
+	display:inline;
 }
 
 p.content {
 	font-size:auto;
 	margin:0;
+	padding:2%;
 }
 
 p.topic {
 	font-size:20px;
 	margin:0;
+	padding:2%;
 }
 
 p#RecentlyAsked {
@@ -108,21 +91,6 @@ p#searchbar {
 	text-align:center;
 }
 
-p.blue {
-	color:blue;
-	display:inline;
-}
-
-p.gold {
-	display:inline;
-	color:gold;
-}
-
-p.red {
-	display:inline;
-	color:red;
-}
-
 table {
 	width:100%;
 }
@@ -132,15 +100,15 @@ td.Answerer,td.Asker {
 }
 
 td.Answers,td.Votes {
-	width:10%;
 	text-align:center;
+	width:10%;
 }
 
 td.VotesQA {
-	width:8%;
-	text-align:center;
 	color:grey;
 	font-size:25;
+	text-align:center;
+	width:8%;
 }
 
 textarea {
@@ -148,9 +116,6 @@ textarea {
 	padding:3px;
 	font-family:Calibri;
 	font-size:14;
-}
-
-textarea#question {
-	width:809px;
+	width:100%;
 	height:110px;
 }
