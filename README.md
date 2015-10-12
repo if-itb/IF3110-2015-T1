@@ -87,7 +87,7 @@ Validasi **wajib** dilakukan pada *client-side*, dengan menggunakan **javascript
 
 Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi pertanyaan`.
 
-## Penjelasan Teknis
+### Penjelasan Teknis
 
 Validasi pada client side dilakukan menggunakan Javascript. Saya melakukan validasi dengan membuat fungsi validasi berbahasa Javascript. Berikut adalah langkah-langkah validasinya :
 
