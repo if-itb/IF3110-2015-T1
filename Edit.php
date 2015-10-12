@@ -36,7 +36,7 @@
 				</div>
 			</h2>
 
-			<form class=\"align\" action=\"Ask.php\" method=\"post\" name=\"question\" onsubmit=\"return validateForm()\">
+			<form class=\"align\" action=\"Ask.php\" method=\"post\" name=\"question\" onsubmit=\"return validateQ()\">
 				<div class=\"kotakform\">
 					<input type=\"text\" name=\"Name\" class=\"form_question\" placeholder=\"Name\" value=\"".$row["Q_Name"]."\">
 				</div>

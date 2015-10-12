@@ -97,8 +97,8 @@
 	}
 	
 	echo "<h3 class=\"align\"> Your Answer </h3>
-
-		<form class=\"align\" action=\"Answer.php?id=" .$ID. "\" method=\"post\">
+		<script type=\"text/javascript\" src=\"Validasi.js\"></script>;
+		<form class=\"align\" name=\"answer\" action=\"Answer.php?id=" .$ID. "\" method=\"post\" onsubmit=\"return validateA()\">
 			<div class=\"kotakform\">
 				<input type=\"text\" name=\"Name\" class=\"form_question\" placeholder=\"Name\">
 			</div>
