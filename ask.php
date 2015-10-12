@@ -42,6 +42,7 @@
 	<head>
 		<title> Simple StackExchange </title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="ICON" href="icon.ico" type="image/ico"/>
 	</head>
 	<body>
 		<h1><a id="a3" href="index.php">Simple StackExchange</a></h1>
