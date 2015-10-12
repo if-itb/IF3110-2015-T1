@@ -1,10 +1,28 @@
 <?php
-	require_once("./Database.php");
-	include("./Header.php");
+	require_once("Database.php");
+	include("Header.php");
 ?>
 
 
-<script>	
+<script>
+function delQuestion(qID){
+	var xhttp = new XMLHttpRequest();
+	
+	if (confirm("Delete this question?")){
+		var q_id = qID;
+		var delPost = "qID=" + qID;
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4 && xhttp.status == 200){
+				window.location = "";
+			}
+		}
+		xhttp.open("POST", "/AJAX/Del_Q.php", true);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send(delPost);
+	}
+	
+}
+
 function validateForm() {
     var askName = document.forms["Ask"]["Name"].value;
 	var askEmail = document.forms["Ask"]["Email"].value;
@@ -18,6 +36,13 @@ function validateForm() {
         alert("Email must be filled out");
         return false;
     }
+	else {
+		var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+		if (re.test(askEmail) == false){
+			alert("Email is not valid");
+			return false;
+		}
+	}
 	if (askContent == null || askContent == "") {
         alert("Content must be filled out");
         return false;
@@ -126,11 +151,11 @@ function ansQuestion(){
 	<table>
 		<tr>
 			<td>
-				<a href = "#" onclick = "voteUpQuestion(<?= $question["q_id"] ?>)" id = "voteup<?= $question["q_id"] ?>"> ^ </a><br/>
+				<img src = "/img/voteup.jpg" width = "20" height = "20" onclick = "voteUpQuestion(<?= $question["q_id"] ?>)" id = "voteup<?= $question["q_id"] ?>"></a><br/>
 				
 				<?php echo $question["q_vote"];?><br/>
 				
-				<a href = "#" onclick = "voteDownQuestion(<?= $question["q_id"] ?>)" id = "votedown<?= $question["q_id"] ?>"> v </a><br/>
+				<img src = "/img/votedown.jpg" width = "20" height = "20" onclick = "voteDownQuestion(<?= $question["q_id"] ?>)" id = "votedown<?= $question["q_id"] ?>"></a><br/>
 			</td>
 			<td>
 				<?php echo $question["q_content"];?><br/><br/>
@@ -159,11 +184,11 @@ function ansQuestion(){
 	<?php foreach (getAnswer($question["q_id"]) as $answer){ ?>
 	<tr>
 		<td>
-			<a href = "#" onclick = "voteUpAnswer(<?= $answer["a_id"] ?>)" id = "voteupa<?= $answer["a_id"] ?>"> ^ </a><br/>
+			<img src = "/img/voteup.jpg" width = "20" height = "20" onclick = "voteUpAnswer(<?= $answer["a_id"] ?>)" id = "voteupa<?= $answer["a_id"] ?>"></img><br/>
 			
 			<?php echo $answer["a_vote"]; ?><br/>
 			
-			<a href = "#" onclick = "voteDownAnswer(<?= $answer["a_id"] ?>)" id = "votedowna<?= $answer["a_id"] ?>"> v </a><br/>
+			<img src = "/img/votedown.jpg" width = "20" height = "20" onclick = "voteDownAnswer(<?= $answer["a_id"] ?>)" id = "votedowna<?= $answer["a_id"] ?>"> </img><br/>
 		</td>
 		<td>
 			<?php echo $answer["a_content"]; ?><br/><br/>
@@ -201,5 +226,5 @@ function ansQuestion(){
 
 <?php
 
-	include("./Footer.php");
+	include("Footer.php");
 ?>

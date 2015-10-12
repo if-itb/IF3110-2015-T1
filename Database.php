@@ -123,4 +123,19 @@ function deleteAnswer($qID){
 	return $rquery;
 }
 
+/* Search Question */
+function searchQuestion($key){
+	global $conn;
+	$query = "SELECT * FROM question WHERE q_topic LIKE '%$key%' OR q_content LIKE '%$key%'";
+	$rquery = mysqli_query($conn, $query);
+	$questions = array();
+	
+	while ($row = mysqli_fetch_array($rquery, MYSQLI_ASSOC)){
+		$questions[] = $row;
+	}
+	
+	return $questions;
+}
+
+
 ?>

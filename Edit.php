@@ -1,6 +1,6 @@
 <?php
-	require_once("./Database.php");
-	include("./Header.php");
+	require_once("Database.php");
+	include("Header.php");
 ?>
 
 <head>
@@ -104,5 +104,5 @@ function editQuestion(){
 
 <?php
 
-	include("./Footer.php");
+	include("Footer.php");
 ?>

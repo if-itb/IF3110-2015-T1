@@ -89,7 +89,14 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+1. Validasi pada client-side dilakukan dengan mengambil value dari Form yang diisi, dan dipastikan tidak kosong. Untuk validasi email, setelah memvalidasi email tidak kosong, menggunakan regex, sehingga memastikan format email harus <text> + '@' + <text> + '.' + <text>
+
+2. AJAX pada Vote
+	2.1. Pada fitur Vote, pengguna mengklik tombol vote, kemudian sistem memanggil fungsi Vote (voteUpQuestion, voteDownQuestion, dan lain - lain) dengan parameter id dari question maupun answer.
+	2.2. Fungsi Vote tersebut mengirim data ke AJAX, misal : VoteDownAnswer.php dengan parameter answer ID.
+	2.3. File AJAX tersebut mengupdate database, tergantung vote up / vote down. (Jumlah vote + 1 atau - 1).
+	2.4. Setelah terupdate, pengguna secara otomatis ter-redirect ke halaman yang sama, sehingga perubahan angka vote bisa langsung terlihat.
+	
 
 ### Knowledge
 

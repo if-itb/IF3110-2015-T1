@@ -2,9 +2,6 @@
 	require_once("Database.php");
 	include("Header.php");
 ?>
-
-
-
 <script>
 
 function delQuestion(qID){
@@ -27,23 +24,17 @@ function delQuestion(qID){
 </script>
 
 
+
 <body>
-
-<!-- Search box -->
-<div class = "center">
-<form action = "Result.php" method = "post" name = "Search">
-	<input type= "search" name= "Keyword" size = "50" id = "Keyword">
-	<input type = "submit" value = "Search" /> 
-</form>
-	Cannot find what you are looking for? <a href = "Ask.php"> Ask here </a>
-
-
+<?php
+	$questions = searchQuestion($_POST["Keyword"]);
+?>
 
 <!-- Questions -->
 <br><br>
-<div class = "left">Recently Asked Questions</div>
+<div class = "left">Search Result</div>
 <table style="width:100%" name = "RAQ">
-	<?php foreach (getQuestion() as $question){ ?>
+	<?php foreach ($questions as $question){ ?>
 	<tr>
 		<td>
 			<?php 

@@ -1,5 +1,5 @@
 <?php
-	include("./Header.php");
+	include("Header.php");
 ?>
 
 <head>
@@ -104,5 +104,5 @@ function postQuestion(){
 
 <?php
 
-	include("./Footer.php");
+	include("Footer.php");
 ?>

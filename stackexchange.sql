@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2015 at 02:26 PM
+-- Generation Time: Oct 12, 2015 at 08:27 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -34,16 +34,15 @@ CREATE TABLE IF NOT EXISTS `answer` (
   `a_email` varchar(50) NOT NULL,
   `a_content` varchar(5000) NOT NULL,
   `a_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `answer`
 --
 
 INSERT INTO `answer` (`a_id`, `a_vote`, `q_id`, `a_name`, `a_email`, `a_content`, `a_date`) VALUES
-(2, 0, 13, 'VanjiSekian', 'vanjisekian@gmail.com', 'abrakadabra kamehameha duar duar jedor jedor beledur jelegur bom buarrrrrr meledak bro bro bro bro bro sis sis sis sis durrrrr', '2015-10-11 11:43:17'),
-(3, 0, 13, 'VanjiSekian1', 'vanjisekian1@gmail.com', 'kamehameha abrakadabra duar duar jedor jedor beledur jelegur bom buarrrrrr meledak brosis jebom', '2015-10-11 11:43:17'),
-(7, 0, 14, 'a', 'blackjack.vaporizer@gmail.com', 'saidowqoid saiojd wqoij doiwq diowq jdiwqid jioqwj doijq wiodj iwqoj diqw jid', '2015-10-11 12:21:05');
+(2, 2, 13, 'VanjiSekian', 'vanjisekian@gmail.com', 'abrakadabra kamehameha duar duar jedor jedor beledur jelegur bom buarrrrrr meledak bro bro bro bro bro sis sis sis sis durrrrr', '2015-10-11 11:43:17'),
+(3, 3, 13, 'VanjiSekian1', 'vanjisekian1@gmail.com', 'kamehameha abrakadabra duar duar jedor jedor beledur jelegur bom buarrrrrr meledak brosis jebom', '2015-10-11 11:43:17');
 
 -- --------------------------------------------------------
 
@@ -59,16 +58,15 @@ CREATE TABLE IF NOT EXISTS `question` (
   `q_content` text NOT NULL,
   `q_vote` int(11) NOT NULL,
   `q_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `question`
 --
 
 INSERT INTO `question` (`q_id`, `q_name`, `q_email`, `q_topic`, `q_content`, `q_vote`, `q_date`) VALUES
-(13, 'Ih', 'Kasi', 'an', 'Abis. ini we yg dihapus', 0, '2015-10-10 16:51:33'),
-(14, 'Lagih', 'Tambahin', 'dikit', 'we. wkwk. Abis. ini we yg dihapus', 0, '2015-10-10 16:51:44'),
-(15, 'Vanji28', 'vanji28@gmail.com', 'Tetep bisa kan?', 'bisa lah bisa lah ieu masa ga bisa yang boneng gans boneng lah', 0, '2015-10-11 10:14:25');
+(13, 'Ih', 'Kasi', 'an', 'Abis. ini we yg dihapus', 4, '2015-10-10 16:51:33'),
+(15, 'Vanji28', 'vanji28@gmail.com', 'Tetep bisa kan?', 'bisa lah bisa lah ieu masa ga bisa yang boneng gans boneng lah', 8, '2015-10-11 10:14:25');
 
 --
 -- Indexes for dumped tables
@@ -94,12 +92,12 @@ ALTER TABLE `question`
 -- AUTO_INCREMENT for table `answer`
 --
 ALTER TABLE `answer`
-MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-MODIFY `q_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+MODIFY `q_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
