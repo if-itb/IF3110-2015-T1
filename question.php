@@ -31,7 +31,7 @@
     			if(strlen($content)>330) $content=substr($content, 0, 327)."...";
     		echo "
     			<p id=\"question-content\">$content</p>
-    		<br>asked by: ".$row["name"]." | <a href='edit_question.php?q_id=$q_id'>Edit</a> | <a href='submit.php?q_id=$q_id&idx=3'>Delete</a><br>";
+    		asked by: ".$row["name"]." | <a href='edit_question.php?q_id=$q_id'>Edit</a> | <a onclick='return validate_delete()' href='submit.php?q_id=$q_id&idx=3'>Delete</a><br>";
 ?>
 </div>
 <?php
@@ -46,18 +46,17 @@
 			echo "<div class='question'>";
     		echo "
     		<span id=\"vote\">".$row["vote"]."<br>votes</span>
-    		<span id=\"answer\">0<br>answer</span>
     		<span id=\"question-content\">";
     			$content = $row["content"];
     		echo "
     			<p id=\"question-content\">$content</p>
-    		<br>answered by: ".$row["name"]."<br>";
+    		answered by: ".$row["name"]."<br>";
 			echo "</div>";
 		}
 	}
 	mysqli_close($conn);
 ?>
-
+<br><br><br>
 <form id="question-form" action="submit.php?q_id=<?php echo $q_id."&idx=4";?>" method="post">
 	<center>
 		<input type="text" name="name" placeholder="name"><br>
@@ -66,5 +65,5 @@
 	</center>	
 		<button type="submit" name="search">Submit</button>
 </form>
-
 </body>
+</html>

@@ -12,7 +12,7 @@
 <br>
 
 <?php
-	include "database.php";
+	include "function/database.php";
 	$conn = connect_database();
 	
 	$sql = "SELECT * FROM `question` WHERE question_id=".$_GET["q_id"];

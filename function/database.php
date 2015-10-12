@@ -37,6 +37,8 @@
 			$sql = "DELETE FROM `question` WHERE question_id=".$data["question_id"];
 			mysqli_query($conn,$sql);
 			$sql = "DELETE FROM `answer` WHERE question_id=".$data["question_id"];
+			header("Location: ../index.php"); /* Redirect browser */
+			exit(0);
 		}
 		// $idx = 4 --> add new answer
 		else if($idx==4) {
@@ -55,7 +57,7 @@
 		if(mysqli_num_rows($result) > 0) {
 			while($row = mysqli_fetch_assoc($result)) {
 				$q_id = $row["question_id"];
-	    		echo "<hr size='5' NOSHADE>";
+	    		echo "<hr size='2' NOSHADE>";
 				echo "<div class=\"question\">";
 	    		echo "
 	    		<span id=\"vote\">".$row["vote"]."<br>votes</span>
@@ -66,11 +68,13 @@
 	    		if(strlen($content)>330) $content=substr($content, 0, 327)."...";
 	    		echo "
 	    			<p id=\"question-content\">$content</p>
-	    		<br>asked by: ".$row["name"]." | <a href='form.php?q_id=$q_id&idx=2'>Edit</a> | <a href='database.php?q_id=$q_id&delete=true'>Delete</a><br>";
+	    		<br>asked by: ".$row["name"]." | <a href='form.php?q_id=$q_id&idx=2'>Edit</a> | <a onclick='return validate_delete()' href='function/database.php?q_id=$q_id&delete=true'>Delete</a><br>";
 				echo "</div>";
 	    	}
 		}
 		else echo "0 Results";
+
+		echo "<script src='js/script.js'></script>";
 	}
 
 	if(isset($_GET["delete"])) {
@@ -82,3 +86,4 @@
 	}
 	
 ?>
+

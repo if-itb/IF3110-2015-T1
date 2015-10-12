@@ -14,7 +14,7 @@
 	include "function/database.php";
 	$conn = connect_database();
 	
-	$sql = "SELECT * FROM `question` WHERE topic LIKE '% ".$_POST["search"]." %' OR content LIKE '% ".$_POST["search"]." %'";
+	$sql = "SELECT * FROM `question` WHERE topic LIKE '%".$_POST["search"]."%' OR content LIKE '%".$_POST["search"]."%'";
 	$result = mysqli_query($conn,$sql);
 
 	show_query($result);

@@ -16,7 +16,7 @@ DONE Pengguna dapat mengubah pertanyaan yang sudah dibuat. Form yang digunakan m
 ### Hapus Pertanyaan
 
 DONE Pengguna dapat menghapus pertanyaan yang sudah dibuat.
-NOT YET Lakukan konfirmasi penghapusan dengan javascript.
+DONE Lakukan konfirmasi penghapusan dengan javascript.
 
 ### Lihat Pertanyaan
 
