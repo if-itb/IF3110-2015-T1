@@ -42,7 +42,7 @@
 			';
 	$strMask = array("[[qid]]","[[title]]", "[[datetime]]", "[[username]]", "[[countVotes]]", "[[countAnswers]]");
 foreach($questions as $question){
-	$strTarget = array();
+	$strTarget = array($question->qid, $question->authorname,$question->authoremail, $question->topic, $question->content, $question->datetime, $question->countvotes, $question->countanswers);
 			echo str_replace($strMask, $strTarget, $html_listQuestionItem);
 	}
 ?>

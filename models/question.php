@@ -1,16 +1,18 @@
 <?php
 	class Question {
 		public $qid;
-		public $author;
+		public $authorname;
+		public $authoremail;
 		public $topic;
 		public $content;
 		public $datetime;
 		public $countvotes;
 		public $countanswers;
 		
-		public function __construct($qid, $author, $topic, $content, $datetime, $countvotes, $countanswers){
+		public function __construct($qid, $authorname, $authoremail, $topic, $content, $datetime, $countvotes, $countanswers){
 			this->id = $qid;
-			this->author = $author;
+			this->authorname = $authorname;
+			this->authoremail = $authoremail;
 			this->topic = $topic;
 			this->content = $content;
 			this->datetime = $datetime;
@@ -24,7 +26,7 @@
 			$data = $db->query('SELECT * FROM questions');
 			
 			foreach($data->fetchAll() as $question) {
-				$listquestion	= new Question($question['qid'], $question['authoid'], $question['topic'], $question['content'], $question['datetime'], $question['countvotes'], $question['countanswers']);
+				$listquestion	= new Question($question['qid'], $question['authorname'],$question['authoremail'], $question['topic'], $question['content'], $question['datetime'], $question['countvotes'], $question['countanswers']);
 				
 				return $listquestion;
 			}
