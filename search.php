@@ -8,14 +8,16 @@
 	</head>
 	
 	<body>
-
+	
 		<h1>
-			Simple StackExchange
+			<a href="home.php">
+				Simple StackExchange
+			</a>
 		</h1>
 		<br>
 		<div class="searchbar">
 			<form id="searchform" action="search.php?go" method="post">
-				<input id="searchbar" type="text" name="name">
+				<input id="searchbar" type="text" name="name" value="<?php echo $_POST["name"] ?>">
 				<input id="searchbutton" type="submit" name="submit" value="Search"><br>
 			</form>
 			<p id="searchbar">
@@ -25,31 +27,28 @@
 				</a>
 			</p>
 		</div>
-
-		<p id="RecentlyAsked">
-			Recently Asked Questions
+		
+		<p id="SearchResults">
+			Search Results
 		</p>
 		<hr>
-
+	
 		<?php
-		$servername = "localhost";
-		$username = "root";
-		$password = "";
-		$dbname = "StackExchange";
-
-		//Membuat koneksi
-		$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-		//Cek koneksi
-		if (!$conn) {
-			die("Connection failed : ". mysqli_connect_error());
-		}
-
-		$sql = "SELECT qid, nama, topic, votes, content, answers FROM question ORDER BY datetime DESC";
-		$result = mysqli_query($conn, $sql);
-
-		if (mysqli_num_rows($result)>0) {
-			while ($row = mysqli_fetch_assoc($result)) {
+		if (isset($_POST["submit"])) {
+			if (isset($_GET["go"])) {
+				if (preg_match("/[A-Z | a-z]+/", $_POST["name"])) {
+					$name = $_POST["name"];
+					
+					//Membuat koneksi ke database
+					$conn = mysqli_connect("localhost", "root", "", "StackExchange") or die ("Cannot connect to database");
+					
+					//Mencari ke database
+					$sql = "SELECT qid, nama, topic, votes, content, answers FROM question WHERE topic LIKE '%".$name."%' OR content LIKE '%".$name."%' OR nama LIKE '%".$name."%'";	
+					
+					$result = mysqli_query($conn,$sql);
+					
+					if (mysqli_num_rows($result) > 0) {
+						while ($row = mysqli_fetch_assoc($result)) {
 		?>
 		
 		<table>
@@ -97,13 +96,18 @@
 		<hr>
 		
 		<?php
+						}
+					} else {
+						//Tidak ada record
+					}
+				} else {
+					//Query tidak mengandung huruf
+				}
+			} else {
+				//Tidak ada query
 			}
-		} else {
-	
 		}
-
-		mysqli_close($conn);
 		?>
-
+		
 	</body>
 </html>

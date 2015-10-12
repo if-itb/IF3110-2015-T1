@@ -91,6 +91,11 @@ p#searchbar {
 	text-align:center;
 }
 
+p#SearchResults {
+	font-size:19px;
+	margin-bottom:0;
+}
+
 table {
 	width:100%;
 }
