@@ -1,0 +1,119 @@
+h2 {
+	font-weight: normal;
+	padding: 5px 0;
+}
+
+.header {
+	margin-bottom : 40px;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.searchbar{
+	width:80%;
+	margin : 0 auto;
+}
+
+.center {
+	text-align: center;
+}
+
+.right {
+	float : right;
+	text-align: right;
+}
+
+.underline {
+	border-bottom: 2px solid #ccc;
+}
+
+.form {
+  display: block-inline;
+  margin: 5px 0;
+  width: 99%;
+  padding: 2px 6px;
+  font-size: 14px;
+}
+
+.vote {
+	float : left;
+	margin-right : 20px;
+	padding : 2px 0 2px 30px;
+	text-align : center;
+	#border : 2px solid black;
+}
+
+.answer {
+	float : left;
+	margin-right : 20px;
+	padding : 2px;
+	text-align : center;
+	#border : 2px solid black;	
+}
+
+.content {
+	float : left;
+	text-align : left;
+	padding : 2px;
+	#border : 2px solid black;	
+}
+
+.controls {
+	clear : both;
+	width:100%;
+	padding-bottom : 10px;
+	border-bottom :  2px solid #ccc;
+	margin-bottom : 20px;
+}
+
+.col_vote {
+	display : inline-block;
+	height : 100px;
+	vertical-align : top;
+	float : left;
+	padding : 5px;	
+	text-align:center;
+	margin-left:20px;
+}
+
+.col_content {
+	float : left;
+	text-align : left;
+	display : inline-block;
+	width : 90%;
+	margin-left:40px;
+	padding : 5px;	
+}
+
+.answer_form{
+	clear : both;
+	position:relative;
+	top : 20px;
+}
+
+a.link_edit:link {
+	color : #FFA500;
+}
+
+a.link_edit:visited {
+	color : #FFA500;
+}
+
+a.link_edit:hover {
+	color : blue;
+}
+
+a.link_delete:link {
+	color : red;
+}
+
+a.link_delete:visited {
+	color : red;
+}
+
+a.link_delete:hover {
+	color : blue;
+}
