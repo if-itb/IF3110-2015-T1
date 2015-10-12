@@ -10,7 +10,7 @@
     <!-- styles -->
     <link rel="stylesheet" type="text/css" href='resources/css/style.css'/>
     <link rel="stylesheet" type="text/css" href='resources/css/button.css'/>
-
+    <script src="resources/js/validate.js" type="text/javascript"></script>
    </head>
 <body> 
   <?php    
@@ -48,7 +48,7 @@
           echo "<div class=\"quest\"><a class=\"teksbiru\" href=\"question.php?id=".$row["Q_ID"]."\">".$row["Q_Topic"]."</a>"."<br>";
           echo $row["Q_Content"]."</div><div class=\"asked\">asked by <a class=\"teksbiru\"> ";
           echo $row["Q_Name"] ."</a> | <a class=\"tekskuning\" href=\"edit.php?id=".$row["Q_ID"]."\">"."edit</a> | 
-          <a class=\"teksmerah\" href=\"delete.php?id=".$row["Q_ID"]."\">"."delete</a></div><br><br><br>";
+          <a class=\"teksmerah\" href=# onclick=\"confirmDelete(".$row["Q_ID"].")\">"."delete</a></div><br><br><br>";
       }
     ?>
     </div></div>
