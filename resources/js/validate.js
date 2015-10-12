@@ -1,3 +1,8 @@
+function confirmDelete(string){
+    if (confirm("apakah anda mau mendelete pertanyaan ini ? ")) {
+        document.location = "delete.php?id="+string;
+    }
+}
 function validateEmail(email) {
     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     return re.test(email);
