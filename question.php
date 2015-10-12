@@ -15,20 +15,20 @@
 	echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 	<html>
 	<head>
-	<title>My StackExchange</title>
+	<title>'.$rows[0]['topic'].'</title>
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
 		<div class="container">
-			<h1 id="title">My StackExchange</h1>
+			<a class="homelink" href="http://mystackexchange.dev"><h1 id="title">My StackExchange</h1></a>
 			<div class="content">
 				<h2>'.$rows[0]['topic'].'</h2>
 				<hr>
 				<div class="stackquestion">
-					<div class="votes"><div class="arrow-up"></div>0<div class="arrow-down"></div></div>
+					<div class="votes"><div class="arrow-up" onclick="voteupquestion('.$_GET['id'].')"></div><div id="votequestion">'.$rows[0]['vote'].'</div><div class="arrow-down"  onclick="votedownquestion('.$_GET['id'].')"></div></div>
 					<div class="content">'.$rows[0]['content'].'</div>
-					<div class="detail">asked by <a class="linkname">'.$rows[0]['name'].'</a> at '.$rows[0]['date'].' | <a class="linkedit">edit</a> | <a class="linkdelete">delete</a></div>
+					<div class="detail">asked by <a class="linkname">'.$rows[0]['name'].' ('.$rows[0]['email'].')</a> at '.$rows[0]['date'].' | <a class="linkedit" href="editpost.php?id='.$_GET['id'].'">edit</a> | <a class="linkdelete" onclick="return validatedelete()" href="deletepost.php?id='.$_GET['id'].'">delete</a></div>
 				</div>
 				<br>
 				<h2>'.$id[0].' Answers</h2>
@@ -37,7 +37,7 @@
 				foreach($rows2 as $val){	
 				echo '<div class="stackanswer">
 					<br>
-					<div class="votes"><div class="arrow-up"></div>'.$val['vote'].'<div class="arrow-down"></div></div>
+					<div class="votes"><div class="arrow-up" onclick="voteupanswer('.$val['id'].','.$_GET['id'].')"></div><div id="voteanswer'.$val['id'].'">'.$val['vote'].'</div><div class="arrow-down" onclick="votedownanswer('.$val['id'].','.$_GET['id'].')"></div></div>
 					<div class="content">'.$val['content'].'</div>
 					<div class="detail">answered by <a class="linkname">'.$val['name'].'</a> at '.$val['date'].'</div>
 				</div>
@@ -49,7 +49,7 @@
 			<div class="content question">
 				<h2 class="title2">Your Answer</h2>
 				<hr>
-				<form action="answer.php?qid='.$_GET['id'].'" method="post">
+				<form action="answer.php?qid='.$_GET['id'].'" method="post" onsubmit="return validateanswer()">
 				<input class="textbox" type="text", name="name", id="name" value="Name">
 				<br>
 				<input class="textbox" type="text", name="email", id="email" value="Email">
@@ -60,5 +60,6 @@
 				</form>	
 			</div>	
 		</div>
+		<script src="js/script.js"></script>
 	</body>
 	</html>';

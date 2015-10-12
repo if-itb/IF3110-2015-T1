@@ -14,7 +14,7 @@
 					</head>
 					<body>
 						<div class="container">
-							<h1 id="title">My StackExchange</h1>
+							<a class="homelink" href="http://mystackexchange.dev"><h1 id="title">My StackExchange</h1></a>
 							<div class="search">
 								<form action="search.php" method="post">
 									<input type="text" id="searchbar">
@@ -35,12 +35,13 @@
 									<div class="votes"><div>'.$val['vote'].'</div>Votes</div>
 									<div class="answers"><div>'.$id[0].'</div>Answers</div>
 									<div class="questiontitle"><a href="question.php?id='.$val['id'].'">'.$val['topic'].'</a></div>
-									<div class="detail">asked by <a class="linkname">'.$val['name'].'</a> | <a class="linkedit">edit</a> | <a class="linkdelete">delete</a></div>
+									<div class="detail">asked by <a class="linkname">'.$val['name'].' ('.$val['email'].')</a> | <a class="linkedit" href="editpost.php?id='.$val['id'].'">edit</a> | <a class="linkdelete" onclick="return validatedelete()" href="deletepost.php?id='.$val['id'].'">delete</a></div>
 									<hr>
 								</div>';}
 								}
 							echo '</div>	
 						</div>
+						<script src="js/script.js"></script>
 					</body>
 					</html>';
 ?>

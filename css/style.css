@@ -25,6 +25,16 @@ a:hover {
 
 }
 
+.homelink{
+	color: #000000;
+	text-decoration: none;
+}
+
+.homelink:hover{
+	color: #000000;
+	text-decoration: none;
+}
+
 .linkdelete{
 	color: #FF244E;
 }
@@ -53,7 +63,7 @@ a:hover {
 }
 
 .questiontitle{
-	width: 40%;
+	width: 35%;
 	vertical-align: middle;
 	text-align: justify;
 	padding-left: 3em;
@@ -66,7 +76,7 @@ a:hover {
 
 .detail{
 	text-align: right;
-	width: 36%;
+	width: 41%;
 	vertical-align: bottom;
 }
 
