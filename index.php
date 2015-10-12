@@ -3,7 +3,18 @@
 ?>
 
 <?php
-	$questions = getQuestions();
+	if (isset($_POST['type'])) {
+		if ($_POST['type'] == 'ask')
+			postQuestion($_POST);
+	}
+
+	$q = '';
+	if (isset($_GET['q']) && !is_null($_GET['q'])) {
+		$q = $_GET['q'];
+		$questions = getQuestions($_GET['q']);
+	} else {
+		$questions = getQuestions();
+	}
 ?>
 
 <html>
@@ -12,7 +23,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<h1>Simple StackExchange</h1>
+		<h1><a id="a3" href="index.php">Simple StackExchange</a></h1>
 		<div id="div1">
 			<FORM>
 			<INPUT TYPE ="SEARCH">
@@ -43,10 +54,17 @@
 					<div> Answer </div>
 				</div>
 				<div id="idx_title">
-					<?php echo $question['Title'] ?>
+					<a id="a3" href="question.php?q_id=<?php echo $question['Q_ID'] ?>"> <?php echo $question['Title'] ?> </a>
 				</div>
 				<div id="idx_content">
-					<?php echo $question['Content'] ?>
+					<?php
+						$content = $question['Content'];
+						if (strlen($content) > 100) {
+							echo substr($question['Content'], 0, 110) . '...';
+						} else {
+							echo $content;
+						}
+					?>
 				</div>
 				<div id="div5">
 					<p>
