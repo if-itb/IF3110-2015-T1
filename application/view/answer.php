@@ -19,7 +19,7 @@
 			</tr>
 		</table>
 		<div class="answered">
-			<p>answered by <?php echo $answer->author; ?> at <?php echo $answer->date; ?>
+			<p>answered by <?php echo $answer->email; ?> at <?php echo $answer->date; ?>
 		</div>	
 	</div>
 	<hr>

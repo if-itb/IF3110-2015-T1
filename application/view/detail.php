@@ -17,6 +17,6 @@
 		</tr>
 	</table>
 	<div class="edit">
-		<p>asked by <?php echo $thread->author; ?> at <?php echo $thread->date; ?> | <a href="">edit</a> | <a class="delete" href="">delete</a></p>
+		<p>asked by <?php echo $thread->email; ?> at <?php echo $thread->date; ?> | <a href="">edit</a> | <a class="delete" href="">delete</a></p>
 	</div>	
 </div>

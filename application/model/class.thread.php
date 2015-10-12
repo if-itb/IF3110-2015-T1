@@ -2,6 +2,7 @@
 	class Thread {
 		public $id;
 		public $author;
+		public $email;
 		public $topic;
 		public $content;
 		public $n_vote;
@@ -22,9 +23,12 @@
 			$list = [];
 			$db = Connection::getInstance();
 			$req = $db->query('SELECT * FROM sse_thread ORDER BY thread_id DESC');
+			$threadObj = NULL;
 
 			foreach($req->fetchAll() as $thread) {
-				$list[] = new Thread($thread['thread_id'], $thread['user_name'], $thread['thread_topic'], $thread['thread_content'], $thread['n_vote'], $thread['n_answer'], $thread['thread_date']);
+				$threadObj = new Thread($thread['thread_id'], $thread['user_name'], $thread['thread_topic'], $thread['thread_content'], $thread['n_vote'], $thread['n_answer'], $thread['thread_date']);				
+				$threadObj->email = $thread['user_email'];
+				$list[] = $threadObj;
 			}
 
 			return $list;
@@ -37,6 +41,7 @@
 			$result;
 			foreach($req->fetchAll() as $thread) {
 				$result = new Thread($thread['thread_id'], $thread['user_name'], $thread['thread_topic'], $thread['thread_content'], $thread['n_vote'], $thread['n_answer'], $thread['thread_date']);
+				$result->email = $thread['user_email'];
 			}
 
 			return $result;

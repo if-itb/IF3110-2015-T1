@@ -16,7 +16,7 @@
 		}
 
 		public function create() {
-			echo "create";
+			require_once(ROOT . DS . 'application' . DS . 'view' . DS . 'form.php');
 		}
 
 		public function error() {
