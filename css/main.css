@@ -1,0 +1,133 @@
+a {
+	color:inherit;
+	cursor:pointer;
+	text-decoration:none;
+}
+
+a.red {
+	color:red;
+}
+
+a.gold {
+	color:gold;
+}
+
+body {
+	font-family:Calibri;
+	margin-left:20%;
+	margin-right:20%;
+	margin-top:30px;
+}
+
+div.searchbar {
+	margin-left:15px;
+	margin-right:15px;
+}
+
+div.VotesA {
+	padding-bottom:7px;
+}
+
+div#VotesQ {
+	padding-bottom:7px;
+}
+
+h1 {
+	text-align:center;
+}
+
+h2 {
+	margin-bottom:0;
+}
+
+hr {
+	border:1px solid black;
+	margin-bottom:1em;
+}
+
+input.button {
+	margin-left:93%;
+	width:7.2%;
+}
+
+input.text {
+	margin-bottom:0.2em;
+	padding:3px;
+	width:100%;
+}
+
+input#searchbar {
+	border:3px solid black;
+	height:30px;
+	width:87%;
+}
+
+input#searchbutton {
+	background-color:white;
+	border:3px solid black;
+	height:30px;
+	width:12%;
+}
+
+p.blue {
+	color:blue;
+	display:inline;
+}
+
+p.content {
+	font-size:auto;
+	margin:0;
+	max-height:50px;
+	overflow:hidden;
+	padding:2%;
+}
+
+p.topic {
+	font-size:20px;
+	margin:0;
+	padding:2%;
+}
+
+p#RecentlyAsked {
+	font-size:19px;
+	margin-bottom:0;
+}
+
+p#searchbar {
+	margin-top:0.5em;
+	text-align:center;
+}
+
+p#SearchResults {
+	font-size:19px;
+	margin-bottom:0;
+}
+
+table {
+	width:100%;
+}
+
+td.Answerer,td.Asker {
+	text-align:right;
+}
+
+td.Answers,td.Votes {
+	text-align:center;
+	width:10%;
+}
+
+td.VotesQA {
+	color:grey;
+	font-size:25;
+	text-align:center;
+	width:8%;
+}
+
+textarea {
+	margin-bottom:0.2em;
+	padding:3px;
+	font-family:Calibri;
+	font-size:14;
+	width:100%;
+	height:110px;
+}

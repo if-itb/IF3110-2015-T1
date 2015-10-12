@@ -89,7 +89,42 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+Validasi pada client side dilakukan menggunakan Javascript. Saya melakukan validasi dengan membuat fungsi validasi berbahasa Javascript. Berikut adalah langkah-langkah validasinya :
+
+1. Ketika tombol submit form ditekan, fungsi validasi akan dijalankan secara otomatis.
+
+2. Pertama-tama, fungsi akan mengambil nilai dari seluruh input dalam form.
+
+3. Fungsi akan mengecek apakah ada nilai input yang masih kosong, dimulai dari kolom input yang pertama.
+
+4. Apabila fungsi menemukan input yang kosong, maka fungsi akan mengeluarkan peringatan yang bertuliskan kolom tersebut harus diisi.
+
+5. Apabila semua input sudah terisi, fungsi akan mengecek sintaks dari input email.
+
+6. Sintaks email tersebut akan dicocokkan dengan regular expression (Regex) dari format email yang sudah disimpan pada sebuah variabel.
+
+7. Apabila sintaks tersebut tidak cocok dengan Regex format email, maka fungsi akan mengeluarkan peringatan yang bertuliskan format penulisan email salah.
+
+8. Apabila sintaks tersebut cocok dengan Regex format email, maka input form lolos validasi.
+
+
+AJAX digunakan untuk mengubah jumlah vote tanpa meload ulang sebuah halaman. Saya melakukannya dengan membuat fungsi vote berbahasa Javascript dan membuat halaman PHP untuk mengupdate database yang terhubung satu sama lain. Berikut adalah langkah-langkahnya :
+
+1. Ketika tombol vote ditekan, fungsi untuk mengubah jumlah vote akan dijalankan secara otomatis.
+
+2. Pertama-tama, fungsi akan membuat XMLHTTPRequest ke server. Dalam hal ini, servernya adalah sebuah halaman PHP.
+
+3. XMLHTTPRequest akan melakukan request ke server menggunakan metode get dan alamat server berupa halaman PHP dengan mencantumkan parameter-parameter yang dibutuhkan server.
+
+4. Selain itu, dibuat juga sebuah fungsi baru yang akan dijalankan ketika XMLHTTPRequest memiliki ready state 4, yang berarti request selesai dan respons siap, dan status 200 yang berarti OK.
+
+5. Kemudian server akan melakukan update database sesuai parameter-parameter yang telah dikirimkan oleh XMLHTTPRequest.
+
+6. Server akan merespons XMLHTTPRequest dengan nilai votes yang telah diupdate.
+
+7. Fungsi baru yang tadi telah dibuat akan mengganti nilai votes berdasarkan respons dari server.
+
+8. Angka votes pada halaman tersebut akan berubah secara otomatis.
 
 ### Knowledge
 
