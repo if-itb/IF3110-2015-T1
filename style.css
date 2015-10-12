@@ -167,7 +167,7 @@ span#idx_edit {
 }
 
 
-input[type=search] {
+input[type=text]#t1 {
 	width: 600px;
 	height: 25px;
 	border-style: solid;
