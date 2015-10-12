@@ -7,7 +7,7 @@
 <body>
 	<h1>Simple StackExchange</h1>
 	<div align="center" class="container-4">
-	<form name:"SearchBox" method="get" action="wbd.php">
+	<form name:"SearchBox" method="post" action="search.php">
 	<input type="text" id="search" name="SearchBox" placeholder="Search here...">
 	<input type="submit" id="submit" value="Search" name="SearchButton">	
 	</form>	
