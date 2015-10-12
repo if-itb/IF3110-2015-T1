@@ -38,7 +38,7 @@
 		}
 	</script>
 	<body>
-		<h1>Simple Stack Exchange</h1>
+		<h1>Simple StackExchange</h1>
 		<form name="searching" action="search.php?go" id="searchform" onsubmit="return validateForm()" method="post">
 			<input type="text" name="search" style="width:94%;font-size:16px;">
 			<input type="submit" value="Search" style="font-size:16px;">
@@ -57,40 +57,43 @@
 			$result = $con->query($query);
 			if ($result->num_rows > 0) {
 				while($row = $result->fetch_assoc()) {
-					echo "<hr>";
-        			echo "<table>";
-        			echo "<tr>";
-        			echo '<td class="number" rowspan="2">'. "<b>". $row["num_vote"]. "<br>". "Votes". "</b>". "</td>";
+		?>
+		<hr>
+		<table>
+			<tr>
+				<td class="number" rowspan="2"><b><?php echo $row["num_vote"];?><br>Votes</b></td>
+				<?php
         			$sql = "SELECT count(*) AS total FROM answer where id_question = ". $row["id_question"];
 					$result2 = $con->query($sql);
 					$values = $result2->fetch_assoc();
-					$num_rows = $values['total']; 
-        			echo '<td class="number" rowspan="2">'. "<b>". $num_rows. "<br>". "Answers". "</b>". "</td>";
-        			echo '<td class="topic">'. '<a href="show-answer.php?id='. $row["id_question"].'" style="text-decoration:none;">'. "<font color='black'>". $row["topic"]. "</font>". "</a>". "</td>";
-        			echo "</tr>";
-
-        			echo "<tr>";
-        			$truncated = (strlen($row["content"]) > 100) ? substr($row["content"], 0, 100) . '...' : $row["content"];
-        			echo '<td class="content">'. $truncated. "</td>";
-        			echo "</tr>";
-
-        			echo "<tr>";
-        			echo "<td colspan='3' class='attribute' style=text-align:right;>". "<b>". "asked by ". "<font color='purple'>".$row["username"]."</font>". " | ".
-        			'<a href="edit-question.php?id='. $row["id_question"].'" style="text-decoration:none;">'. "<font color='orange'>"."edit"."</font>". "</a>". " | ".
-        			"<a href='javascript:delete_id($row[id_question])' style='text-decoration:none;'>". "<font color='red'>"."delete". "</a>". "</font>". "</b>". "</td>";
-
-        			echo "</tr>";
-        			echo "</table>";
-
+					$num_rows = $values['total'];
+				?>
+				<td class="number" rowspan="2"><b><?php echo $num_rows?><br>Answers</b></td>
+				<td class="topic">
+					<a href="show-answer.php?id=<?php echo $row["id_question"]; ?>" style="text-decoration:none;"><font color='black'> <?php echo $row["topic"] ?></font></a>
+				</td>
+			</tr>
+			<tr>
+			<?php $truncated = (strlen($row["content"]) > 130) ? substr($row["content"], 0, 130) . '...' : $row["content"];?>
+				<td class="content"> <?php echo $truncated; ?></td>
+			</tr>
+			<tr>
+				<td colspan="3" class="attribute" style=text-align:right;>
+					<b>asked by <font color="purple"><?php echo $row["username"]; ?></font> | 
+					<a href="edit-question.php?id=<?php echo $row["id_question"]; ?>" style="text-decoration:none;"><font color='orange'>edit</font></a> | 
+					<a href="javascript:delete_id(<?php echo $row["id_question"]; ?>)" style="text-decoration:none;"><font color="red">delete</a></font></b>
+				</td>
+			</tr>
+		</table>
+        <?php
         		}
 			} else {
-				echo "<hr>";
-			    echo "<p>". "0 results". "</p>";
+		?>
+				<hr>
+			    <p>0 results</p>
+		<?php
 			}
 			$con->close();
-
 		?>
-		
 	</body>
-
 </html>

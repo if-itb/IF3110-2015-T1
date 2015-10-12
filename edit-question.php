@@ -24,7 +24,7 @@
 
 	<body>
 		<h1>
-			Simple Stack Exchange
+			Simple StackExchange
 		</h1>
 		<h2 >
 			What's your question?
@@ -41,15 +41,15 @@
 			$sql = "SELECT * FROM question where id_question = '$id'";
 			$result = $con->query($sql);
 			$row = $result->fetch_assoc();
-			echo '<form name = "question" action="update-question.php" onsubmit="return validateForm()" method="post">';
-			echo '<input type="hidden" class="text" name="id" value='. $id. ">";
-			echo '<input placeholder="Name" type="text" name="name" class="text" value='. $row["username"]. '>'. '<br>'. '<br>';
-			echo '<input placeholder="Email" type="text" name="email" class="text" value='. $row["email"]. '>'. '<br>'. '<br>';
-			echo '<input placeholder="Question Topic" type="text" name="topic" class="text" value='. $row["topic"]. '>'. '<br>'. '<br>';
-			echo '<textarea placeholder="Content" type="text" name="content" rows="10">'. $row["content"]. '</textarea>'. '<br>'. '<br>';
-			echo '<input type="submit" value="Post" class="button">';
-			echo '</form>';
 		?>
+		<form name = "question" action="update-question.php" onsubmit="return validateForm()" method="post">
+		<input type="hidden" class="text" name="id" value="<?php echo $id; ?>">
+		<input placeholder="Name" type="text" name="name" class="text" value="<?php echo $row["username"]; ?>"><br><br>
+		<input placeholder="Email" type="text" name="email" class="text" value="<?php echo $row["email"]; ?>"><br><br>
+		<input placeholder="Question Topic" type="text" name="topic" class="text" value= "<?php echo $row["topic"];?>"><br><br>
+		<textarea placeholder="Content" type="text" name="content" rows="10"><?php echo $row["content"] ?></textarea><br><br>
+		<input type="submit" value="Post" class="button">
+		</form>
 	</body>
 	
 </html>
