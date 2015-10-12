@@ -27,7 +27,7 @@
 			<?php 
 		} 
 		else {
-			if ((!empty( $_POST ))&&($_POST['user'] != "")&&($_POST['email'] != "")&&($_POST['topic'] != "")&&($_POST['content'] != "")) {
+			if ((!empty( $_POST ))&&($_POST['user'] != "")&&($_POST['email'] != "")&&($_POST['content'] != "")) {
 
 		 		$user = $_POST['user'];
 		 		$email = $_POST['email'];
@@ -65,7 +65,7 @@
 			</script>
 
 		<?php }
-		
+
 	} 
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
@@ -83,30 +83,58 @@
 		    // output data of each row
 		    while($row = $result->fetch_assoc()) {
 		    	?>
-		    	<h2><?php echo $row["topic"];?></h2>
+		    	<h2>
+		    		<?php echo $row["topic"];?>
+		    	</h2>
 				<hr>
 				<table>
-				<?php
-		    	echo "<tr>";
-		    	echo "<td class='arrow' id='vote_up' value= '1'> &#128314 </td>";
-		    	echo '<td class="qacontent" rowspan="3">'.$row["content"].'</td>';
-	    		echo '</tr><tr>';
-	    		echo '<td class="total" id="votes">'.$row["num_vote"];
-	    		echo '</td>';
-	    		echo '</tr><tr>';
-	    		echo '<td class="arrow" id="vote_down">&#128315</td>';
-	    		echo '<tr></tr>
-						<tr>
-						<td></td>';
-				$vote = $row['num_vote'];
-		    	
-				echo '<td class="askedby">asked by ';
-	    		echo '<span class="user">'.$row["username"].' </span>at ';
-	    		echo '<span class="time">' .$row["question_date"].' </span>|';
-	    		echo '<span class="edit"><a href="editquestion.php?id='.intval($_GET['id']).'" class="edit"> edit </a></span>|';
-	    		echo '<span class="delete" onclick="ConfirmDelete();"><a href="index.php?id='.intval($_GET['id']).'" class="delete"> delete </a></span>';
-	    		echo "</tr></table><br>";
+					<tr>
+		    			<td class='arrow' id='vote_up' value= '1'>
+		    				 &#128314 
+		    			</td>
+		    			<td class="qacontent" rowspan="3">
+		    				<?php echo $row["content"];?>
+		    			</td>
+	    			</tr>
+	    			<tr>
+	    				<td class="total" id="votes">
+	    					<?php echo $row["num_vote"];?>
+	    				</td>
+	    			</tr>
+	    			<tr>
+	    			<td class="arrow" id="vote_down">
+	    				&#128315
+	    			</td>
+	    			<tr></tr>
+					<tr>
+						<td></td>
+						<?php $vote = $row['num_vote']; ?>
+		    		<td class="askedby">
+		    			asked by 
+	    				<span class="user">
+	    					<?php echo $row["username"];?>
+	    				</span>
+	    				at 
+	    				<span class="time">
+	    					<?php echo $row["question_date"];?>
+	    				</span>
+	    				|
+	    				<span class="edit">
+	    					<a href="editquestion.php?id=<?php echo intval($_GET['id']);?>" class="edit">
+	    					 edit 
+	    					</a>
+	    				</span>
+	    				|
+	    				<span class="delete" onclick="ConfirmDelete();">
+	    					<a href="index.php?id=<?php echo intval($_GET['id']);?>" class="delete">
+	    					 delete 
+	    					</a>
+	    				</span>
+	    			</tr>
+	    		</table>
+	    		<br>
 
+	    		<?php
 	    		if ($vote != $row['num_vote']) {
 	    			if(isset($_GET['id'])) {
 				        $add = 'UPDATE question SET num_vote="'.$vote.'" WHERE id_question='. $id;
@@ -120,53 +148,72 @@
 		    echo "0 results";
 		}
 
-		?>
+		$sql = "SELECT COUNT(*) as numans FROM answer WHERE id_question=".$id;
+		$result = $conn->query($sql);
+		$row = $result->fetch_assoc();
 
-		<h2><span id='numans' onload='countAns(<?php echo $id;?>);'>0</span> Answer</h2><hr>
-		<?php
-
+		echo "<h2><span id='numans'>".$row["numans"]."</span> Answer</h2><hr>";
+		
 		$sql = "SELECT username, num_votes, content, answer_date, num_answer FROM answer WHERE id_question=" .$id;
 		$result = $conn->query($sql);
 
-		$count = 0;
 		if ($result->num_rows > 0) {
 		    // output data of each row
-		    while($row = $result->fetch_assoc()) {
-		    	
-				//echo strval($numans);
-				echo "<table>";
-		    	echo "<tr>";
-		    	echo "<td class='arrow' id='vote_up_ans".$row["num_answer"]."' onclick='voteUpAns(".$row["num_answer"].")'> &#128314 </td>";
-	    		echo '<td class="qacontent" rowspan="3">'.$row["content"].'</td>';
-	    		echo '</tr><tr>';
-	    		echo '<td class="total" id="vote_ans'.$row["num_answer"].'">' . $row["num_votes"].'</td>';
-	    		echo '</tr><tr>';
-	    		echo '<td class="arrow" id="vote_down_ans'.$row["num_answer"].'" onclick="voteDownAns('.$row['num_answer'].')"> &#128315 </td>';
-	    		echo '<tr></tr>
-						<tr>
-						<td></td>';
-				echo '<td class="askedby">answered by ';
-	    		echo '<span class="user">'.$row["username"].' </span>at ';
-	    		echo '<span class="time">' .$row["answer_date"].' </span>';
-	    		echo '</td>';
-	    		echo "</tr></table><hr><br>";   
-	    		$count++;
+		    while($row = $result->fetch_assoc()) { ?>
+		    	<table>
+		    		<tr>
+		    			<td class='arrow' id='vote_up_ans<?php echo $row["num_answer"];?>' onclick='voteUpAns(<?php echo $row["num_answer"];?>)'>
+		    			 &#128314 
+		    			</td>
+	    				<td class="qacontent" rowspan="3">
+	    					<?php echo $row["content"];?>
+	    				</td>
+	    			</tr>
+	    			<tr>
+	    				<td class="total" id="vote_ans<?php echo $row["num_answer"];?>">
+	    					<?php echo $row["num_votes"];?>
+	    				</td>
+	    			</tr>
+	    			<tr>
+	    				<td class="arrow" id="vote_down_ans<?php echo $row["num_answer"];?>" onclick="voteDownAns(<?php echo $row['num_answer'];?>)">
+	    				 &#128315 
+	    				</td>
+	    			<tr>
+	    			</tr>
+					<tr>
+						<td></td>
+					<td class="askedby">
+						answered by 
+	    				<span class="user">
+	    					<?php echo $row["username"];?> 
+	    				</span>at 
+	    				<span class="time">
+	    					<?php echo $row["answer_date"];?> 
+	    				</span>
+	    			</td>
+	    		</tr>
+	    	</table>
+	    	<hr><br>
+	    	<?php
 		    }
 		} else {
 		    echo '<div class="answerresult">No results</div>';
 		    echo "<br><br><br>";
-		}
+		}?>
 
-		echo "<br>";
-		echo "<h4>Your Answer</h4>";
-	
-		echo "<hr>";
-		echo '<form action= "answer.php?id='.$id.'" method="post">';
-		echo  '<input type="text" name="user" placeholder="Name"><br>
-		  <input type="text" name="email" placeholder="Email"><br>
-		  <textarea type="text" rows="7" name="content" placeholder="Content" class="content"></textarea><br>
-		  <input type="submit" value="Post" class="post">
-		</form>'; 
+		<br>
+		<h4>Your Answer</h4>
+		<hr>
+		<form action= "answer.php?id=<?php echo $id;?>" method="post">
+			<input type="text" name="user" placeholder="Name">
+			<br>
+		  	<input type="text" name="email" placeholder="Email">
+		  	<br>
+		  	<textarea type="text" rows="7" name="content" placeholder="Content" class="content"></textarea>
+		  	<br>
+		  	<input type="submit" value="Post" class="post">
+		</form>
+		<?php 
 		$conn->close();
 	?>
 </body>
@@ -244,29 +291,6 @@
 			xhttp.send();
 		}
 
-		function countAns(id_question) {
-		alert(id_question);
-		/*var id = id_question;
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function () {
-			if (xhttp.readyState == 4) {
-				// if ok, update
-				document.getElementById("numans").innerHTML = xhttp.responseText;
-				// if not, show error
-			}
-		}
-
-		xhttp.open("GET","numberans.php?id=" + id, true);
-		xhttp.send();*/
-	}
-
-	function addAnswer (ID) {
-		if (validateAnswer()) {
-			alert("Horee");
-		} else {
-			alert(ID);	
-		}
-	}
 	</script>
 
 </html>

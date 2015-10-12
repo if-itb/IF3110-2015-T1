@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<h1>Simple StackExchange</h1>
+	<a href="index.php" style="text-decoration:none; color:black"><h1>Simple StackExchange</h1></a>
 	<h2>What's your question?</h2>
 	<hr>
 	<form action="index.php" method="post">
