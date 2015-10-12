@@ -33,6 +33,17 @@
 		return $row;
 	}
 	
+	function getAnswers($q_id, $sort = "Vote DESC, Date DESC") {
+		global $connect;
+		$q = "SELECT * FROM answer WHERE Q_ID=$q_id ORDER BY $sort";
+		$rq = mysqli_query($connect, $q);
+		$r = array();
+		while ($row = mysqli_fetch_array($rq, MYSQLI_ASSOC)) {
+			$r[] = $row;
+		}
+		return $r;
+	}
+	
 	function postQuestion($data) {
 		global $connect;
 		$q = NULL;
@@ -54,6 +65,24 @@
 					
 		$no_error = mysqli_query($connect, $q);
 		return $no_error;
+	}
+	
+	function postAnswer($data) {
+		global $connect;
+
+		$q = "INSERT INTO answer (Q_ID, Name, Email, Content, Date)
+		VALUES ('$data[q_id]', '$data[Name]', '$data[Email]', '$data[Content]', CURRENT_TIMESTAMP)";
+				
+		$no_error = mysqli_query($connect, $q);
+		return $no_error;
+	}
+
+	function countAnswers($q_id) {
+		global $connect;
+		$q = "SELECT COUNT(Q_ID) AS count from answer where Q_ID=$q_id";
+	    $rq = mysqli_query($connect, $q);
+	    $answer = mysqli_fetch_array($rq, MYSQLI_ASSOC)['count'];
+	    return $answer;
 	}
 
 
