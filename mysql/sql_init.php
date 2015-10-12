@@ -2,7 +2,6 @@
 $servername = "localhost";
 $username = "root";
 
-// Create connection
 $conn = new mysqli($servername, $username);
 
 if ($conn->connect_error) {
