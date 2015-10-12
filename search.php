@@ -43,7 +43,7 @@
 					$conn = mysqli_connect("localhost", "root", "", "StackExchange") or die ("Cannot connect to database");
 					
 					//Mencari ke database
-					$sql = "SELECT qid, nama, topic, votes, content, answers FROM question WHERE topic LIKE '%".$name."%' OR content LIKE '%".$name."%' OR nama LIKE '%".$name."%'";	
+					$sql = "SELECT qid, nama, topic, votes, content, answers FROM question WHERE topic LIKE '%".$name."%' OR content LIKE '%".$name."%'";	
 					
 					$result = mysqli_query($conn,$sql);
 					
