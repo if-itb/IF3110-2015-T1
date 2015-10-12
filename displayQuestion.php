@@ -23,13 +23,17 @@
 		<table >
 			<tr>
 				<td class="vote">
-					<dt>up</dt>
-					<dt><h3>
+					<a href="javascript:voteUpQuestion(<?php echo $cur['id_q']?>)">
+						<img src="image/up.png" width="30" hight="30">
+					</a>
+					<h3><div id="UpdateVoteQ-<?php echo $cur['id_q']?>">
 						<?php
 							echo $cur['nvote'];
 						?>
-					</h3></dt>
-					<dt>down</dt>
+					</div></h3>
+					<a href="javascript:voteDownQuestion(<?php echo $cur['id_q']?>)">
+						<img src="image/down.png"  width="30" hight="30">
+					</a>
 					
 				</td>
 				<td class="dContent">
@@ -76,12 +80,18 @@
 				<table >
 					<tr>
 						<td class="vote">
-							<dt>up</dt>
-							<dt><h3><?php
-								echo $a['nvote'];
-							?></h3></dt>
-							<dt>down</dt>
-							
+							<a href="javascript:voteUpAnswer(<?php echo $a['id_q']?>, <?php echo $a['id_a']?>)">
+								<img src="image/up.png" width="30" hight="30">
+							</a>
+							<h3><div id="UpdateVoteA-<?php echo $a['id_q']?>-<?php echo $a['id_a']?>">
+								<?php
+									echo $a['nvote'];
+								?>
+							</div></h3>
+							<a href="javascript:voteDownAnswer(<?php echo $a['id_q']?>, <?php echo $a['id_a']?>)">
+								<img src="image/down.png"  width="30" hight="30">
+							</a>
+									
 						</td>
 						<td class="dContent">
 							<?php
@@ -131,6 +141,57 @@
 	    if (confirm("Are you sure to delete this post?") == true) {
 	        location.href = "delQuestion.php?id_q="+id;
     	}
+	}
+
+	function voteUpQuestion(id_q){
+		xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4 && xhttp.status == 200){
+				document.getElementById("UpdateVoteQ-"+id_q).innerHTML = xhttp.responseText;
+			}
+		}
+
+		xhttp.open("POST", "vote.php",true);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send("action=voteUp&id_q=" + id_q);
+	}
+
+	function voteDownQuestion(id_q){
+		xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4 && xhttp.status == 200){
+				document.getElementById("UpdateVoteQ-"+id_q).innerHTML = xhttp.responseText;
+			}
+		}
+
+		xhttp.open("POST", "vote.php",true);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send("action=voteDown&id_q=" + id_q);
+	}
+
+	function voteUpAnswer(id_q, id_a){
+
+		xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4 && xhttp.status == 200){
+				document.getElementById("UpdateVoteA-"+id_q+"-"+id_a).innerHTML = xhttp.responseText;
+			}
+		}
+		xhttp.open("POST", "vote.php",true);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send("action=voteUp&id_q=" + id_q + "&id_a=" + id_a);
+	}
+
+	function voteDownAnswer(id_q, id_a){
+		xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4 && xhttp.status == 200){
+				document.getElementById("UpdateVoteA-"+id_q+"-"+id_a).innerHTML = xhttp.responseText;
+			}
+		}
+		xhttp.open("POST", "vote.php",true);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send("action=voteDown&id_q=" + id_q + "&id_a=" + id_a);
 	}
 	</script>
 </html>
