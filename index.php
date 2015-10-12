@@ -16,7 +16,7 @@
         </form>
     </div>
     <div class="container">
-        <h3>Recently Asked Questions</h3>
+        <h2>Recently Asked Questions</h2>
         <hr class="heading">
         <?php
             require_once "db.php";
@@ -48,10 +48,10 @@
                 </div>
             </div>
             <div class="question-summary">
-                <h3 class="topic"><a class="topic" href="question.php?id=<?= $question_row["id"] ?>"><?= $question_row["topic"] ?></a></h3>
-                <p><?= $question_row["content"] ?></p>
+                <h3 class="topic"><a class="topic" href="question.php?id=<?= $question_row["id"] ?>" title="<?= $question_row["topic"] ?>"><?= $question_row["topic"] ?></a></h3>
+                <p title="<?= $question_row["content"] ?>"><?= $question_row["content"] ?></p><br>
                 <div class="timestamp">
-                    asked by <?= $question_row["name"] ?> at <?= $question_row["time"] ?>| <a href=ask.php?id=<?= $question_row["id"] ?>>edit</a> | <a href="#" onclick="deleteQuestion(<?= $question_row["id"] ?>)">delete</a>
+                    asked by <a href="mailto:<?= $question_row["email"] ?>" target="_blank"><?= $question_row["name"] ?></a> at <?= $question_row["time"] ?> | <a class="edit" href=ask.php?id=<?= $question_row["id"] ?>>edit</a> | <a class="delete" href="#" onclick="deleteQuestion(<?= $question_row["id"] ?>)">delete</a>
                 </div>
             </div>
         </div>

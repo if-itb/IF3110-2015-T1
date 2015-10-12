@@ -4,7 +4,7 @@ html, body {
   padding-bottom: 50px;
 }
 
-h3 {
+h3, h2 {
     margin: 0px;
     margin-top: 8px;
 }
@@ -24,7 +24,7 @@ p {
 }
 
 a:link, a:visited {
-    color: #ff7878;
+    color: #ff6060;
     text-decoration: none;
 }
 
@@ -36,6 +36,14 @@ a.title,
 a.topic {
     color: black;
     text-decoration: none;
+}
+
+a.edit {
+    color: #ff3030;
+}
+
+a.delete {
+    color: #ff0000;
 }
 
 .div-search {
@@ -55,11 +63,6 @@ hr.heading {
     margin-bottom: 8px;
 }
 
-hr.item {
-    color: #ffb0b0;
-    background-color: #ffb0b0;
-}
-
 input[type=search],
 input[type=text],
 textarea {
@@ -68,7 +71,7 @@ textarea {
     box-sizing: border-box;
     padding: 6px 12px;
     width: 100%;
-    border: 2px solid #ff7878;
+    border: 2px solid #ff9090;
     border-radius: 3px 3px 3px 3px;
     outline: none;
     margin-bottom: 8px;
@@ -88,9 +91,9 @@ textarea {
     min-width: 75px;
     position: relative;
     padding: 8px 16px;
-    background-color: #ff5858;
+    background-color: #ff6060;
     color: #ffffff;
-    border: 2px solid #ff5858;
+    border: 2px solid #ff6060;
     border-radius: 3px;
     outline: none;
 }
@@ -197,5 +200,8 @@ textarea {
 }
 
 .question-summary {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     width: 80%;
 }

@@ -45,7 +45,7 @@
 <body>
     <?php require_once "header.php" ?>
     <div class="container">
-        <h3>What's your question?</h3>
+        <h2>What's your question?</h2>
         <hr class="heading">
         <form onsubmit="return validate()" action="<?= $_SERVER["PHP_SELF"] ?>" method="post">
             <input type="text" name="name" placeholder="Name" autofocus value="<?= (isset($name) ? $name : "") ?>"></input>

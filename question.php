@@ -47,7 +47,7 @@
 <body>
     <?php require_once "header.php" ?>
     <div class="container">
-        <h3 class="topic"><a class="topic" href="question.php?id=<?= $question_row["id"] ?>"><?= $question_row["topic"] ?></a></h3>
+        <h2 class="topic"><a class="topic" href="question.php?id=<?= $question_row["id"] ?>"><?= $question_row["topic"] ?></a></h2>
         <hr class="heading">
             <div class="question-item">
                 <div class="vote-panel">
@@ -58,15 +58,15 @@
                     <div class="vote-down" onclick="vote('question',<?= $question_row["id"] ?>,'down')"></div>
                 </div>
                 <div class="question-content">
-                    <p><?= $question_row["content"] ?></p>
+                    <p><?= $question_row["content"] ?></p><br>
                     <div class="timestamp">
-                        asked by <?= $question_row["name"] ?> at <?= $question_row["time"] ?> | <a href=ask.php?id=<?= $question_row["id"] ?>>edit</a> | <a href="#" onclick="deleteQuestion(<?= $question_row["id"] ?>)">delete</a>
+                        asked by <a href="mailto:<?= $question_row["email"] ?>" target="_blank"><?= $question_row["name"] ?></a> at <?= $question_row["time"] ?> | <a class="edit" href=ask.php?id=<?= $question_row["id"] ?>>edit</a> | <a class="delete" href="#" onclick="deleteQuestion(<?= $question_row["id"] ?>)">delete</a>
                     </div>
                 </div>
             </div>
             <br>
             <?php if ($answer_count): ?>
-                <h3><?= $answer_count ?> Answer<?php if ($answer_count > 1): ?><? ="s" ?><?php endif; ?></h3>
+                <h2><?= $answer_count ?> Answer<?php if ($answer_count > 1): ?><?= "s" ?><?php endif; ?></h2>
                 <hr class="heading">
                 <div class="answer-list">
                 <?php foreach($answer_rows as $answer_row): ?>
@@ -81,7 +81,7 @@
                         <div class="answer-content">
                             <p><?= $answer_row["content"] ?></p>
                             <div class="timestamp">
-                                answered by <?= $answer_row["name"] ?> at <?= $answer_row["time"] ?>
+                                answered by <a href="mailto:<?= $answer_row["email"] ?>" target="_blank"><?= $answer_row["name"] ?></a> at <?= $answer_row["time"] ?>
                             </div>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                 <?php endforeach; ?>
             <?php endif; ?>
             <br>
-            <h3>Your Answer</h3>
+            <h2>Your Answer</h2>
             <hr class="heading">
             <form onsubmit="return validate()" action="<?= $_SERVER["PHP_SELF"] ?>" method="post">
                 <input type="text" name="name" placeholder="Name"></input>

@@ -28,7 +28,7 @@
 <body>
     <?php require_once "header.php" ?>
     <div class="container">
-        <h3>Search results for: <?= $search ?></h3>
+        <h2>Search results for: <?= $search ?></h2>
         <hr class="heading">
         <?php foreach($search_results as $question): ?>
             <div class=question-item>
@@ -48,12 +48,13 @@
                 </div>
                 <div class="question-summary">
                     <h3 class="topic"><a class="topic" href="question.php?id=<?= $question["id"] ?>"><?= $question["topic"] ?></a></h3>
-                    <p><?= $question["content"] ?></p>
+                    <p title="<?= question["content"] ?>"><?= $question["content"] ?></p><br>
                     <div class="timestamp">
                         asked by <?= $question["name"] ?> at <?= $question["time"] ?>| <a href=ask.php?id=<?= $question["id"] ?>>edit</a> | <a href="#" onclick="deleteQuestion(<?= $question["id"] ?>)">delete</a>
                     </div>
                 </div>
             </div>
+            <hr>
         <?php endforeach; ?>
     </div>
 </body>
