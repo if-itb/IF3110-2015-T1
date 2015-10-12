@@ -8,39 +8,44 @@
 </head>
 <body>
 
-<center><h1>Simple StackExchange</h1></center>
-<br>
-<?php if ($_GET["idx"]==1) { ?>
-<form id="question-form" action="submit.php?idx=1" method="post">
-	<center>
-		<input type="text" name="name" placeholder="name"><br>
-		<input type="text" name="email" placeholder="email"><br>
-		<input type="text" name="topic" placeholder="topic"><br>
-		<textarea name="content" placeholder="content"></textarea><br>
-	</center>	
-		<button type="submit" name="search">Submit</button>
-</form>
-<?php } ?>
+<div class="header">
+	<center><h1><a href="index.php">Simple StackExchange</a></h1></center>
+</div>
 
-<?php if($_GET["idx"]==2) {
-	include "function/database.php";
-	$conn = connect_database();
-	
-	$sql = "SELECT * FROM `question` WHERE question_id=".$_GET["q_id"];
+<div class="content">
+	<?php if ($_GET["idx"]==1) { ?>
+	<form id="question_form" action="submit.php?idx=1" onsubmit="return validateForm()" method="post">
+		<center>
+			<input type="text" name="name" placeholder="Name"><br>
+			<input type="text" name="email" placeholder="Email"><br>
+			<input type="text" name="topic" placeholder="Topic"><br>
+			<textarea name="content" placeholder="Content"></textarea><br>
+		</center>	
+			<button type="submit" name="search">Submit</button>
+	</form>
+	<?php } ?>
 
-	$result = mysqli_query($conn,$sql);
-	$row = mysqli_fetch_assoc($result);
-	$q_id = $_GET["q_id"];
-?>
+	<?php if($_GET["idx"]==2) {
+		include "function/database.php";
+		$conn = connect_database();
+		
+		$sql = "SELECT * FROM `question` WHERE question_id=".$_GET["q_id"];
 
-<form id="question-form" action="submit.php?q_id=<?php echo $q_id."&idx=2";?>" method="post">
-	<center>
-		<input type="text" name="name" placeholder="name" value="<?php echo $row['name']?>"><br>
-		<input type="text" name="email" placeholder="email" value="<?php echo $row['email']?>"><br>
-		<input type="text" name="topic" placeholder="topic" value="<?php echo $row['topic']?>"><br>
-		<textarea name="content" placeholder="content"><?php echo $row['content']?></textarea><br>
-	</center>	
-		<button type="submit" name="search">Submit</button>
-</form>
-<?php } ?>
+		$result = mysqli_query($conn,$sql);
+		$row = mysqli_fetch_assoc($result);
+		$q_id = $_GET["q_id"];
+	?>
+
+	<form id="question-form" action="submit.php?q_id=<?php echo $q_id."&idx=2";?>" method="post">
+		<center>
+			<input type="text" name="name" placeholder="Name" value="<?php echo $row['name']?>"><br>
+			<input type="text" name="email" placeholder="Email" value="<?php echo $row['email']?>"><br>
+			<input type="text" name="topic" placeholder="Topic" value="<?php echo $row['topic']?>"><br>
+			<textarea name="content" placeholder="Content"><?php echo $row['content']?></textarea><br>
+		</center>	
+			<button type="submit" name="search">Submit</button>
+	</form>
+	<?php } ?>
+	<script src='js/script.js'></script>
+</div>
 </body>

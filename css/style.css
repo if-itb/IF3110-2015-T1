@@ -1,7 +1,14 @@
-html {
+body {
 	font-family: 'PT Sans', sans-serif;
-	margin-left: 70px;
-	margin-right: 70px;
+	margin: 0px;
+}
+
+.header {
+	height:80px;
+    background: #250352;
+  	width: 100%;
+    margin:0px 0px auto 0px;
+    position: fixed;
 }
 
 h1 {
@@ -9,25 +16,53 @@ h1 {
 	font-weight: 400;
 }
 
-#vote, #answer {
+h2 {
+	font-family: 'PT Sans',sans-serif;
+	font-weight: 300;
+}
+
+a {
+	text-decoration: none;
+	color: #FD6E8A;
+}
+
+h1 a {
+	color: #ECE59A;
+}
+
+.content {
+	padding-top: 100px;
+	margin: 0px 100px 100px 100px;
+}
+
+.vote, .answer {
 	display: inline-block;
-	width: 5%;
+	width: 10%;
 	text-align: center;
-	vertical-align: top;
-	border-right: solid;
-	border-right-width: 1px;
+	vertical-align: middle;
+}
+
+#question {
+	display: inline-block;
+	width: 78%;
+	vertical-align: middle;
+	text-align: justify;
 }
 
 .question {
 	margin-left: 20px;
+	margin-right: 20px;
 }
 
-#question-form {
+#question_form {
 	margin-left: 100px;
 	margin-right: 100px;
 }
 
-#question-form input[type=text], textarea {
+.identity {
+	text-align: right;
+}
+#question_form input[type=text], textarea {
 	width: 100%;
 	margin-top: 5px;
 	margin-bottom: 5px;

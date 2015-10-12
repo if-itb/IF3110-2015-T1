@@ -7,19 +7,23 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<div class="header">
+		<center><h1><a href="index.php">Simple StackExchange</a></h1></center>
+	</div>
+	<div class="content">
+		<?php
+			include "function/database.php";
+			$conn = connect_database();
+			
+			$sql = "SELECT * FROM `question` WHERE topic LIKE '%".$_POST["search"]."%' OR content LIKE '%".$_POST["search"]."%'";
+			$result = mysqli_query($conn,$sql);
 
-<center><h1>Simple StackExchange</h1></center>
+			echo "<h2>".mysqli_num_rows($result)." Result(s)</h2>";
 
-<?php
-	include "function/database.php";
-	$conn = connect_database();
-	
-	$sql = "SELECT * FROM `question` WHERE topic LIKE '%".$_POST["search"]."%' OR content LIKE '%".$_POST["search"]."%'";
-	$result = mysqli_query($conn,$sql);
-
-	show_query($result);
-	mysqli_close($conn);
-?>
+			show_query($result);
+			mysqli_close($conn);
+		?>
+	</div>
 
 </body>
 </html>

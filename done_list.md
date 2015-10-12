@@ -34,7 +34,7 @@ NOT YET Pengguna dapat melakukan vote up atau vote down ke suatu pertanyaan. Ket
 
 ### Validasi
 
-NOT YET Validasi **wajib** dilakukan pada *client-side*, dengan menggunakan **javascript** bukan HTML 5 input type, yaitu:
+DONE Validasi **wajib** dilakukan pada *client-side*, dengan menggunakan **javascript** bukan HTML 5 input type, yaitu:
 - Setiap field pada form tidak boleh kosong.
 - Email harus sesuai format email.
 

@@ -7,28 +7,27 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<div class="header">
+		<center><h1><a href="index.php">Simple StackExchange</a></h1></center>
+	</div>
+	<div class="content">
+		<center><form action="search.php" method="post">
+			<input type="text" name="search" placeholder="Keyword">
+			<button type="submit">Search</button>
+		</form>
+		Cannot find what you're looking for? Ask <a href="form.php?idx=1">here</a>.
+		</center>
 
-<center><h1>Simple StackExchange</h1></center>
+		<h2>Recently Asked Questions</h2>
+		<?php
+			include "function/database.php";
+			$conn = connect_database();
+			
+			show_question($conn);
 
-<center><form action="search.php" method="post">
-	<input type="text" name="search" placeholder="topic/question">
-	<button type="submit">Search</button>
-</form>
-Cannot find what you're looking for? Ask <a href="form.php?idx=1">here</a>.
-</center>
-
-<h2>Recently Asked Questions</h2>
-<?php
-	include "function/database.php";
-	$conn = connect_database();
-	
-	$sql = "SELECT * FROM `question` ORDER BY date_created DESC LIMIT 5";
-	$result = mysqli_query($conn,$sql);
-
-	show_query($result);
-
-	mysqli_close($conn);
-?>
+			mysqli_close($conn);
+		?>
+	</div>
 
 </body>
 </html>

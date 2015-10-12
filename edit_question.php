@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<center><h1>Simple StackExchange</h1></center>
+<center><h1><a href="index.php">Simple StackExchange</a></h1></center>
 <br>
 
 <?php
