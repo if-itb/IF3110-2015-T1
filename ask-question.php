@@ -4,6 +4,7 @@
 
 	<title>Stack Exchange</title>
 	<link rel="StyleSheet" href="css/style.css" type="text/css">
+	<script src="js/script.js"></script>
 
 </head>
 
@@ -17,7 +18,7 @@
 
 <div class = "container">
 	<h2> What's Your Question? <hr> </h2>
-	<form method="POST" action="add-question.php">
+	<form method="POST" name="Form" action="add-question.php" onsubmit="return validateFormQuestion()">
 		<input type="text" name="question_name" id="question_name" placeholder="Name">
 		<br>
 		<input type="text" name="question_email" id="question_email" placeholder="Email">

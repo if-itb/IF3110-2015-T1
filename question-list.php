@@ -68,7 +68,7 @@
 
 					<h4 style="margin-left:25%"><a href=question-page.php?id=<?php echo $row["question_id"]?>> <?php echo $row["question_topic"] ?></a></h4>
 					<p style="margin-left:25%"> <?php echo limit_output($row["question_content"], 150); ?> </p>
-					<p style="float:right"> asked by <?php echo $row["question_name"] ?> at datetime | <a href="" style="color:#FFA500"> edit </a> | <a href="" style="color:#FF0000"> delete </a> </p>
+					<p style="float:right"> asked by <?php echo $row["question_name"] ?> | <a href="" style="color:#FFA500"> edit </a> | <a href="" style="color:#FF0000"> delete </a> </p>
 				</div>
 				<hr>
 				<?

@@ -4,6 +4,7 @@
 	
 	<title>Stack Exchange</title>
 	<link rel="StyleSheet" href="css/style.css" type="text/css">
+	<script src="js/script.js"></script>
 
 	<?php
 
@@ -39,7 +40,7 @@
 			<div class="arrow-down"></div>
 		</div>
 		<p> <?php echo $question["question_content"] ?> </p>
-		<p style="float:right"> asked by <?php echo $question["question_email"] ?> at datetime | <a href="" style="color:#FFA500"> edit </a> | <a href="" style="color:#FF0000"> delete </a> </p>
+		<p style="float:right"> asked by <?php echo $question["question_email"] ?> at <?php echo $question["question_date"] ?> | <a href="" style="color:#FFA500"> edit </a> | <a href="" style="color:#FF0000"> delete </a> </p>
 	</div>
 
 	<?php
@@ -61,7 +62,7 @@
 						<div class="arrow-down"></div>
 					</div>
 					<p> <?php echo $row["answer_content"]  ?> </p>
-					<p style="float:right"> asked by <?php echo $row["answer_name"] ?> at datetime | <a href="" style="color:#FFA500"> edit </a> | <a href="" style="color:#FF0000"> delete </a> </p>
+					<p style="float:right"> answer by <?php echo $row["answer_email"] ?> at <?php echo $row["answer_date"] ?> | <a href="" style="color:#FFA500"> edit </a> | <a href="" style="color:#FF0000"> delete </a> </p>
 				</div>
 				<br><hr>
 				<?php
@@ -72,7 +73,7 @@
 	<br>
 
 	<h3> Your Answer </h3>
-	<form method="POST" action="add-answer.php?id=<?php echo $last_id ?>">
+	<form method="POST" name="Form" action="add-answer.php?id=<?php echo $id ?>" onsubmit="return validateFormAnswer()">
 		<input type="text" name="answer_name" id="answer_name" placeholder="Name">
 		<br>
 		<input type="text" name="answer_email" id="answer_email" placeholder="Email">

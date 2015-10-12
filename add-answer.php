@@ -12,18 +12,17 @@
 			$email_temp = mysqli_real_escape_string($conn,$answer_email);
 			$content_temp = mysqli_real_escape_string($conn,$answer_content);
 			$id_temp = mysqli_real_escape_string($conn,$id);
+			
 
 			
-			$sql = "INSERT INTO Answer (question_id, answer_name, answer_email, answer_content, answer_vote)
-			VALUES ('$id_temp', '$name_temp', '$email_temp', '$content_temp', 0)";
+			$sql = "INSERT INTO Answer (question_id, answer_name, answer_email, answer_content, answer_vote, answer_date)
+			VALUES ('$id_temp', '$name_temp', '$email_temp', '$content_temp', 0, now())";
 
 			if (!mysqli_query($conn, $sql)) {
     			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 			}
 			$answer_id = mysqli_insert_id($conn);
-			
-			header('Location: question-page.php?id=<?php echo $id ?>');
-		}
-	
 
+			header("Location: question-page.php?id=". $id);
+		}	
 ?>
