@@ -9,13 +9,13 @@
 			public $countvotes;
 
 			public function __construct($aid, $authorname, $authoremail, $qid, $topic, $content, $datetime, $countvotes){
-				this->aid = $aid;
-				this->authorname = $authorname;
-				this->authoremail = $authoremail;
-				this->qid = $qid;
-				this->content = $content;
-				this->datetime = $datetime;
-				this->countvotes = $countvotes;
+				$this->aid = $aid;
+				$this->authorname = $authorname;
+				$this->authoremail = $authoremail;
+				$this->qid = $qid;
+				$this->content = $content;
+				$this->datetime = $datetime;
+				$this->countvotes = $countvotes;
 			}
 		
 		public static function all(){

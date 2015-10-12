@@ -1,8 +1,10 @@
 <?php
+	include '/models/question.php';
 	class PagesController{
 		public function home() {
-			$question = Question::all();
-			require_once('views/pages/home.php');
+			$questions = Question::all();
+			//print_r ($questions);
+			require_once('views/questions/index.php');
 		}
 		
 	}

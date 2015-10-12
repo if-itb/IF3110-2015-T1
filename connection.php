@@ -14,7 +14,7 @@
 					if(!isset(self::$instance)){
 							self::$instance = new PDO('mysql:host='.$host.';dbname='.$dbname, $user, $password);
 					}
-					return self:$instance;
+					return self::$instance;
 			}
 	}
 ?>

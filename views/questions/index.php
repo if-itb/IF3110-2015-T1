@@ -11,7 +11,7 @@
 						</div>
 
 						<div class="vote">
-								<span class="vote-count">[[countVotes]]</span>
+								<span class="vote-count">[[countvotes]]</span>
 								<span> votes</span>
 						</div>
 
@@ -19,18 +19,18 @@
 					</div>
 
 					<div class="answer-count">
-						<span class="countanswers">[[countAnswers]]</span>
+						<span class="countanswers">[[countanswers]]</span>
 						<span> answers</span>
 					</div>
 				</div>
 
 				<div class="question-item-main">
 					<div class="question-item-title">
-						<a href="/">[[title]]</a>		
+						<a href="/">[[topic]]</a>		
 					</div>
 					<span class="question-item-metadata">
 							asked by
-							<span><a href="/">[[username]]</a></span> |
+							<span><a href="/">[[authorname]]</a></span> |
 							<span><a href="/">edit</a></span> |
 							<span><a href="/">delete</a></span> |
 							[[datetime]]
@@ -40,9 +40,9 @@
 				<div class="clearfix"></div>
 			</div> <!-- END question-list-item -->
 			';
-	$strMask = array("[[qid]]","[[title]]", "[[datetime]]", "[[username]]", "[[countVotes]]", "[[countAnswers]]");
+	$strMask = array("[[qid]]", "[[authorname]]", "[[topic]]", "[[datetime]]", "[[countvotes]]", "[[countanswers]]");
 foreach($questions as $question){
-	$strTarget = array($question->qid, $question->authorname,$question->authoremail, $question->topic, $question->content, $question->datetime, $question->countvotes, $question->countanswers);
+	$strTarget = array($question->qid, $question->authorname, $question->topic, $question->datetime, $question->countvotes, $question->countanswers);
 			echo str_replace($strMask, $strTarget, $html_listQuestionItem);
 	}
 ?>
