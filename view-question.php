@@ -17,63 +17,73 @@
 	<meta charset="utf-8">
     <title>Coppeng Exchange</title>
     <link rel="stylesheet" media="screen" href="css/style.css" >
+	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<script type="text/javascript" src="js/coppeng.js"></script>
 </head>
 <body>
-	<h1>Coppeng Exchange</h1>
-	<a href = "question.php">Bertanya</a>
+	<div id = "wrapper">
+	<h1 class = "center"><a href="index.php">Coppeng Exchange</a></h1>
 	<!-- pertanyaan-->
-	<?php
-		echo '<h2>'.$row['topic'].'</h2>';
-		echo '<p>'.$row['content'].'</p>';
-		echo '<p>Ditanyakan oleh '.$row['name'].' | ';
-		echo ''.$row['email'].'</p>';
-		echo '<a href= "question.php?id='.$row['id'].'">Edit</a>';
-	?>
-	<br>
-	<div>
-		<button type="button" onclick="getVote('q',<?php echo $row['id'] ?>,1)">UP</button>
-		<p id="voteq<?php echo $row['id'];?>"><?php echo $row['vote'];?></p>
-		<button type="button" onclick="getVote('q',<?php echo $row['id'] ?>,-1)">DOWN</button>
-	</div>
-	<!-- Jawaban --> 
-	<h2><?php echo $row2['numAns']; ?> Jawaban</h2> <hr>
-	<?php
-		$query = "select * from answer where q_id = '".$q_id."' order by id";
-		$data = mysql_query($query);
-	?>
-	<?php while($row3 = mysql_fetch_array($data)): ?> 
-			<div>
-			<p> <?php $row3['content']; ?></p>
-			<p>Dijawab oleh <?php echo $row3['name']; ?> | <?php echo $row3['email']; ?> </p>
+	<div id="view-qeustion-page">
+	<div class="section">	
+		<h2><?php echo $row['topic']; ?></h2>
+		<div class="row">
+			<div class="col vote">
+				<button type="button" onclick="getVote('q',<?php echo $row['id'] ?>,1)"><i class="fa fa-arrow-up"></i></button>
+				<p class = "number" id="voteq<?php echo $row['id'];?>"><?php echo $row['vote'];?></p>
+				<button type="button" onclick="getVote('q',<?php echo $row['id'] ?>,-1)"><i class="fa fa-arrow-down"></i></button>
 			</div>
-			<div>
-				<button type="button" onclick="getVote('a',<?php echo $row3['id']; ?>,1)">UP</button>
-				<p id="votea<?php echo $row3['id'];?>"><?php echo $row3['vote'];?></p>
-				<button type="button" onclick="getVote('a',<?php echo $row3['id']; ?>,-1)">DOWN</button>
+			<div class="col content">
+				<p><?php echo htmlspecialchars($row['content']); ?></p>
+				<br>
 			</div>
-	<?php endwhile; ?>
+		</div>
+		<div class = "row info" align = "right">
+			Ditanyakan oleh <span class="name"><?php echo $row['email']; ?></span> |
+			<span class="link edit"> <a href= "question.php?id=<?php echo $row['id']; ?>">Edit</a> </span>
+			<span class="link delete"> <a href= "javascript:delete_question(<?php echo $row['id'];?>)" >Delete</a></span>
+		</div>
+		<br>
+		<!-- Jawaban --> 
+	<div class="section" id="answers">
+		<h2><?php echo $row2['numAns']; ?> Jawaban</h2> <hr>
+		<?php
+			$query = "select * from answer where q_id = '".$q_id."' order by id";
+			$data = mysql_query($query);
+		?>
+		<?php while($row3 = mysql_fetch_array($data)): ?> 
+			<div class = "row">
+				<div class = "col vote">
+					<button type="button" onclick="getVote('a',<?php echo $row3['id']; ?>,1)"><i class="fa fa-arrow-up"></i></button>
+					<p id="votea<?php echo $row3['id'];?>"><?php echo $row3['vote'];?></p>
+					<button type="button" onclick="getVote('a',<?php echo $row3['id']; ?>,-1)"><i class="fa fa-arrow-down"></i></button>
+				</div>
+				<div class = "col content">
+					<p> <?php echo htmlspecialchars($row3['content']); ?></p>
+					<br>
+				</div>
+				<div class = "row info" align = "right">
 
-	<h2>Beri jawaban :</h2><hr>
-	<form action = 'post-answer.php?id=<?php echo $q_id;?>' name = "myForm" class = 'general-form' method = 'POST' onsubmit = "return(validateAnswer());">
+					<p>Dijawab oleh <span class = "name"><?php echo $row3['email']; ?></span> </p>
+
+				</div>
+				<hr>
+			</div>
+		<?php endwhile; ?>
+	</div>
+	<div class="section" id="form-answer">
+	<h2>Beri jawaban :</h2>
+	<form class = "block" action = 'post-answer.php?id=<?php echo $q_id;?>' name = "myForm" method = 'POST' onsubmit = "return(validateAnswer());">
 		<ul>
-			<li>
 			<input type = 'text' name = 'Nama' placeholder="Nama" maxlength = '60'></input>
-			<br>
-			</li>
-			<li>
 			<input type = 'text' name = 'Email' placeholder="Email"  maxlength = '60'></input>
-			<br>
-			</li>
-			<li>
-			<textarea rows = '10' cols = '20' placeholder="Jawaban" name = 'Jawaban' ></textarea>
-			<br>
-			</li>
-			<li>
+			<textarea rows = '50' cols = '20' placeholder="Jawaban" name = 'Jawaban' ></textarea>
 			<button class = 'submit' type = 'submit' >Kirim</button>
-			</li>
 		</ul>
 	</form>
+	</div>
 	<?php mysql_close($link); ?>
+	</div>
+</div>
 </body>
 </html>

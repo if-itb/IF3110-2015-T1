@@ -36,7 +36,16 @@ function validateQuestion() {
 		document.myForm.Email.focus() ;
 		return false;
 	 }
-	 validateEmail();
+	 emailID = document.myForm.Email.value;
+	atpos = emailID.indexOf("@");
+	dotpos = emailID.lastIndexOf(".");
+
+	if (atpos < 1 || ( dotpos - atpos < 2 )) 
+	{
+		alert("Masukkan Email yang benar.")
+		document.myForm.Email.focus() ;
+		return false;
+	}
 	 if( document.myForm.Topik.value == "" )
 	 {
 		alert( "Topik tidak boleh kosong." );
@@ -66,18 +75,7 @@ function validateAnswer() {
 		document.myForm.Email.focus() ;
 		return false;
 	 }
-	 validateEmail();
-	 if( document.myForm.Jawaban.value == "" )
-	 {
-		alert( "Jawaban tidak boleh kosong." );
-		document.myForm.Jawaban.focus() ;
-		return false;
-	 }
-    return true;    
-}
-
-function validateEmail() {
-	var emailID = document.myForm.Email.value;
+	emailID = document.myForm.Email.value;
 	atpos = emailID.indexOf("@");
 	dotpos = emailID.lastIndexOf(".");
 
@@ -87,4 +85,11 @@ function validateEmail() {
 		document.myForm.Email.focus() ;
 		return false;
 	}
+	 if( document.myForm.Jawaban.value == "" )
+	 {
+		alert( "Jawaban tidak boleh kosong." );
+		document.myForm.Jawaban.focus() ;
+		return false;
+	 }
+    return true;    
 }
