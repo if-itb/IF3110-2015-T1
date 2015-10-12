@@ -1,4 +1,6 @@
+<script type="text/javascript" src="delete.js"></script>
 <?php
+
 function listQuestion($key){
 	$servername = "localhost";
 	$username = "root";
@@ -16,7 +18,7 @@ function listQuestion($key){
 	}else{
 		$sql = "SELECT ID_Question, Topic, Content, Vote, Author, Date FROM question WHERE Topic LIKE '%".$key."%' OR Content LIKE '%".$key."%' ORDER BY Date DESC";
 	}
-	
+
 	$result = mysqli_query($conn, $sql);
 	
 	if (mysqli_num_rows($result) > 0) {
@@ -46,7 +48,7 @@ function listQuestion($key){
 					echo   $text . "</a>";
 				echo "</div>";			
 				echo '<div class= "modif-question">';
-					echo "asked by $row[Author] | <a href='AskHere.php?id=$row[ID_Question]' id='y'> edit </a> | <a id='r' href='delete_question.php?id=$row[ID_Question]'>delete</a>";
+					echo "asked by $row[Author] | <a href='AskHere.php?id=$row[ID_Question]' id='y'> edit </a> | <a id='r' href='javascript:deletePost(\"delete_question.php?id=$row[ID_Question]\")'>delete</a>";
 				echo "</div>";	
 			echo "</div>";
 

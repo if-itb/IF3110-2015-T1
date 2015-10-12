@@ -17,6 +17,9 @@ input {
 	border: 2px solid ;
 	margin: 2px;
 }
+.resAnswer{
+	min-height: 60px;
+}
 input.button{
 	float:right;
 	width: 15%;
