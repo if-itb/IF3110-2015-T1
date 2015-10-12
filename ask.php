@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
   <title>Edit Question</title>
   <meta charset="UTF-8">
