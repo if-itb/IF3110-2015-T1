@@ -1,17 +1,31 @@
 #title {
 	text-align:center;
-	color: #4585d9;
-	font-family: 'Poiret One', cursive;
+	color: #296ac7;
+	font-family: 'Tangerine', cursive;
+	font-weight: 400;
+	font-size: 64px;
+
+	margin: 5px;
+	padding: 0px;
 }
 
 body > div {
-	width: 80%;
 	text-align: center;
-	margin: auto;
 	font-family: 'Roboto', sans-serif;
+
+	width: 80%;
+	margin: auto;
 }
 
 a {
-	color: #eb8900;
+	color: #dc6914;
 	text-decoration: none;
+}
+
+a:hover {
+	color: #ffb374;
+}
+
+h1.headline {
+	
 }

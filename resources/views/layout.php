@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link href='https://fonts.googleapis.com/css?family=Poiret+One|Roboto' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Tangerine|Roboto' rel='stylesheet' type='text/css'>
 		<?= $metas ?>
 		<?= $styles ?>
 		<?= $scripts ?>
@@ -14,6 +14,7 @@
 			</div>
 			<?= $search ?>
 			<div class="content">
+				<h2 class="card"><?= $headline; ?></h2>
 				<?= $content ?>
 			</div>
 			<div class="footer"></div>

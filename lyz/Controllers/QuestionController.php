@@ -9,13 +9,22 @@ class QuestionController {
 		$content = null;
 		
 		$questions = Question::all();
+		if (!empty($questions)) {
+			$content = '';
+			foreach ($questions as $question) {
+				$view = new View('questions/card');
+				$view = $view->params();
+				$content .= (string)$view;
+			}
+		}
 
 
 		$view = new View('layout');
 		$view = $view->params([
 			'title' => 'Asklyz',
 			'search' => (string)$search_content,
-			'content' => (string)$content
+			'content' => (string)$content,
+			'headline' => 'Recently Asked Questions'
 		])->styles(['layout', 'search']);
 		return $view;
 	}
@@ -26,7 +35,8 @@ class QuestionController {
 
 		$view = $view->params([ 
 			'title' => 'Asklyz',
-			'content' => (string)$content
+			'content' => (string)$content,
+			'header' => 'What\'s your question?'
 			])->scripts(['test'])->styles(['layout']);
 
 		return $view;
