@@ -1,0 +1,88 @@
+/*Buat template general */
+
+body {
+    background-color: #d0e4fe;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+	
+p {
+    font-family: "Times New Roman";
+    font-size: 20px;
+}
+
+p1{
+	margin-left: 17%;
+}
+
+p2{
+	font-size: 28px;
+}
+
+input {
+	margin : 2px;
+	border : 1px solid;
+}
+
+textarea {
+	margin : 2px;
+	border : 1px solid;
+}
+
+/* Table */
+td {
+	border-top :  2px solid black;
+	padding-top : 25px;
+	padding-left : 5px;
+	padding-right : 5px;
+	padding-bottom : 25px;
+	max-width : 550px;
+	word-wrap : break-word;
+}
+
+table{
+	min-width : 600px;
+	max-width : 600px;
+}
+
+/* Align */
+.center {
+	text-align : center;
+	margin-left : auto;
+	margin-right : auto;
+	width : 50%;
+}
+
+.left{
+	text-align : left;
+}
+
+.right {
+	text-align : right;
+}
+
+
+/* Buat template link */
+a:link {
+    color: orange;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color: red;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: blue;
+    background-color: transparent;
+    text-decoration: underline;
+}
+a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}
