@@ -35,7 +35,7 @@
 					$email = mysql_result($result, $i, "email");
 					$topic = mysql_result($result, $i, "topic");
 					$content = mysql_result($result, $i, "content");
-					$vote = mysql_result($result, $i, "vote");
+					$vote_question = mysql_result($result, $i, "vote_question");
 			?>
 			<div class="question-description">
 				<!--div class="votes-answers"-->

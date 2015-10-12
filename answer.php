@@ -29,7 +29,7 @@
 				$email = mysql_result($result, 0, "email");
 				$topic = mysql_result($result, 0, "topic");
 				$content = mysql_result($result, 0, "content");
-				$vote = mysql_result($result, 0, "vote");
+				$vote_question = mysql_result($result, 0, "vote_question");
 				$date_question = mysql_result($result, 0, "date_question");
 			?>
 			<div class="QA-content">
@@ -48,7 +48,7 @@
 		<h2 class="answer-h2">1 Answer</h2>
 		<hr>
 		<?php
-			$query = "SELECT * FROM answer WHERE (answer_id = $quest_id) ";
+			$query = "SELECT * FROM answer WHERE (question_id = $quest_id)";
 			$result = mysql_query($query);
 			$num = mysql_num_rows($result);
 			$i = 0;
@@ -56,7 +56,7 @@
 				$name = mysql_result($result, $i, "name");
 				$email = mysql_result($result, $i, "email");
 				$content = mysql_result($result, $i, "content");
-				$vote = mysql_result($result, $i, "vote");
+				$vote_answer = mysql_result($result, $i, "vote_answer");
 				$date_answer = mysql_result($result, $i, "date_answer");
 		?>
 		<div class="answer">
