@@ -29,11 +29,25 @@
             echo $question['question_id'] . "<br>";
             echo $question['name'] . "<br>";
             echo $question['email'] . "<br>";
-            echo $question['topic'] . "<br>";
+        ?>
+        <a href="question.php?id=<?php echo $question['question_id'] ?>">
+            <?php echo $question['topic'] . "<br>" ?>
+	</a>
+        <?php  
             echo $question['content'] . "<br>";
             echo $question['vote'] . "<br>";
             echo $question['time'] . "<br>";
-        endforeach; ?>
+        ?>
+        <a href="ask.php?id=<?php echo $question['question_id'] ?>">
+            Edit | 
+	</a>
+        <a href="delete.php?id=<?php echo $question['question_id'] ?>">
+            Delete
+        </a>
+        <br><br>
+        <?php
+        endforeach; 
+        ?>
         
     </body>
 </html>
