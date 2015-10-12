@@ -27,6 +27,26 @@ function validateQuestionForm(formName) {
     }
 }
 
+function validateAnswerForm(formName) {
+    if (validateField(formName,'Name')) {
+        if (validateField(formName,'Email')) {
+            if (validateEmail(formName,'Email')) {
+                if (validateField(formName,'Content')) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
+
 function validateField(formName,fieldName) {
     var x = document.forms[formName][fieldName].value;
     if (x == null || x == "") {
