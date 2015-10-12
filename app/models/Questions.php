@@ -23,12 +23,26 @@ class Questions {
         }
     }
 
-    public function add() {
+    public function add($data) {
+        $name       = $data['name'];
+        $email      = $data['email'];
+        $topic      = $data['topic'];
+        $content    = $data['content'];
 
+        $query = "INSERT INTO questions (name, email, topic, content) VALUES ('$name', '$email', '$topic', '$content')";
+        $this->db->query($query);
     }
 
-    public function edit() {
+    public function edit($data) {
+        $id_question    = $data['id_question'];
+        $name           = $data['name'];
+        $email          = $data['email'];
+        $topic          = $data['topic'];
+        $content        = $data['content'];
 
+
+        $query = "UPDATE questions SET name='$name', email='$email', topic='$topic', content='$content' WHERE id_question = $id_question";
+        $this->db->query($query);
     }
 
     public function delete() {
