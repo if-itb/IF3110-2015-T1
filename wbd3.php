@@ -162,7 +162,7 @@ function downvoteans(int) {
 	</div>
 	<p id="judulbesar">Your Answer</p>
 	<?php
-	echo '<form name:"Answer" action="wbd3.php?id='.$_GET['id'].'" method="post">';
+	echo '<form name:"Answer" action="wbd3.php?id='.$_GET['id'].'" method="post" onsubmit="return validateAnswerForm()">';
 	?>
 	<input type="text" id="textbox" name="AnswerName" placeholder=" Name" >
 	<input type="text" id="textbox" name="AnswerEmail" placeholder=" Email">
