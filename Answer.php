@@ -3,6 +3,7 @@
 <head>
 	<title>Answer</title>
 	<link href="style.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="delete.js"></script>
 	<script>
 			function validateEmail(email) {
 				var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
@@ -30,6 +31,41 @@
 					return false;
 				}
 			}
+			function voteQuestion(id, flag){
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+					if (xhttp.readyState == 4 && xhttp.status == 200) {
+						document.getElementById("question-"+id ).innerHTML = xhttp.responseText;
+					}
+				}
+				xhttp.open("POST", "vote.php", true);
+				xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				//vote-up
+				if(flag==0){
+					xhttp.send("type=question&id="+id+"&flag="+flag);
+				}//vote-down
+				else{
+					xhttp.send("type=question&id="+id+"&flag="+flag);
+				}
+			}
+			function voteAnswer(id, flag){
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+					if (xhttp.readyState == 4 && xhttp.status == 200) {
+						document.getElementById("answer-"+id ).innerHTML = xhttp.responseText;
+					}
+				}
+				xhttp.open("POST", "vote.php", true);
+				xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				//vote-up
+				if(flag==0){
+					xhttp.send("type=answer&id="+id+"&flag="+flag);
+				}//vote-down
+				else{
+					xhttp.send("type=answer&id="+id+"&flag="+flag);
+				}
+			}
+			
 	</script>
 </head>
 <body>
@@ -51,16 +87,16 @@
 				// output data of each row
 				while($row = mysqli_fetch_assoc($result)) {
 				echo '<div class="kotak">';
-						echo "<img class='arrow' src='triangle-up.png'  >";
-						echo "<br><br>" . $row["Vote"] ."<br><br>";	
-						echo "<img class='arrow' id='down' src='triangle-up.png'  >";
+						echo "<img class='arrow' href='#' src='triangle-up.png' onclick='voteQuestion($id_Question,0)' >";
+						echo "<br><br><span id='question-". $id_Question ."'>" . $row["Vote"] ."</span><br><br>";	
+						echo "<img class='arrow' id='down' href='#' src='triangle-up.png' onclick='voteQuestion($id_Question,1)'   >";
 				echo '</div>';
 				echo '<div class= "question-box">';
 					echo '<div class= "resQuestion">';
 						echo "" . $row["Content"];
 					echo "</div>";
-					echo '<div class= "infoQuestion">';
-						echo " asked by " . $row["Email"]. " at " . $row["Date"] . "|<a href='AskHere.php?id=".$id_Question."' id='y'> edit </a> |<a id='r' href='delete_question.php?id=".$id_Question."'> delete </a>|";
+					echo '<div class= "infoQuestion">';																										
+						echo " asked by " . $row["Email"]. " at " . $row["Date"] . "|<a href='AskHere.php?id=".$id_Question."' id='y'> edit </a> |<a id='r'  href='javascript:deletePost(\"delete_question.php?id=$id_Question\")'>delete</a>|";
 					echo "</div>";
 				echo "</div>";
 			}
@@ -90,16 +126,16 @@
 			echo "</div>";
 			
 					
-			$sql = "SELECT Content, Vote, Email, Date FROM answer WHERE ID_Question ='$id_Question' ORDER BY date";
+			$sql = "SELECT ID_Answer, Content, Vote, Email, Date FROM answer WHERE ID_Question ='$id_Question' ORDER BY date";
 			$result = mysqli_query($conn, $sql);
 			if (mysqli_num_rows($result) > 0) {
 				// output data of each row
 				while($row = mysqli_fetch_assoc($result)) {
 				echo '<div class="content">';
 					echo '<div class="kotak">';
-						echo "<img class='arrow' src='triangle-up.png'  >";
-						echo "<br><br>" . $row["Vote"] ."<br><br>";	
-						echo "<img class='arrow' id='down' src='triangle-up.png'  >";
+						echo "<img class='arrow' href='#' src='triangle-up.png' onclick='voteAnswer(". $row["ID_Answer"] .",0)' >";
+						echo "<br><br><span id='answer-". $row["ID_Answer"] ."'>" . $row["Vote"] ."</span><br><br>";	
+						echo "<img class='arrow' href='#' id='down' src='triangle-up.png' onclick='voteAnswer(". $row["ID_Answer"] .",1)' >";
 					echo '</div>';
 				
 					echo '<div class= "container-answer">';

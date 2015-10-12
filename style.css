@@ -141,9 +141,10 @@ form.search-box > input[type="submit"]{
 .modif-question{
 	padding-top:7%;
 	padding-bottom:1%;
+	
 	/*padding:5px;*/
 	width:29%;
-	float: left;
+	float: right;
 }
 a {
 		text-decoration:none;
@@ -162,11 +163,14 @@ a:visited {
 a:hover {
     color: black;
 }
-
+.arrow:hover{
+	cursor:pointer;
+}
 /* selected link */
 a:active {
     color: black;
 }
+
 .arrow {
 	width:24px;
 	height:20px;'
