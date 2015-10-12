@@ -16,6 +16,11 @@ a#a2 {
 	color: #ffd000;
 }
 
+a#a3 {
+	text-decoration: none;
+	color: black;
+}
+
 p#p1 {
 	text-align: center;
 }
@@ -68,7 +73,7 @@ div#div5 {
 div#idx_vote {
 	float: left;
 	position: relative;
-	top: 5px;
+	top: 10px;
 	text-align: center;
 	width: 10%;
 }
@@ -76,7 +81,7 @@ div#idx_vote {
 div#idx_answer {
 	float: left;
 	position: relative;
-	top: 5px;
+	top: 10px;
 	text-align: center;
 	width: 10%;
 }
@@ -88,7 +93,10 @@ div#idx_title {
 }
 
 div#idx_content {
-	
+	width: 80%;
+	position: relative;
+	float: right;
+	text-align: left;
 }
 
 div#ask_box {
@@ -102,6 +110,47 @@ div#ask_box {
 
 div#ask_submit {
 	text-align: right; 
+}
+
+div#question_title {
+	position: relative;
+	font-weight: bold;
+	font-size: 30px;
+	border-bottom: 2px solid black;
+}
+
+div#question_content {
+	width: 90%;
+	position: relative;
+	float: right;
+	text-align: left;
+}
+
+div#question_box {
+	width: 700px;
+	padding-left: 230px;
+	padding-right: 230px;
+	margin-left: 100px;
+	margin-right: 100px;
+	text-align: center;
+}
+
+div#question_submit {
+	text-align: right; 
+}
+
+div#YourAnswer {
+	text-align: left;
+	padding-left: 20px;
+	font-size: 30px;
+	color: grey;
+}
+
+div#AnswerCount {
+	text-align: left;
+	padding-left: 20px;
+	font-size: 30px;
+	color: black;
 }
 
 span#idx_name {
