@@ -52,7 +52,7 @@
 					<div class="id-question">
 						<p> asked by <span class="name"><?php echo $row["Nama"] ?></span> | 
 							<span class="edit"> <a href="ask.php"> edit </a> </span> | 
-							<span class="delete"> <a href="ask.php"> delete </a> </span> 
+							<span class="delete"> <a href="delete.php?ID=<?php echo $row["ID"] ?>"> delete </a> </span> 
 						</p>
 					</div>
 				</div>

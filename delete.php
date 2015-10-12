@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add Answer</title>
+	<title>Delete</title>
 	<meta http-equiv="refresh" content="0; URL='home.php'">
 </head>
 <body>
@@ -10,10 +10,7 @@
 		$username = "root";
 		$password = "";
 		$dbname = "wbd";
-		$name = $_POST["nama"];
-		$email = $_POST["email"];
-		$qid = $_POST["q_id"];
-		$content = $_POST["konten"];
+		$id = $_GET["ID"];
 
 		// Create connection
 		$conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -22,18 +19,17 @@
 		    die("Connection failed: " . mysqli_connect_error());
 		}
 
-		$sql = "INSERT INTO jawaban (Pertanyaan_ID, Nama, Email, Konten)
-		VALUES ('$qid', '$name', '$email', '$content')";
+		$delete_question = "DELETE FROM pertanyaan WHERE ID='$id'";
 
-		if (mysqli_query($conn, $sql)) {
+		if (mysqli_query($conn, $delete_question)) {
 		    //"New record created successfully";
 		} else {
 		    //"Error: " . $sql . "<br>" . mysqli_error($conn);
 		}
 
-		$addAnswer = "UPDATE pertanyaan SET Jmlh_Jawaban = Jmlh_Jawaban+1 WHERE ID = '$qid'";
+		$delete_answer = "DELETE FROM jawaban WHERE Pertanyaan_ID='$id'";
 
-		if (mysqli_query($conn, $addAnswer)) {
+		if (mysqli_query($conn, $delete_answer)) {
 		    //"New record created successfully";
 		} else {
 		    //"Error: " . $sql . "<br>" . mysqli_error($conn);

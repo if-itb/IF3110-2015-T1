@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Ask</title>
+	<title>Add Question</title>
 	<meta http-equiv="refresh" content="0; URL='home.php'">
 </head>
 <body>
