@@ -3,40 +3,51 @@
 use Lyz\Database\DB;
 
 class BaseModel {
-	protected static $table = 'default';
-
 	protected static $query = [
-		'table' => null,
+		'table' => 'default',
 		'where' => null
 	];
 
+	public static function all() {
+		$results = DB::query('select * from ' . static::$table);
+		return static::makeModel($results);
+	}
 	public static function where($column, $operator, $value) {
-		if (!$isset($query['where'])) {
-			$query['where'] = ' where ';
+		if (!$isset(static::$query['where'])) {
+			static::$query['where'] = ' where (';
 		}
 		else {
-			$query['where'] .= ' and ';
+			static::$query['where'] .= ' and ';
 		}
-		$query['where'] .= $column . ' ' . $operator . ' ' . $value;
+		static::$query['where'] .= $column . ' ' . $operator . ' ' . $value . ')';
 		return $this;
 	}
 
 	public static function get() {
-		$q_results = DB::query($this->query);
-		$results = [];
+		$results = DB::query(static::$query);
+		static::resetQuery();
+		return static::makeModel($results);
+	}
+
+	private static function makeModel($results) {
+		$models = [];
 		if (is_array($results)) {
 			foreach ($results as $result) {
-				$model = new BaseModel();
+				$class_name = get_called_class();
+				$model = new $class_name();
 				foreach ($result as $key => $value) {
 					$model->$key = $value;
 				}
+				array_push($models, $model);
 			}
-			array_push($results, $model);
+			return $models;
 		}
 		else {
-			$results = $q_results;
+			return $results;
 		}
-		$query = [ 'table' => null, 'where' => null ];
-		return $results;
+	}
+
+	private function resetQuery() {
+		static::$query = [ 'table' => static::$table, 'where' => null ];
 	}
 }

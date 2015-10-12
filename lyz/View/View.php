@@ -58,7 +58,6 @@ class View {
 			include $file;
 		}
 		$this->content = ob_get_clean();
-		ob_end_clean();
 
 		return $this->content;
 	}

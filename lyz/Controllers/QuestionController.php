@@ -1,12 +1,15 @@
 <?php namespace Lyz\Controllers;
 
 use Lyz\View\View;
+use Lyz\Model\Question;
 
 class QuestionController {
 	public function index() {
 		$search_content = new View('questions/search');
 		$content = null;
 		
+		$questions = Question::all();
+
 
 		$view = new View('layout');
 		$view = $view->params([

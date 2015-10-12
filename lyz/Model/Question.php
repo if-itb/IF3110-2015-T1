@@ -1,4 +1,7 @@
-<?php
+<?php namespace Lyz\Model;
 
-class Question {
+use Lyz\Model\BaseModel;
+
+class Question extends BaseModel {
+	protected static $table = 'questions';
 }
