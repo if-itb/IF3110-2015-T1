@@ -19,7 +19,7 @@
         $query = "SELECT * FROM question WHERE id='" . $mysqli->real_escape_string($_GET["id"]) . "'";
         $question_result = $mysqli->query($query);
         if (!$question_result->num_rows) {
-            header("Location: ". $_SERVER["HTTP_REFERER"]);
+            header("Location: index.php");
             die();
         }
         $question_row = $question_result->fetch_assoc();
@@ -32,7 +32,7 @@
         $answer_count = count($answer_rows);
     }
     else {
-        header("Location: ". $_SERVER["HTTP_REFERER"]);
+        header("Location: index.php");
         die();
     }
 ?>

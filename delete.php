@@ -7,7 +7,7 @@
         $mysqli->query($query);
         $query = "DELETE FROM answer WHERE id_question='$id'";
         $mysqli->query($query);
-        header("Location: ". $_SERVER["HTTP_REFERER"]);
-        die();
     }
+    header("Location: index.php");
+    die();
 ?>
