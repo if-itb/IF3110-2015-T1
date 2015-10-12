@@ -104,7 +104,7 @@ width:100%;
 .question-item-topic{
 	color: #000000;
 }
-.question-asked	{
+.question-asked, .answer-answered{
 	text-align:right;
 }
 .error{
@@ -120,4 +120,8 @@ width:100%;
 table{
 
 	width:100%;
+}
+
+.question-item-delete, .vote{
+	cursor: pointer; cursor: hand;
 }
