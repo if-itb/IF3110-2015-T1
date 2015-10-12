@@ -132,7 +132,14 @@
 			<a href="home.php"><h1>Simple StackExchange</h1></a>
 			<div class="content">
 				<h2><?php echo $topic?></h2>
-				<p><?php echo $content?></p>
+				<div class="voting">
+					<div class="arrow-up"></div>
+						<p><?php echo $vote?></p>
+					<div class="arrow-down"></div>
+				</div>
+				<div class="answer-content">
+					<p><?php echo $content?></p>
+				</div>
 				<div class="question-sign">
 					<p>asked by <font color="#008080"><?php echo $name?></font> | <a class="edit" href=<?=$edit ?>>edit</a> |
 						<a class="delete" href=<?=$delete ?> onClick="return confirm('Are you sure you want to delete this question?')">delete</a></p>
@@ -155,7 +162,7 @@
 					    		echo "<h2 style=\"margin-bottom:0px;\">No Answer</h2>";
 					    }
 					} else {
-					    echo "0 results";
+					    echo "O results";
 					}
 				
 					$listq = "SELECT id_ans, name_ans, content_ans, vote_ans FROM answer WHERE id=$id";
@@ -166,7 +173,14 @@
 					    while($row = $result->fetch_assoc()) {
 								echo
 								"<div class=\"answer-list\">
-									<p>".$row["content_ans"]."</p>
+									<div class=\"voting\">
+										<div class=\"arrow-up\"></div>
+										<p>".$row["vote_ans"]."</p>
+										<div class=\"arrow-down\"></div>
+									</div>
+									<div class=\"answer-content\">
+										<p>".$row["content_ans"]."</p>
+									</div>
 									<div class=\"question-sign\">
 										<p>answered by <font color=\"#008080\">".$row["name_ans"]."</font></p>
 									</div>
@@ -175,7 +189,7 @@
 
 					    }
 					} else {
-					    echo "0 results";
+					    echo "<div class=\"content\">Be the first to answer!</div>";
 					}
 
 					$conn->close();

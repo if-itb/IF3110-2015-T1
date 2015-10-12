@@ -57,7 +57,9 @@
 								<span id=\"answer\">". $row["count_ans"]."<br>Answers</span>
 								<span id=\"question-content\">
 									<a href=".$url."><p id=\"question-title\">".$row["topic"]."</p></a>
-									<p id=\"question-description\">".$row["content"]."</p>
+									<p id=\"question-description\">".substr($row["content"],0,165);
+						if (strlen($row["content"])>165) echo "...";
+						echo"</p>
 								</span>
 						</div>
 						<div class=\"question-sign\">
@@ -68,7 +70,7 @@
 
 			    }
 			} else {
-			    echo "0 results";
+			    echo "<div class=\"content\">Be the first to ask a question!</div>";
 			}
 
 			$conn->close();
