@@ -21,19 +21,35 @@ function connectDB(){
 /* QUESTION */
 
 function isQuestionExist($id){
-	$con = connectDB();
-	$tbl_question = $GLOBALS['tbl_question'];
-	$result = mysqli_query($con,"SELECT * FROM $tbl_question WHERE id = '$id'");
-	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-	return is_array($row);
+	if(is_numeric($id)){
+		$con = connectDB();
+		$tbl_question = $GLOBALS['tbl_question'];
+		$result = mysqli_query($con,"SELECT * FROM $tbl_question WHERE id = '$id'");
+		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+		return is_array($row);
+	} else {
+		return false;
+	}
 }
 
 function getQuestionRow($id){
+	if(is_numeric($id)){
+		$con = connectDB();
+		$tbl_question = $GLOBALS['tbl_question'];
+		$result = mysqli_query($con,"SELECT * FROM $tbl_question WHERE id = '$id'");
+		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+		return $row;
+	}
+}
+
+function getAllQuestions(){
 	$con = connectDB();
 	$tbl_question = $GLOBALS['tbl_question'];
-	$result = mysqli_query($con,"SELECT * FROM $tbl_question WHERE id = '$id'");
-	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-	return $row;
+	
+	$sql = "SELECT * FROM $tbl_question";
+	$result = $con->query($sql);	
+	
+	return $result;
 }
 
 /* VALIDATION & POST */
@@ -102,7 +118,7 @@ function postQuestion($type,$name,$email,$topic,$content,$id=NULL){
 	return $error;
 }
 
-function postAnswer($name,$email,$content){
+function postAnswer($id,$name,$email,$content){
 	$error = "";
 		
 	$error .= validateName($name);
@@ -114,8 +130,8 @@ function postAnswer($name,$email,$content){
 	if($valid){
 		$con = connectDB();
 		$tbl_answer = $GLOBALS['tbl_answer'];		
-		$stmt = $con->prepare("INSERT INTO $tbl_answer(name,email,content,create_date,update_date) VALUES (?,?,?,NOW(),NOW())");
-		$stmt->bind_param('ssss',$name,$email,$topic,$content);
+		$stmt = $con->prepare("INSERT INTO $tbl_answer(name,email,content,question_id,create_date,update_date) VALUES (?,?,?,?,NOW(),NOW())");
+		$stmt->bind_param('sssd',$name,$email,$content,$id);
 		$stmt->execute();
 		$stmt->close();
 	}
@@ -127,17 +143,23 @@ function postAnswer($name,$email,$content){
 function getVoteNumber($type,$id){	
 	$con = connectDB();
 	if(strcmp($type,'q') == 0){
+	
 		$tbl_question = $GLOBALS['tbl_question'];
-		$sql = "SELECT * FROM $tbl_question WHERE id=$id";
-		$result = mysqli_query($con,$sql);
-		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-		return $row["votes"];
+		$sql = "SELECT votes FROM $tbl_question WHERE id=?";
+		
 	} else {
 		$tbl_answer = $GLOBALS['tbl_answer'];
-		$sql = "SELECT * FROM $tbl_answer WHERE id=$id";
-		$result = mysqli_query($con,$sql);
-		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-		return $row["votes"];
+		$sql = "SELECT votes FROM $tbl_answer WHERE id=?";
+	}
+	$stmt = $con->prepare($sql);
+	$stmt->bind_param('d',$id);
+	$stmt->execute();
+	$stmt->store_result();	
+	$stmt->bind_result($votes);
+	
+	if($stmt->num_rows == 1){
+		$row = $stmt->fetch();
+		return $votes; 
 	}
 }
 
@@ -151,7 +173,7 @@ function vote($type,$n,$id){
 	} else if(strcmp($type,'a') == 0){
 		$tbl = $tbl_answer;
 	}
-	if(isQuestionExist($id)) {
+	if((($type = 'q') && (isQuestionExist($id))) || (($type = 'a') && (isAnswerExist($id)))) {
 		$stmt = $con->prepare("UPDATE $tbl SET votes=votes+$n WHERE id=?");
 		$stmt->bind_param('d',$id);
 		$stmt->execute();
@@ -181,18 +203,34 @@ if(isset($_GET['f'])){
 /* FETCH ANSWER */
 
 function getAnswers($id){
-	$con = connectDB();
-	$tbl_answer = $GLOBALS['tbl_answer'];
-	if(isQuestionExist($id)) {
-		$sql = "SELECT * FROM $tbl_answer WHERE question_id=$id";
-		$result = $con->query($sql);	
+	if(is_numeric($id)){
+		$con = connectDB();
+		$tbl_answer = $GLOBALS['tbl_answer'];
+		if(isQuestionExist($id)) {
+			$sql = "SELECT * FROM $tbl_answer WHERE question_id=$id";
+			$result = $con->query($sql);	
+		}
+		return $result;
 	}
-	return $result;
+}
+
+function isAnswerExist($id){
+	if(is_numeric($id)){
+		$con = connectDB();
+		$tbl_answer = $GLOBALS['tbl_answer'];
+		$result = mysqli_query($con,"SELECT * FROM $tbl_answer WHERE id = '$id'");
+		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+		return is_array($row);
+	} else {
+		return false;
+	}
 }
 
 function countAnswers($id){
-	$result = getAnswers($id);
-	return $result->num_rows;
+	if(is_numeric($id)){
+		$result = getAnswers($id);
+		return $result->num_rows;
+	}
 }
 
 /* DELETE QUESTION */
@@ -219,13 +257,19 @@ if(isset($_GET['del'])){
 /* SEARCH */
 
 function search($keyword){
+	$keyword = "%".$keyword."%";
 	$con = connectDB();
 	$tbl_question = $GLOBALS['tbl_question'];
 	
-	$sql = "SELECT * FROM $tbl_question WHERE (content LIKE '%$keyword%' or topic LIKE '%keyword%')";
-	$result = $con->query($sql);	
+	$sql = "SELECT * FROM $tbl_question WHERE (content LIKE ? OR topic LIKE ?)";
+	$stmt = $con->prepare($sql);
+	$stmt->bind_param('ss',$keyword,$keyword);
+	$stmt->execute();
+	$stmt->store_result();	
+	$num_of_rows = $stmt->num_rows;
 	
-	return $result;
+	
+	return $stmt;
 }
 
 
