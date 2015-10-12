@@ -3,6 +3,7 @@
 	<title>Simple StackExchange</title>
 	<link rel="stylesheet" href="css/main.css">
 	<script src="js/validate.js"></script>
+	<script src="js/vote.js"></script>
 </head>
 
 <body>
@@ -35,9 +36,9 @@ if (mysqli_num_rows($resultQ)>0) {
 <table>
 	<tr>
 		<td class="VotesQA">
-			<a href="vote.php?QID=<?php echo $row["qid"] ?>&QA=q&UpDown=up"><img src="img/vote-up.png"></a><br>
-			<div id="Votes"><?php echo $row["votes"]?></div><br>
-			<a href="vote.php?QID=<?php echo $row["qid"] ?>&QA=q&UpDown=down"><img src="img/vote-down.png"></a>
+			<a onclick="VotesQUp(<?php echo $row["qid"] ?>,0)"><img src="img/vote-up.png"></a><br>
+			<div id="VotesQ"><?php echo $row["votes"]?></div>
+			<a onclick="VotesQDown(<?php echo $row["qid"] ?>,0)"><img src="img/vote-down.png"></a>
 		</td>
 		<td>
 			<?php echo $row["content"]?>
@@ -62,7 +63,7 @@ if (mysqli_num_rows($resultQ)>0) {
 	
 }
 
-$sqlA = "SELECT AID,nama,email,content,votes,datetime FROM answer WHERE qid='$qid'";
+$sqlA = "SELECT aid,nama,email,content,votes,datetime FROM answer WHERE qid='$qid' ORDER BY votes DESC";
 $sqlVotes = "SELECT count(*) FROM answer WHERE qid='$qid'";
 $resultA = mysqli_query($conn,$sqlA);
 $resultVotes = mysqli_query($conn,$sqlVotes);
@@ -86,9 +87,9 @@ if (mysqli_num_rows($resultA)>0) {
 <table>
 	<tr>
 		<td class="VotesQA">
-			<a href="vote.php?AID=<?php echo $row["AID"] ?>&QA=a&UpDown=up"><img src="img/vote-up.png"></a><br>
-			<?php echo $row["votes"] ?><br>
-			<a href="vote.php?AID=<?php echo $row["AID"] ?>&QA=a&UpDown=down"><img src="img/vote-down.png">
+			<a onclick="VotesAUp(0,<?php echo $row["aid"] ?>)"><img src="img/vote-up.png"></a><br>
+			<div id="<?php echo $row["aid"] ?>"><?php echo $row["votes"] ?></div>
+			<a onclick="VotesADown(0,<?php echo $row["aid"] ?>)"><img src="img/vote-down.png"></a>
 		</td>
 		<td>
 			<?php echo $row["content"]?>
