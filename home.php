@@ -11,6 +11,12 @@
 	<h1 align="center">Simple StackExchange</h1>
 	<br>
 	<br>
+	<div class="search" align="center">
+		<form action="home.php" class="searchform" method="GET">
+			<input type="text" id="search" name="search">
+	        <input type="submit" id="submit" name="searchbutton" value="Search">
+		</form>
+	</div>
 	<h3 id="ask_here">Cannot find what you are looking for? <a href="create.php">Ask here</a></h3>
 	<br>
 	<h3 id="recent">Recently Asked Questions</h3>
@@ -49,7 +55,14 @@
 			)";
 			mysql_query($answer);
 		}
-		$sql = "SELECT * FROM question";
+
+		if (isset($_GET['search']) && !is_null($_GET['search'])) {
+			$search = $_GET['search'];
+			$sql = "SELECT * from question WHERE topic LIKE '%$search%' OR content LIKE '%$search%'";
+		}
+		else
+			$sql = "SELECT * FROM question";
+		
 		$result = mysql_query($sql);
 	?>
 
