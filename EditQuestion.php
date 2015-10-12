@@ -3,6 +3,7 @@
 	<head>
 		<title>Stack Exchange</title>
 		<link rel="StyleSheet" href="style.css" type="text/css">
+		<script src="Functions.js"></script>
 	</head>
 	<body>
 		<?php
@@ -34,7 +35,7 @@
 		<div class="container">
 			<h1>Simple StackExchange</h1><br>
 			<h2>What's your question? </h2><br>
-			<form action="UpdateQuestion.php" method="POST">
+			<form name="QuestionForm" action="UpdateQuestion.php" onsubmit="return validateQuestionForm()" method="POST">
 				<input type="hidden" name="questionID" value="<?php echo $id; ?>" />
 				<input type="text" name="name" id="inputtext1" value="<?php echo $name; ?>"><br>
 				<input type="text" name="email" id="inputtext1" value="<?php echo $email; ?>"><br>

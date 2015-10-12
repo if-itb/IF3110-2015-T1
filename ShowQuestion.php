@@ -3,6 +3,7 @@
 	<head>
 		<title>Page Title</title>
 		<link rel="StyleSheet" href="style.css" type="text/css">
+		<script src="Functions.js"></script>
 	</head>
 	<body>
 
@@ -92,7 +93,7 @@
 			?>
 
 			<br><p style="font-size:30px; margin:0; color:grey"> Your Answer </p>
-			<form action="AddAnswer.php" method="POST">
+			<form name="AnswerForm" action="AddAnswer.php" onsubmit="return validateAnswerForm()" method="POST">
 				<input type="text" name="name" id="inputtext1" placeholder="Name"><br>
 				<input type="text" name="email" id="inputtext1" placeholder="Email"><br>
 				<textarea name="content" id="content" placeholder="Content"></textarea><br><br>
