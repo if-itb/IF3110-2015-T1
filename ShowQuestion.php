@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Page Title</title>
+		<title>Stack Exchange</title>
 		<link rel="StyleSheet" href="style.css" type="text/css">
 		<script src="Functions.js"></script>
 	</head>
@@ -33,6 +33,7 @@
 				$content = $row["content"];
 				$vote = $row["vote"];
 				$answers = $row["answers"];
+				$date = $row["date"];
 			}
 
 			// Close connection
@@ -40,21 +41,21 @@
 		?>
 
 		<div class="container">
-			<h1>Simple StackExchange</h1><br>
+			<h1><a href="/stackExchange/index.php">Simple StackExchange</a></h1><br>
 			<h2><?php echo $topic ?></h2><br>
 			<table>
 				<tr>
 					<td style="width:15%; text-align:center">
-						<img src="up.png" style="width:20px;height:20px;"><br>
+						<img src="up.png"><br>
 				    	<p style="font-size:40px; margin:0; color:lightgrey"> <?php echo $vote ?> </p>
-						<img src="down.png" style="width:20px;height:20px;">
+						<img src="down.png">
 				    </td>
 				    <td style="vertical-align:top">
 				    	<?php echo $content ?><br>
 				    </td>
 				</tr>
 			</table>
-			<p style="text-align:right">asked by <?php echo $email ?> at <?php echo '<datetime>' ?> | <a href=/stackExchange/EditQuestion.php?id=<?php echo $id ?> style="color: orange; text-decoration:none">edit</a> | <a href=/stackExchange/DeleteQuestion.php?id=<?php echo $id ?> style="color: red; text-decoration:none" onclick="return confirm('Are you sure you want to delete this item?');">delete</a></p>
+			<p style="text-align:right">asked by <?php echo $email ?> at <?php echo $date ?> | <a href=/stackExchange/EditQuestion.php?id=<?php echo $id ?> style="color: orange; text-decoration:none">edit</a> | <a href=/stackExchange/DeleteQuestion.php?id=<?php echo $id ?> style="color: red; text-decoration:none" onclick="return confirm('Are you sure you want to delete this item?');">delete</a></p>
 			<h2><?php echo $answers ?> Answer</h2><br>
 
 			<?php
@@ -75,13 +76,13 @@
 						echo
 				    	'<tr style="border-bottom:2px solid #000">
 				    		<td style="width:15%; text-align:center; padding:20px">
-				    			<img src="up.png" style="width:20px;height:20px;"><br>
+				    			<img src="up.png"><br>
 				    			<p style="font-size:40px; margin:0; color:lightgrey">' .$row["vote"]. '</p>
-								<img src="down.png" style="width:20px;height:20px;">
+								<img src="down.png">
 				    		</td>
 				    		<td style="vertical-align:top; padding:20px">'
 				    			.$row["content"].'<br>
-				    			<p style="text-align:right">answered by '.$row["email"].' at tanggal</p>
+				    			<p style="text-align:right">answered by '.$row["email"].' at '.$row["date"].'</p>
 				    		</td>
 				    	</tr>';
 			    	}

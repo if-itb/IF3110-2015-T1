@@ -7,6 +7,15 @@ H2 {
 	border-bottom: 2px solid;
 }
 
+H3 {
+	margin-bottom:0;
+}
+
+a {
+	text-decoration:none;
+	color: black;
+}
+
 .container {
     width:50%;
     margin:auto;
@@ -19,31 +28,9 @@ table {
 	border-collapse:collapse;
 }
 
-.question {
-	border-top: 2px solid;
-	width:100%;
-	margin:auto;
-}
-
-.vote {
-	width:20%;
-	margin-left:0;
-	margin-right: 0;
-	clear: none; 
-}
-
-.answer {
-	width:20%;
-	margin-left:0;
-	margin-right: 0;
-	clear: none;  
-}
-
-.topic {
-	width:80%;
-	margin:0;
-	float: right; 
-	clear: none; 
+img {
+	width:20px;
+	height:15px;
 }
 
 input[type=submit] {
