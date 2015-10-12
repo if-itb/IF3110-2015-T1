@@ -21,6 +21,14 @@ function validateForm() {
         alert("Email must be filled out");
         return false;
     }
+	else {
+		var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+		if (re.test(askEmail) == false){
+			alert("Email is not valid");
+			return false;
+		}
+	}
+	
 	if (askTopic == null || askTopic == "") {
         alert("Question Topic must be filled out");
         return false;
@@ -33,6 +41,8 @@ function validateForm() {
 	postQuestion();
 	
 }
+
+
 </script>
 
 

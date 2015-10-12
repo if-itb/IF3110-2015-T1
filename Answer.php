@@ -26,6 +26,64 @@ function validateForm() {
 	ansQuestion();
 	
 }
+
+/* Vote Function */
+function voteUpQuestion(qID){
+	var xhttp = new XMLHttpRequest();
+	var q_id = qID;
+	var vuq = "qID=" + qID;
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200){
+			window.location = "";
+		}
+	}
+	xhttp.open("POST", "/AJAX/VoteUpQuestion.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send(vuq);
+}
+
+function voteDownQuestion(qID){
+	var xhttp = new XMLHttpRequest();
+	var q_id = qID;
+	var vdq = "qID=" + qID;
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200){
+			window.location = "";
+		}
+	}
+	xhttp.open("POST", "/AJAX/VoteDownQuestion.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send(vdq);
+}
+
+function voteUpAnswer(aID){
+	var xhttp = new XMLHttpRequest();
+	var a_id = aID;
+	var vua = "aID=" + aID;
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200){
+			window.location = "";
+		}
+	}
+	xhttp.open("POST", "/AJAX/VoteUpAnswer.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send(vua);
+}
+
+function voteDownAnswer(aID){
+	var xhttp = new XMLHttpRequest();
+	var a_id = aID;
+	var vda = "aID=" + aID;
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200){
+			window.location = "";
+		}
+	}
+	xhttp.open("POST", "/AJAX/VoteDownAnswer.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send(vda);
+}
+
 </script>
 
 
@@ -68,8 +126,11 @@ function ansQuestion(){
 	<table>
 		<tr>
 			<td>
-				<?php echo $question["q_vote"];?>
+				<a href = "#" onclick = "voteUpQuestion(<?= $question["q_id"] ?>)" id = "voteup<?= $question["q_id"] ?>"> ^ </a><br/>
 				
+				<?php echo $question["q_vote"];?><br/>
+				
+				<a href = "#" onclick = "voteDownQuestion(<?= $question["q_id"] ?>)" id = "votedown<?= $question["q_id"] ?>"> v </a><br/>
 			</td>
 			<td>
 				<?php echo $question["q_content"];?><br/><br/>
@@ -98,8 +159,11 @@ function ansQuestion(){
 	<?php foreach (getAnswer($question["q_id"]) as $answer){ ?>
 	<tr>
 		<td>
-			<?php 
-			echo $answer["a_vote"]; ?><br/>
+			<a href = "#" onclick = "voteUpAnswer(<?= $answer["a_id"] ?>)" id = "voteupa<?= $answer["a_id"] ?>"> ^ </a><br/>
+			
+			<?php echo $answer["a_vote"]; ?><br/>
+			
+			<a href = "#" onclick = "voteDownAnswer(<?= $answer["a_id"] ?>)" id = "votedowna<?= $answer["a_id"] ?>"> v </a><br/>
 		</td>
 		<td>
 			<?php echo $answer["a_content"]; ?><br/><br/>

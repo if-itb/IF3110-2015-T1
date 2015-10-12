@@ -54,6 +54,58 @@ function getAnswer($qID){
 
 }
 
+function getAnswerByID($aID){
+	global $conn;
+	$query = "SELECT * FROM answer WHERE a_id = $aID";
+	$rquery = mysqli_query($conn, $query);
+	$result = mysqli_fetch_array($rquery, MYSQLI_ASSOC);
+	return $result;
+}
+
+/* Fungsi Vote */
+function voteUpQuestion($qID){
+	global $conn;
+	$question = getQuestionByID($qID);
+	$question["q_vote"] = $question["q_vote"] + 1;
+	
+	$query = "UPDATE question SET q_vote = ".$question["q_vote"]." WHERE q_id = $qID";
+	$rquery = mysqli_query($conn, $query);
+	return $rquery;
+	
+}
+
+function voteDownQuestion($qID){
+	global $conn;
+	$question = getQuestionByID($qID);
+	$question["q_vote"] = $question["q_vote"] - 1;
+	
+	$query = "UPDATE question SET q_vote = ".$question["q_vote"]." WHERE q_id = $qID";
+	$rquery = mysqli_query($conn, $query);
+	return $rquery;
+}
+
+function voteUpAnswer($aID){
+	global $conn;
+	$answer = getAnswerByID($aID);
+	$answer["a_vote"] = $answer["a_vote"] + 1;
+	
+	$query = "UPDATE answer SET a_vote = ".$answer["a_vote"]." WHERE a_id = $aID";
+	$rquery = mysqli_query($conn, $query);
+	return $rquery;
+}
+
+function voteDownAnswer($aID){
+	global $conn;
+	$answer = getAnswerByID($aID);
+	$answer["a_vote"] = $answer["a_vote"] - 1;
+	
+	$query = "UPDATE answer SET a_vote = ".$answer["a_vote"]." WHERE a_id = $aID";
+	$rquery = mysqli_query($conn, $query);
+	return $rquery;
+	
+}
+
+
 /* Delete Question */
 function deleteQuestion($qID){
 	global $conn;
@@ -67,7 +119,7 @@ function deleteQuestion($qID){
 function deleteAnswer($qID){
 	global $conn;
 	$query = "DELETE FROM answer WHERE q_id = $qID";
-	$rquery = mysqli_query($conn, $query1);
+	$rquery = mysqli_query($conn, $query);
 	return $rquery;
 }
 
