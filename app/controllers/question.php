@@ -17,6 +17,8 @@ class Question extends Controller {
                 $this->view('question/index', ['question' => $question, 'answers' => $answers]);
                 $this->view('templates/footer');
             }
+        } else {
+            echo "Error 404";
         }
     }
 
@@ -80,6 +82,11 @@ class Question extends Controller {
     }
 
     public function delete() {
-
+        if (isset($_POST['id_question'])) {
+            $questionsModel = $this->model('Questions');
+            $questionsModel->delete($_POST['id_question']);
+        } else {
+            echo "Error 404";
+        }
     }
 }

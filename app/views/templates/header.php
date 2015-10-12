@@ -17,7 +17,7 @@
     <div class="outer-container">
         
         <header class="main-title">
-            <h1>Stack<span>Exchange</span></h1>
+            <h1><a href="<?= ROOT_URL; ?>">Stack<span>Exchange</span></a></h1>
         </header>
 
         <form action="" method="GET" id="searchForm">

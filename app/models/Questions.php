@@ -49,7 +49,11 @@ class Questions {
         header('Location: ' . ROOT_URL . '/question/' . $id_question);
     }
 
-    public function delete() {
+    public function delete($id_question) {
+        $query = "DELETE FROM questions WHERE id_question = $id_question";
+        var_dump($query);
+        $this->db->query($query);
 
+        header('Location: ' . ROOT_URL);   
     }
 }

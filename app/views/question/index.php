@@ -33,9 +33,12 @@
                 <div class="question-meta">
                     <span>
                         Asked by
-                        Name |
-                        <a href="<?= ROOT_URL; ?>/edit/<?= $data['question']->id_question ?>" class="question-edit">Edit</a> |
-                        <a href="" class="question-delete">Delete</a>
+                        <?= $data['question']->name; ?> |
+                        <a href="<?= ROOT_URL; ?>/question/edit/<?= $data['question']->id_question ?>" class="question-edit">Edit</a> |
+                        <form id="deleteForm" action="<?= ROOT_URL; ?>/question/delete" method="POST">
+                            <input type="hidden" name="id_question" value="<?= $data['question']->id_question; ?>">
+                            <input type="submit" class="question-delete" value="Delete">
+                        </form>
                     </span>
                 </div>
 
@@ -44,19 +47,20 @@
     </div> <!-- .inner-container -->
 <?php endif; ?>
 
-<?php if ($data['answers']): ?>
     
     <div class="row">
         <div class="answer-header col-10 col-push-1">
-            <h2><?= count($data['answers']); ?> Answers</h2>
+            <h2><?= count($data['answers']) > 0 ? count($data['answers']) : 0; ?> Answers</h2>
         </div>
     </div>
     
+<?php if ($data['answers']): ?>
     <div class="inner-container">
+        
         <?php foreach($data['answers'] as $answer): ?>
             <div class="answer">
                 <div class="row">
-
+                    
                     <div class="answer-status col-2">
                         <div class="vote">
                             <div class="vote-up">
@@ -91,6 +95,7 @@
                 </div> <!-- .row -->
             </div> <!-- .answes -->
         <?php endforeach; ?>
+
     </div> <!-- .inner-container -->
 <?php endif; ?>
 

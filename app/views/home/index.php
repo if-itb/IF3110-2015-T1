@@ -41,7 +41,10 @@
                                 Asked by
                                 <?= $question->name; ?> |
                                 <a href="<?= ROOT_URL; ?>/question/edit/<?= $question->id_question; ?>" class="question-edit">Edit</a> |
-                                <a href="<?= ROOT_URL; ?>" class="question-delete">Delete</a>
+                                <form id="deleteForm" action="<?= ROOT_URL; ?>/question/delete" method="POST">
+                                    <input type="hidden" name="id_question" value="<?= $question->id_question; ?>">
+                                    <input type="submit" class="question-delete" value="Delete">
+                                </form>
                             </span>
                         </div>
                     </div> <!-- .row -->

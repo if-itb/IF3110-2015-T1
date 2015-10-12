@@ -3,7 +3,7 @@
 class Answer extends Controller {
     
     public function index() {
-
+        echo "Error 404";
     }
 
     public function add() {
@@ -25,6 +25,8 @@ class Answer extends Controller {
             $answersModel->add($data);
 
         }
+
+        echo "Error 404";
     }
 
     public function edit() {

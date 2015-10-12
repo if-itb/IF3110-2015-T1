@@ -101,29 +101,28 @@ body {
 p {
   margin-bottom: 1em; }
 
-a {
+a, .question-delete {
   color: #0077CC;
   text-decoration: none; }
-  a:visited {
+  a:visited, .question-delete:visited {
     color: #0077CC;
     text-decoration: none; }
-  a:hover {
+  a:hover, .question-delete:hover {
     color: #195398;
     text-decoration: underline; }
 
 input,
 textarea {
-  padding: 10px;
+  padding: 5px 10px;
   border-radius: 2px; }
 
 input:not([type="submit"]),
 textarea {
-  height: 36px;
+  height: 38px;
   background: #FDFDFD;
   border: 2px solid #62B0DF; }
 
 input[type="submit"] {
-  transform: translateY(1px);
   height: 37px;
   font-weight: 600;
   color: #FFF;
@@ -163,11 +162,17 @@ input[type="submit"]:hover {
 
 .main-title h1 {
   font-size: 30px;
-  font-weight: 600;
   text-align: center; }
 
 .main-title h1 span {
   color: #195398; }
+
+.main-title a, .main-title .question-delete,
+.main-title a:hover,
+.main-title .question-delete:hover {
+  color: #2F2F2F;
+  font-weight: 600;
+  text-decoration: none; }
 
 .secondary-title h2 {
   margin-bottom: 10px;
@@ -192,8 +197,9 @@ input[type="submit"]:hover {
   font-weight: 600;
   margin-bottom: 1em; }
 
-.question-title a,
-.question-title a:visited {
+.question-title a, .question-title .question-delete,
+.question-title a:visited,
+.question-title .question-delete:visited {
   color: #0077CC;
   text-decoration: none; }
 
@@ -240,6 +246,9 @@ input[type="submit"]:hover {
   color: #0077CC;
   margin-bottom: 10px; }
 
+.question-item {
+  margin-bottom: 30px; }
+
 .question-item,
 .answer {
   padding-top: 20px;
@@ -255,14 +264,16 @@ input[type="submit"]:hover {
   font-weight: 600;
   color: #5C5C5C; }
 
-.vote-down a,
-.vote-up a {
+.vote-down a, .vote-down .question-delete,
+.vote-up a,
+.vote-up .question-delete {
   font-size: 20px;
   text-decoration: none;
   color: #5C5C5C;
   transition: color 300ms ease; }
-  .vote-down a:hover,
-  .vote-up a:hover {
+  .vote-down a:hover, .vote-down .question-delete:hover,
+  .vote-up a:hover,
+  .vote-up .question-delete:hover {
     color: #292929; }
 
 .answer-header h2 {
@@ -270,6 +281,23 @@ input[type="submit"]:hover {
   font-size: 18px;
   font-weight: 400;
   color: #5C5C5C; }
+
+#deleteForm {
+  display: inline; }
+
+.question-delete {
+  display: inline;
+  padding: 0;
+  font-weight: 400 !important;
+  font-family: 'Open sans', sans-serif;
+  font-size: 14px !important;
+  color: #0077CC !important;
+  background: transparent !important; }
+
+.form-field input#email,
+.form-field input#name {
+  font-size: 14px;
+  width: 250px; }
 
 .form-field input,
 .form-field textarea {

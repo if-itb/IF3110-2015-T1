@@ -28,19 +28,18 @@ a {
 
 input,
 textarea {
-  padding: 10px;
+  padding: 5px 10px;
   border-radius: 2px;
 }
 
 input:not([type="submit"]),
 textarea {
-  height: 36px;
+  height: 38px;
   background: $container-background;
   border: 2px solid $blue-tertiary;
 }
 
 input[type="submit"] {
-  transform: translateY(1px);
   height: 37px;
   font-weight: $font-weight__semi-bold;
   color: #FFF;

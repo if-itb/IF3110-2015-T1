@@ -37,12 +37,18 @@
 
 .main-title h1 {
   font-size: 30px;
-  font-weight: $font-weight__semi-bold;
   text-align: center;
 }
 
 .main-title h1 span {
   color: $title-color;
+}
+
+.main-title a,
+.main-title a:hover {
+  color: $font-color__main;
+  font-weight: $font-weight__semi-bold;
+  text-decoration: none;
 }
 
 .secondary-title h2 {
@@ -136,6 +142,10 @@
   margin-bottom: 10px;
 }
 
+.question-item {
+  margin-bottom: 30px;
+}
+
 .question-item,
 .answer {
   padding-top: 20px;
@@ -179,12 +189,38 @@
   color: $font-color__secondary;
 }
 
+/////////////////////////////
+/////////////////////////////
+//// EDIT DELETE BUTTON
+/////////////////////////////
+/////////////////////////////
+
+#deleteForm {
+  display: inline;
+}
+
+.question-delete {
+  display: inline;
+  padding: 0;
+  font-weight: $font-weight__normal !important;
+  font-family: 'Open sans', sans-serif;
+  font-size: 14px !important;
+  color: $blue-secondary !important;
+  background: transparent !important;
+  @extend a;
+}
 
 /////////////////////////////
 /////////////////////////////
 //// ANSWER FORM
 /////////////////////////////
 /////////////////////////////
+
+.form-field input#email,
+.form-field input#name {
+  font-size: 14px;
+  width: 250px;
+}
 
 .form-field input,
 .form-field textarea {
