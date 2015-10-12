@@ -36,7 +36,7 @@
 				</div>
 				<div class="konten">
 					<?php echo $row_pertanyaan["konten"]; ?>
-					<p class="info-pertanyaan-jawaban"><br>asked by <?php echo $row_pertanyaan["email"]; ?> at <?php echo $row_pertanyaan["date"]; ?> | edit | delete</p>
+					<p class="info-pertanyaan-jawaban"><br>asked by <?php echo $row_pertanyaan["email"]; ?> at <?php echo $row_pertanyaan["date"]; ?> | <a href="ask.php?id=<?php echo $id?>&withanswer=true">edit</a> | <a href="question.php?id=<?php echo $id?>&delete=true">delete</a></p>
 				</div>
 			</div>
 			<h2 class="subtitle"><?php echo mysqli_num_rows($jawaban); ?> Answer</h2>
@@ -47,7 +47,7 @@
 				</div>
 				<div class="konten">
 					<?php echo $row_jawaban["konten"]; ?>
-					<p class="info-pertanyaan-jawaban"><br>asked by <?php echo $row_jawaban["email"]; ?> at <?php echo $row_jawaban["date"]; ?> | edit | delete</p>
+					<p class="info-pertanyaan-jawaban"><br>answered by <?php echo $row_jawaban["email"]; ?> at <?php echo $row_jawaban["date"]; ?></p>
 				</div>
 			</div>
 			<?php } ?>

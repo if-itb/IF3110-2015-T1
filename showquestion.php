@@ -51,7 +51,7 @@
 					</div>
 					<div class="infoask">
 						<br>
-						asked by <?php echo $row["name"]; ?> | edit | delete
+						asked by <?php echo $row["name"]; ?> | <a href="ask.php?id=<?php echo $row["No"];?>&withanswer=false">edit</a> | <a href="question.php?id=<?php echo $row["No"];?>&delete=true">delete</a>
 					</div>
 				</div>
 				<?php }?>
