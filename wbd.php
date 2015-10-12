@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="wbd1.css">
+	<link rel="stylesheet" type="text/css" href="wbd.css">
 	<title>13513018_Steven Andianto</title>
 </head>
 <body>
 	<h1>Simple StackExchange</h1>
 	<div align="center" class="container-4">
-	<form name:"SearchBox">
+	<form name:"SearchBox" method="get" action="wbd.php">
 	<input type="text" id="search" name="SearchBox" placeholder="Search here...">
 	<input type="submit" id="submit" value="Search" name="SearchButton">	
 	</form>	
 	</div>
-	<p id="judul2">Cannot find what you are looking for? <a href="wbd2.php" id="yellow">Ask here</a></p>
+	<p id="judul2">Cannot find what you are looking for? <a href="wbd2.php"><yellow>Ask here</yellow></a></p>
 	<br>
 	<p id="judul">Recently Asked Questions</p>
 		<?php
@@ -63,12 +63,11 @@
 			echo	'<hr>';
 			echo	'<tr>';
 			echo	'<td id="td1">'.$row['vote'].'<br>Votes</td>';
-			echo	'<td id="td1">0<br>Answers</td>';
+			echo	'<td id="td1">'.$row['answers'].'<br>Answers</td>';
 			echo 	'<td id="td2"><a href="wbd3.php?id='.$row['id'].'" id="blue">'.$row['topic'].'</a></td>';
 			echo	'<td id="td3">asked by <blue>'.$row['nama'].'</blue>  | <a href="wbd2.php?id='.$row['id'].'"><yellow>edit</yellow></a> | <a href="wbd.php?id='.$row['id'].'"><red>delete</red></a></td>';
 			echo	'</tr>';
 			echo	'</table>';
-			echo	$row['id'];
 			echo    '</div>';
 			}
 		mysqli_close($conn);
