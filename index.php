@@ -72,7 +72,7 @@
         </div>
         
         <div class="question">
-            <div class="questiontopic"><?php echo $row["topic"]; ?></div>
+            <div class="questiontopic"><a href="answers.php?id=<?php echo $row["id"];?>"><?php echo $row["topic"]; ?></a></div>
             <div class="questioncontent"><p><?php echo $row["content"]; ?></p></div>
         </div>
         

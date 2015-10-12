@@ -87,6 +87,7 @@ p {
 	z-index: 100;
 	background: #fff;  
     display: inline-block;
+    
 }
 
 .questiontopic {
@@ -132,5 +133,5 @@ p {
 }
     
 .question {
-     display: inline-block;
+     display: inline;
 }
