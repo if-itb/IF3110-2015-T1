@@ -46,6 +46,10 @@ form#question > textarea, form#answer > textarea{
 	font-color: black;
 }	
 
+img#vote_up , img#vote_down{
+	height: 40px; 
+	width: 40px;
+}
 
 #container{
 	text-align : center;

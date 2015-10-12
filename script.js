@@ -77,20 +77,26 @@ function initXMLHTTPRequest(){
 	}
 };
 
-function vote(id,is_question,is_voteup){
+function voteQuestion(q_id,is_voteup){
 	initXMLHTTPRequest();
 	xhttp.onreadystatechange = function(){
 	    if (xhttp.readyState == 4 && xhttp.status == 200) {
-	    	
-	    	if (is_question){
-		      document.getElementById("q_vote").innerHTML = xhttp.responseText;		      	    		
-	    	}
-	    	else{
-		      document.getElementById("a_vote").innerHTML = xhttp.responseText;
-	    	}
-
+	    	document.getElementById("q_vote").innerHTML = xhttp.responseText;
 	    }
 	};
-	xhttp.open("GET","vote.php?id="+id+"&q="+is_question+"&v="+is_voteup,true);
+
+	xhttp.open("GET","vote.php?q_id="+q_id+"&v="+is_voteup,true);
+	xhttp.send();
+};
+
+function voteAnswer(q_id,a_id,is_voteup){
+	initXMLHTTPRequest();
+	xhttp.onreadystatechange = function(){
+	    if (xhttp.readyState == 4 && xhttp.status == 200) {
+		   	document.getElementById("a_vote").innerHTML = xhttp.responseText;
+	    }
+	};
+	
+	xhttp.open("GET","vote.php?q_id="+q_id+"&a_id="+a_id+"&v="+is_voteup,true);
 	xhttp.send();
 };

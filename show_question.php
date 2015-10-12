@@ -1,22 +1,21 @@
 <?php
     require("./controller.php");
     if (isset($_GET['id'])){
-      $id = $_GET['id'];     
-      $question = getQuestion($id);
-      $answers = getAnswers($id);    
+      $id = $_GET['id'];    
+      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+          $new_answer = array();
+          $new_answer['q_id'] = $id;
+          $new_answer['name'] = $_POST['name'];
+          $new_answer['email'] = $_POST['email'];
+          $new_answer['content'] = $_POST['content'];
+
+          postAnswer($new_answer);
+        }
+
+        $question = getQuestion($id);
+        $answers = getAnswers($id);    
     }
-
-   
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-      $new_answer = array();
-      $new_answer['q_id'] = $id;
-      $new_answer['name'] = $_POST['name'];
-      $new_answer['email'] = $_POST['email'];
-      $new_answer['content'] = $_POST['content'];
-
-      postAnswer($new_answer);
-
-  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,9 +38,9 @@
       <div class="question_detail">
         <div id="vote_icon">
           <span class="vote">
-            <img id="vote_up" src="up.jpg" >
+            <a href="javascript:voteAnswer($question['q_id'],true)"><img id="vote_up" src="up.png" ></a>
             <?php echo 1 . "\n";?>
-            <img id="vote_down" src="down.png">
+            <a href="javascript:voteAnswer($question['q_id'],false)"><img id="vote_down" src="down_arrow.png"></a>
           </span>
         </div>    
         <div class="mid-right">
@@ -57,13 +56,13 @@
 
     <div id= "content">
       <p class="content_title"><?php echo getAnswerCount($id); ?> Answers</p>
-      
+      <!--<a href="javascript:voteUp(<?php echo $answer['answer_id'] ?>, 'answer')" id="increase-vote">-->
      <?php 
         foreach ($answers as $answer) {
           $left =  "<div id='vote_icon'>
                       <span class='vote'>
-                        <img id='vote_up' src='up_arrow.png'>" .$answer['vote']. 
-                        "<img id='vote_down' src='down_arrow.png'>
+                        <a href=\"javascript:voteAnswer(".$answer['q_id'].",".$answer['a_id'].",true)\"><img id='vote_up' src='up.png'></a>" .$answer['vote']. 
+                        "<a href=\"javascript:voteAnswer(".$answer['q_id'].",".$answer['a_id'].",false)\"><img id='vote_down' src='down_arrow.png'></a>
                       </span>
                     </div>";
 
@@ -80,10 +79,9 @@
      ?>
     
     </div>
-
       <p class="answer_title">Your Answer</p>
       <!--javascript Form Validation -->
-      <form name="answer_form" id="answer" action="" onsubmit="return validateAnswerForm()" method="post"  > 
+      <form name="answer_form" id="answer" action="show_question.php?id=<?php echo $id;?>" onsubmit="return validateAnswerForm()" method="post"  > 
          <input type="text" name="name" placeholder="Name">
          <input type="text" name="email" placeholder="Email" >
          <textarea name="content" placeholder="Content"></textarea>

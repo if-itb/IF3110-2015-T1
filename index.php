@@ -40,7 +40,7 @@
                                 asked by 
                                 <a class='blue_link' href=''>" . $question['name'] ."</a> | 
                                 <a class='orange_link' href='create_question.php?id=". $question['q_id'] . "'>edit</a> |
-                                <a class='red_link' href=''>delete</a>
+                                <a class='red_link' href='deleteQuestion.php?id=".$question['q_id']."' onclick ='return confirm(\"Are you sure to delete this question?\");' >delete</a>
                                </div>";
 
                     $question_content = "<div class='question'>". $left . $middle . $right . "</div>";

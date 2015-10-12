@@ -128,11 +128,6 @@
 		}
 	}
 
-	function deleteQuestion($id){
-		global $conn;
-
-
-	}
 
 	/************ FUNCTION FOR ANSWER *************/
 	function postAnswer($answer){
@@ -191,30 +186,56 @@
 	}
 
 	/************ FUNCTION FOR VOTE (BOTH ASNWER & QUESTION) *************/
-	function vote($id,$is_question,$is_up){
+	function voteQuestion($q_id,$is_up){
 		global $conn;
 
-		if ($is_question){
-			$database = "questions";
-		}
-		else{
-			$database = "answers";
-		}
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        $vote = $row['vote'];
+
 
 		if ($is_up){
-			$sql = "UPDATE $database SET vote = vote + 1 WHERE $q_id = $id";
+			$sql = "UPDATE questions SET vote = vote + 1 WHERE q_id = $q_id";
 		}
 		else{
-			$sql = "UPDATE $database SET vote = vote - 1 WHERE $q_id = $id";			
+			$sql = "UPDATE questions SET vote = vote - 1 WHERE q_id = $q_id";			
 		}
+
+		$sql = "SELECT vote FROM questions ";
+        $result = $conn->query($sql);
+        $row = mysqli_fetch_assoc($result);
+        $vote = $row['vote'];
 
 		if (mysqli_query($conn, $sql)) {
-		    echo "Vote Success";
-		} 
-		else {
-		    echo "Error: " . $sql . "<br>" . $conn->error;
+			echo $vote;
+		} else {
+		    echo "Error updating question: " . mysqli_error($conn);
 		}
+
+
 	}
 
+	function voteAnswer($q_id,$a_id,$is_up){
+		global $conn;
+
+		if ($is_up){
+			$sql = "UPDATE answers SET vote = vote + 1 WHERE q_id = $q_id AND a_id = $a_id";
+		}
+		else{
+			$sql = "UPDATE answers SET vote = vote - 1 WHERE q_id = $q_id AND a_id = $a_id";			
+		}
+
+
+		$sql = "SELECT vote FROM questions ";
+        $result = $conn->query($sql);
+        $row = mysqli_fetch_assoc($result);
+        $vote = $row['vote'];
+
+		if (mysqli_query($conn, $sql)) {
+			echo $vote;
+		} else {
+		    echo "Error updating question: " . mysqli_error($conn);
+		}
+
+	}
 
 ?>
