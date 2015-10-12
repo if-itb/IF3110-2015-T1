@@ -10,7 +10,6 @@
 		$Email 	= $row["Email"];
 		$Topic	= $row["Topic"];
 		$Content= $row["Content"];
-		echo $id;
 	}
 	else
 	{
