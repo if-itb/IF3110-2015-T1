@@ -13,7 +13,7 @@
 	<title>Simple StackExchange | Home</title>
 	
 	<link rel="stylesheet" href="assets/css/style.css">
-	<script type="text/javascript" src="js/validation.js"></script>
+	<script type="text/javascript" src="assets/js/validation.js"></script>
 </head>
 
 <body>
@@ -39,28 +39,28 @@
 			</div>
 
 
-			<div class="wrapper" id="list-questions">
+			<div id="list-questions">
+				
+				<?php foreach ($questions as $question) : ?>
 				<div class="child-content">
 					<div class="sidebar">
-						<div id="votes"><span id="numvotes"></span><br>Votes</div>
-						<div id="answers"><span id="numanswer"></span><br>Answers</div>
+						<div id="votes"><span id="numvotes"><?php echo $question['q_vote'] ?></span><br>Votes</div>
+						<div id="answers"><span id="numanswer"><?php echo $question['num_answers'] ?></span><br>Answers</div>
 					</div>
 
 					<div class="list-content">
-						<div class="question-title">
-							<p>haaaai first question</p>
-						</div>
-						<div class="question-preview">
-							<p>lalaaaaaaalakaaaaaaaaaaaaaaaaaalalaaaaaa</p>
-						</div>
-						<div class="content-footer">asked by 
+					<div class="question-title"><a href="question-details.php?id=<?php echo $question['q_id']; ?>"><?php echo $question['q_topic'] ?></a></div>
+					<div class="question-preview"><?php echo $question['q_content'] . " ..."; ?></div>
+					<div class="content-footer">asked by 
 						<span class="user-question">
-						</span> | <a href="ask.php?req=edit&id=<?php echo $question['q_id']; ?>" class="edit-question">edit</a> | <a href="delete_question.php?id=<?php echo $question['q_id']; ?>" class="delete-question" onclick="return confirm('Delete this question?')">delete</a>
+							<?php echo $question['q_name'] ?>
+						</span> | <a href="ask.php?req=edit&id=<?php echo $question['q_id']; ?>" class="edit-question">edit</a> | <a href="delete-question.php?id=<?php echo $question['q_id']; ?>" class="delete-question" onclick="return confirm('Are you sure want to delete this?')">delete</a>
 					</div>
 					</div>
 				</div>
+				<?php endforeach; ?>
 			<div>
-			
+
 
 		</div>
 	</div>

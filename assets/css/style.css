@@ -50,7 +50,7 @@ a {
 }
 
 #answer-form h2 {
-	color: red;
+	color: gray;
 }
 
 .content-header > h2 {
@@ -62,6 +62,7 @@ a {
 	width: 750px;
 	margin-left: 70px;
 	clear: both;
+	padding-bottom: 0 0 0 0;
 }
 
 .child-content form {
@@ -107,8 +108,15 @@ div {
 
 .title{
 	text-align: left;
-	margin-left: 85px;
+	margin-left:90px;
 	margin-top: 50px;
+}
+
+.quest_title{
+	text-align: left;
+	margin-left:80px;
+	margin-top: 50px;
+	padding-bottom: 0px;
 }
 
 .q-title{
@@ -130,6 +138,26 @@ div {
 .list-content {
 	float: right;
 	width: 74%;
+}
+
+.voteup {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #ddd;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.votedown {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #ddd;
+  margin: 0 auto;
+  cursor: pointer;
 }
 
 input, textarea {

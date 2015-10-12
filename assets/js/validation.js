@@ -1,5 +1,5 @@
 function validateQuestionForm() {
-	if (validateName() && validateEmail() && validateTopic()) {
+	if (nameValidating() && emailValidating() && topicValidating()) {
 		return true;
 	}
 	else {
@@ -8,7 +8,7 @@ function validateQuestionForm() {
 }
 
 function validateAnswerForm() {
-	if (validateName() && validateEmail()) {
+	if (emailValidating() && nameValidating()) {
 		return true;
 	}
 	else {
