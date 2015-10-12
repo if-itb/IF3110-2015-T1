@@ -27,8 +27,8 @@
 				if (mysqli_num_rows($result) > 0) {
 					echo '<table style="table-layout: fixed">';
 					while($row = mysqli_fetch_assoc($result)) {
-						$mlink = "/stackExchange/ShowQuestion.php?id=";
-						$link = '<a href='.$mlink.$row["questionID"].' style="color: black; text-decoration:none">'.$row["question_topic"]."</a>";
+						$linkshow = '<a href=/stackExchange/ShowQuestion.php?id='.$row["questionID"].' style="color: black; text-decoration:none">'.$row["question_topic"]."</a>";
+						$linkedit = '<a href=/stackExchange/EditQuestion.php?id='.$row["questionID"].' style="color: orange; text-decoration:none">edit</a>';
 				    	echo
 				    	'<tr style="border-top: 2px solid #000; height: 80px;">
 				    		<td style="width:10%; text-align:center">'
@@ -40,8 +40,8 @@
 				    		<td style="width:2%;">
 				    		</td>
 				    		<td style="vertical-align:top">'
-				    			.$link.'<br>'.$row["content"].'<br>
-				    			<p style="text-align:right">asked by '.$row["email"].'|edit|delete</p>
+				    			.$linkshow.'<br>'.$row["content"].'<br>
+				    			<p style="text-align:right">asked by '.$row["email"].' | '.$linkedit.' | delete</p>
 				    		</td>
 				    	</tr>';
 			    	}
