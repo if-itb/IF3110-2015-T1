@@ -40,23 +40,23 @@
 	<br>
 
 	<script type="text/javascript">
-	    function validateAnswerForm() {
+	    function validateAskForm() {
 	        var re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-	        if (document.forms["answerform"]["name"].value == null || document.forms["answerform"]["name"].value == "" ||
-	            document.forms["answerform"]["email"].value == null || document.forms["answerform"]["email"].value == "" ||
-	            document.forms["answerform"]["topic"].value == null || document.forms["answerform"]["topic"].value == "" ||
-	            document.forms["answerform"]["content"].value == null || document.forms["answerform"]["content"].value == "") {
+	        if (document.forms["askform"]["name"].value == null || document.forms["askform"]["name"].value == "" ||
+	            document.forms["askform"]["email"].value == null || document.forms["askform"]["email"].value == "" ||
+	            document.forms["askform"]["topic"].value == null || document.forms["askform"]["topic"].value == "" ||
+	            document.forms["askform"]["content"].value == null || document.forms["askform"]["content"].value == "") {
 		            alert("All required fields must be filled out");
 		            return false;
 	        }
-	        else if(!re.test(document.forms["answerform"]["email"].value)) {
+	        else if(!re.test(document.forms["askform"]["email"].value)) {
 	            alert("Incorrect email address");
 	            return false;
 	        }
 	    }
 	</script>
 
-	<form name="answerform" action="home.php" class="form" method="POST" onsubmit="return validateAnswerForm()">
+	<form name="askform" action="home.php" class="form" method="POST" onsubmit="return validateAskForm()">
 		<input type="text" name="name" value="<?php echo $data['name']; ?>" placeholder="Name" id="name">
 		<br>
 		<input type="text" name="email" value="<?php echo $data['email']; ?>" placeholder="Email" id="email">
