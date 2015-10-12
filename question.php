@@ -52,6 +52,22 @@ function confirmDelete(id) {
 }
 </script>
 
+<script type="text/javascript">
+    function validateAnswerForm() {
+        var re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        if (document.forms["answerform"]["Name"].value == null || document.forms["answerform"]["Name"].value == "" ||
+            document.forms["answerform"]["Email"].value == null || document.forms["answerform"]["Email"].value == "" ||
+            document.forms["answerform"]["Content"].value == null || document.forms["answerform"]["Content"].value == "") {
+            alert("All required fields must be filled out");
+            return false;
+        }
+        else if(!re.test(document.forms["answerform"]["Email"].value)){
+            alert("Incorrect email address");
+            return false;
+        }
+    }
+</script>
+
 <html>
 <head>
 	<title> Simple StackExchange </title>
@@ -116,7 +132,7 @@ function confirmDelete(id) {
 		<div id="YourAnswer">
 			Your Answer
 		</div>
-		<form action="question.php?q_id=<?php echo $_GET['q_id'] ?>" method="POST">
+		<form name="answerform" action="question.php?q_id=<?php echo $_GET['q_id'] ?>" method="POST" onsubmit="return validateAnswerForm()">
 			<div id="question_namebox">
 				<input type="text" placeholder="Name" name="Name" value="" />
 			</div>
