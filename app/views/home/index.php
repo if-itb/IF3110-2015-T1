@@ -39,7 +39,7 @@
                         <div class="question-meta">
                             <span>
                                 Asked by
-                                Name |
+                                <?= $question->name; ?> |
                                 <a href="<?= ROOT_URL; ?>/question/edit/<?= $question->id_question; ?>" class="question-edit">Edit</a> |
                                 <a href="<?= ROOT_URL; ?>" class="question-delete">Delete</a>
                             </span>

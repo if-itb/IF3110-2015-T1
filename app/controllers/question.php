@@ -4,13 +4,17 @@ class Question extends Controller {
     
     public function index($id = null) {
         $questionsModel = $this->model('Questions');
+        $answersModel = $this->model('Answers');
 
         if ($id) {
             $id = (int)$id;
             
-            if ($question = $questionsModel->get($id)) {
+            $question = $questionsModel->get($id);
+            $answers = $answersModel->getAnswerByIdQuestion($id);
+
+            if ($question) {
                 $this->view('templates/header');
-                $this->view('question/index', ['question' => $question]);
+                $this->view('question/index', ['question' => $question, 'answers' => $answers]);
                 $this->view('templates/footer');
             }
         }
@@ -18,7 +22,6 @@ class Question extends Controller {
 
     public function add() {
         if (isset($_POST['name'])   &&
-            isset($_POST['name'])   &&
             isset($_POST['email'])  &&
             isset($_POST['topic'])  &&
             isset($_POST['content'])
@@ -42,7 +45,7 @@ class Question extends Controller {
     }
 
     public function edit($id = null) {
-        
+
         if (isset($_POST['name'])   &&
             isset($_POST['name'])   &&
             isset($_POST['email'])  &&
@@ -60,7 +63,6 @@ class Question extends Controller {
 
             $questionsModel = $this->model('Questions');
             $questionsModel->edit($data);
-
         }
 
         if ($id) {

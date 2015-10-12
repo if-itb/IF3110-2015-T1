@@ -242,11 +242,11 @@ input[type="submit"]:hover {
 
 .question-item,
 .answer {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-top: 2px solid #B8B8B8; }
 
-.answer {
+.answer:last-child {
   border-bottom: 2px solid #B8B8B8;
   margin-bottom: 30px; }
 
