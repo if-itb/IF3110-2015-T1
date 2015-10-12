@@ -6,7 +6,7 @@
 </head>
 
 <body>
-	<div class="header center">
-		<h1>Simple StackExchange</h1>
+	<div class="center">
+		<h1><a class="blue" href="/">Simple StackExchange</a></h1>
 	</div>
 	

@@ -15,8 +15,7 @@
 
 		require_once(LAYOUT_PATH . "/header.php");
 
-		echo "<div id=\"container\">\n"
-			. "\t<div id=\"content\">\n";
+		echo "<div id=\"container\">\n";
 
 		if (file_exists($contentFileFullPath)){
 			require_once($contentFileFullPath);
@@ -24,8 +23,7 @@
 			require_once(LAYOUT_PATH . "/error.php");
 		}
 
-		echo "\t</div>\n"
-			. "</div>\n";
+		echo "\t</div>\n";
      
 
 		require_once(LAYOUT_PATH . "/footer.php");

@@ -1,45 +1,41 @@
-/*@import url(http://fonts.googleapis.com/css?family=Open+Sans);*/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
 body {
 	font-family: 'Open Sans';
-	padding: 0px 300px;
+	width: 65%;
+	margin: 1% auto;
+	color: #023B6B;
+	border: 3px solid #207cca;
+	border-radius: 5px;
+	padding: 5%; 
 }
 
-.header {
-	margin:0px auto 50px;
+.rectangle {
+	background-color: #fafafa;
+	color: #207cca;
+	border: 3px solid #207cca;
+	border-radius: 3px;
+	padding: 7px 15px;
 }
 
 input[type=search] {
-	padding: 7px 15px;
-	width: 600px;
-	background-color: #fafafa;
-	color: #207cca;
-	border: 3px solid #207cca;
-	border-radius: 3px;
-}
-
-
-input[type=submit] {
-	position: relative;
-	left: 6px;
-	padding: 6px 15px;
-	background-color: #fafafa;
-	color: #207cca;
-	border: 3px solid #207cca;
-	border-radius: 3px;
+	width: 70%;
 }
 
 hr {
-
 	border: none;
 	height: 4px;
 	background-color: #207cca;
 }
 
+.ask-content {
+	padding: auto;
+}
+
 .ask-item {
 	padding: 7px 15px;
 	margin: 5px;
-	width: 700px;
+	width: 80%;
 	background-color: #fafafa;
 	color: #207cca;
 	border: 3px solid #207cca;
@@ -47,7 +43,13 @@ hr {
 }
 
 .ask-button {
-	left: 6px;
+	width: 100%;
+	margin-right: auto;
+}
+
+.blue {
+	color: #023B6B;
+	text-decoration: none;
 }
 
 .purple {
@@ -74,19 +76,22 @@ hr {
 
 .question-list {
 	font-size: 80%;
-	margin-left: 20px;
 }
+
 .question-list p {
 	margin: 0px;
 }
 
 .question-topic {
-	padding-left: 145px;
+	font-weight: bolder;
+	color: #207cca;
+	text-decoration: none;
 }
 
 .question-detail {
 	padding-left: 145px;
 	text-align: justify;
+	color: #207cca;
 }
 
 .stats {

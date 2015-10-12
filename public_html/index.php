@@ -2,15 +2,33 @@
 	require_once(realpath(dirname(__FILE__) . "/../resources/config.php"));
 	require_once(LIBRARY_PATH . "/templateFunctions.php");
 
-	$stmtq = $db->query('SELECT * FROM question');
-	$stmta = $db->query('SELECT question_id, COUNT(1) FROM answer GROUP BY question_id');
-	$questions = $stmtq->fetchAll(PDO::FETCH_ASSOC);
-	$answers = $stmta->fetchAll(PDO::FETCH_ASSOC);
+	if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+		try{
+			$questions = $db->query("SELECT * FROM questions
+							LEFT OUTER JOIN
+							(SELECT question_id, COUNT(1) FROM answers GROUP BY question_id) cnt
+							ON questions.id=cnt.question_id
+							WHERE questions.question LIKE'%" . $_POST['search'] . "%'");
+		} catch (PDOException $e){
+			echo $e->getMessage();
+		}
+		$variables = array(
+			'questions' => $questions->fetchAll()
+		);
+		renderLayoutWithContentFile("home.php", $variables);
+	} else{
+		try{
+			$questions = $db->query('SELECT * FROM questions
+							LEFT OUTER JOIN
+							(SELECT question_id, COUNT(1) FROM answers GROUP BY question_id) cnt
+							ON questions.id=cnt.question_id');
+		} catch (PDOException $e){
+			echo $e->getMessage();
+		}
+		$variables = array(
+			'questions' => $questions->fetchAll()
+		);
+		renderLayoutWithContentFile("home.php", $variables);
+	}
 	
-	$variables = array(
-		'questions' => $questions,
-		'answers' => $answers
-	);
-
-	renderLayoutWithContentFile("home.php", $variables);
 ?>
