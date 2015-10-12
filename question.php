@@ -1,7 +1,7 @@
 <?php
-	require_once("./mysql/retrieve_one_question.php");
-        
+	require_once("./mysql/retrieve_qa.php");
         $questions = retrieveOneQuestion($_GET['id']);
+        $answers = retrieveAnswers($_GET['id']);
 ?>
 
 <html>
@@ -44,6 +44,21 @@
                 <br><br>
             <?php endforeach; ?>
         </div>
+        
+        <div>
+            <?php if (count($answers) === 0) : ?>
+                <div> There is no answer yet. Be the first to answer! </div>
+            <?php endif ?>
+                
+            <?php foreach ($answers as $answer) :
+                echo $answer['name'] . "<br>";
+                echo $answer['email'] . "<br>";        
+                echo $answer['content'] . "<br>";
+                echo $answer['vote'] . "<br>";
+                echo $answer['time'] . "<br><br>";
+            endforeach; ?>
+        </div>
+        
         <div>
             <form name="answer" action="./mysql/post_answer.php" onsubmit="return validateAnswerForm('answer')" method="post">
                 <input type="text" name="Name"><br>

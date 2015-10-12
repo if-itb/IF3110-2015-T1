@@ -15,7 +15,7 @@
     }
    
        
-    $insert_ans = $conn->prepare("INSERT INTO `stackexchange`.`answers` (`question_id`, `name`, `e-mail`, `content`) VALUES (?, ?, ?, ?)");
+    $insert_ans = $conn->prepare("INSERT INTO `stackexchange`.`answers` (`question_id`, `name`, `email`, `content`) VALUES (?, ?, ?, ?)");
     $insert_ans->bind_param("isss", $question_id, $name, $email, $content);
 
     $question_id = $_POST['Question_ID'];
