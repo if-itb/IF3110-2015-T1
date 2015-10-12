@@ -5,7 +5,7 @@
 		<title>ASK a Question</title>
 	</head>
 	<body>
-		<H2>SIMPLE STACK EXCHANGE</H2>	
+		<a href="index.php"><H2>SIMPLE STACK EXCHANGE</H2></a>
 		<?php
 		$qid = $_GET['id'];
 
@@ -25,17 +25,31 @@
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_assoc($result);
 		$topic = $row['topic'];
-		$askname = $row['askname'];
+		$name = $row['askname'];
 		$vote = $row['vote'];
 		$mail = $row['email'];
-		$qcon = $row['content'];
+		$con = $row['content'];
+		?>		
+		<H4><?php echo $topic;?></H4>		
+		<p> <?php echo $con;?></p>
+		<p>vote =<?php echo $vote;?> | asked by <?php echo $name;?> | edit | delete </p>
+			
+		<?php
+		$sql = "select * from answer where qid=".$qid;
+		$result = mysqli_query($conn, $sql);
+		echo "<H4>".mysqli_num_rows($result)." Answers</H4>";
+		while ($row = mysqli_fetch_assoc($result)) {
+			$name = $row['ansname'];
+			$vote = $row['vote'];
+			$mail = $row['email'];
+			$con = $row['content'];
+			echo "-------------------------<br><p>$con</p>";
+			echo "vote = ".$vote." | answered by ".$name."<br><br>";		
+		}
+		
+		
+		
 		?>
-		
-		<H5><?php echo $topic;?></H5>
-		<p> Vote = <?php echo $vote;?> </p>
-		<p> <?php echo $qcon;?></p>
-		<p>asked by <?php echo $askname;?> | edit | delete </p>
-		
 		<H4>Your Answer</H4>
 		
 		<form action="answered.php?id=<?php echo $qid;?>" method="post">
@@ -45,6 +59,6 @@
 		<input type="submit" value="Post">
 		</form> 
 		
-		
+		<?php mysqli_close($conn); ?>
 	</body>
 </html>
