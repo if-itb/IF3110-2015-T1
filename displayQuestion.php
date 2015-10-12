@@ -11,7 +11,6 @@
 
 		include 'dbact.php';
 		$id_q = isset($_GET['id_q']) ? $_GET['id_q'] : '';
-
 		$cur = $id_q != '' ? getQuestion($id_q) : array();
 	?>
 
