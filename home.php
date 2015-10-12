@@ -5,22 +5,44 @@
   	<link rel="stylesheet" href="home.css">
 </head>
 <body>
-	<h1 > Simple StackExchange</h1>
+	<?php
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "wbd";
+
+		// Create connection
+		$conn = mysqli_connect($servername, $username, $password, $dbname);
+		// Check connection
+		if (!$conn) {
+		    die("Connection failed: " . mysqli_connect_error());
+		}
+
+		$sql = "SELECT ID, Nama, Email, Topik, Konten, Vote, Jmlh_Jawaban FROM pertanyaan WHERE ID>0";
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_assoc($result);
+	?>
+
+
+	<h1> Simple StackExchange</h1>
 	<br><br>
 
-	<form action="aswer.php" class ="input"> 
+	<form action="answer.php" class ="input" method="get"> 
 	<div class="search">
 		<input class="search-bar" type="text" name="cari" value="" >
 		<input class="submit-button" type="submit" value="Submit">
 	</div>
 	</form>
 
+	<?p
+	?>
+
 	<p class="state1"> Cannot find what are you are looking for ?<a href="ask.php" > Ask here </a> </p>
 	<br>
 	<p class="state2"> Recently Asked Questions</p>
 
 	<hr>
-	<div class="pertanyaan">
+	<div class="question">
 		<div class="vote">
 			<span>0</span><br>
 			<span>Vote</span>
@@ -30,13 +52,13 @@
 			<span>Answer</span>
 		</div>
 		<div class="topic-question">
-			<p> The questions topic goes here</p>
+			<?php echo $row["Nama"]?>
 		</div>
 		<div class="id-question">
 			<p> asked by <span class="name"> name </span> | <span class="edit"> <a href="ask.php"> edit </a> </span> | <span class="delete"> <a href="ask.php"> delete </a> </span> </p>
 		</div>
 	</div>
 
-	
+<?php mysqli_close($conn); ?>
 </body>
 </html>

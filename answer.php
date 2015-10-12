@@ -5,7 +5,8 @@
 	<link rel="stylesheet" href="answer.css">
 </head>
 <body>
-	<h1 align="Middle"> Simple StackExchange</h1>
+	<h1> Simple StackExchange</h1>
+	Welcome <?php echo $_GET["cari"] ?>!<br />
 	<br><br>
 	<h2 class="question">The Questions Topic Goes Here</h2>
 	<hr>
@@ -61,7 +62,7 @@
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.	
 		</div>
 		<br>
-		<div class="amswe-identity">
+		<div class="answer-identity">
 			<p> answered by .............</p>
 		</div>
 	</div>
