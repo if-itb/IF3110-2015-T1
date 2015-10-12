@@ -77,6 +77,7 @@
 					<p class="content">
 						<?php echo $row["content"]?>
 					</p>
+					<br>
 				</td>
 			</tr>
 			<tr>

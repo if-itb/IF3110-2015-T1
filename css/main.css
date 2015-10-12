@@ -72,6 +72,8 @@ p.blue {
 p.content {
 	font-size:auto;
 	margin:0;
+	max-height:50px;
+	overflow:hidden;
 	padding:2%;
 }
 
