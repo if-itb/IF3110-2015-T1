@@ -61,7 +61,9 @@
 						<a href="/Tubes1/edit-question.php?id=<?= $question_id ?>">
 							<span style= "color: #ffcb55">edit</span>
 						</a> | 
-						<span style= "color: #fd294a">delete</span></h3>
+						<a href="/Tubes1/delete-question.php?id=<?= $question_id ?>" onclick= "return confirm('Do you want to delete this question ?');">
+							<span style= "color: #fd294a">delete</span></h3>
+						</a>
 					</div>
 				</div>
 				<div style="clear:both"></div>
