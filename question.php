@@ -64,10 +64,10 @@
 							while($row = $result->fetch_assoc()) {	
                                  echo '
                                 <form name="question" action="index.php?id='.$_GET["id"]. '&rule=update" method="post" class="form" onsubmit="return validateForm()">
-                                    <input type="text" name="name" placeholder="Name" value="'.$row["name"].'"><br>
-                                    <input type="text" name="email" placeholder="Email" value="'.$row["email"].'"><br>
-                                    <input type="text" name="topic" placeholder="Question Topic" value="'.$row["questiontopic"].'"><br>
-                                    <textarea name="content" placeholder="Content">'.$row["content"].'</textarea>
+                                    <input type="text" maxlength="12" name="name" placeholder="Name" value="'.$row["name"].'"><br>
+                                    <input type="text" maxlength="30" name="email" placeholder="Email" value="'.$row["email"].'"><br>
+                                    <input type="text" maxlength="30" name="topic" placeholder="Question Topic" value="'.$row["questiontopic"].'"><br>
+                                    <textarea name="content" placeholder="Content" maxlength="1500">'.$row["content"].'</textarea>
                                     <input type="submit" value="Post">
                                 </form>';
 							}
@@ -79,10 +79,10 @@
                 else{
                     echo '
                     <form  name="question" action="index.php" method="post" class="form" onsubmit="return validateForm()">
-                        <input type="text" name="name" placeholder="Name"><br>
-                        <input type="text" name="email" placeholder="Email"><br>
-                        <input type="text" name="topic" placeholder="Question Topic"><br>
-                        <textarea name="content" placeholder="Content"></textarea>
+                        <input type="text" name="name" placeholder="Name" maxlength="12"><br>
+                        <input type="text" name="email" placeholder="Email" maxlength="30"><br>
+                        <input type="text" name="topic" placeholder="Question Topic" maxlength="30"><br>
+                        <textarea name="content" placeholder="Content" maxlength="1500"></textarea>
                         <input type="submit" value="Post" >
                     </form>';
                 }

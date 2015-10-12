@@ -18,39 +18,6 @@
             }
         </script>
 		<link rel='stylesheet' href='style.css'/>
-		<?php
-			if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-				$con = mysqli_connect("localhost","root","","wbd");
-				
-				// Check connection
-				if (mysqli_connect_errno())
-				  {
-				  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-				  }
-				else
-				{
-                    if (isset($_GET["rule"]) && $_GET["rule"]=="update"){
-                        
-                        mysqli_query($con,"UPDATE question SET name='$_POST[name]',email='$_POST[email]',questiontopic='$_POST[topic]',content='$_POST[topic]' WHERE question_id='$_GET[id]'");
-                    }
-                    else{
-                        
-                        mysqli_query($con,"INSERT INTO question (name,email,questiontopic,content,vote,date,answer) 
-                        VALUES ('$_POST[name]','$_POST[email]','$_POST[topic]','$_POST[content]',0,NOW(),0)");
-                    }
-					mysqli_close($con);
-				}
-			}
-            else{
-                
-                if (isset($_GET["rule"]) && $_GET["rule"]=="delete"){
-                    $con = mysqli_connect("localhost","root","","wbd");
-                    mysqli_query($con,"DELETE FROM question WHERE question_id='$_GET[id]'");
-                    mysqli_close($con);
-                 }
-                
-            }
-		?>
 	</head>
 	<body>
 	
@@ -62,8 +29,8 @@
 		
 		<div class="main">
 			<div class="container">
-				<form name="search" onsubmit="return validateForm()" action="indexsearch.php" method="post" class="search">
-					<input type="text" maxlength="50" name="key">
+                <form name="search" onsubmit="return validateForm()" action="indexsearch.php" method="post" class="search">
+					<input type="text" maxlength="50" name="key" value="<?php echo $_POST["key"]?>"> 
 					<input type="submit" value="Search">
 				</form>
 				<h6>Cannot find what you are looking for? <a href="question.php">Ask here</a></h6>
@@ -81,7 +48,7 @@
 							  }
 							else
 							{
-								$sql = "SELECT * FROM question";
+								$sql = "SELECT * FROM question where content LIKE '%".$_POST["key"]."%' or questiontopic LIKE '%".$_POST["key"]."%'";
 								$result = $con->query($sql);
 
 								if ($result->num_rows > 0) {

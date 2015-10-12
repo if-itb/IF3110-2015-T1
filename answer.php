@@ -95,7 +95,7 @@
                                         '<img src="down.png" alt="down" height="42" width="42" onclick="votedown('.$_GET["id"].')"></div>';
                                     echo '<div class="columnlargest center">';
                                        
-                                        echo "<p>".$row["content"]."</p>";
+                                        echo "<p class='wrap'>".$row["content"]."</p>";
                                         $answer=$row["answer"];
                                     echo "</div>";
 								echo "</div>";
@@ -124,7 +124,7 @@
                                         </div>';
                                     echo '<div class="columnlargest center">';
                                        
-                                        echo "<p>".$row["content"]."</p>";
+                                        echo "<p class='warp'>".$row["content"]."</p>";
                                     echo "</div>";
 								echo '<div class="footer">';
                                         echo '<p>answered by 
@@ -144,9 +144,9 @@
 				<div>
 					<h3>Your Answer</h3>
 					<?php echo '<form name="answer" action="answer.php?id='.$_GET["id"]. '" method="post" onsubmit="return validateForm()" class="form">' ?>
-						<input type="text" name="name" placeholder="Name"><br>
-						<input type="text" name="email" placeholder="Email"><br>
-						<textarea name="content" placeholder="Content"></textarea>
+						<input type="text" maxlength="12" name="name" placeholder="Name"><br>
+						<input type="text" name="email" maxlength="30" placeholder="Email"><br>
+						<textarea name="content" placeholder="Content" maxlength="1500"></textarea>
 						<input type="submit" value="Post">
 					</form>
 				</div>

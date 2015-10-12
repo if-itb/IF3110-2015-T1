@@ -114,7 +114,8 @@ a{
 .main .columnlargest{
 	display:inline-block;
 	margin:0;
-	width:85%
+	width:85%;
+    word-wrap:break-word;
 }
 
 .left{
@@ -149,4 +150,8 @@ a{
 
 .footer{
     text-align:right;
+}
+
+.warp{
+    text-wrap:break-word;
 }
