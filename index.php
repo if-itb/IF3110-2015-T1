@@ -9,10 +9,21 @@
 	}
 
 	$q = '';
-	if (isset($_GET['q']) && !is_null($_GET['q'])) {
-		$q = $_GET['q'];
-		$questions = getQuestions($_GET['q']);
-	} else {
+	if (isset($_GET['search']) && !is_null($_GET['search'])) {
+		$q=$_GET['search'];
+		$query = "SELECT * FROM question WHERE Title LIKE '%$_GET[search]%' OR Content LIKE '%$_GET[search]%'";
+		
+		$rq = mysqli_query($connect, $query);
+	
+		$r = array();
+		while ($row = mysqli_fetch_array($rq, MYSQLI_ASSOC)) {
+			
+			$r[] = $row;
+		}
+	
+		$questions = $r;
+	}
+	else {
 		$questions = getQuestions();
 	}
 ?>
@@ -37,12 +48,13 @@ function confirmDelete(id) {
 	<head>
 		<title> Simple StackExchange </title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="ICON" href="icon.ico" type="image/ico"/>
 	</head>
 	<body>
 		<h1><a id="a3" href="index.php">Simple StackExchange</a></h1>
 		<div id="div1">
 			<FORM>
-			<INPUT TYPE ="SEARCH">
+			<INPUT TYPE ="text" id="t1" name="search">
 			<INPUT TYPE ="Submit" VALUE="Search">
 		</FORM>
 		</div>
