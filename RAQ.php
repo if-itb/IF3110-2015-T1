@@ -12,6 +12,11 @@
 				$ID = $row['Q_id'];
 				$sql2 = "SElECT Q_id FROM answer WHERE Q_id=$ID";
 				$answer = mysqli_query($conn,$sql2);
+				if(strlen($row["Q_Content"])>60){
+					$bag = substr($row["Q_Content"],0,59)."...";
+				} else {
+					$bag = $row["Q_Content"];
+				}
 				echo "<div class=\"RAQ\">
 					<hr>
 						<div class=\"vote\">
@@ -37,8 +42,8 @@
 							$row["Q_Topic"].						
 						"</a>
 						<br>".
-							$row["Q_Content"].
-						"</div>
+							$bag
+						."</div>
 					
 						<div class=\"asked\">
 							asked by <span class=\"name\">" . $row["Q_Name"] ."</span> | <a href=\"Edit.php?id=".$row["Q_id"]."\"class=\"color_yellow\">edit<a> | <a onclick=\"return confirm_delete()\" href=\"Delete.php?id=".$row["Q_id"]."\"class=\"delete\">delete<a>
