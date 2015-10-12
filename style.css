@@ -1,30 +1,22 @@
 body {
 	font-family: Segoe UI;
+	/*width: 750px;
+	margin: 0 auto;*/
 }
 
-h1 {
+.pageheader {
 	text-align: center;
 	margin-top: 70px;
 }
 
-#searchbox,
-#name,
-#email,
-#topic,
-#content {
+textarea {
 	width: 450px;
-}
-
-#submitbutton {
-	width: 70px;
-}
-
-#postbutton {
-	margin-left: 410px;
+	resize: none;
 }
 
 form {
 	text-align: center;
+	resize: none;
 }
 
 p {
@@ -46,3 +38,69 @@ hr {
     width: 600px;
     margin-top: 5px;
 } 
+
+.vote {
+	margin-left: 0px;
+	width: 50px;
+	float: left;
+	margin: 0 auto;
+}
+
+.vote-count {
+	margin-left: 380px;
+	margin-bottom: 5px;
+}
+
+.vote-tag {
+	margin-left: 40px;
+	margin-bottom: 4px;
+}
+
+.answer {
+	width: 100px;
+	float: left;
+}
+
+.answer-count {
+	margin-left: 70px;
+	margin-bottom: 0px;
+}
+
+.answer-tag {
+	margin-left: 50px;
+	margin-bottom: 4px;
+}
+
+.question,
+.answerspace {
+	margin-left: 0px;
+	margin-bottom: 20px;
+	float: left;
+	width: 350px;
+}
+
+.modif-question {
+	margin-left: 0px;
+	margin-bottom: 20px;
+	float: left;
+	width: 350px;
+}
+
+#searchbox,
+#name,
+#email,
+#topic {
+	width: 450px;
+}
+
+#submitbutton {
+	width: 70px;
+}
+
+#postbutton {
+	margin-left: 410px;
+}
+
+#questioncontainer {
+	text-align: center;
+}
