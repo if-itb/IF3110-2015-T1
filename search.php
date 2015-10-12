@@ -1,5 +1,6 @@
 <?php include_once("header.php");
-		include_once("functions.php");
+	include_once("functions.php");
+	
 ?>
 			<div class="search-area">
 				<center>
@@ -13,12 +14,15 @@
 				</center>
 			</div>
 			<div class="content">
-			<div id="recent-title">Recently Asked Questions</div>
+			<div id="recent-title">Search Result</div>
 			<hr>
 			<?php
-				$con = connectDB();
-				$sql = "SELECT * FROM $tbl_question";
-				$result = $con->query($sql);
+				if(empty($_GET["s"])){
+					//don't show result
+				} else {
+					$keyword = $_GET["s"];
+				
+				$result = search($keyword);
 				?>
 				<div class="question-list">
 				<?php
@@ -60,6 +64,7 @@
 					} else {
 						echo "No results";
 					}
+				}
 				?>	
 				</div>
 			</div>

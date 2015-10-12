@@ -1,6 +1,8 @@
 <?php
 $tbl_answer = $tbl_question = "";
 
+/* DB Connection */
+
 function connectDB(){
 	if(file_exists("db.php")){
 		require 'db.php';
@@ -15,6 +17,8 @@ function connectDB(){
 	}
 	return $con;
 }
+
+/* QUESTION */
 
 function isQuestionExist($id){
 	$con = connectDB();
@@ -31,6 +35,8 @@ function getQuestionRow($id){
 	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 	return $row;
 }
+
+/* VALIDATION & POST */
 
 function validateName($name){
 	$err = "";
@@ -115,6 +121,8 @@ function postAnswer($name,$email,$content){
 	}
 	return $error;
 }
+
+/* VOTE */
  
 function getVoteNumber($type,$id){	
 	$con = connectDB();
@@ -170,6 +178,8 @@ if(isset($_GET['f'])){
 	} 
 }
 
+/* FETCH ANSWER */
+
 function getAnswers($id){
 	$con = connectDB();
 	$tbl_answer = $GLOBALS['tbl_answer'];
@@ -185,16 +195,7 @@ function countAnswers($id){
 	return $result->num_rows;
 }
 
-function getAnswerRows($id){
-	$result = getAnswers($id);
-	return $result->fetch_assoc();
-}
-
-function deleteQuestion($id){
-	$con = connectDB();
-
-}
-
+/* DELETE QUESTION */
 if(isset($_GET['del'])){
 	//header('Location: http://www.example.com/');
 	$con = connectDB();
@@ -214,5 +215,18 @@ if(isset($_GET['del'])){
 	$stmt->execute();
 	$stmt->close();
 }
+
+/* SEARCH */
+
+function search($keyword){
+	$con = connectDB();
+	$tbl_question = $GLOBALS['tbl_question'];
+	
+	$sql = "SELECT * FROM $tbl_question WHERE (content LIKE '%$keyword%' or topic LIKE '%keyword%')";
+	$result = $con->query($sql);	
+	
+	return $result;
+}
+
 
 ?>
