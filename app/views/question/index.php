@@ -1,4 +1,4 @@
-<?php include( 'template/header.php' ); ?>
+
 <div class="inner-container">
 
     <div class="question-header">
@@ -118,4 +118,4 @@
     </div> <!-- .row -->
 </div> <!-- .inner-container -->
 
-<?php include( 'template/footer.php' ); ?>
+

@@ -1,4 +1,3 @@
-<?php include( 'template/header.php' ); ?>
 
 <div class="inner-container">
 
@@ -37,4 +36,4 @@
     </div> <!-- .row -->
     
 </div> <!-- .inner-container -->
-<?php include( 'template/footer.php' ); ?>
+

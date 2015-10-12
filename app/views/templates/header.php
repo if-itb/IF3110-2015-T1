@@ -7,7 +7,7 @@
     <title>Simple StackExchange</title>
 
     <!-- Main style -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<?= ROOT_URL; ?>/css/style.css">
 
     <!-- Google fonts -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:800italic,300,400,400italic,600,700' rel='stylesheet' type='text/css'>
@@ -17,7 +17,7 @@
     <div class="outer-container">
         
         <header class="main-title">
-            <h1>Stack<span>Exchange<span></h1>
+            <h1>Stack<span>Exchange</span></h1>
         </header>
 
         <form action="" method="GET" id="searchForm">
@@ -25,4 +25,4 @@
             <input type="submit" value="Search">
         </form>
 
-        <p class="ask-here">Can't find what you are looking for? <a href="">Ask here</a></p>
+        <p class="ask-here">Can't find what you are looking for? <a href="<?= ROOT_URL; ?>/question/add">Ask here</a></p>
