@@ -23,6 +23,20 @@
 		var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 		return re.test(email);
 	}
+    function vote(id, change, db) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            if (db=="questions") { //question
+                document.getElementById("qvotes-"+id).innerHTML = xhttp.responseText;
+            } else { //answer
+                document.getElementById("avotes-"+id).innerHTML = xhttp.responseText;
+            }
+        }
+    }
+    xhttp.open("GET", "vote.php?id="+id+"&vote="+change+"&db="+db, true);
+    xhttp.send();
+    } 
 	</script>
 </head>
 <body id="question">
@@ -36,19 +50,19 @@
 
         if ($result->num_rows > 0) {
             // output data of each row
-            while($row = $result->fetch_assoc()) {
+            while($row = $result->fetch_assoc()) { 
                 echo'<h2>' .$row['q_topic'] .'</h2>';
                 echo'<hr>';
                 echo'<div class="question-full">';
                 echo'    <div class="question-votes">';
-                echo'        <div class="upvote"></div>';
-                echo'        <div class="vote-number">' .$row['q_votes'] .'</div>';
-                echo'        <div class="downvote"></div>';
+                echo'        <div class="upvote" onclick="return vote('.$q_id.',1,\'questions\')"></div>';
+                echo'        <div class="vote-number" id="qvotes-'.$q_id.'">' .$row['q_votes'] .'</div>';
+                echo'        <div class="downvote" onclick="return vote('.$q_id.',-1,\'questions\')"></div>';
                 echo'    </div>';
                 echo'    <div class="question-content">';
                 echo $row['q_content'];
                 echo'    </div>';
-                echo'    <div class="details">asked by ' .$row['q_name'] .' at ' .$row['q_date'] . ' | edit | delete</div>';
+                echo'    <div class="details">asked by ' .$row['q_name'] .' at ' .$row['q_date'] . ' | <a href="edit.php?id=' .$q_id . '">edit</a> | <a href="deletequestion.php?id='.$q_id.'" onclick="return confirm(\'Are you sure you want delete this question?\')">delete</a></div>';
                 echo'</div>';
                 
             }
@@ -64,9 +78,9 @@
                 while($row = $result->fetch_assoc()) {
                     echo'<div class="question-full">';
                     echo'    <div class="question-votes">';
-                    echo'        <div class="upvote"></div>';
-                    echo'        <div class="vote-number">' .$row['a_votes'] .'</div>';
-                    echo'        <div class="downvote"></div>';
+                    echo'        <div class="upvote" onclick="return vote('.$row['a_id'].',1,\'answers\')"></div>';
+                    echo'        <div class="vote-number" id="avotes-'.$row['a_id'].'">' .$row['a_votes'] .'</div>';
+                    echo'        <div class="downvote" onclick="return vote('.$row['a_id'].',-1,\'answers\')"></div>';
                     echo'    </div>';
                     echo'    <div class="question-content">';
                     echo $row['a_content'];
