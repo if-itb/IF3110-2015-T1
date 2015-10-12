@@ -18,14 +18,38 @@
 	?>
 	<h3><?php echo $question['topic']; ?></h3>
 	<hr>
+
+	<script type="text/javascript">
+	    function vote(id,type,result) {
+	        var xhttp = new XMLHttpRequest();
+	        xhttp.onreadystatechange = function() {
+	            if (xhttp.readyState == 4 && xhttp.status == 200) {
+					if(type == 'question')
+						document.getElementById("questionvote").innerHTML = xhttp.responseText;
+					else
+						document.getElementById("answervote"+id).innerHTML = xhttp.responseText;
+	            }
+	        }
+	        xhttp.open("POST", "./ajax/vote.php", true);
+	        xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+	        xhttp.send("action=" +result+ "&id=" + id + "&type=" + type);
+	    }
+	</script>
+
 	<div class="question">
 		<div class="question" id="voteupdown">
 			<div>
-				<img src="img/up.png" width="20%" height="20%">
+				<a href=javascript:vote(<?php echo $question_id; ?>,'question','up')>
+					<img src="img/up.png" width="20%" height="20%">
+				</a>
 			</div>
-			<?php echo $question['vote']; ?>
+			<div id="questionvote">
+				<?php echo $question['vote']; ?>
+			</div>
 			<div>
-				<img src="img/down.png" width="20%" height="20%">
+				<a href=javascript:vote(<?php echo $question_id; ?>,'question','down')>
+					<img src="img/down.png" width="20%" height="20%">
+				</a>
 			</div>
 		</div>
 		<div class="question" id="content">
@@ -55,11 +79,17 @@
 		<div class="answer">
 			<div class="answer" id="votes">
 				<div>
-					<img src="img/up.png" width="20%" height="20%">
+					<a href=javascript:vote(<?php echo $row['id']; ?>,'answer','up')>
+						<img src="img/up.png" width="20%" height="20%">
+					</a>
 				</div>
-				<?php echo $row['vote']; ?>
+				<div id="answervote<?php echo $row['id']; ?>">
+					<?php echo $row['vote']; ?>
+				</div>
 				<div>
-					<img src="img/down.png" width="20%" height="20%">
+					<a href=javascript:vote(<?php echo $row['id']; ?>,'answer','down')>
+						<img src="img/down.png" width="20%" height="20%">
+					</a>
 				</div>
 			</div>
 			<div class="answer" id="content">
