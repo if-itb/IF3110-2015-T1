@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2015 at 02:50 PM
+-- Generation Time: Oct 12, 2015 at 01:03 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -48,16 +48,7 @@ CREATE TABLE IF NOT EXISTS `question` (
   `qtopic` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `content` text COLLATE utf8_unicode_ci NOT NULL,
   `Vote` bigint(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Questions from users';
-
---
--- Dumping data for table `question`
---
-
-INSERT INTO `question` (`id`, `name`, `email`, `qtopic`, `content`, `Vote`) VALUES
-(1, 'Julio', 'Jsavigny@gmail.com', 'Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 0),
-(2, 'A', 'jasd@asd.com', 'asd', 'zxcxzc', 2),
-(3, 'zxcxz', 'qwe@asu.com', 'apa ya', 'lohe leho', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Questions from users';
 
 --
 -- Indexes for dumped tables
@@ -89,7 +80,7 @@ ALTER TABLE `answers`
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
