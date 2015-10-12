@@ -25,6 +25,26 @@
 		<div class="Question">
 			<h3>Recently Asked Questions</h3><hr>
 			<div class="question-description">
+				<?php
+						$servername = "localhost";
+						$username = "root";
+						$password = "";
+						$dbname = "stackexchange";
+
+						$connection = mysql_connect($servername, $username, $password) or die(mysql_error());
+						@mysql_select_db('stackexchange') or die(mysql_error());
+						$sql = "SELECT * FROM `question`";
+						$result = mysql_query($sql);
+						$num = mysql_num_rows($result);
+
+						for($i=0; $i<$num; $i++){
+							$question_id = mysql_result($result, $i, "ID");
+							$name = mysql_result($result, $i, "Nama");
+							$email = mysql_result($result, $i, "Email");
+							$topic = mysql_result($result, $i, "Topic");
+							$content = mysql_result($result, $i, "Content");
+							$vote = mysql_result($result, $i, "Vote");
+				?>
 				<div class="votes">
 					<div class="count">
 						<p>0</p>
@@ -38,31 +58,17 @@
 					<p>answer</p>
 				</div>
 				<div class="question-list">
-					<p>The question topic goes here</p>
-					<?php
-						$servername = "localhost";
-						$username = "root";
-						$password = "";
-						$dbname = "stackexchange";
-
-						// Create connection
-						$conn = new mysqli($servername, $username, $password, $dbname);
-
-						// Check connection
-						if ($conn->connect_error) {
-	  	  			die("Connection failed: " . $conn->connect_error);
-						} 
-	
-						$conn->close();
-					?>
+					<a href=" /WBD/answer.php?id=<?= $question_id ?>"><p><?php echo $topic; ?></a></p>					
 					<div class="asked-description">
-						<p>Asked by <span style="color : #502fc8">name</span> |
+						<p>Asked by <span style="color : #502fc8"><?php echo $name; ?></span> |
 							<span style="color : #ffcb55">edit</span> |
 							<span style="color : #fd294a">delete</p>
 					</div>
 				</div>
+				<hr>
+				<?php } ?>
+				<?php mysql_close(); ?>
 			</div>
-			<hr>
 		</div>
 
 	</div>
