@@ -15,7 +15,7 @@
 				<span id="whats-question">What's Your Question?</span></br>
 				<hr></br></br>
 				<?php if (strlen($error)>0){echo '<span class="error">'.$error.'</span></br>';}?>
-				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return chkValidity();" id="form-ask">
+				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return chkValidityQuestion();" id="form-ask">
 					<input type="text" name="name" id="name" placeholder="Name"></br><span class="error">
 					<input type="text" name="email" id="email" placeholder="Email"></br><span class="error">
 					<input type="text" name="topic" id="topic" placeholder="Question Topic"></br><span class="error">

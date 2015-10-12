@@ -14,7 +14,7 @@
 			$name = (!(empty($_POST["name"])))?$_POST["name"]:'';
 			$email = (!(empty($_POST["email"])))?$_POST["email"]:'';
 			$content = (!(empty($_POST["content"])))?$_POST["content"]:'';
-			$error = postAnswer($name,$email,$content);
+			$error = postAnswer($id,$name,$email,$content);
 		}
 		$row = getQuestionRow($id);
 		?>
@@ -72,7 +72,7 @@
 										</td>
 										<td>
 											<span class="answer-content"><?php echo $row['content'];?></span></br></br>
-											<span class="answer-answered">Answered by <?php echo $row['name'];?> on <?php echo $row['create_date'];?></span></br>
+											<div class="answer-answered">Answered by <?php echo $row['name'];?> on <?php echo $row['create_date'];?></div></br>
 										</td>
 									</tr>
 									</table>

@@ -1,15 +1,17 @@
 
-function chkValidity(){
-
+function checkName(txtName){
 	//nama
-	var txtName = document.getElementById('name').value;
+	
 	if(txtName.length<=0){
 		alert("Nama tidak boleh kosong");
 		return false;
+	} else {
+		return true;
 	}
+}
 
+function checkEmail(txtEmail){
 	//email
-	var txtEmail = document.getElementById('email').value;
 	if(txtEmail.length<=0){
 		alert("Email tidak boleh kosong");
 		return false;
@@ -20,56 +22,67 @@ function chkValidity(){
 	if(!emailValid){
 		alert("Email tidak valid");
 		return false;
+	} else {
+		return true;
 	}
-	
-	//topic
-	var txtTopic = document.getElementById('topic').value;
-	if(txtTopic.length<=0){
-		alert("Topic tidak boleh kosong");
-		return false;
-	}
-	
+}
+
+function checkContent(txtContent){
 	//content
-	var txtContent = document.getElementById('content').value;
 	if(txtContent.length<=0){
 		alert("Content tidak boleh kosong");
 		return false;
+	} else {
+		return true;
 	}
+}
+
+function checkTopic(txtTopic){
+	//content
+	if(txtTopic.length<=0){
+		alert("Topic tidak boleh kosong");
+		return false;
+	} else {
+		return true;
+	}
+}
+
+function chkValidityAnswer(){
+	var txtName = document.getElementById('name').value;
+	var valid = checkName(txtName);
 	
-	return true;
+	if(valid){//checkEmail
+		var txtEmail = document.getElementById('email').value;
+		valid = checkEmail(txtEmail);
+	}
+
+	if(valid){//checkContent
+		var txtContent = document.getElementById('content').value;
+		valid = checkContent(txtContent);
+	}
+	if(!valid) return false;
 }
 
 function chkValidityQuestion(){
 				
-	//nama
 	var txtName = document.getElementById('name').value;
-	if(txtName.length<=0){
-		alert("Nama tidak boleh kosong");
-		return false;
+	var valid = checkName(txtName);
+	
+	if(valid){//checkEmail
+		var txtEmail = document.getElementById('email').value;
+		valid = checkEmail(txtEmail);
+	}
+	
+	if(valid){//checkTopic
+		var txtTopic = document.getElementById('topic').value;
+		valid = checkTopic(txtTopic);
 	}
 
-	//email
-	var txtEmail = document.getElementById('email').value;
-	if(txtEmail.length<=0){
-		alert("Email tidak boleh kosong");
-		return false;
+	if(valid){//checkContent
+		var txtContent = document.getElementById('content').value;
+		valid = checkContent(txtContent);
 	}
-	//validate email format
-	var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-	var emailValid = re.test(txtEmail);
-	if(!emailValid){
-		alert("Email tidak valid");
-		return false;
-	}
-
-	//content
-	var txtContent = document.getElementById('content').value;
-	if(txtContent.length<=0){
-		alert("Content tidak boleh kosong");
-		return false;
-	}
-
-	return true;
+	if(!valid) return false;
 }
 
 function vote(upDown, type, id) {
