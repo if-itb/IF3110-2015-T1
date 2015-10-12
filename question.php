@@ -2,6 +2,7 @@
 <head>
 	<title>Simple StackExchange</title>
 	<link rel="stylesheet" href="css/main.css">
+	<script src="js/validate.js"></script>
 </head>
 
 <body>
@@ -34,7 +35,9 @@ if (mysqli_num_rows($resultQ)>0) {
 <table>
 	<tr>
 		<td class="VotesQA">
-			<?php echo $row["votes"]?>
+			<a href="vote.php?QID=<?php echo $row["qid"] ?>&QA=q&UpDown=up"><img src="img/vote-up.png"></a><br>
+			<div id="Votes"><?php echo $row["votes"]?></div><br>
+			<a href="vote.php?QID=<?php echo $row["qid"] ?>&QA=q&UpDown=down"><img src="img/vote-down.png"></a>
 		</td>
 		<td>
 			<?php echo $row["content"]?>
@@ -59,7 +62,7 @@ if (mysqli_num_rows($resultQ)>0) {
 	
 }
 
-$sqlA = "SELECT nama,email,content,votes,datetime FROM answer WHERE qid='$qid'";
+$sqlA = "SELECT AID,nama,email,content,votes,datetime FROM answer WHERE qid='$qid'";
 $sqlVotes = "SELECT count(*) FROM answer WHERE qid='$qid'";
 $resultA = mysqli_query($conn,$sqlA);
 $resultVotes = mysqli_query($conn,$sqlVotes);
@@ -82,8 +85,14 @@ if (mysqli_num_rows($resultA)>0) {
 
 <table>
 	<tr>
-		<td class="VotesQA"><?php echo $row["votes"] ?></td>
-		<td><?php echo $row["content"]?></td>
+		<td class="VotesQA">
+			<a href="vote.php?AID=<?php echo $row["AID"] ?>&QA=a&UpDown=up"><img src="img/vote-up.png"></a><br>
+			<?php echo $row["votes"] ?><br>
+			<a href="vote.php?AID=<?php echo $row["AID"] ?>&QA=a&UpDown=down"><img src="img/vote-down.png">
+		</td>
+		<td>
+			<?php echo $row["content"]?>
+		</td>
 	</tr>
 	<tr>
 		<td></td>
@@ -101,7 +110,7 @@ if (mysqli_num_rows($resultA)>0) {
 mysqli_close($conn);
 ?>
 <h2>Your Answer</h2>
-<form action="answer.php" method="post">
+<form name="answerForm" action="answer.php" method="post" onsubmit="return validateAnswerForm()">
 	<input name="qid" type="hidden" value="<?php echo $qid ?>">
 	<input name="name" class="text" type="text" placeholder="Name" size="130"><br>
 	<input name="email" class="text" type="text" placeholder="Email" size="130"><br>

@@ -2,13 +2,14 @@
 <head>
 	<title>Simple StackExchange</title>
 	<link rel="stylesheet" href="css/main.css">
+	<script src="js/validate.js"></script>
 </head>
 
 <body>
 <h1><a href="home.php">Simple StackExchange</a></h1><br>
 <h2>What's your question?</h2>
 <hr>
-<form action="post.php" method="post">
+<form name="askForm" action="post.php" method="post" onsubmit="return validateAskForm()">
 	<input name="name" class="text" type="text" placeholder="Name" size="132"><br>
 	<input name="email" class="text" type="text" placeholder="Email" size="132"><br>
 	<input name="topic" class="text" type="text" placeholder="Question Topic" size="132"><br>

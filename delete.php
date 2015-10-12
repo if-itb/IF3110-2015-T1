@@ -26,6 +26,14 @@
 			//error
 		}
 		
+		$sql2 = "DELETE FROM answer WHERE qid='$qid'";
+		
+		if (mysqli_query($conn, $sql2)) {
+			//Sukses
+		} else {
+			//error
+		}
+		
 		mysqli_close($conn);
 	?>
 </body>

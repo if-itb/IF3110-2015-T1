@@ -2,6 +2,7 @@
 <head>
 	<title>Simple StackExchange</title>
 	<link rel="stylesheet" href="css/main.css">
+	<script src="js/validate.js"></script>
 </head>
 
 <body>
@@ -31,7 +32,7 @@
 		while ($row = mysqli_fetch_assoc($result)) {
 ?>
 
-<form action="editdb.php" method="post">
+<form name="editForm" action="editdb.php" method="post" onsubmit="return validateEditForm()">
 	<input name="qid" type="hidden" value="<?php echo $row["qid"] ?>">
 	<input name="name" class="text" type="text" placeholder="Name" size="132" value="<?php echo $row["nama"] ?>"><br>
 	<input name="email" class="text" type="text" placeholder="Email" size="132" value="<?php echo $row["email"] ?>"><br>
