@@ -55,14 +55,14 @@ h3#ask_here {
 
 .question #topic {
     float: left;
-    width: 400px;
+    width: 725px;
     padding: 10px;
 }
 
 .question #content {
     float: left;;
-    width: 730px;
-    height: 100px;
+    width: 725px;
+    height: 50px;
     padding: 10px;
     word-wrap: break-word;
 }
@@ -96,30 +96,22 @@ h3#ask_here {
     vertical-align: bottom;
 }
 
-.container{
-    width: 300px;
-    vertical-align: middle;
-    white-space: nowrap;
-    position: relative;
+.search{
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.container input#search{
-    width: 700px;
-    height: 40px;
-    background: #2b303b;
-    border: none;
-    font-size: 10pt;
-    float: left;
-    color: #63717f;
-    padding-left: 45px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
+.searchform input#search {
+    width: 75%;
+    height: 25px;
+    font-size: 12pt;
+    font-family: "Arial";
+    padding-left: 15px;
+}
+
+.searchform input#submit {
+    border-width: 1px;
     border-radius: 15px;
-}
-
-.container input#submit{
-    width: 40px;
-    height: 40px;
 }
 
 .form {
