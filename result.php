@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Simple StackExchange</title>
+		<title>Simple StackExchange: Search Results</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 
@@ -19,6 +19,7 @@
 			if ($conn->connect_error) {
 		    die("Connection failed: " . $conn->connect_error);
 			}
+
 		?>
 
 	</head>
@@ -37,12 +38,16 @@
 				<br><h5>Cannot find what you're looking for? <a class="edit" href="ask.php">Ask here</a></h5>
 			</div>
 
-			<div class="content"> <h3>Recently Asked Questions</h3> </div>
+			<div class="content"> <h3>Search Results</h3> </div>
 			
 			<?php
+			if (isset($_POST['search'])){
+				$key = $_POST['searchkey'];
+			}
+
 			$listq = "SELECT id, name, email, topic, content, vote,
 			(SELECT count(id_ans) FROM answer WHERE answer.id=question.id)as count_ans
-			 FROM question";
+			 FROM question WHERE topic LIKE '%$key%' OR content LIKE '%$key%'";
 			$result = $conn->query($listq);
 
 			if ($result->num_rows > 0) {
@@ -70,7 +75,7 @@
 
 			    }
 			} else {
-			    echo "<div class=\"content\">Be the first to ask a question!</div>";
+			    echo "<div class=\"content\"><div class=\"question-home\">No question found</div></div>";
 			}
 
 			$conn->close();
