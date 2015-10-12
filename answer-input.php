@@ -2,28 +2,16 @@
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
-	$dbname = "stackexchange";
-
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	
-	// Check connection
-	if ($conn->connect_error) {
-	  die("Connection failed: " . $conn->connect_error);
-	}
-	
+	$database = "stackexchange";
 	$name = $_POST["Name"];
 	$email = $_POST["Email"];
 	$content = $_POST["Content"];
-	$question_ID = $_GET["id"]
-	$sql = "INSERT INTO answer (`question_ID`, `Nama`, `Email`, `Content`) VALUES('$question_ID', '$name', '$email', '$content')";
-	//echo $sql;
-	if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-	} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-	}	
-	
-	$conn->close();
-	header("Location: /WBD/answer.php");
+	$question_id = $_GET["id"];
+	$connection = mysql_connect($servername, $username, $password) or die(mysql_error());
+	@mysql_select_db('stackexchange') or die(mysql_error());
+	//echo "$question_id";
+	$sql = "INSERT INTO answer (`question_ID`, `Nama`, `Email`, `Content`) VALUES('$question_id', '$name', '$email','$content')";
+	mysql_query($sql);
+	mysql_close();
+	header("Location: /WBD/answer.php?id=$question_id");
 ?>

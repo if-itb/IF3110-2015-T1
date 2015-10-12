@@ -42,8 +42,8 @@ hr{
 }
 
 .question-list p{
-	margin-top: 25px;
-	margin-left: 20px;
+	margin-top: 10px;
+	margin-left: 10px;
 }
 .asked-description{
 	float: right;
@@ -81,7 +81,7 @@ hr{
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 	border-bottom: 16px solid #dbdbdb;
-	margin: -20px 5px 5px 20px;
+	margin: 5px 5px 5px 20px;
 }
 .vote-down {
 	width: 0px;
@@ -89,13 +89,20 @@ hr{
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 	border-top: 16px solid #dbdbdb;
-	margin: 7px 5px 5px 20px;
+	margin: 5px 5px 5px 20px;
 }
 
 .total-answer{
 	float: left;
+	margin-top: 125px;
+	margin-left: -75px;
 }
 
 .count-answer{
+	margin-top: 20px;
+}
+
+.answer-list{
+	margin-left: 20px;
 	margin-top: 20px;
 }

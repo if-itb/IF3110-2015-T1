@@ -39,21 +39,36 @@
             $vote = mysql_result($result, 0, "Vote");
             $date_question = mysql_result($result, 0, "Date");
           ?>
-          <p><?php echo $topic; ?></p>
+          <div class="content">
+            <p><?php echo $topic; ?></p>
+          </div>
+          <br><br><br>
           <div class="asked-description">
-            <p>Asked by <span style="color : #502fc8">name</span> at date/time |
+            <p>Asked by <span style="color : #502fc8"><?php echo "$email"; ?></span> at <?php echo "$date_question"; ?> |
               <span style="color : #ffcb55">edit</span> |
               <span style="color : #fd294a">delete</span></p>
           </div>
         </div>
       </div>
-      <br><br><br>
 
       <div class="total-answer">
         <h2>1 Answer</h2>
       </div>
       <hr>
       <div class="answer-description">
+        <?php
+          $sql = "SELECT * FROM `answer` WHERE (question_ID = $question_id)";
+          $result = mysql_query($sql);
+          $num = mysql_num_rows($result);
+
+          for($i=0; $i<$num; $i++){
+            $question_id = mysql_result($result, $i, "question_ID");
+            $name = mysql_result($result, $i, "Nama");
+            $email = mysql_result($result, $i, "Email");
+            $content = mysql_result($result, $i, "Content");
+            $vote = mysql_result($result, $i, "Vote");
+            $date = mysql_result($result, $i, "Date");
+        ?>
         <div class="votes">
           <div class="vote-up"></div>
           <div class="count-answer">
@@ -61,26 +76,25 @@
           </div>
           <div class="vote-down"></div>
         </div>
-        <div class="question-list">
-          <p>The question topic goes here</p>
+        <div class="answer-list">
+          <p><?php echo "$content"; ?></p>
           <div class="asked-description">
-            <p>Asked by <span style="color : #502fc8">name</span> at date/time |
-              <span style="color : #ffcb55">edit</span> |
-              <span style="color : #fd294a">delete</span></p>
+            <p>Answered by <span style="color : #502fc8"><?php echo "$email"; ?></span> at <?php echo "$date"; ?></p>
           </div>
+          <hr>
         </div>
+        <?php } ?>
       </div>
-      <hr>
       <center>
-        <form class="answer-form" action="answer-input.php" method="POST">
+        <form class="answer-form" action="answer-input.php?id=<?= $question_id ?>" method="POST">
           <input type="text" placeholder="  Name" name="Name"><br>
           <input type="text" placeholder="  Email" name="Email"><br>
-          <input type="text" placeholder="  Quesition Topic" name="Question-topic"><br>
           <textarea type="text" placeholder=" Content" name="Content"></textarea>
-        </form>
           <button type="submit" value="Submit">Post</button>
+        </form>
       </center>
     </div>
+    <?php mysql_close(); ?>
   </div>
 </body>
 
