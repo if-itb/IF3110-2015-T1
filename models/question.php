@@ -17,5 +17,17 @@
 			this->countvotes = $countvotes;
 			this->countanswers = $countanswers;
 		}
+		
+		public static function all(){
+			$listquestion = [];
+			$db = Database::getInstance();
+			$data = $db->query('SELECT * FROM questions');
+			
+			foreach($data->fetchAll() as $question) {
+				$listquestion	= new Question($question['qid'], $question['authoid'], $question['topic'], $question['content'], $question['datetime'], $question['countvotes'], $question['countanswers']);
+				
+				return $listquestion;
+			}
+		}
 	}
 ?>
