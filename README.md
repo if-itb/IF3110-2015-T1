@@ -89,7 +89,15 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+Validasi pada client side dilakukan menggunakan Javascript. Berikut adalah langkah-langkah validasinya :
+1. Ketika tombol submit form ditekan, fungsi validasi akan dijalankan secara otomatis.
+2. Pertama-tama, fungsi akan mengambil nilai dari seluruh input dalam form.
+3. Fungsi akan mengecek apakah ada nilai input yang masih kosong, dimulai dari kolom input yang pertama.
+4. Apabila fungsi menemukan input yang kosong, maka fungsi akan mengeluarkan peringatan yang bertuliskan kolom tersebut harus diisi.
+5. Apabila semua input sudah terisi, fungsi akan mengecek sintaks dari input email.
+6. Sintaks email tersebut akan dicocokkan dengan regular expression (Regex) dari format email yang sudah disimpan pada sebuah variabel.
+7. Apabila sintaks tersebut tidak cocok dengan Regex format email, maka fungsi akan mengeluarkan peringatan yang bertuliskan format penulisan email salah.
+8. Apabila sintaks tersebut cocok dengan Regex format email, maka input form lolos validasi.
 
 ### Knowledge
 
