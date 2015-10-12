@@ -1,39 +1,28 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <?php
-            $servername = "localhost";
-            $username = "stckxchg";
-            $password = "";
-            $dbname = "stackExchange";
-            
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error . "<br>");
-            }
-            
-            $retrieve_all = "SELECT name, email, topic, content FROM questions";
-            $result = $conn->query($retrieve_all);
+<?php
 
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo "Name: " . $row["name"]. "<br> - E-mail: " . $row["email"]. "<br> - Topic:  " . $row["topic"]. "<br> - Content:  " . $row["content"]. "<br>";
-                }
-            } else {
-                echo "0 results";
-            }
-                        
-            $conn->close();
-        ?>
-    </body>
-</html>
+$servername = "localhost";
+$username = "stckxchg";
+$password = "";
+$dbname = "stackExchange";
+            
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+function retrieveQuestions() {
+    global $conn;
+    
+    $questions = array();
+    $retrieve_all_q = "SELECT question_id, name, email, topic, content, vote, time FROM questions";
+    $result = $conn->query($retrieve_all_q);
+       
+    while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+        //echo "Name: " . $row["name"]. "<br> - E-mail: " . $row["email"]. "<br> - Topic:  " . $row["topic"]. "<br> - Content:  " . $row["content"]. "<br>";
+        //$row['answer'] = getAnswerCount($row['question_id']);
+        $questions[] = $row;     
+    }
+    
+    return $questions;
+        
+    $conn->close();
+}
+
+?>
