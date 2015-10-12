@@ -10,7 +10,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
 <html>
 <head>
     <link rel='stylesheet' type="text/css" href="css/style.css">
-    <h1> Simple Stack Exchange </h1>
+    <h1>Simple Stack Exchange</h1>
 </head>
 <?php
 $q = "SELECT * from question where id=$id ";
@@ -60,18 +60,20 @@ function confirmDelete(id) {
     <h2><?php echo $row['topic'] ?></h2>
     <hr>
     <div class="question_content">
-        <table>
-            <tr>
-                <td><a href=javascript:vote(<?php echo $id?>,'question','up')><img src="img/up.png" width="32" height="32"></a></td>
-                <td class="content" rowspan="3"><?php echo $row['content'] ?></td>
-            </tr>
-            <tr>
-                <td class="vote" id="questionvote"><?php echo $row['vote'] ?></td>
-            </tr>
-            <tr>
-                <td><a href=javascript:vote(<?php echo $id?>,'question','down')><img src="img/down.png" width="32" height="32"></a></td>
-            </tr>
-        </table>
+            <div class="vote">
+                <div><a href=javascript:vote(<?php echo $id?>,'question','up')><img src="img/up.png" width="32" height="32"></a></div>
+                <div id="questionvote"><?php echo $row['vote'] ?></div>
+				<div><a href=javascript:vote(<?php echo $id?>,'question','down')><img src="img/down.png" width="32" height="32"></a></div>
+            </div>
+            <div>
+                <?php
+					if (strlen($row['content']) > 130) {
+						echo '<div class="content">'.$row['content'].'</div>';
+					} else {
+						echo '<div class="content1">'.$row['content'].'</div>';
+					}
+				?>
+            </div>
         <div class="creator">asked by <span class="creator_name"><?php echo $row['name'] ?></span>
             at <span class="creator_date"><?php echo $row['date'] ?></span> |
             <a href="ask.php?id=<?php echo $row['id'] ?>&type=edit" class="creator_edit">edit </a> |
@@ -96,17 +98,20 @@ function confirmDelete(id) {
     while($row = $result->fetch_assoc()) :
     ?>
     <div class="answer_content">
-        <table>
-            <tr>
-                <td><a href=javascript:vote(<?php echo $row['id']?>,'answer','up')><img src="img/up.png" width="32" height="32"></a></td>
-                <td class="content" rowspan="3"><?php echo $row['content']?></td>
-            </tr>
-            <tr>
-                <td class="vote" id="answervote<?php echo$row['id']?>"><?php echo $row['vote']?></td>
-            </tr>
-            <tr>
-                <td><a href=javascript:vote(<?php echo $row['id']?>,'answer','down')><img src="img/down.png" width="32" height="32"></a></td>
-            </tr>
+            <div class="vote">
+                <div><a href=javascript:vote(<?php echo $row['id']?>,'answer','up')><img src="img/up.png" width="32" height="32"></a></div>
+                <div id="answervote<?php echo$row['id']?>"><?php echo $row['vote']?></div>               
+				<div><a href=javascript:vote(<?php echo $row['id']?>,'answer','down')><img src="img/down.png" width="32" height="32"></a></div>
+            </div>
+            <div>
+				<?php
+					if (strlen($row['content']) > 130) {
+						echo '<div class="content">'.$row['content'].'</div>';
+					} else {
+						echo '<div class="content1">'.$row['content'].'</div>';
+					}
+				?>
+            </div>
         </table>
     </div>
     <div class="creator">answered by <span class="creator_name"><?php echo $row['name']?></span> at <span class="creator_date"><?php echo $row['date']?></span></div>

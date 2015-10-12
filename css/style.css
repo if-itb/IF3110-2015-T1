@@ -57,8 +57,6 @@ h3 {
     float: left;
     color: #63717f;
     padding-left: 45px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
     border-radius: 15px;
 }
 
@@ -154,26 +152,66 @@ hr {
     color: silver;
 }
 
-.row,.vote,.content{
+div.vote{
     text-align: center;
     color: silver;
     font-size: 20px;
+	float:left;
 }
 
-.vote{
-    font-size: 30px;
+div.content, div.content1{
+	max-width : 885px;
+	padding-left: 20px;
+	float: right;
+	text-align: left;
+    word-wrap: break-word;
+    color: silver;
+    font-size: 15px;
 }
 
-.content {
-    padding-left:20px;
+div.content1{
+	float: left;
+}
+
+.row, .row1{
+	text-align: left;
+	color: silver;
+    font-size: 15px;
+	float: right;
+	position: relative;
+	max-width: 80%;
+	word-wrap: break-word;
+}
+
+.row1{
+	float: left;
+}
+
+.row_topic{
+	text-align: left;
+	color: silver;
+    font-size: 20px;
+	float: right;
+	position: relative;
+	width: 80%;
 }
 
 .td{
-    width: 100px;
-    height: 100px;
-    vertical-align: center;
     text-align: center;
     color: silver;
+	float: left;
+	width: 10%;
+	top: 5px;
+	position: relative;
+}
+
+.td2{
+    text-align: center;
+    color: silver;
+	float: left;
+	width: 10%;
+	top: 5px;
+	position: relative;
 }
 
 .creator_name{

@@ -10,7 +10,7 @@ require_once("./sql/mysql.php");
 <html>
 <head>
     <link rel='stylesheet' type="text/css" href="css/style.css">
-    <h1> Simple Stack Exchange </h1>
+    <h1>Simple Stack Exchange</h1>
 </head>
     <div class="search">
         <div class="container">
@@ -52,19 +52,31 @@ function confirmDelete(id) {
             die('Error Query ['.$db -> error. ']');
         }
         while($row = $result->fetch_assoc()) : ?>
-            <div class="question" id="question_section<?php echo$row['id']?>">
+            <div class="question_section" id="question_section<?php echo$row['id']?>">
                 <?php
                     $q = "SELECT COUNT(id) AS count from answer where question_id= $row[id]";
                     $rq = mysqli_query($db, $q);
                     $answer = mysqli_fetch_array($rq, MYSQLI_ASSOC)['count'];
                 ?>
-                <table>
-                    <tr>
-                        <td class="td"><?php echo $row['vote'] ?><br>Votes</td>
-                        <td class="td"><?php echo $answer ?><br>Answers</td>
-                        <td class="row"><a href="question.php?id=<?php echo $row['id'] ?>&type=question_answer"><?php echo $row['topic'] ?></a></td>
-                    </tr>
-                </table>
+                        <div class="td">
+							<div><?php echo $row['vote'] ?></div>
+							<div>Votes</div>
+						</div>
+                        <div class="td2">
+							<div><?php echo $answer ?></div>
+							<div>Answers</div>
+						</div>
+                        <div>
+							<div class="row_topic"><a href="question.php?id=<?php echo $row['id'] ?>&type=question_answer"><?php echo $row['topic'] ?></a></div>
+							<?php
+									$content = $row['content'];
+									if (strlen($content) > 115) {
+										echo '<div class="row">'.substr($row['content'], 0, 227) . '...' .'</div>';
+									} else {
+										echo '<div class="row1">'.$content.'</div>';
+									}
+							?>
+						</div>
                 <div class="creator">asked by <span class="creator_name"><?php echo $row['name']?></span> |
                     <a href="ask.php?id=<?php echo $row['id'] ?>&type=edit" class="creator_edit">edit </a> |
                     <a href="javascript:confirmDelete(<?php echo $row['id'] ?>)" class="creator_delete">delete</a>
