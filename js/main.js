@@ -54,9 +54,8 @@
 	}
 
 	var validateEmailAddress = function(field, errorMessage) {
-		var apos=field.value.indexOf("@");
-		var dotpos=field.value.lastIndexOf(".");
-		if (apos < 1 || dotpos - apos < 2 || dotpos == field.value.length - 1) {
+		var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+		if (!re.test(field.value)) {
 			field.style.border = "1px solid red";
 			var er = document.getElementById('error');
 			if (er !== null) {
