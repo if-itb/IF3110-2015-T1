@@ -59,6 +59,7 @@ a.delete-question:link,
 a.delete-question:visited,
 a.delete-question:active {
     color: #FF0000;
+    text-decoration: underline;
 }
 
 #title {
@@ -126,7 +127,13 @@ a.delete-question:active {
 .question-title {
 	color: #FFB592;
 	font-size: 25px;
+	text-decoration: none;
+}
 
+.question-title-big {
+	color: #FFB592;
+	text-decoration: none;
+	font-size: 30px;
 }
 
 .question-info {
@@ -135,6 +142,29 @@ a.delete-question:active {
 
 .author {
 	color: #CFA3B5;
+}
+
+#question-vote {
+	display: inline-block;
+	float: center;
+    width: 12%;
+    margin-right: 10px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.question-number {
+	color: #9AD9D2;
+	font-size: 35px;
+}
+
+#question-content {
+	display: inline-block;
+    width: 85%;
+    text-align: left;
+    margin: 10px;
+    background-color: #ffffff;
+    min-height: 100px;
 }
 
 fieldset {

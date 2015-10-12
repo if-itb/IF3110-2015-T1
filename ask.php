@@ -1,11 +1,11 @@
 <?php
 	include "views/header.php";
-	require_once "views/home.view.php";
 ?>
 
 	<div class="container">
 		<h2>What's your question?</h2>
 		<hr>
+		<br>
 		<div class="center">
 			<form class="basic-grey" action="controllers/ask.controller.php" method="post">
 				<input type="text" id="name" name="name" placeholder="Name" required><br>
