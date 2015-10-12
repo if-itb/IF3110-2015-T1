@@ -114,7 +114,7 @@
 						<img src="img/vote-up.png">
 					</a>
 					<br>
-					<div id="<?php echo $row["aid"] ?>">
+					<div class="VotesA" id="<?php echo $row["aid"] ?>">
 						<?php echo $row["votes"] ?>
 					</div>
 					<a onclick="VotesADown(0,<?php echo $row["aid"] ?>)">

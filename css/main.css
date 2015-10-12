@@ -1,5 +1,6 @@
 a {
 	color:inherit;
+	cursor:pointer;
 	text-decoration:none;
 }
 
@@ -21,6 +22,10 @@ body {
 div.searchbar {
 	margin-left:15px;
 	margin-right:15px;
+}
+
+div.VotesA {
+	padding-bottom:7px;
 }
 
 div#VotesQ {
