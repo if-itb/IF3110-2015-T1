@@ -37,7 +37,7 @@
 							</td>
 							<td>
 							<span class="question-content"><?php echo $row['content'];?></span></br></br>
-							<div class="question-asked">Asked by <span class='question-item-name'><?php echo $row['name'];?></span> on <?php echo $row['create_date'];?> | <a href='edit.php?q=<?php echo $row['id'];?>'>edit</a> | <a class=''><span onclick='delQuestion(<?php echo $row['id'];?>,false)' class='question-item-delete'>delete</span></a></div>
+							<div class="question-asked">Asked by <span class='question-item-name'><?php echo $row['name'];?></span> on <?php echo date("m/d/Y H:i", strtotime($row['create_date']));?> | <a href='edit.php?q=<?php echo $row['id'];?>'>edit</a> | <a class=''><span onclick='delQuestion(<?php echo $row['id'];?>,false)' class='question-item-delete'>delete</span></a></div>
 							</br>
 							</td>
 							</table>
@@ -73,7 +73,7 @@
 										</td>
 										<td>
 											<span class="answer-content"><?php echo $row['content'];?></span></br></br>
-											<div class="answer-answered">Answered by <span class='question-item-name'><?php echo $row['name'];?></span> on <?php echo $row['create_date'];?></div></br>
+											<div class="answer-answered">Answered by <span class='question-item-name'><?php echo $row['name'];?></span> on <?php echo date("m/d/Y H:i", strtotime($row['create_date']));?></div></br>
 										</td>
 									</tr>
 									</table>
