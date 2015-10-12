@@ -58,7 +58,7 @@ form{
 }
 
 #content{
-	width:50%;
+	width:100%;
 }
 
 #question{
@@ -141,6 +141,10 @@ form{
 	font-size:25px;
 }
 
+.fontvote{
+	font-size:25px;
+}
+
 #pertanyaan{
-	font-size : 14px
+	font-size : 14px;
 }
