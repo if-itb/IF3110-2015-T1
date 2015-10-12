@@ -22,6 +22,22 @@
 	}
 ?>
 
+<script type="text/javascript">
+    function validateAskForm() {
+        var re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        if (document.forms["askform"]["Name"].value == null || document.forms["askform"]["Name"].value == "" || document.forms["askform"]["Title"].value == null || document.forms["askform"]["Title"].value == ""  ||
+            document.forms["askform"]["Email"].value == null || document.forms["askform"]["Email"].value == "" ||
+            document.forms["askform"]["Content"].value == null || document.forms["askform"]["Content"].value == "") {
+            alert("All required fields must be filled out");
+            return false;
+        }
+        else if(!re.test(document.forms["askform"]["Email"].value)){
+            alert("Incorrect email address");
+            return false;
+        }
+    }
+</script>
+
 <html>
 	<head>
 		<title> Simple StackExchange </title>
@@ -37,7 +53,7 @@
 		</div>
 		
 		<div id="ask_box">
-			<form action="index.php" method="POST">
+			<form name="askform" action="index.php" method="POST" onsubmit="return validateAskForm()">
 				<div id="ask_namebox">
 					<input type="text" placeholder="Name" name="Name" value="<?php echo $data['Name'] ?>" />
 				</div>
