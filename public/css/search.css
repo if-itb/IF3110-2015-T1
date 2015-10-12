@@ -1,10 +1,29 @@
+.search-form {
+	display: inline-block;
+	width: 70%;
+	margin-bottom: 16px;
+}
+
 .search-bar {
+	max-width: 70%;
+	margin: 5px;
 	width: 100%;
-	max-width: 50%;
-	margin: 0px 5px 0px 5px;
+}
+
+.search-bar:focus {
+	border-color: #4585d9;
+
+	outline: none !important;
+	-moz-box-shadow: 0 0 #4585d9;
+	-webkit-box-shadow: 0 0 #4585d9;
+	box-shadow: 0 0 #4585d9;
 }
 
 .search-button {
-	width: 20%;
-	margin: 0px 5px 0px 5px;
+	width: 90px;
+	margin: 5px;
+}
+
+.search-not-found {
+	margin: 5px;
 }

@@ -1,9 +1,17 @@
 #title {
 	text-align:center;
+	color: #4585d9;
+	font-family: 'Poiret One', cursive;
 }
 
 body > div {
 	width: 80%;
 	text-align: center;
 	margin: auto;
+	font-family: 'Roboto', sans-serif;
+}
+
+a {
+	color: #eb8900;
+	text-decoration: none;
 }

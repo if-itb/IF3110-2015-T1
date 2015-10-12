@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link href='https://fonts.googleapis.com/css?family=Poiret+One|Roboto' rel='stylesheet' type='text/css'>
 		<?= $metas ?>
 		<?= $styles ?>
 		<?= $scripts ?>
