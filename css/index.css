@@ -49,59 +49,66 @@
 	padding-left:25px;
 	float:left;
 	text-align:center;
+	margin-top:15px;
 }
 
 #answers{
 	padding-left:25px;
 	float:left;
 	text-align:center;
+	margin-top:15px;
+}
+
+#SubDiv{
+	float:left;
+	padding-left:25px;
+	color:black;
 }
 
 #topic{
-	float:left;
-	padding-left:25px;
-	text-decoration: none;
+	text-decoration:none;
 	color:black;
+	font-size:120%;
 }
 
 #askedby{
 	float:right;
 	margin-right:5px;
-	margin-top:35px;
+	margin-top:50px;
 }
 
 #name{
 	float:right;
 	margin-right:5px;	
-	margin-top:35px;
+	margin-top:50px;
 	color:#9900CC;
 }
 
 #edit{
 	float:right;
 	margin-right:5px;
-	margin-top:35px;
+	margin-top:50px;
 	color:#FFCC00;
 	text-decoration: none;
 }
 
 #delete{
 	float:right;
-	margin-top:35px;
+	margin-top:50px;
 	color:#FF0000;
 	text-decoration: none;
 }
 
 .char{
 	float:right;
-	margin-top:35px;
+	margin-top:50px;
 	margin-right:5px;
 }
 
 #separator{
 	margin-left:100px;
 	margin-right:100px;
-	margin-top:50px;
+	margin-top:70px;
 }
 
 hr{

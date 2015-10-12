@@ -49,9 +49,12 @@
 				$query_result = mysqli_query($link, $query);
 				while($row = mysqli_fetch_row($query_result)){
 					echo	'<div id="QuestionList">
-								<div id="votes">0<br>Votes</div>
-								<div id="answers">0<br>Answers</div>
-								<a href="question.php?id='.$row[0].'" id="topic">'.$row[3].'</a>
+								<div id="votes">'.$row[5].'<br>Votes</div>
+								<div id="answers">'.$row[6].'<br>Answers</div>
+								<div id="SubDiv">
+									<a id="topic" href="question.php?id='.$row[0].'" >'.$row[3].'</a><br>
+									<p id="content">'.$row[4].'</p>
+								</div>
 								<a href="delete.php" id="delete">delete</a>
 								<div class="char">|</div> <a href="ask.php" id="edit">edit</a>
 								<div class="char">|</div> <div id="name">'.$row[1].'</div>								

@@ -8,7 +8,6 @@
 		// add new question to database
 		$question_id = mysqli_fetch_assoc(mysqli_query($link,"SELECT MAX(question_id) FROM question"))['MAX(question_id)'] + 1;
 		$name = $_POST["Name"];
-		echo $name;
 		$email = $_POST["Email"];
 		$topic = $_POST["QuestionTopic"];
 		$content = $_POST["Content"];

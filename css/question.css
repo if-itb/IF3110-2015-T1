@@ -7,6 +7,7 @@
 #main{
 	margin-left:100px;
 	margin-right:100px;
+	margin-bottom:50px;
 }
 
 #MainTitle{
@@ -15,32 +16,37 @@
 
 #content{
 	float:left;
+	width:100%;
+	padding-right:100px;
 }
 
 #askedby,#answeredby{
 	float:right;
 	margin-right:5px;
-	margin-top:35px;
+
 }
 
 #email{
 	float:right;
 	margin-right:5px;	
-	margin-top:35px;
 	color:#9900CC;
+}
+
+#EmailContainer{
+	float:right;
+	width:100%;
+	margin-bottom:20px;
 }
 
 #edit{
 	float:right;
 	margin-right:5px;
-	margin-top:35px;
 	color:#FFCC00;
 	text-decoration: none;
 }
 
 #delete{
 	float:right;
-	margin-top:35px;
 	color:#FF0000;
 	text-decoration: none;
 }
@@ -51,16 +57,43 @@
 
 .char{
 	float:right;
-	margin-top:35px;
 	margin-right:5px;
 }
 
 #separator{
-	margin-top:50px;
+	
 }
+
+#AnswerFormTitle{
+	color: gray;
+}
+#AnswerName,#AnswerEmail{
+	width:100%;
+	margin-top:10px;
+	border-width:2px;
+	border-color:black;
+	height:22px;
+}
+
+#AnswerContent{
+	width:100%;
+	margin-top:10px;
+	border-width:2px;
+	border-color:black;
+	height:100px;
+}
+
+#AnswerPost{
+	margin-top:10px;
+	float:right;
+	width:80px;
+	height:25px;
+}
+
 hr{
 	background-color:black;
 	height:3px;
 	border-width:0;
 	margin-top:20px;
+	width:100%;
 }
