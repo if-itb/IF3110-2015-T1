@@ -8,7 +8,7 @@
 
 	<body>
 	
-		<h1>Simple StackExchange</h1>
+        <a href="list.php"><h1>Simple StackExchange</h1></a>
 		<h3>What's Your Question?</h3>
 
 		<div class="board">

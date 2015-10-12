@@ -13,7 +13,7 @@ include ("viewlist.php");
 	if ($link->connect_error) {
 	    die("Connection failed: " . $link->connect_error);
 	}
-$query = "select * from question;";
+$query = "select * from question order by no_question desc;";
 $result = $link->query($query);
 	if($result->num_rows > 0)
     {

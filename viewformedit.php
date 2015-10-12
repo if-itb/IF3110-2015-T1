@@ -10,7 +10,7 @@
 			<input type="text" placeholder="Topic" name="topic" class="box" value="{{topic}}">
 			<br>
 			<br>
-			<textarea placeholder="Content" name="content" class="box" rows="5" cols="22" value="{{content}}"></textarea>
+			<textarea placeholder="Content" name="content" class="box" rows="5" cols="22">{{content}}</textarea>
 			<br>
 			<button type="submit" class="posisipost">Post </button>
             

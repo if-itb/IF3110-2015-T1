@@ -23,6 +23,7 @@ $no_question = $_GET["no_question"];
     $result = $link->query($query);
 	if($result->num_rows > 0)
     {
+        
 ?>
 
     <div class="board"><strong><?php echo $result->num_rows . " Answer";?></strong></div>

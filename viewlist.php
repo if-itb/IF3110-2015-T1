@@ -23,7 +23,7 @@
         
         <div class="listtopic">
             <div>
-                <strong><a href="http://localhost/detail.php?no_question={{no_question}}">{{topic}}</a></strong>
+                <strong><a href="detail.php?no_question={{no_question}}">{{topic}}</a></strong>
             </div>
             
             <div>
@@ -32,7 +32,7 @@
         </div>
         
         <div class="listeditor">
-            asked by {{name}} | <a href="http://localhost/formedit.php?no_question={{no_question}}"><span class="edit">edit</span></a> | <span class="delete">delete</span>
+            asked by {{name}} | <a href="formedit.php?no_question={{no_question}}"><span class="edit">edit</span></a> | <a href="#" onclick="deleteConfirm({{no_question}})" ><span class="delete">delete</span></a>
         </div>
     </div>';
     

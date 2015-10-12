@@ -19,15 +19,27 @@ if (!$link) {
 //memasukkan query ke databases answer
 $query = "insert into answer (no_answer,no_question,name,email,content,vote) values (NULL,$no_question,'$name','$email','$content',0)";
 
-if ($link->query($query) === TRUE) {
+if ($link->query($query) === TRUE)
+{
     echo "New record answer created successfully";
-} else {
+    $query = "update question set answer=answer+1 where no_question=$no_question";
+    if ($link->query($query) === TRUE)
+    {
+        echo "Answer increment successfully";
+    }
+    else
+    {
+        echo "Error: " . $query . "<br>" . $link->error;
+    }
+}
+else
+{
     echo "Error: " . $query . "<br>" . $link->error;
 }
 
 mysqli_close($link);
 
-header("Location: http://localhost/detail.php?no_question=$no_question");
+header("Location: detail.php?no_question=$no_question");
 
 ?>
 

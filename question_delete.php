@@ -1,9 +1,5 @@
 <?php
 
-$name = $_POST ["name"];
-$email = $_POST["email"];
-$topic = $_POST["topic"];
-$content = $_POST["content"];
 $no_question = $_GET["no_question"];
 //menyambungkan ke databases
 $link = mysqli_connect("127.0.0.1", "root", "", "WBD");
@@ -14,7 +10,6 @@ if (!$link) {
     echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
     exit;
 }
-
 
 //memasukkan query ke databases 
 $query = "delete from answer where no_question=$no_question";
@@ -34,7 +29,7 @@ if ($link->query($query) === TRUE) {
 }
 
 mysqli_close($link);
-//header("Location: http://localhost/list.php");
+header("Location: list.php");
 
 ?>
 

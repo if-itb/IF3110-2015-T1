@@ -27,6 +27,6 @@ if ($link->query($query) === TRUE) {
 
 
 mysqli_close($link);
-header("Location: http://localhost/detail.php?no_question=$no_question");
+header("Location: list.php");
 
 ?>

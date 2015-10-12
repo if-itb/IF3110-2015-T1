@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="board">
-        <h1>Simple StackExchange</h1>
+        <a href="list.php"><h1>Simple StackExchange</h1></a>
          <?php include "detailquestion_replace.php"; ?>
     </div>
     

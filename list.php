@@ -4,13 +4,14 @@
     <title>list</title>
     <link rel="stylesheet" href="style.css">
 	<script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="script_delete.js"></script>
     
 
 </head>
 
 <body>
     <div class="board">
-        <h1>Simple StackExchange</h1>
+        <a href="list.php"><h1>Simple StackExchange</h1></a>
         <form>
             <input type="text" class="boxsearch" placeholder="Search..">
             <button type="submit" class="posisisearch">Search</button>
@@ -18,7 +19,7 @@
         
         <br>
         <h5>Cannot find what you are looking for? 
-        <a href="http://localhost/create.php" ><span class="ask">Ask here</span></a></h5>
+        <a href="create.php" ><span class="ask">Ask here</span></a></h5>
 
         Recently Asked Questions
     

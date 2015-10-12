@@ -27,7 +27,7 @@ if ($link->query($query) === TRUE) {
 
 
 mysqli_close($link);
-header("Location: http://localhost/list.php");
+header("Location: list.php");
 
 ?>
 
