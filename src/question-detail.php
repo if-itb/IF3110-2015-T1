@@ -1,9 +1,12 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Question Detail</title>
 	</head>
 	<body>
-		<h1>Simple StackExchange</h1>
+		
+		
+		<h1><a href="index.php">Simple StackExchange</a></h1>
 		<?php
 			$servername = "localhost";
 			$username = "webuser";
@@ -19,23 +22,22 @@
 				die('Could not connect: ' . mysqli_error());
 			}
 			
-			echo 'MySQL Connected successfully';
+			// echo 'MySQL Connected successfully';
 			$db_selected = mysqli_select_db($link, $dbname);
 			if (!$db_selected) {
 				die('Database not selected: ' . mysqli_error());
 			}
 			
-			$sql = 'SELECT topic, content, answers, votes, reg_date FROM ' . $tablename . ' WHERE id=' . $_GET["id"];
+			$sql = 'SELECT name, topic, content, answers, votes, reg_date FROM ' . $tablename . ' WHERE id=' . $_GET["id"];
 			$result = mysqli_query($link, $sql);
 			$row = mysqli_fetch_assoc($result);
 			
 			echo '<h2>' . $row["topic"] . '</h2>';
-			echo '<h2>';
 			
 			echo '<table>';
 				echo '<tr>';
 					echo '<td>';
-						echo "UP";
+						echo '<button type="button" onclick="loadVote(' . $_GET["id"] . ', 1, 1)">UP</button>';
 					echo '</td>';
 					echo '<td rowspan="3">';
 						echo $row["content"];
@@ -43,12 +45,15 @@
 				echo '</tr>';
 				echo '<tr>';
 					echo '<td>';
-						echo $row["votes"];
+		?>
+						</p>
+						<p id="votequestion"><?php echo $row["votes"]; ?></p>
+		<?php
 					echo '</td>';
 				echo '</tr>';
 				echo '<tr>';
 					echo '<td>';
-						echo "DOWN";
+						echo '<button type="button" onclick="loadVote(' . $_GET["id"] . ', 1, 2)">DN</button>';
 					echo '</td>';
 				echo '</tr>';
 				echo '<tr>';
@@ -62,6 +67,7 @@
 			
 			echo '<br><br>';
 			
+			echo '<h2>';
 			if ($row["answers"] == 0) {
 				echo "No Answer";
 			}
@@ -87,7 +93,7 @@
 					// echo $row["id"] . $row["topic"] . $row["votes"] . $row["answers"] . "<br>";
 					echo '<tr>';
 						echo '<td>';
-							echo "UP";
+							echo '<button type="button" onclick="loadVote(' . $row["id"] . ', 2, 1)">UP</button>';
 						echo '</td>';
 						echo '<td rowspan="3">';
 							echo $row["content"];
@@ -95,12 +101,15 @@
 					echo '</tr>';
 					echo '<tr>';
 						echo '<td>';
-							echo $row["votes"];
+		?>
+						</p>
+						<p id="voteanswer<?php echo $row["id"];  ?>"><?php echo $row["votes"]; ?></p>
+		<?php
 						echo '</td>';
 					echo '</tr>';
 					echo '<tr>';
 						echo '<td>';
-							echo "DOWN";
+							echo '<button type="button" onclick="loadVote(' . $row["id"] . ', 2, 2)">DN</button>';
 						echo '</td>';
 					echo '</tr>';
 					echo '<tr>';
@@ -128,5 +137,31 @@
 		<?php	
 			mysql_close($link);
 		?>
+		
+		<script>
+			function loadVote(id, type, opt) {
+			  var xhttp;
+			  if (window.XMLHttpRequest) {
+				// code for modern browsers
+				xhttp = new XMLHttpRequest();
+				} else {
+				// code for IE6, IE5
+				xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			  }
+			  xhttp.onreadystatechange = function() {
+				if (xhttp.readyState == 4 && xhttp.status == 200) {
+				  if (type == 1) {
+					document.getElementById("votequestion").innerHTML = xhttp.responseText;
+				  }
+				  else {
+					document.getElementById("voteanswer"+id).innerHTML = xhttp.responseText;
+				  }
+				}
+			  }
+			  xhttp.open("GET", "question-answer-vote.php?id="+id+"&type="+type+"&opt="+opt, true);
+			  xhttp.send();
+			}
+		</script>
+		
 	</body>
 </html>

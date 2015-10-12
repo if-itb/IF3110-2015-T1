@@ -13,7 +13,7 @@
 		die('Could not connect: ' . mysqli_error());
 	}
 	
-	echo 'MySQL Connected successfully';
+	// echo 'MySQL Connected successfully';
 	$db_selected = mysqli_select_db($link, $dbname);
 	if (!$db_selected) {
 		die('Database not selected: ' . mysqli_error());

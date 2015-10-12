@@ -13,7 +13,7 @@
 			die('Could not connect: ' . mysqli_error());
 		}
 		
-		echo 'MySQL Connected successfully';
+		// echo 'MySQL Connected successfully';
 		$db_selected = mysqli_select_db($link, $dbname);
 		if (!$db_selected) {
 			die('Database not selected: ' . mysqli_error());
@@ -24,7 +24,7 @@
 	</head>
 	
 	<body>
-		<h1>Simple StackExchange</h1>
+		<h1><a href="index.php">Simple StackExchange</a></h1>
 		<p>Cannot find what you are looking for? <a href="question-form.php"> Ask here.</a></p>
 		
 		<?php

@@ -14,7 +14,7 @@
 			die('Could not connect: ' . mysqli_error());
 		}
 		
-		echo 'MySQL Connected successfully';
+		// echo 'MySQL Connected successfully';
 		$db_selected = mysqli_select_db($link, $dbname);
 		if (!$db_selected) {
 			die('Database not selected: ' . mysqli_error());
@@ -32,14 +32,14 @@
 			
 			echo $retrieverow["answers"];
 			
-			$newvotenumber = 1 + $retrieverow["answers"];
-			echo $newvotenumber;
-			$sqladdvote = 'UPDATE ' . $tablename . ' SET answers=' . $newvotenumber . ' WHERE id=' . $_GET["id"];
-			if (mysqli_query($link, $sqladdvote)) {
+			$newansnumber = 1 + $retrieverow["answers"];
+			echo $newansnumber;
+			$sqladdans = 'UPDATE ' . $tablename . ' SET answers=' . $newansnumber . ' WHERE id=' . $_GET["id"];
+			if (mysqli_query($link, $sqladdans)) {
 				echo "Updated vote number successfully";
 			}
 			else {
-				echo "Error: " . $sqladdvote . "<br>" . mysqli_error($link);
+				echo "Error: " . $sqladdans . "<br>" . mysqli_error($link);
 			}
 			
 			$anssql = "INSERT INTO " . $anstabname . " (parent_id, name, email, content, votes) VALUES (" . "'" . $_GET["id"] . "', '" . $_POST["name"] . "', '" . $_POST["email"] . "', '" . $_POST["content"] . "', 0)";
