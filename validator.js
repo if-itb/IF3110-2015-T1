@@ -71,3 +71,8 @@ function validateAnswer(){
 		return false;
 	}
 }
+
+// confirm delete a question
+function confirmDelete(){
+	return confirm("Are you sure want to delete the question ?");
+}

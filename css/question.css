@@ -23,7 +23,6 @@
 #askedby,#answeredby{
 	float:right;
 	margin-right:5px;
-
 }
 
 #email{
@@ -35,7 +34,7 @@
 #EmailContainer{
 	float:right;
 	width:100%;
-	margin-bottom:20px;
+	margin-bottom:25px;
 }
 
 #edit{

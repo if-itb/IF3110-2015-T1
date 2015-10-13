@@ -23,12 +23,14 @@
 					echo	'<div id="question">
 								<h2 id="topic">'.$row[3].'</h2>
 								<hr>
-								<p id="content">'.$row[4].'</p><br>
-								<a href="delete.php" id="delete">delete</a>
-								<div class="char">|</div> <a href="edit.php?id='.$row[0].'" id="edit">edit</a>
-								<div class="char">|</div> <div id="email">'.$row[2].'</div>
-								<div id="askedby">asked by</div>
-							</div><br>';
+								<pre id="content">'.$row[4].'</pre><br>
+								<div id="EmailContainer">
+									<a href="delete.php?id='.$row[0].'" id="delete" onclick="return confirmDelete()">delete</a>
+									<div class="char">|</div> <a href="edit.php?id='.$row[0].'" id="edit">edit</a>
+									<div class="char">|</div> <div id="email">'.$row[2].'</div>
+									<div id="askedby">asked by</div>
+								</div>
+							</div>';
 				}
 				
 				

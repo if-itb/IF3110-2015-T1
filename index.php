@@ -45,7 +45,7 @@
 									<a id="topic" href="question.php?id='.$row[0].'" >'.$row[3].'</a><br>
 									<p id="content">'.$row[4].'</p>
 								</div>
-								<a href="delete.php" id="delete">delete</a>
+								<a href="delete.php?id='.$row[0].'" id="delete" onclick="return confirmDelete()">delete</a>
 								<div class="char">|</div> <a href="edit.php?id='.$row[0].'" id="edit">edit</a>
 								<div class="char">|</div> <div id="name">'.$row[1].'</div>								
 								<div id="askedby">asked by</div>
