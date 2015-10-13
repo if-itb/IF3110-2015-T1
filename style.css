@@ -1,0 +1,179 @@
+/* Nama			: Ryan Yonata
+   NIM			: 13513074
+   Nama file 	: style.css
+   Keterangan	: Berisi kode css untuk mengatur layout pada html */
+
+body {
+	font-family: Segoe UI;
+	font-size: 16px;
+}
+
+.pageheader {
+	text-align: center;
+	margin-top: 70px;
+	text-decoration: none;
+	color: black;
+}
+
+textarea {
+	width: 450px;
+	resize: none;
+}
+
+form {
+	text-align: center;
+	resize: none;
+}
+
+p {
+	margin-top: 1px;
+	text-align: center;
+}
+
+h2 {
+	margin-left: 320px;
+	margin-bottom: 0px;
+}
+
+h3 {
+	margin-left: 325px;
+	margin-bottom: 5px;
+}
+
+.linehome,
+.lineanswer {
+    width: 700px;
+    margin-left: 320px;
+    clear: both;
+}
+
+.linequestion {
+    width: 700px;
+    margin-left: 320px;
+    margin-top: 20px;
+    clear: both;
+}
+
+.vote {
+	width: 50px;
+	float: left;
+	margin-left: 320px;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.vote-count,
+.answer-count	 {
+	font-size: 22px;
+}
+
+.answer {
+	width: 50px;
+	float: left;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.vote-tag,
+.answer-tag {
+	font-size: 14px;
+}
+
+
+.question,
+.answerspace {
+	float: left;
+	width: 450px;
+	text-align: center;
+	/* word-wrap: inherit; */
+}
+
+.modif-question {
+	float: right;
+	margin-right: 315px;
+	width: 300px;
+	font-size: 12px;	
+	clear: both;
+	text-align: right;
+}
+
+#searchQuery,
+#name,
+#email,
+#topic {
+	width: 450px;
+}
+
+#submitbutton {
+	width: 70px;
+}
+
+#postbutton {
+	margin-left: 410px;
+}
+
+.questioncontainer {
+	text-align: center;
+}
+
+.youranswer {
+	font-size: 25px;
+	font-weight: bold;
+	margin-left: 320px;
+	color: grey;
+}
+
+.qtopic {
+	font-size: 25px;
+	font-weight: bold;
+	margin-left: 320px;
+	margin-bottom: 0px;
+}
+
+.question-topic {
+	color: blue;
+	text-decoration: none;
+}
+
+.answeredby,
+.qdetail {
+	float: right;
+	margin-right: 315px;
+	width: 300px;
+	font-size: 12px;	
+	clear: both;
+	text-align: right;
+}
+
+#askhere {
+	color: orange;
+	text-decoration: none;
+}
+
+.ans {
+	clear: both;
+}
+
+#edit {
+	color: orange;
+	text-decoration: none;
+}
+
+#delete_link {
+	color: red;
+	text-decoration: none;
+}
+
+.votebutton{
+	cursor: pointer;
+}
+
+.votebutton:hover {
+	background-color: black;
+}
+
+.Name {
+	color: blue;
+}
