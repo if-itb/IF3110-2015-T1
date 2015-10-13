@@ -46,7 +46,6 @@ h2 ,h3{
 .voteansweridxstyle{
 	width: 150px;
 	height: 175px;
-	border : 2px solid black;
 }
 .votestyle{
 	width: 150px;
@@ -55,10 +54,9 @@ h2 ,h3{
 .topicidxstyle{
 	width: 650px;
 	height: 125px;
-	border: 2px solid black;
+
 }
 .topicstyle{
-	border: 2px black solid;
 	width :800px;
 	height:125px;
 }
@@ -67,7 +65,6 @@ h2 ,h3{
 	clear:left;
 	left:60%;
 	width:50%;
-	border:2px solid black;
 }
 
 .collection{
