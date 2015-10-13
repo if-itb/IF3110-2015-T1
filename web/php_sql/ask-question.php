@@ -22,7 +22,7 @@ Author: Irene Wiliudarsan (13513002) -->
       <div class="subtitle">
         What's your question?
       </div>
-      <form class="right" id="question-form" action="question-detail.php" method="post" onsubmit="formValidation()">
+      <form class="right" id="question-form" action="question-detail.php" method="post" onsubmit="return formValidation()">
         <input class="full-length" id="name" name="name" type="text" placeholder="Name">
         <input class="full-length" id="email" name="email" type="text" placeholder="Email">
         <input class="full-length" id="question-topic" name="question-topic" type="text" placeholder="Question Topic">

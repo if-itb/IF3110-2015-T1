@@ -33,5 +33,8 @@ function formValidation(){
   var isEmailNotValid = regex.test(email);
   if (isFieldEmpty || isEmailNotValid) {
     alert("There are empty fields and/or email is not valid.");
+    return true;
+  } else {
+    return false;
   }
 };

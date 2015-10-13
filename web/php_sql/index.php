@@ -13,19 +13,21 @@ Author: Irene Wiliudarsan (13513002) -->
   </head>
   <body>
     <?php
+      // Create connection to database
       $servername = "localhost";
       $username = "root";
       $password = "";
       $dbname = "simple_stackexchange";
-      $connection = new mysqli($servername, $username, $password, $dbname); // Create connection
+      $connection = new mysqli($servername, $username, $password, $dbname);
       if ($connection->connect_error) {
         die("Connection failed: " . $connection->connect_error);
       }
 
       // Execute query to take all questions in databases
-      $query = "SELECT id_question, topic, content, vote_num, datetime, question.id_user, name FROM question, user WHERE question.id_user = user.id_user";
+      $query = "SELECT id_question, topic, content, vote_num, datetime, name FROM question, user WHERE question.id_user = user.id_user";
       $questions = $connection->query($query);
     ?>
+
     <!-- Title -->
     <div class="title">
       Simple StackExchange
@@ -73,19 +75,22 @@ Author: Irene Wiliudarsan (13513002) -->
             </div>
             <div class="right-position">
               <div class="answer-question-detail">
-                <div class="question-topic">
-                  <?php echo $question["topic"] ?>
-                </div>
-                <div class="question-content">
-                  <?php echo $question["content"] ?>
-                </div>
+                <!-- Question Topic & Content -->
+                <a href="question-detail.php?id_question=<?php echo $question['id_question'] ?>">
+                  <div class="question-topic">
+                    <?php echo $question["topic"] ?>
+                  </div>
+                  <div class="question-content">
+                    <?php echo $question["content"] ?>
+                  </div>
+                </a>
               </div>
               asked by
               <span class="blue">
                 <?php echo $question["name"] ?>
               </span>
               |
-              <a class="yellow" href="">
+              <a class="yellow" href="ask-question.php">
                 edit
               </a>
               |

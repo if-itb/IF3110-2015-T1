@@ -12,6 +12,30 @@ Author: Irene Wiliudarsan (13513002) -->
     <link rel="stylesheet" type="text/css" href="../css/style.css"/>
   </head>
   <body>
+    <?php
+      // Create connection to database
+      $servername = "localhost";
+      $username = "root";
+      $password = "";
+      $dbname = "simple_stackexchange";
+      $connection = new mysqli($servername, $username, $password, $dbname);
+      if ($connection->connect_error) {
+        die("Connection failed: " . $connection->connect_error);
+      }
+
+      // Execute query to take question clicked by user
+      $id_question = $_GET["id_question"];
+      $query = "SELECT id_question, topic, content, vote_num, datetime, email FROM question, user WHERE question.id_user = user.id_user and id_question = $id_question";
+      $question = $connection->query($query);
+      // Execute query to take number of answers
+      $query = "SELECT COUNT(id_answer) FROM answer, question WHERE answer.id_question = $id_question";
+      $answer_num_result = $connection->query($query);
+      $answer_num = $answer_num_result->fetch_assoc();
+      // Execute query to take all associated answers
+      $query = "SELECT id_answer, content, vote_num, datetime, email FROM answer, user WHERE answer.id_user = user.id_user AND id_question = $id_question";
+      $answers = $connection->query($query);
+    ?>
+
     <!-- Title -->
     <div class="title">
       Simple StackExchange
@@ -21,16 +45,21 @@ Author: Irene Wiliudarsan (13513002) -->
       <!-- Question -->
       <div class="stacked">
         <div class="subtitle">
-          The Question topic goes here
+          <?php
+            if ($question->num_rows > 0) {
+              $question = $question->fetch_assoc();
+              echo $question["topic"];
+            }
+          ?>
         </div>
-        <!-- Question Content -->
+        <!-- Questions Content -->
         <div class="same-height-row border-bottom">
           <div class="vote-number">
             <a href="">
               <img class="small-icon" src="../img/up.png"/><br>
             </a>
             <div class="big-number">
-              (number)
+              <?php echo $question["vote_num"] ?>
             </div>
             <a href="">
               <img class="small-icon" src="../img/down.png"/><br>
@@ -38,10 +67,14 @@ Author: Irene Wiliudarsan (13513002) -->
           </div>
           <div class="right-position">
             <div class="answer-question-detail">
-              The question goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lobortis dapibus nunc, vel vestibulum massa dapibus et. Curabitur quis est metus. Curabitur varius dui ac ex tempor luctus. Vestibulum ut ornare tellus. Integer rhoncus, mauris sed tempus cursus, orci arcu eleifend tortor, quis scelerisque tellus lorem vel neque. Donec ut odio lacinia, ultricies mauris quis, egestas nisl. Suspendisse potenti.
+              <?php echo $question["content"] ?>
             </div>
             <!-- Asked by -->
-            asked by (username) at (datetime) |
+            asked by
+            <?php echo $question["email"] ?>
+            at
+            <?php echo $question["datetime"] ?>
+            |
             <a class="yellow" href="">
               edit
             </a>
@@ -53,30 +86,45 @@ Author: Irene Wiliudarsan (13513002) -->
         </div>
       </div>
       
-      <!-- Answers -->
+      <!-- Answers List -->
       <div class="stacked">
         <div class="subtitle">
-          (Number) Answer
+          <?php echo $answer_num["COUNT(id_answer)"] ?>
+           Answer
         </div>
+
+        <!-- Answers -->
+        <?php
+          if ($answers->num_rows > 0) {
+            while ($answer = $answers->fetch_assoc()) {
+        ?>
         <div class="same-height-row border-bottom">
           <div class="vote-number">
             <a href="">
               <img class="small-icon" src="../img/up.png"/><br>
             </a>
             <div class="big-number">
-              (number)
+              <?php echo $answer["vote_num"] ?>
             </div>
             <a href="">
               <img class="small-icon" src="../img/down.png"/><br>
             </a>
           </div>
+          <!-- Answers Content -->
           <div class="right-position">
             <div class="answer-question-detail">
-              The answer content goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lobortis dapibus nunc, vel vestibulum massa dapibus et. Curabitur quis est metus. Curabitur varius dui ac ex tempor luctus. Vestibulum ut ornare tellus. Integer rhoncus, mauris sed tempus cursus, orci arcu eleifend tortor, quis scelerisque tellus lorem vel neque. Donec ut odio lacinia, ultricies mauris quis, egestas nisl. Suspendisse potenti.
+              <?php echo $answer["content"] ?>
             </div>
-            answered by (username) at (datetime)
+            answered by
+            <?php echo $answer["email"] ?>
+            at
+            <?php echo $answer["datetime"] ?>
           </div>
         </div>
+        <?php
+            } // End of while
+          } // End of if
+        ?>
       </div>
 
       <!-- Answer Form -->
