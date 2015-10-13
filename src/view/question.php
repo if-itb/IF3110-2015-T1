@@ -72,7 +72,7 @@
 
       <br/><h3>Your Answer</h3>
 
-      <form id="answer" action="/controller/answerController.php" method="POST">
+      <form id="answer" action="/controller/answerController.php" method="POST" onsubmit="return validateAnswer()">
         <input name="id" type="hidden" value=<?=$id?>>
         <input id="authorName" placeholder="Name" class="form" type="text" name="authorName">
         <input id="authorEmail" placeholder="Email" class="form" type="text" name="authorEmail">

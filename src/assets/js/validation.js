@@ -44,9 +44,9 @@ function validateAsk() {
 }
 
 function validateAnswer() {
-  var len = askForm.length;
+  var len = answerForm.length;
   for(var i = 0; i < len; i++) {
-    var temp = document.getElementById(askForm[i]).value;
+    var temp = document.getElementById(answerForm[i]).value;
     if(temp == "" || temp == null) {
       alert("Form cannot be blank.");
       return false;
