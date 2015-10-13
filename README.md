@@ -89,7 +89,20 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+1. Validasi client-side
+Menggunakan javascript. Pada form PHP yang akan di-submit, ditambahkan method validasi javascript pada "onsubmit".
+Method onsubmit akan dieksekusi ketika user men-submit form. Javascript melakukan pengecekan apakah form ada yg kosong
+atau alamat email invalid. Bila semuanya valid, javascript melakukan submit dengan document.form.submit().
+Bila masih ada form yg invalid, javascript mengeluarkan alert dan tidak submit form.
+
+2. Melakukan AJAX
+Sebelum melakukan AJAX, elemen HTML yang menunjukkan angka vote diberi "id" dahulu.
+Ketika pengguna menekan tombol vote, sebuah method javascript tertentu dijalankan menggunakan "onclick".
+Method javascript tersebut menangani instansiasi objek XMLHttpRequest. Method tersebut meng-invoke sebuah file controller PHP.
+File controller PHP menciptakan objek model dan memanggil method objek "question/answer".
+Method "question/answer" tersebut melakukan query pada database.
+Setelah itu file controller PHP melakukan echo dari nilai vote sekarang.
+Hasil echo dari file controller mengubah elemen HTML yang telah diberi "id" di awal tadi.
 
 ### Knowledge
 

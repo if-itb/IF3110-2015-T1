@@ -149,8 +149,12 @@ h4 {
   color: red;
 }
 
+.link:hover {
+  color: black;
+}
+
 .arrow {
-  font-size: 20px;
+  font-size: 24px;
   margin: 0px;
   padding: 0px;
   cursor: pointer;
@@ -194,4 +198,17 @@ h4 {
   width: 900px;
   margin: 0 auto;
   font-family: open-sans-light;
+}
+
+.footer {
+  font-size: 12px;
+  margin: 0 auto;
+  font-family: open-sans-light;
+  text-align: center;
+}
+
+.votes {
+  margin: 0px;
+  padding: 0px;
+  font-size: 20px;
 }

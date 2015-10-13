@@ -34,7 +34,7 @@
           <div class="vote">
             <table width="100%" class="text-center">
               <tr><td><div class="arrow" onclick="upvoteQuestion(<?=$id?>)">&#9650;</div></td></tr>
-              <tr><td><div id="voteQuestion"><?=$q["vote"]?></div></td></tr>
+              <tr><td><div class="votes" id="voteQuestion"><?=$q["vote"]?></div></td></tr>
               <tr><td><div class="arrow" onclick="downvoteQuestion(<?=$id?>)">&#9660;</div></td></tr>
             </table>
           </div>
@@ -56,7 +56,7 @@
           <div class="vote">
             <table width="100%" class="text-center">
               <tr><td><div class="arrow" onclick="upvoteAnswer(<?=$a["id_answer"]?>)">&#9650;</div></td></tr>
-              <tr><td><div id="voteAnswer<?=$a["id_answer"]?>"><?=$a["vote"]?></div></td></tr>
+              <tr><td><div class="votes" id="voteAnswer<?=$a["id_answer"]?>"><?=$a["vote"]?></div></td></tr>
               <tr><td><div class="arrow" onclick="downvoteAnswer(<?=$a["id_answer"]?>)">&#9660;</div></td></tr>
             </table>
           </div>
@@ -86,4 +86,5 @@
     <script type="text/javascript" src="/assets/js/validation.js"></script>
     <script type="text/javascript" src="/assets/js/vote.js"></script>
   </body>
+  <footer> <br><br> </footer>
 </html>

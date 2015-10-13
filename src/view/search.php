@@ -20,14 +20,16 @@
 
       <p class="text-center">Cannot find what you are looking for? <a href="/view/ask.php" class="link">Ask here.</a></p>
 
-      <br/> <h3>Recently Asked Questions</h3>
-
       <?php
         require_once '../conf.php';
         require_once '../model/question.php';
+        $q = $_GET["q"];
         $questionModel = new Question();
-        $questions = $questionModel->getAll();
+        $questions = $questionModel->getSearch($q);
+        $cnt = count($questions);
       ?>
+
+      <br/> <h3><?=$cnt?> results about '<?=$q?>'</h3>
 
       <?php foreach($questions as $q) { ?>
         <div class="question">

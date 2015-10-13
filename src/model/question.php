@@ -18,6 +18,16 @@ class Question extends Model {
     return $result;
   }
 
+  public function getSearch($str) {
+    $sql = "SELECT * from question WHERE topic LIKE '%$str%' UNION
+            SELECT * from question WHERE content LIKE '%$str%'";
+    $result = $this->getResultQuery($sql);
+    foreach($result as &$item) {
+      $item["answer"] = $this->getAnswerCount($item["id_question"]);
+    }
+    return $result;
+  }
+
   public function get($id) {
     $sql = "SELECT * FROM question WHERE id_question=$id";
     $result = $this->getResultQuery($sql);

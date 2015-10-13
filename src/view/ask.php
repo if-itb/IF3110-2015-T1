@@ -40,4 +40,5 @@
     
     <script type="text/javascript" src="/assets/js/validation.js"></script>
   </body>
+  <footer> <br><br> </footer>
 </html>
