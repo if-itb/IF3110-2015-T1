@@ -36,6 +36,7 @@
                             <h2 class="question-title">
                                 <a href="<?= ROOT_URL; ?>/question/<?= $question->id_question; ?>"><?= $question->topic; ?></a>
                             </h2>
+                            <p><?= $question->content; ?></p>
                         </div>
                         <div class="question-meta">
                             <span>
@@ -53,6 +54,8 @@
             </div> <!-- .inner-container -->
 
         <?php endforeach; ?>
+    <?php else: ?>
+        <p>No question</p>
     <?php endif; ?>
 
 </div> <!-- .question-list -->
