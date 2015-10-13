@@ -55,7 +55,7 @@
 				  </div>
 				  <div class="span-8">
 					<p><b>
-					  <a href class="Topik">'.$row["Topik"].'</a>
+					  <a href="answer.php?id='.$row["QID"].'" class="Topik">'.$row["Topik"].'</a>
 					</b></p>
 					<br>
 					  '.$row["Content"].'
