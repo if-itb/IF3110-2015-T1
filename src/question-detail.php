@@ -2,6 +2,8 @@
 <html>
 	<head>
 		<title>Question Detail</title>
+		<script src="js/script.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
 		
@@ -32,7 +34,7 @@
 			$result = mysqli_query($link, $sql);
 			$row = mysqli_fetch_assoc($result);
 			
-			echo '<h2>' . $row["topic"] . '</h2>';
+			echo '<h2>' . $row["topic"] . '<hr /></h2>';
 			
 			echo '<table>';
 				echo '<tr>';
@@ -58,7 +60,7 @@
 				echo '</tr>';
 				echo '<tr>';
 					echo '<td colspan="2">';
-						$delete_hyperlink = 'href="question-delete.php?id=' . $_GET["id"] . '">';
+						$delete_hyperlink = 'href="question-delete.php?id=' . $_GET["id"] . '" onclick="return confirmDelete()">';
 						$edit_hyperlink = 'href="question-edit.php?id=' . $_GET["id"] . '">';
 						echo 'asked by ' . $row["name"] . ' at ' . $row["reg_date"] . ' | <a ' . $edit_hyperlink . 'edit</a> | <a ' . $delete_hyperlink . 'delete</a>';
 					echo '</td>';
@@ -79,6 +81,7 @@
 				else {
 					echo " Answers";
 				}
+				echo '<hr />';
 			}
 			echo '</h2>';
 			
@@ -117,6 +120,7 @@
 							echo 'asked by ' . $row["name"] . ' at ' . $row["reg_date"];
 						echo '</td>';
 					echo '</tr>';
+					echo '<tr><td colspan="2"><hr /></td></tr>';
 				}
 				echo "</table>";
 			}
@@ -127,7 +131,7 @@
 		
 		?>	
 			<h2>Your Answer</h2>
-			<form action="answer-submit.php?id=<?php echo $_GET["id"]; ?>" method="post">
+			<form name="AnswerForm" action="answer-submit.php?id=<?php echo $_GET["id"]; ?>" onsubmit="return validateAnswerForm()" method="post">
 				Name: &nbsp; <input type="text" name="name" /> <br />
 				Email: &nbsp; <input type="text" name="email" /> <br />
 				Content: &nbsp;<input type="text" name="content" /> <br />

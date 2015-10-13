@@ -1,6 +1,8 @@
 <html>
 	<head>
 		<title>Question Edit</title>
+		<script src="js/script.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	
 	<body>
@@ -30,11 +32,11 @@
 			$row = mysqli_fetch_assoc($result);
 		?>
 		<h3>You are currently editing question with ID <i><?php echo $_GET["id"] ?></i>.</h3>
-		<form action="question-change.php?id=<?php echo $_GET["id"]; ?>" method="post">
-			Name: &nbsp; <input type="text" name="name" /> <br />
-			Email: &nbsp; <input type="text" name="email" /> <br />
-			Question Topic: &nbsp; <input type="text" name="topic" /> <br />
-			Content: &nbsp;<input type="text" name="content" /> <br />
+		<form name="QuestionForm" action="question-change.php?id=<?php echo $_GET["id"]; ?>" onsubmit="return validateQuestionForm()" method="post">
+			Name: &nbsp; <input type="text" name="name" value="<?php echo $row["name"]; ?>" disabled="disabled" /> <br />
+			Email: &nbsp; <input type="text" name="email" value="<?php echo $row["email"]; ?>" disabled="disabled" /> <br />
+			Question Topic: &nbsp; <input type="text" name="topic" value="<?php echo $row["topic"]; ?>" /> <br />
+			Content: &nbsp;<input type="text" name="content" value="<?php echo $row["content"]; ?>" /> <br />
 			<input type="submit" value="Change" />
 		</form>
 	</body>

@@ -21,52 +21,70 @@
 	?>
 	<head>
 		<title>Simple StackExchange</title>
+		<script src="js/script.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	
 	<body>
 		<h1><a href="index.php">Simple StackExchange</a></h1>
-		<p>Cannot find what you are looking for? <a href="question-form.php"> Ask here.</a></p>
+		<form align="center" name="searchBox" action="index.php" method="get">
+			<input type="text" name="searchText" />
+			<input type="submit" value="Search" />
+		</form>
+		<p align="center">Cannot find what you are looking for? <a href="question-form.php"> Ask here.</a></p>
 		
-		<?php
-			$sql = "SELECT id, topic, votes, answers, name FROM " . $tablename;
-			$result = mysqli_query($link, $sql);
-			
-			if (mysqli_num_rows($result) > 0) {
-				// output data of each row
-				echo "<table>";
-				while ($row = mysqli_fetch_assoc($result)) {
-					// echo $row["id"] . $row["topic"] . $row["votes"] . $row["answers"] . "<br>";
-					echo "<tr>";
-						echo "<td>";
-							echo $row["votes"];
-						echo "</td>";
-						echo "<td>";
-							echo $row["answers"];
-						echo "</td>";
-						echo '<td rowspan="2" width="60%">';
-							echo '<a href="question-detail.php?id=' . $row["id"] . '">' . $row["topic"] . '</a>';
-						echo "</td>";
-					echo "</tr>";
-					echo "<tr>";
-						echo "<td>";
-							echo "Votes";
-						echo "</td>";
-						echo "<td>";
-							echo "Answers";
-						echo "</td>";
-						echo '<td rowspan="2">';
-							$delete_hyperlink = 'href="question-delete.php?id=' . $row["id"] . '">';
-							$edit_hyperlink = 'href="question-edit.php?id=' . $row["id"] . '">';
-							echo "asked by " . $row["name"] . ' | <a ' . $edit_hyperlink . 'edit</a> | <a ' . $delete_hyperlink . 'delete</a>';
-						echo "</td>";
-					echo "</tr>";
+		<br><br>
+		
+		<table>
+			<tr>
+				<td colspan="4">
+					<h2>Recently Asked Questions<hr /></h2>
+				</td>
+			</tr>
+			<?php
+				$sql = "SELECT id, topic, votes, answers, name FROM " . $tablename;
+				$result = mysqli_query($link, $sql);
+				
+				if (mysqli_num_rows($result) > 0) {
+					// output data of each row
+					// echo "<table>";
+					while ($row = mysqli_fetch_assoc($result)) {
+						// echo $row["id"] . $row["topic"] . $row["votes"] . $row["answers"] . "<br>";
+						echo "<tr>";
+							echo "<td><center>";
+								echo $row["votes"];
+							echo "</center></td>";
+							echo "<td><center>";
+								echo $row["answers"];
+							echo "</center></td>";
+							echo '<td rowspan="2" width="60%">';
+								echo '<a href="question-detail.php?id=' . $row["id"] . '">' . $row["topic"] . '</a>';
+							echo "</td>";
+						echo "</tr>";
+						echo "<tr>";
+							echo "<td>";
+								echo "Votes";
+							echo "</td>";
+							echo "<td>";
+								echo "Answers";
+							echo "</td>";
+							echo '<td>';
+								$delete_hyperlink = 'href="question-delete.php?id=' . $row["id"] . '" onclick="return confirmDelete()">';
+								$edit_hyperlink = 'href="question-edit.php?id=' . $row["id"] . '">';
+								echo "asked by " . $row["name"] . ' | <a ' . $edit_hyperlink . 'edit</a> | <a ' . $delete_hyperlink . 'delete</a>';
+							echo "</td>";
+						echo "</tr>";
+						echo '<tr><td colspan="4"><hr /></td></tr>';
+					}
+					// echo "</table>";
 				}
-				echo "</table>";
-			}
-			else {
-				echo "Empty";
-			}
-		?>
+				else {
+					echo '<tr>';
+						echo "<td><i>Empty Question</i></td>";
+					echo '</tr>';
+				}
+			?>
+		</table>
 	</body>
 	<?php
 		mysql_close($link);
