@@ -2,6 +2,24 @@
 
 Membuat Website tanya jawab seperti Stack Exchange.
 
+### Penjelasan Teknis
+
+1. Validasi pada client-side
+   Untuk melakukan validasi pada client-side, digunakan kode JavaScript untuk memeriksa apakah semua form
+   yang harus diisi oleh user sudah terisi, jika belum, munculkan alert. Selain itu juga diperiksa apakah email yang
+   dimasukkan sudah benar atau belum dengan menggunakan JavaScript juga. Pemeriksaan email menggunakan regex yang saya
+   ambil dari http://stackoverflow.com/questions/46155/validate-email-address-in-javascript. Selain validasi pada
+   form, juga dilakukan validasi/konfirmasi penghapusan question dengan memunculkan pop up box. Pengerjaannya dengan
+   menggunakan inline javascript.
+2. AJAX
+   Untuk melakukan AJAX, dibuat fungsi vote pada javascript yang memiliki 3 parameter, yakni id, type, dan act. id
+   adalah id pertanyaan atau jawaban yang akan di vote, type adalah tipe question atau answer, act adalah jenis vote
+   up atau down. Kode ajak tersebut memanggil kode PHP pada file vote.php untuk pengupdate-an data pada database serta
+   penulisan nilai terbaru setelah tombol vote di klik. Pada halaman Answer.php (halaman untuk menampilkan vote),
+   fungsi AJAX dipanggil dan diberi id berupa tag-id pertanyaan atau jawaban yang akan di vote. Saat pengguna mengklik
+   tombol vote, maka fungsi AJAX akan dipanggil dan dilaihkan ke vote.php untuk diubah nilainya secara langsung pada
+   Answer.php dengan id sesuai id question/ answer yang dipilih user.
+
 **Luangkan waktu untuk membaca spek ini sampai selesai. Kerjakan hal yang perlu saja.**
 
 ## Anggota Tim
@@ -86,10 +104,6 @@ Validasi **wajib** dilakukan pada *client-side*, dengan menggunakan **javascript
 ### Bonus
 
 Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi pertanyaan`.
-
-### Penjelasan Teknis
-
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
 
 ### Knowledge
 
