@@ -1,3 +1,10 @@
+// Nama			: Ryan Yonata
+// NIM			: 13513074
+// Nama file 	: validateinput.js
+// Keterangan	: Berisi javascript untuk validasi input question dan answer,
+//				  serta email. Selain itu juga termasuk disini kode AJAX untuk
+//				  Vote
+
 function validateEmail(email) {
     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     return re.test(email);
@@ -41,3 +48,15 @@ function validateAnswerinput()
 		return false;
 	}	
 }
+
+function vote(id, type, act)
+{
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+     document.getElementById(type+"-"+id).innerHTML = xhttp.responseText;
+    }
+  }
+  xhttp.open("GET", "vote.php?id="+id+"&type="+type+"&act="+act, true);
+  xhttp.send();
+} 

@@ -1,4 +1,9 @@
 <!DOCTYPE  html>
+
+<!-- Nama		: Ryan Yonata
+	 NIM		: 13513074
+	 Nama file 	: home.php
+	 Keterangan	: Halaman utama, berisi header dan list pertanyaan -->
 <html>
 <head>
 	<link rel="stylesheet" href="style.css">
@@ -11,8 +16,9 @@
 		<br>
 	</div>
 	<div class="search">
-		<form>
-			<input id="searchbox" type="text" name="searchQuery"> <input id="submitbutton" type="submit" value="Search"> <br>
+		<form method="POST" action="Search.php">
+			<input id="searchQuery" type="text" name="searchQuery" placeholder="Search...">
+			<input id="submitbutton" type="submit" value="Search"> <br>
 		</form>
 	</div>
 	<?php include('getQID.php') ?>

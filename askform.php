@@ -1,4 +1,10 @@
 <!DOCTYPE  html>
+<!-- Nama		: Ryan Yonata
+	 NIM		: 13513074
+	 Nama file 	: askform.php
+	 Keterangan	: Berisi kode php dan html untuk menampilkan halaman
+	 			  pengisian pertanyaan -->
+
 <html>
 <head>
 	<link rel="stylesheet" href="style.css">
@@ -8,7 +14,7 @@
 
 <body>
 	<div class="pageheader">
-		<h1>Simple StackExchange</h1>
+		<h1><a class="pageheader" href="home.php">Simple StackExchange</a></h1>
 		<br>
 	</div>
 

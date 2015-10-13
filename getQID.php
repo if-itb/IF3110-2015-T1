@@ -1,4 +1,10 @@
 <?php  
+// Nama			: Ryan Yonata
+// NIM			: 13513074
+// Nama file 	: getQID.php
+// Keterangan	: Berisi kode php untuk mendapatkan question ID untuk
+//				  keperluan pengeditan
+
 	if(isset($_GET['id']))
 	{
 		include('ConnectDatabase.php');

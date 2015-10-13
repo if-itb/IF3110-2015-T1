@@ -1,9 +1,4 @@
 <?php
-// Nama			: Ryan Yonata
-// NIM			: 13513074
-// Nama file 	: ConnectDatabase.php
-// Keterangan	: Berisi kode php untuk menyambungkan koneksi ke database
-
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
