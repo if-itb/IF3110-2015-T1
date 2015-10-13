@@ -108,3 +108,9 @@ Asisten IF 3110 2015
 Fahziar | Gilang | Lingga | Reza | Sudib | Tito | Willy K2 | Yafi
 
 Dosen : Yudistira Dwi Wardhana | Riza Satria Perdana
+
+### Penjelasan Teknis
+- Melakukan validasi pada client-side
+ Validasi ini dilakukan dengan menambahkan fungsi javascript pada form yang diisi oleh user seperti onvalidatequestion(), isinya adalah kondisi-kondisi yang tidak memenuhi seperti form kosong, belum diisi atau alamat email salah. Pengecekan alamat email dilakukan dengan regex test pada fungsi javascript tersebut.
+- Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah)
+ Cara melakukan AJAX adalah sebagai berikut, saat pengguna melakukan klik pada tombol vote atas atau bawah (up or down) maka onclick() dari gambar panah tersebut akan merespon dan mengeksekusi fungsi AJAX upvote(int) atau downvote(int) atau upvoteans(int) atau downvoteans(int). Lalu AJAX akan terhubung dengan file php lain misalnya upvote.php dan memberikan id dari question/answer sehingga di upvote.php tersebut ada update kolom vote dari question atau answer dengan id = id yang diberikan tersebut. jika up berarti vote = vote + 1 dan jika down berarti vote = vote -1. Lalu menampilkan table vote tersebut pada daerah yang akan diganti. Dalam hal ini daerah yang terganti adalah getElementid pada fungsi AJAX tadi. Dalam file diatas yang diganti adalah angka vote dengan menggunakan <div></div>
