@@ -9,8 +9,12 @@
 
 	<body>
 		<a href="index.php"><h1>Simple StackExchange</h1></a>
-		<p align="center"><input type="text" name="search" class="search" ></input>
-		<input class="button" type="button" value="Search"></p>
+		<form action="search.php" method="GET" name="search">
+			<p align="center">
+				<input type="text" name="search" class="search" placeholder="Search here..."></input>
+				<input class="button" type="submit" value="Search" onclick="search.php">
+			</p>
+		</form>
 		
 		<h5>Cannot find what you are  looking for? <a href="ask.php"><span id="link">Ask here</span></a></h5>
 		<h4>Recently Asked Questions</h4>
@@ -21,8 +25,8 @@
 			include 'dbact.php';
 
 			$dislplay_question = getAllQuestion();
-
-			if ($dislplay_question != NULL) {
+			$number = count($dislplay_question);
+			if ($dislplay_question != NULL && $number!=0) {
 				foreach ($dislplay_question as $q) {
 					?>
 					<table class="question">
