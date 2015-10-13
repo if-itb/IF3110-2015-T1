@@ -8,27 +8,25 @@
 							LEFT OUTER JOIN
 							(SELECT question_id, COUNT(1) FROM answers GROUP BY question_id) cnt
 							ON questions.id=cnt.question_id
-							WHERE questions.question LIKE'%" . $_POST['search'] . "%'");
+							WHERE questions.question LIKE'%" . $_POST['search'] . "%' ORDER BY questions.id DESC");
 		} catch (PDOException $e){
 			echo $e->getMessage();
 		}
-		$variables = array(
-			'questions' => $questions->fetchAll()
-		);
-		renderLayoutWithContentFile("home.php", $variables);
 	} else{
 		try{
 			$questions = $db->query('SELECT * FROM questions
 							LEFT OUTER JOIN
 							(SELECT question_id, COUNT(1) FROM answers GROUP BY question_id) cnt
-							ON questions.id=cnt.question_id');
+							ON questions.id=cnt.question_id ORDER BY questions.id DESC');
 		} catch (PDOException $e){
 			echo $e->getMessage();
 		}
-		$variables = array(
-			'questions' => $questions->fetchAll()
-		);
-		renderLayoutWithContentFile("home.php", $variables);
 	}
+
+	$variables = array(
+		'deleteConfirm' => 'Do you really want to submit the form?',
+		'questions' => $questions->fetchAll()
+	);
+	renderLayoutWithContentFile("home.php", $variables);
 	
 ?>

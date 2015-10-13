@@ -34,17 +34,12 @@ hr {
 
 .ask-item {
 	padding: 7px 15px;
-	margin: 5px;
-	width: 80%;
-	background-color: #fafafa;
-	color: #207cca;
-	border: 3px solid #207cca;
-	border-radius: 3px;
+	margin: 1%;
+	width: 90%;
 }
 
 .ask-button {
-	width: 100%;
-	margin-right: auto;
+	margin-right: 3%;
 }
 
 .blue {
@@ -89,7 +84,7 @@ hr {
 }
 
 .question-detail {
-	padding-left: 145px;
+	padding-left: 10%;
 	text-align: justify;
 	color: #207cca;
 }
@@ -101,5 +96,24 @@ hr {
 .stats td {
 	text-align: center;
 	font-weight: bold;
-	padding-right: 20px;
+}
+
+.stat-number {
+	font-size: 2em;
+}
+
+.arrow-up {
+	width: 0; 
+	height: 0; 
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid #207cca;
+}
+
+.arrow-down {
+	width: 0; 
+	height: 0; 
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid #207cca;
 }
