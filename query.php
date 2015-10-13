@@ -23,11 +23,26 @@ function updateQuestion($question) {
 }
 
 function getAllRow($table) {
-
+  global $conn;
+  $query = "SELECT * FROM question ORDER BY date_posted DESC";
+  $result = mysqli_query($conn, $query);
+  return $result;
 }
 
 function getQuestion() {
+  global $conn;
+  $query = "SELECT * FROM question WHERE q_id=$q_id ORDER BY date_posted DESC";
+  $result = mysqli_query($conn, $query);
+  $row = mysqli_fetch_assoc($result);
+  return $row;
+}
 
+function countAnswer() {
+  global $conn;
+  $query = "SELECT COUNT(a_id) AS count FROM answer WHERE q_id=$q_id";
+  $result = mysqli_query($conn, $query);
+  $row = mysqli_fetch_assoc($result);
+  return $row['count'];
 }
 
 function delQuestion() {
@@ -39,10 +54,6 @@ function addAnswer() {
 }
 
 function getAnswer() {
-
-}
-
-function countAnswer() {
 
 }
 

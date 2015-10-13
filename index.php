@@ -26,7 +26,7 @@
       updateQuestion($question);
     }
 
-    $tabQuestion=getAllRow('question');
+    $tabQuestion = getAllRow('question');
     $nQuestion = mysqli_num_rows($tabQuestion);
   ?>
 
