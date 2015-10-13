@@ -62,7 +62,7 @@
 										</b></p>	
 										<br>'.$subContent.'</br>
 										<p class = "align-right footer">
-											asked by <blue>'.$row["Email"].'</blue> | <a class="text-link" href="updateQuestion.php?id='.$row["QID"].'"><orange>edit</orange></a> | <a class="text-link" href="delete.php?id='.$row["QID"].'"  onclick="return validateDelete()"><red>delete</red></a>
+											<black>asked by <blue>'.$row["Email"].'</blue> | <a class="text-link" href="updateQuestion.php?id='.$row["QID"].'"><orange>edit</orange></a> | <a class="text-link" href="delete.php?id='.$row["QID"].'"  onclick="return validateDelete()"><red>delete</red></a></black>
 										</p>
 									</div>
 								</div>
