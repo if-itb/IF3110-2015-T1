@@ -33,7 +33,7 @@
         <input id="topic" placeholder="Question Topic" class="form" type="text" name="topic" value="<?= $q["topic"] ?>">
         <textarea id="content" placeholder="Content" rows="4" class="box" name="content"><?= $q["content"] ?></textarea>
         <div class="text-right">
-            <button class="button" class="text-right" type="submit">Post</button>
+            <button class="button" type="submit">Post</button>
         </div>
       </form>
     </div>

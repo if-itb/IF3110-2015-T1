@@ -41,6 +41,26 @@ class Question extends Model {
     $sql = "DELETE FROM question WHERE id_question=$id";
     $this->executeQuery($sql);
   }
+
+  public function getVote($id) {
+    $sql = "SELECT vote FROM question WHERE id_question=$id";
+    $num = $this->getResultQuery($sql)[0]["vote"];
+    return $num;
+  }
+
+  public function upvote($id) {
+    $num = $this->getVote($id);
+    $num++;
+    $sql = "UPDATE question SET vote=$num WHERE id_question=$id";
+    $this->executeQuery($sql);
+  }
+
+  public function downvote($id) {
+    $num = $this->getVote($id);
+    $num--;
+    $sql = "UPDATE question SET vote=$num WHERE id_question=$id";
+    $this->executeQuery($sql);
+  }
 }
 
 ?> 

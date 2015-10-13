@@ -33,16 +33,16 @@
         <div class="item">
           <div class="vote">
             <table width="100%" class="text-center">
-              <tr><td><div class="arrow">&#9650;</div></td></tr>
-              <tr><td><?=$q["vote"]?></td></tr>
-              <tr><td><div class="arrow">&#9660;</div></td></tr>
+              <tr><td><div class="arrow" onclick="upvoteQuestion(<?=$id?>)">&#9650;</div></td></tr>
+              <tr><td><div id="voteQuestion"><?=$q["vote"]?></div></td></tr>
+              <tr><td><div class="arrow" onclick="downvoteQuestion(<?=$id?>)">&#9660;</div></td></tr>
             </table>
           </div>
           <div class="text-long">
             <p><?=$q["content"]?></p>
           </div>
           <div class="text-right">
-            <p>asked by <?=$q["name"]?> at <?=$q["date"]?> | <a href="/view/ask.php?id=<?=$id?>">edit</a> | <a href="#" onclick="confirmDelete(<?=$id?>)">delete</a></p>
+            <p>asked by <?=$q["name"]?> at <?=$q["date"]?> | <a href="/view/ask.php?id=<?=$id?>" class="link">edit</a> | <a href="#" onclick="confirmDelete(<?=$id?>)" class="link">delete</a></p>
           </div>
         </div>
       </div>
@@ -55,9 +55,9 @@
         <div class="item">
           <div class="vote">
             <table width="100%" class="text-center">
-              <tr><td><div class="arrow">&#9650;</div></td></tr>
-              <tr><td><?=$a["vote"]?></td></tr>
-              <tr><td><div class="arrow">&#9660;</div></td></tr>
+              <tr><td><div class="arrow" onclick="upvoteAnswer(<?=$a["id_answer"]?>)">&#9650;</div></td></tr>
+              <tr><td><div id="voteAnswer<?=$a["id_answer"]?>"><?=$a["vote"]?></div></td></tr>
+              <tr><td><div class="arrow" onclick="downvoteAnswer(<?=$a["id_answer"]?>)">&#9660;</div></td></tr>
             </table>
           </div>
           <div class="text-long">
@@ -76,7 +76,7 @@
         <input name="id" type="hidden" value=<?=$id?>>
         <input id="authorName" placeholder="Name" class="form" type="text" name="authorName">
         <input id="authorEmail" placeholder="Email" class="form" type="text" name="authorEmail">
-        <textarea id="content" placeholder="Content" class="box" name="content"></textarea>
+        <textarea id="content" placeholder="Content" class="box" name="content" rows="4"></textarea>
         <div class="text-right">
             <button class="button" class="text-right" type="submit">Post</button>
         </div>
@@ -84,5 +84,6 @@
     </div>
 
     <script type="text/javascript" src="/assets/js/validation.js"></script>
+    <script type="text/javascript" src="/assets/js/vote.js"></script>
   </body>
 </html>

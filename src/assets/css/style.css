@@ -87,6 +87,7 @@
   height: 60px;
   font-size: 24px;
   font-family: open-sans;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -152,6 +153,7 @@ h4 {
   font-size: 20px;
   margin: 0px;
   padding: 0px;
+  cursor: pointer;
 }
 
 .item {
