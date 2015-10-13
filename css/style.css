@@ -125,7 +125,8 @@ body {
 
 .question a {
 	text-decoration: none;
-	color: #000000;
+	color: #265;
+	font-weight: 700;
 }
 
 .question-info {
@@ -163,6 +164,11 @@ body {
 	padding-left: 10px;
 }
 
+.formContent:focus {
+	border: 1px solid rgba(81, 203, 238, 1);
+}
+
+
 
 .votesFunc {
 	margin-top: 15px;
@@ -186,7 +192,7 @@ body {
 .edit {
 	text-decoration: none;
 	font-weight: 600;
-	color: #B50CF4;
+	color: #630985;
 }
 
 .delete {
