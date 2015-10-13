@@ -39,7 +39,7 @@
 										'.$row["Content"].'
 									</div>
 									<p class="align-right footer">
-										asked by <blue>'.$row["Email"].'</blue> at '.$row["Date"].' | <a class ="text-link" href="updateQuestion.php?id='.$row["QID"].'"><orange>edit</orange></a> | <a class ="text-link" href><red>delete</red></a>
+										asked by <blue>'.$row["Email"].'</blue> at '.$row["Date"].' | <a class ="text-link" href="updateQuestion.php?id='.$row["QID"].'"><orange>edit</orange></a> | <a class ="text-link" href ="delete.php?id='.$row["QID"].'"><red>delete</red></a>
 									</p>
 								</div>
 							</div>
