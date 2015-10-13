@@ -1,5 +1,5 @@
 function validateQuestionForm() {
-	if (nameValidating() && emailValidating() && topicValidating()) {
+	if (nameValidating() && emailValidating() && topicValidating() && contentValidating) {
 		return true;
 	}
 	else {
@@ -8,7 +8,7 @@ function validateQuestionForm() {
 }
 
 function validateAnswerForm() {
-	if (emailValidating() && nameValidating()) {
+	if (emailValidating() && nameValidating() && contentValidating()) {
 		return true;
 	}
 	else {
@@ -32,6 +32,17 @@ function emailValidating() {
 		alert("Please correct your email!");
 		return false;
 	}
+	return true;
+}
+
+function contentValidating() {
+	var content = document.getElementById('content').value;
+	
+	if (content == null || content == "") {
+		alert("Please define your question content!");
+		return false;
+	}
+
 	return true;
 }
 

@@ -108,7 +108,7 @@ div {
 
 .title{
 	text-align: left;
-	margin-left:90px;
+	margin-left:80px;
 	margin-top: 50px;
 }
 
@@ -190,9 +190,7 @@ textarea {
 
 #searchbox, #searchbutton {
 	/*float: right;*/
-	width: 20%;
-	display: inline-block;
-	height: 100%
+	padding: 5px 10px;
 }
 
 #searchbox {

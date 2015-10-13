@@ -1,6 +1,6 @@
 <?php
 	require_once "connection.php";
-	include "function.php";
+	include ("home-posts.php");
 ?>
 
 <!DOCTYPE html>
@@ -26,16 +26,16 @@
 		<!-- das searchbox -->
 		<div class="main">
 			<form role="form" action="" method="get" id="searchbox">
-				<input type="text" id="searchbox" name="searchquery" required>
+				<input type="text" placeholder="Type Your Keywords" id="searchbox" name="searchquery" required>
 				<input type="submit" id="searchbutton" value="Search" name="search">
 			</form>
 
 			<div class="text-center">
-				<p>Cannot find what you are looking for?<a href="ask-question.php">Ask here</a></p>
+				<p>Cannot find what you are looking for?<a href="ask-question.php?req=new">Ask here</a></p>
 			</div>
 
 			<div class="title">
-				<h3>Recently Asked Question</h3>
+				<h3><?php echo $home_title;?></h3>
 			</div>
 
 
@@ -54,7 +54,7 @@
 					<div class="content-footer">asked by 
 						<span class="user-question">
 							<?php echo $question['q_name'] ?>
-						</span> | <a href="ask.php?req=edit&id=<?php echo $question['q_id']; ?>" class="edit-question">edit</a> | <a href="delete-question.php?id=<?php echo $question['q_id']; ?>" class="delete-question" onclick="return confirm('Are you sure want to delete this?')">delete</a>
+						</span> | <a href="ask-question.php?req=edit&id=<?php echo $question['q_id']; ?>" class="edit-question">edit</a> | <a href="delete-question.php?id=<?php echo $question['q_id']; ?>" class="delete-question" onclick="return confirm('Are you sure want to delete this?')">delete</a>
 					</div>
 					</div>
 				</div>
