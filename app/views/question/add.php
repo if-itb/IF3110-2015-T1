@@ -30,7 +30,7 @@
                         <textarea name="content" id="content" placeholder="Your question content goes here"></textarea>
                     </div>
 
-                    <input type="submit" value="Post">
+                    <input type="submit" class="btn-submit" value="Post">
                 </form>
             </div>
 

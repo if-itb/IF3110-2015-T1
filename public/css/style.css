@@ -101,13 +101,13 @@ body {
 p {
   margin-bottom: 1em; }
 
-a, .question-delete {
+a, .form-delete {
   color: #0077CC;
   text-decoration: none; }
-  a:visited, .question-delete:visited {
+  a:visited, .form-delete:visited {
     color: #0077CC;
     text-decoration: none; }
-  a:hover, .question-delete:hover {
+  a:hover, .form-delete:hover {
     color: #195398;
     text-decoration: underline; }
 
@@ -122,7 +122,15 @@ textarea {
   background: #FDFDFD;
   border: 2px solid #62B0DF; }
 
-input[type="submit"] {
+#searchForm input[type="text"] {
+  width: 400px; }
+
+#searchForm {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px; }
+
+.btn-submit {
   height: 37px;
   font-weight: 600;
   color: #FFF;
@@ -131,16 +139,8 @@ input[type="submit"] {
   cursor: pointer;
   transition: background 300ms ease; }
 
-input[type="submit"]:hover {
+.btn-submit:hover {
   background-color: #389bd6; }
-
-#searchForm input[type="text"] {
-  width: 400px; }
-
-#searchForm {
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 10px; }
 
 .ask-here {
   text-align: center;
@@ -167,9 +167,9 @@ input[type="submit"]:hover {
 .main-title h1 span {
   color: #195398; }
 
-.main-title a, .main-title .question-delete,
+.main-title a, .main-title .form-delete,
 .main-title a:hover,
-.main-title .question-delete:hover {
+.main-title .form-delete:hover {
   color: #2F2F2F;
   font-weight: 600;
   text-decoration: none; }
@@ -197,9 +197,9 @@ input[type="submit"]:hover {
   font-weight: 600;
   margin-bottom: 1em; }
 
-.question-title a, .question-title .question-delete,
+.question-title a, .question-title .form-delete,
 .question-title a:visited,
-.question-title .question-delete:visited {
+.question-title .form-delete:visited {
   color: #0077CC;
   text-decoration: none; }
 
@@ -264,16 +264,16 @@ input[type="submit"]:hover {
   font-weight: 600;
   color: #5C5C5C; }
 
-.vote-down a, .vote-down .question-delete,
+.vote-down a, .vote-down .form-delete,
 .vote-up a,
-.vote-up .question-delete {
+.vote-up .form-delete {
   font-size: 20px;
   text-decoration: none;
   color: #5C5C5C;
   transition: color 300ms ease; }
-  .vote-down a:hover, .vote-down .question-delete:hover,
+  .vote-down a:hover, .vote-down .form-delete:hover,
   .vote-up a:hover,
-  .vote-up .question-delete:hover {
+  .vote-up .form-delete:hover {
     color: #292929; }
 
 .answer-header h2 {
@@ -285,14 +285,16 @@ input[type="submit"]:hover {
 #deleteForm {
   display: inline; }
 
-.question-delete {
+.form-delete {
   display: inline;
   padding: 0;
-  font-weight: 400 !important;
   font-family: 'Open sans', sans-serif;
-  font-size: 14px !important;
-  color: #0077CC !important;
-  background: transparent !important; }
+  font-weight: 400;
+  color: #0077CC;
+  font-size: 14px;
+  background: transparent;
+  cursor: pointer;
+  border: none; }
 
 .form-field input#email,
 .form-field input#name {

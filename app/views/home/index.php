@@ -8,7 +8,8 @@
 <div class="question-list">
 
     <?php if ($data['questions']): ?>
-        <?php foreach($data['questions'] as $question): ?>
+
+        <?php foreach($data['questions'] as $key => $question): ?>
 
             <div class="inner-container">
                 <div class="question">
@@ -16,7 +17,7 @@
                         <div class="question-status col-3">
                             <div class="question-vote">
                                 <div class="status-counts">
-                                    <span>0</span>
+                                    <span><?= $question->votecounts; ?></span>
                                 </div>
                                 <div class="status-title">
                                     <span>vote</span>
@@ -24,7 +25,7 @@
                             </div>
                             <div class="question-answers">
                                 <div class="status-counts">
-                                    <span>0</span>
+                                    <span><?= $question->answercounts ? $question->answercounts : 0 ; ?></span>
                                 </div>
                                 <div class="status-title">
                                     <span>answer</span>
@@ -43,7 +44,7 @@
                                 <a href="<?= ROOT_URL; ?>/question/edit/<?= $question->id_question; ?>" class="question-edit">Edit</a> |
                                 <form id="deleteForm" action="<?= ROOT_URL; ?>/question/delete" method="POST">
                                     <input type="hidden" name="id_question" value="<?= $question->id_question; ?>">
-                                    <input type="submit" class="question-delete" value="Delete">
+                                    <input type="submit" class="form-delete" value="Delete">
                                 </form>
                             </span>
                         </div>

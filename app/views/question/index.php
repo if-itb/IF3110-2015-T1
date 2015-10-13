@@ -16,7 +16,7 @@
                         </div>
 
                         <div class="vote-counts">
-                            <span>0</span>
+                            <span><?= $data['question']->votecounts; ?></span>
                         </div>
 
                         <div class="vote-down">
@@ -37,7 +37,7 @@
                         <a href="<?= ROOT_URL; ?>/question/edit/<?= $data['question']->id_question ?>" class="question-edit">Edit</a> |
                         <form id="deleteForm" action="<?= ROOT_URL; ?>/question/delete" method="POST">
                             <input type="hidden" name="id_question" value="<?= $data['question']->id_question; ?>">
-                            <input type="submit" class="question-delete" value="Delete">
+                            <input type="submit" class="form-delete" value="Delete">
                         </form>
                     </span>
                 </div>
@@ -87,8 +87,11 @@
                         <span>
                             Answered by
                             <?= $answer->name; ?> |
-                            <a href="edit.php" class="question-edit">Edit</a> |
-                            <a href="" class="question-delete">Delete</a>
+                            <a href="<?= ROOT_URL . '/answer/edit/' . $answer->id_answer; ?>" class="question-edit">Edit</a> |
+                            <form id="deleteForm" action="<?= ROOT_URL; ?>/answer/delete" method="POST">
+                                <input type="hidden" name="id_answer" value="<?= $answer->id_answer; ?>">
+                                <input type="submit" class="form-delete" value="Delete">
+                            </form>
                         </span>
                     </div>
 
@@ -122,7 +125,7 @@
                     <textarea name="content" placeholder="Your answer goes here"></textarea>
                 </div>
 
-                <input type="submit" value="Post">
+                <input type="submit" class="btn-submit" value="Post">
             </form>
 
         </div> <!-- .answer-form -->

@@ -22,7 +22,7 @@
 
         <form action="" method="GET" id="searchForm">
             <input type="text" placeholder="Search...">
-            <input type="submit" value="Search">
+            <input type="submit" class="btn-submit"value="Search">
         </form>
 
         <p class="ask-here">Can't find what you are looking for? <a href="<?= ROOT_URL; ?>/question/add">Ask here</a></p>

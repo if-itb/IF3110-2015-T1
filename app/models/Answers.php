@@ -15,7 +15,7 @@ class Answers {
         }
     }
 
-    public function getAnswerById() {
+    public function getAnswerById($id) {
         $query = "SELECT * FROM answers WHERE id_answer = {$id}";
         
         if ($answers = $this->db->query($query)) {
@@ -36,11 +36,25 @@ class Answers {
         header('Location: ' . ROOT_URL . '/question/' . $id_question);
     }
 
-    public function edit() {
+    public function edit($data) {
+        $id_answer      = $data['id_answer'];
+        $id_question    = $data['id_question'];
+        $name           = $data['name'];
+        $email          = $data['email'];
+        $content        = $data['content'];
 
+
+        $query = "UPDATE answers SET name='$name', email='$email', content='$content' WHERE id_answer = $id_answer";
+        $this->db->query($query);
+
+        header('Location: ' . ROOT_URL . '/question/' . $id_question);
     }
 
-    public function delete() {
+    public function delete($id) {
+        $query = "DELETE FROM answers WHERE id_answer = $id";
+        var_dump($query);
+        // $this->db->query($query);
 
+        // header('Location: ' . ROOT_URL);   
     }
 }

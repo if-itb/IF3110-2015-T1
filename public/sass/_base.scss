@@ -38,17 +38,3 @@ textarea {
   background: $container-background;
   border: 2px solid $blue-tertiary;
 }
-
-input[type="submit"] {
-  height: 37px;
-  font-weight: $font-weight__semi-bold;
-  color: #FFF;
-  border: none;
-  background-color: $blue-tertiary;
-  cursor: pointer;
-  transition: background 300ms ease;
-}
-
-input[type="submit"]:hover {
-  background-color: darken($blue-tertiary, 10%);
-}

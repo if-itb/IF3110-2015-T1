@@ -16,7 +16,23 @@ class Questions {
     }
 
     public function getAll() {
-        $query = "SELECT * FROM questions ORDER BY id_question DESC";
+        $query = "SELECT 
+                    questions.id_question, 
+                    answercounts,
+                    questions.name,
+                    email,
+                    topic,
+                    votecounts,
+                    content,
+                    `timestamp`
+                  FROM 
+                    (SELECT 
+                        id_question, 
+                        COUNT(id_answer) answercounts 
+                        FROM 
+                            answers GROUP BY id_question
+                    ) 
+                    answer RIGHT JOIN questions on questions.id_question = answer.id_question ORDER BY questions.id_question DESC";
         
         if($questions = $this->db->query($query)) {
             return $questions->fetchAll(PDO::FETCH_OBJ);
@@ -51,7 +67,6 @@ class Questions {
 
     public function delete($id_question) {
         $query = "DELETE FROM questions WHERE id_question = $id_question";
-        var_dump($query);
         $this->db->query($query);
 
         header('Location: ' . ROOT_URL);   

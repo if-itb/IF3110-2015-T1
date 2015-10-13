@@ -3,6 +3,11 @@
 @import 'grid';
 @import 'base';
 
+/////////////////////////////
+/////////////////////////////
+//// HOMEPAGE
+/////////////////////////////
+/////////////////////////////
 
 #searchForm input[type="text"] {
   width: 400px;
@@ -13,6 +18,21 @@
   margin-top: 20px;
   margin-bottom: 10px;
 }
+
+.btn-submit {
+  height: 37px;
+  font-weight: $font-weight__semi-bold;
+  color: #FFF;
+  border: none;
+  background-color: $blue-tertiary;
+  cursor: pointer;
+  transition: background 300ms ease;
+}
+
+.btn-submit:hover {
+  background-color: darken($blue-tertiary, 10%);
+}
+
 
 .ask-here {
   text-align: center;
@@ -131,7 +151,7 @@
 
 /////////////////////////////
 /////////////////////////////
-/////////////////////////////
+//// QUESTION & ANSWER
 /////////////////////////////
 /////////////////////////////
 
@@ -199,14 +219,16 @@
   display: inline;
 }
 
-.question-delete {
+.form-delete {
   display: inline;
   padding: 0;
-  font-weight: $font-weight__normal !important;
   font-family: 'Open sans', sans-serif;
-  font-size: 14px !important;
-  color: $blue-secondary !important;
-  background: transparent !important;
+  font-weight: $font-weight__normal;
+  color: $blue-secondary;
+  font-size: 14px;
+  background: transparent;
+  cursor: pointer;
+  border: none;
   @extend a;
 }
 
