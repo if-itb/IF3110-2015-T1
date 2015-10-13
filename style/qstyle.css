@@ -151,9 +151,6 @@ a:hover {
 	display:inline-block;
 	margin-right:13%;
 }
-.div4 span {
-	display: inline-block;
-}
  
 .div4 span:last-child,.div5 span:last-child {
 	font-size: 15px;
@@ -171,9 +168,37 @@ a:hover {
 .div6 {
 	text-align: left;
 	margin-bottom: 3%;
+	min-height: 100px;
 }
 
 .div7 {
 	text-align: right;
 	margin-top: 4%;
 }
+
+#voting span {
+	font-size: 20px;	
+}
+
+
+.ans2 {
+	float:left;
+}
+
+#voting span {
+	width:13%;
+}
+
+.ans3 {
+	width: 87%;
+	float:right;
+	margin-bottom: 1%
+}
+
+.ans4 {
+	margin:0 auto;
+	width: 3%;
+	font-size: 13%;
+	margin-bottom: 20%;
+}
+

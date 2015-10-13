@@ -6,13 +6,14 @@
 </head>
 <body>
 	 <div id="big">Simple StackExchange</div>
-	 <div class="medium" id="m1">What's your question?</div>
+	 <div class="mediumbaru">
+	 <div id="m1">What's your question?</div>
 	 <form name="makequestion" method="post" action="sendquestions.php">
 		 <input type="text" name="name" placeholder="Name" class="medium">
 		 <input type="email" name="email" placeholder="Email" class="medium">
 		 <input type="text" name="question" placeholder="Question Topic" class="medium">
 		 <textarea type="text" name="content" placeholder="Content" class="medium" id="content"></textarea> 
 		 <input type="submit" value="Post" id="button">
-	 </form>
+	 </form></div>
 </body>
 </html>
