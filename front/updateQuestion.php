@@ -30,7 +30,7 @@
 				  <input type="text" class="form" value='.$row["Topic"].' name="Topic">
 				  <textarea class="form"  rows="5" name="Content">'.$row["Content"].'</textarea>
 				  <div class="align-right"> 
-					<button style = "submit">Post</button>
+					<button class="button">Post</button>
 				  </div>
 				</form>';
 			?>

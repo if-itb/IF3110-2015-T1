@@ -18,7 +18,7 @@
 				  <input type="text" class="form" placeholder="Question Topic" name="Topic">
 				  <textarea class="form" placeholder="Content" rows="5" name="Content"></textarea>
 				  <div class="align-right">
-					<button type="submit">Post</Button>
+					<button class="button">Post</Button>
 				  </div>
 				</form>';
 			?>

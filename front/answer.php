@@ -80,7 +80,7 @@
 						<input type="text" class="form" placeholder="Email" name="Email"> 
 						<textarea class="form" placeholder="Content" rows="5" name="Content"></textarea>
 						<div class="align-right">
-							<button class = "button" type="submit">Post</button>
+							<button class = "button">Post</button>
 						</div>
 					</form>
 				';
