@@ -9,14 +9,14 @@
 	<?php
 
 		$id = $_GET["id"];
-		$id = (int) $id;
+		
 		include 'dbfunctions.php';
 		$conn=ConnectToDatabase();
 		$question = GetQuestion($id);
 		$answer_result = GetAllAnswers($id);
 		$count_answer = mysqli_num_rows ($answer_result);
     		
-		?>
+	?>
 
 	
 
@@ -25,9 +25,8 @@
 
 
 <body>
-
 <div id="header">
-	<h1> Simple Stack Exchange </h1>
+	<h1> <a href ="question-list.php" style="color:#000"> Simple Stack Exchange </a> </h1>
 </div>
 
 <div class = "container">
@@ -35,12 +34,12 @@
 		<h2> <?php echo $question["question_topic"] ?> <hr> </h2>
 	
 		<div class="vote">
-			<div class="arrow-up"></div>
-			<h3 style="padding-left:50%;">0</h3>
-			<div class="arrow-down"></div>
+			<div class="arrow-up" onclick="vote(<?php echo $question['question_id'] ?>, 'question', 'up');"></div>
+			<h3> <div id="question-vote"><?php echo $question["question_vote"] ?> </div></h3>
+			<div class="arrow-down" onclick="vote(<?php echo $question['question_id'] ?>, 'question', 'down');"></div>
 		</div>
 		<p> <?php echo $question["question_content"] ?> </p>
-		<p style="float:right"> asked by <?php echo $question["question_email"] ?> at <?php echo $question["question_date"] ?> | <a href=ask-question.php?edit=<?php echo $question['question_id']?> style="color:#FFA500"> edit </a> | <a href="" style="color:#FF0000"> delete </a> </p>
+		<p style="float:right"> asked by <?php echo $question["question_email"] ?> at <?php echo $question["question_date"] ?> | <a href=ask-question.php?edit=<?php echo $question['question_id']?> style="color:#FFA500"> edit </a> | <a href="#" onclick="validateDelete(<?php echo $question['question_id'] ?>);" style="color:#FF0000"> delete </a> </p>
 	</div>
 
 	<?php
@@ -57,9 +56,9 @@
 					
 	
 					<div class="vote">
-						<div class="arrow-up"></div>
-						<h3> <?php echo $row["answer_vote"] ?> </h3>
-						<div class="arrow-down"></div>
+						<div class="arrow-up" onclick="vote(<?php echo $row['answer_id'] ?>, 'answer', 'up');"></div>
+						<h3> <div id="answer-vote-<?php echo $row['answer_id'] ?>"> <?php echo $row["answer_vote"] ?> </div> </h3>
+						<div class="arrow-down" onclick="vote(<?php echo $row['answer_id'] ?>, 'answer', 'down');"></div>
 					</div>
 					<p> <?php echo $row["answer_content"]  ?> </p>
 					<p style="float:right"> answer by <?php echo $row["answer_email"] ?> at <?php echo $row["answer_date"] ?> </p>

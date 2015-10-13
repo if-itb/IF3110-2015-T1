@@ -29,21 +29,26 @@
 <body>
 
 <div id="header">
-	<h1> Simple Stack Exchange </h1>
+	<h1> <a href ="question-list.php" style="color:#000"> Simple Stack Exchange </a> </h1>
 </div>
 
 <div class = "container">
-	<h2> What's Your Question? <hr> </h2>
-	<form method="POST" action="home.php">
+
+	<form method="GET" action="question-list.php">
 		<div>
-			<input type="submit" id="search_button" value="Search">
-			<input type="text" name="search" id="search">
+			<input type="submit" id="search_button" id="search_button" value="Search">
+			<input type="text" name="searchkey" id="searchkey">
 			<p style="text-align:center"> Cannot find what you are looking for? <a href="ask-question.php" style="color:#FFA500"> Ask Here </a> </p>
 		</div>
 	</form>
 	<h2> Recently Asked Question <hr> </h2>
 	<?php
-		$result = GetAllQuestions();
+		if(isset($_GET['searchkey'])) {
+			$result = SearchQuestions($_GET['searchkey']);
+		}
+		else {
+			$result = GetAllQuestions();
+		}
 		$count_question = mysqli_num_rows ($result);
 		if($count_question==0) {
 		}

@@ -97,9 +97,10 @@ textarea {
 	padding-top: 15px;  
     padding-bottom: 15px;
     text-align : center;
+    
 }
 
-#search {
+#searchkey {
 	border: 3px solid #000;
 	width: 85%;
 	margin:auto;

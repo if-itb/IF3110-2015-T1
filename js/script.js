@@ -115,3 +115,23 @@ function validateDelete(id) {
 
     } 
 }
+
+function vote(id, qa, updown) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                if(qa=="answer") {
+                    var answer_id = "answer-vote-" + id;
+                    document.getElementById(answer_id).innerHTML = xmlhttp.responseText;
+                }
+                else { //qa=="question"
+                    document.getElementById("question-vote").innerHTML = xmlhttp.responseText;
+                
+                }
+                //document.getElementById("question-vote").innerHTML = id + " " + qa + " " + updown;
+        }
+    }
+    var location = "vote.php?id=" + id + "&qa=" + qa + "&updown=" + updown;
+    xmlhttp.open("GET", location , true);
+    xmlhttp.send();
+}

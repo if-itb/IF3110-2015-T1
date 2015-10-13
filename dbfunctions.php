@@ -46,4 +46,26 @@
 		return $row;
 	}
 
+	function GetAnswer($id) {
+		$conn = ConnectToDatabase();
+		$sql = "SELECT * FROM Answer WHERE Answer.answer_id=$id";
+		$result = mysqli_query($conn, $sql);	
+
+		$row = mysqli_fetch_assoc($result);
+
+		return $row;
+	}
+
+	function SearchQuestions($searchkey) {
+		$conn = ConnectToDatabase();
+		
+		$searchkey = mysqli_real_escape_string($conn,$searchkey);
+		$sql = "SELECT * FROM Question WHERE (question_topic LIKE '%$searchkey%') OR (question_content LIKE '%$searchkey%')";
+		$result=mysqli_query($conn, $sql);
+
+		return $result;
+			
+			
+	}
+
 ?>

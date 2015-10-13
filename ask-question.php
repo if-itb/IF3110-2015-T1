@@ -20,7 +20,7 @@
 <body>
 
 <div id="header">
-	<h1> Simple Stack Exchange </h1>
+	<h1> <a href ="question-list.php" style="color:#000"> Simple Stack Exchange </a> </h1>
 </div>
 <?php 
 if(!isset($_GET['edit'])) {
