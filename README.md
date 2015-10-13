@@ -11,7 +11,7 @@ Tugas dikerjakan secara individu.
 ## Petunjuk Pengerjaan
 
 1. Fork pada repository ini dengan akun github anda.
-2. Silakan commit pada repository anda (hasil fork). Lakukan berberapa commit dengan pesan yang bermakna, contoh: `fix css`, `create post done`, jangan seperti `final`, `benerin dikit`. Disarankan untuk tidak melakukan commit dengan perubahan yang besar karena akan mempengaruhi penilaian (contoh: hanya melakukan satu commit kemudian dikumpulkan). 
+2. Silakan commit pada repository anda (hasil fork). Lakukan berberapa commit dengan pesan yang bermakna, contoh: `fix css`, `create post done`, jangan seperti `final`, `benerin dikit`. Disarankan untuk tidak melakukan commit dengan perubahan yang besar karena akan mempengaruhi penilaian (contoh: hanya melakukan satu commit kemudian dikumpulkan).
 3. Ubah **Penjelasan Teknis** pada bagian bawah readme.md ini dengan menjelaskan bagaimana cara anda:
    - Melakukan validasi pada client-side
    - Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
@@ -74,7 +74,7 @@ Jawaban pertanyaan berisi email, nama, dan konten jawabannya. Gunakan HTTP POST 
 
 ### Vote (vote up, vote down)
 
-Pengguna dapat melakukan vote up atau vote down ke suatu pertanyaan. Ketika pengguna menekan tombol vote, halaman tidak boleh refresh tapi jumlah vote akan berubah dan tersimpan ke basis data. Jumlah vote yang akan berubah sesuai dengan banyaknya vote yang ada di basis data (jadi tidak asal nambah satu saja). 
+Pengguna dapat melakukan vote up atau vote down ke suatu pertanyaan. Ketika pengguna menekan tombol vote, halaman tidak boleh refresh tapi jumlah vote akan berubah dan tersimpan ke basis data. Jumlah vote yang akan berubah sesuai dengan banyaknya vote yang ada di basis data (jadi tidak asal nambah satu saja).
 
 
 ### Validasi
@@ -89,7 +89,13 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+#### Melakukan validasi pada client-side
+
+Validasi dilakukan dengan menggunakan JavaScript. Saat sebuah form akan disubmit, sebuah fungsi bernama `validate` akan dipanggil. Fungsi ini akan mendapatkan semua form pada halaman, lalu mendapatkan semua elemen pada tiap form. Tiap elemen akan dicek valuenya apakah sudah terisi atau belum. Jika nama elemen tersebut adalah `email`, cek dengan menggunakan regex apakah merupakan email yang valid. Jika salah satu kondisi tersebut tidak dipenuhi, keluarkan pesan dan fungsi akan mengembalikan nilai `false` sehingga form tidak disubmit.
+
+#### Melakukan AJAX
+
+Saat sebuah tombol vote up/down diklik, fungsi `vote` dalam JavaScript akan dipanggil. Fungsi ini mempunyai parameter id, tipe (question atau answer), dan aksi (vote up atau vote down). Lalu fungsi melakukan AJAX ke vote.php dengan method GET dan ketiga parameter tersebut. Di dalam PHP, database akan diupdate sesuai paramater GET tadi, dan mengeluarkan output nilai vote yang terbaru dari database. Kemudian fungsi `vote` akan mengubah elemen nilai vote dengan nilai yang didapat dari response PHP.
 
 ### Knowledge
 
