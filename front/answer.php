@@ -34,7 +34,7 @@
 										<div class="align-center">
 											<h2>'.$row["vote"].'</h2>
 										</div>
-										<div id = "question-arrow-down"></div>
+										<div id = "question-arrow-down" data-id='.$row["QID"].'></div>
 									</div>
 									<div>
 										'.$row["Content"].'
@@ -51,7 +51,7 @@
 								<div class="devider">
 									<div class="row">
 										<div class="expanse10">
-											<div class="arrow-up" ></div>
+											<div class="arrow-up"  data-id='.$row2["AID"].'></div>
 											<div class="align-center">
 												<h2>'.$row2["vote"].'</h2>
 											</div>
