@@ -1,8 +1,10 @@
 <?php namespace Lyz\Controllers;
 
-use Lyz\View\View;
+use Lyz\Http\Request;
+use Lyz\Http\Route;
 use Lyz\Model\Question;
 use Lyz\Model\Answer;
+use Lyz\View\View;
 
 class QuestionController {
 	public function index() {
@@ -57,9 +59,17 @@ class QuestionController {
 		$view = $view->params([ 
 			'title' => 'Asklyz',
 			'content' => (string)$content,
-			'header' => 'What\'s your question?'
-			])->scripts(['test'])->styles(['layout']);
+			'headline' => 'What\'s your question?'
+			])->scripts(['layout'])->styles(['layout', 'form', 'card']);
 
 		return $view;
+	}
+
+	public function postCreate() {
+		$question = new Question(Request::params());
+		$question->save();
+		die();
+
+		//return Route::redirect();
 	}
 }

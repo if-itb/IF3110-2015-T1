@@ -1,4 +1,55 @@
+h2.card {
+	font-weight: 400;
+	margin: 0px;
+}
+
 .card {
+	text-align: left;
+	border-bottom: 2px solid #296ac7;
+	padding: 8px 10px 8px 10px;
+}
+
+.container {
+	display: -webkit-flex;
+	display: flex;
+	flex-flow: row wrap;
+	-webkit-flex-direction: row wrap;
+}
+.container > * {
+	padding: 8px;
+}
+
+.container > .statistic {
+	width: 8%;
+	font-size: 24px;
 	text-align: center;
-	border-bottom: 1px solid #296ac7;
+	vertical-align: middle;
+}
+
+.container > .statistic > * {
+	display: block;
+}
+
+.container > .statistic > .unit {
+	font-size: 12px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+.container > .question-detail > * {
+	margin: 2px;
+}
+.container > .question-detail > .control {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.container > .question-detail {
+	flex: auto;
+	position: relative;
+}
+
+.username {
+	color: #296ac7;
 }

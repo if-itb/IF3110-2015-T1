@@ -23,12 +23,12 @@ class App {
 		case 'POST': $params = &$_POST; break;
 		}
 
-		$this->request = new Request($uri, $method, $params);
+		Request::create($uri, $method, $params);
 	}
 
 	/* Run app based on received request */
 	public function run() {
-		$route = Route::resolve($this->request);
+		$route = Route::resolve();
 		$class_name = $route['class'];
 		$method_name = $route['method'];
 

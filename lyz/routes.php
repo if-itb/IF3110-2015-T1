@@ -3,4 +3,5 @@
 use Lyz\Http\Route;
 
 Route::get('/', 'QuestionController@index');
-Route::get('/ask', 'QuestionController@getCreate');
+Route::get('/questions/create', 'QuestionController@getCreate');
+Route::post('/questions/create', 'QuestionController@postCreate');

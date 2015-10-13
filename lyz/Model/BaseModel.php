@@ -8,6 +8,18 @@ class BaseModel {
 		'where' => null
 	];
 
+	protected static $fillable = [];
+
+	public function __construct($params = null) {
+		if (isset($params)) {
+			foreach ($params as $key => $value) {
+				if (array_search($key, static::$fillable) !== false) {
+					$this->$key = $value;
+				}
+			}
+		}
+	}
+
 	public static function all() {
 		$results = DB::query('select * from ' . static::$table);
 		return static::makeModel($results);
@@ -30,8 +42,8 @@ class BaseModel {
 	}
 
 	private static function makeModel($results) {
-		$models = [];
 		if (is_array($results)) {
+			$models = [];
 			foreach ($results as $result) {
 				$class_name = get_called_class();
 				$model = new $class_name();
@@ -44,6 +56,33 @@ class BaseModel {
 		}
 		else {
 			return $results;
+		}
+	}
+
+	public function save() {
+		try {
+			$columns = '(';
+			$values = '(';
+			$first = true;
+			foreach ($this as $key => $value) {
+				if ($first === false) {
+					$columns .= ',';
+					$values .= ',';
+				}
+				if (is_string($value)) {
+					$value = '\'' . $value . '\'';
+				}
+				$columns .= $key;
+				$values .= $value;
+				$first = false;
+			}
+			$columns .= ')';
+			$values .= ')';
+			$q = 'insert into ' . static::$table . $columns . ' values' . $values;
+			DB::query($q);
+		}
+		catch (\Exception $e) {
+			DB::update();
 		}
 	}
 

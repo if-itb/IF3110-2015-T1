@@ -28,7 +28,7 @@ class View {
 
 	public function styles($styles) {
 		foreach ($styles as $style) {
-			$link_tag = '<link rel=\'stylesheet\' href=\'public/css/' . $style . '.css\'>';
+			$link_tag = '<link rel=\'stylesheet\' href=\'/public/css/' . $style . '.css\'>';
 			$this->params['styles'] = $this->params['styles'] . $link_tag;
 		}
 		return $this;
@@ -36,7 +36,7 @@ class View {
 
 	public function scripts($scripts) {
 		foreach ($scripts as $script) {
-			$script_tag = '<script src=\'public/js/' . $script . '.js\'></script>';
+			$script_tag = '<script src=\'/public/js/' . $script . '.js\'></script>';
 			$this->params['scripts'] = $this->params['scripts'] . $script_tag;
 		}
 		return $this;

@@ -33,11 +33,16 @@ class Route {
 		]);
 	}
 
-	public static function resolve($request) {
-		foreach (self::$route_list[$request->method] as $route) {
-			if ($route['uri'] == $request->uri) {
+	public static function resolve() {
+		foreach (self::$route_list[Request::method()] as $route) {
+			if ($route['uri'] == Request::uri()) {
 				return $route;
 			}
 		}
+	}
+
+	public static function redirect($url) {
+		header('Location: /' . $url);
+		die();
 	}
 }

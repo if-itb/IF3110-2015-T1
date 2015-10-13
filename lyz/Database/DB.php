@@ -12,18 +12,22 @@ class DB {
 			$db = new \mysqli(self::$host, self::$uname, self::$passwd, self::$dbname);
 		}
 
-		$results = $db->query($query);
-
 		try {
-			$rows = [];
-			for ($i = 0; $i < $results->num_rows; $i++) {
-				$row = $results->fetch_assoc();
-				array_push($rows, $row);
+			$results = $db->query($query);
+			if (is_array($results)) {
+				$rows = [];
+				for ($i = 0; $i < $results->num_rows; $i++) {
+					$row = $results->fetch_assoc();
+					array_push($rows, $row);
+				}
+				return $rows;
 			}
-			return $rows;
+			else {
+				return $results;
+			}
 		}
 		catch (\Exception $e) {
-			return $results;
+			return $e;
 		}
 
 	}

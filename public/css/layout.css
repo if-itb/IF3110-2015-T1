@@ -3,7 +3,7 @@
 	color: #296ac7;
 	font-family: 'Tangerine', cursive;
 	font-weight: 400;
-	font-size: 64px;
+	font-size: 100px;
 
 	margin: 5px;
 	padding: 0px;
@@ -18,10 +18,10 @@ body > div {
 }
 
 a {
-	color: #dc6914;
+	color: #296ac7;
 	text-decoration: none;
 }
 
 a:hover {
-	color: #ffb374;
+	color: #dc6914;
 }
