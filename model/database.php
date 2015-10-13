@@ -1,4 +1,5 @@
 <?php
+  echo "model/database.php<br>";
   class Database {
     private static $instance = NULL;
     private function __construct() {}
@@ -10,9 +11,9 @@
         self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch (PDOException $e) {
-          echo "Connection failed : ".$e->getMessage();
+          echo "Connection failed : ".$e->getMessage()."<br>";
         }
-        echo "Connection succes";
+        echo "Connection succes<br>";
       }
       return self::$instance;
     }

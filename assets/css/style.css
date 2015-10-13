@@ -1,3 +1,6 @@
+a {
+  text-decoration: none;
+}
 #title, #search, .to-ask-here {
   text-align: center;
 }
@@ -57,8 +60,11 @@
 }
 .question .topic {
   font-size: large;
-  margin-top: 1%;
-  margin-bottom: 0%;
+  color: #024F69;
+  text-decoration: none;
+}
+.question .topic:hover {
+  color: #02A9E0;
 }
 .question .desc {
   margin-top: 1%;
@@ -75,6 +81,7 @@
 }
 .footer .edit {
   color: orange;
+  text-decoration: none;
 }
 .footer .delete {
   color: red;
