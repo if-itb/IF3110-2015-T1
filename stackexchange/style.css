@@ -9,7 +9,6 @@ body {
 	text-align: center;
 	padding:0px;
 	margin:0px;
-	overflow: hidden;
 	white-space:nowrap;
 }
 
@@ -22,7 +21,7 @@ a {
 	
 #container {
 	width:700px;
-	height:200px;
+	min-height:250px;
 	background: transparent;
 	padding: 20px 60px;
 	margin: 40px auto 0px auto;
@@ -201,3 +200,17 @@ a {
 	background: #fd6c6c;
 	color: #C03;
 }	
+
+/*** Question Detail ***/	
+.question {
+	width:700px;
+	height:200px;
+	border-top: dashed 3px;
+	float : left;
+	margin: 20px auto auto 0px;
+}
+
+#detail {
+	width:650px;
+	word-wrap:break-word;
+}
