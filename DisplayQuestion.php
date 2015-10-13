@@ -27,7 +27,9 @@
 					<div class="compactbox">
 						<div class="textcentering">
 							<div class="votestyle">
-								<h1>'.$result['qVote'].'</h1>
+								<h1><a href ="#" onclick="return voteQUp('.$qid.',1)" id=black> ▲ </a> <br>
+								<a id="QVote'.$result['qid'].'">'.$result['qVote'].'</a><br>
+								<a href ="#" onclick="return voteQDown('.$qid.',1)" id=black>▼</a></h1>
 							</div>
 						</div>
 					</div>
@@ -37,15 +39,15 @@
 						</div>
 					</div>
 					<div class="choicebox">
-						Asked by<a id=blue> '.$result['qName'].'</a> at '.$result['qDate'].' | <a id=orange href="QuestionForm.php?qid='.$qid.'">edit</a> | <a id=red href="DeleteQuestion.php?qid='.$qid.'" onclick ="return confirmDeletion('.$qid.')">delete</a> </div>
+						Asked by<a id=blue> '.$result['qName'].'</a> at '.$result['qDate'].' | <a id=orange href="QuestionForm.php?qid='.$qid.'">edit</a> | <a id=red href="DeleteQuestion.php?qid='.$qid.'" onclick ="return confirmDeletion()">delete</a> </div>
 					</div>';
 		$Answers = getAllAnswerOrderByVote($qid);
-		$nAns =count($Answers)-1;
-
+		$n = countAnswer($qid);
+		$nAns = mysqli_fetch_assoc($n);
 		echo '
 			<div class = "titlefont">
 				<div class ="h1style">
-					<h1>'.$nAns.' Answers</h1>
+					<h1>'.$nAns['count'].' Answers</h1>
 				</div><hr>
 			</div>
 			';
@@ -56,18 +58,20 @@
 					<div class="compactbox">
 						<div class="textcentering">
 							<div class="votestyle">
-								<h1>'.$Answer['aVote'].'</h1><h2>Vote</h2>
+								<h1><a href ="#" onclick="return voteQUp('.$aid.',0)" id=black> ▲ </a><br>
+								<a id="AVote'.$aid.'">'.$Answer['aVote'].'</a><br>
+								<a href ="#" onclick="return voteQDown('.$aid.',0)" id=black>▼</a></h1>
 							</div>
 						</div>
 					</div>
 					<div class="compactbox">
-						<div class="topicstyle">
-							<a id = black href="DisplayQuestion.php?qid='.$qid.'">'. $Answer['aContent'].'</a>
+						<div class="topicstyle">'. $Answer['aContent'].'
 						</div>
 					</div>
 					<div class="choicebox">
 						Answered by<a id=blue> '.$Answer['aName'].'</a> at '.$Answer['aDate'].'
-					</div>';
+					</div>
+					</div><hr>';
 				}
 		}
 		?>
