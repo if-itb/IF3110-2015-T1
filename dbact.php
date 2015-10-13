@@ -13,12 +13,20 @@
 	function addQuestion($Name, $Email, $Topic, $content){
 		global $db;
 
-		$qry = "INSERT INTO question (Name, Email, Topic, Content)
-			VALUES ('$Name', '$Email', '$Topic', '$content')";
+		$qry = "INSERT INTO question (Name, Email, Topic, Content) VALUES ('$Name', '$Email', '$Topic', '$content')";
 		
 		$res = mysqli_query($db, $qry);
 		return $res;
 		
+	}
+
+	function searchQuestion($key){
+		global $db;
+
+		$qry = "SELECT * FROM question WHERE Topic LIKE '%$key%' OR Content LIKE '%$key%' ORDER BY created_date DESC";
+
+		$res = mysqli_query($db, $qry);
+		return $res;
 	}
 
 	function updateQuestion($id_q, $Name, $Email, $Topic, $content){
