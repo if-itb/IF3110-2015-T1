@@ -1,3 +1,8 @@
+<?php 
+    include 'index.php';
+    $sql= "SELECT q.id AS id,q.topic,q.content,q.user,q.create_time,q.vote AS qvote, count(a.id) as anumber FROM question q LEFT JOIN answer a on q.id = a.question_id GROUP BY q.id ORDER BY q.create_time DESC";
+    $result = $con->query($sql);
+?>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -22,78 +27,42 @@
                 <p class="text1">Cannot find what you are looking for?</p><a class="ah"href="create.php">Ask here</a>
             </div>
             <p class="raqtext">Recently Asked Questions</p>
+            <?php
+                if ($result->num_rows > 0)
+                {
+                    while ($row = $result->fetch_assoc())
+                    {
+            ?>
             <div class="raq">
                 <div class="votepart">
-                    <div class="votenumber">0</div>
+                    <div class="votenumber"><?php echo $row["qvote"]?></div>
                     <div class="votetext">Votes</div>
                 </div>
                 <div class="answerpart">
-                    <div class="answernumber">0</div>
+                    <div class="answernumber"><?php echo $row["anumber"]?></div>
                     <div class="answertext">Answers</div>
                 </div>
                 <div class="questionpart">
-                    <div class="qtopic"><a href="#">
-                        The question topic goes here</a>
+                    <div class="qtopic"><?php echo '<a href="detail.php?topic='.base64_encode($row["id"]).'">';?>
+                        <?php echo $row["topic"]?></a>
                     </div>
                     <div class="qcontent">
-                       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        <?php echo $row["content"]?>
                     </div>
                 </div>
                 <div class="labelunder">
                     <p class="ab">asked by </p>
-                    <a href="#" class="name">name </a>
+                    <a href="#" class="name"><?php echo $row["user"]?></a>
                     <a href="#" class="edit">edit </a>
                     <a href="#" class="delete">delete </a>
                 </div>
             </div>
-            <div class="raq">
-                <div class="votepart">
-                    <div class="votenumber">0</div>
-                    <div class="votetext">Votes</div>
-                </div>
-                <div class="answerpart">
-                    <div class="answernumber">0</div>
-                    <div class="answertext">Answers</div>
-                </div>
-                <div class="questionpart">
-                    <div class="qtopic"><a href="">
-                        The question topic goes here</a>
-                    </div>
-                    <div class="qcontent">
-                       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </div>
-                </div>
-                <div class="labelunder">
-                    <p class="ab">asked by </p>
-                    <a href="#" class="name">name </a>
-                    <a href="#" class="edit">edit </a>
-                    <a href="#" class="delete">delete </a>
-                </div>
-            </div>
-            <div class="raq">
-                <div class="votepart">
-                    <div class="votenumber">0</div>
-                    <div class="votetext">Votes</div>
-                </div>
-                <div class="answerpart">
-                    <div class="answernumber">0</div>
-                    <div class="answertext">Answers</div>
-                </div>
-                <div class="questionpart">
-                    <div class="qtopic"><a href="">
-                        The question topic goes here</a>
-                    </div>
-                    <div class="qcontent">
-                       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </div>
-                </div>
-                <div class="labelunder">
-                    <p class="ab">asked by </p>
-                    <a href="#" class="name">name </a>
-                    <a href="#" class="edit">edit </a>
-                    <a href="#" class="delete">delete </a>
-                </div>
-            </div>
+            <?php }
+                }
+                    else
+                        echo "0 results";
+            ?>
         </div>
     </body>
 </html>
+<?php $con->close();?>

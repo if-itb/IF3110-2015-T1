@@ -172,7 +172,8 @@ body{
     text-align: justify;
 }
 .labelunder{
-    margin-left: 82%;
+    position: absolute;
+    right: 15%;
     font-size: 12pt;
     vertical-align: middle;
 }
@@ -284,9 +285,6 @@ a{
 }
 .partmedium{
     width: 875px !important;
-}
-.labelmedium{
-    margin-left: 65%;
 }
 .date{
     display: inline-block;
