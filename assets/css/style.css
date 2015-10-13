@@ -62,12 +62,13 @@ a {
   font-size: large;
   color: #024F69;
   text-decoration: none;
+  word-wrap: break-word;
 }
 .question .topic:hover {
   color: #02A9E0;
 }
 .question .desc {
-  margin-top: 1%;
+  word-wrap: break-word;
 }
 .counter .num, .counter .label {
   text-align: center;
@@ -75,6 +76,7 @@ a {
 .footer {
   margin: auto;
   text-align: right;
+  word-wrap: break-word;
 }
 .footer .name {
   color: blue;
@@ -86,7 +88,7 @@ a {
 .footer .delete {
   color: red;
 }
-.form {
+#form {
   padding-top: 1%;
   width: 80%;
   margin: auto;
@@ -134,4 +136,8 @@ a {
   margin-left: 9%;
   float: top;
   min-height: 50px;
+  word-wrap: break-word;
+}
+.brief {
+  word-wrap: break-word;
 }

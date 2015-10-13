@@ -12,6 +12,9 @@
       case "ask":
         require_once("controller/ask_question.php");
         break;
+      case "submit":
+        require_once("controller/submit_question.php");
+        break;
       default :
         require_once("view/error.php");
     }

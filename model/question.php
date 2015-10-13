@@ -21,7 +21,11 @@
       $query = $this->database->prepare("SELECT * FROM question WHERE id=$id");
       $query->execute();
       $result = $query->setFetchMode(PDO::FETCH_ASSOC);
-      return $query->fetchAll();
+      $result = $query->fetchAll();
+      if(count($result) > 0)
+        return $result[0];
+      else
+        return NULL;
     }
     public function add($name, $email, $topic, $content) {
       $sql = "INSERT INTO question(name, email, topic, content) VALUES ('$name', '$email', '$topic', '$content')";
