@@ -16,7 +16,7 @@
 	width:500px;
 }
 
-.questions{
+.question, .answer{
 	border-top: solid 2px;
 }
 
@@ -48,4 +48,30 @@
 
 .col-8{
 	width: 80%;
+}
+
+.formInput{
+	width:100%;
+	margin-top: 10px;
+	display: inline;
+}
+
+.arrow-up {
+	margin: 10px auto;
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	
+	border-bottom: 10px solid black;
+}
+
+.arrow-down {
+	margin: 0 auto;
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	
+	border-top: 10px solid black;
 }
