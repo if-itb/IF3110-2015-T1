@@ -1,0 +1,67 @@
+body {
+	font-family: "Calibri";
+}
+
+h1 {
+	font-size: 200%;
+	font-weight: normal;
+	margin-bottom: 50px;
+	text-align: center;
+}
+
+h3 {
+	font-size: 130%;
+	font-weight: normal;
+	margin-bottom: 3px;
+}
+
+answers {
+	display: inline-block;
+	margin: 0 0 0 1.5%;
+	text-align: center;
+	width: 60px;
+}
+
+questionTopic {
+	display: inline-block;
+	margin: 0 27% 0 25%;
+	text-align: center;
+	width: 48%;
+}
+
+votes {
+	display: inline-block;
+	margin: 0 0 0 12%;
+	text-align: center;
+	width: 41px;
+}
+
+.askedBy {
+	margin: -35px 10% 0 0;
+	text-align: right;
+}
+
+.center {
+	text-align: center;
+}
+
+.questionBoundary {
+	border-top: solid;
+	border-top-width: 2px;
+	margin: 1px 10% 10px 10%;
+	text-align: center;
+	width: 80%;
+}
+
+#searchBox {
+	border: medium solid;
+	margin-right: 0.5%;
+	padding: 0.5%;
+	width: 70%;
+}
+
+#searchButton {
+	background-color: white;
+	border: medium solid;
+	padding: 0.5% 1%;
+}
