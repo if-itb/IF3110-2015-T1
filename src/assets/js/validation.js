@@ -17,6 +17,15 @@ var answerForm = [
 ];
 
 
+function validateSearch() {
+  var q = document.getElementById("q").value;
+  if(q == "" || q == null) {
+    alert("You cannot search nothing.");
+    return false;
+  }
+  document.form["search"].submit();
+}
+
 function validateAsk() {
   var len = askForm.length;
   for(var i = 0; i < len; i++) {
