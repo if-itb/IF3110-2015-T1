@@ -23,6 +23,19 @@
         </p>
       </div>
 	  <h2>Recently Asked Question</h2>
+	  <?php
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "stackexchange";
+
+		// Create connection
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+		if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+		} 
+	  ?>
     </div>
   </body>
 </html>

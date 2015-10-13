@@ -10,6 +10,18 @@
       <h2>What's Your Question?</h2>
       <hr>
 	<?php
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "stackexchange";
+
+		// Create connection
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+		if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+		} 
+		
 		echo'
 		  <input type="text" class="form" placeholder="Name">
 		  <input type="text" class="form" placeholder="Email">
