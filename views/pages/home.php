@@ -3,7 +3,7 @@
 	<button type="submit">Search</button>
 	<div class="clearfix"></div>
 	<div id="suggestion">
-			Cannot find what you are looking for? <a href="askform.php">ask here</a>.
+			Cannot find what you are looking for? <a href="?controller=questions&action=insert">ask here</a>.
 	</div>
 </form>
 

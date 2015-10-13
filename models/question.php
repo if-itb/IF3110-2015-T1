@@ -40,5 +40,12 @@
 			return new Question($question['qid'], $question['authorname'],$question['authoremail'], $question['topic'], $question['content'], $question['datetime'], $question['countvotes'], $question['countanswers']);
 			
 		}
+		
+		public function post(){
+			$db = Database::getInstance();
+			$stmt = $db->prepare('INSERT INTO questions(authorname, authoremail, topic, content, datetime) VALUES (:authorname, :authoremail, :topic, :content, :datetime)');
+			if($stmt->execute(array('authorname'=>$this->authorname, 'authoremail'=>$this->authoremail, 'topic'=>$this->topic, 'content'=>$this->content, 'datetime'=>$this->datetime)))
+				echo 'ok';
+		}
 	}
 ?>

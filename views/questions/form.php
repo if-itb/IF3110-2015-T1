@@ -1,17 +1,17 @@
-<form id='questionform' method='post' action='/controllers/question_controller.php' >
+<form id='questionform' method='post' action='?controller=questions&action=insert' >
 	<p>
-		Name						: <input type='text' name='name' />
+		Name						: <input type='text' name='authorname' />
 	</p>
 	<p>
-		Email						: <input type='text' name='email' />
+		Email						: <input type='text' name='authoremail' />
 	</p>
 	<p>
 		Question topic	: <input type='text' name='topic' />
 	</p>
 
 	<p>
-		Comments:<br/>
-	 <textarea name="question" rows="7" cols="30"></textarea>
+		Question:<br/>
+	 <textarea name="content" rows="7" cols="30"></textarea>
 	</p>
 	 <p>
 	 <input type='submit'/>

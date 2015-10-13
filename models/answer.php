@@ -22,7 +22,7 @@
 			$db = Database::getInstance();
 			$stmt = $db->query('SELECT * FROM answers');
 			while($answer = $stmt->fetch(PDO::FETCH_ASSOC)) {
-				$listanswer[]	= new Answer($answer['qid'], $answer['authorname'],$answer['authoremail'], $answer['topic'], $answer['content'], $answer['datetime'], $answer['countvotes'], $answer['countanswers']);
+				$listanswer[]	= new Answer($answer['aid'], $answer['authorname'],$answer['authoremail'], $answer['qid'], $answer['content'], $answer['datetime'], $answer['countvotes']);
 			}
 			return $listanswer;
 			}
