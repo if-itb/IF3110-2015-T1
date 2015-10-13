@@ -55,7 +55,7 @@
 											<div class="align-center">
 												<h2>'.$row2["vote"].'</h2>
 											</div>
-											<div class="arrow-down"></div>
+											<div class="arrow-down" data-id='.$row2["AID"].'></div>
 										</div>
 										<div>
 											'.$row2["Content"].'
