@@ -26,6 +26,7 @@
 				InsertQuestion($conn, $name, $email, $topic, $content);
 				$id=SelectLastID($conn);
 				$vote=GetVote($conn,$id);
+				$datetime=GetDateTime($conn,$id);
 
 			} else if (isset($_POST['editquestion'])) { // if the previous page was the Edit Question page
 				$name = mysqli_real_escape_string($conn,$_POST['name']);
@@ -35,6 +36,7 @@
 
 				EditQuestion($conn, $id, $name, $email, $topic, $content);
 				$vote=GetVote($conn,$id);
+				$datetime=GetDateTime($conn,$id);
 
 			} else if (isset($_POST['saveanswer'])) { // if the previous action was submitting answer
 				$name_ans = mysqli_real_escape_string($conn,$_POST['name_ans']);
@@ -57,6 +59,8 @@
 				    echo "0 results";
 				}
 
+				$datetime=GetDateTime($conn,$id);
+
 			}else if (isset($_GET['id'])){ // if the previous page was the homepage
 				$id = (int)$_GET['id'];
 				$result = SelectQuestion($conn, $id);
@@ -73,6 +77,8 @@
 				} else {
 				    echo "0 results";
 				}
+
+				$datetime=GetDateTime($conn,$id);
 			}
 
 			// set session for question id
@@ -101,7 +107,7 @@
 					<p><?php echo $content?></p>
 				</div>
 				<div class="question-sign">
-					<p>asked by <font color="#008080"><?php echo $name?></font> | <a class="edit" href=<?=$edit ?>>edit</a> |
+					<p>asked by <font color="#008080"><?php echo $name?></font> at <?=$datetime ?>| <a class="edit" href=<?=$edit ?>>edit</a> |
 						<a class="delete" href=<?=$delete ?> onClick="return confirm('Are you sure you want to delete this question?')">delete</a></p>
 				</div>
 			</div>
@@ -125,7 +131,7 @@
 					    echo "O results";
 					}
 				
-					$listq = "SELECT id_ans, name_ans, content_ans, vote_ans FROM answer WHERE id=$id";
+					$listq = "SELECT id_ans, name_ans, content_ans, vote_ans,datetime_ans FROM answer WHERE id=$id";
 					$result = $conn->query($listq);
 
 					if ($result->num_rows > 0) {
@@ -145,7 +151,7 @@
 										<p>".$row["content_ans"]."</p>
 									</div>
 									<div class=\"question-sign\">
-										<p>answered by <font color=\"#008080\">".$row["name_ans"]."</font></p>
+										<p>answered by <font color=\"#008080\">".$row["name_ans"]."</font> at ".$row["datetime_ans"]."</p>
 									</div>
 								</div>
 								";

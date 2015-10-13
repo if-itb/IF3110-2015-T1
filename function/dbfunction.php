@@ -2,8 +2,8 @@
 	require 'connect.php';
 
 	function InsertQuestion($conn, $name, $email, $topic, $content) {
-		$sql = "INSERT INTO question (name, email, topic, content,vote)
-			VALUES ('$name', '$email', '$topic', '$content', 0)";
+		$sql = "INSERT INTO question (name, email, topic, content, vote, datetime)
+			VALUES ('$name', '$email', '$topic', '$content', 0, NOW())";
 
 		if ($conn->query($sql) === TRUE) {
 		  //do nothing
@@ -29,7 +29,7 @@
 
 	function EditQuestion($conn, $id, $name, $email, $topic, $content){
 		$sql = "UPDATE question
-			SET name='$name', email='$email', topic='$topic', content='$content'
+			SET name='$name', email='$email', topic='$topic', content='$content', datetime=NOW()
 			WHERE id=$id;";
 
 		if ($conn->query($sql) === TRUE) {
@@ -40,8 +40,8 @@
 	}
 
 	function InsertAnswer($conn, $id, $name_ans, $email_ans, $content_ans){
-		$sql = "INSERT INTO answer (id, name_ans, email_ans, content_ans, vote_ans)
-			VALUES ('$id', '$name_ans', '$email_ans', '$content_ans', 0)";
+		$sql = "INSERT INTO answer (id, name_ans, email_ans, content_ans, vote_ans, datetime_ans)
+			VALUES ('$id', '$name_ans', '$email_ans', '$content_ans', 0, NOW())";
 
 		if ($conn->query($sql) === TRUE) {
 		  //do nothing
@@ -69,6 +69,21 @@
 		  echo "0 results";
 		}
 		return $vote;
+	}
+
+	function GetDateTime($conn,$id){
+		$sql = "SELECT datetime from question WHERE id=$id";
+		$result = $conn->query($sql);
+
+		if ($result->num_rows > 0) {
+		// output data of each row
+		  while($row = $result->fetch_assoc()) {
+				$datetime=$row["datetime"];
+		  }
+		} else {
+		  echo "0 results";
+		}
+		return $datetime;
 	}
 
 	function GetVoteAns($conn,$id){
