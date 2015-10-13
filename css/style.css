@@ -205,21 +205,12 @@ a{
 }
 
 .subq{
-    font-size: 24pt;
-    padding-bottom: 1.5px;
-    border-bottom: 2px solid black;
+    font-size: 24pt; 
 }
 .createquestion{
     float: left;
     width:97%;
-}
-.createquestion label{
-    display: block;
-    padding: 10px 5px 5px 2px;
-    letter-spacing: 1px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 14pt;
+    margin-top: 10px;
 }
 .createquestion input, .createquestion textarea{
     line-height: 1.5;
@@ -231,6 +222,7 @@ a{
     background: white;
     border: 3px solid white;
     border-bottom-color: #ffe1a4;
+    margin-bottom: 10px;
 }
 .createquestion textarea{
     min-height: 150px;
@@ -245,10 +237,66 @@ a{
     border-radius: 2px;
     text-transform: uppercase;
     text-align: center;
-    margin-top: 15px;
     margin-left: 94%;
     cursor: pointer;
 }
 .createquestion button:hover{
     background: darkorange;
+}
+.abu{
+    color: grey;
+    margin-left: 10px;
+    margin-top: 3%;
+}
+.black{
+    border-bottom: 2px solid black;
+    padding-bottom: 1.5px;
+}
+.black a{
+    color: black;
+}
+.question{
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+.question > *, .answer > *{
+    vertical-align: middle;
+}
+.voteup{
+    margin-bottom: 5px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 16px solid grey;
+}
+
+.votedown{
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 16px solid grey;
+    margin-top: 5px;
+}
+.medium{
+    font-size: 12pt !important;
+}
+.partmedium{
+    width: 875px !important;
+}
+.labelmedium{
+    margin-left: 65%;
+}
+.date{
+    display: inline-block;
+}
+.qtopic a{
+    color: black;
+}
+.askedname{
+    color: black;
+}
+.answernum{
+    display: inline-block;
 }
