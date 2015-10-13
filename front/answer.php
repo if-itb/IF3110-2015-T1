@@ -30,7 +30,7 @@
 							<div class="devider">
 								<div class="row">
 									<div class="expanse10">
-										<div id ="question-arrow-up"></div>
+										<div id ="question-arrow-up" data-id='.$row["QID"].'></div>
 										<div class="align-center">
 											<h2>'.$row["vote"].'</h2>
 										</div>
@@ -51,7 +51,7 @@
 								<div class="devider">
 									<div class="row">
 										<div class="expanse10">
-											<div class="arrow-up"></div>
+											<div class="arrow-up" ></div>
 											<div class="align-center">
 												<h2>'.$row2["vote"].'</h2>
 											</div>
@@ -86,5 +86,6 @@
 				';
 			?>
 		</div>
+		<script type = "text/javascript" src="../js/vote.js"> </script>
   	</body>
 </html>
