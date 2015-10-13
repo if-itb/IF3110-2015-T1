@@ -33,16 +33,4 @@ document.getElementById("question-arrow-down").onclick = function(){
 	voteUp(url,success);
 }
 
-var aup = document.getElementsByClassName("arrow-up");
-for(var i = 0;i<aup.length;i++){
-	aup[i].onclick = function(){
-		var _this=this;
-		function success(){
-			_this.parentNode.getElementsByTagName("h2")[0].innerHTML=parseInt(_this.parentNode.getElementsByTagName("h2")[0].innerHTML)+1;
-		}
-		url = "upvoteanswer.php?id="+ this.getAttribute("data-id");
-		voteUp(url,success);
-	}
-}
-
 
