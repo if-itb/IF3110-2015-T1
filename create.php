@@ -13,12 +13,12 @@
         <div class="container">
             <div class="title">Simple StackExchange</div>
             <div class="subq black">What's your question?</div>
-            <form class="formsearch createquestion">
+            <form class="formsearch createquestion" method="post" action="insert.php">
                 <input type="text" id="createname" name="createname" placeholder="Name" />
-                <input type="text" id="createemail" name="createtopic" placeholder="Email" />
+                <input type="text" id="createemail" name="createemail" placeholder="Email" />
                 <input type="text" id="createtopic" name="createtopic" placeholder="Question Topic" />
                 <textarea type="text" id="createcontent" name="createcontent" placeholder="Content"></textarea>
-                    <button type="submit">Post</button>
+                    <button type="submit" name="submit">Post</button>
             </form>
         </div>
     </body>
