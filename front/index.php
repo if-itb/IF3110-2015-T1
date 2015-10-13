@@ -3,6 +3,7 @@
   <head>
     <title>Stack Exchange</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <script type = "text/javascript" src="../js/validatedelete.js"> </script>
   	</head>
   	<body>
   		<div class="container">
@@ -61,7 +62,7 @@
 										</b></p>	
 										<br>'.$subContent.'</br>
 										<p class = "align-right footer">
-											asked by <blue>'.$row["Email"].'</blue> | <a class="text-link" href="updateQuestion.php?id='.$row["QID"].'"><orange>edit</orange></a> | <a class="text-link" href="delete.php?id='.$row["QID"].'"><red>delete</red></a>
+											asked by <blue>'.$row["Email"].'</blue> | <a class="text-link" href="updateQuestion.php?id='.$row["QID"].'"><orange>edit</orange></a> | <a class="text-link" href="delete.php?id='.$row["QID"].'"  onclick="return validateDelete()"><red>delete</red></a>
 										</p>
 									</div>
 								</div>
