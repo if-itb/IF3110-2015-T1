@@ -3,7 +3,7 @@
 	<head>
 		<title>Simple Stack Exchange </title>
 		<link rel="stylesheet" type="text/css" href="Style.css">
-		<script type="text/javascript" src = "ConfirmDel.js"></script>
+		<script type="text/javascript" src = "Validate.js"></script>
 	</head>
 	<body>
 		<div class = "titlefont">
@@ -11,9 +11,9 @@
 				<h1>Simple Stack Exchange</h1>
 			</div>
 		</div>
-		<form action="Submit.php" method="post">
+		<form action="Search.php" method="post">
 			<div class="search">
-				<input type="text" name="name"  class="form-textfield"></input>
+				<input type="text" name="searchQ"  class="form-textfield"></input>
 				<input type="submit" value="Search">
 			</div>
 		</form>
@@ -32,8 +32,8 @@
 				foreach($Questions as $Question){
 					$qid=$Question['qid'];
 					$Answers = getAllAnswerOrderByVote($qid);
-					$nAns = count($Answers)-1;
-			
+					$n = countAnswer($qid);
+					$nAns = mysqli_fetch_assoc($n);
 					echo '<br><div class="collection">
 					<div class="compactbox">
 						<div class="textcentering">
@@ -45,7 +45,7 @@
 					<div class="compactbox">
 						<div class="textcentering">
 							<div class="voteansweridxstyle">
-								<h1>'.$nAns.'</h1><h2>Answers</h2>
+								<h1>'.$nAns['count'].'</h1><h2>Answers</h2>
 							</div>
 						</div>
 					</div>
@@ -55,7 +55,7 @@
 						</div>
 					</div>
 					<div class="choicebox">
-						Asked by<a id=blue> '.$Question['qName'].'</a> | <a id=orange href="QuestionForm.php?qid='.$qid.'">edit</a> | <a id=red href="DeleteQuestion.php?qid='.$qid.'" onclick ="return confirmDeletion('.$qid.')">delete</a> </div>
+						Asked by<a id=blue> '.$Question['qName'].'</a> | <a id=orange href="QuestionForm.php?qid='.$qid.'">edit</a> | <a id=red href="DeleteQuestion.php?qid='.$qid.'" onclick ="return confirmDeletion()">delete</a> </div>
 					</div>
 					<hr>';
 				}
