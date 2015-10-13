@@ -10,15 +10,12 @@ hr {
 a {
 	text-decoration:none;
 }
+
 h3 {
 	color: #C0C0C0;
 	font-size: 36px;
 	margin:auto;
 	text-align: center;
-}
-
-p {
-	margin-left:10%;
 }
 
 input[type="text"] {
@@ -91,6 +88,18 @@ textarea {
 	width:5%;
 	margin:auto;
 	display: block;
+}
+
+.question-content {
+	margin-left:25%
+}
+
+.question-page-content {
+	margin-left:10%
+}
+
+.edit-delete {
+	float:right;
 }
 
 #header {

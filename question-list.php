@@ -53,7 +53,6 @@
 		if($count_question==0) {
 		}
 		else {
-			$count = $count_question;
 			 while($row = mysqli_fetch_assoc($result)) {
 				?>
 				<div class="boxarea">
@@ -72,13 +71,19 @@
 						Answers
 					</div>
 
-					<h4 style="margin-left:25%"><a href="question-page.php?id=<?php echo $row['question_id']?>"> <?php echo $row["question_topic"] ?></a></h4>
-					<p style="margin-left:25%"> <?php echo limit_output($row["question_content"], 150); ?> </p>
-					<p style="float:right"> asked by <?php echo $row["question_name"] ?> | <a href="ask-question.php?edit=<?php echo $row['question_id']?>" style="color:#FFA500"> edit </a> | <a href="#" onclick="validateDelete(<?php echo $row['question_id'] ?>);" style="color:#FF0000"> delete </a> </p>
+					<div class="question-content">
+						<h4><a href="question-page.php?id=<?php echo $row['question_id']?>"> <?php echo $row["question_topic"] ?></a></h4>
+						<p> <?php echo limit_output($row["question_content"], 150); ?> </p>
+					</div>
+					
+					<div class = "edit-delete">
+						<p> asked by <?php echo $row["question_name"] ?> | <a href="ask-question.php?edit=<?php echo $row['question_id']?>" style="color:#FFA500"> edit </a> | <a href="#" onclick="validateDelete(<?php echo $row['question_id'] ?>);" style="color:#FF0000"> delete </a></p>
+					</div>
+
 				</div>
 				<hr>
 				<?
-				$count--;
+				
 			}
 		}
 	?>

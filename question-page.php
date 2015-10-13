@@ -38,8 +38,15 @@
 			<h3> <div id="question-vote"><?php echo $question["question_vote"] ?> </div></h3>
 			<div class="arrow-down" onclick="vote(<?php echo $question['question_id'] ?>, 'question', 'down');"></div>
 		</div>
-		<p> <?php echo $question["question_content"] ?> </p>
-		<p style="float:right"> asked by <?php echo $question["question_email"] ?> at <?php echo $question["question_date"] ?> | <a href=ask-question.php?edit=<?php echo $question['question_id']?> style="color:#FFA500"> edit </a> | <a href="#" onclick="validateDelete(<?php echo $question['question_id'] ?>);" style="color:#FF0000"> delete </a> </p>
+
+		<div class="question-page-content">
+			<p> <?php echo $question["question_content"] ?> </p>
+		</div>
+
+		<div class="edit-delete">
+			<p> asked by <b><?php echo $question["question_name"] ?></b><br>
+				<?php echo $question["question_email"] ?> at <?php echo $question["question_date"] ?> | <a href=ask-question.php?edit=<?php echo $question['question_id']?> style="color:#FFA500"> edit </a> | <a href="#" onclick="validateDelete(<?php echo $question['question_id'] ?>);" style="color:#FF0000"> delete </a> </p>
+		</div>
 	</div>
 
 	<?php
@@ -60,8 +67,15 @@
 						<h3> <div id="answer-vote-<?php echo $row['answer_id'] ?>"> <?php echo $row["answer_vote"] ?> </div> </h3>
 						<div class="arrow-down" onclick="vote(<?php echo $row['answer_id'] ?>, 'answer', 'down');"></div>
 					</div>
-					<p> <?php echo $row["answer_content"]  ?> </p>
-					<p style="float:right"> answer by <?php echo $row["answer_email"] ?> at <?php echo $row["answer_date"] ?> </p>
+
+					<div class="question-page-content">
+						<p> <?php echo $row["answer_content"]  ?> </p>
+					</div>
+
+					<div class="edit-delete">
+						<p> answered by <b> <?php echo $row["answer_name"] ?></b><br>
+							<?php echo $row["answer_email"] ?> at <?php echo $row["answer_date"] ?> </p>
+					</div>
 				</div>
 				<br><hr>
 				<?php
