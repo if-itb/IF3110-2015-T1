@@ -3,14 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Simple StackExchange</title>
-	<?php echo "<style>"; ?>
-	<?php include ROOT . DS . 'public' . DS . 'css' . DS . 'style.css'; ?>
-	<?php echo "</style>"; ?>
+	<link rel="stylesheet" href="http://<?php echo SERVER . URL; ?>public/css/style.css">
 </head>
 <body>
 	<div class="container">
 		<div class="align-center" id="title">
-			<h1>Simple StackExchange</h1>	
+			<h1><a href="index.php">Simple StackExchange</a></h1>	
 		</div>
 
 	<?php require_once(ROOT . DS . 'library' . DS . 'routes.php'); ?>	

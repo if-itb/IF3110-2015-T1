@@ -1,6 +1,8 @@
 <?php    
  
 	define('DS', DIRECTORY_SEPARATOR);
+	define('SERVER', $_SERVER['SERVER_NAME']);
+	define('URL', $_SERVER['REQUEST_URI']);
 	define('ROOT', dirname(dirname(__FILE__)));
 	 
 	require_once (ROOT . DS . 'library' . DS . 'class.connection.php');
