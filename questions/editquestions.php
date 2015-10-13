@@ -3,6 +3,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="../style/qstyle.css"/>
 	<title>Questions</title>
+	
 </head>
 <body>
 	<?php
@@ -26,20 +27,46 @@
 		}	
 	}
 	else { ?>
-	 <div id="big">Simple StackExchange</div>
-	 <div class="mediumbaru">
-	 <div id="m1">Edit your question</div>
-	<form method="post" action="<?php $_PHP_SELF?>">
+	<script type="text/javascript">
+	function validateForm() {
+		//check name
+		var input = document.forms["editQuestion"]["name"].value;
+		if(input==null || input=="") {
+			alert("Name must be filled out");
+			return false;
+		}
+    	//check topic 
+    	input = document.forms["editQuestion"]["question"].value;
+    	if(input==null || input=="") {
+			alert("Topic must be filled out");
+			return false;
+		}
+		//check content
+    	input = document.forms["editQuestion"]["content"].value;
+		if(input==null || input=="") {
+			alert("Content must be filled out");
+			return false;
+		}
+		//check email
+		input = document.forms["editQuestion"]["email"].value;
+    	var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    	return re.test(input);
+	}
+	</script>
+	<div id="big">Simple StackExchange</div>
+	<div class="mediumbaru">
+	<div id="m1">Edit your question</div>
+	<form method="post"  name="editQuestion" action="<?php $_PHP_SELF?>" onsubmit="return validateForm()">
 	<?php $conn = new mysqli("localhost","root","","stackoverflow");
 	if($conn->connect_error)
 		die("Connection failed : ".$conn->connect_error);
 	$sql = "SELECT * FROM questions WHERE no=".$_GET['id'];
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_assoc($result);
-		echo "<input type=\"text\" name=\"name\" value=\"".$row["name"]."\" placeholder=\"Name\" class=\"medium\">";
-		echo "<input type=\"email\" name=\"email\" value=\"".$row["email"]."\" placeholder=\"Email\" class=\"medium\">";
-		echo "<input type=\"text\" name=\"question\" value=\"".$row["question"]."\" placeholder=\"Question Topic\" class=\"medium\">";
-		echo "<textarea type=\"text\" name=\"content\" placeholder=\"Content\" class=\"medium\" id=\"content\">".$row["content"]."</textarea>"; 
+		echo "<input type=\"text\" name=\"name\" value=\"".$row["name"]."\" placeholder=\"Name\" class=\"medium\">
+		<input type=\"email\" name=\"email\" value=\"".$row["email"]."\" placeholder=\"Email\" class=\"medium\">
+		<input type=\"text\" name=\"question\" value=\"".$row["question"]."\" placeholder=\"Question Topic\" class=\"medium\">
+		<textarea type=\"text\" name=\"content\" placeholder=\"Content\" class=\"medium\" id=\"content\">".$row["content"]."</textarea>"; 
 	$conn->close();
 	} ?> <input type="submit"  name="update" value="Edit" id="button">
 	</form>

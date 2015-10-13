@@ -27,7 +27,10 @@
 				<span>Vote</span>";	
 			echo "</div>";
 			echo "<div class=\"div5\">";
-				echo "<span>".$row['vote']."</span>";
+				$sql2 = "SELECT COUNT(*) AS SHIT FROM answers WHERE question_no=".$row['no'];
+				$ans2 = mysqli_query($conn, $sql2);
+				$row2 = $ans2->fetch_assoc();
+				echo "<span>".$row2['SHIT']."</span>";
 				echo "<span>Answer</span>";
 			echo "</div>";
 		echo "</div>";

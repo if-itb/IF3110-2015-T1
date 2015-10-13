@@ -12,7 +12,7 @@ if($conn->connect_error) {
 $sql = "INSERT INTO questions(email, name, question, content) 
 VALUES ('".$_POST['email']."','".$_POST['name']."','".$_POST['question']."','".$_POST['content']."')";
 if($conn->query($sql) == TRUE) {
-	echo "new record created successfully";
+	header('Location: ../home/homepage.php');
 }
 else {
 	echo "error : " . $sql . "<br>" . $conn->error;
