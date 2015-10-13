@@ -65,9 +65,9 @@ class Answer extends Controller {
     }
 
     public function delete() {
-        if (isset($_POST['id_answers'])) {
+        if (isset($_POST['id_answer'])) {
             $answersModel = $this->model('Answers');
-            $answersModel->delete($_POST['id_answers']);
+            $answersModel->delete($_POST['id_answer']);
         } else {
             echo "Error 404";
         }

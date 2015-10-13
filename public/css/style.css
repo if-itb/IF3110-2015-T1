@@ -282,7 +282,7 @@ textarea {
   font-weight: 400;
   color: #5C5C5C; }
 
-#deleteForm {
+.delete-form {
   display: inline; }
 
 .form-delete {
@@ -323,7 +323,7 @@ textarea {
   border-top: 2px solid #B8B8B8;
   padding-top: 20px; }
 
-#askForm #title {
+input#title {
   width: 300px; }
 
 /*# sourceMappingURL=style.css.map */

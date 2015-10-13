@@ -9,7 +9,7 @@
         <div class="col-12">
 
             <div class="form-wrapper">
-                <form id="askForm" action="<?= ROOT_URL; ?>/question/edit" method="POST">
+                <form id="questionForm" action="<?= ROOT_URL; ?>/question/edit" method="POST">
                     <input type="hidden" name="id_question" value="<?= $data['question']->id_question; ?>">
                     <div class="form-field">
                         <label for="name">Name</label>
@@ -22,8 +22,8 @@
                     </div>
 
                     <div class="form-field">
-                        <label for="title">Question Topic</label>
-                        <input id="title" name="topic" type="text" value="<?= $data['question']->topic; ?>" placeholder="Question Topic">
+                        <label for="topic">Question Topic</label>
+                        <input id="topic" name="topic" type="text" value="<?= $data['question']->topic; ?>" placeholder="Question Topic">
                     </div>
 
                     <div class="form-field">
@@ -31,7 +31,7 @@
                         <textarea name="content" id="content" placeholder="Your question content goes here"><?= $data['question']->content; ?></textarea>
                     </div>
 
-                    <input type="submit" value="Post">
+                    <input type="submit" id="submitQuestionForm" class="btn-submit" value="Post">
                 </form>
             </div>
 

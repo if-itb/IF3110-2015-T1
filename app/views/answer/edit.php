@@ -24,10 +24,10 @@
 
                     <div class="form-field">
                         <label for="content">Answer</label>
-                        <textarea name="content" placeholder="Your answer goes here"><?= $data['answer']->content; ?></textarea>
+                        <textarea id="content" name="content" placeholder="Your answer goes here"><?= $data['answer']->content; ?></textarea>
                     </div>
 
-                    <input type="submit" class="btn-submit" value="Post">
+                    <input type="submit" id="submitAnswerForm" class="btn-submit" value="Post">
                 </form>
             </div>
 

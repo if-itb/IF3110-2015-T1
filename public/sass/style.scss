@@ -215,7 +215,7 @@
 /////////////////////////////
 /////////////////////////////
 
-#deleteForm {
+.delete-form {
   display: inline;
 }
 
@@ -275,6 +275,7 @@
   padding-top: 20px;
 }
 
-#askForm #title {
+
+input#title {
   width: 300px;
 }

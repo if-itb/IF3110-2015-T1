@@ -53,8 +53,8 @@ class Answers {
     public function delete($id) {
         $query = "DELETE FROM answers WHERE id_answer = $id";
         var_dump($query);
-        // $this->db->query($query);
+        $this->db->query($query);
 
-        // header('Location: ' . ROOT_URL);   
+        header('Location: ' . ROOT_URL);   
     }
 }
