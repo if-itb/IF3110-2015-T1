@@ -7,14 +7,17 @@
  <body>
    <h1>Simple Stack Exchange</h1>
    <br>
-   <p>What's your question?</p>
-   <hr>
-   <form>
-     <input type="text" name="name" value="Name"><br>
-     <input type="text" name="email" value="Email"><br>
-     <input type="text" name="question" value="Question topic"><br>
-     <textarea rows="4" cols="50" name "content">Content</textarea><br>
-    <input type="submit" value="Post">
-   </form>
+   <div id=form>
+     <h2>What's your question?</h2>
+     <hr align="left">
+     <form method="post" action="index.php">
+       <input type="text" name="name" value="" placeholder="Name"><br>
+       <input type="text" name="email" value="" placeholder="Email"><br>
+       <input type="text" name="topic" value="" placeholder="Question Topic"><br>
+       <textarea rows="4" cols="50" name="content" placeholder="Content"></textarea><br>
+       <input type="submit" value="Post">
+       <input type="hidden" name="q_id" value="">
+     </form>
+   </div>
  </body>
  </html>
