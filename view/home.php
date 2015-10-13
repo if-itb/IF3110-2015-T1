@@ -9,7 +9,7 @@
     <h1 id="title"><a href="/">Simple StackExchange</a></h1>
     <div id="search">
       <form>
-          <input id="search-text" type="search" name="q" placeholder="Searching Question?"/> </td>
+          <input id="search-text" type="search" name="search" placeholder="Searching Question?"/> </td>
           <input id="search-button" type="submit" value="search" />
       </form>
     </div>

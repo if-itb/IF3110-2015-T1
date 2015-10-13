@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
     <title>Question | StackExchange</title>
   </head>
   <body>
@@ -58,15 +58,16 @@
             </p>
           </div>
         </div>
-      <?php } ?>
       <hr class="line">
+      <?php } ?>
       <h2>Your Answer</h2>
-      <form id="form">
+      <form id="form" method="POST" action="?action=answer">
         <table>
+        <input name="id" type="hidden" value="<?=$question["id"]?>"/>
         <input class="form-text" type="text" name="name" placeholder="Name"/>
         <input class="form-text" type="email" name="email" placeholder="Email"/>
         <textarea class="form-box" rows="10" name="content" placeholder="Content"></textarea>
-        <input type="submit" class="submit-button" value="Post">
+        <input type="submit" class="submit-button" value="Post"/>
         </table>
       </form>
   </body>
