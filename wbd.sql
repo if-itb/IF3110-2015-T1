@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2015 at 06:01 AM
+-- Generation Time: Oct 13, 2015 at 10:12 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -34,7 +34,8 @@ CREATE TABLE IF NOT EXISTS `answer` (
   `question_id` int(11) NOT NULL,
   `vote` int(11) NOT NULL,
   `date` datetime NOT NULL,
-  PRIMARY KEY (`answer_id`)
+  PRIMARY KEY (`answer_id`),
+  KEY `question_id` (`question_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
@@ -42,8 +43,6 @@ CREATE TABLE IF NOT EXISTS `answer` (
 --
 
 INSERT INTO `answer` (`answer_id`, `name`, `email`, `content`, `question_id`, `vote`, `date`) VALUES
-(1, 'Yoga', 'yoga@admin.com', 'iyalah gua gitu', 2, 0, '2015-10-13 10:56:56'),
-(2, 'Yoga', 'yoga@admin.com', 'iyalah gua gitu', 2, 0, '2015-10-13 10:56:56'),
 (3, 'Yoga', 'yoga@gmail.com', 'ikutin fery aja', 1, 29, '2015-10-13 10:58:28');
 
 -- --------------------------------------------------------
@@ -62,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `question` (
   `date` datetime NOT NULL,
   `answer` int(11) NOT NULL,
   PRIMARY KEY (`question_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `question`
@@ -70,7 +69,17 @@ CREATE TABLE IF NOT EXISTS `question` (
 
 INSERT INTO `question` (`name`, `email`, `questiontopic`, `content`, `question_id`, `vote`, `date`, `answer`) VALUES
 ('bayu', 'bayu@gmail.com', 'master', 'gimana caranya jadi master?', 1, 3, '2015-10-13 10:55:30', 1),
-('Semua Orang', 'orang@orang.com', 'Kok Fery IMBA?', 'Kok Fery IMBA?', 2, 4, '2015-10-13 10:56:29', 2);
+('"asasasas"', 'yoga@gmail.com', 'aSasasdasd', 'asdasadasdasdasdsa', 3, 0, '2015-10-13 15:07:17', 0);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `answer`
+--
+ALTER TABLE `answer`
+  ADD CONSTRAINT `answer_ibfk_1` FOREIGN KEY (`question_id`) REFERENCES `question` (`question_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
