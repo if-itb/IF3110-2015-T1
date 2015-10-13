@@ -6,7 +6,7 @@
   </head>
   <body>
     <div class="container">
-      <a href="index.php" class="home">Simple StackExchange</a>
+      <a href="index.php" class="home text-center"><h1>Simple StackExchange</h1></a>
       <div class="row">
         <div class="span-8 span-offset-1">
           <div class="span-8">

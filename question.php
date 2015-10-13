@@ -3,10 +3,11 @@
   <head>
     <title>Stack Exchange</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type = "text/javascript" src="validatequestion.js"> </script>
   </head>
   <body>
     <div class="container">
-      <a href="index.php" class="home">Simple StackExchange</a>
+      <a href="index.php" class="home text-center"><h1>Simple StackExchange</h1></a>
       <h2>What's Your Question?</h2>
       <hr>
 	<?php
@@ -23,11 +24,11 @@
 		} 
 		
 		echo'
-		  <input type="text" class="form" placeholder="Name">
-		  <input type="text" class="form" placeholder="Email">
-		  <input type="text" class="form" placeholder="Question Topic">
-		  <textarea class="form" placeholder="Content" rows="5"></textarea>
-
+		  <form name="question" action="questiondata.php" onsubmit="return validateForm()" method="Post">
+		  <input type="text" class="form" placeholder="Name" name="Name">
+		  <input type="text" class="form" placeholder="Email" name="Email">
+		  <input type="text" class="form" placeholder="Question Topic" name="Topik">
+		  <textarea class="form" placeholder="Content" rows="5" name="Content"></textarea>
 		  <div class="text-right">
 			<button class="btn" type="submit">Post</button>
 		  </div>
