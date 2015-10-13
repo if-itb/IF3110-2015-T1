@@ -45,4 +45,15 @@ for(var i = 0;i<aup.length;i++){
 	}
 }
 
+var adown = document.getElementsByClassName("arrow-down");
+for(var i = 0;i<adown.length;i++){
+	adown[i].onclick = function(){
+		var _this=this;
+		function success(){
+			_this.parentNode.getElementsByTagName("h2")[0].innerHTML=parseInt(_this.parentNode.getElementsByTagName("h2")[0].innerHTML)-1;
+		}
+		url = "downvoteanswer.php?id="+ this.getAttribute("data-id");
+		voteUp(url,success);
+	}
+}
 
