@@ -51,12 +51,13 @@
 					</div>
 					<div class="infoask">
 						<br>
-						asked by <?php echo $row["name"]; ?> | <a href="ask.php?id=<?php echo $row["No"];?>&withanswer=false">edit</a> | <a href="question.php?id=<?php echo $row["No"];?>&delete=true">delete</a>
+						asked by <?php echo $row["name"]; ?> | <a href="ask.php?id=<?php echo $row["No"];?>&withanswer=false">edit</a> | <a href="question.php?id=<?php echo $row["No"];?>&delete=true" onclick="return validasiDelete();">delete</a>
 					</div>
 				</div>
 				<?php }?>
 			</div>
 		</div>
 		<?php mysqli_close($conn);?>
+		<script src="js/function.js"></script>
 	</body>
 </html>

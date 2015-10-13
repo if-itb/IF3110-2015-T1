@@ -32,18 +32,18 @@
 			<h2 class="subtitle"><?php echo $row_pertanyaan["topik"]; ?></h2>
 			<div class="container-pertanyaan-jawaban">
 				<div class="rate">
-					&#x25B2 <?php echo $row_pertanyaan["vote"]; ?> &#x25BC
+					<div onclick="vote(<?php echo $row_pertanyaan['No']; ?>,'pertanyaan','atas',0);">&#x25B2</div> <div id="vote-pertanyaan"><?php echo $row_pertanyaan["vote"]; ?></div> <div onclick="vote(<?php echo $row_pertanyaan["No"]; ?>,'pertanyaan','bawah',0)">&#x25BC</div>
 				</div>
 				<div class="konten">
 					<?php echo $row_pertanyaan["konten"]; ?>
-					<p class="info-pertanyaan-jawaban"><br>asked by <?php echo $row_pertanyaan["email"]; ?> at <?php echo $row_pertanyaan["date"]; ?> | <a href="ask.php?id=<?php echo $id?>&withanswer=true">edit</a> | <a href="question.php?id=<?php echo $id?>&delete=true">delete</a></p>
+					<p class="info-pertanyaan-jawaban"><br>asked by <?php echo $row_pertanyaan["email"]; ?> at <?php echo $row_pertanyaan["date"]; ?> | <a href="ask.php?id=<?php echo $id?>&withanswer=true">edit</a> | <a href="question.php?id=<?php echo $id?>&delete=true" onclick="return validasiDelete();">delete</a></p>
 				</div>
 			</div>
 			<h2 class="subtitle"><?php echo mysqli_num_rows($jawaban); ?> Answer</h2>
 			<?php while($row_jawaban = mysqli_fetch_assoc($jawaban)) { ?>
 			<div class="container-pertanyaan-jawaban">
 				<div class="rate">
-					&#x25B2 <?php echo $row_jawaban["vote"]; ?> &#x25BC
+					<div onclick="vote(<?php echo $row_jawaban["no_pertanyaan"]; ?>,'jawaban','atas',<?php echo $row_jawaban["no_jawaban"]; ?>)">&#x25B2</div> <div id="vote-jawaban-<?php echo $row_jawaban['no_jawaban']; ?>"><?php echo $row_jawaban["vote"]; ?></div> <div onclick="vote(<?php echo $row_jawaban["no_pertanyaan"]; ?>,'jawaban','bawah',<?php echo $row_jawaban["no_jawaban"]; ?>)">&#x25BC</div>
 				</div>
 				<div class="konten">
 					<?php echo $row_jawaban["konten"]; ?>
@@ -63,5 +63,6 @@
 			</form>
 		</div>
 		<?php mysqli_close($conn);?>
+		<script src="js/function.js"></script>
 	</body>
 </html>

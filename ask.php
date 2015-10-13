@@ -29,7 +29,7 @@
 		<a href="showquestion.php"><h1 id="header">Simple StackExchange</h1></a>
 		<div class="next">	
 			<h2 class="subtitle">What's your question?</h2>
-			<form action="question.php?id=<?php echo $id;?>&withanswer=<?php echo $withanswer?>" method="POST">
+			<form action="question.php?id=<?php echo $id;?>&withanswer=<?php echo $withanswer?>" onsubmit="return validasiForm(this);" method="POST">
 				<div class="coba">
 					<input type="text" name="nama" placeholder="Name" <?php echo "value='".$row['name']."'";?> >
 					<input type="text" name="email" placeholder="Email" <?php echo "value='".$row['email']."'";?>>
@@ -46,7 +46,7 @@
 		<a href="showquestion.php"><h1 id="header">Simple StackExchange</h1></a>
 		<div class="next">	
 			<h2 class="subtitle">What's your question?</h2>
-			<form action="question.php" method="POST">
+			<form action="question.php" onsubmit="return validasiForm(this);" method="POST">
 				<div class="coba">
 					<input type="text" name="nama" placeholder="Name" >
 					<input type="text" name="email" placeholder="Email" >
@@ -57,5 +57,6 @@
 			</form>
 		</div>
 		<?php } ?>
+		<script src="js/function.js"></script>
 	</body>
 </html>
