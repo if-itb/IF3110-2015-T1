@@ -8,7 +8,7 @@
 			public $datetime;
 			public $countvotes;
 
-			public function __construct($aid, $authorname, $authoremail, $qid, $topic, $content, $datetime, $countvotes){
+			public function __construct($aid, $authorname, $authoremail, $qid, $content, $datetime, $countvotes){
 				$this->aid = $aid;
 				$this->authorname = $authorname;
 				$this->authoremail = $authoremail;
@@ -18,15 +18,13 @@
 				$this->countvotes = $countvotes;
 			}
 		
-		public static function all(){
-			$listanswer = [];
+		public static function all($qid){
 			$db = Database::getInstance();
-			$data = $db->query('SELECT * FROM answers');
-			
-			foreach($data->fetchAll() as $answer) {
-				$listanswer= new Answer($Answer['aid'], $Answer['authorname'],$Answer['authoremail'], $Answer['qid'], $Answer['content'], $Answer['datetime'], $Answer['countvotes']);
-				
-				return $listanswer;
+			$stmt = $db->query('SELECT * FROM answers');
+			while($answer = $stmt->fetch(PDO::FETCH_ASSOC)) {
+				$listanswer[]	= new Answer($answer['qid'], $answer['authorname'],$answer['authoremail'], $answer['topic'], $answer['content'], $answer['datetime'], $answer['countvotes'], $answer['countanswers']);
 			}
-		}
+			return $listanswer;
+			}
+	}
 ?>

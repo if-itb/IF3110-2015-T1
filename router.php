@@ -7,7 +7,7 @@
       break;
 			case 'questions':
         require_once('models/question.php');
-        $controller = new QuestionController();
+        $controller = new QuestionsController();
       break;
 			case 'answers':
         require_once('models/answer.php');
@@ -17,6 +17,7 @@
 		
 		$controller->{ $action }();
   }
+
 	$controllers = array('pages' => ['home', 'error'],
                        'questions' => ['index', 'show', 'update', 'edit', 'delete', 'insert'],
 											 'answers' => ['index', 'insert']);

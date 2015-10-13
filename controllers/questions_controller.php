@@ -1,21 +1,23 @@
 <?php
 	class QuestionsController {
 		public function index() {
-			$question = Question::all();
+			$questions = Question::all();
 			require_once('views/question/index.php');
 		}
 		
 		public function show() {
 			include '/models/answer.php';
 			
-			$answers = Answer::all();
+			$qid = $_GET['qid'];
 			
-			if(!isset($_GET['qid'])){
+			if(!isset($qid)){
 				return call('pages', 'error');	
 			}
 			
+			$answers = Answer::all($qid);
+			
 			$question = Question::get($_GET['qid']);
-			require_once('views/question/show.php');
+			require_once('views/questions/show.php');
 		}
 	}
 ?>

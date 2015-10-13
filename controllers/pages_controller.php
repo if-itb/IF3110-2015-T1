@@ -6,7 +6,7 @@
 			
 			$questions = Question::all();
 			//print_r ($questions);
-			require_once('views/questions/index.php');
+			require_once('views/pages/home.php');
 		}
 		
 	}

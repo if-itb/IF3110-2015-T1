@@ -23,8 +23,9 @@
 
 				<div class="question-item-main">
 					<div class="question-item-title">
-						<a href="?controller=posts&action=show&id=[[qid]]">[[topic]]</a>		
+						<a href="?controller=questions&action=show&qid=[[qid]]">[[topic]]</a>		
 					</div>
+					[[content]]
 					<span class="question-item-metadata">
 							asked by
 							<span><a href="/">[[authorname]]</a></span> |
@@ -36,8 +37,11 @@
 
 				<div class="clearfix"></div>';
 	$strMask = array("[[qid]]", "[[authorname]]", "[[content]]", "[[topic]]", "[[datetime]]", "[[countvotes]]", "[[countanswers]]");
-foreach($questions as $question){
 	$strTarget = array($question->qid, $question->authorname, $question->content, $question->topic, $question->datetime, $question->countvotes, $question->countanswers);
-			echo str_replace($strMask, $strTarget, $html_listQuestionItem);
-	}
+	echo str_replace($strMask, $strTarget, $html_questionItem);
+
+	require_once 'views/answers/index.php';
+	require_once 'views/answers/form.php';
+
+
 ?>
