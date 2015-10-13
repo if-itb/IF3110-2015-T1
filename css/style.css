@@ -187,8 +187,9 @@ textarea.formBar{
 	text-align: center;
 	position: relative;
 	margin-top: 50px;
-	font-size: 20px;
+	font-size: 22px;
 	font-weight: bold;
+	
 	
 }
 
@@ -221,6 +222,8 @@ textarea.formBar{
 
 .votenumber{
 	text-align:center;
+	font-size: 22px;
+	font-weight: bold;
 }
 
 .qcontent,.votecontent{
