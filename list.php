@@ -19,7 +19,7 @@
                 </form>
             </div>
             <div class="textunder">
-                <p class="text1">Cannot find what you are looking for?</p><a class="ah"href="#">Ask here</a>
+                <p class="text1">Cannot find what you are looking for?</p><a class="ah"href="create.php">Ask here</a>
             </div>
             <p class="raqtext">Recently Asked Questions</p>
             <div class="raq">
