@@ -20,6 +20,11 @@ hr{
   border-width:2px;
 }
 
+.text-link
+{
+  text-decoration: none;
+}
+
 .button {
   background-color: white;
   color: black;
@@ -28,6 +33,10 @@ hr{
   font-size: 14px;
   margin-top: 5px;
   margin-left: 10px;
+}
+
+black{
+  color: black;
 }
 
 .align-center{

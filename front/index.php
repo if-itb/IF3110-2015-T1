@@ -7,7 +7,7 @@
   	</head>
   	<body>
   		<div class="container">
-			<h1 class="align-center margin-bot">Simple StackExchange</h1>
+			<h1 class="align-center margin-bot"><a class="text-link" href="index.php"><black>Simple StackExchange</black></a></h1>
 			<div class="row">
 				<div class = "expanse80 expanseleft10">
 					<div class="expanse80">

@@ -8,7 +8,7 @@
   </head>
   <body>
 		<div class="container">
-		  <h1 class="align-center margin-bot">Simple StackExchange</h1>
+		 <h1 class="align-center margin-bot"><a class="text-link" href="index.php"><black>Simple StackExchange</black></a></h1>
 
 		  <h2>What's Your Question?</h2>
 		  	<?php
