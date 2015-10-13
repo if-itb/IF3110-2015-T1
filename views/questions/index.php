@@ -26,7 +26,7 @@
 
 				<div class="question-item-main">
 					<div class="question-item-title">
-						<a href="/">[[topic]]</a>		
+						<a href="?controller=posts&action=show&id=[[qid]]">[[topic]]</a>		
 					</div>
 					<span class="question-item-metadata">
 							asked by

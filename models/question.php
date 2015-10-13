@@ -28,5 +28,17 @@
 			}
 			return $listquestion;
 		}
+		
+		public static function get($qid){
+			$db = Database::getInstance();			
+			$qid = intval($qid);
+			$stmt = $db->prepare('SELECT * FROM questions WHERE qid = :qid LIMIT 1');
+			
+			$stmt->execute(array('qid' => $qid));
+			$question = $stmt->fetch();
+			
+			return new Question($question['qid'], $question['authorname'],$question['authoremail'], $question['topic'], $question['content'], $question['datetime'], $question['countvotes'], $question['countanswers']);
+			
+		}
 	}
 ?>
