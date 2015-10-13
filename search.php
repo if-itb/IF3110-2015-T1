@@ -33,7 +33,7 @@
 			echo	'<td id="td1">'.$row['answers'].'<br>Answers</td>';
 			echo 	'<td id="td2"><a href="wbd3.php?id='.$row['id'].'" id="blue">'.$row['topic'].'</a></td>';
 			echo	'<td id="td3">asked by <blue>'.$row['nama'].'</blue>  | <a href="wbd2.php?id='.$row['id'].'"><yellow>edit</yellow></a> | <a href="wbd.php?id='.$row['id'].'"><red>delete</red></a></td>';
-			echo	'</tr>';
+			echo	'</tr>';\
 			echo	'</table>';
 			echo    '</div>';
 			}
