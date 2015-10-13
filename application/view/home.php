@@ -9,7 +9,7 @@
 
 <div class="align-center" id="ask">
 	<p>
-		Cannot find what you are looking for? <a href="?controller=thread&action=create">Ask here</a>
+		Cannot find what you are looking for? <a href="?controller=thread&action=form">Ask here</a>
 	</p>
 </div>
 
