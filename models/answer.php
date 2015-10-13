@@ -20,11 +20,15 @@
 		
 		public static function all($qid){
 			$db = Database::getInstance();
-			$stmt = $db->query('SELECT * FROM answers');
+			$stmt = $db->prepare('SELECT * FROM answers WHERE qid=:qid');
+			$stmt->execute(array('qid'=>$qid));
 			while($answer = $stmt->fetch(PDO::FETCH_ASSOC)) {
 				$listanswer[]	= new Answer($answer['aid'], $answer['authorname'],$answer['authoremail'], $answer['qid'], $answer['content'], $answer['datetime'], $answer['countvotes']);
 			}
-			return $listanswer;
+			if(!isset($listanswer)){
+				$listanswer = [];
 			}
+			return $listanswer;
+		}
 	}
 ?>

@@ -14,9 +14,8 @@
 				return call('pages', 'error');	
 			}
 			
+			$question = Question::get($qid);
 			$answers = Answer::all($qid);
-			
-			$question = Question::get($_GET['qid']);
 			require_once('views/questions/show.php');
 		}
 		
