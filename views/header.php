@@ -11,7 +11,7 @@
 <body>
 	<div class="title-section">
 		<header>
-			<strong><h1 id="title">Simple StackExchange</h1></strong>
+			<strong><a href="http://<?php echo $_SERVER['SERVER_NAME'] . "/IF3110-2015-T1/"; ?>" style="text-decoration: none;"><h1 id="title">Simple StackExchange</h1></a></strong>
 			<i id="tagline">A question and answer site for professionals</i>
 			<br>
 		</header>
