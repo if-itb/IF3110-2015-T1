@@ -76,3 +76,16 @@ a {
 	text-decoration: none;
 }
 
+a.Topik{
+	color: Black;
+	text-decoration: none;
+}
+
+.thread {
+  padding: 15px 0;
+  border-top: 2px solid #bbb;
+}
+
+.footer {
+  color: #999;
+}

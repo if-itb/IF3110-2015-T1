@@ -35,6 +35,42 @@
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
 		} 
+		
+		$sql = "SELECT * FROM question";
+		$result = $conn->query($sql);
+		
+		if ($result->num_rows > 0) {
+			// output data of each row
+			while($row = $result->fetch_assoc()) {
+				echo'
+				<div class="thread">
+				  <div class="row">
+				    <div class="span-1">
+				      <h4 class="text-center">(Jumlah Votes)</h4>
+					  <h4 class="text-center">Votes</h4>
+				    </div>
+				  <div class="span-1">
+					<h4 class="text-center">(Jumlah Answer)</h4>
+					<h4 class="text-center">Answer</h4>
+				  </div>
+				  <div class="span-8">
+					<p><b>
+					  <a href class="Topik">'.$row["Topik"].'</a>
+					</b></p>
+					<br>
+					  '.$row["Content"].'
+					</br>
+					<p class="text-right footer">
+					  Asked by '.$row["Email"].' | <a href>Edit</a> | <a href>Delete</a>
+					</p>
+				  </div>
+				</div>
+				';
+			}
+		} else {
+			echo "0 results";
+		}
+		$conn->close();
 	  ?>
     </div>
   </body>
