@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Overflow48</title>
+    <title>Search | Overflow48</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     <link rel="icon" type="image/png" href="/assets/white-icon.jpg">
   </head>
