@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <head>
+	<!-- Link -->
 	<link rel="stylesheet" href="style.css">
+	<!-- Script -->
 </head>
 <body>
 	<div class="stackExchange">
@@ -8,13 +10,6 @@
 		<h2 class="answer-h2">The question topic goes here</h2>
 		<hr>
 		<div class="question">
-			<div class="number">
-				<div class="vote-up"></div>
-				<div class="number-votes">
-					<h2>2</h2>
-				</div>
-				<div class="vote-down"></div>
-			</div>
 			<?php
 				$servername = "localhost";
 				$username = "root";
@@ -23,6 +18,18 @@
 				$connection = mysql_connect($servername, $username, $password) or die(mysql_error());
 				@mysql_select_db('stackexchange') or die(mysql_error());
 				$quest_id = $_GET["id"];
+				$sql = "SELECT `vote_question` FROM `question` WHERE (question_id = $quest_id)";
+				$number_count = mysql_query($sql);
+				$result = mysql_result($number_count, 0);
+			?>
+			<div class="number">
+				<div class="vote-up-question" data-question-id="<?= $quest_id ?>"></div>
+				<div class="number-votes">
+					<h2 id="count_vote_question"><?= $result?></h2>
+				</div>
+				<div class="vote-down-question" data-question-id="<?= $quest_id ?>"></div>
+			</div>
+			<?php
 				$query = "SELECT * FROM question WHERE (question_id = $quest_id)";
 				$result = mysql_query($query);
 				$name = mysql_result($result, 0, "name");
@@ -33,11 +40,11 @@
 				$date_question = mysql_result($result, 0, "date_question");
 			?>
 			<div class="QA-content">
-				<h3><?php echo $topic ?><br>
-					<?php echo $content ?>
+				<h3><?php echo $topic; ?><br>
+					<?php echo $content; ?>
 				</h3>
 				<div class="ask-description">	
-					<h3>asked by <span style="color: #502fc8"><?php echo $name ?></span> at <?= $date_question ?> | 
+					<h3>asked by <span style="color: #502fc8"><?php echo $name; ?></span> at <?= $date_question ?> | 
 					<a href="/Tubes1/edit-question.php?id=<?= $quest_id ?>">
 						<span style= "color: #ffcb55">edit</span> 
 					</a> | 
@@ -55,6 +62,7 @@
 			$num = mysql_num_rows($result);
 			$i = 0;
 			while ($i < $num) {
+				$answer_id = mysql_result($result, $i, "answer_id");
 				$name = mysql_result($result, $i, "name");
 				$email = mysql_result($result, $i, "email");
 				$content = mysql_result($result, $i, "content");
@@ -63,11 +71,16 @@
 		?>
 		<div class="answer">
 			<div class="number">
-				<div class="vote-up"></div>
+				<div class="vote-up-answer" data-question-id="<?= $quest_id ?>" data-answer-id="<?= $answer_id ?>"></div>
+				<?php 
+					$sql = "SELECT `vote_answer` FROM `answer` WHERE (`question_id` = '$quest_id') AND (`answer_id` = '$answer_id')";
+					$number_count_ans = mysql_query($sql);
+					$result_answer = mysql_result($number_count_ans, 0);
+				?>
 				<div class="number-votes">
-					<h2>2</h2>
+					<h2 id="count_vote_answer"><?= $result_answer?></h2>
 				</div>
-				<div class="vote-down"></div>
+				<div class="vote-down-answer" data-question-id="<?= $quest_id ?>" data-answer-id="<?= $answer_id ?>"></div>
 			</div>
 			<div class="QA-content">
 				<h3><?= $content ?></h3>
@@ -94,5 +107,6 @@
 			<button class="post-button" type="submit"><b>Post</b></button>
 		</form>
 	</div>
+	<script type="text/javascript" src="function.js"></script>
 </body>
 </html>
