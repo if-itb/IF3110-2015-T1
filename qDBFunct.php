@@ -69,6 +69,31 @@
 		mysqli_close($conn);
 	}
 	
+	function voteUpQuestion($qid,$up){
+		global $servername, $username,$password,$dbname;
+		
+		$conn = mysqli_connect($servername, $username, $password, $dbname);
+		// Check connection
+		if (!$conn) {
+			die("Connection failed: " . mysqli_connect_error());
+		}
+		if($up==1){
+			$plus = 1;
+		}else {
+			$plus =-1;
+		}
+		$sql = "UPDATE Questions SET qVote=(qVote+$plus)  WHERE qid=$qid";
+
+		if (mysqli_query($conn, $sql)) {
+			return 1;
+		} else {
+			echo "Error updating record: " . mysqli_error($conn);
+			return 0;
+		}
+
+		mysqli_close($conn);
+	}
+	
 	function getAllQuestionOrderByDate(){
 		global $servername, $username,$password,$dbname;
 		//Create connection
@@ -82,6 +107,21 @@
 		return $result;
 		mysqli_close($conn);
 	}
+	
+	function searchQuestion($string){
+		global $servername, $username,$password,$dbname;
+		//Create connection
+		$conn = mysqli_connect($servername,$username,$password,$dbname);
+		//Check Connection
+		if (!$conn) {
+			die("Connection failed: " . mysqli_connect_error());
+		}
+		$sql = "SELECT * FROM Questions where qContent LIKE '%$string%' OR qTopic LIKE '%$string%';";
+		$result = mysqli_query($conn,$sql);
+		echo 'Pew';
+		return $result;
+		mysqli_close($conn);
+	}
 	function getQuestion($qid){
 		global $servername, $username,$password,$dbname;
 		//Create connection
@@ -91,6 +131,19 @@
 			die("Connection failed: " . mysqli_connect_error());
 		}
 		$sql = "SELECT * FROM Questions WHERE qid=$qid;";
+		$result = mysqli_query($conn,$sql);
+		return $result;
+		mysqli_close($conn);
+	}
+	function getQVote($qid){
+		global $servername, $username,$password,$dbname;
+		//Create connection
+		$conn = mysqli_connect($servername,$username,$password,$dbname);
+		//Check Connection
+		if (!$conn) {
+			die("Connection failed: " . mysqli_connect_error());
+		}
+		$sql = "SELECT qVote FROM Questions WHERE qid=$qid;";
 		$result = mysqli_query($conn,$sql);
 		return $result;
 		mysqli_close($conn);
