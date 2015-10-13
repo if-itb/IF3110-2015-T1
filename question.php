@@ -8,17 +8,8 @@
 
      <?php
 			ini_set('short_open_tag', 'on');
-			$servername = "localhost";
-			$username = "root";
-			$password = "12345";
-			$db = "stackexchange";
-
-			// Create connection
-			$conn = new mysqli($servername, $username, $password, $db);
-			// Check connection
-			if ($conn->connect_error) {
-		    die("Connection failed: " . $conn->connect_error);
-			}
+			require 'function/connect.php';
+			require 'function/dbfunction.php';
 
 			session_start();
 			if (isset($_SESSION['questionid']))
@@ -31,26 +22,9 @@
 				$topic = mysqli_real_escape_string($conn,$_POST['topic']);
 				$content = mysqli_real_escape_string($conn,$_POST['content']);
 
-				$sql = "INSERT INTO question (name, email, topic, content,vote)
-				VALUES ('$name', '$email', '$topic', '$content', 0)";
-
-				if ($conn->query($sql) === TRUE) {
-			    //do nothing
-				} else {
-				  echo "Error: " . $sql . "<br>" . $conn->error;
-				}
-
-				$selectid = "SELECT id from question ORDER BY id DESC LIMIT 1";
-				$result = $conn->query($selectid);
-
-				if ($result->num_rows > 0) {
-			    // output data of each row
-			    while($row = $result->fetch_assoc()) {
-						$id=$row["id"];
-			    }
-				} else {
-				    echo "0 results";
-				}
+				InsertQuestion($conn, $name, $email, $topic, $content);
+				$id=SelectLastID($conn);
+				$vote=GetVote($conn,$id);
 
 			} else if (isset($_POST['editquestion'])) { // if the previous page was the Edit Question page
 				$name = mysqli_real_escape_string($conn,$_POST['name']);
@@ -58,32 +32,16 @@
 				$topic = mysqli_real_escape_string($conn,$_POST['topic']);
 				$content = mysqli_real_escape_string($conn,$_POST['content']);
 
-				$sql = "UPDATE question
-				SET name='$name', email='$email', topic='$topic', content='$content'
-				WHERE id=$id;";
-
-				if ($conn->query($sql) === TRUE) {
-			    //do nothing
-				} else {
-				  echo "Error: " . $sql . "<br>" . $conn->error;
-				}
+				EditQuestion($conn, $id, $name, $email, $topic, $content);
+				$vote=GetVote($conn,$id);
 
 			} else if (isset($_POST['saveanswer'])) { // if the previous action was submitting answer
 				$name_ans = mysqli_real_escape_string($conn,$_POST['name_ans']);
 				$email_ans = mysqli_real_escape_string($conn,$_POST['email_ans']);
 				$content_ans = mysqli_real_escape_string($conn,$_POST['content_ans']);
 
-				$sql = "INSERT INTO answer (id, name_ans, email_ans, content_ans, vote_ans)
-				VALUES ('$id', '$name_ans', '$email_ans', '$content_ans', 0)";
-
-				if ($conn->query($sql) === TRUE) {
-			    //do nothing
-				} else {
-				  echo "Error: " . $sql . "<br>" . $conn->error;
-				}
-
-				$listq = "SELECT name, email, topic, content, vote FROM question WHERE id=$id";
-				$result = $conn->query($listq);
+				InsertAnswer($conn, $id, $name_ans, $email_ans, $content_ans);
+				$result = SelectQuestion($conn, $id);
 
 				if ($result->num_rows > 0) {
 				    // output data of each row
@@ -100,8 +58,7 @@
 
 			}else if (isset($_GET['id'])){ // if the previous page was the homepage
 				$id = (int)$_GET['id'];
-				$listq = "SELECT name, email, topic, content, vote FROM question WHERE id=$id";
-				$result = $conn->query($listq);
+				$result = SelectQuestion($conn, $id);
 
 				if ($result->num_rows > 0) {
 				    // output data of each row
@@ -134,7 +91,7 @@
 				<h2><?php echo $topic?></h2>
 				<div class="voting">
 					<div class="arrow-up"></div>
-						<p><?php echo $vote?></p>
+					<div id="vote-q"><p><?php echo $vote?></p></div>
 					<div class="arrow-down"></div>
 				</div>
 				<div class="answer-content">

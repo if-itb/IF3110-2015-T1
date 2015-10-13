@@ -8,6 +8,8 @@
     
     <?php
     	ini_set('short_open_tag', 'on');
+    	require 'function/dbfunction.php';
+
     	session_start();
 
 			$servername = "localhost";
@@ -26,9 +28,7 @@
 				$id = (int)$_GET['id'];
 				$_SESSION['questionid']=$id;
 				
-				$listq = "SELECT name, email, topic, content FROM question WHERE id=$id";
-				$result = $conn->query($listq);
-
+				$result = SelectQuestion($conn, $id);
 				if ($result->num_rows > 0) {
 				    // output data of each row
 				    while($row = $result->fetch_assoc()) {
