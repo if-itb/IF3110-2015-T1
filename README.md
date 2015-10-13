@@ -89,12 +89,12 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 ### Melakukan validasi pada client-side
-Pada Form untuk mengirim pertanyaan dan jawaban, setiap field diperiksa apakah ada field yang tidak memenuhi aturan, jika ada maka akan dikirimkan false. Fungsi-fungsi yang digunakan adalah validateForm() untuk form pertanyaan dan validateAnswerForm() untuk form jawaban.
+Pada Form untuk mengirim pertanyaan dan jawaban, setiap field diperiksa apakah ada field yang tidak memenuhi aturan, jika ada maka akan dikirimkan false. Fungsi-fungsi yang digunakan adalah validateForm() untuk form pertanyaan dan validateAnswerForm() untuk form jawaban. Fungsi bantuan yang lain adalah validateEmail(email) untuk memvalidasi format email yang sesuai
 ### Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
 AJAX dilakukan dengan membuat objek XMLHttpRequest dan di sini digunakan metode GET. Ketika melakukan klik tombol panah atas atau bawah, fungsi vote pada javascript memanggil page vote.php dengan beberapa parameter
--up: bernilai 1 jiga yang diklik adalah panah atas dan 0 ketika yang diklik adalah panah bawah
--question: bernilai 1 ketika panah yang diklik merupakan panah untuk merubah vote pertanyaan, 0 ketika yang diklik adalah panah milik vote jawaban
--id: berisi id dari pertanyaan atau jawaban 
+- up: bernilai 1 jiga yang diklik adalah panah atas dan 0 ketika yang diklik adalah panah bawah
+- question: bernilai 1 ketika panah yang diklik merupakan panah untuk merubah vote pertanyaan, 0 ketika yang diklik adalah panah milik vote jawaban
+- id: berisi id dari pertanyaan atau jawaban 
 fungsi voteQUp dan voteQDown sama-sama memiliki input id dan question, input ini kemudian diteruskan sebagai parameter bersama dengan page vote.php
 
 ### Knowledge
