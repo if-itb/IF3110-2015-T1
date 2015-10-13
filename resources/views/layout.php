@@ -8,7 +8,7 @@
 		<title><?= $title ?></title>
 	</head>
 	<body>
-		<div align='center'>
+		<div>
 			<div class="header">
 				<h1 id="title">Asklyz</h1>
 			</div>
