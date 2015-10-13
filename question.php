@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script type="text/javascript" src="js/validate.js"></script>
+    <script type="text/javascript" src="js/vote.js"></script>
 
      <?php
 			ini_set('short_open_tag', 'on');
@@ -79,6 +80,8 @@
 				$_SESSION['questionid']=$id;
 				$edit="edit.php?id=".$id;
 				$delete="delete.php?id=".$id;
+				$votequp="VoteQuestionUp(".$id.")";
+				$voteqdown="VoteQuestionDown(".$id.")";
 			}
 
 		?>
@@ -90,9 +93,9 @@
 			<div class="content">
 				<h2><?php echo $topic?></h2>
 				<div class="voting">
-					<div class="arrow-up"></div>
+					<div class="arrow-up" onclick=<?=$votequp ?>></div>
 					<div id="vote-q"><p><?php echo $vote?></p></div>
-					<div class="arrow-down"></div>
+					<div class="arrow-down" onclick=<?=$voteqdown ?>></div>
 				</div>
 				<div class="answer-content">
 					<p><?php echo $content?></p>
@@ -128,12 +131,15 @@
 					if ($result->num_rows > 0) {
 					    // output data of each row
 					    while($row = $result->fetch_assoc()) {
+								$voteansup="VoteAnswerUp(".$row["id_ans"].")";
+								$voteansdown="VoteAnswerDown(".$row["id_ans"].")";
+								$voteid="vote-".$row["id_ans"];
 								echo
 								"<div class=\"answer-list\">
 									<div class=\"voting\">
-										<div class=\"arrow-up\"></div>
-										<p>".$row["vote_ans"]."</p>
-										<div class=\"arrow-down\"></div>
+										<div class=\"arrow-up\" onclick=".$voteansup."></div>
+										<div id=".$voteid."><p>".$row["vote_ans"]."</p></div>
+										<div class=\"arrow-down\" onclick=".$voteansdown."></div>
 									</div>
 									<div class=\"answer-content\">
 										<p>".$row["content_ans"]."</p>

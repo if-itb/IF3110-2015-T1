@@ -70,4 +70,19 @@
 		}
 		return $vote;
 	}
+
+	function GetVoteAns($conn,$id){
+		$sql = "SELECT vote_ans from answer WHERE id_ans=$id";
+		$result = $conn->query($sql);
+
+		if ($result->num_rows > 0) {
+		// output data of each row
+		  while($row = $result->fetch_assoc()) {
+				$vote=$row["vote_ans"];
+		  }
+		} else {
+		  echo "0 results";
+		}
+		return $vote;
+	}
 ?>
