@@ -1,4 +1,7 @@
-<?php require('config.php');
+<?php
+	require('includes/config.php'); 
+	include('includes/function.php');
+	include('includes/header.php');
 	$post_id = $_GET["id"];
 	$query = "select * from question where id = '".$post_id."'";
 	$data = mysql_query($query);
@@ -11,20 +14,9 @@
 	$data2 = mysql_query($query2);
 	$row2 = mysql_fetch_array($data2);
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-    <title>Coppeng Exchange</title>
-    <link rel="stylesheet" media="screen" href="css/style.css" >
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<script type="text/javascript" src="js/coppeng.js"></script>
-</head>
-<body>
-	<div id = "wrapper">
-	<h1 class = "center"><a href="index.php">Coppeng Exchange</a></h1>
-	<!-- pertanyaan-->
-	<div id="view-qeustion-page">
+
+<div id="view-qeustion-page">
+<!-- pertanyaan-->
 	<div class="section">	
 		<h2><?php echo $row['topic']; ?></h2>
 		<div class="row">
@@ -44,7 +36,8 @@
 			<span class="link delete"> <a href= "javascript:delete_question(<?php echo $row['id'];?>)" >Delete</a></span>
 		</div>
 		<br>
-		<!-- Jawaban --> 
+	</div>
+<!-- Jawaban --> 
 	<div class="section" id="answers">
 		<h2><?php echo $row2['numAns']; ?> Jawaban</h2> <hr>
 		<?php
@@ -71,19 +64,20 @@
 			</div>
 		<?php endwhile; ?>
 	</div>
+
+<!-- Form untuk menjawab-->
 	<div class="section" id="form-answer">
-	<h2>Beri jawaban :</h2>
-	<form class = "block" action = 'post-answer.php?id=<?php echo $q_id;?>' name = "myForm" method = 'POST' onsubmit = "return(validateAnswer());">
-		<ul>
-			<input type = 'text' name = 'Nama' placeholder="Nama" maxlength = '60'></input>
-			<input type = 'text' name = 'Email' placeholder="Email"  maxlength = '60'></input>
-			<textarea rows = '50' cols = '20' placeholder="Jawaban" name = 'Jawaban' ></textarea>
-			<button class = 'submit' type = 'submit' >Kirim</button>
-		</ul>
-	</form>
+		<h2>Beri jawaban :</h2>
+		<form class = "block" action = 'actions/post-answer.php?id=<?php echo $q_id;?>' name = "myForm" method = 'POST' onsubmit = "return(validateAnswer());">
+			<ul>
+				<input type = 'text' name = 'Nama' placeholder="Nama" maxlength = '60'></input>
+				<input type = 'text' name = 'Email' placeholder="Email"  maxlength = '60'></input>
+				<textarea rows = '50' cols = '20' placeholder="Jawaban" name = 'Jawaban' ></textarea>
+				<button class = 'submit' type = 'submit' >Kirim</button>
+			</ul>
+		</form>
 	</div>
 	<?php mysql_close($link); ?>
 	</div>
 </div>
-</body>
-</html>
+<?php include('includes/footer.php');?>

@@ -11,14 +11,14 @@ function getVote(category, id, val) {
 			document.getElementById(strid).innerHTML = xmlhttp.responseText;
 		}
 	}
-	str = "vote.php?c=" + category + "&id=" + id + "&val=" + val;
+	str = "actions/vote.php?c=" + category + "&id=" + id + "&val=" + val;
 	xmlhttp.open('GET',str,true);
 	xmlhttp.send();
 }
 
 function delete_question(id) {
 	if(confirm('Apakah anda ingin menghapus pertanyaan ini ?')) {
-		window.location.href='delete.php?id='+id;
+		window.location.href='actions/delete.php?id='+id;
 	}
 }
 

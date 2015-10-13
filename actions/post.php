@@ -1,4 +1,4 @@
-<?php require('config.php');
+<?php require('../includes/config.php');
 	$name = trim($_POST["Nama"]);
 	$email = trim($_POST["Email"]);
 	$topic = trim($_POST["Topik"]);
@@ -11,6 +11,6 @@
 	}
 	mysql_query($query);
 	mysql_close($link);
-	header('Location: index.php');
-	header('Location: view-question.php?id='.$q_id.'')
+	header('Location: ../index.php');
+	header('Location: ../view-question.php?id='.$q_id.'')
 ?>

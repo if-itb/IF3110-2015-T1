@@ -1,5 +1,5 @@
 <?php 
-	require('config.php');
+	require('../includes/config.php');
 	$category = $_GET['c'];
 	$id = intVal($_GET['id']);
 	$val = intVal($_GET['val']);
