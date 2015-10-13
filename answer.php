@@ -89,9 +89,9 @@
 							while($row = $result->fetch_assoc()) {	
 								echo "<div>";
                                     echo "<h2>".$row["questiontopic"]."</h2>";
-                                    echo '<div class="columnsmall left" id="ajax">
+                                    echo '<div class="columnsmall left" >
                                         <img src="up.png" alt="up" height="42" width="42" onclick="voteup('.$_GET["id"].')">
-                                            <p>'. $row["vote"].'</p>'.
+                                            <p id="ajax">'. $row["vote"].'</p>'.
                                         '<img src="down.png" alt="down" height="42" width="42" onclick="votedown('.$_GET["id"].')"></div>';
                                     echo '<div class="columnlargest center">';
                                        
@@ -117,9 +117,9 @@
 						if ($ansresult->num_rows > 0) {	
 							while($row = $ansresult->fetch_assoc()) {
 								echo "<div class='answer'>";
-								    echo '<div class="columnsmall left" id="ajax'.$row["answer_id"].'">
+								    echo '<div class="columnsmall left" >
                                             <img src="up.png" alt="up" height="42" width="42" onclick="voteupans('.$row["answer_id"].')">
-                                            <p>'. $row["vote"].'</p>'.
+                                            <p id="ajax'.$row["answer_id"].'">'. $row["vote"].'</p>'.
                                             '<img src="down.png" alt="down" height="42" width="42" onclick="votedownans('.$row["answer_id"].')">
                                         </div>';
                                     echo '<div class="columnlargest center">';

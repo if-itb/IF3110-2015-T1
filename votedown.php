@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-       <script src="votequestion.js"></script> 
         <link rel='stylesheet' href='style.css'/>
     </head>
     
@@ -25,9 +24,7 @@
                                 }else{
                                     $votee=$row["vote"];
                                 }
-                                    echo '<img src="up.png" alt="up" height="42" width="42" onclick="voteup('.$_GET["id"].')">
-                                            <p>'. $votee.'</p>'.
-                                        '<img src="down.png" alt="down" height="42" width="42"  onclick="votedown('.$_GET["id"].')"></div>';
+                                    echo $votee;
 							}
 						}
                          mysqli_query($con,"UPDATE question SET vote='$votee' WHERE question_id='$_GET[id]'");
