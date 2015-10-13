@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>Homepage</title>
+  <title>Home</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="master.css" >
 </head>
@@ -26,7 +26,7 @@
       updateQuestion($question);
     }
 
-    $tabQuestion = getAllRow('question');
+    $tabQuestion = getAllQuestions();
     $nQuestion = mysqli_num_rows($tabQuestion);
   ?>
 
@@ -59,13 +59,13 @@
             <div>Answer</div>
           </div>
           <div class="content-col">
-            <a href="question.php"><?php echo $question['topic']; ?></a>
+            <a href="question.php?q_id=<?php echo $question['q_id']?>"><?php echo $question['topic']; ?></a>
             <p> <?php echo $question['content']; ?> </p>
           </div>
           <div class="question-other">
             <div>asked by</div><div>|</div>
             <div><?php echo $question['name']; ?></div><div>|</div>
-            <a href="ask.php">edit</a><div></div>
+            <a href="ask.php?q_id=<?php echo $question['q_id'].'&address=home';?>">edit</a><div></div>
             <a href="delete.php">delete</a>
           </div>
         </div>

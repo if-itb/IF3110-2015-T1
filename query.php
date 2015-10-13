@@ -22,14 +22,14 @@ function updateQuestion($question) {
     return mysqli_query($conn, $query);
 }
 
-function getAllRow($table) {
+function getAllQuestions() {
   global $conn;
   $query = "SELECT * FROM question ORDER BY date_posted DESC";
   $result = mysqli_query($conn, $query);
   return $result;
 }
 
-function getQuestion() {
+function getQuestion($q_id) {
   global $conn;
   $query = "SELECT * FROM question WHERE q_id=$q_id ORDER BY date_posted DESC";
   $result = mysqli_query($conn, $query);
@@ -37,7 +37,25 @@ function getQuestion() {
   return $row;
 }
 
-function countAnswer() {
+function delQuestion() {
+
+}
+
+function addAnswer() {
+  global $conn;
+  $query = "INSERT INTO answer (q_id, content, name, email)
+    VALUES ('$answer[q_id])', '$answer[content]', '$answer[name]', '$answer[email]')";
+  return mysqli_query($conn, $query);
+}
+
+function getAnswers($q_id) {
+  global $conn;
+  $query = "SELECT * FROM answer WHERE q_id=$q_id ORDER BY vote DESC";
+  $result = mysqli_query($conn, $query);
+  return $result;
+}
+
+function countAnswer($q_id) {
   global $conn;
   $query = "SELECT COUNT(a_id) AS count FROM answer WHERE q_id=$q_id";
   $result = mysqli_query($conn, $query);
@@ -45,24 +63,16 @@ function countAnswer() {
   return $row['count'];
 }
 
-function delQuestion() {
-
-}
-
-function addAnswer() {
-
-}
-
-function getAnswer() {
-
-}
-
 function updateVote() {
 
 }
 
-function getVote() {
-
+function getVote($table, $id) {
+  global $conn;
+  $query = "SELECT vote FROM $table WHERE ".$table[0]."_id=$id";
+  $result = mysqli_query($conn, $query);
+  $row = mysqli_fetch_assoc($result);
+  return $row['vote'];
 }
 
 ?>
