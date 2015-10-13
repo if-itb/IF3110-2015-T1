@@ -129,6 +129,10 @@ body {
 	font-weight: 700;
 }
 
+.question p {
+	max-width: 660px;
+}
+
 .question-info {
 	margin-top: 80px;
 	min-width: 250px;

@@ -2,13 +2,21 @@
 	include("questionDiv.php");		
 
 	$db_con = mysql_connect("localhost", "root");
+	$query = "";
+	
 	if (!$db_con){
 		die('Could not connect: '.mysql_error());
 	}
+	
+	if(!empty($_GET["search"])) {
+		$query = "WHERE topic LIKE '%" . $_GET["search"] . "%' OR question LIKE '%" . $_GET["search"] . "%'";
+	}
+
+
 	mysql_select_db("stackexchange", $db_con);
 
-	$result = mysql_query("SELECT * FROM question_list ORDER BY qid DESC");
-	
+	$sql_query = "SELECT * FROM question_list " . $query . " ORDER BY qid DESC";
+	$result = mysql_query($sql_query);
 	if(mysql_num_rows($result) > 0) {
 		while($row = mysql_fetch_assoc($result)) {
 			$echoQuestion = $questionDiv;
