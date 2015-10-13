@@ -52,7 +52,7 @@
 					<div class="id-question">
 						<p> asked by <span class="name"><?php echo $row["Nama"] ?></span> | 
 							<span class="edit"> <a href="ask.php?ID=<?php echo $row["ID"] ?>"> edit </a> </span> | 
-							<span class="delete"> <a href="delete.php?ID=<?php echo $row["ID"] ?>"> delete </a> </span> 
+							<span class="delete"> <a href="delete.php?ID=<?php echo $row["ID"] ?>" onclick="return confirm('Apakah anda ingin menghapusnya ?')"> delete </a> </span> 
 						</p>
 					</div>
 				</div>
@@ -63,6 +63,12 @@
 		}
 		mysqli_close($conn);
 	?>
+
+	<script>
+		function konfirmasi() {
+    		confirm("Apakah anda ingin menghapusnya ?");
+    	}
+	</script>
 
 </body>
 </html>

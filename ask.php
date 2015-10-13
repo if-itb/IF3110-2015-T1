@@ -3,6 +3,42 @@
 <head>
 	<title>Ask</title>
 	<link rel="stylesheet" href="ask.css">
+
+	<script>
+	function validateForm() {
+	    var a = document.forms["question"]["nama"].value;
+	    var b = document.forms["question"]["email"].value;
+	    var c = document.forms["question"]["topik"].value;
+	    var d = document.forms["question"]["konten"].value;
+	    if (a == null || a == "") {
+	        alert("Nama belum terisi");
+	        return false;
+    	}
+    	if (b == null || b == "") {
+	        alert("Email belum terisi");
+	        return false;
+    	}
+    	if (c == null || c == "") {
+	        alert("Topik belum terisi");
+	        return false;
+    	}
+    	if (d == null || d == "") {
+	        alert("Konten belum terisi");
+	        return false;
+    	}
+    	var x = b.split("");
+    	var benar = false;
+    	for (i=1;i<b.length;i++){
+    		if (x[i] == "@"){
+    			benar = true;
+    		}
+    	}
+    	if (benar == false) {
+    		alert("Format Email Salah");
+    		return false;
+    	}
+	}
+	</script>
 </head>
 <body>
 
@@ -42,7 +78,7 @@
 	<h2> What's your question ? </h2>
 	<hr>
 
-	<form action="add_question.php" method="post">
+	<form action="add_question.php" method="post" name="question" onsubmit="return validateForm()">
 		<input name="nama" class="name" type="text" value="<?php echo $name ?>" placeholder="Name"> <br>
 		<input class="email" type="text"  name="email" value="<?php echo $email ?>" placeholder="Email"> <br>
 		<input class="topic" type="text" name="topik" value="<?php echo $topic ?>" placeholder="Question Topic"> <br>

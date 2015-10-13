@@ -3,6 +3,37 @@
 <head>
 	<title>Answer</title>
 	<link rel="stylesheet" href="answer.css">
+
+	<script>
+	function validateForm() {
+	    var a = document.forms["answer"]["nama"].value;
+	    var b = document.forms["answer"]["email"].value;
+	    var c = document.forms["answer"]["konten"].value;
+	    if (a == null || a == "") {
+	        alert("Nama belum terisi");
+	        return false;
+    	}
+    	if (b == null || b == "") {
+	        alert("Email belum terisi");
+	        return false;
+    	}
+    	if (c == null || c == "") {
+	        alert("Konten belum terisi");
+	        return false;
+    	}
+    	var x = b.split("");
+    	var benar = false;
+    	for (i=1;i<b.length;i++){
+    		if (x[i] == "@"){
+    			benar = true;
+    		}
+    	}
+    	if (benar == false) {
+    		alert("Format Email Salah");
+    		return false;
+    	}
+	}
+	</script>
 </head>
 <body>
 	<h1> Simple StackExchange</h1>
@@ -51,7 +82,7 @@
 		<div class="question-identity">
 			<p> asked by <?php echo $row["Nama"] ?> at <?php echo $row["Tanggal"] ?>  | 
 				<span class="edit">  <a href="ask.php?ID=<?php echo $id ?>">edit</a> </span> | 
-				<span class="delete"> <a href="delete.php?ID=<?php echo $id ?>">delete</a> </span> 
+				<span class="delete"> <a href="delete.php?ID=<?php echo $id ?>" onclick="return confirm('Apakah anda ingin menghapusnya ?')">delete</a> </span> 
 			</p>
 		</div>
 	</div>
@@ -94,7 +125,7 @@
 	<hr>
 	<h2 class="answer-form">Your Answer</h2>
 	<div class="answer-form">
-		<form action="add_answer.php" method="post">
+		<form action="add_answer.php" method="post" onsubmit="return validateForm()" name="answer">
 			<input class="name" type="text" name="nama" value="" placeholder="Name"> <br>
 			<input class="email" type="text"  name="email" value="" placeholder="Email"> <br>
 			<textarea class="content" type="text" name="konten" placeholder="Content"></textarea><br>
@@ -104,6 +135,12 @@
 	</div>
 	
 	<?php mysqli_close($conn); ?>
+
+	<script>
+		function konfirmasi() {
+    		confirm("Apakah anda ingin menghapusnya ?");
+    	}
+	</script>
 
 </body>
 </html>

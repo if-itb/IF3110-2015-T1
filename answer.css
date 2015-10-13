@@ -60,8 +60,8 @@ h2{
 	float:left;	
 	width: 60%;
 	margin-right: 5%;
-	height:70%;
 	text-align: center;
+	word-wrap:break-word;
 }
 
 .answer-identity{
