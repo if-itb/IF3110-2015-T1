@@ -22,5 +22,5 @@
 			<?php showQuestionList()?>
 		</div>
 	</div>
-
+<script src="assets/js/confirmation.js"></script>
 <?php include "views/footer.php";?>

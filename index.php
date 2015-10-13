@@ -1,5 +1,4 @@
 <?php
-	header('location: ');
-	require_once('home.php');
+	header('location: home.php');
 	exit;
 ?>

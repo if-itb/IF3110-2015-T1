@@ -1,5 +1,4 @@
 <?php
-	echo
 	require_once("../config/config.php");
 
 	// Edit question

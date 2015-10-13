@@ -10,14 +10,16 @@
 	?>
 		<br><br>
 		<div class="center">
-			<form class="basic-grey" action="controllers/answer.controller.php" method="post">
+			<form class="basic-grey" name= "answer" action="controllers/answer.controller.php" onsubmit="return validateAnswerForm()" method="post">
 				<input type="hidden" name="q_id" value="<?php echo $id ?>">
 				<input type="text" id="name" name="name" placeholder="Name"><br>
 				<input type="text" id="email" name="email" placeholder="Email"><br>
-				<textarea id="content" name="content" placeholder="Content" required></textarea><br>
+				<textarea id="content" name="content" placeholder="Content" ></textarea><br>
 				<input type="submit" value="Post">
 			</form>
 		</div>
 	</div>
-</body>
-</html>
+
+<script src="assets/js/validation.js"></script>
+<script src="assets/js/script.js"></script>
+<?php include "views/footer.php";?>

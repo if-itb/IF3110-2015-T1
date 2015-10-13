@@ -3,8 +3,12 @@
 	
 	function showQuestion($id) {
 		$question = selectQuestion($id);
-		echo "<h2><a href=\"question.php?q_id=" . $id . "\" class=\"question-title-big\">" . $question["topic"] . "</a></h2><hr>";
-		echo "<span id=\"question-vote\"><br><span class=\"question-number\">" . $question["vote"] . "</span><br> Votes </span>";
+		echo "<h2>";
+		echo "<a href=\"question.php?q_id=" . $id . "\" class=\"question-title-big\">" . $question["topic"] . "</a></h2><hr>";
+		echo "<span id=\"question-vote\"><br>";
+		echo "<div onclick=\"vote(". $id . ",'question','up')\" class=\"arrow-up\"></div><br>";
+		echo "<span id=\"questvote\" class=\"question-number\">" . $question["vote"] . "</span><br><br>";
+		echo "<div onclick=\"vote(". $id . ",'question','down')\"  class=\"arrow-down\"></div><br></span>";
 		echo "<span id=\"question-content\">";
 		echo $question["content"] . "<br><br><br>";
 		echo "<span class=\"question-info\">asked by <span class=\"author\">" . $question["name"] .
@@ -25,12 +29,14 @@
 			echo "No answer. <br><br><br><hr><br>";
 		}
 		for($i = 0; $i < sizeof($answerList); $i++) {		
-			echo "<span id=\"question-vote\"><br><span class=\"question-number\">" . $answerList[$i]["vote"] . "</span><br> Votes </span>";
+			echo "<span id=\"question-vote\"><br>";
+			echo "<div onclick=\"vote(". $answerList[$i]["id"]  . ",'answer','up')\" class=\"arrow-up\"></div><br>";
+			echo "<span id=\"ansvote-" . $answerList[$i]["id"] . "\"class=\"question-number\">" . $answerList[$i]["vote"] . "</span><br><br>";
+			echo "<div onclick=\"vote(". $answerList[$i]["id"] . ",'answer','down')\" class=\"arrow-down\"></div><br></span>";
 			echo "<span id=\"question-content\">";
 			echo $answerList[$i]["content"] . "<br><br><br>";
 			echo "<span class=\"question-info\">answered by <span class=\"author\">" . $answerList[$i]["name"] .
-				"</span> | <a class=\"edit-question\">edit</a> | 
-				<a class=\"delete-question\" onclick=\"deleteConfirmation(" . $answerList[$i]["id"] . ")\">delete</a><br></span></span>";
+			"</span> at " . $answerList[$i]["date_created"] . " </span>";
 			echo "</span><br><br>";
 			echo "<hr>";
 		}

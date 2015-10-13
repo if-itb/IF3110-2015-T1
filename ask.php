@@ -16,4 +16,6 @@
 			</form>
 		</div>
 	</div>
+	
+<script src="assets/js/validation.js"></script>
 <?php include "views/footer.php";?>

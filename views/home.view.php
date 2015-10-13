@@ -12,7 +12,7 @@
 			echo $questionList[$i]["content"] . "<br><br>";
 			echo "<span class=\"question-info\">asked by <span class=\"author\">" . $questionList[$i]["name"] .
 			"</span> | <a href=\"edit.php?q_id=" . $questionList[$i]["id"] . "\" class=\"edit-question\">edit</a> | 
-			<a class=\"delete-question\" onclick=\"deleteConfirmation(" . $questionList[$i]["id"] . ")\">delete</a><br></span></span>"; 
+			<a href=\"controllers/delete-question.controller.php?q_id=" . $questionList[$i]["id"] . "\"class=\"delete-question\" onclick=\"deleteConfirmation(" . $questionList[$i]["id"] . ")\">delete</a><br></span></span>"; 
 		}
 		echo "</div>";
 	}
