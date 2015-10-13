@@ -5,8 +5,8 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
-    <div>
-      <h1>Simple StackExchange</h1>
+    <div class="container">
+      <a href="index.php" class="home">Simple StackExchange</a>
       <h2>What's Your Question?</h2>
       <hr>
 	<?php

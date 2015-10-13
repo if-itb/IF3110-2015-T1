@@ -1,14 +1,78 @@
+.container {
+  width: 1080px;
+  margin: 0 auto;
+}
+
 .form {
-  display: block;
-  margin: 5px 0;
-  border: 1px solid #ddd;
-  width: 100%;
-  padding: 6px 12px;
-  line-height: 1.42857143;
+	display: block;
+	margin: 5px 0;
+	border: 1px solid #ddd;
+	width: 100%;
+	padding: 6px 12px;
+	line-height: 1.42857143;
+	font-size: 14px;
+	box-sizing: border-box;
+}
+
+.home {
+	padding-left: 300px;
+	text-decoration: none;
+	font-size:40px;
+	color: Black;
+}
+
+.btn {	
+  border: 5px solid white;
+  padding: 8px 15px;
   font-size: 14px;
-  box-sizing: border-box;
+}
+
+.row {
+  width: 100%;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.row:after {
+  clear: both;
+  content: " ";
+  display: block;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.span-1, .span-2, .span-8, .span-offset-1 {
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+.span-offset-1 {
+  margin-left: 10%;
+}
+
+.span-1 {
+  width: 10%;
+}
+
+.span-2 {
+  width: 20%;
+}
+
+.span-8 {
+  width: 80%;
 }
 
 a {
-  color: Blue;
+	color: Blue;
+	text-decoration: none;
 }
+
