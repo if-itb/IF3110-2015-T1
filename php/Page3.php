@@ -13,7 +13,9 @@
 	<body>
 		<div class="font30 color-blue">
 			<h1>
-				Simple StackExchange
+				<a class="no-text-decoration" href="page1.php">
+					Simple StackExchange
+				</a>
 			</h1>
 		</div>
 		<br>
@@ -45,10 +47,9 @@
 						<table class="table1">
 							<tr>
 								<td class="tdnumber2 text-center">
-									<img class="image1" src="arrowup.jpg" alt="VoteUp"><br>
-									 
-									<br>' . $fetched["Vote"] . '</br> <br>
-									<img class="image1" src="arrowdown.jpg" alt="VoteDown">
+									<img class="image1" src="arrowup.jpg" alt="VoteUp" onclick="upVoteQue('.$_GET['id'].')"><br>
+									<br><span id="ajaxQuestion'.$_GET['id'].'">' . $fetched["Vote"] . '</span></br><br>
+									<img class="image1" src="arrowdown.jpg" alt="VoteDown" onclick="downVoteQue('.$_GET['id'].')">
 								</td>
 								<td class="tdtopic text-left">
 									' . $fetched["Question"] . '
@@ -82,7 +83,7 @@
 
 				}
 			}
-		
+			echo $fetched["Answer"];
 			$query2 = "SELECT * FROM answers WHERE answers.QuestionID = '$_GET[id]'";
 			$result2 = mysqli_query ($dbConn,$query2);
 
@@ -90,37 +91,33 @@
 			{
 				while ($fetched2=$result2->fetch_assoc())
 				{
-					if ($fetched2["QuestionID"]==$_GET["id"])
-					{
-						echo'
-						<div>
-							<table class="table1">
-								<tr>
-									<td class="tdnumber2 text-center">
-										<img class="image1" src="arrowup.jpg" alt="VoteUp"><br>
-										 
-										<br>' . $fetched2["Vote"] . '</br> <br>
-										<img class="image1" src="arrowdown.jpg" alt="VoteDown">
-									</td>
-									<td class="tdtopic text-left">
-										' . $fetched2["Answer"] . '
-									</td>
-								</tr>
-								<tr>
-									<td colspan="2" class="text-right">
-											 <p>
-												 Answered by 
-												 <span class="color-blue">' . $fetched2["Name"] . '</span>
-												  at 
-												 <span>' . $fetched2["DateandTime"] . '</span>
-											 </p>								
-									</td>
-								</tr>
-							</table>
-							<br><br>
-						</div>
-						';						
-					}
+					echo'
+					<div>
+						<table class="table1">
+							<tr>
+								<td class="tdnumber2 text-center">
+									<img class="image1" src="arrowup.jpg" alt="VoteUp" onclick="upVoteAns(' . $fetched2["AnswerID"] . ')"><br>
+									<br><span id="ajaxAnswer'.$fetched2["AnswerID"].'">' . $fetched2["Vote"] . '</span></br> <br>
+									<img class="image1" src="arrowdown.jpg" alt="VoteDown" onclick="downVoteAns(' . $fetched2["AnswerID"] . ')">
+								</td>
+								<td class="tdtopic text-left">
+									' . $fetched2["Answer"] . '
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2" class="text-right">
+										 <p>
+											 Answered by 
+											 <span class="color-blue">' . $fetched2["Name"] . '</span>
+											  at 
+											 <span>' . $fetched2["DateandTime"] . '</span>
+										 </p>								
+								</td>
+							</tr>
+						</table>
+						<br><br>
+					</div>
+					';						
 				}
 			}
 			else
