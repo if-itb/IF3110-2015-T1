@@ -15,7 +15,12 @@
 		</div>
 	</div>
 	<span class='control'>
-		<span>asked by <span class='username'><?= $question->name ?></span> at <?= $question->created_at ?> |</span>
+		<span>
+			asked by 
+			<span class='username'><?= $question->name ?></span>
+			(<span class='email'><?= $question->email ?></span>)
+			at <?= $question->created_at ?> |
+			</span>
 		<span><a href='/questions/edit?id=<?= $question->id ?>'>edit </a></span>|
 		<span><a href='/questions/delete?id=<?= $question->id ?>'>delete </a></span>
 	</span>

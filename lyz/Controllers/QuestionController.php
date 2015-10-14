@@ -68,10 +68,10 @@ class QuestionController {
 
 		$view = new View('layout');
 		$view = $view->params([ 
-			'title' => $question->topic,
+			'title' => 'Asklyz - ' . $question->topic,
 			'content' => (string)$content,
 			'headline' => $question->topic,
-			])->scripts(['layout'])->styles(['layout', 'form', 'card', 'card-detail']);
+			])->scripts(['layout', 'form', 'votes'])->styles(['layout', 'form', 'card', 'card-detail']);
 
 		return $view;
 	}
@@ -81,10 +81,10 @@ class QuestionController {
 		$view = new View('layout');
 
 		$view = $view->params([ 
-			'title' => 'Asklyz',
+			'title' => 'Asklyz - Create Question',
 			'content' => (string)$content,
 			'headline' => 'What\'s your question?'
-			])->scripts(['layout'])->styles(['layout', 'form', 'card']);
+			])->scripts(['layout', 'form'])->styles(['layout', 'form', 'card']);
 
 		return $view;
 	}
@@ -96,10 +96,10 @@ class QuestionController {
 		$view = new View('layout');
 
 		$view = $view->params([ 
-			'title' => 'Asklyz',
+			'title' => 'Asklyz - Update Question',
 			'content' => (string)$content,
 			'headline' => 'What\'s your question?'
-			])->scripts(['layout'])->styles(['layout', 'form', 'card']);
+			])->scripts(['layout', 'form'])->styles(['layout', 'form', 'card']);
 
 		return $view;
 	}
@@ -109,6 +109,19 @@ class QuestionController {
 		Question::where('id','=',$question_id)->destroy();
 
 		return Route::redirect();
+	}
+
+	public function postVotes() {
+		$input = Request::params(['id', 'up']);
+		$question = Question::where('id','=',$input['id'])->first();
+		$question->votes += ($input['up'] == 'true') ? 1 : -1;
+		$question->update('id=' . $question->id);
+
+		$response = [
+			'votes' => $question->votes
+		];
+
+		return json_encode($response);
 	}
 
 	public function postCreate() {

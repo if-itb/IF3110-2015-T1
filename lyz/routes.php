@@ -15,3 +15,6 @@ Route::post('/questions/edit', 'QuestionController@postUpdate');
 
 Route::get('/questions/delete', 'QuestionController@getDelete');
 
+Route::post('/questions/votes', 'QuestionController@postVotes');
+Route::post('/answers/votes', 'AnswerController@postVotes');
+
