@@ -61,7 +61,7 @@
 					<a href=" /WBD/answer.php?id=<?= $question_id ?>"><p><?php echo $topic; ?></a></p>					
 					<div class="asked-description">
 						<p>Asked by <span style="color : #502fc8"><?php echo $name; ?></span> |
-							<span style="color : #ffcb55"><a href=" /WBD/question.php?id=<?= $question_id ?>">edit</a></span> |
+							<span style="color : #ffcb55"><a href=" /WBD/update-question.php?id=<?= $question_id ?>">edit</a></span> |
 							<span style="color : #fd294a">delete</p>
 					</div>
 				</div>
