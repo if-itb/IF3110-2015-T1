@@ -3,9 +3,11 @@
 <html>
 	<head>
 		<title>ASK a Question</title>
+		<link rel="stylesheet" type="text/css" href="style.css">	
 	</head>
 	<body>
-		<a href="index.php"><H2>SIMPLE STACK EXCHANGE</H2></a>
+		<div class='closing'>
+		<a href="index.php"><H1>SIMPLE STACK EXCHANGE</H1></a>
 		<?php				
 		$servername = "localhost";
 		$username = "root";
@@ -34,13 +36,23 @@
 			."' where (qid=".$_POST['qid'].")";
 		}
 		if (mysqli_query($conn, $sql)) {
-		    echo "Your question has been posted succesfully!";
+		    echo "Your question has been posted succesfully!<br><br>";
+		    echo "You will be redirected to main page in 5 sec.<br><br>";
+		    echo "<a href='index.php'>Back</a><br><br>";
 		} else {
 		    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		}
 
 		
 		mysqli_close($conn);
-		?>	
+		?>
+		<script>
+			function Redirect() {
+				window.location="/WBD/index.php";
+			}			    		
+			setTimeout('Redirect()', 5000);		
+		
+		</script>
+		</div>
 	</body>
 </html>
