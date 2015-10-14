@@ -79,7 +79,7 @@
 			</tr>
 			<tr>
 				<td colspan="3" class="attribute" style=text-align:right;>
-					<b>asked by <font color="purple"><?php echo $row["username"]; ?></font> | 
+					<b>asked by <font color="blue"><?php echo $row["username"]; ?></font> | 
 					<a href="edit-question.php?id=<?php echo $row["id_question"]; ?>" style="text-decoration:none;"><font color='orange'>edit</font></a> | 
 					<a href="javascript:delete_id(<?php echo $row["id_question"]; ?>)" style="text-decoration:none;"><font color="red">delete</a></font></b>
 				</td>

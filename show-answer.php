@@ -73,7 +73,7 @@
 					<td class="content"><?php echo $row["content"]?></td>
 				</tr>
 				<tr>
-					<td colspan="2" class="attribute" style="text-align:right;">asked by <font color="purple"><?php echo $row["username"];?></font> at <?php echo $row["created_date"];?> | 
+					<td colspan="2" class="attribute" style="text-align:right;">asked by <?php echo $row["username"];?> at <?php echo $row["created_date"];?> | 
 						<a href="edit-question.php?id=<?php echo $row["id_question"];?>" style="text-decoration:none;"><font color="orange">edit</font></a> | 
 						<a href="javascript:delete_id(<?php echo $row["id_question"];?>)" style="text-decoration:none;"><font color="red">delete</a></font>
 					</td>
@@ -103,7 +103,7 @@
 							<td class="content"><?php echo $row["content"];?></td>
 						</tr>
 						<tr>
-							<td colspan="2" class="attribute" style="text-align:right;">answered by <font color="purple"><?php echo $row["username"];?></font>
+							<td colspan="2" class="attribute" style="text-align:right;">answered by <?php echo $row["username"];?>
 						 	at <?php echo $row["ans_date"]?></td>
 						</tr>
 					</table>
