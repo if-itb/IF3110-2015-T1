@@ -113,6 +113,8 @@ function validateEmail(email) {
 
 ```
 
+Jika pengguna menekan tombol submit form ketika nilai setiap field pada form sudah valid, JavaSciript akan menjalankan method `submit` untuk mengirim nilai yang ada pada form.
+
 #### AJAX untuk Vote Up dan Vote Down
 
 AJAX digunakan pada tombol vote agar browser tidak me-refresh halaman. Ketika tombol vote ditekan, kode JavaScript akan dijalankan. Kode tersebut menerima data yang berupa id dari question/answer dan state untuk *vote* (*up/down*). Kode tersebut kemudian akan menciptakan objek `XMLHttpRequest` dan mengirimkan *query string* dengan method `POST` yang kemudian akan diproses oleh file php.
