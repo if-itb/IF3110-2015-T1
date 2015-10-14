@@ -1,40 +1,91 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Simple Stack Exchange</title>
+<title>Simple StackExchange</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
 <body>
-<h1> Simple Stack Exchange </h1>
+<?php
+	$connect = mysql_connect("localhost","root","") or die ("Connection Error");
+	$selectdb = mysql_select_db("stackexchange", $connect);
+	$qid = $_GET["id"];
+	$query = mysql_query("SELECT * FROM `question` where `id_question`='$qid'",$connect);
+	$question = mysql_fetch_array($query);
 
-<div id="container">
 
-<table class ="question">
-	<tr>
-    	<td colspan = 2> The question topic goes here </td>
-    </tr>
-    <tr>
-    	<td rowspan = 2 class="td-vote-answer"> votes </td>
-        <td id="detail">Question detail<!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.--> </td>
-    </tr>
-    <tr>
-    	<td colspan="2"> Asked by .... </td>
-    </tr>
-</table>
+	echo'<a href="index.php"><h1> Simple StackExchange </h1></a>';
+	
+	echo
+		'<div id="container">
+		<div class="container-title"><h2>'.$question[4].'</h2></div>
+		
+		<table class ="question">
+			<tr>
+				<td rowspan = 2 class="td-vote-answer"> votes </td>
+				<td class="td-content">'.nl2br($question[5]).'<p></p></td>
+			</tr>
+			<tr>
+				<td class="td-detail">asked by <span class="username">'.$question[3].'</span></td>
+			</tr>
+		</table>
+	';
 
-<table>
+	$answers = mysql_query("SELECT * FROM `answer` WHERE `id_question`='$qid' ORDER BY `votes` DESC",$connect);
+	$countanswer = mysql_num_rows($answers);
+	echo '<div class="container-title"><h2>'.$countanswer.' Answer</h2></div>';
+	if ($answers){
+		while($row = mysql_fetch_array($answers)){
+			echo '<table class=answer>';
+				echo '<tr>';
+					echo '<td rowspan="3" class="td-vote-answer">';
+						echo ('<b>'.$row[6].'</b><br>Votes');
+					echo '</td>';
+					echo '<td class="td-content">';
+						echo nl2br($row[5]).'<p></p>';
+					echo '</td>';
+					echo '</tr>';
+					
+					echo '<tr>';
+					echo '<td class="td-detail">';
+						echo ('answered by <span class="username">'.$row[3].'</span>');
+					echo '</td>';
+					echo '</tr>';
+				echo '</table>';
+		}
+	}
+?>
 
-</table>
-
-<form class="ask" action="ask.php" method="post">
-	<input type="text" name="name" placeholder="Name" required>
-	<p></p><input type="text" name="email" placeholder="Email" required>
-    <p></p><input type="text" name="topic" placeholder="Question Topic" required />
-    <p></p><textarea name="content" placeholder="Content" required="required"></textarea>
-	<p></p><button type="submit"> Post </button>
-</form>
-</div>
+    <div class="container-title"></div>
+    <form class="form-wrapper" action="" method="post">
+    <p class="your-answer">Your Answer</p>
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="email" placeholder="Email" required>
+        <textarea name="content" placeholder="Content" required="required"></textarea>
+        <button type="submit" name="submit"> Post </button>
+    </form>
+	</div>
 </body>
+
+<?php
+if (array_key_exists('submit',$_POST)){
+$name = $_POST['name'];
+$email = $_POST['email'];
+$topic = $_POST['topic'];
+$question = $_POST['content'];
+$countanswer++;
+
+mysql_query ("INSERT INTO `answer`(`id_question`,`id_answer`,`name`, `email`, `answer_content`, `votes`) VALUES ('$qid','$countanswer','$name','$email','$question','0')",$connect);
+
+header("Location: question.php?id=".$qid);
+}
+mysql_close($connect);
+
+?>
+
 </html>
+
+

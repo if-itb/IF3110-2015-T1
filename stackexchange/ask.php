@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Simple Stack Exchange</title>
+<title>Simple StackExchange</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
@@ -15,16 +15,18 @@
 	$connect = mysql_connect("localhost","root","") or die ("Connection Error");
 	$selectdb = mysql_select_db("stackexchange", $connect);
 ?>
-<h1> Simple Stack Exchange </h1>
-<div id="container">
-<b> What's your question? </b>
+<a href="index.php"><h1> Simple StackExchange </h1></a>
 
-<form class="ask" action="ask.php" method="post">
+<div id="container">
+<div class="container-title">
+<h2> What's your question? </h2>
+</div>
+<form class="form-wrapper" action="" method="post">
 	<input type="text" name="name" placeholder="Name" required>
-	<p></p><input type="text" name="email" placeholder="Email" required>
-    <p></p><input type="text" name="topic" placeholder="Question Topic" required />
-    <p></p><textarea name="content" placeholder="Content" required="required"></textarea>
-	<p></p><button type="submit" name="submit"> Post </button>
+	<input type="text" name="email" placeholder="Email" required>
+    <input type="text" name="topic" placeholder="Question Topic" required />
+    <textarea name="content" placeholder="Content" required="required"></textarea>
+	<button type="submit" name="submit"> Post </button>
 </form>
 
 </div>
@@ -39,7 +41,10 @@ $question = $_POST['content'];
 
 
 mysql_query ("INSERT INTO `question`(`name`, `email`, `topic`, `question_content`, `votes`) VALUES ('$name','$email','$topic','$question','0')",$connect);
-header("Location: index.php");
+
+$id = mysql_insert_id();
+
+header("Location: question.php?id=".$id);
 }
 mysql_close($connect);
 
