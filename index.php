@@ -7,8 +7,10 @@
 	<body>
 		<div class="container">
 			<h1><a href="/stackExchange/index.php">Simple StackExchange</a></h1><br>
-			<input type="text" name="keyword" id="inputtext2">
-			<input type="submit" value="Search" id="search"><br>
+			<form name="SearchForm" action="Search.php" method="POST">
+				<input type="text" name="keyword" id="inputtext2">
+				<input type="submit" value="Search" id="search"><br>
+			</form>
 			<p style="text-align:center">Cannot find what you are looking for? <a href=AskQuestion.php style="color:orange">Ask here</a></p>
 			<h3>Recently Asked Questions</h3>
 
@@ -44,7 +46,7 @@
 				    		</td>
 				    		<td style="vertical-align:top; padding-top:5px">'
 				    			.$linkshow.'<br><br>'.$content.'<br>
-				    			<p style="text-align:right">asked by '.$row["email"].' | '.$linkedit.' | '.$linkdelete.'</p>
+				    			<p style="text-align:right">asked by <span style="color:blue">'.$row["name"].'</span> | '.$linkedit.' | '.$linkdelete.'</p>
 				    		</td>
 				    	</tr>';
 			    	}

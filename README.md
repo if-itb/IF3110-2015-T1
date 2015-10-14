@@ -89,7 +89,16 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+1. Melakukan validasi pada client-side
+
+Setelah pengguna mengisi form pertanyaan, fungsi javascript validateQuestionForm() akan dipanggil. Fungsi ini mengecek apakah ada field yang kosong dan apakah email diisi dengan format yang benar. Jika iya, maka fungsi akan mengembalikan nilai false, sehingga akan muncul peringatan dan page html tidak berubah. Hal yang sama juga dilakukan pada form menjawab, hanya saja fungsi yang dipanggil adalah fungsi validateAnswerForm().
+
+
+2. Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
+
+Saat pengguna meng-klik tombol vote, fungsi javascript yang menangani vote dipanggil dengan parameter berupa ID dari question atau answer yang tombol votenya di-klik. Ada 4 buah fungsi yang menangani vote, yaitu addQuestionVote, substractQuestionVote, addAnswerVote, dan substractAnswerVote. Keempatnya disimpan di file Function.js.
+
+Keempat fungsi tersebut pada dasarnya memiliki cara kerja yang sama. Sebuah variabel XMLHttpRequest dibuat dan digunakan untuk melakukan pertukaran data dengan web server. Pertukaran data ini dilakukan dengan kode php di file lain. Kode tersebut mengubah nilai vote pada database, lalu mengembalikannya. Fungsi javascript kemudian mengubah elemen dokumen http yang menampilkan jumlah vote menjadi jumlah vote yang baru yang didapatkan dari response text variabel XMLHttpRequest.
 
 ### Knowledge
 
