@@ -1,12 +1,12 @@
-h2.card {
+.card > h2 {
 	font-weight: 400;
 	margin: 0px;
+	margin-top: 24px;
 }
 
 .card {
 	text-align: left;
 	border-bottom: 2px solid #296ac7;
-	padding: 8px 10px 24px 10px;
 }
 
 .container {
@@ -15,30 +15,48 @@ h2.card {
 	flex-flow: row nowrap;
 	-webkit-flex-direction: row wrap;
 
+	padding: 8px 10px 24px 10px;
 	position: relative;
 }
 .container > * {
 	padding: 8px;
 }
 
-.container > .statistic {
-	width: 8%;
+.container > .votecell {
+	width: 40px;
 	font-size: 24px;
 	text-align: center;
 	vertical-align: middle;
 	flex: 0 0 auto;
 	-webkit-flex: 0 0 auto;
+	display: flex;
+	flex-flow: column nowrap;
+	-webkit-flex-direction: column wrap;
 }
 
-.container > .statistic > * {
-	display: block;
+.voteup {
+	width: 40px;
+	height: 30px;
+	background-image: url('http://cdn.sstatic.net/stackoverflow/img/sprites.svg?v=a7723f5f7e59'), none;
+	background-size: initial;
+	background-position: 0px -170px;
+	background-repeat: no-repeat;
+	cursor: pointer;
 }
 
-.container > .statistic > .unit {
-	font-size: 12px;
-	padding-top: 4px;
-	padding-bottom: 4px;
+.votedown {
+	width: 40px;
+	height: 30px;
+	background-image: url('http://cdn.sstatic.net/stackoverflow/img/sprites.svg?v=a7723f5f7e59'), none;
+	background-size: initial;
+	background-position: 0px -220px;
+	background-repeat: no-repeat;
+	cursor: pointer;
 }
+
+.container > .voteup {
+}
+
 
 .container > .control {
 	position: absolute;
@@ -47,6 +65,8 @@ h2.card {
 }
 
 .container > .question-detail {
+	text-align: left;
+
 	flex: 1 1 auto;
 	-webkit-flex: 1 1 auto;
 

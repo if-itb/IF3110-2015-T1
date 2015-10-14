@@ -10,7 +10,9 @@
 	</div>
 	<div class='question-detail'>
 		<div class='topic'><a href='/questions?id=<?= $question->id ?>'><?= $question->topic ?></a></div>
-		<div class='detail'><?= $question->content ?></div>
+		<div class='detail'>
+			<p><?= nl2br($question->content) ?></p>
+		</div>
 	</div>
 	<span class='control'>
 		<span>asked by <span class='username'><?= $question->name ?></span> at <?= $question->created_at ?> |</span>

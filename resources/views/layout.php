@@ -16,7 +16,9 @@
 				<?= $search ?>
 			<?php endif; ?>
 			<div class="content">
-				<h2 class="card"><?= $headline; ?></h2>
+				<div class='card'>
+					<h2><?= $headline; ?></h2>
+				</div>
 				<?= $content ?>
 			</div>
 			<div class="footer"></div>

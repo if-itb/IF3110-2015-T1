@@ -55,9 +55,16 @@ class QuestionController {
 	public function getRead() {
 		$question_id = Request::params('id')['id'];
 		$question = Question::where('id', '=', $question_id)->first();
+		$question_view = new View('questions/detail');
 
-		$content = new View('questions/detail');
-		$content = $content->params(['question' => $question]);
+		$answers = Answer::where('question_id', '=', $question_id)->get();
+		$answer_view = new View('answers/detail');
+		$answer_form = new View('answers/form');
+
+		$question->answers = count($answers);
+		$content = (string)$question_view->params(['question' => $question]) .
+			(string)$answer_view->params(['answers' => $answers]) .
+			(string)$answer_form;
 
 		$view = new View('layout');
 		$view = $view->params([ 

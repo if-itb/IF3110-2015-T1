@@ -1,3 +1,17 @@
+.form-header {
+	text-align: left;
+}
+
+.form-header > h2 {
+	font-weight: 400;
+
+	margin: 0;
+	padding: 24px 10px 10px 10px;
+}
+
+.answer-form {
+}
+
 input[type=text], textarea {
 	display: block;
 	margin: auto;

@@ -1,12 +1,13 @@
-h2.card {
+.card > h2 {
 	font-weight: 400;
 	margin: 0px;
+	margin-top: 24px;
 }
 
 .card {
 	text-align: left;
 	border-bottom: 2px solid #296ac7;
-	padding: 8px 10px 24px 10px;
+	padding: 8px 10px 10px 10px;
 }
 
 .container {
@@ -16,14 +17,15 @@ h2.card {
 	-webkit-flex-direction: row wrap;
 
 	position: relative;
+	padding: 8px 10px 24px 10px;
 }
 .container > * {
 	padding: 8px;
 }
 
 .container > .statistic {
-	width: 8%;
-	font-size: 24px;
+	width: 48px;
+	font-size: 28px;
 	text-align: center;
 	vertical-align: middle;
 	flex: 0 0 auto;
@@ -47,6 +49,8 @@ h2.card {
 }
 
 .container > .question-detail {
+	text-align: left;
+
 	flex: 1 1 auto;
 	-webkit-flex: 1 1 auto;
 
