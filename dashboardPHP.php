@@ -14,10 +14,10 @@
     </form>
 
     <p>Cannot find what you are looking for?
-        <a href="http://www.google.com">ask here</a>
+        <a href="NewQuestion.php">ask here</a>
     </p>
 
-    <h4 class="relative">
+    <h4 class="relative1">
         Frequently Asked Question
     </h4>
 
@@ -27,7 +27,27 @@
 
     ?>
 
+    <hr width="770">
+
     <br>
+
+
+    <?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password);
+
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    echo "Connected successfully";
+    ?>
+
+
 
 </center>
 

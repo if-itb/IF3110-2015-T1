@@ -10,26 +10,19 @@
 <Center>
     <h1>Simple StackExchange</h1>
 
-    <h4 class="relative">
+    <h4 class="relative1">
         What's your question?
     </h4>
 
-    <hr width=770
-        border-width: 3px;
-        margin-top: 35.01em;
-        margin-bottom: 0.01em;
-        >
-    <h4 class="relative">
-        <input type="text" name="Name" value="Name"><br>
-        <input type="text" name="Email" value="Email"><br>
-        <input type="text" name="QuestionTopic" value="QuestionTopic"><br>
-        <input type="text" name="Content" value="Content"><br>
+    <hr width="770">
 
-        <right>
-            <input type="submit" value="post">
-        </right>
 
-    </h4>
+        <input type="text" name="Name" value="Name" size="100"><br>
+        <input type="text" name="Email" value="Email"size="100"><br>
+        <input type="text" name="QuestionTopic" value="QuestionTopic" size="100"><br>
+        <input class="contentquestion" type="text" name="Content" value="Content" size="100" height="500"><br><br>
+        <input class="textboxposquestion" type="submit" value="post">
+
 
 </Center>
 

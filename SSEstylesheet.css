@@ -9,11 +9,35 @@ h1 {
     text-align: center;
     font-family: "arial";
 }
-h4.relative {
+h4.relative1 {
     position: relative;
     color: black;
     font-family: "Century Gothic";
     left: -250px;
+}
+h4.relative2 {
+    position: relative;
+    color: black;
+    font-family: "Century Gothic";
+    left: px;
+}
+h4.relative3 {
+    position: relative;
+    color: lightgrey;
+    font-family: "Century Gothic";
+    left: -287px;
+}
+h4.relative4 {
+    position: relative;
+    color: black;
+    font-family: "Century Gothic";
+    left: -293px;
+}
+h4.relative5 {
+    position: relative;
+    color: black;
+    font-family: "Century Gothic";
+    left: -220px;
 }
 
 hr {
@@ -23,7 +47,17 @@ hr {
     margin-left: auto;
     margin-right: auto;
     border-style: inset;
-    border-width: 1px;
+    border-width: 2px;
+}
+input.contentquestion{
+    height: 150px;
+}
+input.textboxposquestion{
+    position: relative;
+    color: black;
+    font-family: "Century Gothic";
+    left: 310px;
+
 }
 
 p {
