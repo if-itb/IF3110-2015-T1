@@ -29,7 +29,7 @@
                 <input type="text" class ="searchBar" name="search_keyword">
                 <input type="submit" class ="submitButton" value="Search">
             </form>
-            <p>Cannot find what you are looking for?<a class="orange_link" href="create_question.php">Ask here</a></p>        
+            <p>Cannot find what you are looking for?<a class="orange_link" href="create_question.php"> Ask here</a></p>        
         </div>
 
         <div id="content">
@@ -37,16 +37,17 @@
             <?php
                 $size = sizeof($questions);
                 $i = 0;
-
                 foreach($questions as $question){
                     $question_content = $question['content'];
                     if (strlen($question_content) > 100 ){
                         $question_content = substr($question_content,0,96)." ...";
                     }
+                    
+                    $answer_count = getAnswerCount($question['q_id']);
 
                     $left = "<div class='left'>
-                                <span class='vote'>0<br>Votes</span>
-                                <span class='answer'>0<br>Answers</span>
+                                <span class='vote'>".$question['vote']."<br>Votes</span>
+                                <span class='answer'>".$answer_count."<br>Answers</span>
                             </div>";
                     $middle = " <div class='middle'>
                                     <a href='show_question.php?id=". $question['q_id']."'>". $question['topic'] ."</a>
