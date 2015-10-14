@@ -60,7 +60,7 @@
   <div>at</div><div><?php echo $question['date_posted']; ?></div>
   <div>|</div>
   <a href="ask.php?q_id=<?php echo $question['q_id'].'&address=question';?>">edit</a><div>|</div>
-  <a href="delete.php">delete</a>
+  <a href="delete.php?q_id=<?php echo $question['q_id'];?>">delete</a>
 </div>
 <h2><?php echo countAnswer($q_id); ?></h2>
 <h2>answer</h2>

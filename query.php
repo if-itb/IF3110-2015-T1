@@ -37,11 +37,17 @@ function getQuestion($q_id) {
   return $row;
 }
 
-function delQuestion() {
+function delQuestion($q_id) {
+  global $conn;
+  $query1 = "DELETE FROM question WHERE q_id=$q_id";
+  $query2 = "DELETE FROM answer WHERE q_id=$q_id";
 
+  $result1 = mysqli_query($conn, $query1);
+  $result2 = mysqli_query($conn, $query2);
+  return $result1 AND $result2;
 }
 
-function addAnswer() {
+function addAnswer($answer) {
   global $conn;
   $query = "INSERT INTO answer (q_id, content, name, email)
     VALUES ('$answer[q_id])', '$answer[content]', '$answer[name]', '$answer[email]')";
