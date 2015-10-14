@@ -1,6 +1,12 @@
 #header {
 	text-align: center;
-	font-family: Courier New;
+	font-family: Calibri;
+	font-size: 50px;
+}
+
+a.judul{
+	text-decoration: none;
+	color: black;
 }
 
 h2{
@@ -84,9 +90,13 @@ form textarea{
 }
 
 .questiontopic{
+	margin-left: 2%;
 	float: left;
 	height: 100%;
-	width:50%;
+	width:48%;
+}
+.questiontopic .topic{
+	text-align: center;
 }
 
 .infoask{
@@ -118,9 +128,45 @@ p.info-pertanyaan-jawaban{
 	float: right;
 }
 
+p.info-pertanyaan-jawaban .username{
+	color: blue;
+}
+
+p.info-pertanyaan-jawaban .date{
+	color: orange;
+}
+
+a.edit{
+	color: #C8AC2A;
+	text-decoration: none;
+}
+
+a.ask{
+	color: #C8AC2A;
+	text-decoration: none;
+}
+
+a.topik{
+	color: black;
+	text-decoration: none;
+}
+
+a.delete{
+	color: red;
+	text-decoration: none;
+}
+
+span.nama{
+	color: blue;
+}
+
 .judulanswer{
 	padding-top: 2%;
 	padding-left: 2%;
 	color: grey;
 	font-size: 35px;
+}
+
+.arah-vote{
+	cursor: pointer;
 }

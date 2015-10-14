@@ -18,16 +18,16 @@
 			die("Connection failed: " .mysqli_connect_error());
 		}
 		
-		$sql_pertanyaan = "SELECT * FROM question";
+		$sql_pertanyaan = "SELECT * FROM question ORDER BY date DESC";
 		$pertanyaan = mysqli_query($conn,$sql_pertanyaan);
 		?>
-		<a href="showquestion.php"><h1 id="header">Simple StackExchange</h1></a>
+		<a class="judul" href="showquestion.php"><h1 id="header">Simple StackExchange</h1></a>
 		<div class="next" >
 			<div class="search">
 				<input type="text" name="cari" class="cari">
 				<input type="submit" value="Search" class="tombolcari">
 			</div>
-			<p class="ask">Cannot find what you are looking for? <a href="ask.php">Ask here</a></p>
+			<p class="ask">Cannot find what you are looking for? <a class="ask" href="ask.php">Ask here</a></p>
 			<div class="container-judul">
 				Recently Asked Questions
 				<?php while($row = mysqli_fetch_assoc($pertanyaan)){?>
@@ -45,13 +45,17 @@
 						?><br>Answers
 					</div>
 					<div class="questiontopic">
-						<a href="showanswer.php?id=<?php echo $row["No"]?>"><?php echo $row["topik"]; ?></a>
+						<div class="topic"><a class="topik" href="showanswer.php?id=<?php echo $row["No"]?>"><?php echo $row["topik"]; ?></a></div>
 						<br>
-						<?php echo $row["konten"]?>
+						<?php
+							$konten = $row["konten"];
+							$konten = strlen($konten)>150 ? (substr($konten, 0 , 150)."...") : ($konten);
+							echo $konten;
+						?>
 					</div>
 					<div class="infoask">
 						<br>
-						asked by <?php echo $row["name"]; ?> | <a href="ask.php?id=<?php echo $row["No"];?>&withanswer=false">edit</a> | <a href="question.php?id=<?php echo $row["No"];?>&delete=true" onclick="return validasiDelete();">delete</a>
+						asked by <span class="nama"><?php echo $row["name"]; ?></span> | <a class="edit" href="ask.php?id=<?php echo $row["No"];?>&withanswer=false">edit</a> | <a class="delete" href="question.php?id=<?php echo $row["No"];?>&delete=true" onclick="return validasiDelete();">delete</a>
 					</div>
 				</div>
 				<?php }?>

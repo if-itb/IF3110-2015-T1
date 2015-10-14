@@ -26,7 +26,7 @@
 			$row = mysqli_fetch_assoc($pertanyaan);
 		
 	?>
-		<a href="showquestion.php"><h1 id="header">Simple StackExchange</h1></a>
+		<a class="judul" href="showquestion.php"><h1 id="header">Simple StackExchange</h1></a>
 		<div class="next">	
 			<h2 class="subtitle">What's your question?</h2>
 			<form action="question.php?id=<?php echo $id;?>&withanswer=<?php echo $withanswer?>" onsubmit="return validasiForm(this);" method="POST">
@@ -43,7 +43,7 @@
 		mysqli_close($conn); 
 		} else {
 	?>
-		<a href="showquestion.php"><h1 id="header">Simple StackExchange</h1></a>
+		<a class="judul" href="showquestion.php"><h1 id="header">Simple StackExchange</h1></a>
 		<div class="next">	
 			<h2 class="subtitle">What's your question?</h2>
 			<form action="question.php" onsubmit="return validasiForm(this);" method="POST">

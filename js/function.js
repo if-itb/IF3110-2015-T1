@@ -13,11 +13,30 @@ function validasiForm(form){
 				if(form.pertanyaan.value){
 					return true;
 				} else {
-					alert("Tolong diisi yah pertanyannya");
+					alert("silakan isi pertanyaan anda");
 					return false;
 				}
 			} else {
 				alert("Topik must  be filled out");
+				return false;
+			}
+		} else {
+			alert("Your email invalid!")
+			return false;
+		}
+	} else {
+		alert("Name must be filled out");
+		return false;
+	}
+}
+
+function validasiFormJawaban(form){
+	if(form.nama.value) {
+		if(validateEmail(form.email.value)){			
+			if(form.jawaban.value){
+				return true;
+			} else {
+				alert("silakan isi jawaban anda");
 				return false;
 			}
 		} else {
