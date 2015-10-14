@@ -51,7 +51,7 @@
 						  '.$row["Content"].'
 						</div>
 						<p class="text-right footer">
-						  Asked by '.$row["Email"].' at <datetime> | <a href>Edit</a> | <a href="deletedata.php?id='. $qid.'" onclick="return confirmDelete()">Delete</a>
+						  Asked by '.$row["Email"].' at <datetime> | <a href="edit.php?id='.$qid.'">Edit</a> | <a href="deletedata.php?id='. $qid.'" onclick="return confirmDelete()">Delete</a>
 						</p>
 					  </div>
 					</div>

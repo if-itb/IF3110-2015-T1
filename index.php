@@ -70,7 +70,7 @@
 					echo'
 					</br>
 					<p class="text-right footer">
-					  Asked by '.$row["Email"].' | <a href>Edit</a> | <a href="deletedata.php?id='. $row["QID"].'" onclick="return confirmDelete()">Delete</a>
+					  Asked by '.$row["Email"].' | <a href="edit.php?id='. $row["QID"].'">Edit</a> | <a href="deletedata.php?id='. $row["QID"].'" onclick="return confirmDelete()">Delete</a>
 					</p>
 				  </div>
 				</div>

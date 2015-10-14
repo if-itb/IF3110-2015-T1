@@ -13,17 +13,18 @@
 	
 	$Name = $_POST["Name"];
 	$Email = $_POST["Email"];
+	$Topik = $_POST["Topik"];
 	$Content = $_POST["Content"];
 	$qid = $_GET["id"];
 	
-	$sql = "insert into answer(`QID`,`Name`,`Email`,`Content`) values ('$qid','$Name','$Email','$Content')";
+	$sql = "UPDATE question SET Name='$Name',Email='$Email',Topik='$Topik',Content='$Content' WHERE QID=$qid";
 	
 	if ($conn->query($sql) === TRUE ){
-		echo "New record created successfully";
+		echo "Record updated successfully";
 	} else {
 		echo "Error: " . $sql . "<br>" . $conn->error;
 	}
 	$conn->close();
 	
-	header("Location: answer.php?id=$qid");
+	header("Location: index.php");
 ?>
