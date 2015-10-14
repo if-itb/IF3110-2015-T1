@@ -6,20 +6,38 @@
 	</head>
 	<body>		
 		<a href="index.php"><H2>SIMPLE STACK EXCHANGE</H2></a>	
-		<H3>WHAT'S YOUR QUESTION?</H3>
-		<form name="qForm"  method="post" onsubmit="validateForm()">
-		<textarea id='name' name="name" onfocus="if (this.value == 'Name') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Name';}">Name</textarea><br>
-		<textarea id='mail' name="mail" onfocus="if (this.value == 'Email') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Email';}">Email</textarea><br>
-		<textarea id='topic' name="topic" onfocus="if (this.value == 'Question Topic') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Question Topic';}">Question Topic</textarea><br>
-		<input type="hidden" name="mode" value= <?php echo $_GET['mode'];?> >
-		<textarea id='content' name="qcontent" onfocus="if (this.value == 'Content') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Content';}">Content</textarea><br>
-		<?php		
+		
+		<?php
 		if ($_GET['mode']==1) {
 			echo "<input type='hidden' name='qid' value='".$_POST["qid"]."'>";
+			echo "
+			<H3>WHAT'S YOUR QUESTION?</H3>
+			<form name=\"qForm\" action='asked.php' method=\"post\" onsubmit=\"return validateForm()\">
+			<textarea id='name' name='name' onfocus=\"if (this.value == 'Name') {this.value = '';}\" onblur=\"if (this.value == '') {this.value = 'Name';}\">".$_POST['name']."</textarea><br>
+			<textarea id='mail' name='mail' onfocus=\"if (this.value == 'Email') {this.value = '';}\" onblur=\"if (this.value == '') {this.value = 'Email';}\">".$_POST['mail']."</textarea><br>
+			<textarea id='topic' name='topic' onfocus=\"if (this.value == 'Question Topic') {this.value = '';}\" onblur=\"if (this.value == '') {this.value = 'Question Topic';}\">".$_POST['topic']."</textarea><br>
+			<input type=\"hidden\" name='mode' value= ".$_GET['mode'].">
+			<input type='hidden' name='qid' value='".$_POST["qid"]."'>
+			<textarea id='content' name='qcontent' onfocus=\"if (this.value == 'Content') {this.value = '';}\" onblur=\"if (this.value == '') {this.value = 'Content';}\">".$_POST['qcontent']."</textarea><br>	
+			<input type=\"submit\" value=\"Post\">
+			</form> 			
+			";				
+		} else {
+			echo "
+			<H3>WHAT'S YOUR QUESTION?</H3>
+			<form name=\"qForm\" action='asked.php' method=\"post\" onsubmit=\"return validateForm()\">
+			<textarea id='name' name='name' onfocus=\"if (this.value == 'Name') {this.value = '';}\" onblur=\"if (this.value == '') {this.value = 'Name';}\">Name</textarea><br>
+			<textarea id='mail' name='mail' onfocus=\"if (this.value == 'Email') {this.value = '';}\" onblur=\"if (this.value == '') {this.value = 'Email';}\">Email</textarea><br>
+			<textarea id='topic' name='topic' onfocus=\"if (this.value == 'Question Topic') {this.value = '';}\" onblur=\"if (this.value == '') {this.value = 'Question Topic';}\">Question Topic</textarea><br>
+			<input type=\"hidden\" name='mode' value=".$_GET['mode'].">
+			<textarea id='content' name='qcontent' onfocus=\"if (this.value == 'Content') {this.value = '';}\" onblur=\"if (this.value == '') {this.value = 'Content';}\">Content</textarea><br>	
+			<input type=\"submit\" value=\"Post\">
+			</form> 			
+			";		
 		}
-		?>		
-		<input type="submit" value="Post">
-		</form> 
+		
+		?>
+		
 
 	<script>
 		function validateForm() {
@@ -65,7 +83,6 @@
 			}
 		}
 
-	
 	</script>
 	</body>
 </html>
