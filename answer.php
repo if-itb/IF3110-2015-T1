@@ -45,7 +45,7 @@
           <br><br><br>
           <div class="asked-description">
             <p>Asked by <span style="color : #502fc8"><?php echo "$email"; ?></span> at <?php echo "$date_question"; ?> |
-              <span style="color : #ffcb55">edit</span> |
+              <span style="color : #ffcb55"><a href=" /WBD/update-question.php?id=<?= $question_id ?>">edit</a></span> |
               <span style="color : #fd294a">delete</span></p>
           </div>
         </div>
@@ -89,7 +89,7 @@
         <form class="answer-form" action="answer-input.php?id=<?= $question_id ?>" method="POST">
           <input type="text" placeholder="  Name" name="Name"><br>
           <input type="text" placeholder="  Email" name="Email"><br>
-          <textarea type="text" placeholder=" Content" name="Content"></textarea>
+          <input type="text" placeholder=" Content" name="Content">
           <button type="submit" value="Submit">Post</button>
         </form>
       </center>

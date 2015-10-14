@@ -33,7 +33,7 @@
           <input type="text" value="<?= $name; ?>" name="Name"><br>
           <input type="text" value="<?= $email; ?>" name="Email"><br>
           <input type="text" value="<?= $topic; ?>" name="Question-topic"><br>
-          <textarea type="text" name="Content"><?= $content; ?></textarea>
+          <input type="text" name="Content"><?= $content; ?>
           <button type="submit" value="Submit">Post</button>
         </form>
       </center>
