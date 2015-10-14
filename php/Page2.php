@@ -65,9 +65,9 @@
 					echo'
 					<form name="questionForm" action="updateQuestion.php?id=' . $_GET['id'] . '" method="post" onsubmit="return validateQue()">
 						 <div class="text-left">
-								 <input class="form-textbox" type="text" name="name" value=' . $fetched["Name"] . '><br><br>
-								 <input class="form-textbox" type="text" name="email" value=' . $fetched["Email"] . '><br><br>
-								 <input class="form-textbox" type="text" name="topic" value=' . $fetched["Topic"] . '><br><br>
+								 <input class="form-textbox" type="text" name="name" value="' . $fetched["Name"] . '"><br><br>
+								 <input class="form-textbox" type="text" name="email" value="' . $fetched["Email"] . '"><br><br>
+								 <input class="form-textbox" type="text" name="topic" value="' . $fetched["Topic"] . '"><br><br>
 								 <textarea name="question">' . $fetched["Question"] . '</textarea><br><br>
 						 </div>
 					
