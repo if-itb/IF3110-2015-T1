@@ -81,7 +81,7 @@ function deleteConfirmation(q_id){
 
 	var r = confirm("Are you sure to delete this question?");
 	if (r == true){
-		deleteLink = "deleteQuestion.php?id=" + q_id;
+		deleteLink = "http://localhost/simplestackexchange/includes/deleteQuestion.php?id=" + q_id;
 	}
 	console.log(deleteLink);	
 	var x = document.getElementsByClassName("red_link-" + q_id);
@@ -98,7 +98,7 @@ function voteQuestion(q_id,is_question,is_voteup){
 
 	};
 
-	xhttp.open("GET","vote.php?q_id="+q_id+"&q="+is_question+"&v="+is_voteup,true);
+	xhttp.open("GET","includes/vote.php?q_id="+q_id+"&q="+is_question+"&v="+is_voteup,true);
 	xhttp.send();
 };
 
@@ -111,6 +111,6 @@ function voteAnswer(q_id,a_id,is_question,is_voteup){
 	    }
 	};
 	
-	xhttp.open("GET","vote.php?q_id="+q_id+"&a_id="+a_id+"&q="+is_question+"&v="+is_voteup,true);
+	xhttp.open("GET","includes/vote.php?q_id="+q_id+"&a_id="+a_id+"&q="+is_question+"&v="+is_voteup,true);
 	xhttp.send();
 };

@@ -1,5 +1,6 @@
 <?php
 
+	/************ Database Configuration *************/
 	DEFINE('DB_HOST','localhost');
 	DEFINE('DB_USER','root');
 	DEFINE('DB_PASSWORD','alberttriadrian');
@@ -13,39 +14,8 @@
 	    die("Connection failed: " . mysqli_connect_error());
 	} 
 
-	/* if( $_SERVER['REQUEST_METHOD']=='POST'){
 
-		$servername = "localhost";
-		$username = "root";
-		$password = "alberttriadrian";
-		$dbname = "simplestackexchange";
-
-		// Create connection
-		$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-		// Check connection
-		if (!$conn){
-		    die("Connection failed: " . mysqli_connect_error());
-		} 
-
-	    $name = $_POST["name"];
-	    $email = $_POST["email"];
-	    $topic = $_POST["topic"];
-	    $content = $_POST["content"];
-
-		$sql = "INSERT INTO question2 (name, email, topic,content)
-		VALUES ('$name', '$email', '$topic', '$content')";
-
-		if (mysqli_query($conn, $sql)) {
-		    echo "New record created successfully";
-		} 
-		else {
-		    echo "Error: " . $sql . "<br>" . $conn->error;
-		}
-
-		mysqli_close($conn);
-	}*/
-
+	/************ All Database functions *************/
     function Redirect($url, $permanent = false)
     {
         header('Location: ' . $url, true, $permanent ? 301 : 302);
@@ -123,8 +93,7 @@
 	    $content = $question['content'];
 
 		$sql = "UPDATE questions SET name='$name', 
-				email='$email', content='$content' 
-				WHERE q_id= '$id'";
+				email='$email', topic='$topic',content='$content' WHERE q_id= '$id'";
 
 		if (mysqli_query($conn, $sql)) {
 		    Redirect('./index.php', false);		
@@ -145,15 +114,12 @@
 	    $content = $answer['content'];
 	   	$vote = 0;
 	   	$create_date = date("Y-m-d H:i:s");
-	   	echo $q_id;
+
 		$sql = "INSERT INTO answers (q_id,name, email, content,vote, create_date)
 		VALUES ('$q_id','$name', '$email', '$content','$vote','$create_date')";
 
-		if (mysqli_query($conn, $sql)) {
-		    echo "New answer created successfully";
-		} 
-		else {
-		    echo "Error: " . $sql . "<br>" . $conn->error;
+		if (mysqli_query($conn, $sql)){
+		    Redirect("./question.php?id=$q_id", false);				
 		}
 	}
 

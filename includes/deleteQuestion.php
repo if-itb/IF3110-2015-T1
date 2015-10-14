@@ -33,14 +33,12 @@
 		$sql = "DELETE FROM questions WHERE q_id=$id";
 
 		if (mysqli_query($conn, $sql)) {
-		    Redirect('./index.php', false);		} 
+		    Redirect('../index.php', false);		} 
 		else {
 		    echo "Error: " . $sql . "<br>" . $conn->error;
 		}
 
 		mysqli_close($conn);    	
     }
-
-	//   	Redirect("index.php", false);
 
 ?>

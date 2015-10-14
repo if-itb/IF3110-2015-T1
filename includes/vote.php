@@ -1,5 +1,8 @@
 <?php 
-	require('./controller.php');
+
+	// "../" is one level higher and "../.." is two level higher
+    $url = "../controller.php";
+    require($url);
 
 	if (isset($_GET['q_id'])){
 		$q_id = $_GET['q_id'];
