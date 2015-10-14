@@ -7,7 +7,7 @@
 					LEFT OUTER JOIN
 					(SELECT question_id, COUNT(1) FROM answers GROUP BY question_id) cnt
 					ON questions.id=cnt.question_id
-					WHERE questions.question LIKE'%" . $_POST['search'] . "%' ORDER BY questions.id DESC");
+					WHERE questions.topic LIKE'%" . $_POST['search'] . "%' OR questions.question LIKE'%" . $_POST['search'] . "%' ORDER BY questions.id DESC");
 	} else{
 			$questions = $db->query('SELECT * FROM questions
 						LEFT OUTER JOIN

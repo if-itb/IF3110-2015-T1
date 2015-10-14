@@ -14,7 +14,7 @@
 		}			
 		$stmt->execute(array($_POST['topic'], $_POST['question'], $_POST['name'], $_POST['email']));
 	
-		header('Location: /question.php?id=' . $db->lastInsertId());
+		header('Location: /question.php?id=' . $_POST['id']);
 		die();
 
 	} else if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])){

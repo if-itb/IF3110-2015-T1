@@ -18,7 +18,7 @@
 	</table>\n<br>\n";
 	?>
 	<p class='question-detail'> <?php echo $question['question'];?> </p>
-	<p class='right'><b>asked by <span class='purple'><?php echo $question['name']; ?></span> at <?php echo $question['datetime'];?> | <a href='ask-question.php?id=<?php echo $question['id']; ?>' class='orange'>edit</a> | <a <a href='delete-question.php?id=<?php echo $question['id']; ?>' class='red' onclick='return confirmDelete()'>delete</a></b></p>
+	<p class='right'><b>asked by <span class='purple'><?php echo $question['email']; ?></span> at <?php echo $question['datetime'];?> | <a href='ask-question.php?id=<?php echo $question['id']; ?>' class='orange'>edit</a> | <a <a href='delete-question.php?id=<?php echo $question['id']; ?>' class='red' onclick='return confirmDelete()'>delete</a></b></p>
 </div>
 
 <?php
@@ -40,7 +40,7 @@
 			</tr>
 		</table>\n<br>\n";
 			echo "<p class='question-detail'>" . $answer['answer'] . "</p>";
-			echo "\t<p class='right'><b>answered by <a class='purple'>" . $answer['name'] . "</a> at " . $answer['datetime'] . "</b></p>";
+			echo "\t<p class='right'><b>answered by <a class='purple'>" . $answer['email'] . "</a> at " . $answer['datetime'] . "</b></p>";
 			echo "<br><hr>";
 		}
 	}

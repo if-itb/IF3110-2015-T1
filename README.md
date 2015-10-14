@@ -89,12 +89,16 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+#### 1. Validasi Form (Client Side)
+Untuk melakukan memvalidasi form yang akan dikirim, saya menggunakan JavaScript (*file* terletak pada `/public_html/js/custom.js`). Sebuah fungsi validasi mengmbil semua *value* pada *field* yang terdapat pada sebuah *form*, lalu mengecek apakah *value* tersebut kosong atau tidak. Untuk validasi format email, saya menggunakan fungsi *regular expression* (regex) yang sesuai dengan format email (`<something>@<something>.<something>`). *Value* daripada *field* email tersebut kemudian dicocokkan dengan fungsi *regex* tadi. Jika sebuah value pada suatu form field tidak sesuai, maka pesan kesalahan yang sesuai akan ditampilkan pada fungsi **JavaScript alert**.
+
+##### 2. Voting (AJAX)
+Fitur voting diimplementasikan dengan AJAX. Setiap tombol **Up Vote** maupun **Down Vote** akan mengaktifkan sebuah fungsi JavaScript. Fungsi JavaScript tersebut kemudian menerima parameter berupa **state*** (*upvote/downvote*), serta **id** dari jawaban yang ingin di-*vote* (untuk *answer*). Setelah itu fungsi memanggil file PHP yang akan mengupdate status vote dari suatu *question* maupun *answer*. Hasil dari *file* PHP tersebut kemudian akan diteruskan oleh fungsi *voting* tadi untuk ditampilkan di layar.
 
 ### Knowledge
 
 Untuk meringankan beban tugas ini, ada berberapa keyword yang bisa anda cari untuk menyelesaikan tugas ini.
-- CSS: margin, padding, header tag, font-size, text-align, float, clear, border, color, div, span, placeholder, anchor tag.
+- CSS: margin, padding, header tag, font-size, text-align, float, clear, border, color, div, span, placeholder, anchor tag
 - Javascript : XMLHTTPRequest.
 - PHP: mysqli_connect, mysql_query, $_GET, $_POST, var_dump, print_r, echo, require, fungsi header.
 - SQL query: SELECT, INSERT, UPDATE, DELETE, WHERE, operator LIKE.
