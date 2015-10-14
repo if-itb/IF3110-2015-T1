@@ -10,6 +10,33 @@ function validateForm() {
     }
 }
 </script>
+<style>
+.column-one{
+		margin-left:15%;
+		width: 10%;
+		color:black;
+		text-align: left;
+		float:left;
+	}
+	.column-two{
+		width: 10%;
+		color:black;
+		text-align: left;
+		float:left;
+	}
+	.column-three{
+		width: 10%;
+		color:black;
+		text-align: left;
+		float:left;
+	}
+	.column-four{
+		width: 10%;
+		color:black;
+		text-align: left;
+		float:left;
+	}
+	</style>
 </head>
 <body>
 
@@ -18,6 +45,25 @@ onsubmit="return validateForm()" method="post">
 Name: <input type="text" name="fname">
 <input type="submit" value="Submit">
 </form>
+
+
+	<div class="column-one">
+		<p> ONE </p>
+	</div>
+	
+	<div class="column-two">
+		<p> TWO </p>
+	</div>
+
+	<div class="column-three">
+		<p> THREE </p>
+	</div>
+	
+	<div class="column-four">
+		<p> FOUR </p>
+	</div>
+
+	
 
 </body>
 </html>
