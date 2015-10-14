@@ -27,7 +27,7 @@
 	<input type="text" name="name" placeholder="Name" size="100"><br>
 	<input type="text" name="email" placeholder="Email" size="100"><br>
 	<input type="text" name="topic" placeholder="Question Topic" size="100"><br>
-	<input type="text" name="content" placeholder="Content" size="100"><br>
+	<textarea name="comment" rows="5" cols="40"></textarea><br>
 	<input type="submit" value="Submit">
 </form>
 
