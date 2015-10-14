@@ -15,8 +15,8 @@
     </head>
     
     <body>
-        <div align="center">
-        <h1>Bukan StackExchange</h1>
+        <div align="center">        
+            <a href="index.php"><h1>Bukan StackExchange</h1></a>
         <div>
             <form name="searchform" action="index.php" method="get" onsubmit="return validateField('searchform','searchbox')">
                 <input type="text" name="search">

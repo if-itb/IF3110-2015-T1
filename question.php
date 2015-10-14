@@ -13,7 +13,7 @@
     </head>
     <body>
         <div align="center">
-            <h1>Bukan StackExchange</h1>
+            <a href="index.php"><h1>Bukan StackExchange</h1></a>
         </div>
         <div>
             <?php if (count($questions) === 0) : ?>

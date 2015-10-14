@@ -18,7 +18,7 @@
     </head>
     <body>
         <div align="center">
-            <h1>Bukan StackExchange</h1>
+            <a href="index.php"><h1>Bukan StackExchange</h1></a>
         </div>
         <div>
             <h2>What's your question?</h2>
