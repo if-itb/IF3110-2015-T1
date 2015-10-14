@@ -3,17 +3,22 @@
 <html>
 	<head>
 		<title>Simple Stack Exchange</title>
+		<link rel="stylesheet" type="text/css" href="style.css">	
 	</head>
-	<body onload="load()">		
-		<a href="index.php"><H2>SIMPLE STACK EXCHANGE</H2></a>
+	<body onload="load()">	
+		<div class='center'>	
+		<a href="index.php"><H1>SIMPLE STACK EXCHANGE</H1></a>
+		
 		<form action="index.php" method="post">
-			<input type="text" name="keyword">
-			<input type="submit" value="Search">
-			<p id=1>
-				Can't find what you are looking for? <a href="ask.php?mode=0">Ask Here</a>
-			</p>
+			<input type="text" size=130px name="keyword">
+			<input type="submit" value="Search"><br><br>
+			
+				<H5>Can't find what you are looking for? <a id='ask' href="ask.php?mode=0">Ask Here</a></H5>	
+			
 		</form>	
+		</div>		
 		<H4>Recently Asked Questions</H4>
+		<br>
 		<p id='RAQ'><p>
 		
 		<script>
@@ -33,7 +38,7 @@
 			if (r == true) {
 				xhttp = new XMLHttpRequest();
 				xhttp.onreadystatechange = function() {
-				    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				    if (xhttp.readyState == 4 && xmlhttp.status == 200) {
 					load();					
 				    }			 
 				}
