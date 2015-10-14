@@ -3,6 +3,28 @@
 <head>
   	<title>Question</title>
   	<meta charset="UTF-8">
+
+<script>
+    function deleteconfirm(s){
+
+    var del=confirm("Are you sure you want to delete this record?");
+    if (del==true){
+    	document.location =  "delete_question.php?question_id=" + s;
+    }
+    return del;
+    }
+
+    function editconfirm(s){
+
+    var edit=confirm("Are you sure you want to edit this record?");
+    if (edit==true){
+    	document.location =  "edit_question.php?question_id=" + s;
+    }
+    return edit;
+    }
+
+</script>
+
 	<link rel="stylesheet" type="text/css" href='style.css'/>
 </head>
 <body>
@@ -35,7 +57,8 @@
 	    	echo "<div class=\"column-two\">" . $row["vote"] . "<br>" . " Answers" . "</div>";
 	    	echo "<div class=\"column-three\">" . $row["topic"] . "<br>" . $row["content"] . "</div>";
 	    	echo "<div class=\"column-four\">" . "asked by " . $row["email"] . " at " . "7/10/1996 08.00" . " | " . "edit" . " | " . "delete" . "</div>";
-	    	echo "<p><a id=\"ask\" href=\"delete_question.php?question_id=" . $row["question_id"] . "\">delete</a></p>";
+	    	echo "<a id=\"ask\" href=# onclick=\"editconfirm(" . $row["question_id"] . ")\" " . "\">edit</a>";
+	    	echo "<a id=\"ask\" href=# onclick=\"deleteconfirm(" . $row["question_id"] . ")\" " . "\">delete</a>";
 	    	echo "<br>";
 	    	echo "<br>";
 	    	echo "<div class=\"line\"> <hr> </div>";
