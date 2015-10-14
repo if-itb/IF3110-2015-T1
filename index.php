@@ -10,9 +10,9 @@
 
 <a href="index.php" class="black"><h1 class="title">Simple StackExchange</h1></a>
 
-<form class="form" method="post">
+<form class="form" method="post" action="Search.php">
 	<input type="text" name="search" class="form_search">
-	<input type="submit" value="Search" class="form_submit">
+	<input type="submit" value="Search" class="form_submit" name="quest">
 </form>
 
 <p> Cannot find what you are looking for? <a href="Question.php" class="color_yellow">Ask here</a> <p>

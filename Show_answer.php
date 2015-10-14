@@ -38,7 +38,7 @@
 			<div class=\"answer_question\">
 				<div class=\"vote\">
 					<div class=\"number\">
-						<span id=QU".$row["Q_id"]." name=\"vote\" onclick=\"getVote(this.id)\">&#x25B2</span>
+						<span id=QU".$row["Q_id"]." name=\"vote\" onclick=\"getVote(this.id)\" class=\"button\">&#x25B2</span>
 					</div>
 					<br>
 					<div class=\"number\" id=\"Q".$row["Q_id"]."\">".
@@ -46,7 +46,7 @@
 					"</div>
 					<br>
 					<div class=\"number\">
-						<span id=\"QD".$row["Q_id"]."\" name=\"vote\" onclick=\"getVote(this.id)\">&#x25BC</span>
+						<span id=\"QD".$row["Q_id"]."\" name=\"vote\" onclick=\"getVote(this.id)\" class=\"button\">&#x25BC</span>
 					</div>		
 				</div>
 				<div class=\"answer_topic\">".
@@ -72,7 +72,7 @@
 			echo"<div class=\"answers\">
 					<div class=\"vote\">
 						<div class=\"number\">
-							<span id=\"AU".$row["A_id"]."\" name=\"vote\" onclick=\"getVote(this.id)\">&#x25B2</span>
+							<span id=\"AU".$row["A_id"]."\" name=\"vote\" onclick=\"getVote(this.id)\" class=\"button\">&#x25B2</span>
 						</div>
 						<br>
 						<div class=\"number\" id=\"A".$row["A_id"]."\">".
@@ -80,7 +80,7 @@
 						"</div>
 						<br>
 						<div class=\"number\">
-							<span id=\"AD".$row["A_id"]."\" name=\"vote\" onclick=\"getVote(this.id)\">&#x25BC</span>
+							<span id=\"AD".$row["A_id"]."\" name=\"vote\" onclick=\"getVote(this.id)\" class=\"button\">&#x25BC</span>
 						</div>	
 					</div>
 					<div class=\"answer_topic\">".

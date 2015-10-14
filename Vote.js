@@ -6,8 +6,8 @@ function getVote(idbutton) {
 		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 	}
 	  
-	var is_Up, id, is_Q;
-	  
+	var is_Up, is_Q;
+	
 	if(idbutton.charAt(0)=='Q'){
 		is_Q = true;
 		idbutton = idbutton.replace("Q","");

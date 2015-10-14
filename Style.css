@@ -18,6 +18,10 @@ h3{
 	font-size: 30px;
 }
 
+.button:hover{
+	cursor: pointer;
+}
+
 .RAQ{
 	margin: auto;
     width: 60%;
