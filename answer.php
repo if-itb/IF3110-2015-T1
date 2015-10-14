@@ -29,6 +29,7 @@
 		
 		$resultquestion = $conn->query($sqlquestion);
 		$resultanswer = $conn->query($sqlanswer);
+		$countanswer = mysqli_num_rows($resultanswer);
 		
 		if ($resultquestion->num_rows > 0) {
 			// output data of each row
@@ -61,7 +62,7 @@
 		}
 		if ($resultanswer->num_rows > 0) {
 			// output data of each row
-			echo "<h2>(Jumlah Answer) Answer</h2>";
+			echo "<h2>$countanswer Answer</h2>";
 			while($row = $resultanswer->fetch_assoc()) {
 				echo'
 				  <div class="thread">
