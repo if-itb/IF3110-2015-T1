@@ -13,5 +13,6 @@
     else
       $q_model->add($name, $email, $topic, $content);
   }
-  require("controller/home.php");
+  header("Location : /");
+  die();
 ?>

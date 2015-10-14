@@ -8,67 +8,68 @@
     <title>Question | StackExchange</title>
   </head>
   <body>
-      <h1 id="title"><a href="\">Simple StackExchange</a></h1>
-      <h2><?=$question["topic"]?></h2>
+    <h1 id="title"><a href="\">Simple StackExchange</a></h1>
+    <h2><?=$question["topic"]?></h2>
 
-      <hr class="line">
+    <hr class="line">
+    <div class="item">
+      <div class="counter">
+        <div class="arrow"> 
+          <img src="assets/img/up.png" alt="Vote up" class="arrow">
+        </div>
+        <p class="vote"><?=$question["vote"]?></p>
+        <div class="arrow"> 
+          <img src="assets/img/down.png" alt="Vote down" class="arrow">
+        </div>
+      </div>
+        <p class="desc"><?=$question["content"]?></p>
+      <div class="footer">
+        <p>
+          asked by 
+          <a href="mailto:<?=$question["email"]?>" class="name"><?=$question["name"]?> &lt;<?=$question["email"]?>&gt;</a>
+          at <?=$question["time"]?> | 
+          <a class="edit" href="?action=edit&amp;id=<?=$question["id"]?>">edit</a> | 
+          <a class="delete" href="#" onclick="removeQuestion(<?=$question["id"]?>)">delete</a>
+        </p>
+      </div>
+    </div>
+    <h2><?=count($answers)?> Answers</h2>
+    <hr class="line">
+
+    <?php foreach($answers as $answer) : ?>
       <div class="item">
         <div class="counter">
           <div class="arrow"> 
             <img src="assets/img/up.png" alt="Vote up" class="arrow">
           </div>
-          <p class="vote"><?=$question["vote"]?></p>
+          <p class="vote"><?= $answer["vote"] ?></p>
           <div class="arrow"> 
             <img src="assets/img/down.png" alt="Vote down" class="arrow">
           </div>
         </div>
-          <p class="desc"><?=$question["content"]?></p>
+          <p class="desc">
+            <?= $answer["content"] ?>
+          </p>
         <div class="footer">
           <p>
-            asked by 
-            <span class="name"><?=$question["name"]?> &lt;<?=$question["email"]?>&gt;</span>
-            at <?=$question["time"]?> | 
-            <a class="edit" href="?action=edit&amp;id=<?=$question["id"]?>">edit</a> | 
-            <span class="delete">delete</span> 
+            answered by 
+            <a href="mailto:<?=$answer["email"]?>" class="name"><?= $answer["name"] ?> &lt;<?= $answer["email"] ?>&gt;</a>
+            at <?= $answer["time"] ?>
           </p>
         </div>
       </div>
-      <h2><?=count($answers)?> Answers</h2>
-      <hr class="line">
-
-      <?php foreach($answers as $answer) { ?>
-        <div class="item">
-          <div class="counter">
-            <div class="arrow"> 
-              <img src="assets/img/up.png" alt="Vote up" class="arrow">
-            </div>
-            <p class="vote"><?= $answer["vote"] ?></p>
-            <div class="arrow"> 
-              <img src="assets/img/down.png" alt="Vote down" class="arrow">
-            </div>
-          </div>
-            <p class="desc">
-              <?= $answer["content"] ?>
-            </p>
-          <div class="footer">
-            <p>
-              answered by 
-              <span class="name"><?= $answer["name"] ?> &lt;<?= $answer["email"] ?>&gt;</span>
-              at <?= $answer["time"] ?>
-            </p>
-          </div>
-        </div>
-      <hr class="line">
-      <?php } ?>
-      <h2>Your Answer</h2>
-      <form id="form" method="POST" action="?action=answer">
-        <table>
-        <input name="id" type="hidden" value="<?=$question["id"]?>"/>
-        <input class="form-text" type="text" name="name" placeholder="Name"/>
-        <input class="form-text" type="email" name="email" placeholder="Email"/>
-        <textarea class="form-box" rows="10" name="content" placeholder="Content"></textarea>
-        <input type="submit" class="submit-button" value="Post"/>
-        </table>
-      </form>
+    <hr class="line">
+    <?php endforeach ?>
+    <h2>Your Answer</h2>
+    <form id="form" method="POST" action="?action=answer" onsubmit="return validateForm()">
+      <table>
+      <input name="id" type="hidden" value="<?=$question["id"]?>"/>
+      <input class="form-text" type="text" name="name" placeholder="Name"/>
+      <input class="form-text" type="text" name="email" placeholder="Email"/>
+      <textarea class="form-box" rows="10" name="content" placeholder="Content"></textarea>
+      <input type="submit" class="submit-button" value="Post"/>
+      </table>
+    </form>
+    <script type="text/javascript" src="assets/js/validation.js"></script>
   </body>
 </html>

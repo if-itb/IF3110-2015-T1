@@ -1,6 +1,9 @@
 a {
   text-decoration: none;
 }
+a:hover {
+  color: blue;
+}
 #title, #search, .to-ask-here {
   text-align: center;
 }
@@ -34,8 +37,8 @@ a {
   color: orange;
   text-decoration: bold;
 }
-#ask-here:hover, .footer .edit:hover, .footer .delete:hover {
-  color: #A0F01F;
+#ask-here:hover, .footer .name:hover, .footer .edit:hover, .footer .delete:hover {
+  color: #A0FF00;
 }
 #recent-ask, h2 {
   padding-left: 10%;

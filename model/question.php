@@ -35,6 +35,7 @@
       $this->database->exec("UPDATE question SET name='$name', email='$email', topic='$topic', content='$content' WHERE id=$id");
     }
     public function remove($id) {
+      $this->database->exec("DELETE FROM answer WHERE question_id=$id");
       $this->database->exec("DELETE FROM question WHERE id=$id");
     }
   }

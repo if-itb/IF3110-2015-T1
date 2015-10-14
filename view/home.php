@@ -19,7 +19,7 @@
     <h2 id="recent-ask">Recently Asked Question</h2>
     <hr class="line">
 
-    <?php foreach($questions as $question) {?>
+    <?php foreach($questions as $question): ?>
       <div class="item">
         <div class="counter">
           <div class="num"><?=$question["vote"]?></div>
@@ -36,13 +36,14 @@
         <div class="footer">
           <p>
             asked by 
-            <span class="name"><?=$question["name"]?> &lt;<?=$question["email"]?>&gt;</span> | 
+            <a class="name" href="mailto:<?=$question["email"]?>"><?=$question["name"]?> &lt;<?=$question["email"]?>&gt;</a> | 
             <a class="edit" href="?action=edit&amp;id=<?=$question["id"]?>">edit</a> | 
-            <span class="delete">delete</span> 
+            <a class="delete" href="#" onclick="removeQuestion(<?=$question["id"]?>)">delete</a> 
           </p>
         </div>
       </div>
       <hr class="line">
-    <?php } ?>
+    <?php endforeach; ?>
+    <script type="text/javascript" src="assets/js/validation.js"></script>
   </body>
 </html>
