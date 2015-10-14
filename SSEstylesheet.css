@@ -51,6 +51,8 @@ hr {
 }
 input.contentquestion{
     height: 150px;
+    width: 669px;
+    height: 100px;
 }
 input.textboxposquestion{
     position: relative;
@@ -59,6 +61,16 @@ input.textboxposquestion{
     left: 310px;
 
 }
+
+textarea{
+    position: relative;
+    left: 2px;
+}
+textarea.newanswer{
+    position: relative;
+    left: 2px;
+}
+
 
 p {
     font-family: "Dosis";
@@ -74,9 +86,17 @@ a {
     text-decoration: none;
 }
 #redlink{
-    color: red;
-    text-decoration: none;
+     color: red;
+     text-decoration: none;
+ }
+#blacklink{
+    color: black;
+    font-family: verdana;
 }
-
+#dashboard{
+    color: black;
+    font-family: arial;
+    font-size: xx-large;
+}
 </style>
   </head>

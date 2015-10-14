@@ -7,8 +7,8 @@
 </head>
 
 <body>
-<Center>
-    <h1>Simple StackExchange</h1>
+<center>
+    <a href="dashboardPHP.php" id="dashboard">Simple StackExchange</a>
 
     <h4 class="relative1">
         What's your question?
@@ -16,15 +16,19 @@
 
     <hr width="770">
 
-
+    <form action="InputNewQuestion.php" method="post" >
         <input type="text" name="Name" value="Name" size="100"><br>
         <input type="text" name="Email" value="Email"size="100"><br>
-        <input type="text" name="QuestionTopic" value="QuestionTopic" size="100"><br>
-        <input class="contentquestion" type="text" name="Content" value="Content" size="100" height="500"><br><br>
+        <input type="text" name="QuestionTopic" value="Question Topic" size="100"><br>
+        <textarea cols="91" rows="4" type="text" name="Content">Content
+        </textarea>
+        <br><br>
         <input class="textboxposquestion" type="submit" value="post">
+    </form>
 
 
-</Center>
+
+</center>
 
 </body>
 </html>

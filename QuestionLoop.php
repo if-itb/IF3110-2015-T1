@@ -5,7 +5,50 @@
  * Date: 10/10/2015
  * Time: 8:42 AM
  */
-for ($count=0;$count<=4;$count++) {
+    //commencing database access
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $basisdata= "question";
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password, $basisdata);
+    //Count questions
+    $sql = "select count(Question_ID)
+            as num_of_questions
+            from questions;";
+    $result = mysqli_query($conn,$sql);
+    $fetched = mysqli_fetch_assoc($result);
+    if ($fetched["num_of_questions"]==NULL){
+        $num_of_questions= 0;
+    }
+    else{
+        $num_of_questions = $fetched["num_of_questions"];
+    }
+
+
+//fetching data
+    $sql =  "select question_id, asked_by, questiontopic , vote_point, answers, content
+             from questions;";
+    $result = mysqli_query($conn,$sql);
+        $asked_by = array();
+        $questiontopic = array();
+        $vote_point = array();
+        $nAnswer = array();
+        $content = array();
+
+    for ($nQuestion = 1;$nQuestion<=$num_of_questions;$nQuestion++){
+        $row=mysqli_fetch_assoc($result);
+        $questionID[$nQuestion] = $row["question_id"];
+        $asked_by[$nQuestion] = $row["asked_by"];
+        $questiontopic[$nQuestion] = $row["questiontopic"];
+        $vote_point[$nQuestion] = $row["vote_point"];
+        $nAnswer[$nQuestion] = $row["answers"];
+        $content[$nQuestion] = $row["content"];
+    }
+    //Close Connection
+    mysqli_close($conn);
+
+for ($count=1;$count<=$num_of_questions;$count++) {
     echo '
     <hr width="770"; align="1";>
     <head>
@@ -21,20 +64,21 @@ for ($count=0;$count<=4;$count++) {
         <tr>
             <td>
                 <center>
-                    0
+                    '.$vote_point[$count].'
                 </center>
             </td>
 
             <td>
                 <center>
-                    0
+                    '.$nAnswer[$count].'
                 </center>
             </td>
 
-            <td rowspan="2">
+            <td rowspan="2" width="600">
 
-                    The question goes here...The question goes here...The question goes here...The question goes here...The question goes here...The question goes here...The question goes here...The question goes here...
-
+               <a href="Question.php?questionID='.$count.'" id="blacklink">'.$questiontopic[$count].'</a>
+               <br>
+               '.$content[$count].'
             </td>
 
         </tr>
@@ -42,7 +86,7 @@ for ($count=0;$count<=4;$count++) {
         <tr>
             <td>
                 <center>
-                    View
+                    Vote
                 </center>
             </td>
             <td>
@@ -57,11 +101,11 @@ for ($count=0;$count<=4;$count++) {
             <td colspan="4" align="right">
 
                 asked by
-                <a href="http://www.google.com" id="bluelink">name</a>
+                <a href="http://www.google.com" id="bluelink">'.$asked_by[$count].'</a>
                 [
                 <a href="http://www.google.com">edit</a>
                 ]
-                <a href="http://www.google.com" id="redlink">delete</a>
+                <a href="deleteonequestion.php?questionID='.$questionID[$count].'" id="redlink">delete</a>
 
             </td>
         </tr>

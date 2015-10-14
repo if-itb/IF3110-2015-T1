@@ -7,7 +7,9 @@
 
 <body>
 <Center>
-    <h1>Simple StackExchange</h1>
+    <br>
+    <a href="dashboardPHP.php" id="dashboard">Simple StackExchange</a>
+    <br><br>
 
     <form action="demo_form.asp">
         <input type="text" name="LastName" value=""><input type="submit" value="search"><br>
@@ -30,23 +32,6 @@
     <hr width="770">
 
     <br>
-
-
-    <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-
-    // Create connection
-    $conn = mysqli_connect($servername, $username, $password);
-
-    // Check connection
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
-    echo "Connected successfully";
-    ?>
-
 
 
 </center>
