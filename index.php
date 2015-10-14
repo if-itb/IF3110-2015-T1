@@ -17,7 +17,10 @@
 <body>
     <h1>stackEXchange</h1>
     
-    <form id="searchbar"><input type="search" name="search"><button type="button">Search</button></input></form>
+    <form id="searchbar" action="search.php" method="get">
+        <input type="search" name="key">
+        <input type="submit" name="submit" value="search">
+    </form>
     <p>Cannot find what you are looking for? <a href="ask.php">Ask here</a></p>
     
     <h2>recently asked questions</h2>
