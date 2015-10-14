@@ -27,7 +27,7 @@
 	    font-family:calibri;
 	}
 	#line { 
-	    //display: block;
+	    display: block;
 	    margin-left: 20em;
 	    color: #000000;
 		background-color: #000000;
