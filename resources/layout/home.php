@@ -32,10 +32,9 @@
 		</table>\n<br>";
 					$detail = substr($question['question'], 0, 70);
 					echo "\t\t<p class='question-detail'><i>" . $detail . "...</i></p>\n";
-					echo "\t\t<p class='right'><b>asked by <a class='purple'>" . $question['name'] . "</a> | <a href='ask-question.php?id=" . $question['id'] . "' class='orange'>edit</a> | <a href='delete-question.php?id=" . $question['id'] . "' class='red' onclick='return confirmDelete()'>delete</a></b></p>";
+					echo "\t\t<p class='right'><b>asked by <span class='purple'>" . $question['name'] . "</span> | <a href='ask-question.php?id=" . $question['id'] . "' class='orange'>edit</a> | <a href='delete-question.php?id=" . $question['id'] . "' class='red' onclick='return confirmDelete()'>delete</a></b></p>";
 					echo "\n\t\t<br><hr>\n\n\t\t";
 				}
 			}
 		?>
 </div>
-

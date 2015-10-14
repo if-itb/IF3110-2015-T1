@@ -13,6 +13,7 @@
 			}
 		}
 
+		/* DOCUMENT RENDERING */
 		require_once(LAYOUT_PATH . "/header.php");
 
 		echo "<div id=\"container\">\n";
@@ -24,7 +25,6 @@
 		}
 
 		echo "\t</div>\n";
-     
 
 		require_once(LAYOUT_PATH . "/footer.php");
 	}

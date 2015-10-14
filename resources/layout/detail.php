@@ -4,8 +4,21 @@
 
 <hr>
 <div>
+	<?php
+		echo "<table class='stats'>
+		<tr>
+			<td><div onclick=\"voteQuestion('upvote')\" class='arrow-up'></div></td>
+		</tr>
+		<tr class='stat-number'>
+			<td id='question_vote'>" . $question['vote'] . "</td>
+		</tr>
+		<tr>
+			<td><div onclick=\"voteQuestion('downvote')\" class='arrow-down'></div></td>
+		</tr>
+	</table>\n<br>\n";
+	?>
 	<p class='question-detail'> <?php echo $question['question'];?> </p>
-	<p class='right'><b>asked by <a class='purple'><?php echo $question['name']; ?></a> | <a href='ask-question.php?id=<?php echo $question['id']; ?>' class='orange'>edit</a> | <a <a href='delete-question.php?id=<?php echo $question['id']; ?>' class='red' onclick='return confirmDelete()'>delete</a></b></p>
+	<p class='right'><b>asked by <span class='purple'><?php echo $question['name']; ?></span> at <?php echo $question['datetime'];?> | <a href='ask-question.php?id=<?php echo $question['id']; ?>' class='orange'>edit</a> | <a <a href='delete-question.php?id=<?php echo $question['id']; ?>' class='red' onclick='return confirmDelete()'>delete</a></b></p>
 </div>
 
 <?php
@@ -17,17 +30,17 @@
 		foreach ($answers as $answer) {
 			echo "\t\t<table class='stats'>
 			<tr>
-				<td><div class='arrow-up'></div></td>
+				<td><div onclick=\"voteAnswer('upvote', " . $answer['id'] . ")\" class='arrow-up'></div></td>
 			</tr>
 			<tr class='stat-number'>
-				<td>" . $answer['vote'] . "</td>
+				<td id='" . $answer['id'] . "'>" . $answer['vote'] . "</td>
 			</tr>
 			<tr>
-				<td><div class='arrow-down'></div></td>
+				<td><div onclick=\"voteAnswer('downvote', " . $answer['id'] . ")\" class='arrow-down'></div></td>
 			</tr>
-		</table>\n<br>";
+		</table>\n<br>\n";
 			echo "<p class='question-detail'>" . $answer['answer'] . "</p>";
-			echo "\t<p class='right'><b>answered by <a class='purple'>" . $answer['name'] . "</a> at sekarang</b></p>";
+			echo "\t<p class='right'><b>answered by <a class='purple'>" . $answer['name'] . "</a> at " . $answer['datetime'] . "</b></p>";
 			echo "<br><hr>";
 		}
 	}
