@@ -64,7 +64,7 @@ class QuestionController {
 		$question->answers = count($answers);
 		$content = (string)$question_view->params(['question' => $question]) .
 			(string)$answer_view->params(['answers' => $answers]) .
-			(string)$answer_form;
+			(string)$answer_form->params(['question_id' => $question->id]);
 
 		$view = new View('layout');
 		$view = $view->params([ 
@@ -89,6 +89,21 @@ class QuestionController {
 		return $view;
 	}
 
+	public function getUpdate() {
+		$question = Question::where('id','=',Request::params('id')['id'])->first();
+		$content = new View('questions/form-edit');
+		$content = $content->params(['question' => $question]);
+		$view = new View('layout');
+
+		$view = $view->params([ 
+			'title' => 'Asklyz',
+			'content' => (string)$content,
+			'headline' => 'What\'s your question?'
+			])->scripts(['layout'])->styles(['layout', 'form', 'card']);
+
+		return $view;
+	}
+
 	public function getDelete() {
 		$question_id = Request::params(['id'])['id'];
 		Question::where('id','=',$question_id)->destroy();
@@ -101,5 +116,18 @@ class QuestionController {
 		$question->save();
 
 		return Route::redirect();
+	}
+
+	public function postUpdate() {
+		$input = Request::params();
+		$question_id = $input['question_id'];
+		$question = Question::where('id','=',$question_id)->first();
+
+		foreach (Question::$fillable as $key) {
+			$question->$key = $input[$key];
+		}
+		$question->update('id=' . $question_id);
+
+		return Route::redirect('/questions?id='.$question_id);
 	}
 }

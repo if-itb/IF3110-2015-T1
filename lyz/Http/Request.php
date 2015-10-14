@@ -7,6 +7,8 @@ class Request {
 	private static $method;
 	/* Request parameters */
 	private static $params;
+	/* Request referer */
+	private static $referer;
 
 	public static function create($uri, $method, $params) {
 		self::$uri = parse_url($uri, PHP_URL_PATH);

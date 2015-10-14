@@ -10,7 +10,7 @@
 	<body>
 		<div>
 			<div class="header">
-				<h1 id="title">Asklyz</h1>
+				<h1 id="title"><a href='/'>Asklyz</a></h1>
 			</div>
 			<?php if (isset($search)): ?>
 				<?= $search ?>

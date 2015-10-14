@@ -6,7 +6,7 @@ use Lyz\Database\QueryBuilder;
 class BaseModel {
 	protected static $table = 'default';
 
-	protected static $fillable = [];
+	public static $fillable = [];
 
 	public function __construct($params = null) {
 		if (isset($params)) {
@@ -48,28 +48,40 @@ class BaseModel {
 
 	public function save() {
 		try {
-			$columns = '(';
-			$values = '(';
-			$first = true;
+			$columns = [];
+			$values = [];
 			foreach ($this as $key => $value) {
-				if ($first === false) {
-					$columns .= ',';
-					$values .= ',';
-				}
 				if (is_string($value)) {
 					$value = '\'' . $value . '\'';
 				}
-				$columns .= $key;
-				$values .= $value;
-				$first = false;
+				array_push($columns, $key);
+				array_push($values, $value);
 			}
-			$columns .= ')';
-			$values .= ')';
+			$columns = '(' . implode(',', $columns) . ')';
+			$values = '(' . implode(',', $values) . ')';
 			$q = 'insert into ' . static::$table . $columns . ' values' . $values;
 			DB::query($q);
 		}
 		catch (\Exception $e) {
-			DB::update();
+		}
+	}
+
+	public function update($condition) {
+		try {
+			$set = [];
+			foreach ($this as $key => $value) {
+				$tvalue = $value;
+				if (is_string($tvalue)) {
+					$tvalue = '\'' . $tvalue . '\'';
+				}
+				array_push($set, $key . '=' . $tvalue);
+			}
+			$set = implode(',', $set);
+			$q = 'update ' . static::$table . ' set ' . $set . ' where ' . $condition;
+
+			DB::query($q);
+		}
+		catch (\Exception $e) {
 		}
 	}
 }
