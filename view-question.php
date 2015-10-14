@@ -21,9 +21,11 @@
 		<h2><?php echo $row['topic']; ?></h2>
 		<div class="row">
 			<div class="col vote">
-				<button type="button" onclick="getVote('q',<?php echo $row['id'] ?>,1)"><i class="fa fa-arrow-up"></i></button>
-				<p class = "number" id="voteq<?php echo $row['id'];?>"><?php echo $row['vote'];?></p>
-				<button type="button" onclick="getVote('q',<?php echo $row['id'] ?>,-1)"><i class="fa fa-arrow-down"></i></button>
+				<div class = "vote-btn">
+				<button type="button" onclick="getVote('q',<?php echo $row['id'] ?>,1)"><i class="fa fa-chevron-up"></i></button>
+				<p class = "number-vote" id="voteq<?php echo $row['id'];?>"><?php echo $row['vote'];?></p>
+				<button type="button" onclick="getVote('q',<?php echo $row['id'] ?>,-1)"><i class="fa fa-chevron-down"></i></button>
+				</div>
 			</div>
 			<div class="col content">
 				<p><?php echo htmlspecialchars($row['content']); ?></p>
@@ -32,7 +34,7 @@
 		</div>
 		<div class = "row info" align = "right">
 			Ditanyakan oleh <span class="name"><?php echo $row['email']; ?></span> |
-			<span class="link edit"> <a href= "question.php?id=<?php echo $row['id']; ?>">Edit</a> </span>
+			<span class="link edit"> <a href= "question.php?id=<?php echo $row['id']; ?>">Edit</a> </span> | 
 			<span class="link delete"> <a href= "javascript:delete_question(<?php echo $row['id'];?>)" >Delete</a></span>
 		</div>
 		<br>
@@ -47,9 +49,9 @@
 		<?php while($row3 = mysql_fetch_array($data)): ?> 
 			<div class = "row">
 				<div class = "col vote">
-					<button type="button" onclick="getVote('a',<?php echo $row3['id']; ?>,1)"><i class="fa fa-arrow-up"></i></button>
-					<p id="votea<?php echo $row3['id'];?>"><?php echo $row3['vote'];?></p>
-					<button type="button" onclick="getVote('a',<?php echo $row3['id']; ?>,-1)"><i class="fa fa-arrow-down"></i></button>
+					<button type="button" id = "vote-btn" onclick="getVote('a',<?php echo $row3['id']; ?>,1)"><i class="fa fa-chevron-up"></i></button>
+					<p class = "number-vote" id="votea<?php echo $row3['id'];?>"><?php echo $row3['vote'];?></p>
+					<button type="button" id = "vote-btn" onclick="getVote('a',<?php echo $row3['id']; ?>,-1)"><i class="fa fa-chevron-down"></i></button>
 				</div>
 				<div class = "col content">
 					<p> <?php echo htmlspecialchars($row3['content']); ?></p>
@@ -72,8 +74,8 @@
 			<ul>
 				<input type = 'text' name = 'Nama' placeholder="Nama" maxlength = '60'></input>
 				<input type = 'text' name = 'Email' placeholder="Email"  maxlength = '60'></input>
-				<textarea rows = '50' cols = '20' placeholder="Jawaban" name = 'Jawaban' ></textarea>
-				<button class = 'submit' type = 'submit' >Kirim</button>
+				<textarea rows = '100' cols = '100' placeholder="Jawaban" name = 'Jawaban'></textarea>
+				<input type = 'submit' value = "Kirim"></input>
 			</ul>
 		</form>
 	</div>

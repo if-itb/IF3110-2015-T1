@@ -19,7 +19,7 @@ p {
 }
 
 a {
-	color: #04a0be;
+	color: #468499;
 	text-decoration: none;
 }
 
@@ -32,26 +32,35 @@ button, input[type="text"], input[type="submit"] {
 	font-size: 1em;
 }
 
-button, input[type="submit"] {
-	background-color: #04a0be;
-	border: 2px solid #04a0be;
+input[type="submit"] {
+	background-color: #468499;
+	border: 1px solid #468499;
 	color: #FDFFFC;
 	cursor: pointer;
 	transition: 0.2s color ease-out;
 	transition: 0.2s background-color ease-in;
 }
-
-button:hover, input[type="submit"]:hover {
+input[type="submit"]:hover {
 	background-color: #FDFFFC;
-	color: #04a0be;
+	color: #468499;
+}
+
+button {
+	background-color: #FDFFFC;
+	border: 0 solid #FDFFFC;
+	color: #999;
+	cursor: pointer;
+	transition: 0.2s color ease-out;
+	transition: 0.2s background-color ease-in;
+}
+
+button:hover {
+	background-color: #cccccc;
+	color: #FDFFFC;
 }
 
 .center {
 	text-align: center;
-}
-
-.underline {
-	border-bottom: 2px solid #ccc;
 }
 
 .div {
@@ -92,11 +101,6 @@ button:hover, input[type="submit"]:hover {
 	width: 10%;
 }
 
-.title {
-	padding-left: 20px;
-	width: 80%;
-}
-
 .col.content {
 	width: 90%;
 }
@@ -127,6 +131,9 @@ span.name {
 	color: #0024ff;
 }
 
+span.page-title {
+	color: #999;
+}
 form.block input[type="text"], form.block textarea {
 	display: block;
 	margin: 10px 0;
@@ -142,7 +149,8 @@ textarea {
 
 
 form.block input[type="submit"] {
-	float: right;
+	float: left;
+	margin-bottom : 10px;
 }
 
 #form-answer > h2 {
@@ -151,6 +159,7 @@ form.block input[type="submit"] {
 }
 
 #answers > h2 {
+	color: #999;
 	margin-bottom: 0;
 }
 
@@ -166,8 +175,7 @@ form.block input[type="submit"] {
 	border-bottom: 2px solid #ccc;
 }
 
-#view-question-page .vote {
-	font-size: 1.6em;
-	line-height: 1em;
-	color: #ccc;
+.number-vote {
+	font-size : 1.3em;
+	color : #888;
 }

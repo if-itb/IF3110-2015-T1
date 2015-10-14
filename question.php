@@ -17,8 +17,8 @@
 		<input type = 'text' name = 'Nama' placeholder="Nama" value = "<?php echo $row['name']?>" maxlength = '60'></input>
 		<input type = 'text' name = 'Email' placeholder="Email" value = "<?php echo $row['email']?>" maxlength = '60'></input>
 		<input type = 'text' name = 'Topik' placeholder="Topik" value = "<?php echo $row['topic']?>" maxlength = '140'></input>
-		<textarea rows = '50' cols = '20' placeholder="Konten" name = 'Konten' ><?php echo $row['content']?></textarea>
-		<button class = 'submit' type = 'submit'>Update</button>
+		<textarea rows = '100' cols = '100' placeholder="Konten" name = 'Konten' ><?php echo $row['content']?></textarea>
+		<input type = 'submit' value = "Update"></input>
 	</ul>
 </form>
 <?php mysql_close($link); ?>
@@ -28,8 +28,8 @@
 		<input type = 'text' name = 'Nama' placeholder="Nama" maxlength = '60'></input>
 		<input type = 'text' name = 'Email' placeholder="Email"  maxlength = '60'></input>
 		<input type = 'text' name = 'Topik' placeholder="Topik" maxlength = '140'></input>
-		<textarea rows = '50' cols = '20' placeholder="Konten" name = 'Konten' ></textarea>
-		<button class = 'submit' type = 'submit'>Kirim</button>
+		<textarea rows = '100' cols = '100' placeholder="Konten" name = 'Konten' ></textarea>
+		<input type = 'submit' value ="Kirim"></input>
 	</ul>
 </form>
 <?php endif; ?>

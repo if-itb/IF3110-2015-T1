@@ -10,7 +10,7 @@
 	$query = "select * from question where topic LIKE  '%".$cari."%' or content LIKE  '%".$cari."%'";
 	$data = mysql_query($query);
 ?>
-<h2>Hasil untuk  '<?php echo $cari; ?>' : </h2><br>
+<span class="page-title"><h2>Hasil untuk  '<?php echo $cari; ?>' : </h2></span><hr>
 <?php while($row = mysql_fetch_array($data)) : ?>
 	<div class="row">
 		<h2> <a href = view-question.php?id=<?php echo $row['id'];?>><?php echo $row['topic']; ?></a></h2>
