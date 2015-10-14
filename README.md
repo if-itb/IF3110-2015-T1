@@ -89,7 +89,7 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+1. Untuk melakukan validasi pada client-side, dilakukan pengecekan terhadap setiap input box yang ada pada form dan dipastikan setiap input box tidak kosong. Hal ini berlaku untuk form addQuestion maupun answer. Apabila input box masih kosong dan user melakukan Post (menekan tombol post untuk submit), maka akan muncul pop-up yang memberikan peringantan terhadap user untuk mengisi setiap input box yang ada. Untuk melakukan validasi kebenaran format E-mail, digunakan regular expression yang akan memastikan bahwa format E-mail masukan user merupakan format yang benar.
 
 ### Knowledge
 
