@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+	
 <?php include 'connect.php';?>
 	
 <?php
@@ -19,9 +19,6 @@ if (mysqli_query($conn, $sql)) {
 }
 
 ?>
-
-
-
 
 </body>
 </html>

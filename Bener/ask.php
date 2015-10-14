@@ -4,19 +4,7 @@
   	<title>Create</title>
   	<meta charset="UTF-8">
 
-	<style>
-	h1 {
-	    text-align: center;
-	    font-size: 55px;
-	}
-	p {
-		text-align: center;
-	    font-size: 200%;
-	}
-	form{
-		text-align: center;
-	}
-	</style>
+	<link rel="stylesheet" type="text/css" href='style.css'/>
 
 <script>
 function validateEmail(email) {
@@ -46,14 +34,15 @@ function validateForm() {
 </head>
 <body>
 
-<h1>Simple StackExchange</h1>
-<p>What's your question?</p><br>
-
+<div class="title">Simple StackExchange</div>
+<div class="subtitle">What's your question?</div>
+<div class="line"> <hr> </div>
+<br>
 <form name="askForm" action="askpost.php" onsubmit="return validateForm()" method="post">
-	<input type="text" name="name" placeholder="Name" size="100"><br>
-	<input type="text" name="email" placeholder="Email" size="100"><br>
-	<input type="text" name="topic" placeholder="Question Topic" size="100"><br>
-	<textarea name="content" rows="5" cols="40" placeholder="Content"></textarea><br>
+	<input type="text" name="name" placeholder="Name" size="130%"><br>
+	<input type="text" name="email" placeholder="Email" size="130%"><br>
+	<input type="text" name="topic" placeholder="Question Topic" size="130%"><br>
+	<textarea name="content" rows="5" cols="128%" placeholder="Content"></textarea><br>
 	<input type="submit" value="Submit">
 </form>
 

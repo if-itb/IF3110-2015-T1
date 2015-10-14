@@ -1,0 +1,73 @@
+	.title {
+	    text-align: center;
+	    font-size: 350%;
+	    font-family:calibri;
+	}
+	.subtitle {
+		margin-left:17.5%;
+		text-align: left;
+	    font-size: 250%;
+	    font-family:calibri;
+	}
+	#helping {
+		text-align: center;
+	    font-size: 100%;
+	    font-family:calibri;
+	}
+	#faq {
+		text-align: left;
+		font-size: 100%;
+		font-family:calibri;
+		margin-left: 17.5%;
+	}
+	form{
+		text-align: center;
+	    font-size: 100%;
+	    font-family:calibri;
+	}
+	.line { 
+	    margin-left:17.5%;
+	    margin-right: 17.5%;
+	    color: #000000;
+		background-color: #000000;
+		height: 3px;
+		font-family:calibri;
+	} 
+	#ask{
+		text-decoration: none;
+		color: rgb(255,215,0);
+	}
+	.column-one{
+		margin-left:17.5%;
+		width: 7.5%;
+		color:black;
+		text-align: center;
+		float:left;
+	}
+	.column-two{
+		width: 7.5%;
+		color:black;
+		text-align: center;
+		float:left;
+	}
+	.column-three{
+		margin-left:2.5%; 
+		width: 30%;
+		color:black;
+		text-align: left;
+		float:left;
+	}
+	.column-four{
+		width: 17.5%;
+		color:black;
+		text-align: right;
+		float:left;
+	}
+	.row-bottom{
+		margin-left:none; 
+		margin-right:17.5%;
+		width: 65%;
+		color:black;
+		text-align: right;
+		float:right;
+	}
