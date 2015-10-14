@@ -1,5 +1,4 @@
 <?php
-	echo
 	require_once("../config/config.php");
 
 	// Delete question
@@ -11,7 +10,7 @@
 		$sql = "DELETE FROM answer WHERE q_id='$q_id'";
 
 		if (mysqli_query($conn, $sql)) {
-			header('location: ../');
+
 		} else {
 			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		}
@@ -20,7 +19,7 @@
 		$sql = "DELETE FROM question WHERE id='$q_id'";
 
 		if (mysqli_query($conn, $sql)) {
-			header('location: ../');
+			header('location: ../../');
 		} else {
 			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		}

@@ -20,6 +20,7 @@
 		</div>
 	</div>
 
+<script src="assets/js/confirmation.js"></script>
 <script src="assets/js/validation.js"></script>
 <script src="assets/js/script.js"></script>
 <?php include "views/footer.php";?>

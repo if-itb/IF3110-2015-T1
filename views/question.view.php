@@ -17,7 +17,7 @@
 			echo " edited at " . $question["date_edited"] . " ";
 		}
 		echo "<a href=\"edit.php?q_id=" . $question["id"] . "\" class=\"edit-question\"> edit</a> | 
-		<a class=\"delete-question\" onclick=\"deleteConfirmation(" . $question["id"] . ")\">delete</a><br></span></span>";
+		<a href=\"controllers/delete-question.controller.php/?q_id=" . $question["id"] . "\" class=\"delete-question\" onclick=\"return deleteConfirmation(" . $question["id"] . ")\">delete</a><br></span></span>";
 		echo "</span><br><br>";
 		echo "<br>";
 		echo "<h2>" . $question["answer"] . " Answers</h2><hr>";

@@ -5,7 +5,7 @@
 	function retrieveQuestions() {
 		global $conn;
 
-		$sql = "SELECT * FROM question;";
+		$sql = "SELECT * FROM question ORDER BY date_created DESC;";
 		$result = mysqli_query($conn, $sql);
 
 		$arr = array();
