@@ -1,0 +1,172 @@
+textarea {
+	font-size : 15px;
+	resize : none;
+	width : 1030px;
+	padding : 10px;
+	margin-left : 150px;
+}
+img {
+	height : 30px;
+	width : 30px;
+}
+
+div.post {	
+	text-align : right;
+}
+
+div.empty {
+	margin-left : 550px ;
+}
+
+HR { 	
+	margin-left: 125px;
+	margin-bottom : 0px;
+	padding : 0px;
+	border : 1px solid black;
+	display : block;
+}
+
+div.qcon {
+	overflow-wrap : break-word;		
+	top : 180px;
+	display : inline-block;
+	float : right;
+	width : 700px;
+	max-width : 700px;	
+	margin-left :10px;
+	margin-right : 400px;
+	font-size : 15px;	
+}
+
+textarea[id=content] {
+	height : 200px;
+}
+input[type=submit] {
+	width : 150px;
+	height : 22px;
+}
+
+body {	
+	margin : 0;
+	padding : 0;
+}
+div.center, div.main {	
+	text-align : center;
+}
+
+H1 {
+	text-align : center;
+	letter-spacing :10px;	
+}
+H5 {	
+	display : inline;	
+}
+H4 {		
+	display : inline;
+	margin-left : 140px;
+	font-size : 23px;
+}
+H3{
+	margin-left : 150px;
+}
+
+p[id^="av1"] {
+	color : green;
+	margin-left : 155px;	
+	font-size : 40px;
+	display : inline-block;
+}
+
+div.closing {
+	text-align : center;
+}
+
+#qv {
+	color : green;
+	margin-left : 155px;	
+	font-size : 40px;
+	display : inline-block;
+}
+
+div.qvote {
+	margin-left : 130px;	
+	font-size : 40px;
+	display : inline-block;	
+}
+
+a {
+	color : maroon;
+	font-style : bold;
+	text-decoration : none;
+}
+a:hover {
+	color : blue;
+}
+
+#blue { color : blue;font-weight : 900;}
+#ask { color : orange;font-weight : 900;}
+button[id=edit] { color : orange;}
+button[id=del] { color : red;}
+
+button {
+     background:none;
+     border:none; 
+     padding:0;
+     font: inherit;
+     font-weight : 900;
+     color : red;
+     /*border is optional*/     
+     cursor: pointer;
+}
+form, p {
+	display : inline-block;
+	word-wrap : normal;
+	whitespace : pre-wrap;
+}
+
+
+.lbox {
+	padding : 15px;
+	width : 200px;
+	height : 80px;
+	display : inline-block;
+	margin-left : 80px;
+}
+
+.topcon {		
+	overflow-wrap : break-word;
+	overflow : hidden;	
+	float : right;
+	clear : left;
+	display : inline-block;
+	width : 630px;
+	max-width : 620px;
+	height	: 90px;
+	margin-left :10px;
+	margin-right : 400px;
+	font-size : 15px;	
+}
+
+#qtopic {
+	font-size : 23px;
+	font-weight : bold;
+}
+
+.usinfo {	
+	display :inline block;
+	float : right;
+	text-align : right;
+	margin-right : 135px;	
+}
+
+.vanum {		
+	margin-left :50px;
+	font-size : 30px;
+	word-spacing :60px;
+}
+
+.va {
+	margin-left :35px;
+	font-size : 20px;
+	word-spacing :20px;	
+}
