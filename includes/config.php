@@ -1,7 +1,7 @@
 <?php 
 	$server = "localhost";
-	$username = "utta";
-	$password = "lobe2**";
+	$username = "root";
+	$password = "";
 	$basisdata = "coppeng";
 	$link = mysql_connect($server, $username, $password);
 	if (!$link) {
