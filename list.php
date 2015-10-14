@@ -1,55 +1,67 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-	"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 	<head>
-		<title>Simple Stack Exchange</title>
-		<link rel="stylesheet" type="text/css" href="style.css">	
 	</head>
-	<body onload="load()">	
-		<div class='center'>	
-		<a href="index.php"><H1>SIMPLE STACK EXCHANGE</H1></a>
-		
-		<form action="index.php" method="post">
-			<input type="text" size=130px name="keyword">
-			<input type="submit" value="Search"><br><br>
-			
-				<H5>Can't find what you are looking for? <a id='ask' href="ask.php?mode=0">Ask Here</a></H5>	
-			
-		</form>	
-		</div>		
-		<H4>Recently Asked Questions</H4>
-		<br>
-		<p id='RAQ'><p>
-		
-		<script>
-		function load() {
-			xmlhttp = new XMLHttpRequest();
-			xmlhttp.onreadystatechange = function() {
-			    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-				document.getElementById("RAQ").innerHTML = xmlhttp.responseText;
-			    }
-			}	
-			xmlhttp.open("GET","list.php",true);
-			xmlhttp.send();			
-		}
-		function del(id, topic, asker) {
-			var r = confirm("Are you sure to delete question '" + topic + "' asked by [" + asker + "]?");
-		    
-			if (r == true) {
-				xhttp = new XMLHttpRequest();
-				xhttp.onreadystatechange = function() {
-				    if (xhttp.readyState == 4 && xmlhttp.status == 200) {
-					load();					
-				    }			 
-				}
-				xhttp.open("GET", "del.php?id="+id, true);
-				xhttp.send();		
-				alert("Delete Success!");				
-			}
+	<body>
+		<?php		
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "sse";
+		// Create connection
+		$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-			
+		// Check connection
+		if (!$conn) {
+		    die("Post failed, please resubmit your question.");
 		}
-		</script>		
-	
+		
+			//SQL Query		
+		$sql ="select * from question";
+		$result = mysqli_query($conn, $sql);
+		
+		
+		if (mysqli_num_rows($result) > 0) {
+		    // output data of each row
+		    while($row = mysqli_fetch_assoc($result)) {
+			$sql = "select * from answer where qid=".$row['qid'];
+			$aresult = mysqli_query($conn, $sql);
+			$ans = mysqli_num_rows($aresult);
+			echo "
+			<div id='main'>			
+			<hr width=80%>
+			<div class='lbox'>
+			<span class='vanum'>".$row['vote']." $ans</span><br>
+			<span class='va'>Votes Answers</span>			
+			</div>
+			<div class='topcon'>
+			<a id='qtopic' href='answer.php?id=".$row['qid']."'>".$row["topic"]."</a>
+			<br>".$row["content"]."<br>
+			</div>
+			
+			<div class='usinfo'>
+			asked by <p id='blue'>" . $row["askname"]. " [" . $row["email"]."]</p> <b>&nbsp&nbsp|&nbsp&nbsp</b>
+			<form action='ask.php?mode=1' method='post'>
+ 				<input type='hidden' name='name' value='".$row["askname"]."'>
+ 				<input type='hidden' name='qid' value='".$row["qid"]."'>
+ 				<input type='hidden' name='mail' value='".$row["email"]."'>
+ 				<input type='hidden' name='topic' value='".$row["topic"]."'>
+ 				<input type='hidden' name='qcontent' value='".$row["content"]."'>				
+				<button id='edit'>Edit</button>
+			</form> <b>&nbsp&nbsp|&nbsp&nbsp</b>
+			<button id='del' onclick='del(".$row['qid'].",\"".$row['topic']."\",\"".$row['askname']."\")'>Delete</button>		
+			</div>
+			<div>
+			
+			";
+		    }
+		} else {
+		    echo "<div class='empty'>No question has ben asked recently</div>";
+		}
+		
+		mysqli_close($conn);
+		?>	
+
+
 	</body>
 </html>
