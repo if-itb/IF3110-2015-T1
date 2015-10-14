@@ -3,7 +3,7 @@
   <head>
     <title>Stack Exchange</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-	<script type = "text/javascript" src="validatequestion.js"> </script>
+	<script type = "text/javascript" src="javascript/validatequestion.js"> </script>
   </head>
   <body>
     <div class="container">

@@ -4,6 +4,7 @@
     <title>Stack Exchange</title>
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type = "text/javascript" src="javascript/validateanswer.js"> </script>
 
   </head>
   <body>
@@ -92,9 +93,10 @@
 		echo'
 		  <hr>
 		  <h2>Your Answer</h2>
-		  <input type="text" class="form" placeholder="Name">
-		  <input type="text" class="form" placeholder="Email">
-		  <textarea class="form" placeholder="Content" rows="5"></textarea>
+		  <form name="question" action="answerdata.php?id='.$qid.'" onsubmit="return validateForm()" method="Post">
+		  <input type="text" class="form" placeholder="Name" name="Name">
+		  <input type="text" class="form" placeholder="Email" name="Email">
+		  <textarea class="form" placeholder="Content" rows="5" name="Content"></textarea>
 	   	  <div class="text-right">
 		    <button class="btn" type="submit">Post</button>
 		  </div>
