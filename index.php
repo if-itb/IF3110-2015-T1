@@ -4,7 +4,7 @@
 	<head>
 		<title>Simple Stack Exchange</title>
 	</head>
-	<body>		
+	<body onload="load()">		
 		<a href="index.php"><H2>SIMPLE STACK EXCHANGE</H2></a>
 		<form action="index.php" method="post">
 			<input type="text" name="keyword">
@@ -14,63 +14,37 @@
 			</p>
 		</form>	
 		<H4>Recently Asked Questions</H4>
-		<?php		
-		$servername = "localhost";
-		$username = "root";
-		$password = "";
-		$dbname = "sse";
-		// Create connection
-		$conn = mysqli_connect($servername, $username, $password, $dbname);
+		<p id='RAQ'><p>
+		
+		<script>
+		function load() {
+			xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+			    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				document.getElementById("RAQ").innerHTML = xmlhttp.responseText;
+			    }
+			}	
+			xmlhttp.open("GET","list.php",true);
+			xmlhttp.send();			
+		}
+		function del(id, topic, asker) {
+			var r = confirm("Are you sure to delete question '" + topic + "' asked by [" + asker + "]?");
+		    
+			if (r == true) {
+				xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+				    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					load();					
+				    }			 
+				}
+				xhttp.open("GET", "del.php?id="+id, true);
+				xhttp.send();		
+				alert("Delete Success!");				
+			}
 
-		// Check connection
-		if (!$conn) {
-		    die("Post failed, please resubmit your question.");
+			
 		}
-		
-		//SQL Query
-		if (count($_GET)>0) {		
-			$sql = "Delete from answer where qid=".$_GET['a'];
-			$conn->query($sql);
-			$sql = "Delete from question where qid=".$_GET['a'];
-			$conn->query($sql);
-		}
-		
-		
-		$sql ="select * from question";
-		$result = mysqli_query($conn, $sql);
-		
-		
-		if (mysqli_num_rows($result) > 0) {
-		    // output data of each row
-		    while($row = mysqli_fetch_assoc($result)) {
-			$sql = "select * from answer where qid=".$row['qid'];
-			$aresult = mysqli_query($conn, $sql);
-			$ans = mysqli_num_rows($aresult);
-			echo "Votes: ".$row['vote']." -Answers: $ans -Name: " . $row["askname"]. " -Email: " . $row["email"]. 
-			" -Topic: <a href='answer.php?id=".$row['qid']."'>"
-			.$row["topic"].
-			"</a> -Content: ".$row["content"]."
-			<form action='ask.php?mode=1' method='post'>
-				<input type='hidden' name='name' value='".$row["askname"]."'>
-				<input type='hidden' name='qid' value='".$row["qid"]."'>
-				<input type='hidden' name='mail' value='".$row["email"]."'>
-				<input type='hidden' name='topic' value='".$row["topic"]."'>
-				<input type='hidden' name='qcontent' value='".$row["content"]."'>				
-				<button>Edit</button>
-			</form>		
-			<a href='index.php?a=".$row['qid']."'>				
-				<button>Delete</button>
-			</a>			
-			<br><br>
-			";
-		    }
-		} else {
-		    echo "No question has ben asked recently";
-		}
-		
-		mysqli_close($conn);
-		?>
-		
+		</script>		
 	
 	</body>
 </html>
