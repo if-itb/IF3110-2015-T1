@@ -15,12 +15,42 @@
 		<p>
 			Cannot find what you are looking for? <a href="ask.php">Ask here</a>
 			<br>
+			<br>
 		</p>
 		
 		<h3>Recently Asked Question</h3>
-		<br>
 		
-		<div class="question">
+		<div class="left">
+			<?php
+				$dbHost = 'localhost:3306';
+				$dbUser = 'root';
+				$dbPass = '';
+				$dbName = 'question_answers';
+				
+				$conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+				
+				if(!$conn){
+					die('Could not connect: ' . mysql_error());
+				}
+				
+				$sql = "SELECT * FROM `questions`";
+				
+				$result = mysqli_query($conn, $sql);
+				while($row = $result->fetch_assoc()){
+					echo 'Votes: ' . $row["Vote"]. '<br>';
+					$innerSQL = "SELECT * FROM `answers` WHERE QuestionID = " . $row["ID"]; 
+					$innerResult = mysqli_query($conn, $innerSQL);
+					if($answer = $innerResult->fetch_assoc())
+						$rowCount = mysqli_num_rows($innerResult);
+					echo 'Answers: ' . $rowCount . '<br>';
+					echo 'Topic: ' . $row["Topic"]. '<br>';
+					echo 'Name: ' . $row["Name"]. '<br>';
+					echo 'Date: ' . $row["Date"]. '<br>';
+					echo '<br>';
+				}
+				
+				mysqli_close($conn);
+			?>
 			
 		</div>
 	</body>

@@ -27,7 +27,7 @@ form {
 
 input.searchBox{
 	border: 3px solid;
-	width: 80%;
+	width: 75%;
 }
 
 input.submitButton{
@@ -73,7 +73,24 @@ div {
 	text-align: center;
 }
 
+question {
+
+}
+
 .justify {
 	text-align: justify;
 }
+
+#blue {
+	color: blue;
+}
+
+#red {
+	color: red;
+}
+
+#yellow {
+	color: yellow;
+}
+
 
