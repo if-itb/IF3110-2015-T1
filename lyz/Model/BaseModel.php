@@ -23,12 +23,12 @@ class BaseModel {
 		return static::makeModel($results);
 	}
 	public static function where($column, $operator, $value) {
-		$query = new QueryBuilder(static::$table, function ($results) { return static::makeModel($results); });
+		$query = new QueryBuilder(static::$table, [ get_called_class(), 'makeModel' ]);
 		$query->where($column, $operator, $value);
 		return $query;
 	}
 
-	private static function makeModel($results) {
+	public static function makeModel($results) {
 		if (is_array($results)) {
 			$models = [];
 			foreach ($results as $result) {

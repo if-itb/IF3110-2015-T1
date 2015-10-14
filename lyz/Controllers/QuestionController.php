@@ -52,6 +52,23 @@ class QuestionController {
 		return $view;
 	}
 
+	public function getRead() {
+		$question_id = Request::params('id')['id'];
+		$question = Question::where('id', '=', $question_id)->first();
+
+		$content = new View('questions/detail');
+		$content = $content->params(['question' => $question]);
+
+		$view = new View('layout');
+		$view = $view->params([ 
+			'title' => $question->topic,
+			'content' => (string)$content,
+			'headline' => $question->topic,
+			])->scripts(['layout'])->styles(['layout', 'form', 'card', 'card-detail']);
+
+		return $view;
+	}
+
 	public function getCreate() {
 		$content = new View('questions/form');
 		$view = new View('layout');

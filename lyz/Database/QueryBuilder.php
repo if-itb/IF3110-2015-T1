@@ -34,8 +34,12 @@ class QueryBuilder {
 		$this->query = 'select * from ' . $this->table . $this->query['where'];
 		$results = DB::query($this->query);
 		if (isset($this->makeModel)) {
-			return $this->makeModel($results);
+			return call_user_func($this->makeModel, $results);
 		}
 		else return $results;
+	}
+
+	public function first() {
+		return $this->get()[0];
 	}
 }

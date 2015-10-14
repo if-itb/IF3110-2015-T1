@@ -1,12 +1,7 @@
-<?php foreach($questions as $question): ?>
 <div class='container card'>
 	<div class='statistic'>
 		<span class='count'><?= $question->votes ?></span>
 		<span class='unit'>votes</span>
-	</div>
-	<div class='statistic'>
-		<span class='count'><?= $question->answers ?></span>
-		<span class='unit'>answers</span>
 	</div>
 	<div class='question-detail'>
 		<div class='topic'><a href='/questions?id=<?= $question->id ?>'><?= $question->topic ?></a></div>
@@ -18,4 +13,4 @@
 		<span><a href='/questions/delete?id=<?= $question->id ?>'>delete </a></span>
 	</span>
 </div>
-<?php endforeach; ?>
+
