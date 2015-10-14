@@ -30,7 +30,9 @@ Author: Irene Wiliudarsan (13513002) -->
 
     <!-- Title -->
     <div class="title">
-      Simple StackExchange
+      <a href="index.php">
+        Simple StackExchange
+      </a>
     </div>
 
     <div class="content">
@@ -58,7 +60,7 @@ Author: Irene Wiliudarsan (13513002) -->
               while($question = $questions->fetch_assoc()) {
                 // Count answer number
                 $id_question = $question["id_question"];
-                $query = "SELECT COUNT(id_answer) FROM answer, question WHERE answer.id_question = $id_question";
+                $query = "SELECT COUNT(id_answer) FROM answer WHERE answer.id_question = $id_question";
                 $answer_num_result = $connection->query($query);
                 $answer_num = $answer_num_result->fetch_assoc();
           ?>

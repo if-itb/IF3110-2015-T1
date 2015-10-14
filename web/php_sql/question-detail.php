@@ -23,21 +23,49 @@ Author: Irene Wiliudarsan (13513002) -->
         die("Connection failed: " . $connection->connect_error);
       }
 
-      // Execute query to take question clicked by user
       $id_question = $_GET["id_question"];
-      $query = "SELECT id_question, topic, content, vote_num, datetime, email FROM question, user WHERE question.id_user = user.id_user and id_question = $id_question";
-      $question = $connection->query($query);
+      // Insert new question from ask-question.php to database
+      if ($id_question == "unknown" && isset($_POST["question-submit"]) && !empty($_POST["question-submit"])) {
+        $name = $_POST["question-name"];
+        $email = $_POST["question-email"];
+        $topic = str_replace("'", "''", $_POST["question-topic"]);
+        $content = str_replace("\n", "<br>", str_replace("'", "''", $_POST["question-content"]));
 
-      // Submit answer form value to database
-      if (isset($_POST["submit"])) {
-        $new_answer_content = str_replace("\n", "<br>", str_replace("'", "''", $_POST["content"]));
-        $new_user_name = $_POST["name"];
-        $new_user_email = $_POST["email"];
-        $query = "SELECT id_user FROM user WHERE name = '$new_user_name' AND email = '$new_user_email'";
-        echo $query . "<br>";
+        // Search user ID
+        $query = "SELECT id_user FROM user WHERE name = '$name' AND email = '$email'";
         $id_user = $connection->query($query);
+        if ($id_user->num_rows <= 0) {
+          // User account haven't made before. New user made in database
+          $query = "INSERT INTO user VALUES ('', '$name', '$email')";
+          // Fetch new id user from database
+          if ($connection->query($query) === TRUE) {
+            $query = "SELECT id_user FROM user WHERE name = '$name' AND email = '$email'";
+            $id_user = $connection->query($query);
+          }
+        }
+        $id_user = $id_user->fetch_assoc()["id_user"];
+        $query = "INSERT INTO question VALUES ('', '$topic', '$content', 0, NOW(), $id_user)";
+        $question_inserted = $connection->query($query);
 
-        if ($id_user->num_rows < 0) {
+        // Get question ID
+        $query = "SELECT id_question FROM question WHERE topic = '$topic' AND content = '$content' AND vote_num = 0 AND id_user = $id_user";
+        $id_question = $connection->query($query);
+        $id_question = $id_question->fetch_assoc()["id_question"];
+      }
+      // Execute query to take question clicked by user
+      $query = "SELECT id_question, topic, content, vote_num, datetime, email FROM question, user WHERE question.id_user = user.id_user AND id_question = $id_question";
+      $question = $connection->query($query);
+      $question = $question->fetch_assoc();
+
+      // Submit answer form values to database
+      if (isset($_POST["answer-submit"]) && !empty($_POST["answer-submit"])) {
+        $new_answer_content = str_replace("\n", "<br>", str_replace("'", "''", $_POST["answer-content"]));
+        $new_user_name = $_POST["answer-name"];
+        $new_user_email = $_POST["answer-email"];
+
+        $query = "SELECT id_user FROM user WHERE name = '$new_user_name' AND email = '$new_user_email'";
+        $id_user = $connection->query($query);
+        if ($id_user->num_rows <= 0) {
           // User account haven't made before. New user made in database
           $query = "INSERT INTO user VALUES ('', '$new_user_name', '$new_user_email')";
           // Fetch new id user from database
@@ -52,17 +80,23 @@ Author: Irene Wiliudarsan (13513002) -->
       }
 
       // Execute query to take number of answers
-      $query = "SELECT COUNT(id_answer) FROM answer, question WHERE answer.id_question = $id_question";
+      $query = "SELECT COUNT(id_answer) FROM answer WHERE answer.id_question = $id_question";
       $answer_num_result = $connection->query($query);
-      $answer_num = $answer_num_result->fetch_assoc();
-      // Execute query to take all associated answers
-      $query = "SELECT id_answer, content, vote_num, datetime, email FROM answer, user WHERE answer.id_user = user.id_user AND id_question = $id_question";
-      $answers = $connection->query($query);
+      if ($answer_num_result->num_rows > 0) {
+        $answer_num = $answer_num_result->fetch_assoc();
+        // Execute query to take all associated answers
+        $query = "SELECT id_answer, content, vote_num, datetime, email FROM answer, user WHERE answer.id_user = user.id_user AND id_question = $id_question";
+        $answers = $connection->query($query);
+      } else {
+        $answer_num = 0;
+      }
     ?>
 
     <!-- Title -->
     <div class="title">
-      Simple StackExchange
+      <a href="index.php">
+        Simple StackExchange
+      </a>
     </div>
 
     <div class="content">
@@ -70,10 +104,7 @@ Author: Irene Wiliudarsan (13513002) -->
       <div class="stacked">
         <div class="subtitle">
           <?php
-            if ($question->num_rows > 0) {
-              $question = $question->fetch_assoc();
-              echo $question["topic"];
-            }
+            echo $question["topic"];
           ?>
         </div>
         <!-- Questions Content -->
@@ -147,6 +178,13 @@ Author: Irene Wiliudarsan (13513002) -->
         </div>
         <?php
             } // End of while
+          } else {
+            // No answers yet
+        ?>
+        <div class="same-height-row border-bottom">
+          Sorry, there are no answers available yet. Know someone who can answer?
+        </div>
+        <?php
           } // End of if
         ?>
       </div>
@@ -156,11 +194,11 @@ Author: Irene Wiliudarsan (13513002) -->
         <div id="answer-form-title">
           Your Answer
         </div>
-        <form class="right" id="answer-form" action="" method="post" onsubmit="formValidation()">
-          <input class="full-length" id="name" name="name" type="text" placeholder="Name">
-          <input class="full-length" id="email" name="email" type="text" placeholder="Email">
-          <textarea class="full-length" id="content" name="content" placeholder="Content" rows="10" cols="50"></textarea>
-          <input class="button" name="submit" type="submit" value="Post">
+        <form class="right" id="answer-form" action="question-detail.php?id_question=<?php echo $id_question ?>" method="post" onsubmit="return formValidation()">
+          <input class="full-length" id="answer-name" name="answer-name" type="text" placeholder="Name">
+          <input class="full-length" id="answer-email" name="answer-email" type="text" placeholder="Email">
+          <textarea class="full-length" id="answer-content" name="answer-content" placeholder="Content" rows="10" cols="50"></textarea>
+          <input class="button" name="answer-submit" type="submit" value="Post">
         </form>
       </div>
     </div>
