@@ -22,6 +22,7 @@
 		}
 	} else {
 		$echoContent = $questionAskForm;
+		$echoContent = str_replace("{isEdit}", "", $echoContent);
 		$echoContent = str_replace("{name}", "", $echoContent);
 		$echoContent = str_replace("{email}", "", $echoContent);
 		$echoContent = str_replace("{topic}", "", $echoContent);

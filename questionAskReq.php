@@ -7,7 +7,7 @@
 
 	mysql_select_db("stackexchange", $db_con);
 
-	if ($_GET["edit"] != true) {
+	if (empty($_GET["edit"])) {
 		$date = date("Y-m-d H:i:s");
 
 		$sql="INSERT INTO question_list (name, email, topic, question, date_time)

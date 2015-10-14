@@ -12,7 +12,7 @@
 	</div>
 	<div class="col question-info">
 		<p>
-			asked by {name} | <a class="edit" href="ask.php?qid={qid}"> edit</a> | <a class="delete" href="index.php?delete=true&id={id}" onclick="return validateDelete();"> delete </a>
+			asked by {name} | <a class="edit" href="ask.php?qid={qid}"> edit</a> | <a class="delete" href="index.php?delete=true&qid={qid}" onclick="return validateDelete();"> delete </a>
 		</p>
 	</div>
 	<div class="bottom-line"></div>

@@ -1,5 +1,6 @@
 <?php
 	include("header.php");
+	include("indexCheck.php");
 ?>
 
 	<div class="search-form">

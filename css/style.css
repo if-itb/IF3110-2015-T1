@@ -92,7 +92,7 @@ body {
 
 .bottom-line{
 	border-bottom: 3px solid;
-	margin-top: 5px;
+	margin-top: 15px;
 	margin-bottom: 5px;
 }
 
@@ -120,7 +120,7 @@ body {
 
 .question {
 	vertical-align: center;
-	min-width: 660px;
+	min-width: 700px;
 }
 
 .question a {
@@ -129,12 +129,10 @@ body {
 	font-weight: 700;
 }
 
-.question p {
-	max-width: 660px;
-}
+
 
 .question-info {
-	margin-top: 80px;
+	margin-left: 900px;
 	min-width: 250px;
 	text-align: right;
 }
