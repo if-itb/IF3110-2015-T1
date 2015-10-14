@@ -42,7 +42,10 @@ questionContent {
 	display: inline-block;
 	color: grey;
 	margin: 0 0 0 3.6%;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	vertical-align: top;
+	white-space: nowrap;
 	width: 48%;
 }
 
