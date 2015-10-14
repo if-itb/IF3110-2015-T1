@@ -1,5 +1,5 @@
 function validateQuestionForm() {
-	if (nameValidating() && emailValidating() && topicValidating() && contentValidating) {
+	if (nameValidating() && emailValidating() && topicValidating()) {
 		return true;
 	}
 	else {
@@ -8,7 +8,7 @@ function validateQuestionForm() {
 }
 
 function validateAnswerForm() {
-	if (emailValidating() && nameValidating() && contentValidating()) {
+	if (emailValidating() && nameValidating()) {
 		return true;
 	}
 	else {
@@ -35,17 +35,6 @@ function emailValidating() {
 	return true;
 }
 
-function contentValidating() {
-	var content = document.getElementById('content').value;
-	
-	if (content == null || content == "") {
-		alert("Please define your question content!");
-		return false;
-	}
-
-	return true;
-}
-
 function topicValidating() {
 	var topic = document.getElementById('topic').value;
 	if (topic == null || topic == "") {
@@ -65,17 +54,28 @@ function validateDelete(){
 	}
 }
 
-function voteUpdating(int) {
-  	if (window.XMLHttpRequest) {
-    	xmlhttp=new XMLHttpRequest();
-  	} else {
-   		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  	}
-  	xmlhttp.onreadystatechange = function() {
-    	if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-    		document.getElementById("vote").innerHTML = xmlhttp.responseText;
-    	}
-  	}
-  	xmlhttp.open("GET","vote.php?vote="+int,true);
-  	xmlhttp.send();
+function voteUpdating(id, table, value) {
+  	if (id == "" || table == "" || value == null) {
+	    return;
+	} else { 
+	    if (window.XMLHttpRequest) {
+	        // code for IE7+, Firefox, Chrome, Opera, Safari
+	        xmlhttp = new XMLHttpRequest();
+	    } else {
+	        // code for IE6, IE5
+	        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	    }
+
+	    xmlhttp.onreadystatechange = function() {
+	        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	        	if (table == "question")
+	            	document.getElementById("questions-vote").innerHTML = parseInt(document.getElementById("questions-vote").innerHTML) + value;
+	            else
+	            	document.getElementById("answers-vote-"+id).innerHTML = parseInt(document.getElementById("answers-vote-"+id).innerHTML) + value;
+	        }
+	    }
+
+	    xmlhttp.open("GET","vote.php?id="+id+"&table="+table+"&value="+value,true);
+	    xmlhttp.send();
+	}
 }

@@ -26,7 +26,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Simple StackExchange | Question</title>
+	<title>Simple StackExchange</title>
 
 	<link rel="stylesheet" href="assets/css/style.css">
 	<script type="text/javascript" src="assets/js/validation.js"></script>
@@ -47,10 +47,10 @@
 			</div>
 			<div class="child-content">
 				<div class="sidebar">
-					<div class="voteup" onclick="voteUpdating(<?php echo $question['q_id']; ?>, 'questions', 1)">
+					<div class="voteup" onclick="voteUpdating(<?php echo $question['q_id']; ?>, 'question', 1)" action="vote.php?id=<?php echo $question['q_id']; ?>&table=question&value=1">
 					</div>
 					<div id="questions-vote"><?php echo $question['q_vote']; ?></div>
-					<div class="votedown" onclick="voteUpdating(<?php echo $question['q_id']; ?>, 'questions', -1)">
+					<div class="votedown" onclick="voteUpdating(<?php echo $question['q_id']; ?>, 'question', -1)" action="vote.php?id=<?php echo $question['q_id']; ?>&table=question&value=-1">
 					</div>
 				</div>
 				<div class="list-content">
@@ -70,10 +70,10 @@
 
 			<div class="child-content">
 				<div class="sidebar">
-					<div class="voteup" onclick="voteUpdating(<?php echo $answer['ans_id']; ?>, 'answers', 1)">
+					<div class="voteup" onclick="voteUpdating(<?php echo $answer['ans_id']; ?>, 'answer', 1)" action="vote.php?id=<?php echo $answer['ans_id']; ?>&table=answer&value=1">
 					</div>
 					<div id="answers-vote-<?php echo $answer['ans_id']; ?>"><?php echo $answer['ans_vote']; ?></div>
-					<div class="votedown" onclick="voteUpdating(<?php echo $answer['ans_id']; ?>, 'answers', -1)">
+					<div class="votedown" onclick="voteUpdating(<?php echo $answer['ans_id']; ?>, 'answer', -1)" action="vote.php?id=<?php echo $answer['ans_id']; ?>&table=answer&value=-1">
 					</div>
 				</div>
 				<div class="list-content">

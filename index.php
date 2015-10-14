@@ -1,6 +1,6 @@
 <?php
 	require_once "connection.php";
-	include ("home-posts.php");
+	include "home-posts.php";
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<title>Simple StackExchange | Home</title>
+	<title>Simple StackExchange</title>
 	
 	<link rel="stylesheet" href="assets/css/style.css">
 	<script type="text/javascript" src="assets/js/validation.js"></script>
