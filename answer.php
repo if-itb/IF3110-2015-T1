@@ -32,9 +32,12 @@
 		?>		
 		<H4><?php echo $topic;?></H4>		
 		<p> <?php echo $con;?></p>
-		<p>vote =<?php echo $vote;?> | asked by <?php echo $name;?> | edit | delete </p>
-			
+		<p>vote =<?php echo "<H6 id =q>".$vote."</H6>";?> | asked by <?php echo $name;?> | edit | delete </p>
 		<?php
+		echo "<button onclick='vote(".$row['qid'].",1)'>Vote Up</button>";
+		echo "<button onclick='vote(".$row['qid'].",2)'>Vote Down</button>";
+		
+			
 		$sql = "select * from answer where qid=".$qid;
 		$result = mysqli_query($conn, $sql);
 		echo "<H4>".mysqli_num_rows($result)." Answers</H4>";
@@ -44,7 +47,9 @@
 			$mail = $row['email'];
 			$con = $row['content'];
 			echo "-------------------------<br><p>$con</p>";
-			echo "vote = ".$vote." | answered by ".$name."<br><br>";		
+			echo "vote = <H6 id='a".$row['aid']."'>".$vote."</H6> | answered by ".$name."<br><br>";	
+			echo "<button onclick='vote(".$row['aid'].",3)'>Vote Up</button>";
+			echo "<button onclick='vote(".$row['aid'].",4)'>Vote Down</button>";
 		}
 		
 		
@@ -60,5 +65,27 @@
 		</form> 
 		
 		<?php mysqli_close($conn); ?>
+		
+		<script>
+		function vote(id,mode) {
+			xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+			    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				if (mode==1 || mode==2) 
+					document.getElementById("q").innerHTML = xmlhttp.responseText;
+				else
+					document.getElementById("a"+id).innerHTML = xmlhttp.responseText;
+			    }
+			}	
+			//alert("vote.php?id="+id+"&mode="+mode);
+			xmlhttp.open("GET","vote.php?id="+id+"&mode="+mode,true);
+			xmlhttp.send();	
+			alert("Vote Success!");
+		
+		}
+		
+		</script>
+		
+		
 	</body>
 </html>
