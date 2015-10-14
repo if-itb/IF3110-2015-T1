@@ -40,7 +40,7 @@ a {
 
 p {
 	text-align: center;
-	font-size: 12px;
+	font-size: 14px;
 }
 
 #ask-here{
@@ -52,7 +52,8 @@ hr {
 	border: 2px solid #FF6B53;
 }
 
-.question-form input[type="text"]{
+.question-form input[type="text"],
+.answer-form input[type="text"] {
 	margin: 2px 15px;
 	padding: 10px;
 	border: solid 5px #FF6B53;
@@ -60,7 +61,8 @@ hr {
 	width: 740px;
 }
 
-.question-form textarea {
+.question-form textarea,
+.answer-form textarea {
 	margin: 2px 15px;
 	padding: 10px;
 	border: solid 5px #FF6B53;
@@ -68,7 +70,8 @@ hr {
 	width: 740px;	
 }
 
-.question-form input[type="submit"]{
+.question-form input[type="submit"],
+.answer-form input[type="submit"]{
 	margin-right: 15px;
 	padding: 5px 15px;
 	float: right;
@@ -119,7 +122,7 @@ hr {
 	font-size: 14px;
 }
 
-#name {
+#qname {
 	color: blue;
 }
 
@@ -129,4 +132,9 @@ hr {
 
 #delete {
 	color: red;
+}
+
+#your-answer {
+	margin-left: 30px;
+	color: #a9a9a9;
 }

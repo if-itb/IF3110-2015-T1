@@ -17,10 +17,8 @@
 	$Email = htmlspecialchars($_POST["email"]);
 	$Topic = htmlspecialchars($_POST["topic"]);
 	$Content = htmlspecialchars($_POST["content"]);
-	date_default_timezone_set("Asia/Bangkok");
-	$NowTime = date("Y-m-d G:i:s");
 
-	$sql = "INSERT INTO question (`Name`, `Email`, `Topic`, `Content`, `Date`) VALUES ('$Name','$Email', '$Topic','$Content', '$NowTime')";
+	$sql = "INSERT INTO question (`Name`, `Email`, `Topic`, `Content`) VALUES ('$Name','$Email', '$Topic','$Content')";
 
 	if (mysqli_query($conn, $sql)) {
 	    //echo "New record created successfully";

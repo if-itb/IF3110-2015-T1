@@ -29,7 +29,7 @@
 				 "</div>";	
 
 			echo '<div class="question-info">'.
-			 		"asked by <span id='name'>$row[Name]</span> | ".
+			 		"asked by <span id='qname'>$row[Name]</span> | ".
 			 		"<a href='#' id='edit'> edit </a> | ".
 			 		"<a href='#' onclick=\"return confirm('Are you sure you want to delete this question?')\" id='delete'>delete</a>".
 			 	 "</div>";
