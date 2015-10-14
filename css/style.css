@@ -4,6 +4,11 @@ body {
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
 
+a {
+	text-decoration: none;
+	color: black;
+}
+
 .header-page {
 	margin-top: 5px;
 	text-align: center;
@@ -71,4 +76,57 @@ hr {
 	border: solid 5px #FF6B53;
 	border-radius: 5px;
 	cursor: pointer;
+}
+
+.qcontainer {
+	overflow: auto;
+}
+
+.vote {
+	width: 100px;
+	float: left;
+	text-align: center;
+	font-weight: bold;
+}
+
+.question {
+	margin-left: 102px;
+}
+
+.question
+
+.question-info {
+	text-align: right;
+	clear: left;
+}
+
+#qline {
+	clear: left;
+}
+
+#question-topic {
+	font-weight: bold;
+}
+
+#question-content {
+	margin-top: 2px;
+	font-size: 14px;
+	color: #020202;
+}
+
+.question-info {
+	margin-top: 10px;
+	font-size: 14px;
+}
+
+#name {
+	color: blue;
+}
+
+#edit {
+	color : orange;
+}
+
+#delete {
+	color: red;
 }

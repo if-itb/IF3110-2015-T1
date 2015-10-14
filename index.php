@@ -10,7 +10,7 @@
 
 <body>
 	<div class="header-page">
-		<h1>Simple StackExchange</h1>
+		<h1><a href="index.php">Simple StackExchange</a></h1>
 	</div>
 
 	<div class="search-form">
@@ -19,8 +19,14 @@
 			<input id="search-button" name="search-button" type="submit" value="Search">
 		</form>
 	</div>
-	<p>Cannot find what you are looking for? <a href="#" id="ask-here">Ask Here </a></p>
+	<p>Cannot find what you are looking for? <a href="question.php" id="ask-here">Ask Here </a></p>
 	<h3>Recently Asked Question</h3>
 	<hr>
+
+	<div class="list-question">
+	<?php
+		include("list_question.php");
+	?>
+	</div>
 </body>
 </html>

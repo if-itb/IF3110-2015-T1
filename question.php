@@ -9,13 +9,13 @@
 
 <body>
 	<div class="header-page">
-		<h1>Simple StackExchange</h1>
+		<h1><a href="index.php">Simple StackExchange</a></h1>
 	</div>
 
 	<h3>What's your question?</h3>
 	<hr>
 	<div class="question-form">
-		<form>
+		<form action="add_question.php" method="post">
 			<div><input type="text" id="name" name="name" placeholder="Name"></div>
 			<div><input type="text" id="email" name="email" placeholder="Email"></div>
 			<div><input type="text" id="topic" name="topic" placeholder="Topic"></div>
