@@ -46,6 +46,12 @@
 		mysqli_close($conn);
 	}*/
 
+    function Redirect($url, $permanent = false)
+    {
+        header('Location: ' . $url, true, $permanent ? 301 : 302);
+        exit();
+    }
+
 	/************ FUNCTION FOR QUESTION *************/
 	function postQuestion($question){
 		global $conn;
@@ -62,8 +68,7 @@
 		VALUES ('$id','$name', '$email', '$topic', '$content','$vote','$create_date')";
 
 		if (mysqli_query($conn, $sql)) {
-		    echo "New record created successfully";
-		} 
+		    Redirect('./index.php', false);		} 
 		else {
 		    echo "Error: " . $sql . "<br>" . $conn->error;
 		}
@@ -122,7 +127,7 @@
 				WHERE q_id= '$id'";
 
 		if (mysqli_query($conn, $sql)) {
-			echo "Question is updated successfully.";
+		    Redirect('./index.php', false);		
 		} else {
 		    echo "Error updating question: " . mysqli_error($conn);
 		}
@@ -203,7 +208,7 @@
 		$sql = "UPDATE questions SET vote=$vote WHERE q_id=$q_id";
 
 		if (mysqli_query($conn, $sql)) {
-			echo $vote;
+			echo "<p>$vote</p>";
 		} else {
 		    echo "Error Vote Question: " . mysqli_error($conn);
 		}
@@ -228,7 +233,7 @@
 		$sql = "UPDATE answers SET vote=$vote WHERE q_id=$q_id AND a_id = $a_id";
 
 		if (mysqli_query($conn, $sql)) {
-			echo $vote;
+			echo "<p>$vote</p>";
 		} else {
 		    echo "Error Vote Answer: " . mysqli_error($conn);
 		}

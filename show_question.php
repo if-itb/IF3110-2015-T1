@@ -39,17 +39,17 @@
         <div id="vote_icon">
           <span class="vote">
             <a href="javascript:voteQuestion(<?php echo $question['q_id']?>,true,true);"><img id="vote_up" src="up.png" ></a>
-            <div id ="q_vote"><?php echo $question['vote']; ?></div>
+            <div id ="q_vote"><p><?php echo $question['vote']; ?></p></div>
             <a href="javascript:voteQuestion(<?php echo $question['q_id']?>,true,false);"><img id="vote_down" src="down_arrow.png"></a>
           </span>
         </div>    
         <div class="mid-right">
           <p><?php echo $question['content']; ?></p>
         </div>
-        <div class="right" style="float:right;">
+        <div class="right">
           asked by <?php echo $question['name']; ?> at <?php echo $question['create_date']; ?> | 
           <a class='orange_link' href='create_question.php?id=$id'>edit</a> |
-          <a class='red_link' href=''>delete</a>          
+          <a class='red_link' href="deleteQuestion.php?id=<?php echo $question['q_id']?>" onclick ='return deleteConfirmation()' >delete</a>          
         </div>
       </div>
     </div>
@@ -57,22 +57,24 @@
     <div id= "content">
       <p class="content_title"><?php echo getAnswerCount($id); ?> Answers</p>
     <?php 
+
         foreach ($answers as $answer) {
           $left =  "<div id='vote_icon'>
                       <span class='vote'>
-                        <a href=\"javascript:voteAnswer(".$answer['q_id'].",".$answer['a_id'].",false,true)\"><img id='vote_up' src='up.png'></a><div id=\"a_vote-".$answer['a_id']."\">" .$answer['vote']. 
-                        "</div><a href=\"javascript:voteAnswer(".$answer['q_id'].",".$answer['a_id'].",false,false)\"><img id='vote_down' src='down_arrow.png'></a>
+                        <a href=\"javascript:voteAnswer(".$answer['q_id'].",".$answer['a_id'].",false,true)\"><img id='vote_up' src='up.png'></a>
+                        <div id=\"a_vote-".$answer['a_id']."\"><p>" .$answer['vote']."</p></div>".
+                        "<a href=\"javascript:voteAnswer(".$answer['q_id'].",".$answer['a_id'].",false,false)\"><img id='vote_down' src='down_arrow.png'></a>
                       </span>
                     </div>";
 
           $mid = "<div class='mid-right'><p>" . $answer['content'] ."</p></div>";
 
           $right = "<div class='right' style='float:right;''>
-                        asked by name at " .$answer['create_date']. " | 
-                    </div>";
-
-          $answer_content = "<div class='question'>" .$left. $mid . $right . "</div>";
-
+                        asked by ".$answer['name']. " at " .$answer['create_date']. 
+                    "</div>";
+          
+            $answer_content = "<div class='question_detail'>" .$left. $mid . $right . "</div><p class=\"content_title\"></p>";
+          
           echo $answer_content;
         }
      ?>

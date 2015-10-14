@@ -1,7 +1,6 @@
 <?php
     require("./controller.php");
     
-
     if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         $keyword = $_POST['search_keyword'];
         $questions = searchQuestion($keyword);
@@ -36,7 +35,14 @@
         <div id="content">
             <p class="content_title" id="recently">Recently Asked Questions</p>
             <?php
+                $size = sizeof($questions);
+                $i = 0;
+
                 foreach($questions as $question){
+                    $question_content = $question['content'];
+                    if (strlen($question_content) > 100 ){
+                        $question_content = substr($question_content,0,96)." ...";
+                    }
 
                     $left = "<div class='left'>
                                 <span class='vote'>0<br>Votes</span>
@@ -44,19 +50,26 @@
                             </div>";
                     $middle = " <div class='middle'>
                                     <a href='show_question.php?id=". $question['q_id']."'>". $question['topic'] ."</a>
-                                    <p>BLAbajfhajkhfdsj</p>
+                                    <p>".$question_content."</p>
                                 </div>";
 
                     $right = " <div class='right'>
                                 asked by 
                                 <a class='blue_link' href=''>" . $question['name'] ."</a> | 
                                 <a class='orange_link' href='create_question.php?id=". $question['q_id'] . "'>edit</a> |
-                                <a class='red_link' href='deleteQuestion.php?id=".$question['q_id']."' onclick ='return confirm(\"Are you sure to delete this question?\");' >delete</a>
+                                <a class='red_link-".$question['q_id']."' href='' onclick ='return deleteConfirmation(".$question['q_id'].")' >delete</a>
                                </div>";
 
-                    $question_content = "<div class='question'>". $left . $middle . $right . "</div>";
+                    if ($i < $size - 1){
+                        $question_content_all = "<div class='question'>". $left . $middle . $right . "</div>";
+                    }
+                    else{
+                        $question_content_all = "<div class='question_last'>". $left . $middle . $right . "</div>";
+                    }
 
-                    echo $question_content;
+                    $i++;
+
+                    echo $question_content_all;
                 } 
 
 

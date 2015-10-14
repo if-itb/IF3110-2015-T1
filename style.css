@@ -7,7 +7,21 @@ div.left > span{
 
 div.mid-right > p{
 	display: block;
-	max-width: 100px;
+	max-width: 1000px;
+}
+
+div.question_detail > .right{
+	float:right;
+	position: relative;
+	top: 100px;
+	right: 0;
+}
+
+span.vote > div > p{
+	text-align: center;
+	font-size: 160%;
+    margin: 8 0;
+    color: #787878;	
 }
 
 form#question ,form#answer{
@@ -57,9 +71,8 @@ img#vote_up , img#vote_down{
 
 #logo{
     font-family: 'Segoe UI',Tahoma, sans-serif;
-    font-size: 150%;
+    font-size: 170%;
 }
-
 
 #recently{
 	font-size: 100%;
@@ -119,7 +132,7 @@ img#vote_up , img#vote_down{
 
 .content_title {
     font-family: 'Segoe UI',Tahoma, sans-serif;
-    font-size: 130%;
+    font-size: 160%;
     text-align: left;
     margin-left: 11%;
     margin-right: 11%;
@@ -155,21 +168,31 @@ img#vote_up , img#vote_down{
 	color: orange;
 }
 
-.question {
+.question, .question_last {
 	font-size: 15px;
-	border-bottom: 2px solid black;
 	margin-left: 11%;
 	margin-right: 11%;
 	padding-right: 10px;
 	height: 100px;
 }
 
+.question{
+	border-bottom: 2px solid black;	
+}
+
 .question_detail{
-	font-size: 15px;
+	/*font-size: 15px;
 	margin-left: 11%;
 	margin-right: 11%;
 	padding-right: 10px;
-	height: 100px;	
+	height: 100px;	*/
+    margin: 0 auto;
+    width: 80%;
+    height: 20%;
+    max-height: 50%
+    word-wrap: break-word;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .red_link{
@@ -199,3 +222,18 @@ img#vote_up , img#vote_down{
 	width: 70px;
 }
 
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #505050 ;
+    opacity: 20%;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    black;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    black;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    black;
+}

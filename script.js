@@ -76,6 +76,19 @@ function initXMLHTTPRequest(){
 	}
 };
 
+function deleteConfirmation(q_id){
+	var deleteLink = "";
+
+	var r = confirm("Are you sure to delete this question?");
+	if (r == true){
+		deleteLink = "deleteQuestion.php?id=" + q_id;
+	}
+	console.log(deleteLink);	
+	var x = document.getElementsByClassName("red_link-" + q_id);
+	x[0].href = deleteLink; 
+
+};
+
 function voteQuestion(q_id,is_question,is_voteup){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function(){
