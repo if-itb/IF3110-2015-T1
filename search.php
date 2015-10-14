@@ -18,9 +18,11 @@
 			$sql = "SELECT * FROM `question` WHERE topic LIKE '%".$_POST["search"]."%' OR content LIKE '%".$_POST["search"]."%'";
 			$result = mysqli_query($conn,$sql);
 
-			echo "<h2>".mysqli_num_rows($result)." Result(s)</h2>";
+			echo "<h2>".mysqli_num_rows($result);
+			if(mysqli_num_rows($result) > 1) echo " Result(s)</h2>";
+			else echo " Result</h2>";
 
-			show_query_ask($result);
+			show_question($conn, $result);
 			mysqli_close($conn);
 		?>
 	</div>

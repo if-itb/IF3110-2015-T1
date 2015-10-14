@@ -18,7 +18,21 @@ function validateForm() {
     var form = [document.forms["question_form"]["name"].value, document.forms["question_form"]["email"].value, document.forms["question_form"]["topic"].value, document.forms["question_form"]["content"].value];
     for (index = 0; index < form.length; ++index) {
     	if(index==1) {
-    		return ValidateEmail(form[index]);
+    		if(!ValidateEmail(form[index])) return false;
+    	}
+	    if (form[index] == null || form[index] == "") {
+	    	alert("Form must be all filled out");
+	        return false;    
+	    }
+    }
+    return true;
+}
+
+function validateFormAnswer() {
+    var form = [document.forms["question_form"]["name"].value, document.forms["question_form"]["email"].value, document.forms["question_form"]["content"].value];
+    for (index = 0; index < form.length; ++index) {
+    	if(index==1) {
+    		if(!ValidateEmail(form[index])) return false;
     	}
 	    if (form[index] == null || form[index] == "") {
 	    	alert("Form must be all filled out");
@@ -34,8 +48,8 @@ function Update_Vote(up,question,id) {
 	ajaxRequest.onreadystatechange = function(){
 		if(ajaxRequest.readyState == 4 && ajaxRequest.status == 200){
 			var ajaxDisplay;
-			if(question==1) ajaxDisplay = document.getElementById('vote_question');
-			else ajaxDisplay = document.getElementById('vote_answer');
+			if(question==1) ajaxDisplay = document.getElementById('vote_question'+id);
+			else ajaxDisplay = document.getElementById('vote_answer'+id);
 			ajaxDisplay.innerHTML = ajaxRequest.responseText;
 		}
 	}

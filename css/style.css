@@ -5,15 +5,15 @@ body {
 
 .header {
 	height:80px;
-    background: #250352;
+    background: #fff;
   	width: 100%;
     margin:0px 0px auto 0px;
-    position: fixed;
 }
 
 h1 {
 	font-family: 'Lato', sans-serif;
 	font-weight: 400;
+	font-size: 40px;
 }
 
 h2 {
@@ -23,15 +23,13 @@ h2 {
 
 a {
 	text-decoration: none;
-	color: #FD6E8A;
 }
 
 h1 a {
-	color: #ECE59A;
+	color: #000;
 }
 
 .content {
-	padding-top: 100px;
 	margin: 0px 100px 100px 100px;
 }
 
@@ -62,9 +60,27 @@ h1 a {
 .identity {
 	text-align: right;
 }
+
+#name {
+	color: #0000FF;
+}
+
+#edit {
+	color: #FF8000;
+}
+
+#delete {
+	color: #FF0000;
+}
+
 #question_form input[type=text], textarea {
 	width: 100%;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	float: center;
+}
+
+#answer-form {
+	color: #808080;
+	font-size: 30px;
 }
