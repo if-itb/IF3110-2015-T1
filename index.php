@@ -1,7 +1,10 @@
 <?php
 	require_once("./mysql/retrieve_questions.php");
-        
-        $questions = retrieveQuestions();
+        $keyword = "";
+        if (isset($_GET['search'])) {
+            $keyword = $_GET['search'];
+        }
+        $questions = retrieveQuestions($keyword);
 ?>
 
 <html>
@@ -15,8 +18,8 @@
         <div align="center">
         <h1>Bukan StackExchange</h1>
         <div>
-            <form name="searchform" action="search.php" method="post" onsubmit="return validateField('searchform','searchbox')">
-                <input type="text" name="searchbox">
+            <form name="searchform" action="index.php" method="get" onsubmit="return validateField('searchform','searchbox')">
+                <input type="text" name="search">
                 <input type="submit" value="Search">
             </form>
         </div>
@@ -24,7 +27,15 @@
         
         
         <h3>Recently Asked Questions</h3>
-        <?php if (count($questions) === 0) echo "No questions yet." ?>
+        <?php 
+            if (count($questions) === 0) {
+                if (isset($_GET['search'])) {
+                    echo "No question matches your query.";
+                } else {
+                    echo "No question yet.";
+                }
+            }
+        ?>
         <?php foreach ($questions as $question) :
             echo $question['name'] . "<br>";
             echo $question['email'] . "<br>";
