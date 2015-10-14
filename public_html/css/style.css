@@ -1,0 +1,119 @@
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans);*/
+
+body {
+	font-family: 'Open Sans';
+	width: 65%;
+	margin: 1% auto;
+	color: #023B6B;
+	border: 3px solid #207cca;
+	border-radius: 5px;
+	padding: 5%; 
+}
+
+.rectangle {
+	background-color: #fafafa;
+	color: #207cca;
+	border: 3px solid #207cca;
+	border-radius: 3px;
+	padding: 7px 15px;
+}
+
+input[type=search] {
+	width: 70%;
+}
+
+hr {
+	border: none;
+	height: 4px;
+	background-color: #207cca;
+}
+
+.ask-content {
+	padding: auto;
+}
+
+.ask-item {
+	padding: 7px 15px;
+	margin: 1%;
+	width: 90%;
+}
+
+.ask-button {
+	margin-right: 3%;
+}
+
+.blue {
+	color: #023B6B;
+	text-decoration: none;
+}
+
+.purple {
+	color: purple;
+}
+
+.orange {
+	color: orange;
+	text-decoration: none;
+}
+
+.red {
+	color: red;
+	text-decoration: none;
+}
+
+.center {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+.question-list {
+	font-size: 80%;
+}
+
+.question-list p {
+	margin: 0px;
+}
+
+.question-topic {
+	font-weight: bolder;
+	color: #207cca;
+	text-decoration: none;
+}
+
+.question-detail {
+	padding-left: 10%;
+	text-align: justify;
+	color: #207cca;
+}
+
+.stats {
+	float: left;
+}
+
+.stats td {
+	text-align: center;
+	font-weight: bold;
+}
+
+.stat-number {
+	font-size: 2em;
+}
+
+.arrow-up {
+	width: 0; 
+	height: 0; 
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid #207cca;
+}
+
+.arrow-down {
+	width: 0; 
+	height: 0; 
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid #207cca;
+}
