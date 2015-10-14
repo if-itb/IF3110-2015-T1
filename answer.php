@@ -5,6 +5,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type = "text/javascript" src="javascript/validateanswer.js"> </script>
+	<script type = "text/javascript" src="javascript/validatedelete.js"> </script>
 
   </head>
   <body>
@@ -50,7 +51,7 @@
 						  '.$row["Content"].'
 						</div>
 						<p class="text-right footer">
-						  Asked by '.$row["Email"].' at <datetime> | <a href>Edit</a> | <a href>Delete</a>
+						  Asked by '.$row["Email"].' at <datetime> | <a href>Edit</a> | <a href="deletedata.php?id='. $qid.'" onclick="return confirmDelete()">Delete</a>
 						</p>
 					  </div>
 					</div>

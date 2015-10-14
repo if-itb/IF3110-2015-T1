@@ -3,6 +3,7 @@
   <head>
     <title>Stack Exchange</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type = "text/javascript" src="javascript/validatedelete.js"> </script>
   </head>
   <body>
     <div class="container">
@@ -69,7 +70,7 @@
 					echo'
 					</br>
 					<p class="text-right footer">
-					  Asked by '.$row["Email"].' | <a href>Edit</a> | <a href>Delete</a>
+					  Asked by '.$row["Email"].' | <a href>Edit</a> | <a href="deletedata.php?id='. $row["QID"].'" onclick="return confirmDelete()">Delete</a>
 					</p>
 				  </div>
 				</div>
