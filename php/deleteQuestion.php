@@ -10,9 +10,11 @@
 	
 	// delete question
 	$query = "DELETE FROM question WHERE QuestionID=" . $_GET["id"];
+	$query2 = "DELETE FROM answers WHERE QuestionID=" . $_GET["id"];
 	
 	// execute query
 	$result = mysqli_query ($dbConn,$query);
+	$result2 = mysqli_query ($dbConn,$query2);
 	
 	// Close connection
 	mysqli_close($dbConn);
