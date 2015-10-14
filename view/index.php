@@ -25,7 +25,7 @@
 
 	</div>
 
-	<center>Cannot find what you are looking for? <a href="/ask">Ask here</a></center>
+	<center>Cannot find what are you looking for? <a class='ask' href="/ask">Ask here</a></center>
 	<br>
 
 

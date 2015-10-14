@@ -49,6 +49,18 @@ a {
 	width: 50px;
 }
 
+.name {
+	color: blue;
+}
+
+.edit, .ask {
+	color: orange;
+}
+
+.delete {
+	color: red;
+}
+
 .up_vote {
 	position: relative;
 	float: left;
