@@ -89,7 +89,11 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+`Melakukan validasi pada client-side`
+Validasi dilakukan dengan menggunakan javascript. Isi form akan diambil dengan menggunakan perintah document.forms[].value untuk diperiksa apakah kosong atau tidak. Jika kosong, fungsi akan memanggil `alert` dan mereturn `false`. Khusus untuk email, ditambahkan regex untuk mengecek ke-valid-an email.
+
+`Melakukan AJAX`
+Ketika tombol vote diklik, javascript akan membuat objek XMLHTTPRequest yang dapat memanggil perintah php. ID dari pertanyaan/jawaban yang ingin dirubah votenya juga dikirimkan ke php melalui prosedur GET. Setelah itu, php akan mengubah isi database berdasarkan ID yang diterimanya dan mengirimkan nilai vote yang telah diubah ke javascript untuk ditampilkan di html.
 
 ### Knowledge
 
