@@ -32,6 +32,7 @@
                 <?php  
                     echo $question['content'] . "<br>";
                     echo $question['vote'] . "<br>";
+                    echo $question['answer_count'] . "<br>";
                     echo $question['time'] . "<br>";
                 ?>
                 <a href="edit.php?id=<?php echo $question['question_id'] ?>">
@@ -60,9 +61,9 @@
         
         <div>
             <form name="answer" action="./mysql/post_answer.php" onsubmit="return validateAnswerForm('answer')" method="post">
-                <input type="text" name="Name"><br>
-                <input type="text" name="Email"><br>
-                <input type="text" name="Content"><br>
+                <input type="text" name="Name" onfocus="if (this.value=='Name') this.value = ''" onblur="if (this.value=='') this.value = 'Name'" value="Name"><br>
+                <input type="text" name="Email" onfocus="if (this.value=='E-mail') this.value = ''" onblur="if (this.value=='') this.value = 'E-mail'" value="E-mail"><br>
+                <input type="text" name="Content" onfocus="if (this.value=='Content') this.value = ''" onblur="if (this.value=='') this.value = 'Content'" value="Content"><br>
                 <input type="hidden" name="Question_ID" value="<?php echo $_GET['id'] ?>">
                 <input type="submit" value="Post">
             </form>
