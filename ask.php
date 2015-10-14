@@ -19,12 +19,12 @@
 				var re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm;
 
 				text = "";
-				name = document.getElementById("name").value;
-				email = document.getElementById("email").value;
-				topic = document.getElementById("topic").value;
-				content = document.getElementById("content").value;
 				
-			
+				name = document.forms["ask"]["name"].value;
+				email = document.forms["ask"]["email"].value;
+				topic = document.forms["ask"]["topic"].value;
+				content = document.forms["ask"]["content"].value;
+				
 				//name
 				if(name == null || name == ""){
 					text = text + "Name must be filled" + "\n";
@@ -64,13 +64,13 @@
 		
 		<form name="ask" action="createQuestion.php" method="post" onsubmit="return validateInput()">
 			<div class="left">
-				<input id="name" class="textBox" type="text" placeholder="Name">
+				<input name="name" class="textBox" type="text" placeholder="Name">
 				<br><br>
-				<input id="email" class="textBox" type="text" placeholder="Email">
+				<input name="email" class="textBox" type="text" placeholder="Email">
 				<br><br>
-				<input id="topic" class="textBox" type="text" placeholder="Question Topic">
+				<input name="topic" class="textBox" type="text" placeholder="Question Topic">
 				<br><br>
-				<textarea id="content" placeholder="Content"></textarea>
+				<textarea name="content" placeholder="Content"></textarea>
 				<br><br>
 			</div>
 			<div class="right">

@@ -37,11 +37,13 @@
 				
 				$result = mysqli_query($conn, $sql);
 				while($row = $result->fetch_assoc()){
+					$rowCount = 0; //refresh from previous result
 					echo 'Votes: ' . $row["Vote"]. '<br>';
 					$innerSQL = "SELECT * FROM `answers` WHERE QuestionID = " . $row["ID"]; 
 					$innerResult = mysqli_query($conn, $innerSQL);
-					if($answer = $innerResult->fetch_assoc())
+					if($answer = $innerResult->fetch_assoc()){
 						$rowCount = mysqli_num_rows($innerResult);
+					}
 					echo 'Answers: ' . $rowCount . '<br>';
 					echo 'Topic: ' . $row["Topic"]. '<br>';
 					echo 'Name: ' . $row["Name"]. '<br>';
