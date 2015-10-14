@@ -10,7 +10,7 @@
 		<h1>Simple StackExchange</h1>
 		<form action="Search.php">
 			<input class="searchBox" type="text" name="questions">
-			<input class="submitButton" type="submit" value="Search">
+			<input type="submit" class="submitButton" value="Search">
 		</form>
 		<p>
 			Cannot find what you are looking for? <a href="ask.php">Ask here</a>

@@ -12,19 +12,73 @@
 		<h2>What's your question?</h3>
 		<br>
 		
-		<form action="createQuestion.php">
-			<input class="textBox" type="text" placeholder="Name">
-			<br><br>
-			<input class="textBox" type="text" placeholder="Email">
-			<br><br>
-			<input class="textBox" type="text" placeholder="Question Topic">
-			<br><br>
-			<textarea placeholder="Content"></textarea>
-			<br><br>
+		<script>
+			function validateInput() {
+				var name, email, topic, content, text;
+				var error = false;
+				var re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm;
+
+				text = "";
+				name = document.getElementById("name").value;
+				email = document.getElementById("email").value;
+				topic = document.getElementById("topic").value;
+				content = document.getElementById("content").value;
+				
+			
+				//name
+				if(name == null || name == ""){
+					text = text + "Name must be filled" + "\n";
+					error = true;
+				}
+				
+				
+				//email
+				if(email == null || email == ""){
+					text = text + "Email must be filled" + "\n";
+					error = true;
+				} else if (!re.test(email)) {
+					text = text + "Please enter a valid email address" + "\n";
+					error = true;
+				}
+				
+				//topic
+				if(topic == null || topic == ""){
+					text = text + "Topic must be filled" + "\n";
+					error = true;
+				}
+				
+				//Content
+				if(content == null || content == ""){
+					text = text + "Content must be filled" + "\n";
+					error = true;
+				}
+				
+				
+				if(error){
+					document.getElementById("error").value = text;
+					window.alert(text);
+					return false;
+				}
+			}
+		</script>
+		
+		<form name="ask" action="createQuestion.php" method="post" onsubmit="return validateInput()">
+			<div class="left">
+				<input id="name" class="textBox" type="text" placeholder="Name">
+				<br><br>
+				<input id="email" class="textBox" type="text" placeholder="Email">
+				<br><br>
+				<input id="topic" class="textBox" type="text" placeholder="Question Topic">
+				<br><br>
+				<textarea id="content" placeholder="Content"></textarea>
+				<br><br>
+			</div>
 			<div class="right">
-				<input class="postButton" type="Submit" value="Post">
+				<input type="submit" class="postButton" value="Post">
 			</div>
 		</form>
+		
+		<p id="error"></p>
 		
 		
 	</body>

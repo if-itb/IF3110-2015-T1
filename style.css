@@ -46,6 +46,7 @@ input.textBox {
 	border: 1px solid;
 	width: 100%;
 	font-size: 15px;
+	padding-left: 2px;
 }
 
 textarea {
@@ -92,5 +93,7 @@ question {
 #yellow {
 	color: yellow;
 }
+
+
 
 
