@@ -16,7 +16,6 @@ class QuestionController {
 		$ans_count = [];
 		if (!empty($answers)) {
 			foreach ($answers as $answer) {
-				$question_id = $answer->question_id;
 				if (isset($ans_count[$question_id])) {
 					$ans_count[$question_id]++;
 				}
@@ -68,8 +67,7 @@ class QuestionController {
 	public function postCreate() {
 		$question = new Question(Request::params());
 		$question->save();
-		die();
 
-		//return Route::redirect();
+		return Route::redirect();
 	}
 }

@@ -14,7 +14,7 @@ class DB {
 
 		try {
 			$results = $db->query($query);
-			if (is_array($results)) {
+			if (!is_bool($results)) {
 				$rows = [];
 				for ($i = 0; $i < $results->num_rows; $i++) {
 					$row = $results->fetch_assoc();
