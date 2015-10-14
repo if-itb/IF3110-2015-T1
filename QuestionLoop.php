@@ -49,6 +49,8 @@
     mysqli_close($conn);
 
 for ($count=1;$count<=$num_of_questions;$count++) {
+    if (strlen($content[$count]) > 77)
+        $content[$count] = substr($content[$count], 0, 77) . '...';
     echo '
     <hr width="770"; align="1";>
     <head>
@@ -103,7 +105,7 @@ for ($count=1;$count<=$num_of_questions;$count++) {
                 asked by
                 <a href="http://www.google.com" id="bluelink">'.$asked_by[$count].'</a>
                 [
-                <a href="http://www.google.com">edit</a>
+                <a href="editquestion.php?questionID='.$questionID[$count].'">edit</a>
                 ]
                 <a href="deleteonequestion.php?questionID='.$questionID[$count].'" id="redlink">delete</a>
 

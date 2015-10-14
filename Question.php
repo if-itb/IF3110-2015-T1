@@ -83,7 +83,7 @@ mysqli_close($conn);
                echo $datetimequestion;
                ?>
                [
-               <a href="http://www.google.com">edit</a>
+               <a href="editquestion.php?questionID=<?php echo $questionID ?>">edit</a>
                ]
                <a href="deleteonequestion.php?questionID='<?php echo $questionID?>'" id="redlink">delete</a>
 
@@ -178,9 +178,6 @@ mysqli_close($conn);
                answered by
                <a href="http://www.google.com" id="bluelink">'.$email[$count].'</a>
                at '.$datetime[$count].'
-               [
-               <a href="http://www.google.com">edit</a>
-               ]
                <a href="deleteoneanswer.php?answerID='.$answer_id[$count].'" id="redlink">delete</a>
 
            </td>
