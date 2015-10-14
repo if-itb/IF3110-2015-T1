@@ -18,7 +18,7 @@
     $name = $_POST["name"];
     $email = $_POST["email"];
     $questionContent = $_POST["questionContent"];
-    $question_id = $_POST["questionId"];
+    $questionId = $_POST["questionId"];
 
     $servername = "localhost";
     $username = "root";
@@ -33,7 +33,7 @@
     }
 
     $sql = "INSERT INTO Answers (question_id,name, email,content,date)
-          VALUE ('$question_id','$name', '$email', '$questionContent',now())";
+          VALUE ('$questionId','$name', '$email', '$questionContent',now())";
 
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
@@ -42,6 +42,6 @@
     }
     $conn->close();
 
-    //Redirect('index.php', false);
+    Redirect('index.php', false);
 ?>
 

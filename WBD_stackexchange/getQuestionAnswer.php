@@ -21,7 +21,8 @@ $rowNumber= mysql_num_rows($rs);
 // Loop the recordset $rs
 // Each row will be made into an array ($row) using mysql_fetch_array
 
-echo"<span class='questionAnswerHeader'>$rowNumber Answer</span>";
+echo"<div id='numberAnswer'>$rowNumber Answer</div>";
+echo"<div id='answerList'>";
 while($row = mysql_fetch_array($rs)) {
 // Write the value of the column FirstName (which is now in the array $row)
 $name = $row['name'];
@@ -32,19 +33,19 @@ $content=$row['content'];
 $date=$row['date'];
 
 
-    echo "<div class='questionAnswerItem''>";
+    echo "<div class='answerItem''>";
 
 
     echo"<div class ='questionAnswerBody'>";
         echo"<div class ='questionAnswerVote'>";
             echo"<div class='questionAnswerVoteUpArrow' onclick= \"voteUpdate('answer',$answerId, 'up')\">";
-                echo "panah atas";
+                echo "<img src='icons/upArrow.png' width='30' height='30'>";
             echo"</div>";
             echo"<div class='questionAnswerVoteNumber' id='voteAnswer$answerId'>";
                 echo "$vote";
             echo"</div>";
             echo"<div class='questionAnswerVoteDownArrow' onclick= \"voteUpdate('answer',$answerId, 'down')\">";
-                echo "panah bawah";
+                echo "<img src='icons/downArrow.png' width='30' height='30'>";
             echo"</div>";
         echo"</div>";
 
@@ -53,9 +54,10 @@ $date=$row['date'];
         echo"</div>";
     echo"</div>";
 
-    echo"<span class='answerFooter'>answered by $name at $date</span>";
+    echo"<span class='questionAnswerFooter'>answered by $name at $date</span>";
     echo "</div>";
 }
+echo"</div>";
 
 // Close the database connection
 mysql_close();

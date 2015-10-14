@@ -27,13 +27,15 @@
 
 
             <div id="yourAnswer">
-                <span id="questionAnswerHeader">Your Answer</span>
+                <span id="yourAnswerWord">Your Answer</span>
                 <div id="answerForm">
                     <form name="myForm" action="addAnswerToDB.php" method="post" onsubmit="return validateFormAnswer()">
                         <input type="text" name="name" placeholder="Name"><br>
                         <input type="text" name="email" placeholder="Email"><br>
                         <textarea name="questionContent" placeholder="Content"></textarea><br>
-                        <input type="submit" value="Post">
+                        <div id="submitter">
+                             <input type="submit" value="Post">
+                        </div>
                         <input type="hidden" name="questionId" value="<?php echo $questionId;?>">
                     </form>
                 </div>

@@ -32,19 +32,19 @@ while($row = mysql_fetch_array($rs)) {
     $content=$row['content'];
     $date=$row['date'];
 }
-echo "<div class='questionAnswerItem''>";
+echo "<div class='questionB'>";
     echo"<span class='questionAnswerHeader'>$title</span>";
 
     echo"<div class ='questionAnswerBody'>";
         echo"<div class ='questionAnswerVote'>";
             echo"<div class='questionAnswerVoteUpArrow' onclick= \"voteUpdate('question',$questionId, 'up')\">";
-                echo "panah atas";
+                echo "<img src='icons/upArrow.png' width='30' height='30'>";
             echo"</div>";
             echo"<div class='questionAnswerVoteNumber' id='voteQuestion'>";
                 echo "$vote";
             echo"</div>";
             echo"<div class='questionAnswerVoteDownArrow' onclick= \"voteUpdate('question',$questionId, 'down')\" >";
-                echo "panah bawah";
+                echo "<img src='icons/downArrow.png' width='30' height='30'>";
             echo"</div>";
         echo"</div>";
 
@@ -53,7 +53,7 @@ echo "<div class='questionAnswerItem''>";
         echo"</div>";
     echo"</div>";
 
-    echo"<span class='questionAnswerFooter'>asked by $name at $date|edit|delete</span>";
+    echo"<span class='questionAnswerFooter'>asked by $name at $date|<a class='editQuestion' href='addQuestion.php?questionId=$questionId'><font color='green'>edit</font> </a>|<a class='deleteQuestion' href = 'deleteQuestion.php?questionId=$questionId' onclick= \"return confirm('Confirm Delete?');\";><font color='red'>delete</font> </a></span>";
 echo "</div>";
 
 

@@ -24,13 +24,13 @@ function validateFormQuestion(){
     }
 
 
-    var a = document.forms["myForm"]["topic"].value;
+    var a = document.forms["myForm"]["questionTopic"].value;
     if (a==null || a==""){
         alert("Topic must be filled");
         return false;
     }
 
-    var b = document.forms["myForm"]["content"].value;
+    var b = document.forms["myForm"]["questionContent"].value;
     if (b==null || b==""){
         alert("Content must be filled");
         return false;
@@ -56,7 +56,7 @@ function validateFormAnswer(){
         return false;
     }
 
-    var b = document.forms["myForm"]["content"].value;
+    var b = document.forms["myForm"]["questionContent"].value;
     if (b==null || b==""){
         alert("Content must be filled");
         return false;
