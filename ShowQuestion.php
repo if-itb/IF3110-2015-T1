@@ -46,9 +46,9 @@
 			<table>
 				<tr>
 					<td style="width:15%; text-align:center">
-						<img src="up.png"><br>
-				    	<p style="font-size:40px; margin:0; color:lightgrey"> <?php echo $vote ?> </p>
-						<img src="down.png">
+						<img src="images/up.png" onclick="addQuestionVote(<?php echo $id ?>)"><br>
+				    	<p id="vote" style="font-size:40px; margin:0; color:lightgrey"> <?php echo $vote ?> </p>
+						<img src="images/down.png" onclick="substractQuestionVote(<?php echo $id ?>)">
 				    </td>
 				    <td style="vertical-align:top">
 				    	<?php echo $content ?><br>
@@ -76,9 +76,9 @@
 						echo
 				    	'<tr style="border-bottom:2px solid #000">
 				    		<td style="width:15%; text-align:center; padding:20px">
-				    			<img src="up.png"><br>
-				    			<p style="font-size:40px; margin:0; color:lightgrey">' .$row["vote"]. '</p>
-								<img src="down.png">
+				    			<img src="images/up.png" onclick="addAnswerVote('.$row["answerID"].')"><br>
+				    			<p id="answerVote'.$row["answerID"].'"  style="font-size:40px; margin:0; color:lightgrey">' .$row["vote"]. '</p>
+								<img src="images/down.png" onclick="substractAnswerVote('.$row["answerID"].')">
 				    		</td>
 				    		<td style="vertical-align:top; padding:20px">'
 				    			.$row["content"].'<br>

@@ -51,3 +51,47 @@ function validateAnswerForm() {
 		return false;
 	}
 }
+
+function addQuestionVote(id) {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			document.getElementById("vote").innerHTML = xhttp.responseText;
+		}
+	}
+	xhttp.open("POST", "AddQuestionVote.php?id=" + id, true);
+	xhttp.send();
+}
+
+function substractQuestionVote(id) {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			document.getElementById("vote").innerHTML = xhttp.responseText;
+		}
+	}
+	xhttp.open("POST", "SubstractQuestionVote.php?id=" + id, true);
+	xhttp.send();
+}
+
+function addAnswerVote(id) {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			document.getElementById("answerVote" + id).innerHTML = xhttp.responseText;
+		}
+	}
+	xhttp.open("POST", "AddAnswerVote.php?id=" + id, true);
+	xhttp.send();
+}
+
+function substractAnswerVote(id) {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			document.getElementById("answerVote" + id).innerHTML = xhttp.responseText;
+		}
+	}
+	xhttp.open("POST", "SubstractAnswerVote.php?id=" + id, true);
+	xhttp.send();
+}

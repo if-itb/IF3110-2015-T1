@@ -30,7 +30,7 @@
 						$linkshow = '<a href=/stackExchange/ShowQuestion.php?id='.$row["questionID"].'>'.$row["question_topic"]."</a>";
 						$linkedit = '<a href=/stackExchange/EditQuestion.php?id='.$row["questionID"].' style="color:orange">edit</a>';
 				    	$linkdelete = "<a href=/stackExchange/DeleteQuestion.php?id=".$row["questionID"]." style=\"color: red\" onclick=\"return confirm('Are you sure you want to delete this item?');\">delete</a>";
-				    	$content = (strlen($row["content"]) > 50) ? substr($string,0,50).'...' : $row["content"];
+				    	$content = (strlen($row["content"]) > 150) ? substr($row["content"],0,150).'...' : $row["content"];
 
 				    	echo
 				    	'<tr style="border-top: 2px solid #000; height: 80px;">
