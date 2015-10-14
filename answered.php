@@ -2,9 +2,11 @@
 	"http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>ASK a Question</title>
+		<title>ANSWER a Question</title>
+		<link rel="stylesheet" type="text/css" href="style.css">	
 	</head>
 	<body>
+		<div class='closing'>
 		<a href="index.php"><H2>SIMPLE STACK EXCHANGE</H2></a>
 		<?php
 		$servername = "localhost";
@@ -26,13 +28,23 @@
 		values (".$val.")";
 		
 		if (mysqli_query($conn, $sql)) {
-		    echo "Your answer has been posted succesfully!";
+		    echo "Your answer has been posted succesfully!<br><br>";		    
+		    echo "You will be redirected to main page in 5 sec.<br><br>";
+		    echo "<a href='index.php'>Back</a><br><br>";
 		} else {
 		    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		}
+		}	
 
 		
 		mysqli_close($conn);
 		?>	
+		<script>
+			function Redirect() {
+				window.location="/WBD/index.php";
+			}			    		
+			setTimeout('Redirect()', 5000);		
+		
+		</script>
+		</div>		
 	</body>
 </html>
