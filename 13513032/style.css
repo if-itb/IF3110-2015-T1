@@ -9,10 +9,25 @@ h1 {
 	text-align: center;
 }
 
+h2 {
+	font-size: 170%;
+	font-weight: normal;
+	margin: 65px 0 3px 10.5%;
+}
+
 h3 {
 	font-size: 130%;
 	font-weight: normal;
-	margin-bottom: 3px;
+	margin: 20px 0 3px 10.5%;
+}
+
+textarea {
+	border: 1.5px solid;
+	font-family: "Calibri";
+	font-size: 100%;
+	margin: 5px 11% 0 11%;
+	padding: 0.5% 1%;
+	width: 76%;
 }
 
 answers {
@@ -41,27 +56,47 @@ votes {
 	text-align: right;
 }
 
+.askQuestionData {
+	border: 1.5px solid;
+	font-family: "Calibri";
+	font-size: 100%;
+	margin: 5px 11% 0 11%;
+	padding: 0.25% 1%;
+	width: 76%;
+}
+
 .center {
 	text-align: center;
 }
 
 .questionBoundary {
-	border-top: solid;
-	border-top-width: 2px;
+	border-top: 2px solid;
 	margin: 1px 10% 10px 10%;
 	text-align: center;
 	width: 80%;
 }
 
+#postButton {
+	border: 1.5px solid;
+	font-family: "Calibri";
+	font-size: 100%;
+	margin: 8px 11% 0 85%;
+	padding: 0.25% 1%;
+}
+
 #searchBox {
 	border: medium solid;
+	font-family: "Calibri";
+	font-size: 100%;
 	margin-right: 0.5%;
-	padding: 0.5%;
+	padding: 0.25% 1%;
 	width: 70%;
 }
 
 #searchButton {
 	background-color: white;
 	border: medium solid;
-	padding: 0.5% 1%;
+	font-family: "Calibri";
+	font-size: 100%;
+	padding: 0.25% 1%;
 }
