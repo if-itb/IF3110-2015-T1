@@ -32,6 +32,7 @@
 		background-color: #000000;
 		height: 3px;
 		font-family:calibri;
+		clear:left;
 	} 
 	#ask{
 		text-decoration: none;

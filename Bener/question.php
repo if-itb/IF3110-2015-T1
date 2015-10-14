@@ -23,6 +23,13 @@
     return edit;
     }
 
+    function goToQuestion(s){
+
+    document.location =  "answer.php?question_id=" + s;
+    return true;
+    }
+
+
 </script>
 
 	<link rel="stylesheet" type="text/css" href='style.css'/>
@@ -53,17 +60,26 @@
 	if (mysqli_num_rows($result) > 0) {
 	    // output data of each row
 	    while($row = mysqli_fetch_assoc($result)) {
-	    	echo 
-	    	"<div class=\"column-one\">" . $row["vote"] . "<br>" . " Votes" . "</div>"
-	    	. "<div class=\"column-two\">" . $row["vote"] . "<br>" . " Answers" . "</div>"
-	    	. "<div class=\"column-three\">" . $row["topic"] . "<br>" . $row["content"] . "</div>"
-	    	. "<div class=\"column-four\">" . "asked by " . $row["email"] . " at " . "7/10/1996 08.00" . " | " . "edit" . " | " . "delete" . "</div>"
-	    	. "<a id=\"ask\" href=# onclick=\"editconfirm(" . $row["question_id"] . ")\" " . "\">edit</a>"
-	    	. "<a id=\"ask\" href=# onclick=\"deleteconfirm(" . $row["question_id"] . ")\" " . "\">delete</a>";
-	    	echo "<br>";
-	    	echo "<br>";
-	    	echo "<div class=\"line\"> <hr> </div>";
+	    	$question_content_vote = "<div class='column-one'>" 
+	    		. $row['vote'] . "<br>" . " Votes" . "</div>";
+	    	$question_content_answers = "<div class=\"column-two\">" 
+	    		. $row['vote'] . "<br>" . " Answers" . "</div>";
+	    	$question_content_topic = "<div class='column-three'>" 
+	    		. "<a id='ask' href=# onclick='goToQuestion(" . $row['question_id'] . ")' " 
+	    		. "'>" . $row['topic'] ."</a>";
+	    	$question_content_content = "<br>" . $row['content'] . "</div>";
+	    	$question_content_email = "<div class='column-four'>" 
+	    		. "asked by " . $row['email'] . " at " . "7/10/1996 08.00" 
+	    		. " | " . "edit" . " | " . "delete" . "</div>";
+	    	$question_content_edit = "<a id='ask' href=# onclick='editconfirm(" . $row['question_id'] . ")' " 
+	    		. "'>edit</a>";
+	    	$question_content_delete = "<a id='ask' href=# onclick='deleteconfirm(" . $row['question_id'] . ")' " 
+	    		. "'>delete</a>";
+	    	$question_content_line = "<div class='line'> <hr> </div>";
+	    	
+	    	$question_content_all = $question_content_vote . $question_content_answers . $question_content_topic . $question_content_content . $question_content_email . $question_content_edit . $question_content_delete . $question_content_line;
 
+	    	echo $question_content_all;
 	    }
 	} else {
 	    echo "0 results";

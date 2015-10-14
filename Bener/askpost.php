@@ -5,11 +5,11 @@
 <?php include 'connect.php';?>
 	
 <?php
-$question_id = $_POST["question_id"];
-$name = $_POST["name"];
-$email = $_POST["email"];
-$topic = $_POST["topic"];
-$content = $_POST["content"];
+	$question_id = $_POST["question_id"];
+	$name = $_POST["name"];
+	$email = $_POST["email"];
+	$topic = $_POST["topic"];
+	$content = $_POST["content"];
 
 if($question_id>0){
 	$sql = "UPDATE Question
