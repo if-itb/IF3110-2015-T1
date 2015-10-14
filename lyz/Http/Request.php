@@ -9,7 +9,7 @@ class Request {
 	private static $params;
 
 	public static function create($uri, $method, $params) {
-		self::$uri = $uri;
+		self::$uri = parse_url($uri, PHP_URL_PATH);
 		self::$method = $method;
 		self::$params = $params;
 	}
@@ -22,7 +22,13 @@ class Request {
 		return self::$uri;
 	}
 
-	public static function params() {
+	public static function params($selection = null) {
+		if (isset($selection)) {
+			$params = [];
+			foreach (self::$params as $key => $value) {
+				$params[$key] = $value;
+			}
+		}
 		return self::$params;
 	}
 }

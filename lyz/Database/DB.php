@@ -29,6 +29,5 @@ class DB {
 		catch (\Exception $e) {
 			return $e;
 		}
-
 	}
 }

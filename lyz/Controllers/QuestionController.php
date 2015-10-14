@@ -16,6 +16,7 @@ class QuestionController {
 		$ans_count = [];
 		if (!empty($answers)) {
 			foreach ($answers as $answer) {
+				$question_id = $answer->question_id;
 				if (isset($ans_count[$question_id])) {
 					$ans_count[$question_id]++;
 				}
@@ -34,11 +35,11 @@ class QuestionController {
 				else {
 					$question->answers = 0;
 				}
-
-				$view = new View('questions/card');
-				$view = $view->params($question);
-				$content .= (string)$view;
 			}
+
+			$view = new View('questions/card');
+			$view = $view->params(['questions' => $questions]);
+			$content .= (string)$view;
 		}
 
 		$view = new View('layout');
@@ -62,6 +63,13 @@ class QuestionController {
 			])->scripts(['layout'])->styles(['layout', 'form', 'card']);
 
 		return $view;
+	}
+
+	public function getDelete() {
+		$question_id = Request::params(['id'])['id'];
+		Question::where('id','=',$question_id)->destroy();
+
+		return Route::redirect();
 	}
 
 	public function postCreate() {

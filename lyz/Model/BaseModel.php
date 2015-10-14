@@ -1,12 +1,10 @@
 <?php namespace Lyz\Model;
 
 use Lyz\Database\DB;
+use Lyz\Database\QueryBuilder;
 
 class BaseModel {
-	protected static $query = [
-		'table' => 'default',
-		'where' => null
-	];
+	protected static $table = 'default';
 
 	protected static $fillable = [];
 
@@ -25,20 +23,9 @@ class BaseModel {
 		return static::makeModel($results);
 	}
 	public static function where($column, $operator, $value) {
-		if (!$isset(static::$query['where'])) {
-			static::$query['where'] = ' where (';
-		}
-		else {
-			static::$query['where'] .= ' and ';
-		}
-		static::$query['where'] .= $column . ' ' . $operator . ' ' . $value . ')';
-		return $this;
-	}
-
-	public static function get() {
-		$results = DB::query(static::$query);
-		static::resetQuery();
-		return static::makeModel($results);
+		$query = new QueryBuilder(static::$table, function ($results) { return static::makeModel($results); });
+		$query->where($column, $operator, $value);
+		return $query;
 	}
 
 	private static function makeModel($results) {
@@ -84,9 +71,5 @@ class BaseModel {
 		catch (\Exception $e) {
 			DB::update();
 		}
-	}
-
-	private function resetQuery() {
-		static::$query = [ 'table' => static::$table, 'where' => null ];
 	}
 }

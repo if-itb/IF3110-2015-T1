@@ -2,11 +2,7 @@
 
 class View {
 	/* View parameters */
-	protected $params = [
-		'metas' => '',
-		'styles' => '',
-		'scripts' => ''
-	];
+	protected $params = [];
 
 	/* View file */
 	protected $files = [];
@@ -27,26 +23,30 @@ class View {
 	}
 
 	public function styles($styles) {
+		if (!isset($this->params['metadatas'])) {
+			$this->params['metadatas'] = [];
+		}
 		foreach ($styles as $style) {
 			$link_tag = '<link rel=\'stylesheet\' href=\'/public/css/' . $style . '.css\'>';
-			$this->params['styles'] = $this->params['styles'] . $link_tag;
+			array_push($this->params['metadatas'], $link_tag);
 		}
 		return $this;
 	}
 
 	public function scripts($scripts) {
+		if (!isset($this->params['metadatas'])) {
+			$this->params['metadatas'] = [];
+		}
 		foreach ($scripts as $script) {
 			$script_tag = '<script src=\'/public/js/' . $script . '.js\'></script>';
-			$this->params['scripts'] = $this->params['scripts'] . $script_tag;
+			array_push($this->params['metadatas'], $script_tag);
 		}
 		return $this;
 	}
 
 
 	public function params($params) {
-		foreach ($params as $key => $value) {
-			$this->params[$key] = $value;
-		}
+		$this->params = $params;
 		return $this;
 	}
 

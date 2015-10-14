@@ -32,7 +32,7 @@ class App {
 		$class_name = $route['class'];
 		$method_name = $route['method'];
 
-		$controller = new $class_name();
+		$controller = new $class_name;
 		$this->response = $controller->$method_name();
 
 		return $this;
