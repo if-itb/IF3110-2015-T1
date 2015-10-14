@@ -89,7 +89,8 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`1. Validasi Client-side
+`Validasi Client-side
+
       Validasi pada Client-Side dilakukan dengan menambahkan onsubmit="return validateForm()\ pada tag form.  Atribut onsubmit mengaktifkan fungsi validateForm pada saat user melakukan submit.  validateForm() memeriksa setiap field, dan akanmengeluarkan alert jika ada field yang kosong atau field yang masih berisikan nilai labelnya. validateForm() juga melakukan pemeriksaan kepada nilai email yang dimasukkan user dengan menyocokkannya dengan regular expression berikut :
             
             /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
@@ -98,7 +99,8 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
             
 
 
- 2. AJAX untuk melakukan vote
+AJAX untuk melakukan vote
+
       Perubahan nilai vote saat melakukan voting dilakukan dengan memanfaatkan AJAX. Saat tombol vote ditekan, baik itu vote up ataupun vote down, untuk question ataupun untuk answer, program akan memanggil fungsi vote(id,mode) yang akan mengakses vote.php. Id adalah id dari question/answer yang divote, sedangkan mode adalah penentu apakah votenya naik atau turun dan apakah yang divote adalah question atau answer.  Pada vote.php, dicari record dari database yang memiliki id yang sesuai, lalu diambil nilai tersebut, lalu ditambahkan atau dikurangkan sesuai dengan vote yang terjadi, kemudian dikembalikan lagi ke database.  Halaman vote.php mengirimkan nilai vote yang ada untuk fungsi vote() pada halaman voting, lalu pada halaman voting, nilai vote yang lama dari answer/question yang divote ditimpa dengan memanfaatkan fungsi innerHTML dan pemberian tag pada nilai-nilai vote.
 
 ### Knowledge
