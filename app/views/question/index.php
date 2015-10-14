@@ -12,16 +12,15 @@
                     <div class="vote">
 
                         <div class="vote-up">
-                            <input type="hidden" name="id_question" value="<?= $data['question']->id_question; ?>">
-                            <a class="vote-link" href="">▲</a>
+                            <a class="vote-link vote-question" data-vote="up" data-id-question="<?= $data['question']->id_question; ?>" href="">▲</a>
                         </div>
 
                         <div class="vote-counts">
-                            <span><?= $data['question']->votecounts; ?></span>
+                            <span id="question-vote-<?= $data['question']->id_question; ?>"><?= $data['question']->votecounts; ?></span>
                         </div>
 
                         <div class="vote-down">
-                            <a class="vote-link" href="">▼</a>
+                            <a class="vote-link vote-question" data-vote="down" data-id-question="<?= $data['question']->id_question; ?>" href="">▼</a>
                         </div>
 
                     </div>
@@ -65,15 +64,15 @@
                     <div class="answer-status col-2">
                         <div class="vote">
                             <div class="vote-up">
-                                <a class="vote-link" href="">▲</a>
+                                <a class="vote-link vote-answer" data-vote="up" data-id-answer="<?= $answer->id_answer; ?>" href="">▲</a>
                             </div>
 
                             <div class="vote-counts">
-                                <span>0</span>
+                                <span id="answer-vote-<?= $answer->id_answer; ?>"><?= $answer->votecounts; ?></span>
                             </div>
 
                             <div class="vote-down">
-                                <a class="vote-link" href="">▼</a>
+                                <a class="vote-link vote-answer" data-vote="down" data-id-answer="<?= $answer->id_answer; ?>" href="">▼</a>
                             </div>
                         </div>
                     </div> <!-- .answer-status -->

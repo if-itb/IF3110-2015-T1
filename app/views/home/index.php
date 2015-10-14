@@ -55,7 +55,9 @@
 
         <?php endforeach; ?>
     <?php else: ?>
-        <p>No question</p>
+        <div class="inner-container">
+            <p>No question</p>
+        </div>
     <?php endif; ?>
 
 </div> <!-- .question-list -->

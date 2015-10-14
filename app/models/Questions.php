@@ -71,4 +71,26 @@ class Questions {
 
         header('Location: ' . ROOT_URL);   
     }
+
+    public function voteUp($id) {
+        $query = "UPDATE questions SET votecounts = votecounts + 1 WHERE id_question = {$id}";
+        $this->db->query($query);
+ 
+    }
+
+    public function voteDown($id) {
+        $query = "UPDATE questions SET votecounts = votecounts - 1 WHERE id_question = {$id}";
+        $this->db->query($query);   
+    }
+
+    public function voteUpAnswer($id) {
+        $query = "UPDATE answers SET votecounts = votecounts + 1 WHERE id_answer = {$id}";
+        $this->db->query($query);  
+    }
+
+    public function voteDownAnswer($id) {
+        $query = "UPDATE answers SET votecounts = votecounts - 1 WHERE id_answer = {$id}";
+
+        $this->db->query($query);   
+    }
 }

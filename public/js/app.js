@@ -1,13 +1,75 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     function validateEmail(email) {
-        var emailPattern =  /.+@.+/;
+        var emailPattern =  /\w+@\w+.\w+/;
         return emailPattern.test(email);
     }
     
     function validateForm(name) {
         return name !== "";
     }
+
+    // Vote question with AJAX
+    [].forEach.call(document.querySelectorAll('.vote-question'), function(el) {
+        el.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            var questionId = el.dataset.idQuestion;
+            var vote = el.dataset.vote;
+
+            // Create XHR Object
+            var xhr = new XMLHttpRequest();
+            var url = 'vote'
+            var qry = 'id_question=' + questionId + '&vote=' + vote;
+
+            // Send POST
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); 
+            xhr.send(qry); 
+
+
+            // Update votecounts;
+            var voteContainer = document.getElementById('question-vote-' + questionId);
+            if (vote === 'up') {
+                voteContainer.innerHTML = parseInt(voteContainer.innerHTML) + 1;
+            } else {
+                voteContainer.innerHTML = parseInt(voteContainer.innerHTML) - 1;
+            }
+
+        });
+    });
+
+    // Vote answer with AJAX
+    [].forEach.call(document.querySelectorAll('.vote-answer'), function(el) {
+        el.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            var answerId = el.dataset.idAnswer;
+            var vote = el.dataset.vote;
+
+            // Create XHR Object
+            var xhr = new XMLHttpRequest();
+            var url = 'vote'
+            var qry = 'id_answer=' + answerId + '&vote=' + vote;
+
+            console.log(qry);
+
+            // Send POST
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); 
+            xhr.send(qry); 
+
+
+            // Update votecounts;
+            var voteContainer = document.getElementById('answer-vote-' + answerId);
+            if (vote === 'up') {
+                voteContainer.innerHTML = parseInt(voteContainer.innerHTML) + 1;
+            } else {
+                voteContainer.innerHTML = parseInt(voteContainer.innerHTML) - 1;
+            }
+
+        });
+    });
 
 
     // Validate question form

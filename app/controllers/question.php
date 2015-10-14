@@ -89,4 +89,28 @@ class Question extends Controller {
             echo "Error 404";
         }
     }
+
+    public function vote() {
+        if (isset($_POST['id_question']) && isset($_POST['vote'])) {
+
+            $questionsModel = $this->model('Questions');
+            if ($_POST['vote'] == 'up') {
+                $questionsModel->voteUp($_POST['id_question']);
+            } else {
+                $questionsModel->voteDown($_POST['id_question']);
+            }
+        }
+
+        if (isset($_POST['id_answer']) && isset($_POST['vote'])) {
+
+            $questionsModel = $this->model('Questions');
+            if ($_POST['vote'] == 'up') {
+                $questionsModel->voteUpAnswer($_POST['id_answer']);
+            } else {
+                $questionsModel->voteDownAnswer($_POST['id_answer']);
+            }
+        }
+
+
+    }
 }
