@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     function validateEmail(email) {
-        var emailPattern =  /\w+@\w+.\w+/;
+        var emailPattern =  /\w+@\w+\.\w+/;
         return emailPattern.test(email);
     }
     
