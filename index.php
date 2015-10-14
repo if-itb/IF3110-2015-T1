@@ -35,6 +35,7 @@
         <?php  
             echo $question['content'] . "<br>";
             echo $question['vote'] . "<br>";
+            echo $question['answer_count'] . "<br>";
             echo $question['time'] . "<br>";
         ?>
         <a href="edit.php?id=<?php echo $question['question_id'] ?>">

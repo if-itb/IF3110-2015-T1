@@ -11,7 +11,7 @@ function retrieveQuestions() {
     global $conn;
     
     $questions = array();
-    $retrieve_all_q = "SELECT question_id, name, email, topic, content, vote, time FROM questions ORDER BY time DESC";
+    $retrieve_all_q = "SELECT question_id, name, email, topic, content, vote, answer_count, time FROM questions ORDER BY time DESC";
     $result = $conn->query($retrieve_all_q);
        
     while($row = $result->fetch_array(MYSQLI_ASSOC)) {

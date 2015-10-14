@@ -25,6 +25,9 @@
         
     $insert_ans->execute();
     
+    $add_ans_count = "UPDATE questions SET answer_count = answer_count + 1 WHERE question_id = $question_id";
+    $conn->query($add_ans_count);
+    
     $insert_ans->close();
     $conn->close();       
 

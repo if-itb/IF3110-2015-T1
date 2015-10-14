@@ -11,7 +11,7 @@ function retrieveOneQuestion($questionID) {
     global $conn;
     
     $question = array();
-    $retrieve_q = "SELECT question_id, name, email, topic, content, vote, time FROM questions WHERE question_id = $questionID";
+    $retrieve_q = "SELECT question_id, name, email, topic, content, vote, answer_count, time FROM questions WHERE question_id = $questionID";
     $result = $conn->query($retrieve_q);
        
     while($row = $result->fetch_array(MYSQLI_ASSOC)) {
