@@ -49,7 +49,7 @@ function validateForm() {
 <h1>Simple StackExchange</h1>
 <p>What's your question?</p><br>
 
-<form name="askForm" action="answer.php" onsubmit="return validateForm()" method="post">
+<form name="askForm" action="askpost.php" onsubmit="return validateForm()" method="post">
 	<input type="text" name="name" placeholder="Name" size="100"><br>
 	<input type="text" name="email" placeholder="Email" size="100"><br>
 	<input type="text" name="topic" placeholder="Question Topic" size="100"><br>

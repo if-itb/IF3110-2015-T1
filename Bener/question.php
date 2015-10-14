@@ -5,7 +5,7 @@
   	<meta charset="UTF-8">
 
 	<style>
-	#sse {
+	.title {
 	    text-align: center;
 	    font-size: 350%;
 	    font-family:calibri;
@@ -26,8 +26,7 @@
 	    font-size: 100%;
 	    font-family:calibri;
 	}
-	#line { 
-	    display: block;
+	.line { 
 	    margin-left:17.5%;
 	    margin-right: 17.5%;
 	    color: #000000;
@@ -72,7 +71,7 @@
 </head>
 <body>
 
-<h1 id = "sse">Simple StackExchange</h1>
+<div class="title">Simple StackExchange</div>
 
 <form>
   <input type="text" name="question">
@@ -81,11 +80,9 @@
 
 <p id = "helping"> Cannot find what you are looking for? <a id = "ask" href="ask.php" ><font color="FFD700">Ask here</font></a></p>
 
-<br>
-
 <p id = "faq"> Recently Asked Questions <p>
 
-<hr id = "line">
+<div class="line"> <hr> </div>
 
 
 
@@ -104,7 +101,8 @@
 	    	echo "<div class=\"column-four\">" . $row["name"] . "<br>" . " Name" . "</div>";
 	    	echo "<br>";
 	    	echo "<br>";
-	    	echo "<hr id = \"line\">";
+	    	echo "<div class=\"line\"> <hr> </div>";
+
 	    }
 	} else {
 	    echo "0 results";
