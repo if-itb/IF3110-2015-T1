@@ -8,26 +8,34 @@
 
 <body>
 <div class="container">
-<div id="header">Simple StackExchange</div>
+<div id="header"><a class="link1" href="home.php">Simple StackExchange</div></a>
 <div>
-<form action = "search_question.php" method = "post">
+<form>
 	<input class="kotaksearch" type="text" name="search">
 	<input class="search" type="submit" value="Search">
 </form>
 </div>
 
-
-
 <div class="ask"> Cannot find what you are looking for ? <a class="link" href="search.php"> Ask Here </a>  </div>
 
 <div>
-	<div class="header2" id="main3"> Recently Asked Questions </div>
+	<!--<div class="header2" id="main3"> Recently Asked Questions </div>*/-->
 	<div> 
-		
+	
 		<?php
-			include("dataBase.php"); 
-			$sql = "SELECT ID, Vote, Name, Email, Topic, Content FROM questions"; 
-			$result = mysqli_query($conn, $sql);
+			function Home($url, $permanent = false)
+			{
+				header('Location: ' . $url, true, $permanent ? 301:302); 
+				exit(); 
+			}
+
+			include('dataBase.php'); 
+			$Search = ($_POST["search"]); 
+			$sql = "SELECT * FROM questions WHERE Topic LIKE '%".$Search."%' OR Content LIKE '%".$Search."%' ";
+			$result = mysqli_query($conn,$sql); 
+
+			echo "<div class=header2 id=main3>" .mysqli_num_rows($result). " Results </div>"; 
+
 			if (mysqli_num_rows($result) > 0)
 			{
 				while($row = mysqli_fetch_assoc($result))
@@ -46,12 +54,18 @@
 					echo "<div class=garis> </div>"; 
 					//echo "<br> </br>"; 
 				}
-				mysqli_close($conn);
 			}
 			else 
 			{
 				echo "    no recently asked questions";
 			}
+
+	
+
+			//($result); 
+
+			mysqli_close($conn);
+
 		?>
 	</div>
 

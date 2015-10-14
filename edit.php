@@ -24,11 +24,11 @@
 			echo "<form name=ask onsubmit= \"return ValidasiInput()\" action=EditQuestion.php method=post>
 	
 		
-			<input type=text name=name placeholder=Name class=header3 value=" .$row["Name"]. "> 
+			<input type=text name=name placeholder=Name class=header3 value='" .$row["Name"]. "'> 
 		
 			<input type=text name=email placeholder=Email class=header3 value=" .$row["Email"]. " > 
 			
-			<input type=text name=topic placeholder=Topic class=header3 value=" .$row["Topic"]. " > 
+			<input type=text name=topic placeholder=Topic class=header3 value='" .$row["Topic"]. "' > 
 			
 			<textarea type=text name=content placeholder=Content class=header3 id=content value=>" .$row["Content"]. "</textarea> 
 		
