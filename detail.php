@@ -13,7 +13,7 @@
          <?php include "detailquestion_replace.php"; ?>
     </div>
     
-    <?php include "detailanswer_replace.php" ?>
+    <?php include "detailanswer_replace.php"; ?>
     
    
 
