@@ -19,7 +19,7 @@
 <body>
 
 	<div class="container">
-		<div id="header">
+		<div class="header">
 			<h1><a href="index.php">Simple StackExchange</a></h1>
 		</div>
 
@@ -31,9 +31,7 @@
 			</form>
 
 			<div class="text-center">
-				<p>Cannot find what you are looking for?<a href="ask-question.php?req=new">Ask here</a></p>
-			</div>
-
+				<p>Cannot find what you are looking for? <a href="ask-question.php?req=new" class="ask-here">Ask here</a></p>
 			<div class="title">
 				<h3><?php echo $home_title;?></h3>
 			</div>

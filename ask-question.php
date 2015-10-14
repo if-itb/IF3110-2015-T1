@@ -19,7 +19,7 @@
 <body>
 
 <div class="container">
-	<div id="header">
+	<div class="header">
 		<h1><a href="index.php">Simple StackExchange</a></h1>
 	</div>
 
@@ -40,6 +40,7 @@
 						<input type="text" name="topic" placeholder="Question Topic" id="topic" value=<?php echo $topic; ?> ><br>
 						<textarea rows="10" cols="107" name="content" form="the-form" placeholder="Content" id="content"><?php echo $content; ?></textarea><br>
 						<input type="submit" value="Post" name="post" id="post">
+		
 					<?php endif; ?>
 					<?php if ($target == 'new') : ?>
 						<input type="text" name="name" placeholder="Name" id="name" autofocus><br>

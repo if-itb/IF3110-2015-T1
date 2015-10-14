@@ -18,13 +18,25 @@ a {
 }
 
 .header {
-	color: orange;
+	color: red;
 	position: relative;
 	text-align: center;
 	padding: 2px 0;
 	margin: 0 auto;
-	max-width: 1100px;
+	margin-top: 50px;
+	margin-bottom: 0px;
+	max-width: 3000px;
 	border-radius: 0 0 20px 20px;
+}
+
+.head-title {
+	color: orange;
+	text-align: center;
+	max-width: 2000px;
+}
+
+.ask-here {
+	color: orange;
 }
 
 .main {
@@ -39,12 +51,12 @@ a {
 .content-header {
 	text-align: left;
 	margin-left: 30px:;
-	padding-top: 10px;
+	padding-top: 15px;
 }
 
 .content-footer {
 	padding-top: 10px;
-	font-size: 10px;
+	font-size: 12px;
 	position: relative;
 	text-align: right;
 }
@@ -58,9 +70,9 @@ a {
 }
 
 .child-content {
-	border-top: 2px solid #000000;
+	border-top: 2.5px solid #000000;
 	width: 750px;
-	margin-left: 70px;
+	margin-left: 60px;
 	clear: both;
 	padding-bottom: 0 0 0 0;
 }
@@ -87,12 +99,11 @@ a {
 
 #votes, #answers {
 	display: inline-block;
-	width: 30%;
+	width: 35%;
 }
 
 div {
 	margin: 8px 8px 8px 8px;
-	/*border: solid 1px;*/
 }
 
 .thread-content {
@@ -101,7 +112,7 @@ div {
 }
 
 .question-container{
-	border-top: 2px solid;
+	border-top: 2.5px solid;
 	width: 840px;
 	margin: 0px auto 30px;
 }
@@ -116,6 +127,7 @@ div {
 	text-align: left;
 	margin-left:80px;
 	margin-top: 50px;
+	padding-top: 10px;
 	padding-bottom: 0px;
 }
 
@@ -129,10 +141,11 @@ div {
 .question-title, .question-preview {
 	position: relative;
 	text-align: left;
+	font-size: 16px;
 }
 
-.question-preview {
-	font-size: 12px;
+.question-title {
+	font-size: 18px;
 }
 
 .list-content {
@@ -160,7 +173,7 @@ div {
   cursor: pointer;
 }
 
-input, textarea {
+input, textarea{
 	width: 100%;
 	height: 20px;
 	margin-top: 10px;
@@ -174,10 +187,25 @@ textarea {
 	resize: none;
 }
 
+::-webkit-input-placeholder {
+   font-style: italic;
+}
+:-moz-placeholder {
+   font-style: italic;  
+}
+::-moz-placeholder {
+   font-style: italic;  
+}
+:-ms-input-placeholder {  
+   font-style: italic; 
+}
+
 #post {
 	height: 30px;
 	width: 70px;
 	float: right;
+	font-style: normal;
+	border: solid 0px;
 }
 
 .main-header {
@@ -189,10 +217,14 @@ textarea {
 }
 
 #searchbox, #searchbutton {
-	/*float: right;*/
 	width: 20%;
 	display: inline-block;
 	height: 100%
+}
+
+#searchbutton {
+	font-style: normal;
+	border: solid 1px;
 }
 
 #searchbox {
@@ -200,11 +232,11 @@ textarea {
 }
 
 .user-question {
-	color: blue;
+	color: purple;
 }
 
 .edit-question {
-	color: green;
+	color: orange;
 }
 
 .delete-question {

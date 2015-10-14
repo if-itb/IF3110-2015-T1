@@ -1,44 +1,45 @@
 function validateQuestionForm() {
-	if (nameValidating() && emailValidating() && topicValidating()) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
-
-function validateAnswerForm() {
-	if (emailValidating() && nameValidating()) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
-
-function nameValidating() {
+	
 	var name = document.getElementById('name').value;
+	var email = document.getElementById('email').value;
+	var topic = document.getElementById('topic').value;
+	var content = document.getElementById('content').value;
+	var pattern = "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$"; 
 	if (name == null || name == "") {
 		alert("Please insert your name!");
 		return false;
 	}
-	return true;
-}
-
-function emailValidating() {
-	var email = document.getElementById('email').value;
-	var pattern = "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$"; 
 	if (!email.match(pattern)) {
 		alert("Please correct your email!");
+		return false;
+	}
+	if (topic == null || topic == "") {
+		alert("Please insert the topic!");
+		return false;
+	}
+	if (content == null || content == "") {
+		alert("Please insert your question!");
 		return false;
 	}
 	return true;
 }
 
-function topicValidating() {
-	var topic = document.getElementById('topic').value;
-	if (topic == null || topic == "") {
-		alert("Please define your question topic!");
+function validateAnswerForm() {
+
+	var name = document.getElementById('name').value;
+	var email = document.getElementById('email').value;
+	var content = document.getElementById('content').value;
+	var pattern = "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$"; 
+	if (name == null || name == "") {
+		alert("Please insert your name!");
+		return false;
+	}
+	if (!email.match(pattern)) {
+		alert("Please correct your email!");
+		return false;
+	}
+	if (content == null || content == "") {
+		alert("Please insert your answer!");
 		return false;
 	}
 	return true;
