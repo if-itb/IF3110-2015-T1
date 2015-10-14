@@ -113,7 +113,7 @@ function validateEmail(email) {
 
 ```
 
-Jika pengguna menekan tombol submit form ketika nilai setiap field pada form sudah valid, JavaSciript akan menjalankan method `submit` untuk mengirim nilai yang ada pada form.
+Jika pengguna menekan tombol submit form ketika nilai setiap field pada form sudah valid, JavaScript akan menjalankan method `submit` untuk mengirim nilai yang ada pada form.
 
 #### AJAX untuk Vote Up dan Vote Down
 
