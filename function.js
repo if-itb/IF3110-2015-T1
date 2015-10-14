@@ -60,10 +60,11 @@ function voteDown_Question(id_question) {
 /* Vote Up Answer */
 function voteUp_Answer(id_question, id_answer) {
 	var xmlhttp = new XMLHttpRequest();
-	var count = parseInt(document.getElementById('count_vote_answer').innerHTML);
+	var count = parseInt(document.getElementById('count_vote_answer' + id_answer).innerHTML);
+	console.log(count);
 	xmlhttp.onreadystatechange = function() {
 		if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			document.getElementById('count_vote_answer').innerHTML = count+1;
+			document.getElementById('count_vote_answer' + id_answer).innerHTML = count+1;
 		}
 	}
 	xmlhttp.open("GET", "/Tubes1/vote-up-answer.php?id=" + id_question + "&id-ans=" + id_answer, true);
@@ -72,12 +73,50 @@ function voteUp_Answer(id_question, id_answer) {
 /* Vote Down Answer */
 function voteDown_Answer(id_question, id_answer) {
 	var xmlhttp = new XMLHttpRequest();
-	var count = parseInt(document.getElementById('count_vote_answer').innerHTML);
+	var count = parseInt(document.getElementById('count_vote_answer' + id_answer).innerHTML);
 	xmlhttp.onreadystatechange = function() {
 		if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			document.getElementById('count_vote_answer').innerHTML = count-1;
+			document.getElementById('count_vote_answer' + id_answer).innerHTML = count-1;
 		}
 	}
 	xmlhttp.open("GET", "/Tubes1/vote-down-answer.php?id=" + id_question + "&id-ans=" + id_answer, true);
 	xmlhttp.send();
+}
+
+
+/*********************** Validasi **********************/
+/* Validasi Question Form */
+function validasi_input() {
+	var input_name = document.forms["question_form"]["name"].value;
+	var input_topic = document.forms["question_form"]["topic"].value;
+	var input_content = document.forms["question_form"]["content"].value;
+	var input_email = document.forms["question_form"]["email"].value;
+	/*** Regex Email ***/
+	var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if ((input_name == null  || input_name == "") || (input_topic == null  || input_topic == "") || (input_content== null  || input_content== "")) {
+        alert("Every field must be filled out");
+        return false;
+    }
+    // check email
+    if (input_email.match(emailRegex) == null) {
+    	alert("Invalid Email");
+    	return false;
+    }
+}
+/* Validasi Answer Form */
+function validasi_inputAnswer() {
+	var input_name = document.forms["question_form"]["name"].value;
+	var input_content = document.forms["question_form"]["content"].value;
+	var input_email = document.forms["question_form"]["email"].value;
+	/*** Regex Email ***/
+	var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if ((input_name == null  || input_name == "") ||  (input_content== null  || input_content== "")) {
+        alert("Every field must be filled out");
+        return false;
+    }
+    // check email
+    if (input_email.match(emailRegex) == null) {
+    	alert("Invalid Email");
+    	return false;
+    }
 }

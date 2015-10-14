@@ -26,7 +26,7 @@
 			$date_question = mysql_result($result, 0, "date_question");
 			mysql_close();
 		?>	
-		<form class="question-form" action="update-question.php?id=<?= $quest_id ?>" method="POST">
+		<form name="question_form"  onsubmit="return validasi_input()" class="question-form" action="update-question.php?id=<?= $quest_id ?>" method="POST">
 			<div class="question-container">
 				<label class="name">
 					<input type="text" name="name" value="<?= $name ?>">
@@ -44,5 +44,6 @@
 			<button class="post-button" type="submit" value="Submit"><b>Post</b></button>
 		</form>
 	</div>
+	<script type="text/javascript" src="function.js"></script>
 </body>
 </html>

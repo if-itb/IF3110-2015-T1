@@ -23,7 +23,7 @@
 				$database = "stackexchange";
 				$connection = mysql_connect($servername, $username, $password) or die(mysql_error());
 				@mysql_select_db('stackexchange') or die(mysql_error());
-				$query = "SELECT * FROM question";
+				$query = "SELECT * FROM `question`";
 				$result = mysql_query($query);
 				$num = mysql_num_rows($result);
 			?>
@@ -41,13 +41,18 @@
 				<!--div class="votes-answers"-->
 				<div class="votes">
 					<div class="counts">
-						<h3>0</h3>
+						<h3><?= $vote_question ?></h3>
 					</div>
 					<h3>Votes</h3>
 				</div>
+				<?php
+					$query1 = "SELECT * FROM answer WHERE (question_id = $question_id)";
+					$result1 = mysql_query($query1);
+					$num_answer = mysql_num_rows($result1);
+				?>
 				<div class="answers">
 					<div class="counts">
-						<h3>0</h3>
+						<h3><?= $num_answer ?></h3>
 					</div>	
 					<h3>Answers</h3>
 				</div>

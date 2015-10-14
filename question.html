@@ -8,7 +8,7 @@
 		<center><h1>Simple StackExchange</h1><br><br></center>
 		<h1>What's your question?</h1>
 		<hr>
-		<form class="question-form" action="data-question.php" method="POST">
+		<form name="question_form"  onsubmit="return validasi_input()" class="question-form" action="data-question.php" method="POST">
 			<div class="question-container">
 				<label class="name">
 					<input type="text" name="name" placeholder="Name">
@@ -26,5 +26,6 @@
 			<button class="post-button" type="submit" value="Submit"><b>Post</b></button>
 		</form>
 	</div>
+	<script type="text/javascript" src="function.js"></script>
 </body>
 </html>

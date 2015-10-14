@@ -54,12 +54,14 @@
 				</div>
 			</div>
 		</div>
-		<h2 class="answer-h2">1 Answer</h2>
-		<hr>
 		<?php
 			$query = "SELECT * FROM answer WHERE (question_id = $quest_id)";
 			$result = mysql_query($query);
 			$num = mysql_num_rows($result);
+		?>
+		<h2 class="answer-h2"><?= $num ?> Answer</h2>
+		<hr>
+		<?php
 			$i = 0;
 			while ($i < $num) {
 				$answer_id = mysql_result($result, $i, "answer_id");
@@ -78,7 +80,7 @@
 					$result_answer = mysql_result($number_count_ans, 0);
 				?>
 				<div class="number-votes">
-					<h2 id="count_vote_answer"><?= $result_answer?></h2>
+					<h2 id="count_vote_answer<?= $answer_id ?>"><?= $result_answer?></h2>
 				</div>
 				<div class="vote-down-answer" data-question-id="<?= $quest_id ?>" data-answer-id="<?= $answer_id ?>"></div>
 			</div>
@@ -92,7 +94,7 @@
 		<?php $i++; } ?>
 		<?php mysql_close(); ?>	
 		<h2 class="answer-h2"> <span style="color: #888888">&nbsp;&nbsp;Your Answer</span></h2>
-		<form class="QA-form" action="data-answer.php?id=<?= $quest_id ?>" method="POST">
+		<form name="question_form"  onsubmit="return validasi_inputAnswer()" class="QA-form" action="data-answer.php?id=<?= $quest_id ?>" method="POST">
 			<div class="question-container">
 				<label class="name">
 					<input type="text" name="name" placeholder="Name">
