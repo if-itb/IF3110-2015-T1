@@ -11,25 +11,16 @@ function voteUpdate(questionOrAnswer, questionOrAnswerId, voteUpOrDown){
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
 
-
     xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            if(questionOrAnswer=="question") {
-                document.getElementById("$vote").innerHTML = xmlhttp.responseText;
+       if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            if(questionOrAnswer=='question') {
+                document.getElementById("voteQuestion").innerHTML = xmlhttp.responseText;
             }
-            else if(questionOrAnswer=="answer"){
-                document.getElementById("vote"+id).innerHTML = xmlhttp.responseText;
+            else if(questionOrAnswer=='answer'){
+                document.getElementById("voteAnswer"+questionOrAnswerId).innerHTML = xmlhttp.responseText;
             }
         }
     }
-    xmlhttp.open("GET","Data/getVote.php?v=up&id="+id+"&q="+bool,true);
+    xmlhttp.open("GET","voteUpdate.php?voteUpOrDown="+voteUpOrDown+"&questionOrAnswerId="+questionOrAnswerId+"&questionOrAnswer="+questionOrAnswer,true);
     xmlhttp.send();
-
-
-
-
-
-
-
-
 }

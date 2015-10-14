@@ -27,6 +27,7 @@ while($row = mysql_fetch_array($rs)) {
 $name = $row['name'];
 $vote = $row['vote'];
 $questionId = $row['question_id'];
+$answerId=$row['answer_id'];
 $content=$row['content'];
 $date=$row['date'];
 
@@ -36,13 +37,13 @@ $date=$row['date'];
 
     echo"<div class ='questionAnswerBody'>";
         echo"<div class ='questionAnswerVote'>";
-            echo"<div class='questionAnswerVoteUpArrow'>";
+            echo"<div class='questionAnswerVoteUpArrow' onclick= \"voteUpdate('answer',$answerId, 'up')\">";
                 echo "panah atas";
             echo"</div>";
-            echo"<div class='questionAnswerVoteNumber'>";
+            echo"<div class='questionAnswerVoteNumber' id='voteAnswer$questionId'>";
                 echo "$vote";
             echo"</div>";
-            echo"<div class='questionAnswerVoteDownArrow'>";
+            echo"<div class='questionAnswerVoteDownArrow' onclick= \"voteUpdate('answer',$answerId, 'down')\">";
                 echo "panah bawah";
             echo"</div>";
         echo"</div>";
