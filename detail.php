@@ -3,7 +3,8 @@
 <head>
 	<title>Detail</title>
 	<link rel="stylesheet" href="style.css">
-	<script type="text/javascript" src="script_answer.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+
    
 </head>
 <body>
@@ -19,7 +20,7 @@
     
     <div class="board">
         Your Answer
-    <form action="answer_insert.php?no_question=<?php echo $no_question ?>" onsubmit="return validateForm()" method="post" name="form" >
+    <form action="answer_insert.php?no_question=<?php echo $no_question ?>" onsubmit="return validateAnswer()" method="post" name="form" >
 			<br>
 			<input type="text" placeholder="Name" name="name" class="box">
 			<br>

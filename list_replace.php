@@ -17,8 +17,13 @@ $query = "select * from question order by no_question desc;";
 $result = $link->query($query);
 	if($result->num_rows > 0)
     {
+        
 		while($row = $result->fetch_assoc())
         {
+            if (strlen($row["content"]) > 100)
+            {
+                $row["content"] = substr($row["content"],0,100) . "...";
+            }
 			$newquery = $queryString;
             $newquery = str_replace("{{name}}",$row["name"],$newquery);
             $newquery = str_replace("{{vote}}",$row["vote"],$newquery);
@@ -26,15 +31,16 @@ $result = $link->query($query);
             $newquery = str_replace("{{topic}}",$row["topic"],$newquery);
             $newquery = str_replace("{{content}}",$row["content"],$newquery);
             $newquery = str_replace("{{no_question}}",$row["no_question"],$newquery);
-            
-            echo $newquery;
-            
+
+        
+            echo $newquery;            
 		}
 	}
     else
     {
 		echo "<div>No Question</div>";
 	}
+
 
 mysqli_close($link);
 

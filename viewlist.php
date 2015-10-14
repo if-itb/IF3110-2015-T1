@@ -32,7 +32,7 @@
         </div>
         
         <div class="listeditor">
-            asked by {{name}} | <a href="formedit.php?no_question={{no_question}}"><span class="edit">edit</span></a> | <a href="#" onclick="deleteConfirm({{no_question}})" ><span class="delete">delete</span></a>
+            asked by {{name}} | <a href="formedit.php?no_question={{no_question}}"><span class="edit">edit</span></a> | <a href="#" onClick="deleteConfirm({{no_question}})" ><span class="delete">delete</span></a>
         </div>
     </div>';
     

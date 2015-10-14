@@ -4,7 +4,7 @@
     <title>list</title>
     <link rel="stylesheet" href="style.css">
 	<script type="text/javascript" src="script.js"></script>
-    <script type="text/javascript" src="script_delete.js"></script>
+
     
 
 </head>
@@ -12,7 +12,7 @@
 <body>
     <div class="board">
         <a href="list.php"><h1>Simple StackExchange</h1></a>
-        <form>
+        <form action="search.php">
             <input type="text" class="boxsearch" placeholder="Search..">
             <button type="submit" class="posisisearch">Search</button>
         </form>       

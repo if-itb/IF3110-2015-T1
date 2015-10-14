@@ -36,6 +36,7 @@ $no_question = $_GET["no_question"];
             $newquery = str_replace("{{vote}}",$row["vote"],$newquery);
             $newquery = str_replace("{{content}}",$row["content"],$newquery);
             $newquery = str_replace("{{no_question}}",$row["no_question"],$newquery);
+            $newquery = str_replace("{{no_answer}}",$row["no_answer"],$newquery);
             $newquery = str_replace("{{date}}",$row["date"],$newquery);
 
             echo $newquery;

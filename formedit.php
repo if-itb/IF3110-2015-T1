@@ -3,7 +3,7 @@
 	<head>
 		<title>Home Page</title>
         <link rel="stylesheet" href="style.css" >
-        <script type="text/javascript" src="script_question.js"></script>
+        <script type="text/javascript" src="script.js"></script>
 	</head>
 
 	<body>
