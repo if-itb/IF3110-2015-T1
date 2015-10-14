@@ -22,7 +22,7 @@
 		
 		public static function all(){
 			$db = Database::getInstance();
-			$stmt = $db->query('SELECT * FROM questions');
+			$stmt = $db->query('SELECT * FROM questions ORDER BY datetime DESC');
 			while($question = $stmt->fetch(PDO::FETCH_ASSOC)) {
 				$listquestion[]	= new Question($question['qid'], $question['authorname'],$question['authoremail'], $question['topic'], $question['content'], $question['datetime'], $question['countvotes'], $question['countanswers']);
 			}
@@ -46,6 +46,19 @@
 			$stmt = $db->prepare('INSERT INTO questions(authorname, authoremail, topic, content, datetime) VALUES (:authorname, :authoremail, :topic, :content, :datetime)');
 			if($stmt->execute(array('authorname'=>$this->authorname, 'authoremail'=>$this->authoremail, 'topic'=>$this->topic, 'content'=>$this->content, 'datetime'=>$this->datetime)))
 				echo 'ok';
+		}
+		
+		public static function vote($vote, $qid){
+			$db = Database::getInstance();
+
+			$stmt = $db->prepare("SELECT countvotes FROM questions WHERE qid=:qid LIMIT 1");
+			$stmt->execute(array('qid'=>$qid));
+			$row = $stmt->fetch();
+			$newcountvotes = intval($row['countvotes']) + $vote;
+			
+			$stmt = $db->prepare("UPDATE questions SET countvotes=:countvotes WHERE qid=:qid");
+			$stmt->execute(array('countvotes'=>$newcountvotes, 'qid'=>$qid));
+			return $newcountvotes;
 		}
 	}
 ?>

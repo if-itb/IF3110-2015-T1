@@ -1,3 +1,5 @@
+<script type="text/javascript" src="assets/js/functions.js"></script>
+
 <?php
 	$html_listQuestionItem = '
 			<div class="question-list-item" id="[[qid]]">
@@ -6,8 +8,8 @@
 					<div class="vote-wrapper">
 
 						<div class="vote-buttons">
-							<input title="Click to vote up" onclick="vote(this.value, \'question\', [[qid]])" type="submit" value="1" class="vote-up-button"">a</input> 
-							<input title="Click to vote down" onclick="vote(this.value, \'question\', [[qid]])" type="submit" value="-1" class="vote-down-button"> 
+							<input title="Click to vote up" onclick="vote(this.value, [[qid]])" type="submit" value="1" class="vote-up-button"">a</input> 
+							<input title="Click to vote down" onclick="vote(this.value, [[qid]])" type="submit" value="-1" class="vote-down-button"> 
 						</div>
 
 						<div class="vote">

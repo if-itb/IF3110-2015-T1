@@ -1,14 +1,14 @@
-<form id='answerform' method='post' action='/controllers/answer_controller.php' >
+<form id='answerform' method='post' action='?controller=answers&action=insert&qid=<?php echo $_GET['qid'] ?>' >
 	<p>
-		Name						: <input type='text' name='name' />
+		Name						: <input type='text' name='authorname' />
 	</p>
 	<p>
-		Email						: <input type='text' name='email' />
+		Email						: <input type='text' name='authoremail' />
 	</p>
 
 	<p>
 		Answer:<br/>
-	 <textarea name="answer" rows="7" cols="30"></textarea>
+	 <textarea name="content" rows="7" cols="30"></textarea>
 	</p>
 	 <p>
 	 <input type='submit'/>

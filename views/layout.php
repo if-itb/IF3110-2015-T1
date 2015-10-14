@@ -11,7 +11,7 @@
 		<div id="main-wrapper">
 			<header>
 				<div class="logo">
-					<a href="/index.html" class="logo-link">Simple StackExchange</a>
+					<a href="<?php $_SERVER['HTTP_HOST'] ?>" class="logo-link">Simple StackExchange</a>
 				</div>
 			</header>
 

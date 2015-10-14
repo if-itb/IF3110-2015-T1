@@ -34,6 +34,23 @@
 			
 			require_once('views/questions/form.php');
 	
+		} 
+		
+		public function vote() {
+			
+			$vote = intval($_GET['vote']);
+			$qid = intval($_GET['qid']);
+			echo Question::vote($vote, $qid);
+			
 		}
 	}
+	
+	if(isset($_GET['action'])){
+		if($_GET['action'] == 'vote'){
+				require_once('../connection.php');
+				require_once('../models/question.php');
+				QuestionsController::vote($_GET['vote'],$_GET['qid']);
+		}
+	}
+
 ?>

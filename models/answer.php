@@ -30,5 +30,12 @@
 			}
 			return $listanswer;
 		}
+		
+		public function post(){
+			$db = Database::getInstance();
+			$stmt = $db->prepare('INSERT INTO answers(authorname, authoremail, qid, content, datetime) VALUES (:authorname, :authoremail, :qid, :content, :datetime)');
+			if($stmt->execute(array('authorname'=>$this->authorname, 'authoremail'=>$this->authoremail, 'qid'=>$this->qid, 'content'=>$this->content, 'datetime'=>$this->datetime)))
+				echo 'ok';
+		}
 	}
 ?>
