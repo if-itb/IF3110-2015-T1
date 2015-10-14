@@ -56,11 +56,11 @@
 		
 		?>
 		<H4>Your Answer</H4>
-		
-		<form action="answered.php?id=<?php echo $qid;?>" method="post">
-		<input type="text" name="name"><br>
-		<input type="text" name="mail"><br>		
-		<textarea name="acontent" cols=50 rows=5></textarea><br>
+
+		<form name="qForm" action="answered.php?id=<?php echo $qid;?>" method="post" onsubmit="return validateForm()">
+		<textarea id='name' name="name" onfocus="if (this.value == 'Name') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Name';}">Name</textarea><br>
+		<textarea id='mail' name="mail" onfocus="if (this.value == 'Email') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Email';}">Email</textarea><br>
+		<textarea id='content' name="acontent" onfocus="if (this.value == 'Content') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Content';}">Content</textarea><br>	
 		<input type="submit" value="Post">
 		</form> 
 		
@@ -83,6 +83,38 @@
 			alert("Vote Success!");
 		
 		}
+		function validateForm() {
+			
+			var name = document.getElementById("name").value;
+			var mail = document.getElementById("mail").value;
+			var cont = document.getElementById("content").value;
+			var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+			
+	
+			if (name == null || name == "" || name == "Name") {
+				alert("Name must be filled out");
+				return false;
+			}
+			if (mail == null || mail == "" || mail == "Email") {
+				alert("Email must be filled out");
+				return false;
+			}
+			if (!validateEmail(mail)) {
+				alert("Incorrect email address");
+				return false;
+			}
+
+			if (cont == null || cont == "" || cont == "Content") {
+				alert("Content must be filled out");
+				return false;
+			}
+			
+			    
+		}
+		function validateEmail(email) {
+			var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+			return re.test(email);
+		}		
 		
 		</script>
 		
