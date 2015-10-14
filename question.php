@@ -95,14 +95,16 @@
 
 <div>
   <h2>Your Answer<h2>
-  <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])."?q_id=".$question['q_id'];?>">
-    <input type="text" name="name" value="" placeholder="Name"><br>
-    <input type="text" name="email" value="" placeholder="Email"><br>
-    <textarea rows="4" cols="50" name="content" placeholder="Content"></textarea><br>
+  <form name="answerForm" method="post" onsubmit="return validateAnswer()"
+    action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])."?q_id=".$question['q_id'];?>">
+    <input type="text" name="name" value="" placeholder="Name"><span id="nameErr"></span><br>
+    <input type="text" name="email" value="" placeholder="Email"><span id="emailErr"></span><br>
+    <textarea rows="4" cols="50" name="content" placeholder="Content"></textarea><span id="contentErr"></span><br>
     <input type="submit" value="Post">
     <input type="hidden" name="type" value="answer">
   </form>
 <div>
 
+<script src="/script/master.js"></script>
 </body>
 </html>
