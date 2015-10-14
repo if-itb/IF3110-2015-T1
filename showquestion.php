@@ -17,16 +17,22 @@
 		if(!$conn){
 			die("Connection failed: " .mysqli_connect_error());
 		}
-		
-		$sql_pertanyaan = "SELECT * FROM question ORDER BY date DESC";
+		if(empty($_POST['tombolcari'])){
+			$sql_pertanyaan = "SELECT * FROM question ORDER BY date DESC";
+		} else {
+			$search = $_POST['cari'];
+			$sql_pertanyaan = "SELECT * FROM question WHERE konten LIKE '%$search%' or topik LIKE '%$search%' ORDER BY date DESC";
+		}
 		$pertanyaan = mysqli_query($conn,$sql_pertanyaan);
 		?>
 		<a class="judul" href="showquestion.php"><h1 id="header">Simple StackExchange</h1></a>
 		<div class="next" >
-			<div class="search">
-				<input type="text" name="cari" class="cari">
-				<input type="submit" value="Search" class="tombolcari">
-			</div>
+			<form action="showquestion.php?" method="POST">
+				<div class="search">			
+					<input type="text" name="cari" class="cari">
+					<input type="submit" name="tombolcari" value="Search" class="tombolcari">
+				</div>
+			</form>
 			<p class="ask">Cannot find what you are looking for? <a class="ask" href="ask.php">Ask here</a></p>
 			<div class="container-judul">
 				Recently Asked Questions
