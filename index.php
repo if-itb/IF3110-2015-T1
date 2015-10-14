@@ -2,7 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="css/index.css">
-	<script src="validator.js"></script>
+	<script src="stack_exchange.js"></script>
 	<title >Simple StackExchange</title>
 	
 </head>

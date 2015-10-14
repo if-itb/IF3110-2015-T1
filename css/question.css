@@ -14,10 +14,55 @@
 	text-align: center;
 }
 
-#content{
+#question{
 	float:left;
 	width:100%;
-	padding-right:100px;
+}
+
+#answer{
+	float:left;
+	width:100%;
+	margin-bottom:20px;
+}
+
+#votes{
+	float:left;
+	width:60px;
+	height:100px;
+	margin-left:10px;
+	margin-top:10px;
+}
+
+.upvote{
+	width: 0; 
+	height: 0;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 25px solid gray;
+	margin-bottom:2px;
+	margin-left:10px;
+}
+
+.NumVotes{
+	text-align:center;
+	width:100%;
+	font-size:25px;
+}
+
+.downvote{
+	width: 0; 
+	height: 0; 
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 25px solid gray;
+	margin-top:2px;
+	margin-left:8px;
+	margin-left:10px;
+}
+
+#content{
+	margin-top:20px;
+	margin-left:100px;
 }
 
 #askedby,#answeredby{
@@ -34,6 +79,7 @@
 #EmailContainer{
 	float:right;
 	width:100%;
+	margin-top:10px;
 	margin-bottom:25px;
 }
 
@@ -51,7 +97,8 @@
 }
 
 #NumAnswer{
-	margin-top:50px;
+	margin-top:20px;
+	float:left;
 }
 
 .char{
@@ -65,7 +112,9 @@
 
 #AnswerFormTitle{
 	color: gray;
+	float:left;
 }
+
 #AnswerName,#AnswerEmail{
 	width:100%;
 	margin-top:10px;

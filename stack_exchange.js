@@ -1,4 +1,4 @@
-/*FORM VALIDATOR AND DELETE CONFIRMATION FUNCTION */
+/*javascript function*/
 
 // search bar validator
 function validateSearch(){
@@ -11,7 +11,7 @@ function validateSearch(){
 	}
 }
 
-// validate question form
+//question form validator
 function validateQuestion(){
 	var name = document.forms["AskForm"]["name"].value;
 	var email = document.forms["AskForm"]["email"].value;
@@ -45,7 +45,7 @@ function validateQuestion(){
 	}
 }
 
-//validate answer form
+//answer form validator
 function validateAnswer(){
 	var name = document.forms["AnswerForm"]["AnswerName"].value;
 	var email = document.forms["AnswerForm"]["AnswerEmail"].value;
@@ -75,4 +75,49 @@ function validateAnswer(){
 // confirm delete a question
 function confirmDelete(){
 	return confirm("Are you sure want to delete the question ?");
+}
+
+/*AJAX FUNCTION for votes */
+
+/*GET LIST OF VOTE BUTTONS */
+//get upvote buttons
+var upvoteButtons = document.getElementsByClassName("upvote");
+for(var i = 0; i < upvoteButtons.length; i++){
+	upvoteButtons[i].onclick = function(){
+		upvote(this.getAttribute("data-type"),this.getAttribute("data-id"));
+	}
+}
+
+//get downvote buttons
+var downvoteButtons = document.getElementsByClassName("downvote");
+for(var i = 0; i < downvoteButtons.length; i++){
+	downvoteButtons[i].onclick = function(){
+		downvote(this.getAttribute("data-type"),this.getAttribute("data-id"));
+	}
+}
+
+//upvote function
+function upvote(type,id){
+	var xmlhttp= new XMLHttpRequest();
+	var numVotes = parseInt(document.getElementById(type+id).innerHTML);
+	xmlhttp.onreadystatechange = function(){
+		if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+			document.getElementById(type+id).innerHTML = numVotes + 1;
+		}
+	}
+	xmlhttp.open("GET","upvote.php?type=" + type + "&id=" + id, true);
+	xmlhttp.send();
+}
+
+//downvote function
+function downvote(type,id){
+	var xmlhttp= new XMLHttpRequest();
+	var numVotes = parseInt(document.getElementById(type+id).innerHTML);
+	xmlhttp.onreadystatechange = function(){
+		if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+			document.getElementById(type+id).innerHTML = numVotes - 1;
+		}
+	}
+	xmlhttp.open("GET","downvote.php?type=" + type + "&id=" + id, true);
+	xmlhttp.send();
 }

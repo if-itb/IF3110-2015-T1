@@ -12,20 +12,16 @@
 		$email = $_POST["Email"];
 		$content = $_POST["Content"];
 		$votes = 0;
-		//echo $question_id.PHP_EOL;
-		//echo $answer_id.PHP_EOL;
-		/*echo $name.PHP_EOL;
-		echo $email.PHP_EOL;
-		echo $content.PHP_EOL;
-		echo $votes;*/
+
 		$query = "INSERT INTO answer(answer_id,question_id,name,email,content,votes) VALUES ('".$answer_id."','".$question_id."','".$name."','".$email."','".$content."','".$votes."')";
 		$query2 = "UPDATE question SET num_answers= num_answers+1 WHERE question_id=".$question_id;
 		if(mysqli_query($link,$query)){
 			//back to current question page
 			header("Location: question.php?id=".$question_id); 
 		}
-		else
-			die("Error creating new answer\n");
+		else{
+			die("Error creating answer");
+		}
 		
 		if(mysqli_query($link,$query2)){
 			//back to current question page

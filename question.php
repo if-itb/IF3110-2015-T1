@@ -2,7 +2,6 @@
 <html>
 <head>
 	<link rel="stylesheet" href="css/question.css">
-	<script src="validator.js"></script>
 	<title>Question</title>
 </head>
 <body>
@@ -23,7 +22,12 @@
 					echo	'<div id="question">
 								<h2 id="topic">'.$row[3].'</h2>
 								<hr>
-								<pre id="content">'.$row[4].'</pre><br>
+								<div id="votes">
+									<div class="upvote" data-type="question" data-id="'.$row[0].'"></div>
+									<div class="NumVotes" id="question'.$row[0].'">'.$row[5].'</div>
+									<div class="downvote" data-type="question" data-id="'.$row[0].'"></div>
+								</div>
+								<div id="content">'.$row[4].'</div><br>
 								<div id="EmailContainer">
 									<a href="delete.php?id='.$row[0].'" id="delete" onclick="return confirmDelete()">delete</a>
 									<div class="char">|</div> <a href="edit.php?id='.$row[0].'" id="edit">edit</a>
@@ -35,19 +39,25 @@
 				
 				
 				//retrieve answers
-				$query = "SELECT content, email, votes FROM answer WHERE question_id='".$question_id."'";
+				$query = "SELECT answer_id, content, email, votes FROM answer WHERE question_id='".$question_id."'";
 				$query_result = mysqli_query($link, $query);
 				$num_answer = mysqli_num_rows($query_result);
-				echo '<h2 id="NumAnswer">'.$num_answer.' Answer</h2><hr>';
+				echo '<h2 id="NumAnswer">'.$num_answer.' Answers</h2><hr>';
 				while($row = mysqli_fetch_row($query_result)){
 					echo	'<div id="answer">
-								<pre id="content">'.$row[0].'</pre><br>
+								<div id="votes">
+									<div type="button" class="upvote" data-type="answer" data-id="'.$row[0].'"></div>
+									<div class="NumVotes" id="answer'.$row[0].'">'.$row[3].'</div>
+									<div type="button" class="downvote" data-type="answer" data-id="'.$row[0].'"></div>
+								</div>
+								<div id="content">'.$row[1].'</div><br>
 								<div id="EmailContainer">
-									<div id="email">'.$row[1].'</div>
+									<div id="email">'.$row[2].'</div>
 									<div id="answeredby">answered by</div><br>
 								</div>
-							</div>
-							<hr id="separator">';
+								<hr id="separator">
+							</div>';
+							
 				}
 			}
 			mysqli_close($link);
@@ -64,5 +74,8 @@
 		
 	</div>
 	<br>
+	
+	<!--javascript-->
+	<script type="text/javascript" src="stack_exchange.js"></script>
 </body>
 </html>
