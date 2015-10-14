@@ -1,15 +1,26 @@
+#Judul{
+    text-decoration: none;
+    font-family: 'Segoe', Tahoma, sans-serif;
+    font-size: x-large;
+    display:block;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
 #container{
     max-width: 800px;
     margin : 0 auto;
 }
+
 #header{
     text-align: center;
 }
 #body{
 
 }
+
 input[type="text"]{
-    border: 1px solid black;
+    border: solid;
     width:100%;
     margin-top: 5px;
     padding-top: 5px; padding-bottom: 5px;
@@ -26,9 +37,67 @@ input[type="submit"]{
 #bar{
     display: inline-block;
     width:80%;
+    vertical-align: middle;
+    border-width: thick;
 }
 
 #submitButton{
     display: inline-block;
     width: auto;
+    vertical-align: middle;
+    border: solid;
+    margin-left: 10px;
 }
+
+.questionItem{
+    border-top: solid;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.questionLeft{
+    display: flex;
+    flex-direction: row;
+    order: 1;
+    margin-top: 20px;
+}
+
+.votes_number{
+    order: 1;
+    text-align: center;
+    margin-right: 10px;
+}
+.Answers_number{
+    order: 2;
+    text-align: center;
+}
+
+.questionMid{
+    display: flex;
+    flex-direction: column;
+    order: 2;
+    margin-left: 30px;  margin-right: 30px;
+    margin-top: 20px;
+}
+
+
+.questionTitle{
+    order: 1;
+    margin-bottom: 10px;
+}
+.questionContent{
+    display: flex;
+    order: 2;
+    text-align: justify;
+}
+
+
+.questionRight{
+    order:3;
+    flex-basis: 50%;
+    margin-top: 20px;
+    text-align: center;
+}
+

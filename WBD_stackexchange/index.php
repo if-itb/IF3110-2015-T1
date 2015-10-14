@@ -27,7 +27,7 @@
             <p>Cannot find what you are looking for? <a style="color:red" href="addQuestion.php">Ask here</a>
         </div>
         <div id ="body">
-            <h2>Recently Asked Questions</h2>
+            <h3>Recently Asked Questions</h3>
             <?php
                 // Connect to database server
                 mysql_connect("localhost", "root", "") or die (mysql_error ());
@@ -61,7 +61,7 @@
                         echo"</div>";
 
                         echo"<div class= questionMid>";
-                            echo"<a class ='title' href='questionPage.php?questionId=$questionId'>$title<br></a>";
+                            echo"<a class ='questionTitle' href='questionPage.php?questionId=$questionId'>$title<br></a>";
                             echo"<div class =questionContent>";
                                 if(strlen($content)>100){
                                     echo substr($content,0,97).'...';
@@ -69,10 +69,12 @@
                                     echo $content;
                                 }
                              echo"</div>";
+                        echo"</div>";
 
                         echo"<div class= questionRight>";
-                            echo"asked by <span class='questionSubject'>$name</span>|<a class='editQuestion' href='addQuestion.php?questionId=$questionId'>edit</a>|<a class='deleteQuestion' href = 'deleteQuestion.php?questionId=$questionId' onclick= \"return confirm('Confirm Delete?');\";>delete</a>";
+                            echo"asked by <font color='blue'>$name</font> |<a class='editQuestion' href='addQuestion.php?questionId=$questionId'><font color='green'>edit</font> </a>|<a class='deleteQuestion' href = 'deleteQuestion.php?questionId=$questionId' onclick= \"return confirm('Confirm Delete?');\";><font color='red'>delete</font> </a>";
                         echo"</div>";
+
                     echo"</div>";
                 }
 

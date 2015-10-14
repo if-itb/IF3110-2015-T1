@@ -40,7 +40,7 @@ $date=$row['date'];
             echo"<div class='questionAnswerVoteUpArrow' onclick= \"voteUpdate('answer',$answerId, 'up')\">";
                 echo "panah atas";
             echo"</div>";
-            echo"<div class='questionAnswerVoteNumber' id='voteAnswer$questionId'>";
+            echo"<div class='questionAnswerVoteNumber' id='voteAnswer$answerId'>";
                 echo "$vote";
             echo"</div>";
             echo"<div class='questionAnswerVoteDownArrow' onclick= \"voteUpdate('answer',$answerId, 'down')\">";
