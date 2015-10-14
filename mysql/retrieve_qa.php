@@ -27,7 +27,7 @@ function retrieveAnswers($questionID) {
     global $conn;
     
     $answers = array();
-    $retrieve_ans = "SELECT name, email, content, vote, time FROM answers WHERE question_id = $questionID ORDER BY vote DESC";
+    $retrieve_ans = "SELECT answer_id, name, email, content, vote, time FROM answers WHERE question_id = $questionID ORDER BY vote DESC";
     $result = $conn->query($retrieve_ans);
        
     while($row = $result->fetch_array(MYSQLI_ASSOC)) {

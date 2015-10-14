@@ -9,6 +9,7 @@
         <meta charset="UTF-8">
         <title>Bukan StackExchange - Question</title>
         <script src="./js/form_validation.js"></script>
+        <script src="./ajax/vote.js"></script>
     </head>
     <body>
         <div align="center">
@@ -31,7 +32,11 @@
                 </a>
                 <?php  
                     echo $question['content'] . "<br>";
-                    echo $question['vote'] . "<br>";
+                ?>
+                    <div id="qvote"> <?php echo $question['vote'] ?> </div>
+                    <div><a href="javascript:vote(<?php echo $question['question_id'] ?>, 'question', 'up')"><img src="./img/arrow492.png" width="32" height="32"></a></div>
+                    <div><a href="javascript:vote(<?php echo $question['question_id'] ?>, 'question', 'down')"><img src="./img/arrow486.png" width="32" height="32"></a></div>
+                <?php                
                     echo $question['answer_count'] . "<br>";
                     echo $question['time'] . "<br>";
                 ?>
@@ -54,7 +59,11 @@
                 echo $answer['name'] . "<br>";
                 echo $answer['email'] . "<br>";        
                 echo $answer['content'] . "<br>";
-                echo $answer['vote'] . "<br>";
+             ?>
+                <div id="avote<?php echo $answer['answer_id'] ?>"> <?php echo $answer['vote'] ?> </div>
+                <div><a href="javascript:vote(<?php echo $answer['answer_id'] ?>, 'answer', 'up')"><img src="./img/arrow492.png" width="32" height="32"></a></div>
+                <div><a href="javascript:vote(<?php echo $answer['answer_id'] ?>, 'answer', 'down')"><img src="./img/arrow486.png" width="32" height="32"></a></div>
+            <?php   
                 echo $answer['time'] . "<br><br>";
             endforeach; ?>
         </div>
