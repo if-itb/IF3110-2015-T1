@@ -9,14 +9,14 @@
 	    font-size: 250%;
 	    font-family:calibri;
 	}
-	#helping {
+	.smalltitle-center{
 		text-align: center;
 	    font-size: 100%;
 	    font-family:calibri;
 	}
-	#faq {
+	.smalltitle-left {
 		text-align: left;
-		font-size: 100%;
+		font-size: 150%;
 		font-family:calibri;
 		margin-left: 17.5%;
 	}

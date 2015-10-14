@@ -18,7 +18,7 @@
 
     var edit=confirm("Are you sure you want to edit this record?");
     if (edit==true){
-    	document.location =  "edit_question.php?question_id=" + s;
+    	document.location =  "ask.php?question_id=" + s;
     }
     return edit;
     }
@@ -36,9 +36,9 @@
   <input type="submit" value="Search">
 </form>
 
-<p id = "helping"> Cannot find what you are looking for? <a id = "ask" href="ask.php" >Ask here</a></p>
+<div class="smalltitle-center">Cannot find what you are looking for? <a id = "ask" href="ask.php" >Ask here</a></div>
 
-<p id = "faq"> Recently Asked Questions <p>
+<div class="smalltitle-left"> Recently Asked Questions </div>
 
 <div class="line"> <hr> </div>
 
@@ -53,12 +53,13 @@
 	if (mysqli_num_rows($result) > 0) {
 	    // output data of each row
 	    while($row = mysqli_fetch_assoc($result)) {
-	    	echo "<div class=\"column-one\">" . $row["vote"] . "<br>" . " Votes" . "</div>";
-	    	echo "<div class=\"column-two\">" . $row["vote"] . "<br>" . " Answers" . "</div>";
-	    	echo "<div class=\"column-three\">" . $row["topic"] . "<br>" . $row["content"] . "</div>";
-	    	echo "<div class=\"column-four\">" . "asked by " . $row["email"] . " at " . "7/10/1996 08.00" . " | " . "edit" . " | " . "delete" . "</div>";
-	    	echo "<a id=\"ask\" href=# onclick=\"editconfirm(" . $row["question_id"] . ")\" " . "\">edit</a>";
-	    	echo "<a id=\"ask\" href=# onclick=\"deleteconfirm(" . $row["question_id"] . ")\" " . "\">delete</a>";
+	    	echo 
+	    	"<div class=\"column-one\">" . $row["vote"] . "<br>" . " Votes" . "</div>"
+	    	. "<div class=\"column-two\">" . $row["vote"] . "<br>" . " Answers" . "</div>"
+	    	. "<div class=\"column-three\">" . $row["topic"] . "<br>" . $row["content"] . "</div>"
+	    	. "<div class=\"column-four\">" . "asked by " . $row["email"] . " at " . "7/10/1996 08.00" . " | " . "edit" . " | " . "delete" . "</div>"
+	    	. "<a id=\"ask\" href=# onclick=\"editconfirm(" . $row["question_id"] . ")\" " . "\">edit</a>"
+	    	. "<a id=\"ask\" href=# onclick=\"deleteconfirm(" . $row["question_id"] . ")\" " . "\">delete</a>";
 	    	echo "<br>";
 	    	echo "<br>";
 	    	echo "<div class=\"line\"> <hr> </div>";
