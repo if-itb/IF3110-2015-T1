@@ -89,7 +89,34 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+#### Validasi Pada Client Side
+
+Validasi untuk form dilakukan pada client site menggunakan JavaScript. Ketika tombol submit form ditekan, kode JavaScript akan dijalankan. Kode tersebut memerika apakah setiap field dari form sudah terisi dan *field* email berisikan  email yang valid.
+
+Untuk memeriksa apakah field tidak kosong, ambil nilai field tersebut dan bandingkan dengan string kosong. Jika kosong, fungsi akan mengembalikan nilai `false` sehingga nilai dari form tidak akan terkirim.
+Nilai dari field dapat diambil menggunakan `document.getElementById(id).value`
+
+Pemeriksaan pada field email dilakukan menggunakan **regex**.  *Pattern* yang digunakan adalah `/\w+@\w+.\w+/`. Regex tersebut akan memeriksa apakah string memiliki:
+
+* Karakter  `[a-zA-Z0-9_]` sebanyak satu kali atau lebih.
+* Lalu diikuti oleh karakter `@`.
+* Lalu diikuti oleh karakter `[a-zA-Z0-9_]` sebanyak satu kali atau lebih.
+* Lalu diikutin oleh karakter `.`,
+* Lalu diikuti oleh karakter  `[a-zA-Z0-9_]` sebanyak satu kali atau lebih.
+
+*string matching* dengan pattern tersebut dilakukan dengan menggunakan method `test` dengan cara sebagai berikut.
+```
+function validateEmail(email) {
+    var pattern = /\w+@\w+.\w+/;
+    return emailPattern.test(email);
+}
+
+```
+
+#### AJAX untuk Vote Up dan Vote Down
+
+AJAX digunakan pada tombol vote agar browser tidak me-refresh halaman. Ketika tombol vote ditekan, kode JavaScript akan dijalankan. Kode tersebut menerima data yang berupa id dari question/answer dan state untuk *vote* (*up/down*). Kode tersebut kemudian akan menciptakan objek `XMLHttpRequest` dan mengirimkan *query string* dengan method `POST` yang kemudian akan diproses oleh file php.
+
 
 ### Knowledge
 
