@@ -11,15 +11,16 @@
 		<hr>
 		<br>
 		<div class="center">
-			<form class="basic-grey" action="controllers/edit.controller.php" method="post">
+			<form name="ask" class="basic-grey" action="controllers/edit.controller.php" method="post" onsubmit="return validateAskForm()">
 				<input type="hidden" name="q_id" value="<?php echo $id ?>">
-				<input type="text" id="name" name="name" value="<?php echo $questionInfo["name"] ?>" required><br>
-				<input type="text" id="email" name="email" value="<?php echo $questionInfo["email"] ?>" required><br>
-				<input type="text" id="topic" name="topic" value="<?php echo $questionInfo["topic"] ?>" required><br>
+				<input type="text" id="name" name="name" value="<?php echo $questionInfo["name"] ?>"><br>
+				<input type="text" id="email" name="email" value="<?php echo $questionInfo["email"] ?>" ><br>
+				<input type="text" id="topic" name="topic" value="<?php echo $questionInfo["topic"] ?>"><br>
 				<textarea id="content" name="content" required><?php echo $questionInfo["content"] ?></textarea><br>
 				<input type="submit" value="Edit">
 			</form>
 		</div>
 	</div>
+<script src="assets/js/validation.js"></script>
 </body>
 </html>

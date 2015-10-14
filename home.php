@@ -5,7 +5,7 @@
 	<div class="container">
 		<div class="center">
 			<div id="search">
-				<form action="" method="GET">
+				<form action="search.php" method="GET">
 					<fieldset class="clearfix">
 						<input type="search" name="search" value="Type your search-keywords here..." onBlur="if(this.value=='')this.value='Type your search-keywords here...'" onFocus="if(this.value=='Type your search-keywords here...')this.value='' "> <!-- JS because of IE support; better: placeholder="Type your search-keywords here..." -->
 						<input type="submit" value="Search" class="button">

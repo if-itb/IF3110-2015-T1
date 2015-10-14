@@ -1,11 +1,11 @@
 <?php
 	require_once("config/config.php");
-
-	// Retrieve all questions that have been asked
-	function retrieveQuestions() {
+	
+	 // Retrieve all questions that have been asked
+	function getSearchResult($keyword) {
 		global $conn;
 
-		$sql = "SELECT * FROM question;";
+		$sql = "SELECT * FROM question WHERE topic LIKE '%$keyword%' OR content LIKE '%keyword' ORDER BY date_created DESC;";
 		$result = mysqli_query($conn, $sql);
 
 		$arr = array();
