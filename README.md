@@ -88,8 +88,24 @@ Validasi **wajib** dilakukan pada *client-side*, dengan menggunakan **javascript
 Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi pertanyaan`.
 
 ### Penjelasan Teknis
+#### Validasi Pada Client-side
+Validasi input pada sisi client menggunakan javascript. Untuk validasi input yang masih kosong yang diperiksa adalah value dari field. value tersebut dapat diambil dengan cara:
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+    document.getElementById("id").value
+
+kemudian value tersebut dibandingkan dengan string kosong. apabila merupakan string kosong, maka akan muncul popup.
+
+Untuk validasi email, cara yang sama digunakan , namun yang diperiksa adalah value pada kolom email. Pemeriksaan menggunakan method exec regex. Jika hasil exec null, maka tidak terjadi match, yang berarti format email yang ditulis salah. Regex yang digunakan adalah \w*@\w*\.\w* , yang berarti: [a-zA-Z0-9_]@[a-zA-Z0-9_].[a-zA-Z0-9_]
+
+    var reg = /\w*@\w*\.\w*/;
+    reg.exec(document.getElementById("email").value) == null
+
+#### AJAX Pada Fitur Vote 
+Fitur vote menggunakan AJAX agar tidak perlu terjadi *refresh page*.  Prosesnya adalah sebagai berikut: 
+
+ 1. Tombol vote menerima input
+ 2. Script menerima nilai vote saat ini dari page dengan document.getElementById.
+ 3. Script menambahkan/mengurangi nilai tersebut, menampilkannya ke layar, kemudian mengirim perubahannya ke database dengan memanggil halaman PHP melalui xmlhttprequest yang akan mengirimkan query ke database.
 
 ### Knowledge
 
@@ -108,3 +124,4 @@ Asisten IF 3110 2015
 Fahziar | Gilang | Lingga | Reza | Sudib | Tito | Willy K2 | Yafi
 
 Dosen : Yudistira Dwi Wardhana | Riza Satria Perdana
+
