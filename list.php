@@ -31,7 +31,14 @@
 			" -Topic: <a href='answer.php?id=".$row['qid']."'>"
 			.$row["topic"].
 			"</a> -Content: ".$row["content"]."<br>
-			<button>Edit</button>						
+			<form action='ask.php?mode=1' method='post'>
+ 				<input type='hidden' name='name' value='".$row["askname"]."'>
+ 				<input type='hidden' name='qid' value='".$row["qid"]."'>
+ 				<input type='hidden' name='mail' value='".$row["email"]."'>
+ 				<input type='hidden' name='topic' value='".$row["topic"]."'>
+ 				<input type='hidden' name='qcontent' value='".$row["content"]."'>
+				<input type='submit' value='Edit'>						
+			</form>
 			<button onclick='del(".$row['qid'].",\"".$row['topic']."\",\"".$row['askname']."\")'>Delete</button>		
 			<br><br>
 			";
