@@ -89,6 +89,7 @@ a.delete-question:active {
 .container {
 	margin: 1.5%;
 	padding: 1.5%;
+	min-height: 300px;
 }
 
 #vote, #answer {
