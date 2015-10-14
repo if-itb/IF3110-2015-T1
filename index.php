@@ -17,7 +17,7 @@
 							<a class="homelink" href="http://mystackexchange.dev"><h1 id="title">My StackExchange</h1></a>
 							<div class="search">
 								<form action="search.php" method="post">
-									<input type="text" id="searchbar">
+									<input type="text" id="searchbar" name="searchbar">
 									<input type="submit" id="searchsubmit" value="Search">
 								</form>
 								<br>

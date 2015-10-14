@@ -12,7 +12,7 @@
 	$rows2 = pg_fetch_all($rs);
 	$rs = pg_query(Database::getInstance(), $query3) or die("Cannot execute query: $query\n"); 
 	$id = pg_fetch_row($rs);
-	echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	echo '<!DOCTYPE HTML">
 	<html>
 	<head>
 	<title>'.$rows[0]['topic'].'</title>
@@ -50,11 +50,11 @@
 				<h2 class="title2">Your Answer</h2>
 				<hr>
 				<form action="answer.php?qid='.$_GET['id'].'" method="post" onsubmit="return validateanswer()">
-				<input class="textbox" type="text", name="name", id="name" value="Name">
+				<input class="textbox" type="text", name="name", id="name" placeholder="Name">
 				<br>
-				<input class="textbox" type="text", name="email", id="email" value="Email">
+				<input class="textbox" type="text", name="email", id="email" placeholder="Email">
 				<br>
-				<textarea class="textarea", name="content", id="content" value="Content" >Content</textarea>
+				<textarea class="textarea", name="content", id="content" placeholder="Content" ></textarea>
 				<br>
 				<input type="submit" id="post" value="Post">
 				</form>	

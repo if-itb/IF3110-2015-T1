@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE HTML>
 <html>
 <head>
 <title>Your Answer</title>
@@ -12,13 +12,13 @@
 			<h2>What's your question?</h2>
 			<hr>
 			<form action="ask.php", method="post" onsubmit="return validatequestion()">
-			<input class="textbox" type="text", name="name", id="name" value="Name">
+			<input class="textbox" type="text", name="name", id="name" placeholder="Name">
 			<br>
-			<input class="textbox" type="text", name="email", id="email" value="Email">
+			<input class="textbox" type="text", name="email", id="email" placeholder="Email">
 			<br>
-			<input class="textbox" type="text", name="topic", id="topic" value="Question Topic">
+			<input class="textbox" type="text", name="topic", id="topic" placeholder="Question Topic">
 			<br>
-			<textarea class="textarea", name="content", id="content" value="Content" >Content</textarea>
+			<textarea class="textarea", name="content", id="content" placeholder="Content" ></textarea>
 			<br>
 			<input type="submit" id="post"  value="Post">
 			</form>
