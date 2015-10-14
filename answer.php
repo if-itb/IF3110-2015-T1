@@ -2,10 +2,11 @@
 	"http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>ASK a Question</title>
+		<title>Question</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<a href="index.php"><H2>SIMPLE STACK EXCHANGE</H2></a>
+		<a href="index.php"><H1>SIMPLE STACK EXCHANGE</H1></a>	<br><br>
 		<?php
 		$qid = $_GET['id'];
 
@@ -30,38 +31,61 @@
 		$mail = $row['email'];
 		$con = $row['content'];
 		?>		
-		<H4><?php echo $topic;?></H4>		
-		<p> <?php echo $con;?></p>
-		<p>vote =<?php echo "<H6 id =q>".$vote."</H6>";?> | asked by <?php echo $name;?> | edit | delete </p>
+		<H4><?php echo $topic;?></H4>
+		<HR width = 80% height=10%>		
+		<br>	
 		<?php
-		echo "<button onclick='vote(".$row['qid'].",1)'>Vote Up</button>";
-		echo "<button onclick='vote(".$row['qid'].",2)'>Vote Down</button>";
+		echo "<div class='qcon'>$con</div>";
+		echo "<p id =qv>".$vote."</p><br>";
+		echo "<div class='qvote'>";
+		echo "<img src='img/thumbsup.png' onclick='vote(".$row['qid'].",1)'>&nbsp";
+		echo "<img src='img/thumbsdown.png' onclick='vote(".$row['qid'].",2)'></div>";
+		echo "
+			
 		
+			<div class='usinfo'>
+			asked by <p id='blue'>" . $row["askname"]. " [" . $row["email"]."]</p> <b>&nbsp&nbsp|&nbsp&nbsp</b>
+			<form action='ask.php?mode=1' method='post'>
+ 				<input type='hidden' name='name' value='".$row["askname"]."'>
+ 				<input type='hidden' name='qid' value='".$row["qid"]."'>
+ 				<input type='hidden' name='mail' value='".$row["email"]."'>
+ 				<input type='hidden' name='topic' value='".$row["topic"]."'>
+ 				<input type='hidden' name='qcontent' value='".$row["content"]."'>				
+				<button id='edit'>Edit</button>
+			</form> <b>&nbsp&nbsp|&nbsp&nbsp</b>
+			<button id='del' onclick='del(".$row['qid'].",\"".$row['topic']."\",\"".$row['askname']."\")'>Delete</button>		
+			</div>
+			<br><br><br><br><br>
+			";
 			
 		$sql = "select * from answer where qid=".$qid;
 		$result = mysqli_query($conn, $sql);
-		echo "<H4>".mysqli_num_rows($result)." Answers</H4>";
-		while ($row = mysqli_fetch_assoc($result)) {
+		echo "<H4>".mysqli_num_rows($result)." Answers</H4><hr width=80%>";
+		while ($row = mysqli_fetch_assoc($result)) {			
 			$name = $row['ansname'];
 			$vote = $row['vote'];
 			$mail = $row['email'];
 			$con = $row['content'];
-			echo "-------------------------<br><p>$con</p>";
-			echo "vote = <H6 id='a".$row['aid']."'>".$vote."</H6> | answered by ".$name."<br><br>";	
-			echo "<button onclick='vote(".$row['aid'].",3)'>Vote Up</button>";
-			echo "<button onclick='vote(".$row['aid'].",4)'>Vote Down</button>";
+			
+			echo "<br><br><div class='qcon'>$con</div>";
+			echo "<p id =av".$row['aid'].">".$vote."</p><br>";						
+			echo "<div class='usinfo'>answered by <p id='blue'>".$name."</p><br><br></div>";	
+			echo "<div class='qvote'>";
+			echo "<img src='img/thumbsup.png' onclick='vote(".$row['aid'].",3)'>&nbsp";
+			echo "<img src='img/thumbsdown.png' onclick='vote(".$row['aid'].",4)'></div>";
+			echo "<hr width=80%>";
 		}
 		
 		
 		
 		?>
-		<H4>Your Answer</H4>
+		<H3>Your Answer</H3>
 
 		<form name="qForm" action="answered.php?id=<?php echo $qid;?>" method="post" onsubmit="return validateForm()">
 		<textarea id='name' name="name" onfocus="if (this.value == 'Name') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Name';}">Name</textarea><br>
-		<textarea id='mail' name="mail" onfocus="if (this.value == 'Email') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Email';}">Email</textarea><br>
-		<textarea id='content' name="acontent" onfocus="if (this.value == 'Content') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Content';}">Content</textarea><br>	
-		<input type="submit" value="Post">
+		<br><textarea id='mail' name="mail" onfocus="if (this.value == 'Email') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Email';}">Email</textarea><br>
+		<br><textarea id='content' name="acontent" onfocus="if (this.value == 'Content') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Content';}">Content</textarea><br>	
+		<br><div class='post'><input type="submit" value="Post"></div>
 		</form> 
 		
 		<?php mysqli_close($conn); ?>
@@ -72,9 +96,9 @@
 			xmlhttp.onreadystatechange = function() {
 			    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				if (mode==1 || mode==2) 
-					document.getElementById("q").innerHTML = xmlhttp.responseText;
+					document.getElementById("qv").innerHTML = xmlhttp.responseText;
 				else
-					document.getElementById("a"+id).innerHTML = xmlhttp.responseText;
+					document.getElementById("av"+id).innerHTML = xmlhttp.responseText;
 			    }
 			}	
 			//alert("vote.php?id="+id+"&mode="+mode);
@@ -115,7 +139,20 @@
 			var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 			return re.test(email);
 		}		
-		
+		function del(id, topic, asker) {
+			var r = confirm("Are you sure to delete question '" + topic + "' asked by [" + asker + "]? "+ window.location.pathname);
+		    
+			if (r == true) {
+				xhttp = new XMLHttpRequest();	
+				xhttp.open("GET", "del.php?id="+id, true);
+				xhttp.send();		
+				alert("Delete Success!");							
+				window.location.assign("/WBD/index.php");
+			}
+			
+
+			
+		}		
 		</script>
 		
 		
