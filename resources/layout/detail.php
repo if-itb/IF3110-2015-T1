@@ -5,7 +5,7 @@
 <hr>
 <div>
 	<p class='question-detail'> <?php echo $question['question'];?> </p>
-	<p class='right'><b>asked by <a class='purple'><?php echo $question['name']; ?></a> | <a href='ask-question.php?id=<?php echo $question['id']; ?>' class='orange'>edit</a> | <a <a href='delete-question.php?id=<?php echo $question['id']; ?>' class='red'>delete</a></b></p>
+	<p class='right'><b>asked by <a class='purple'><?php echo $question['name']; ?></a> | <a href='ask-question.php?id=<?php echo $question['id']; ?>' class='orange'>edit</a> | <a <a href='delete-question.php?id=<?php echo $question['id']; ?>' class='red' onclick='return confirmDelete()'>delete</a></b></p>
 </div>
 
 <?php
@@ -25,7 +25,7 @@
 			<tr>
 				<td><div class='arrow-down'></div></td>
 			</tr>
-		</table>\n";
+		</table>\n<br>";
 			echo "<p class='question-detail'>" . $answer['answer'] . "</p>";
 			echo "\t<p class='right'><b>answered by <a class='purple'>" . $answer['name'] . "</a> at sekarang</b></p>";
 			echo "<br><hr>";
@@ -35,7 +35,7 @@
 
 <h2>Your Answer</h2>
 <div class="ask-content center">
-	<form action="" method="POST">
+	<form action="" method="POST" name="answer_form" onsubmit="return validateAnswerForm()">
 		<input class='rectangle ask-item' type='text' name='name' placeholder='Name'>
 		<input class='ask-item rectangle' type='text' name='email' placeholder='Email'>
 		<textarea class='ask-item rectangle' rows='12' name='answer' placeholder='Content'></textarea>
