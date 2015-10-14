@@ -18,6 +18,7 @@
         <link href='https://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Dosis:500' rel='stylesheet' type='text/css'>
         <script src="js/jsajax.js"></script>
+        <script src="js/validate.js"></script>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <title>Simple Stack Exchange</title>
     </head>
@@ -41,9 +42,19 @@
                     <a href="#" class="askedname"><?php echo $row["user"];?></a>
                     <p class="ab">at</p>
                     <p class="date"><?php $phpdate=strtotime($row["create_time"]); $mysqldate = date('d-m-Y H:i:s', $phpdate); echo $mysqldate;?></p>
-                    <a href="#" class="edit">edit </a>
-                    <a href="#" class="delete">delete </a>
+                    <?php echo '<a class="edit" href="edit.php?id='.base64_encode($row["id"]).'">';?>edit</a>
+                    <a class="delete" href="#popup1">delete</a>
                 </div>
+                 <div id="popup1" class="overlay">
+                <div class="popup">
+                    <h2>Are you sure you want to delete?</h2>
+                    <a class="close" href="#">x</a>
+                    <div class="content">
+                         <?php echo '<a class ="yes" href="update.php?id='.base64_encode($row["id"]).'&choice=2">';?>YES</a>
+                        <a class="no" href="#">NO</a>
+                    </div>
+                </div>
+            </div>
         </div>
             <div class="subq black">
                 <div class="answernum"><?php echo $row["anumber"];?></div>
@@ -76,7 +87,7 @@
             </div>
             <?php }}}?>
             <div class="subq abu">Your Answer</div>
-            <form class="formsearch createquestion" method="post" action="insertanswer.php?id=<?php echo $get?>">
+            <form class="formsearch createquestion" name="createquestion" method="post" onsubmit="return validateAnswerForm()" action="insertanswer.php?id=<?php echo $get?>">
                 <input type="text" id="createname" name="createname" placeholder="Name" />
                 <input type="text" id="createemail" name="createemail" placeholder="Email" />
                 <textarea type="text" id="createcontent" name="createcontent" placeholder="Content"></textarea>
