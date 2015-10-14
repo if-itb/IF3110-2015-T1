@@ -27,6 +27,30 @@ Author: Irene Wiliudarsan (13513002) -->
       $id_question = $_GET["id_question"];
       $query = "SELECT id_question, topic, content, vote_num, datetime, email FROM question, user WHERE question.id_user = user.id_user and id_question = $id_question";
       $question = $connection->query($query);
+
+      // Submit answer form value to database
+      if (isset($_POST["submit"])) {
+        $new_answer_content = str_replace("\n", "<br>", str_replace("'", "''", $_POST["content"]));
+        $new_user_name = $_POST["name"];
+        $new_user_email = $_POST["email"];
+        $query = "SELECT id_user FROM user WHERE name = '$new_user_name' AND email = '$new_user_email'";
+        echo $query . "<br>";
+        $id_user = $connection->query($query);
+
+        if ($id_user->num_rows < 0) {
+          // User account haven't made before. New user made in database
+          $query = "INSERT INTO user VALUES ('', '$new_user_name', '$new_user_email')";
+          // Fetch new id user from database
+          if ($connection->query($query) === TRUE) {
+            $query = "SELECT id_user FROM user WHERE name = '$new_user_name' AND email = '$new_user_email'";
+            $id_user = $connection->query($query);
+          }
+        }
+        $new_user_id = $id_user->fetch_assoc()["id_user"];
+        $query = "INSERT INTO answer VALUES ('', '$new_answer_content', 0, NOW(), $new_user_id, $id_question)";
+        $answer_inserted = $connection->query($query);
+      }
+
       // Execute query to take number of answers
       $query = "SELECT COUNT(id_answer) FROM answer, question WHERE answer.id_question = $id_question";
       $answer_num_result = $connection->query($query);
@@ -132,11 +156,11 @@ Author: Irene Wiliudarsan (13513002) -->
         <div id="answer-form-title">
           Your Answer
         </div>
-        <form class="right" id="answer-form" action="question-detail.php" method="post" onsubmit="formValidation()">
+        <form class="right" id="answer-form" action="" method="post" onsubmit="formValidation()">
           <input class="full-length" id="name" name="name" type="text" placeholder="Name">
           <input class="full-length" id="email" name="email" type="text" placeholder="Email">
           <textarea class="full-length" id="content" name="content" placeholder="Content" rows="10" cols="50"></textarea>
-          <input class="button" type="submit" value="Post">
+          <input class="button" name="submit" type="submit" value="Post">
         </form>
       </div>
     </div>
