@@ -53,7 +53,7 @@ echo "<div class='questionAnswerItem''>";
         echo"</div>";
     echo"</div>";
 
-    echo"<span class='questionFooter'>asked by $name at $date|edit|delete</span>";
+    echo"<span class='questionAnswerFooter'>asked by $name at $date|edit|delete</span>";
 echo "</div>";
 
 

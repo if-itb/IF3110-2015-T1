@@ -45,9 +45,9 @@
 
 <body>
     <div id="container">
-        <div id="head">
+        <div id="header_addQuestions">
             <span id="Judul">Simple StackExchange</span>
-            <h2>What's your question?</h2>
+            <span id="what">What's your question?</span>
         </div>
 
 
@@ -57,9 +57,11 @@
                 <input type="text" name="email" placeholder="Email"value="<?php echo $email;?>"><br>
                 <input type="text" name="questionTopic" placeholder="Question Topic" value="<?php echo $title;?>"><br>
                 <textarea name="questionContent" placeholder="Content"><?php echo $content;?></textarea><br>
-                <input class="submitButton" name= "submitButton" type="submit" value=<?php if($update){echo "Update";}else{echo "Post";}?> >
+                <div id="submitter">
+                    <input class="submitButton" name= "submitButton" type="submit" value=<?php if($update){echo "Update";}else{echo "Post";}?> >
+                </div>
                 <input type="hidden" name="update" value="<?php echo $update; ?>">
-                <input type="hidden" name="questionId" value="<?php echo $questionId; ?>" >;
+                <input type="hidden" name="questionId" value="<?php echo $questionId; ?>" >
             </form>
         </div>
 

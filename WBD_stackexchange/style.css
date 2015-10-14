@@ -5,6 +5,13 @@
     display:block;
     margin-bottom: 30px;
     margin-top: 30px;
+    text-align: center;
+}
+
+#what{
+    font-family: 'Segoe', Tahoma, sans-serif;
+    font-size: large;
+    text-align: left;
 }
 
 #container{
@@ -12,49 +19,79 @@
     margin : 0 auto;
 }
 
-#header{
-    text-align: center;
+#search{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
-#body{
-
-}
-
-input[type="text"]{
-    border: solid;
-    width:100%;
-    margin-top: 5px;
-    padding-top: 5px; padding-bottom: 5px;
-}
-textarea{
-    width:100%;
-    margin-top : 5px;
-}
-
-input[type="submit"]{
-    float:right;
-}
-
 #bar{
-    display: inline-block;
-    width:80%;
-    vertical-align: middle;
-    border-width: thick;
+    order: 1;
+    padding: 4px;
+    margin-right: 10px;
+    border: solid;
 }
 
 #submitButton{
-    display: inline-block;
-    width: auto;
-    vertical-align: middle;
+    padding: 4px;
+    order:2;
     border: solid;
-    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
+
+
+#header{
+
+}
+#header_addQuestions{
+    border-bottom: solid;
+    margin-bottom: 20px;
+}
+
+
+#body{
+    display: flex;
+    flex-direction: column;
+}
+
+
+input[type="text"]{
+    border: solid;
+    border-width: 1px;
+    width:100%;
+    margin-top: 5px;
+    padding-top: 5px; padding-bottom: 5px;
+    padding-left: 5px;
+}
+textarea{
+    width:99.7%;
+    margin-top : 5px;
+    border: solid;
+    border-width: 1px;
+    height: 150px;
+    padding-left: 5px;
+
+}
+
+#submitter{
+    padding-top: 5px;
+    padding-right: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.submitButton{
+    padding: 5px;
+}
+
 
 .questionItem{
     border-top: solid;
     display: flex;
     flex-direction: row;
-    margin-top: 20px;
     margin-bottom: 20px;
+    justify-content: center;
 }
 
 .questionLeft{
@@ -62,6 +99,8 @@ input[type="submit"]{
     flex-direction: row;
     order: 1;
     margin-top: 20px;
+    margin-left: 20px;
+    align-self: center;
 }
 
 .votes_number{
@@ -99,5 +138,39 @@ input[type="submit"]{
     flex-basis: 50%;
     margin-top: 20px;
     text-align: center;
+    align-self: center;
+}
+
+
+.questionAnswerItem{
+    display: flex;
+    flex-direction: column;
+}
+
+.questionAnswerHeader{
+    order: 1;
+    border-bottom: solid;
+    font-family: 'Segoe', Tahoma, sans-serif;
+    font-size: large;
+
+}
+.questionAnswerBody{
+    order: 2;
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+.questionAnswerVote{
+    order:1;
+}
+.questionAnswerContent{
+    order: 2;
+    margin-left: 20px;
+}
+
+.questionAnswerFooter{
+    order: 3;
+    text-align: right;
+    margin-bottom: 10px;
 }
 
