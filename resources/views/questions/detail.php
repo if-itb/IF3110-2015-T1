@@ -17,7 +17,7 @@
 			at <?= $question->created_at ?> |
 		</span>
 		<span><a href='/questions/edit?id=<?= $question->id ?>'>edit </a></span>|
-		<span><a href='/questions/delete?id=<?= $question->id ?>'>delete </a></span>
+		<span><a href='/questions/delete?id=<?= $question->id ?>' onclick="return deleteConfirm()">delete </a></span>
 	</span>
 </div>
 

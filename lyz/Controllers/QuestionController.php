@@ -48,7 +48,7 @@ class QuestionController {
 			'search' => (string)$search_content,
 			'content' => (string)$content,
 			'headline' => 'Recently Asked Questions'
-		])->styles(['layout', 'search', 'card']);
+		])->styles(['layout', 'search', 'card'])->scripts(['layout']);
 		return $view;
 	}
 

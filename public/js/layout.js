@@ -1,2 +1,3 @@
-document.addEventListener("DOMContentLoaded", function(event) { 
-});
+function deleteConfirm() {
+	return window.confirm("Do you really want to delete this question?");
+}
