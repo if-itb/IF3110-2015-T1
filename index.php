@@ -66,12 +66,15 @@
             <div>asked by</div><div>|</div>
             <div><?php echo $question['name']; ?></div><div>|</div>
             <a href="ask.php?q_id=<?php echo $question['q_id'].'&address=home';?>">edit</a><div></div>
-            <a href="delete.php?q_id=<?php echo $question['q_id'];?>">delete</a>
+            <a href="delete.php?q_id=<?php echo $question['q_id'];?>" onclick="return confirmDeletion()">delete</a>
           </div>
         </div>
   <?php
     }
   }
  ?>
+
+  <script src="/script/master.js"></script>
+  </script>
   </body>
  </html>
