@@ -1,3 +1,7 @@
+a {
+	text-decoration: none;
+}
+
 answers {
 	display: inline-block;
 	margin: 0 0 0 1.5%;
@@ -34,10 +38,18 @@ h3 {
 	margin: 20px 0 3px 10.5%;
 }
 
+questionContent {
+	display: inline-block;
+	color: grey;
+	margin: 0 0 0 3.6%;
+	vertical-align: top;
+	width: 48%;
+}
+
 questionTopic {
 	display: inline-block;
+	font-size: 130%;
 	margin: 0 27% 0 25%;
-	text-align: center;
 	width: 48%;
 }
 
@@ -72,7 +84,7 @@ voteupdown {
 }
 
 .askedBy {
-	margin: -35px 10% 0 0;
+	margin: -25px 10% 20px 0;
 	text-align: right;
 }
 
