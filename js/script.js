@@ -21,3 +21,12 @@ function votingans(qid, idnya) {
         xmlhttp.open("GET", "voting.php?qid=" + qid + "&idnya=" + idnya, true);
         xmlhttp.send();
 }
+
+function hapusquestion() {
+    confirm("Yakin mau didelete?");
+}
+
+function seredirect() {
+        window.location.href = "index.php"
+        
+}

@@ -79,15 +79,13 @@
                 <input type="hidden" name="idnya" value="<?php echo $row["id"] ?>">
                 <div class="buttonlink"><button type="submit">edit</button></div>
             </form>
-            |  <a href="#" onclick="hapusquestion()">delete</a></div>
+            |  <a href="delete.php?qid=<?php echo $row["id"];?>" onclick="hapusquestion()">delete</a>
+        </div>
 
     </div>
     <?php 
     }
-    mysqli_free_result($result);
 
-    /* close connection */
-    mysqli_close($link);
     ?>
 </body>
 	
