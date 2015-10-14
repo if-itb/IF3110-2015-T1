@@ -17,6 +17,7 @@
         <meta name="author" content="13513095 Fitra Rahmamuliani">
         <link href='https://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Dosis:500' rel='stylesheet' type='text/css'>
+        <script src="js/jsajax.js"></script>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <title>Simple Stack Exchange</title>
     </head>
@@ -26,10 +27,10 @@
             <div class="subq black"><?php echo '<a href="detail.php?topic='.base64_encode($row["id"]).'">';?>
             <?php echo $row["topic"];?></a></div>
             <div class="question">
-                <div class="votepart">
-                    <div class="voteup"></div>
+                <div class="votepart" id="votebutton<?php echo $row['id'];?>">
+                    <div class="voteup"><a href='javascript:;'></a></div>
                     <div class="votenumber"><?php echo $row["vote"];?></div>
-                    <div class="votedown"></div>
+                    <div class="votedown"><a href='javascript:;'></a></div>
                 </div>
                 <div class="questionpart partmedium">
                     <div class="qcontent medium"><?php echo $row["content"];?>
@@ -57,9 +58,9 @@
                         if ($anumber>0){?>
             <div class="raq">
                 <div class="votepart">
-                    <div class="voteup"></div>
+                    <div class="voteup"><a href='javascript:;'></a></div>
                     <div class="votenumber"><?php echo $row["avote"];?></div>
-                    <div class="votedown"></div>
+                    <div class="votedown"><a href='javascript:;'></a></div>
                 </div>
                 <div class="questionpart partmedium">
                     <div class="qcontent medium">

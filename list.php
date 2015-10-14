@@ -53,8 +53,18 @@
                 <div class="labelunder">
                     <p class="ab">asked by </p>
                     <a href="#" class="name"><?php echo $row["user"]?></a>
-                    <a href="#" class="edit">edit </a>
-                    <a href="#" class="delete">delete </a>
+                    <?php echo '<a class="edit" href="edit.php?id='.base64_encode($row["id"]).'">';?>edit</a>
+                    <a class="delete" href="#popup1">delete</a>
+                </div>
+            </div>
+            <div id="popup1" class="overlay">
+                <div class="popup">
+                    <h2>Are you sure you want to delete?</h2>
+                    <a class="close" href="#">x</a>
+                    <div class="content">
+                         <?php echo '<a class ="yes" href="update.php?id='.base64_encode($row["id"]).'&choice=2">';?>YES</a>
+                        <a class="no" href="#">NO</a>
+                    </div>
                 </div>
             </div>
             <?php }
