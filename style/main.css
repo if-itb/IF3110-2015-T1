@@ -1,3 +1,8 @@
+body {
+    margin-left:10%;   
+    margin-right: 10%;
+}
+
 h1 {
     text-align: center;
     font-family: 'Oswald', sans-serif;
@@ -6,9 +11,8 @@ h1 {
 
 h2 {
     text-align: left;
-    margin-left: 15%;
+    margin-left: 20%;
     font-family: 'Ubuntu', sans-serif;
-
 }
 
 h3 {
@@ -52,6 +56,12 @@ input {
     border: 10px 5px 10px 5px;
 }
 
+.content {
+    display: inline;
+    width: 50%;
+    
+}
+
 #asknama {
     border-top: 3px solid #000;
 }
@@ -77,41 +87,49 @@ p {
 
 .questionlist {
     border-top: 1px solid #9a9896;
-    margin-left: 15%;
-    margin-right: 15%;
 
 }
 
 .questioncontent {
-	margin: 0;
 	z-index: 100;
 	background: #fff;  
     display: inline-block;
     
 }
 
+.votecount {
+    display: inline;
+    margin-right: 15px;
+}
+
 .questiontopic {
-	margin: 0;
 	z-index: 100;
 	background: #fff;  
     display: block;
     font-size: 25px;
     color: #723b3b;
     font-family: 'Dinpro', sans-serif;
-
 }
 
 .vote {
     display: inline-block;
-
 }
 
 .answers {
     display: inline-block;
 }
 
+.anstitle {
+    border-bottom: 1px solid #000;
+    right: 10%;
+    position: relative;
+    margin-left: 10%;
+    margin-right: -10%;
+}
+
 .angka {
     display: inline-block;
+    width: 15%;
 }
 
 .questionfooter {
@@ -120,7 +138,7 @@ p {
 }
 
 .ketvote{
-	background: #fff;   
+    background: #fff;   
 	margin-right: 10px;
     font-style: bold;
     display: inline-block;
@@ -133,5 +151,40 @@ p {
 }
     
 .question {
-     display: inline;
+    display: block;
+    width: 60%;
+}
+
+.iquestion {
+    display: inline-block;
+    width: 60%;
+}
+
+.answersp {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    display: block;
+    border-bottom: 1px solid #b5abab;
+}
+
+
+.titlep {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    display: block;
+    border-bottom: 1px solid #b5abab;
+}
+
+.isipertanyaan {
+    display: inline-block;
+    width:90%;
+    margin-top: 15px;
+}
+
+.footerpertanyaan {
+    display: inline-block;
+    margin-left: 60%;
+    margin-top: 25px;
 }
