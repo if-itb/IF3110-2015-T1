@@ -42,7 +42,7 @@ function validateFormQuestion() {
 
     if(isName || isEmail || isTopic || isContent || falseEmail) {
     	if(isName || isEmail || isTopic || isContent) {
-    		alert(alert_str + " form must be filled out");
+    		alert(alert_str + " field must be filled out");
     		return false;
     	}
     	else if(falseEmail){

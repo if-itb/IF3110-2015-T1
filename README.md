@@ -89,7 +89,20 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+**Melakukan Validasi **
+
+Validasi terhadap field form dan email dilakukan pada client-side menggunakan javascript. Pada setiap input submit yang berfungsi melakukan posting, baik posting pertanyaan ataupun jawaban, ditambahkan atribut *onsubmit* yang mengacu pada fungsi yang terdapat pada javascript. Setiap kali pengguna menekan Post, maka server side akan memanggil fungsi ValidateFormQuestion() atau ValidateFormAnswer() yang terdapat pada script.js. Kedua fungsi tersebut mengambil nilai dari masing-masing field menggunakan *document.forms["Forms"].['field-name'].value* dan melakukan pengecekan apakah dari masing-masing field terdapat yang bernilai null atau "". Jika terdapat salah satu saja field yang masih kosong, maka akan dikirimkan alert yang meminta pengguna untuk melengkapi form pada bagian yang belum dilengkapi. Dalam kedua fungsi tersebut juga memanggil fungsi validateEmail() yang melakukan validasi apakah email yang dimasukkan sudah sesuai format, yaitu terdapat karakter "@" dengan indeks lebih dari satu dan karakter "." dengan indeks minimal dua karakter dari belakang. validateEmail() juga mengirimkan alert yang meminta pengguna untuk melengkapi field email dengan format yang sesuai
+
+**Melakukan AJAX**
+
+Untuk dapat melakuakan voting up dan voting down pada pertanyaan tanpa melakukan refresh terhadap page menggunakan AJAX *XMLHTTPRequest*. Gambar panah untuk melakukan vote termasuk dalam kelas kelas *arrow-up* dan *arrow-down* yang didefinisikan pada style.css. Pada masing-masing kelas tersebut ditambahkan atribut *onclick* yang memanggil fungsi vote(id,qa,updown) yang terdapat pada script.js. Adapun mekanisme yang dilakukan fungsi vote() adalah sebagai berikut:
+- Fungsi vote menerima masukan parameter *id, qa, updowm*. *id* merupakan id dari pertanyaan/jawaban yang nilai votenya akan diubah. *qa* diisi dengan "question" jika yang di-vote merupakan pertanyaan atau "answer" jika yang di-vote merupakan jawaban. *updown* dapat diisi dengan "up" jika arrow-up yang di-click atau "down" jika yang di-click adalah arrow-down
+- Fungsi vote memanggil xmlhttp.open() dengan parameter "GET", page "vote.php?id=*id*&qa=*qa*&updown=*updown*", dan true
+- Pada vote.php, masing-masing atribut diambil menggunakan $_GET dan disimpan dalam vaiabel $id, $qa, dan $updown
+- Jika $qa="question", maka ambil atribut vote pada tabel Question dengan question_id=$id menggunakan statement pada sql. Jika $updown = "up", maka nilai vote tersebut di-increment, sebaliknya jika $updown="down", maka nilai vote tersebut di-decrement. Nilai vote sebelumnya pada database kemudian diganti menggunakan statement UPDATE pada SQL
+- Jika $qa="answer", maka ambil atribut vote pada tabel Answer dengan answer_id=$id menggunakan statement pada sql. Jika $updown = "up", maka nilai vote tersebut di-increment, sebaliknya jika $updown="down", maka nilai vote tersebut di-decrement. Nilai vote sebelumnya pada database kemudian diganti menggunakan statement UPDATE pada SQL
+- Nilai vote yang baru dikembalikan pada javascript dengan menggunakan *echo*. Javascript kemudian mengganti text nilai vote dengan nilai yang baru menggunakan *document.getElementById(id).innerHTML = xmlhttp.responseText*
+
 
 ### Knowledge
 
