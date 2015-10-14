@@ -60,7 +60,15 @@
 				<div class="question-topic">
 					<a href="/Tubes1/answer.php?id=<?= $question_id ?>">
 					<h3><?php echo $topic; ?><br>
-						<?php echo $content; ?></h3></a>
+						<?php 
+							if (strlen($content) > 50) { 
+								echo substr($content, 0, 50); 
+								echo "..."; 
+							} else {
+								echo $content;
+							}
+						?>
+					</h3></a>
 					<div class="ask-description">	
 						<h3>asked by <span style="color: #502fc8"><?php echo $name; ?></span> | 
 						<a href="/Tubes1/edit-question.php?id=<?= $question_id ?>">
