@@ -101,7 +101,7 @@ Pemeriksaan pada field email dilakukan menggunakan **regex**.  *Pattern* yang di
 * Karakter  `[a-zA-Z0-9_]` sebanyak satu kali atau lebih.
 * Lalu diikuti oleh karakter `@`.
 * Lalu diikuti oleh karakter `[a-zA-Z0-9_]` sebanyak satu kali atau lebih.
-* Lalu diikutin oleh karakter `.`,
+* Lalu diikutin oleh karakter `.`.
 * Lalu diikuti oleh karakter  `[a-zA-Z0-9_]` sebanyak satu kali atau lebih.
 
 *string matching* dengan pattern tersebut dilakukan dengan menggunakan method `test` dengan cara sebagai berikut.
@@ -117,7 +117,7 @@ Jika pengguna menekan tombol submit form ketika nilai setiap field pada form sud
 
 #### AJAX untuk Vote Up dan Vote Down
 
-AJAX digunakan pada tombol vote agar browser tidak me-refresh halaman. Ketika tombol vote ditekan, kode JavaScript akan dijalankan. Kode tersebut menerima data yang berupa id dari question/answer dan state untuk *vote* (*up/down*). Kode tersebut kemudian akan menciptakan objek `XMLHttpRequest` dan mengirimkan *query string* dengan method `POST` yang kemudian akan diproses oleh file php.
+AJAX digunakan pada tombol vote agar browser tidak me-refresh halaman. Ketika tombol vote ditekan, kode JavaScript akan dijalankan. Kode tersebut menerima data yang berupa id dari question/answer dan state untuk *vote* (*up/down*) yang disimpan dalam *data attributes*. Kode tersebut kemudian akan menciptakan objek `XMLHttpRequest` dan mengirimkan *query string* berupa id question/answer dan vote state dengan method `POST` yang kemudian akan diproses oleh file php.
 
 
 ### Knowledge
