@@ -48,7 +48,7 @@
 
 					<div class="list-content">
 					<div class="question-title"><a href="question-details.php?id=<?php echo $question['q_id']; ?>"><?php echo $question['q_topic'] ?></a></div>
-					<div class="question-preview"><?php echo $question['q_content'] . " ..."; ?></div>
+					<div class="question-preview"><?php echo $question['q_content'] . "....."; ?></div>
 					<div class="content-footer">asked by 
 						<span class="user-question">
 							<?php echo $question['q_name'] ?>

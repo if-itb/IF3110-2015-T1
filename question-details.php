@@ -56,14 +56,14 @@
 				<div class="list-content">
 					<div class="question-preview"><?php echo "<p>".$question['q_content']."</p>"; ?></div>
 					<div class="content-footer">
-						asked by <span class="user-question"><?php echo $question['q_name']; ?></span> at <?php echo $question['q_time']; ?> | <a href="ask-question.php?req=edit&id=<?php echo $question['q_id']; ?>" class="edit-question">edit</a> | <a href="delete-question.php?id=<?php echo $question['q_id']; ?>" class="delete-question" onclick="return confirm('Are you sure want to delete this?')">delete</a></div>
+						asked by <span class="user-question"><?php echo $question['q_name']." (".$question['q_email'].")";?></span> at <?php echo $question['q_time']; ?> | <a href="ask-question.php?req=edit&id=<?php echo $question['q_id']; ?>" class="edit-question">edit</a> | <a href="delete-question.php?id=<?php echo $question['q_id']; ?>" class="delete-question" onclick="return confirm('Are you sure want to delete this?')">delete</a></div>
 				</div>
 			</div>	
 		</div>
 		
 		<div class="wrapper" id="the-answers">
 			<div class="quest_title">
-				<h2><?php echo count($answers); ?> Answers</h2>
+				<h2><?php echo count($answers); ?> Answer(s)</h2>
 			</div>
 
 			<?php foreach ($answers as $answer) : ?>
@@ -79,7 +79,7 @@
 				<div class="list-content">
 					<div class="question-preview"><?php echo "<p>".$answer['ans_content']."</p>"; ?></div>
 					<div class="content-footer">
-						answered by <span class="user-question"><?php echo $answer['ans_name']; ?></span> at <?php echo $answer['ans_time']; ?>
+						answered by <span class="user-question"><?php echo $answer['ans_name']." (".$answer['ans_email'].")"; ?></span> at <?php echo $answer['ans_time']; ?>
 					</div>
 				</div>
 			</div>

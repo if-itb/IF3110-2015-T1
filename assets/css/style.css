@@ -156,9 +156,9 @@ div {
 .voteup {
   width: 0;
   height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-bottom: 20px solid #ddd;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid #ddd;
   margin: 0 auto;
   cursor: pointer;
 }
@@ -166,9 +166,9 @@ div {
 .votedown {
   width: 0;
   height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-top: 20px solid #ddd;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid #ddd;
   margin: 0 auto;
   cursor: pointer;
 }
@@ -214,6 +214,7 @@ textarea {
 
 .text-center{
 	text-align: center;
+	font-size: 17px;
 }
 
 #searchbox, #searchbutton {
