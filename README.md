@@ -89,7 +89,20 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+#### Melakukan validasi pada client-side
+
+Validasi dilakukan pada form `question` dan `answer` dimana setiap `input` tidak boleh kosong. Validasi dilakukan menggunakan Javascript. Untuk form `question`, fungsi `validateQuestionForm(formName)` akan dipanggil saat tombol `submit` ditekan. Sementara untuk form `answer`, fungsi yang dipanggil adalah `validateAnswerForm(formName)`. Kedua fungsi tersebut sama-sama memeriksa seluruh `input` yang ada, mengembalikan `false` untuk menghentikan submisi form sambil menampilkan alert jika isi `input` adalah `null` atau kosong. Selain itu juga dilakukan pengecekan khusus pada input e-mail. Input e-mail akan dibandingkan dengan regex melalui fungsi `validateEmail(formName,fieldName)` untuk menentukan apakah e-mail yang dimasukkan valid.
+
+Kode sumber dapat dilihat pada file `./js/form_validation.js`
+
+
+
+#### Melakukan AJAX
+
+AJAX diimplementasi menggunakan Javascript. Saat pengguna menekan tombol upvote/downvote, laman akan memanggil fungsi `vote(ID, qa, updown)`, dimana ID berisi ID pertanyaan atau jawaban, qa berisi tipe question atau answer, updown berisi tipe upvote atau downvote. Di dalam fungsi vote dibuat sebuah objek `XMLHttpRequest`. Objek ini akan mengirimkan ID, qa, dan updown ke `vote.php` untuk mengubah nilai vote untuk pertanyaan/jawaban dengan ID tersebut di dalam basis data. `vote.php` akan mengembalikan nilai vote yang baru, yang kemudian diterima oleh objek `XMLHttpRequest` tadi, dan mengubah angka vote pada laman dengan nilai vote yang dikembalikan oleh `vote.php`.
+
+Kode sumber dapat dilihat pada file `./ajax/vote.js`
+
 
 ### Knowledge
 
