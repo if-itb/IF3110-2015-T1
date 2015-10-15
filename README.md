@@ -89,7 +89,21 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+- Melakukan validasi pada client-side
+	Saat melakukan validasi di client-side, saya menggunakan fungsi javascript yang namanya validateForm() (untuk Form Question) dan fungsi validateAnswer (untuk Form Answer). Kedua fungsi tersebut memastikan bahwa form yang diisi tidak kosong (form = "" or form = NULL). Jika ternyata form tersebut kosong dan langsung mengajukan pertanyaan atau menjawab petanyaan maka pesan "alert" akan muncul (return false), tapi jika semua sudah lengkap maka pertanyaan / jawaban akan langsung di post (return true).
+
+- Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
+	Saat merubah angka vote baik di pertanyaan maupun di jawaban saya menggunakan AJAX yang fungsinya diberi nama editVote(id). Parameter "id" maksudnya adalah id dari vote itu sendiri (vote ada dua: vote_up dan vote_down). Saat vote di klik, fungsi yang saya buat sudah dibuat sedemikian rupa agar bisa menyeleksi apakah vote yang di klik vote_up / vote_down, apakah vote yang di klik itu vote buat pertanyaan atau buat jawaban. Setelah itu AJAX mengirim id tersebut ke server-side (PHP) untuk dilakukan pemrosesan (penambahan vote / pengurangan vote). Setelah PHP selesai, maka akan meng-echo string yang berupa "yes" jika berhasil diproses, dan meng-echo "no" jika proses gagal dilakukan. Hasil dari echo tersebut akan diterima oleh AJAX (xhttp.responseText) dan jika yang diterima adalah "yes" maka vote di page akan berubah tanpa harus pindah page
+
+
+
+
+
+
+
+
+
+
 
 ### Knowledge
 

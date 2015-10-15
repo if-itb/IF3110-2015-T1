@@ -1,0 +1,207 @@
+.container
+{
+    border-top: 1px solid black;
+}
+
+.container:after
+{
+    content:"";
+    clear:both;
+    display: table;
+}
+
+.editor
+{
+	float: right;
+}
+
+.boxsearch
+{
+    width: 50%;
+    float: left;
+    margin-left: 25%;
+}
+
+.posisisearch
+{
+    border-radius: 2px;
+	padding: 8px;
+	float: left;
+    margin-left: 10px;
+}
+.boxform
+{
+	width:50%;
+	margin: 0 auto;
+}
+
+
+.posisipost
+{
+    border-radius: 2px;
+	padding: 8px;
+	float: right;
+}
+
+.box
+{
+	width: 99%;
+    font-family: Calibri;
+}
+
+
+.vote-up
+{
+	width: 0; 
+	height: 0; 
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid black;
+    margin: auto;
+}
+
+.vote-down {
+	width: 0; 
+	height: 0; 
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid black;
+    margin: auto;
+}
+
+.votequestform
+{
+    border-top: 1px solid black;
+    width: 100%;
+    content:"";
+    clear:both;
+    display: table;
+}
+
+.question
+{
+    margin-top: 20px;
+    width: 50%;
+	float: left;
+}
+
+.vote
+{
+    margin-top: 20px;
+    float: left;
+    width: 15%;
+    text-align: center;
+}
+
+.vote-count
+{
+    font-size: 30px;
+}
+
+.detaileditor
+{
+    margin-top: 40px;
+    width: 30%;
+    float: right;
+}
+
+h1
+{
+	text-align: center;
+}
+h3
+{
+	text-align: center;
+}
+
+h5
+{
+    text-align: center;
+}
+input[type="text"],textarea
+{
+	padding:7px 0px 7px 9px;
+	border: 2px solid black;
+	resize: none;
+	border-radius: 10px;
+}
+
+.edit
+{
+    color: yellow;
+}
+
+.delete
+{
+    color: red;
+}
+
+.ask
+{
+    color: orange;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+a:hover
+{
+    text-decoration:underline;
+}
+
+.listform
+{
+    border-top: 1px solid black; 
+    height: 80px;   
+}
+
+.listform:after
+{
+    content:"";
+    clear:both;
+    display: table;
+}
+
+.listvotes, .listanswer{
+    float: left;
+    width: 10%; 
+    text-align: center;
+    margin-top: 5px;
+}
+
+.listtopic
+{
+    float: left;
+    width: 55%;
+    text-align: center;
+    margin-top: 5px;
+    height: 50px;
+}
+
+.listeditor
+{
+    float: left;
+    width: 25%;
+    text-align: right;
+    margin-top: 5px;
+}
+
+.board
+{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.topic
+{
+    font-size: 23px;
+    text-align: left;
+}
+
+.content
+{
+    text-align: left;
+    margin-bottom: 5px;
+}
