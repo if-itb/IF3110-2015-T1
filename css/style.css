@@ -79,6 +79,10 @@ p {
     width: 80%;
 }
 
+#credits {
+    text-align: center;
+}
+
 #asked {
     margin-bottom: 2%;
     text-align: right;
