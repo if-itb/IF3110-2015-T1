@@ -33,7 +33,7 @@
 				if (mysqli_connect_errno()){
 					echo "Failed to connect to MySQL: " . mysqli_connect_error();
 				}
-				$Search = $_POST["search"];
+				$Search =  mysqli_real_escape_string($conn, $_POST["search"]);
 				$sql = "SELECT * FROM question WHERE `Topic` LIKE '%".$Search."%' "." OR `Content` LIKE '%".$Search."%'";;
 				$result = $conn->query($sql);
 				if ($result->num_rows > 0) {
