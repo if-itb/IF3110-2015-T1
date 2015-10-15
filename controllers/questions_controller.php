@@ -82,8 +82,16 @@
 			}
 		}
 		
-		public function search($qid){
+		public function search(){
+			$keyword = $_POST['keyword'];
+			$questions = Question::all();
+			foreach ($questions as $key => $question) {
+				if ((stripos($question->topic, $keyword) === false) && (stripos($question->content, $keyword) === false)) {
+					unset($questions[$key]);
+				}
+			}
 			
+			require_once('/views/pages/home.php');
 		}
 	}
 
