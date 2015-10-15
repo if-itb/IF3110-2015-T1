@@ -31,9 +31,16 @@
 					"<div id='answer-count'>".$row_answercount["SUM"]."</div>".
 					"<div> Answer </div>".
 				 "</div>";
+
+			if (strlen($row["Content"]) > 500) {
+				$content = substr(strip_tags($row["Content"]), 0, 500) . '[...]';
+			} else {
+				$content = $row["Content"];
+			}
+
 			echo "<div class='question'>".
 					"<div id='question-topic'><a href='answer.php?id=$row[ID]'>$row[Topic]</a></div>".
-					"<div id='question-content'>$row[Content]</div>".
+					"<div id='question-content'>".$content."</div>".
 				 "</div>";	
 			echo '<div class="question-info">'.
 			 		"asked by <span id='qname'>$row[Name]</span> | ".

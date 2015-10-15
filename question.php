@@ -5,6 +5,7 @@
 	<title>Question - Simple StackExchange</title>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/script.js"></script>
 </head>
 
 <body>
@@ -18,7 +19,7 @@
 		include('edit_question.php'); 
 	?>
 	<div class="question-form">
-		<form action="add_question.php?id=<?php echo htmlspecialchars($_GET["id"]) ?>" method="post">
+		<form id="fquestion" name="fquestion" onsubmit="return validateQuestionInput()" action="add_question.php?id=<?php echo htmlspecialchars($_GET["id"]) ?>" method="post">
 			<div><input type="text" id="name" name="name" placeholder="Name" value="<?php echo htmlspecialchars($Name); ?>"></div>
 			<div><input type="text" id="email" name="email" placeholder="Email" value="<?php echo htmlspecialchars($Email); ?>"></div>
 			<div><input type="text" id="topic" name="topic" placeholder="Topic" value="<?php echo htmlspecialchars($Topic); ?>"></div>

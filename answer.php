@@ -4,6 +4,7 @@
 	<title>Answer - Simple StackExchange</title>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/script.js"></script>
 </head>
 
 <body>
@@ -34,18 +35,19 @@
 			// Question Preview
 			echo "<h3>$row[Topic]</h3>";
 				echo "<hr>";
+				$idQuestion = "Q_".$row['ID'];
 				echo "<div class='vote'>".
-						"<img src='img/up.png'></img>".
-						"<div id='qvote'>$row[Vote]</div>".
-						"<img src='img/down.png'></img>".
+						"<img src='img/up.png' onclick=\"getVote($row[ID],'Q','Up')\"></img>".
+						"<div id='".$idQuestion."'>".$row['Vote']."</div>".
+						"<img src='img/down.png' onclick=\"getVote($row[ID],'Q','Down')\"></img>".
 					 "</div>";
 				echo "<div class='question-prev'>".
 						"<div id='question-content'>$row[Content]</div>".
 					 "</div>";
 				echo '<div class="question-info">'.
 				 		"asked by <span id='qname'>$row[Name]</span> at <span id='qdate'>$row[Date]</span> | ".
-				 		"<a href='#' id='edit'> edit </a> | ".
-				 		"<a href='#' onclick=\"return confirm('Are you sure you want to delete this question?')\" id='delete'>delete</a>".
+				 		"<a href='question.php?id=$row[ID]' id='edit'> edit </a> | ".
+				 		"<a href='delete.php?id=$row[ID]' onclick=\"return confirm('Are you sure you want to delete this question?')\" id='delete'>delete</a>".
 				 	 "</div>";
 			echo "</div>";
 
@@ -61,10 +63,11 @@
 			$answerlist = mysqli_query($conn, $sql_answerlist);
 
 			while ($row_answerlist = mysqli_fetch_assoc($answerlist)) {
+				$idAnswer = "A_".$row_answerlist['Ans_ID'];
 				echo "<div class='vote'>".
-						"<img src='img/up.png'></img>".
-						"<div id='qvote'>$row_answerlist[Vote]</div>".
-						"<img src='img/down.png'></img>".
+						"<img src='img/up.png' onclick=\"getVote($row_answerlist[Ans_ID],'A','Up')\"></img>".
+						"<div id='".$idAnswer."'>".$row_answerlist['Vote']."</div>".
+						"<img src='img/down.png' onclick=\"getVote($row_answerlist[Ans_ID],'A','Down')\"></img>".
 					 "</div>";
 				echo "<div class='answer-prev'>".
 						"<div id='answer-content'>$row_answerlist[Answer]</div>".
@@ -79,7 +82,7 @@
 
 	<h3 id="your-answer">Your Answer</h3>
 	<div class="answer-form">
-		<form action="add_answer.php?id=<?php echo htmlspecialchars($_GET["id"]) ?>" method="post">
+		<form id="fanswer" name="fanswer" onsubmit="return validateAnswerInput()" action="add_answer.php?id=<?php echo htmlspecialchars($_GET["id"]) ?>" method="post">
 			<div><input type="text" id="name" name="name" placeholder="Name"></div>
 			<div><input type="text" id="email" name="email" placeholder="Email"></div>
 			<div><textarea id="content" name="content" placeholder="Content" rows="5" cols="40"></textarea></div>
