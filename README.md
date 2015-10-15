@@ -89,7 +89,22 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+#### 1. Melakukan validasi pada client-side
+		Validasi client-side merupakan validasi yang dilakukan di dalam browser. 
+		Sebelum data dikirimkan ke server, data diperiksa kebenarannya terlebih dahulu oleh browser web. 
+		Setelah data yang dimasukkan benar (valid), browser baru mengirimkan ke server untuk kemudian diproses 
+		atau disimpan ke dalam database. Validasi dilakukan dengan pengecekan setiap input inbox (Name, Email, Topik, Content)
+		menggunakan javascript agar setiap input tidak kosong dan alamat email tidak salah formatnya.
+		Apabila salah satu input saja kosong atau mengetikkan alamat email yang salah, 
+		maka akan keluar alert box untuk memperingati bahwa masih ada input box yang kosong atau alamat email masih salah.
+
+#### 2. Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
+		Pengguna dapat melakukan vote up atau vote down pada suatu pertanyaan. 
+		Ketika pengguna menekan tombol vote, halaman tidak boleh refresh tapi jumlah vote akan berubah dan 
+		tersimpan ke basis data dengan menggunakan AJAX. Fungsi Vote pada vote.js dipanggil jika panah pada vote diklik.
+		Objek XMLHttpRequest akan dibuat dan fungsi success() dilakukan. Jumlah vote akan diterima pada setiap kelas
+		dan nilainya akan bertambah bila panah atas yang diklik dan akan berkurang jika panah bawah yang diklik.
+		AJAX dilakukan ke url yang sesuai dan database akan diupdate.
 
 ### Knowledge
 
