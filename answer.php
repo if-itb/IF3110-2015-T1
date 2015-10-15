@@ -6,10 +6,6 @@
 	<script src="function.js"></script> 
 </head>
 <body>
-	<h1> Simple StackExchange</h1>
-	<br><br>
-	<h2>The Questions Topic Goes Here</h2>
-	<hr>
 
 	<?php
 		$servername = "localhost";
@@ -36,6 +32,11 @@
 		$vote = $row["Vote"];
 	?>
 
+	<h1> Simple StackExchange</h1>
+	<br><br>
+	<h2><?php echo $row["Topik"] ?></h2>
+	<hr>
+
 	<div class="question">
 		<div class="question-vote">
 			<div class="question-vote-up">
@@ -60,7 +61,6 @@
 		</div>
 	</div>
 	<h2 class="count-answer"> <?php echo $row["Jmlh_Jawaban"] ?> Answer</h2>
-
 
 	<?php
 		if (mysqli_num_rows($result2) > 0) {
@@ -93,14 +93,14 @@
 			}
 		}
 		else {
-			echo "Tidak Ada Pertanyaan Yang Masuk";
+			echo "Tidak Ada Jawaban Yang Masuk";
 		}
 	?>
 	
 	<hr>
 	<h2 class="answer-form">Your Answer</h2>
 	<div class="answer-form">
-		<form action="add_answer.php" method="post" onsubmit="return validateForm()" name="answer">
+		<form action="add_answer.php" method="post" onsubmit="return validateAnswerForm()" name="answer">
 			<input class="name" type="text" name="nama" value="" placeholder="Name"> <br>
 			<input class="email" type="text"  name="email" value="" placeholder="Email"> <br>
 			<textarea class="content" type="text" name="konten" placeholder="Content"></textarea><br>

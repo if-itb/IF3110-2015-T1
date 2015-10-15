@@ -34,51 +34,67 @@ p.state1 a{
 }
 
 .question{
-	height:100px;
+	height:160px;
 }
 
 .vote{
 	width:10%;
 	float:left;	
 	text-align: center;
-	margin-top: 16px;
+	margin-top: 50px;
 }
 
 .answer-number{
 	width:10%;
 	float: left;
 	text-align: center;
-	margin-top: 16px;
+	margin-top: 50px;
 }
 
-.topic-question{
-	width:50%;
+.question-topic{
+	width:70%;
+	margin-left: 5%;
 	float:left;
 	text-align: center;
-	height: 10px;
+	height: 25px;
 }
 
-.topic-question p{
+.question-topic p{
 	margin-top: 0px;
 }
 
-.id-question{
+.question-content{
+	width:70%;
+	margin-left: 5%;
+	float:left;
+	text-align: center;
+	height: 80px;
+	word-wrap:break-word;
+}
+
+.question-content p{
+	margin-bottom:0px;
+	margin-top:10px;
+}
+
+.question-id{
 	width:100%;
 	float:left;
 	text-align: right;
-	height: 10px;
+	height: 20px;
+	margin-top: 10px;
 }
 
-.id-question p{
+.question-id p{
 	margin-bottom:0px;
 	margin-top: 5px;
 }
 
-.id-question a{
+.question-id a{
 	text-decoration: none;
 }
 
-.topic-question a{
+.question-topic a{
 	text-decoration: none;
 	color:black;
 }

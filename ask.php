@@ -3,7 +3,7 @@
 <head>
 	<title>Ask</title>
 	<link rel="stylesheet" href="ask.css">
-	<script src="function.js"></script> 
+	<script src="function.js"></script>
 	
 </head>
 <body>
@@ -44,8 +44,8 @@
 	<h2> What's your question ? </h2>
 	<hr>
 
-	<form action="add_question.php" method="post" name="question" onsubmit="return validateForm()">
-		<input name="nama" class="name" type="text" value="<?php echo $name ?>" placeholder="Name"> <br>
+	<form action="add_question.php" method="post" name="question" onsubmit="return validateQuestionForm()">
+		<input class="name" type="text" name="nama" value="<?php echo $name ?>" placeholder="Name"> <br>
 		<input class="email" type="text"  name="email" value="<?php echo $email ?>" placeholder="Email"> <br>
 		<input class="topic" type="text" name="topik" value="<?php echo $topic ?>" placeholder="Question Topic"> <br>
 		<textarea class="content" type="text" name="konten" placeholder="Content"><?php echo $content ?></textarea><br>

@@ -12,8 +12,15 @@ h2{
 	margin: 0px;
 }
 
-.question{
-	height:140px;
+.vote{
+	width:10%;
+	float:left;	
+	text-align: center;
+	margin-top: 50px;
+}
+
+.question div{
+	display: inline-block;
 }
 
 .question a{
@@ -24,8 +31,7 @@ h2{
 .question-vote{
 	float:left;
 	margin-left: 1%;
-	width:5%;
-	height:90%;
+	width:3%;
 }
 
 .question-vote p{
@@ -33,23 +39,27 @@ h2{
 }
 
 .question-content{
-	float:left;	
-	width: 60%;
-	margin-right: 5%;
-	height:70%;
+	width:90%;
+	margin-left: 5%;
+	float:left;
 	text-align: center;
 	word-wrap:break-word;
-	overflow:hidden;
 }
 
 .question-identity{
-	margin-top: 100px;
+	margin-top: 0px;
 	text-align: right;
 	width: 100%;
 }
+.count-answer{
+	margin-left: 5%;
+}
 
-.answer{
-	height: 150px;
+.answer {
+	margin-left: 5%;
+}
+.answer div{
+	display: inline-block;
 }
 
 .answer a{
@@ -60,25 +70,20 @@ h2{
 .answer-vote{
 	float:left;
 	margin-left: 1%;
-	width:5%;
-	height:90%;
-}
-
-.answer-vote p{
+	width:3%;
 	text-align: center;
 }
 
 .answer-content{
-	float:left;	
-	width: 60%;
-	margin-right: 5%;
+	width:90%;
+	margin-left: 5%;
+	float:left;
 	text-align: center;
 	word-wrap:break-word;
-	overflow:hidden;
 }
 
 .answer-identity{
-	margin-top: 100px;
+	margin-top: 0px;
 	text-align: right;
 	width: 100%;
 }
