@@ -1,0 +1,266 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	color: #000000;
+	background-color: #FFFFFF;
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+#title{
+	margin-bottom: 40px;
+	font-size: 40px;
+}
+h1, h2, h3, h4 {
+	font-weight: normal;
+}
+
+.div{
+	display: block;
+}
+
+a.center{
+	text-decoration:none;
+	color:#000000;
+}
+
+h1,h2 {
+	margin: 0 auto;
+	padding-top: 4px;
+	padding-bottom: 0;
+	border: 0;
+}
+
+h2{
+	padding-left: 16px;
+}
+
+hr { 
+    border-style: solid;
+	height: 1px;
+	background-color:black;
+	clear: both;
+}
+
+#askme{
+	font-size : 20px;
+	margin-bottom: 16px;
+}
+
+.orange{
+	color:orange;
+	text-decoration:none;
+}
+.red{
+	color:red;
+	text-decoration:none;
+}
+.blue{
+	color:blue;
+}
+.purple{
+	color:#891EFF;
+}
+
+p {
+	margin: 4px 0;
+}
+
+#wrapper {
+	margin: 0 auto;
+	max-width: 940px;
+}
+
+.center {
+	text-align: center;
+}
+
+
+#search-bar {
+	width: 75%;
+	height: 30px;
+	border-style: solid;
+	border-width: medium;
+	margin: auto;
+}
+
+#search-submit{
+	width: 10%;
+	height: 38px;
+	border-style: solid;
+	border-color: #000000;
+	border-width: medium;
+	background-color: #FFFFFF;
+	margin: auto;
+}
+
+#search-bar, #search-submit{
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	font-size: 18px;
+}
+
+.formBar{
+	display: block;
+	width: 95%;
+	height: 30px;
+	border-style: solid;
+	border-width: 2px;
+	margin: 4px auto;
+	font-family: inherit;
+	font-size: 16px;
+	border-color:black;
+}
+
+textarea.formBar{
+	height: 8em;
+	padding:0;
+	resize: none;
+}
+
+#formArea{
+	padding-top: 16px;
+}
+
+#postQuestion{
+	display: block;
+	float: right;
+	margin-right: 2.5%;
+}
+
+.questionbox{
+	bborder-collapse: separate;
+    position: relative;
+    display: table;
+    border-spacing: 10px 0px;
+    margin: 0px -10px;
+	width: 960px;
+}
+.qvote, .avote{
+	display: table-cell;
+	width:50%;
+	height: 100%;
+	position: absolute;
+}
+.avote{
+	right:0;
+}
+.voteanswer{
+	width:20%;
+	height: 10em;
+	position: relative;
+}
+
+.qbox, .voteanswer {
+	display: table-cell;
+}
+
+.qmeta{
+	position:absolute;
+	right:0px;
+	bottom: 6px;
+}
+
+.qbox{
+	width: 100%;
+    vertical-align: top;
+	position: relative;
+}
+
+.qboxtopic{
+	font-size: 18px;
+	text-decoration:underline;
+}
+
+.qboxcontent{
+	font-size: 16px;
+}
+
+.word{
+	text-align:center;
+	margin-top: 10px;
+	font-size: 18px;
+}
+
+.p{
+	font-family: inherit;
+}
+
+.counter{
+	text-align: center;
+	position: relative;
+	margin-top: 50px;
+	font-size: 22px;
+	font-weight: bold;
+	
+	
+}
+
+#postQuestion{
+	width: 10%;
+	height: 38px;
+	border-style: solid;
+	border-color: #000000;
+	border-width: 2px;
+	background-color: #FFFFFF;
+	margin: auto;
+	position: relative;
+	right: 21px;
+	font-family:inherit;
+	font-size:16px;
+}
+
+.thecontent{
+	border-collapse:separate;
+	position: relative;
+	display: table;
+	border-spacing: 10px 0px;
+	margin: 0px -10px;
+}
+
+.buttonimg{
+	width: 48px;
+	height: 48px;
+}
+
+.votenumber{
+	text-align:center;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.qcontent,.votecontent{
+	display:table-cell;
+	
+}
+
+.votecontent{
+}
+
+.qmetaq{
+	float: right;
+	display: block;
+}
+
+.qcontent{
+	width: 100%;
+	padding-left: 10px;
+	padding-top: 10px;
+	height: 20em;
+	vertical-align:top;
+}
+
+.votebutton{
+	padding-top: 0px;
+}
+
+.answerForm{
+	margin-top: 32px;
+}
+
+.atitle{
+	width:95%;
+	margin: 4px auto;
+}
+
+a.qlink{
+	text-decoration: none;
+	color: #000000;
+}
