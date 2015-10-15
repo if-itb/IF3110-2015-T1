@@ -100,9 +100,6 @@ body {
 	text-align: center;
 }
 
-.content{
-	height: 150px;
-}
 
 .content h2{
 	margin-top: 20px;
@@ -121,6 +118,7 @@ body {
 .question {
 	vertical-align: center;
 	min-width: 700px;
+	max-width: 700px;
 }
 
 .question a {
@@ -130,15 +128,18 @@ body {
 }
 
 
-
 .question-info {
+	min-width: 250px;	
 	margin-left: 900px;
-	min-width: 250px;
 	text-align: right;
 }
 
-.questionContent{
-	min-height: 130px;
+.question-info span{
+	color: #4673F5
+}
+
+.questionContent {
+	min-height: 150px;
 }
 
 .bot-margin{
@@ -170,26 +171,15 @@ body {
 	border: 1px solid rgba(81, 203, 238, 1);
 }
 
-
-
 .votesFunc {
-	margin-top: 15px;
-	margin-left: 50px;
-	width: 10%;
-}
-
-.questContent {
-	width: 85%;
-	text-align: justify; 
+	width: 15%;
+	font-size: 18px;
 }
 
 .navPost {
 	text-align: right;
 }
 
-.post-info {
-	text-align: right;
-}
 
 .edit {
 	text-decoration: none;
@@ -203,6 +193,10 @@ body {
 	color: #EE1717;
 }
 
+.answer-info {
+	text-align: right;
+}
+
 .answer-form {
 	margin-left: 50px;
 	margin-right: 50px;
@@ -210,4 +204,27 @@ body {
 
 .answer-form h1 {
 	color: #A40505;
+}
+
+.sinquestionContent {
+	width: 85%;
+	text-align: justify;
+}
+
+.sinquestionContent p {
+	margin-top: 0;
+}
+
+.sinquestion-info {
+	text-align: right;
+}
+
+.sinanswerContent {
+	width: 85%;
+	text-align: justify;
+}
+
+.sinanswerContent p {
+	margin-top: 0;
+	min-height: 30px;
 }

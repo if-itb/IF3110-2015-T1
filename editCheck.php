@@ -9,7 +9,6 @@
 
 	if (!empty($_GET['qid'])) {
 		$result = mysql_query("SELECT * FROM question_list WHERE qid=".$_GET["qid"]);	
-		echo $result;
 		$echoContent = $questionAskForm;
 		if(mysql_num_rows($result) > 0) {
 			$row = mysql_fetch_assoc($result);
