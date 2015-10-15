@@ -7,7 +7,6 @@
 			if (er !== null) {
 				er.parentNode.removeChild(er);
 			}
-			field.parentNode.innerHTML = '<div id="error">' + errorMessage + '</div>' + field.parentNode.innerHTML;
 			alert(errorMessage);
 			field.focus();
 			return false;
@@ -26,7 +25,6 @@
 			if (er !== null) {
 				er.parentNode.removeChild(er);
 			}
-			field.parentNode.innerHTML = '<div id="error">' + errorMessage + '</div>' + field.parentNode.innerHTML;
 			return false;
 		} else {
 			field.style.border = "";
