@@ -225,8 +225,39 @@ function getQuestionsAndAnswerCount(){
 }
 
 function searchQuestions($sq){
-	echo "<p> SEARCH NOT IMPLEMENTED </p>";
-	return getQuestionsAndAnswerCount();
+	//inserts
+	global $servername,$username,$password,$dbname;
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		echo "<p> connection error:". mysqli_connect_error ( void )."</p>";
+		return NULL;
+	}
+
+
+	$sql = "SELECT qid,AuthorName,Email,QuestionTopic,Content,vote,created_at,IFNULL(aanscount,0) AS anscount FROM Question AS sd NATURAL LEFT JOIN (SELECT qid,count(aid) AS aanscount FROM Answer GROUP BY qid) AS ss";
+	$sqwords=explode(" ",$sq);
+	if (count($sqwords)>0)
+	$sql=$sql." WHERE (QuestionTopic LIKE '%".$sqwords[0]."%' OR Content LIKE '%".$sqwords[0]."%') ";
+	for ($i=1;$i<count($sqwords);$i++){
+		$sql=$sql."AND (QuestionTopic LIKE '%".$sqwords[$i]."%' OR Content LIKE '%".$sqwords[$i]."%') ";
+	}
+
+	$result = $conn->query($sql);
+	
+	$retval = array();
+
+	if ($result->num_rows > 0) {
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+			$retval[]=$row;
+	    	}
+	} else {
+		return NULL;
+	}
+
+	return $retval;
 }
 
 //apabila berhasil return true
