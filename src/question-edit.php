@@ -31,13 +31,29 @@
 			$result = mysqli_query($link, $sql);
 			$row = mysqli_fetch_assoc($result);
 		?>
-		<h3>You are currently editing question with ID <i><?php echo $_GET["id"] ?></i>.</h3>
-		<form name="QuestionForm" action="question-change.php?id=<?php echo $_GET["id"]; ?>" onsubmit="return validateQuestionForm()" method="post">
-			Name: &nbsp; <input type="text" name="name" value="<?php echo $row["name"]; ?>" disabled="disabled" /> <br />
-			Email: &nbsp; <input type="text" name="email" value="<?php echo $row["email"]; ?>" disabled="disabled" /> <br />
-			Question Topic: &nbsp; <input type="text" name="topic" value="<?php echo $row["topic"]; ?>" /> <br />
-			Content: &nbsp;<input type="text" name="content" value="<?php echo $row["content"]; ?>" /> <br />
-			<input type="submit" value="Change" />
-		</form>
+		<table class="tableform">
+			<tr><td colspan="2"><h3>You are currently editing question with ID <i><?php echo $_GET["id"] ?></i>.<hr /></h3></td></tr>
+			<tr><td colspan="2"><p><em><font color="darkred">N.B. Name and email address cannot be modified.</font></em></p><br><br></td></tr>
+			<form name="QuestionForm" action="question-change.php?id=<?php echo $_GET["id"]; ?>" onsubmit="return validateQuestionForm()" method="post">
+				<tr><td class="label">Name</td>
+				<td><input type="text" name="namex" value="<?php echo $row["name"]; ?>" disabled="disabled" class="textbox" /></td></tr>
+				
+				<tr><td class="label">Email</td>
+				<td><input type="text" name="emailx" value="<?php echo $row["email"]; ?>" disabled="disabled" class="textbox" /></td></tr>
+				
+				
+				<tr><td class="label">Question Topic</td>
+				<td><input type="text" name="topic" value="<?php echo $row["topic"]; ?>" class="textbox" /></td></tr>
+				
+				<tr><td class="label">Content</td>
+				<td><textarea name="content" rows="5" class="textareascroll"><?php echo $row["content"]; ?></textarea></td></tr>
+				
+				<tr><td colspan="2" align="right"><input type="submit" value="Change" /></td></tr>
+				
+				<input type="hidden" name="name" value="<?php echo $row["name"]; ?>" />
+				<input type="hidden" name="email" value="<?php echo $row["email"]; ?>" />
+			</form>
+		</table>
+		<br><br><br><br><br>
 	</body>
 </html>

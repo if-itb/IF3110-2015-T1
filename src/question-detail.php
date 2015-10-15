@@ -6,8 +6,6 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
-		
-		
 		<h1><a href="index.php">Simple StackExchange</a></h1>
 		<?php
 			$servername = "localhost";
@@ -34,42 +32,48 @@
 			$result = mysqli_query($link, $sql);
 			$row = mysqli_fetch_assoc($result);
 			
-			echo '<h2>' . $row["topic"] . '<hr /></h2>';
+		?>
+		<table>
+		<?php
 			
-			echo '<table>';
+			echo '<tr>';
+				echo '<td colspan="2"><h2 class="nameleft">' . $row["topic"] . '<hr /></h2></td>';
+			echo '</tr>';
+			
+			
 				echo '<tr>';
-					echo '<td>';
-						echo '<button type="button" onclick="loadVote(' . $_GET["id"] . ', 1, 1)">UP</button>';
+					echo '<td align="center" width="10">';
+						echo '<button type="button" onclick="loadVote(' . $_GET["id"] . ', 1, 1)"><img src="images/ArrowUp.png" width="20px" height="20px"></button>';
 					echo '</td>';
 					echo '<td rowspan="3">';
 						echo $row["content"];
 					echo '</td>';
 				echo '</tr>';
 				echo '<tr>';
-					echo '<td>';
+					echo '<td width="10">';
 		?>
-						</p>
-						<p id="votequestion"><?php echo $row["votes"]; ?></p>
+						
+						<p id="votequestion" align="center"><?php echo $row["votes"]; ?></p>
 		<?php
 					echo '</td>';
 				echo '</tr>';
 				echo '<tr>';
-					echo '<td>';
-						echo '<button type="button" onclick="loadVote(' . $_GET["id"] . ', 1, 2)">DN</button>';
+					echo '<td align="center" width="10">';
+						echo '<button type="button" onclick="loadVote(' . $_GET["id"] . ', 1, 2)"><img src="images/ArrowDown.png" width="20px" height="20px"></button>';
 					echo '</td>';
 				echo '</tr>';
 				echo '<tr>';
-					echo '<td colspan="2">';
+					echo '<td colspan="2" align="right">';
 						$delete_hyperlink = 'href="question-delete.php?id=' . $_GET["id"] . '" onclick="return confirmDelete()">';
 						$edit_hyperlink = 'href="question-edit.php?id=' . $_GET["id"] . '">';
-						echo 'asked by ' . $row["name"] . ' at ' . $row["reg_date"] . ' | <a ' . $edit_hyperlink . 'edit</a> | <a ' . $delete_hyperlink . 'delete</a>';
+						echo 'asked by <b><font color="purple">' . $row["name"] . '</font></b> at <b><font color="blue">' . $row["reg_date"] . '</font></b> | <a ' . $edit_hyperlink . '<font color="orange"><b>edit</b></font></a> | <a ' . $delete_hyperlink . '<font color="red"><b>delete</b></font></a>';
 					echo '</td>';
 				echo '</tr>';
-			echo '</table>';
+			// echo '</table>';
 			
-			echo '<br><br>';
-			
-			echo '<h2>';
+			// Answers
+			// echo '<table>';
+			echo '<tr><td colspan="2"><h2 class="nameleft">';
 			if ($row["answers"] == 0) {
 				echo "No Answer";
 			}
@@ -81,9 +85,9 @@
 				else {
 					echo " Answers";
 				}
-				echo '<hr />';
+				// echo '<hr />';
 			}
-			echo '</h2>';
+			echo '<hr /></h2></td></tr>';
 			
 			/////
 			$sql = "SELECT id, votes, name, content, reg_date FROM " . $anstabname . ' WHERE parent_id=' . $_GET["id"];
@@ -91,56 +95,63 @@
 			
 			if (mysqli_num_rows($result) > 0) {
 				// output data of each row
-				echo "<table>";
+				
 				while ($row = mysqli_fetch_assoc($result)) {
 					// echo $row["id"] . $row["topic"] . $row["votes"] . $row["answers"] . "<br>";
 					echo '<tr>';
-						echo '<td>';
-							echo '<button type="button" onclick="loadVote(' . $row["id"] . ', 2, 1)">UP</button>';
+						echo '<td align="center" width="10">';
+							echo '<button type="button" onclick="loadVote(' . $row["id"] . ', 2, 1)"><img src="images/ArrowUp.png" width="20px" height="20px"></button>';
 						echo '</td>';
 						echo '<td rowspan="3">';
 							echo $row["content"];
 						echo '</td>';
 					echo '</tr>';
 					echo '<tr>';
-						echo '<td>';
+						echo '<td width="10">';
 		?>
 						</p>
-						<p id="voteanswer<?php echo $row["id"];  ?>"><?php echo $row["votes"]; ?></p>
+						<p align="center" id="voteanswer<?php echo $row["id"];  ?>"><?php echo $row["votes"]; ?></p>
 		<?php
 						echo '</td>';
 					echo '</tr>';
 					echo '<tr>';
-						echo '<td>';
-							echo '<button type="button" onclick="loadVote(' . $row["id"] . ', 2, 2)">DN</button>';
+						echo '<td align="center" width="10">';
+							echo '<button type="button" onclick="loadVote(' . $row["id"] . ', 2, 2)"><img src="images/ArrowDown.png" width="20px" height="20px"></button>';
 						echo '</td>';
 					echo '</tr>';
 					echo '<tr>';
-						echo '<td colspan="2">';
-							echo 'asked by ' . $row["name"] . ' at ' . $row["reg_date"];
+						echo '<td colspan="2" align="right">';
+							echo 'answered by <b><font color="green">' . $row["name"] . '</b></font> at <b><font color="blue">' . $row["reg_date"] . '</b></font>';
 						echo '</td>';
 					echo '</tr>';
 					echo '<tr><td colspan="2"><hr /></td></tr>';
 				}
-				echo "</table>";
+				
 			}
 			else {
-				echo "Empty";
+				echo '<tr><td colspan="2">Empty records.</td></tr>';
 			}
+			// echo '</table>';
 			/////
 		
-		?>	
-			<h2>Your Answer</h2>
-			<form name="AnswerForm" action="answer-submit.php?id=<?php echo $_GET["id"]; ?>" onsubmit="return validateAnswerForm()" method="post">
-				Name: &nbsp; <input type="text" name="name" /> <br />
-				Email: &nbsp; <input type="text" name="email" /> <br />
-				Content: &nbsp;<input type="text" name="content" /> <br />
-				<!-- <input type="hidden" name="parent_id" value="<?php echo $_GET["id"]; ?>" /> -->
-				<input type="submit" value="Post" />
-			</form>
+		?>
+		</table>
+		<table class="tableform">
+			<!-- <table> -->
+				<tr><td colspan="2"><h2>Your Answer</h2></td></tr>
+				<form name="AnswerForm" action="answer-submit.php?id=<?php echo $_GET["id"]; ?>" onsubmit="return validateAnswerForm()" method="post">
+					<tr><td class="label">Name</td><td><input type="text" name="name" class="textbox" /></td></tr>
+					<tr><td class="label">Email</td><td><input type="text" name="email" class="textbox" /></td></tr>
+					<tr><td class="label">Content</td><td><textarea name="content" rows="5" class="textareascroll"></textarea></td></tr>
+					<!-- <input type="hidden" name="parent_id" value="<?php echo $_GET["id"]; ?>" /> -->
+					<tr><td colspan="2" align="right"><input type="submit" value="Post" /></td></tr>
+				</form>
+			<!-- </table> -->
 		<?php	
 			mysql_close($link);
 		?>
+			
+		</table>
 		
 		<script>
 			function loadVote(id, type, opt) {
@@ -166,6 +177,6 @@
 			  xhttp.send();
 			}
 		</script>
-		
+		<br><br><br><br><br>
 	</body>
 </html>
