@@ -47,6 +47,20 @@
 			return $result;
 		}
 
+		public static function post($username, $email, $topic, $content) {
+			$dates = date("Y-m-d H:i:s");
+			$db = Connection::getInstance();
+			$sql = "INSERT INTO sse_thread (user_name,user_email,thread_topic,thread_content,thread_date) 
+							VALUES (:username,:email,:topic,:content,:dates)";
+							
+			$q = $db->prepare($sql);
+			$q->execute(array(':username' => $username,
+                  			':email' => $email,
+                  			':topic' => $topic,
+                  			':content' => $content,
+                  			':dates' => $dates));
+		}
+
 		public function getShrinkContent($string, $limit, $break = ".", $pad = "...") {
 			// Original PHP code by Chirp Internet: www.chirp.com.au
 			// Get from http://www.the-art-of-web.com/php/truncate/
@@ -62,5 +76,6 @@
 			} 
 			return $string;
 		}
+
 	}
 ?>

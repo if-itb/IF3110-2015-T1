@@ -15,8 +15,17 @@
 			$answerController->show($queryString);
 		}
 
-		public function create() {
+		public function form() {
 			require_once(ROOT . DS . 'application' . DS . 'view' . DS . 'form.php');
+		}
+
+		public function post() {
+			$user_name = $_POST['user_name'];
+			$user_email = $_POST['user_email'];
+			$thread_topic = $_POST['thread_topic'];
+			$thread_content = $_POST['thread_content'];
+			Thread::post($user_name, $user_email, $thread_topic, $thread_content);
+			header("Location: index.php");
 		}
 
 		public function error() {

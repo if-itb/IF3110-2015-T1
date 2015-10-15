@@ -4,7 +4,7 @@
 <hr>
 
 <div class="form">
-	<form action="">
+	<form action="?controller=thread&action=post" method="POST">
 		<input type="text" name="user_name" id="user_name" placeholder="Name" autofocus>
 		<input type="email" name="user_email" id="user_email" placeholder="Email">
 		<input type="text" name="thread_topic" id="thread_topic" placeholder="Question Type">

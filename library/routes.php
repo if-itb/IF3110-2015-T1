@@ -20,7 +20,7 @@
 	}
 
 	// Need for validation (belum lengkap)
-	$controllers = array('thread' => ['home', 'detail', 'create', 'error']);
+	$controllers = array('thread' => ['home', 'detail', 'form', 'post', 'error']);
 
 	if (array_key_exists($controller, $controllers)) {
 		if (in_array($action, $controllers[$controller])) {
