@@ -12,53 +12,73 @@
         <meta charset="UTF-8">
         <title>Bukan StackExchange - Home</title>
         <script src="form_validation.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
     </head>
     
     <body>
-        <div align="center">        
-            <a href="index.php"><h1>Bukan StackExchange</h1></a>
+        <a href="index.php"><h1>Bukan StackExchange</h1></a>
         <div>
             <form name="searchform" action="index.php" method="get" onsubmit="return validateField('searchform','searchbox')">
-                <input type="text" name="search">
+                <input id="search" type="text" name="search" value="<?php echo $keyword ?>">
                 <input type="submit" value="Search">
-            </form>
+            </form><br>
+            <p>Cannot find what you're looking for? <a href="ask.php" id="ask">Ask here</a></p>
         </div>
-        <div>Cannot find what you're looking for? <a href="ask.php">Ask here</a></div>
         
         
-        <h3>Recently Asked Questions</h3>
         <?php 
             if (count($questions) === 0) {
                 if (isset($_GET['search'])) {
-                    echo "No question matches your query.";
+                    echo "<p>No question matches your query.</p>";
                 } else {
-                    echo "No question yet.";
+                    echo "<p>No question yet.</p>";
                 }
+            } else {
+                echo "<h3>Recently Asked Questions</h3>";
             }
         ?>
-        <?php foreach ($questions as $question) :
-            echo $question['name'] . "<br>";
-            echo $question['email'] . "<br>";
-        ?>
-        <a href="question.php?id=<?php echo $question['question_id'] ?>">
-            <?php echo $question['topic'] . "<br>" ?>
-	</a>
-        <?php  
-            echo $question['content'] . "<br>";
-            echo $question['vote'] . "<br>";
-            echo $question['answer_count'] . "<br>";
-            echo $question['time'] . "<br>";
-        ?>
-        <a href="edit.php?id=<?php echo $question['question_id'] ?>">
-            Edit | 
-	</a>
-        <a href="delete.php?id=<?php echo $question['question_id'] ?>">
-            Delete
-        </a>
-        <br><br>
-        <?php
-        endforeach; 
-        ?>
+            
+        <?php foreach ($questions as $question) : ?>
+        <hr>
         
+        <div class="float_left" id="vote_count">
+            <?php echo $question['vote'] ?>
+            <br>
+            Votes
+        </div>        
+        
+        <div class="float_left" id="ans_count">
+            <?php echo $question['answer_count'] ?>
+            <br>
+            Answers
+        </div>
+        
+        <a href="question.php?id=<?php echo $question['question_id'] ?>">
+            <div id="topic"><?php echo $question['topic'] ?></div>
+	</a>
+        
+        <br>
+        
+        <div class="content" id="i_content">
+            <?php 
+                if (strlen($question['content']) > 300) {
+                    echo substr($question['content'], 0, 310) . '...';
+                } else {
+                    echo $question['content'];
+                }
+            ?>
+        </div>
+        
+        <div id="asked">
+            asked by <span id="name"><?php echo $question['name'] ?> (<?php echo $question['email'] ?>)</span> |
+            <a id="edit" href="edit.php?id=<?php echo $question['question_id'] ?>"> edit </a> | 
+            <a id="delete" href="delete.php?id=<?php echo $question['question_id'] ?>">
+                delete
+            </a>
+        </div>
+        
+        <?php endforeach; ?>
+        
+        <hr>
     </body>
 </html>

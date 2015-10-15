@@ -15,23 +15,20 @@
         <meta charset="UTF-8">
         <title>Bukan StackExchange - Edit question</title>
         <script src="./js/form_validation.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
     </head>
     <body>
-        <div align="center">
-            <a href="index.php"><h1>Bukan StackExchange</h1></a>
-        </div>
-        <div>
-            <h2>What's your question?</h2>
-        </div>
-        <div>
-            
+        <a href="index.php"><h1>Bukan StackExchange</h1></a>        
+        <div id="form">            
+            <h2>Edit your question</h2>
+            <hr>
             <form name="edit_q" action="./mysql/edit_question.php" onsubmit="return validateQuestionForm('edit_q')" method="post">
                 <input type="text" name="Name" value="<?php echo $name ?>"><br>
                 <input type="text" name="Email" value="<?php echo $email ?>"><br>
                 <input type="text" name="Topic" value="<?php echo $topic ?>"><br>
-                <input type="text" name="Content" value="<?php echo $content ?>"><br>
-                <input type="hidden" name="Question_ID" value="<?php echo $_GET['id'] ?>"><br>
-                <input type="submit">
+                <textarea name="Content"><?php echo $content ?></textarea><br>                
+                <input type="hidden" name="Question_ID" value="<?php echo $_GET['id'] ?>">
+                <input type="submit" value="Post">
             </form>
         </div>
         <?php
