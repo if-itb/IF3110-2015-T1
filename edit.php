@@ -22,7 +22,7 @@
 				<span id="edit-question">Edit Your Question</span></br>
 				<hr></br></br>
 				<?php if (strlen($error)>0){echo '<span class="error">'.$error.'</span></br>';}?>
-				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]).'?q='.$id;?>"onsubmit="return chkValidity();" id="form-ask">
+				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]).'?q='.$id;?>"onsubmit="return chkValidityQuestion();" id="form-ask">
 					<input type="text" name="name" id="name" placeholder="Name" value="<?php echo $row['name'];?>"></br><span class="error">
 					<input type="text" name="email" id="email" placeholder="Email" value="<?php echo $row['email'];?>"></br><span class="error">
 					<input type="text" name="topic" id="topic" placeholder="Question Topic" value="<?php echo $row['topic'];?>"></br><span class="error">
