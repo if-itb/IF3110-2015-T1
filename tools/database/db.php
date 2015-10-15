@@ -37,7 +37,10 @@
 	function executeQuery($sql){
 		$conn = createConnection();
 		$sqlresult = $conn->query($sql);
+		$latest_id =  $conn->insert_id;
 		closeConnection($conn);
+
+		return $latest_id;
 	}
 
 	function closeConnection($conn){

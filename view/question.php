@@ -57,7 +57,8 @@
 		<hr>
 
 		<h1>Your Answer</h1>
-		<form action="tools/answer/addanswer.php" method="post">
+		<form name='answerForm' action="tools/answer/addanswer.php" 
+		  method="post" onsubmit="return validateAnswerForm()">
 			<input type="hidden" name="questionId" value="<?php echo $question[questionId];?>">
 			<input type='text' name='answerer' class='formInput' placeholder='Name'>
 			<input type='text' name='email' class='formInput' placeholder='Email'>
@@ -65,5 +66,6 @@
 			<div class='right'><button type='submit'>Post</button></div>
 		</form>
 	</div>
+	<script type='text/javascript' src='/assets/js/validate.js'></script>
 </body>
 </html>

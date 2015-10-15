@@ -15,6 +15,6 @@
 	executeQuery($sql);
 	
 	//Refresh to the previous page, and kill this script
-	header("Location: ../../viewquestion.php?id=$questionId");
+	header("Location: /viewquestion.php?id=$questionId");
 	die();
 ?>

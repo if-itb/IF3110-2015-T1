@@ -14,7 +14,7 @@
 		</div>
 
 		<p class='center'>
-			Cannot find what you are looking for? <a href='#'>Ask here</a>
+			Cannot find what you are looking for? <a href='../askquestion.php'>Ask here</a>
 		</p>
 
 		<h2>Recently Asked Questions</h2>
