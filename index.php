@@ -31,7 +31,7 @@
 				</div>
 					<div class='postdiv'>
 						<p><a href=displayQuestion.php?qid=".$q["qid"]." class='questionLink'>".$q["QuestionTopic"]."</a></p>
-						<div class = 'footer afooter'> asked by <span class='authornamedisp'".$q["Authorname"]."</span> | <a href='editQuestion.php?qid=".$q['qid']."' class= 'editlink'>edit</a> | <a href='deleteQuestion.php?qid=".$q['qid']."' class= 'deletelink'>delete</a></div>
+						<div class = 'footer afooter'> asked by <span class='authornamedisp'>".$q['AuthorName']."</span> | <a href='editQuestion.php?qid=".$q['qid']."' class= 'editlink'>edit</a> | <a href='deleteQuestion.php?qid=".$q['qid']."' class= 'deletelink'>delete</a></div>
 						</div>
 					</div>
 			</div>
