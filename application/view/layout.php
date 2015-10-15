@@ -11,8 +11,6 @@
 			<h1><a href="index.php">Simple StackExchange</a></h1>	
 		</div>
 
-	<?php echo URL . " " . ROOT; ?>
-
 	<?php require_once(ROOT . DS . 'library' . DS . 'routes.php'); ?>	
 		
 	</div><!-- /container -->
