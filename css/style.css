@@ -69,15 +69,22 @@ p {
     font-weight:bold;
 }
 
-a {
-   color : orange;
-   text-decoration: none;
+as {
+    color:orange;
+    font-weight: lighter;
     font-style: italic;
-    font-weight: normal;
+    text-decoration: none;
 }
+as:hover {
+    color:red;
+}
+a {
+  text-decoration: none;  
+}
+
 a:hover {
+    cursor : pointer;
     color :red;
-    text-decoration:underline;
 }
 
 .separator {
@@ -89,7 +96,14 @@ a:hover {
     border-bottom: 1px solid black;
 }
 
-
+.separator2 {
+    height: 1px;
+    background:#717171;
+    width:75%;
+   margin-top:10px;
+    margin-left:12.5%;
+    border-bottom: 1px solid black;
+}
 
 .raq {
     margin-left: 12.5%;
@@ -129,7 +143,7 @@ a:hover {
     text-align: center;
 }
 .vnum {
-    color:darkgreen;
+    color:blue;
     margin-left:3%;
     font-size: 300%;
     font-family: Georgia, serif;
@@ -150,13 +164,16 @@ a:hover {
 .title {
     font-family: "Times New Roman", Times, serif;
     font-weight: bold;
-    text-align: center;
+    margin-left:5%;
+    color:black;
+    text-align: left;
     font-size:125%;
     margin-bottom: 10px;
 }
 
 .title:hover {
-    color:yellow;
+    color:activecaption;
+    text-decoration:none ;
     cursor:pointer;
 }
 .content {
@@ -208,7 +225,7 @@ a1 {
 }
 
 #fname {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 #ermsg,#ermsg2 {
@@ -234,4 +251,91 @@ a1 {
     background-color:darkgreen;
     color:white;
     
+}
+
+#wrap {
+    width:75%;
+    margin-left: 12.5%;
+}
+
+#main {
+    margin-top: 20px;
+    font-weight:normal;
+    margin-right: 20px;
+    
+    float:right ;
+    text-align:justify;
+    width:80%;
+}
+
+#sidebar {
+    float : left;
+    width:14%;
+    text-align: center;
+    margin-left: 1%;
+}
+#vdown,#vup {
+    display:inline;
+    transition: 0.5s ease;
+    white-space: nowrap;
+}
+#vup {
+    text-decoration: none;
+    border-bottom: 3px solid transparent;    
+    
+    transition: 0.5s ease;
+    white-space: nowrap;
+    
+    margin-right: 12px;
+}
+#vup:hover {
+    opacity: 0.5;
+     border-bottom: 3px solid blue;
+    width: 200px;
+}
+#vdown {
+    text-decoration: none;
+    border-bottom: 3px solid transparent;    
+    
+    transition: 0.5s ease;
+    white-space: nowrap;
+    
+}
+#vdown:hover {
+    opacity: 0.5;
+     border-bottom: 3px solid blue;
+    width: 200px;
+}
+#vnum {
+    color:blue;
+    font-size:600%;
+    margin-top : 15px;
+    font-family: "Times New Roman", Times, serif;
+}
+#footer {    
+    clear:both;   
+}
+
+#qinfo {
+    font-size: 85%;
+    text-align:right;
+    margin-top:10px;
+    margin-right:10px;
+}
+
+aa {
+    color:lawngreen;
+}
+
+#qans {
+    margin-top:25px;
+    font-size : 170%;
+    margin-left:12.5%;
+}
+
+#yans {
+    font-size:160%;
+    margin-left:15%;
+    margin-top:20px;
+    color: #6cbb6b;
 }

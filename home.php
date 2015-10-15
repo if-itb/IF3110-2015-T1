@@ -29,14 +29,14 @@ and open the template in the editor.
            
         ?>
              <?php  $questions = getAllQuestion(); ?>
-        <div id="Title">
-            <h1 class="t" href="home.php">Simple StackExchange</h1>
+         <div id="Title">
+            <a href="home.php"><h1 class="t">Simple StackExchange</h1></a>
         </div>
         <form id="searchbox" action="">
              <input id="search" type="text" placeholder="  Type any keyword here . . . ">
              <input id="submit" type="submit" value="Search">
         </form>
-        <p>Cannot find what you are looking for ? <a href="askhere.php?id=0" >Ask here</a></p>        
+        <p>Cannot find what you are looking for ? <a href="askhere.php?id=0" ><as>Ask here</as></a></p>        
         <div class="raq">Recently Asked Questions</div>
         <div class="separator"></div>
         
@@ -53,7 +53,7 @@ and open the template in the editor.
             </div>
             
             <div class="thread">
-                <div class="title" href=""><?php echo $q['title']?></div>
+                <a href="open.php?id=<?php echo $q['id_q'] ?>"><div class="title"><?php echo $q['title']?></div></a>
                 <div class = "content">                     
                     <?php echo substr($q['content'],0,150) ?>
                     <?php if (strlen($q['content'])>150) echo ". . . . . . " ;?>

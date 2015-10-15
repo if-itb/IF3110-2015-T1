@@ -50,6 +50,17 @@ function getQuestion($id) {
     return $ret;
 }
 
+function getAnswer($id) {
+     global $conn;   
+    $sql = "SELECT * FROM answer WHERE q_id=$id";    
+    $result = mysqli_query($conn, $sql);
+    $ret = array();
+    while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)) {        
+        $ret[] = $row;
+    }
+   
+    return $ret;
+}
 function addNewQuestion($q) {
     global $conn;
     $sql1 = "SELECT MAX(id_q) as max FROM question" ;

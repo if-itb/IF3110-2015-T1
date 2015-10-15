@@ -9,7 +9,7 @@ function validateField(form) {
         else  form.title.style.border = "2px solid blue";
         if (content==='') form.content.style.border = "2px solid red";
         else  form.content.style.border = "2px solid blue";
-        document.getElementById("ermsg2").innerHTML = "There is still empty field";
+        document.getElementById("ermsg2").innerHTML = "* There is still empty field";
         return false;
     }
     else {
