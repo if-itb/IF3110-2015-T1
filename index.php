@@ -3,7 +3,7 @@
 <head>
   <title>Home</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="master.css" >
+  <link rel="stylesheet" href="/style/master.css" >
 </head>
 <body>
   <?php
@@ -29,50 +29,52 @@
     $tabQuestion = getAllQuestions();
     $nQuestion = mysqli_num_rows($tabQuestion);
   ?>
-
-  <h1>Simple Stack Exchange</h1>
-  <br>
-  <form>
+<div class="view">
+  <h1>Simple Stack Exchange</h1><br>
+  <form id="search">
     <input type="text" name="search">
-    <input type="submit" value="Search">
+    <input type="submit" value="search">
   </form>
   <div class="ask-here">
     <div>Cannot find what are you looking for?</div>
-    <a href="ask.php">Ask here</a>
+    <div><a href="ask.php" >Ask here</a></div>
   </div>
 
-  <p>Recently Asked Question</p>
+  <p id='head'>Recently Asked Question</p>
+  <hr>
   <?php
     if($nQuestion==0) {
       echo "<div>No Question</div>";
     } else{
       while($question= mysqli_fetch_assoc($tabQuestion)){
   ?>
-        <div class="question-row">
-          <hr>
+        <div class="row">
           <div class="vote-col">
-            <div><?php echo $question['vote']; ?></div>
+            <div><?php echo $question['vote']; ?></div><br>
             <div>Votes</div>
           </div>
           <div class="answer-col">
-            <div><?php echo countAnswer($question['q_id']); ?></div>
+            <div><?php echo countAnswer($question['q_id']); ?></div><br>
             <div>Answer</div>
           </div>
           <div class="content-col">
-            <a href="question.php?q_id=<?php echo $question['q_id']?>"><?php echo $question['topic']; ?></a>
+            <div><a href="question.php?q_id=<?php echo $question['q_id']?>"><?php echo $question['topic']; ?></a></div><br>
             <p> <?php echo $question['content']; ?> </p>
+          </div><br>
+          <div class="other">
+            <div>asked by</div>
+            <div class="name"><?php echo $question['name']; ?></div><div>&nbsp|</div>
+            <div class="edit"><a href="ask.php?q_id=<?php echo $question['q_id'].'&address=home';?>">edit</a></div><div>&nbsp|</div>
+            <div class="delete"><a href="delete.php?q_id=<?php echo $question['q_id'];?>" onclick="return confirmDeletion()">delete</a></div>
           </div>
-          <div class="question-other">
-            <div>asked by</div><div>|</div>
-            <div><?php echo $question['name']; ?></div><div>|</div>
-            <a href="ask.php?q_id=<?php echo $question['q_id'].'&address=home';?>">edit</a><div></div>
-            <a href="delete.php?q_id=<?php echo $question['q_id'];?>" onclick="return confirmDeletion()">delete</a>
-          </div>
+          <br>
         </div>
+      <hr>
   <?php
+      }
     }
-  }
- ?>
+  ?>
+  </div>
 
   <script src="/script/master.js"></script>
   </script>

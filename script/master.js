@@ -24,33 +24,42 @@ function validateQuestion(){
   var isValid=true;
 
   if(name==''){
-    document.getElementById('nameErr').innerHTML='Name must be filled out';
+    document.getElementById('name').setAttribute('placeholder','Name must be filled out');
+    document.getElementById('name').style.borderColor='red';
     isNameValid=false;
   } else {
-    document.getElementById('nameErr').innerHTML='';
+    document.getElementById('name').setAttribute('placeholder','Name');
+    document.getElementById('name').style.borderColor='green';
   }
   if(email==''){
-    document.getElementById('emailErr').innerHTML='Email must be filled out';
+    document.getElementById('email').setAttribute('placeholder','Email must be filled out');
+    document.getElementById('email').style.borderColor='red';
     isEmailValid=false;
   } else {
     isEmailValid=validateEmail(email);
     if(!isEmailValid) {
-      document.getElementById('emailErr').innerHTML='Email invalid';
+      alert('Email Invalid');
+      document.getElementById('email').style.borderColor='red';
     } else {
-      document.getElementById('emailErr').innerHTML='';
+      document.getElementById('email').setAttribute('placeholder','Email');
+      document.getElementById('email').style.borderColor='green';
     }
   }
   if(topic==''){
-    document.getElementById('topicErr').innerHTML='Question topic must be filled out';
+    document.getElementById('topic').setAttribute('placeholder','Question topic must be filled out');
+    document.getElementById('topic').style.borderColor='red';
     isTopicValid=false;
   } else {
-    document.getElementById('topicErr').innerHTML='';
+    document.getElementById('topic').setAttribute('placeholder','Question topic');
+    document.getElementById('topic').style.borderColor='green';
   }
   if(content==''){
-    document.getElementById('contentErr').innerHTML='Content must be filled out';
+    document.getElementById('content').setAttribute('placeholder','Content must be filled out');
+    document.getElementById('content').style.borderColor='red';
     isContentValid=false;
   } else {
-    document.getElementById('contentErr').innerHTML='';
+    document.getElementById('content').setAttribute('placeholder','Content');
+    document.getElementById('content').style.borderColor='green';
   }
 
   isValid= isNameValid && isEmailValid && isTopicValid && isContentValid;
@@ -67,29 +76,35 @@ function validateAnswer(){
   var isValid=true;
 
   if(name==''){
-    document.getElementById('nameErr').innerHTML='Name must be filled out';
+    document.getElementById('name').setAttribute('placeholder','Name must be filled out');
+    document.getElementById('name').style.borderColor='red';
     isNameValid=false;
   } else {
-    document.getElementById('nameErr').innerHTML='';
+    document.getElementById('name').setAttribute('placeholder','Name');
+    document.getElementById('name').style.borderColor='green';
   }
   if(email==''){
-    document.getElementById('emailErr').innerHTML='Email must be filled out';
+    document.getElementById('email').setAttribute('placeholder','Email must be filled out');
+    document.getElementById('email').style.borderColor='red';
     isEmailValid=false;
   } else {
     isEmailValid=validateEmail(email);
     if(!isEmailValid) {
-      document.getElementById('emailErr').innerHTML='Email invalid';
+      alert('Email Invalid');
+      document.getElementById('email').style.borderColor='red';
     } else {
-      document.getElementById('emailErr').innerHTML='';
+      document.getElementById('email').setAttribute('placeholder','Email');
+      document.getElementById('email').style.borderColor='green';
     }
   }
   if(content==''){
-    document.getElementById('contentErr').innerHTML='Content must be filled out';
+    document.getElementById('content').setAttribute('placeholder','Content must be filled out');
+    document.getElementById('content').style.borderColor='red';
     isContentValid=false;
   } else {
-    document.getElementById('contentErr').innerHTML='';
+    document.getElementById('content').setAttribute('placeholder','Content');
+    document.getElementById('content').style.borderColor='green';
   }
-
   isValid= isNameValid && isEmailValid && isTopicValid && isContentValid;
   return isValid;
 }
