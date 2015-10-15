@@ -10,7 +10,7 @@
 	<div id="TopDiv">
 		<h1 id="MainTitle">Simple StackExchange</h1> 
 		<br>
-		<form id="SearchBar" action="" onsubmit="return validateSearch()">
+		<form id="SearchBar" action="search.php" onsubmit="return validateSearch()" method="post">
 			<input id="SearchInput" type="text" name="SearchInput" placeholder="Search here...">&nbsp
 			<input id="SearchButton" type="submit" value="Search">
 		</form> 

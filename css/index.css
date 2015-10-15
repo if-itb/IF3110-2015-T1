@@ -111,6 +111,12 @@
 	margin-top:70px;
 }
 
+/* for search only */
+#noresult{
+	margin-left:100px;
+	margin-right:100px;
+}
+
 hr{
 	background-color:black;
 	height:3px;
