@@ -48,7 +48,7 @@
 		}
 
 		public function error() {
-			echo "ERROR";
+			require_once(ROOT . DS . 'application' . DS . 'view' . DS . 'error.php');
 		}
 	}
 ?>

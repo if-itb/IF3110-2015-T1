@@ -10,9 +10,13 @@
 		$controller = $_GET['controller'];
 		$action = $_GET['action'];
 	}
-	else { // default 
+	else if (strcmp($_SERVER['REQUEST_URI'], URL) == 0 || strcmp($_SERVER['REQUEST_URI'], URL . 'index.php') == 0){ // default 
 		$controller = 'thread';
 		$action = 'home';
+	}
+	else {
+		$controller = 'thread';
+		$action = 'error';
 	}
 
 	if (isset($_GET['query'])) {
