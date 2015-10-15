@@ -89,7 +89,9 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+- Validasi pada client-side : saat user mengisi form (untuk bertanya maupun menjawab pertanyaan) dan menekan tombol "Post", maka javascript yang disetting akan berjalan. fungsi javascript inilah yang melakukan pengecekan pada setiap isi elemen form. dengan mengambil isi dari setiap elemen form dan melakukan pengecekan string, bisa diketahui apabila ada elemen yang kosong atau elemen dengan format yang salah(khusus email). apa bila terjadi kesalahan, alert akan muncul dilayar pengguna. apabila tidak terjadi kesalahan, halaman page akan berjalan seperti biasa.
+    
+- AJAX : saat user menekan gambar panah, maka akan ada fungsi javascript yang berjalan. fungsi javascript itu berisi pengiriman request ke server sesuai url(voteup.php atau votedown.php atau voteupans.php atau votedownans.php) yang diminta. lalu ketika server sudah memberikan respon, url akan dijalankan di dalam kelompok yang memiliki class tertentu seperti yang tertulis dalam javascript. di dalam file berekstensi php itu, akan melakukan pengambilan data vote dari pertanyaan atau jawaban yang bersesuaian. lalu melakukan update isi database pada data vote tersebut apakah bertambah atau berkurang sesuai tanda panah yang ditekan. lalu ditampilkan kembali ke dalam tag html yang memiliki class seperti yang ditulis dalam javascript tanpa harus melakukan load ulang pada halaman.  
 
 ### Knowledge
 
