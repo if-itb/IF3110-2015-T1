@@ -92,3 +92,29 @@ function editQuestion($q) {
     $result = mysqli_query($conn, $sql);
      return $result;
 }
+
+function getVote($src,$id) {
+    global $conn ;
+   if ($src=='q') {
+       $sql="SELECT vote FROM question WHERE id_q=$id";
+   }
+   else {
+       $sql="SELECT vote FROM answer WHERE id_a=$id";
+   }
+   $result = mysqli_query($conn,$sql);
+    $ret = mysqli_fetch_array($result,MYSQLI_ASSOC)['vote'];
+    return $ret;
+}
+
+function changeVote($src,$id,$num) {
+    global $conn ;
+    echo $src,$id,$num;
+     if ($src=='q') {
+       $sql="UPDATE question SET vote=(vote+$num) WHERE id_q=$id";
+   }
+   else {
+       $sql="UPDATE answer SET vote=(vote+$num) WHERE id_a=$id";
+   }
+   $result=  mysqli_query($conn, $sql);
+   return $result;
+}

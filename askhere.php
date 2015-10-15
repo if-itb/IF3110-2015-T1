@@ -32,8 +32,8 @@ and open the template in the editor.
             }
         
         ?>
-        <div id="Title">
-            <h1 class="t" href="home.php">Simple StackExchange</h1>
+       <div id="Title">
+            <a href="home.php"><h1 class="t">Simple StackExchange</h1></a>
         </div>
         
         <div class="raq">What's Your Question ?</div>
@@ -48,7 +48,7 @@ and open the template in the editor.
                <input id="fsubmit" type="submit" value="Post this !"><br>
             <input type="hidden" name="aa" value="<?php echo $t ?>" >
             <input type="hidden" name="id_q" value="<?php echo $id ?>" >
-                                                                    </form>
+         </form>
         
           
         

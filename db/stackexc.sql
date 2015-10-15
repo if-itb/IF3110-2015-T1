@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2015 at 09:12 PM
+-- Generation Time: Oct 11, 2015 at 05:39 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -41,8 +41,12 @@ CREATE TABLE IF NOT EXISTS `answer` (
 --
 
 INSERT INTO `answer` (`id_a`, `q_id`, `content`, `date`, `vote`, `username`, `email`) VALUES
-(1, 1, 'First Answer', '2015-10-07 18:21:08', 1, 'tata', 'tata@gmail.com'),
-(2, 1, 'answer kedua', '2015-10-07 23:09:30', 1, 'budi', 'budi@gmail.com');
+(1000, 1, 'Untuk answer 1 pertanyaan 1Untuk answer 1 pertanyaan 1Untuk answer 1 pertanyaan 1Untuk answer 1 pertanyaan 1Untuk answer 1 pertanyaan 1Untuk answer 1 pertanyaan 1Untuk answer 1 pertanyaan 1Untuk answer 1 pertanyaan 1Untuk answer 1 pertanyaan 1Untuk answer 1 pertanyaan 1Untuk answer 1 pertanyaan 1Untuk answer 1 pertanyaan 1', '2015-10-11 06:11:37', -1, 'tama', 'tamadamanik@gmail.com'),
+(1001, 1, 'Untuk answer 2 pertanyaan 1Untuk answer 2 pertanyaan 1Untuk answer 2 pertanyaan 1Untuk answer 2 pertanyaan 1Untuk answer 2 pertanyaan 1Untuk answer 2 pertanyaan 1Untuk answer 2 pertanyaan 1Untuk answer 2 pertanyaan 1Untuk answer 2 pertanyaan 1Untuk answer 2 pertanyaan 1Untuk answer 2 pertanyaan 1Untuk answer 2 pertanyaan 1Untuk answer 2 pertanyaan 1Untuk answer 2 pertanyaan 1Untuk answer 2 pertanyaan 1Untuk answer 2 pertanyaan 1Untuk answer 2 pertanyaan 1Untuk answer 2 pertanyaan 1', '2015-10-11 06:12:01', 0, 'tata', 'tata@yahoo.com'),
+(3000, 3, 'Untuk answer 1 pertanyaan 2Untuk answer 1 pertanyaan 2Untuk answer 1 pertanyaan 2Untuk answer 1 pertanyaan 2Untuk answer 1 pertanyaan 2Untuk answer 1 pertanyaan 2Untuk answer 1 pertanyaan 2Untuk answer 1 pertanyaan 2Untuk answer 1 pertanyaan 2Untuk answer 1 pertanyaan 2Untuk answer 1 pertanyaan 2Untuk answer 1 pertanyaan 2Untuk answer 1 pertanyaan 2Untuk answer 1 pertanyaan 2Untuk answer 1 pertanyaan 2Untuk answer 1 pertanyaan 2Untuk answer 1 pertanyaan 2', '2015-10-11 06:12:25', 0, 'budi', 'budi@gmail.com'),
+(4000, 4, 'Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3Untuk answer 1 pertanyaan 3', '2015-10-11 06:12:42', 0, 'tama', 'tamadamanik@yahoo.co.id'),
+(4001, 4, 'Untuk answer 2 pertanyaan 3Untuk answer 2 pertanyaan 3Untuk answer 2 pertanyaan 3Untuk answer 2 pertanyaan 3Untuk answer 2 pertanyaan 3Untuk answer 2 pertanyaan 3Untuk answer 2 pertanyaan 3Untuk answer 2 pertanyaan 3Untuk answer 2 pertanyaan 3Untuk answer 2 pertanyaan 3Untuk answer 2 pertanyaan 3Untuk answer 2 pertanyaan 3Untuk answer 2 pertanyaan 3Untuk answer 2 pertanyaan 3Untuk answer 2 pertanyaan 3Untuk answer 2 pertanyaan 3Untuk answer 2 pertanyaan 3Untuk answer 2 pertanyaan 3Untuk answer 2 pertanyaan 3Untuk answer 2 pertanyaan 3', '2015-10-11 06:12:59', 0, 'tama-', 'tamadamanik@yahoo.co.id'),
+(4002, 4, 'Untuk answer 3 pertanyaan 3Untuk answer 3 pertanyaan 3Untuk answer 3 pertanyaan 3Untuk answer 3 pertanyaan 3Untuk answer 3 pertanyaan 3Untuk answer 3 pertanyaan 3Untuk answer 3 pertanyaan 3Untuk answer 3 pertanyaan 3Untuk answer 3 pertanyaan 3Untuk answer 3 pertanyaan 3Untuk answer 3 pertanyaan 3Untuk answer 3 pertanyaan 3Untuk answer 3 pertanyaan 3Untuk answer 3 pertanyaan 3Untuk answer 3 pertanyaan 3Untuk answer 3 pertanyaan 3Untuk answer 3 pertanyaan 3', '2015-10-11 06:13:13', 0, 'tata', 'tata@yahoo.com');
 
 -- --------------------------------------------------------
 
@@ -65,9 +69,10 @@ CREATE TABLE IF NOT EXISTS `question` (
 --
 
 INSERT INTO `question` (`id_q`, `title`, `content`, `vote`, `date`, `username`, `email`) VALUES
-(1, 'First Question', 'TESQ 11', 0, '2015-10-07 18:20:01', 'tamanugraha', 'tama.damanik@yahoo.co.id'),
+(1, 'First Ever Question', 'lorem ipsum lorem ipsum  lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum simple stack exchange simple stack exchange simple stack exchange simple stack exchange simple stack exchange simple stack exchange simple stack exchange simple stack exchange simple stack exchange simple stack exchange simple stack exchange simple stack exchange simple stack exchange simple stack exchange simple stack exchange simple stack exchange simple stack exchange simple stack exchange simple stack exchange ', 7, '2015-10-07 18:20:01', 'tamanugraha', 'tama.damanik@yahoo.co.id'),
 (3, 'Another Question', ' more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char', 2, '2015-10-10 13:47:19', 'tatamadamanik', 'tatamadamanik@gmail.com'),
-(4, 'Try from ask here', 'Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here', 0, '2015-10-10 23:27:31', 'Tama', 'tama.damanik@yahoo.co.id');
+(4, 'Try from ask here', 'Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here', -1, '2015-10-10 23:27:31', 'Tama', 'tama.damanik@yahoo.co.id'),
+(5, 'Fourth Question Test :D', 'Fourth QuestionFourth QuestionFourth QuestionFourth QuestionFourth QuestionFourth QuestionFourth QuestionFourth QuestionFourth QuestionFourth QuestionFourth QuestionFourth QuestionFourth QuestionFourth Question', 0, '2015-10-11 06:18:28', 'tama_n', 'tama.damanik@yahoo.co.id');
 
 --
 -- Indexes for dumped tables

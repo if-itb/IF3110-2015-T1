@@ -41,8 +41,16 @@ and open the template in the editor.
             </div>
             <div id="sidebar">         
                 <div id="vnum"><?php echo $q['vote'] ;?> </div> 
-                <div id="vup"><img src="img/up.png" alt="Vote Up" style="width: 32px;height:32px"></div>
-                <div id="vdown"><img src="img/down.png" alt="Vote Down" style="width: 32px;height:32px"></div>
+                <div id="vup">
+                    <a href="javascript:voteUp('q',<?php echo $q['id_q'] ?>)" >
+                    <img src="img/up.png" alt="Vote Up" style="width: 32px;height:32px">
+                    </a>
+                </div>
+                <div id="vdown">
+                    <a href="javascript:voteDown('q',<?php echo $q['id_q'] ?>)" >
+                    <img src="img/down.png" alt="Vote Down" style="width: 32px;height:32px">
+                     </a>
+                </div>
             </div>
             <div id="footer"> </div>
             <div id="qinfo">asked by <aa><?php echo $q['username'] ;?></aa> at<aa> <?php echo $q['date'] ;?></aa> |
@@ -60,8 +68,12 @@ and open the template in the editor.
             </div>
             <div id="sidebar">         
                 <div id="vnum"><?php echo $a['vote'] ;?> </div> 
-                <div id="vup"><img src="img/up.png" alt="Vote Up" style="width: 32px;height:32px"></div>
-                <div id="vdown"><img src="img/down.png" alt="Vote Down" style="width: 32px;height:32px"></div>
+                <div id="vup"><a href="javascript:voteUp('a',<?php echo $a['id_a'] ?>)" >
+                        <img src="img/up.png" alt="Vote Up" style="width: 32px;height:32px"></a>
+                </div>
+                <div id="vdown"><a href="javascript:voteDown('a',<?php echo $a['id_a'] ?>)" >
+                        <img src="img/down.png" alt="Vote Down" style="width: 32px;height:32px"></a>
+                    </div>
             </div>
             <div id="footer"> </div>
             <div id="qinfo">answered by <aa><?php echo $a['username'] ;?></aa> at<aa> <?php echo $a['date'] ;?></aa> 

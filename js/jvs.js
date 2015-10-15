@@ -104,3 +104,32 @@ function deleteQuestion(id_q) {
 
     }
  }
+
+function voteUp(sr,id) {
+    var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {                
+                location.reload();
+               
+            } 
+        }
+     xmlhttp.open("POST","vote.php",true);
+    xmlhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("num=1&sr="+sr+"&id="+id);
+ }
+ 
+ 
+function voteDown(sr,id) {
+    var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {                
+               location.reload();
+               
+            } 
+        }
+     xmlhttp.open("POST","vote.php",true);
+    xmlhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("num=-1&sr="+sr+"&id="+id);
+ }
+ 
+

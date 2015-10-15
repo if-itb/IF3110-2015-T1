@@ -34,7 +34,7 @@ h1 {
 }
 
 #search {
-    width : 85%;
+    width : 83%;
     border: 2px solid ;
     border-color: seagreen;
     height:75%;
@@ -44,21 +44,24 @@ h1 {
 #submit{
     height:95%;
     margin-left: 5px;
-    width:10%;
-   color : black;
+    width:13%;
+   color : seagreen;
     background-color:white;
+    font-weight: bold;
+    border : 2px solid seagreen;
     
 }
 
 #submit:hover {       
     background-color: #95d788;
-    background-image: linear-gradient(#6cbb6b, #95d788);
+    color:white;
+    
 }   
 
 #submit:active {       
     background: #95d788;
     outline: none;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;        
+         
 }
 
 p {
@@ -125,7 +128,7 @@ a:hover {
     width:75%;
     margin-top : 8px;
     margin-left:12.5%;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid black;
 }
 .vote, .answers,.thread {
     display: inline-block;
@@ -146,13 +149,13 @@ a:hover {
     color:blue;
     margin-left:3%;
     font-size: 300%;
-    font-family: Georgia, serif;
+    font-family: Impact, Charcoal, sans-serif;
 }
 
 .vname {
-    font-family: "Lucida Console", Monaco, monospace;
-    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
     margin-top:2px;
+    margin-right:3px;
 }
 
 .thread {
@@ -227,7 +230,9 @@ a1 {
 #fname {
     margin-top: 20px;
 }
-
+textarea {
+    height : 150px;
+}
 #ermsg,#ermsg2 {
     color:red ;
     margin-left:19%;
@@ -281,30 +286,26 @@ a1 {
 }
 #vup {
     text-decoration: none;
-    border-bottom: 3px solid transparent;    
-    
     transition: 0.5s ease;
-    white-space: nowrap;
-    
+    white-space: nowrap;    
     margin-right: 12px;
 }
+
+
 #vup:hover {
     opacity: 0.5;
-     border-bottom: 3px solid blue;
-    width: 200px;
+   
+    
 }
 #vdown {
-    text-decoration: none;
-    border-bottom: 3px solid transparent;    
-    
+    text-decoration: none;      
     transition: 0.5s ease;
     white-space: nowrap;
     
 }
 #vdown:hover {
     opacity: 0.5;
-     border-bottom: 3px solid blue;
-    width: 200px;
+     
 }
 #vnum {
     color:blue;
