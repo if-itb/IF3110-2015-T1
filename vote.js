@@ -60,7 +60,6 @@ function voteDown_Question(id_question) {
 /* Vote Up Answer */
 function voteUp_Answer(id_question, id_answer) {
 	var xmlhttp = new XMLHttpRequest();
-	console.log('hello');
 	var count = parseInt(document.getElementById('count_answer' + id_answer).innerHTML);
 	xmlhttp.onreadystatechange = function() {
 		if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {

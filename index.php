@@ -47,18 +47,33 @@
 				?>
 				<div class="votes">
 					<div class="count">
-						<p>0</p>
+						<p><?= $vote ?></p>
 					</div>
 					<p>votes</p>
 				</div>
 				<div class="answer">
+					<?php
+						$query_ans = "SELECT * FROM answer WHERE (question_ID = $question_id)";
+						$result_ans = mysql_query($query_ans);
+						$num_ans = mysql_num_rows($result_ans);
+					?>
 					<div class="count">
-						<p>0</p>
+						<p><?= $num_ans ?></p>
 					</div>
 					<p>answer</p>
 				</div>
 				<div class="question-list">
-					<a href=" /WBD/answer.php?id=<?= $question_id ?>"><p><?php echo $topic; ?></a></p>					
+					<a href=" /WBD/answer.php?id=<?= $question_id ?>"><p><?php echo $topic; ?></a></p><br><br><br>
+						<div class="question-content">
+							<?php
+								if(strlen($content) > 50){
+									echo substr($content, 0, 50);
+									echo "......";
+								} else {
+									echo $content;
+								}
+							?>
+						</div>
 					<div class="asked-description">
 						<p>Asked by <span style="color : #502fc8"><?php echo $name; ?></span> |
 							<span style="color : #ffcb55"><a href=" /WBD/update-question.php?id=<?= $question_id ?>">edit</a></span> |

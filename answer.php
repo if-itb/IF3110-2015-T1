@@ -46,6 +46,9 @@
           <div class="content">
             <p><?php echo $topic; ?></p>
           </div>
+          <div class="question-content1">
+            <p><?= $content ?></p>
+          </div>
           <br><br><br>
           <div class="asked-description">
             <p>Asked by <span style="color : #502fc8"><?php echo "$email"; ?></span> at <?php echo "$date_question"; ?> |
@@ -54,18 +57,19 @@
           </div>
         </div>
       </div>
-
+      <?php
+        $sql = "SELECT * FROM `answer` WHERE (question_ID = $question_id)";
+        $result = mysql_query($sql);
+        $num = mysql_num_rows($result);
+      ?>
       <div class="total-answer">
-        <h2>1 Answer</h2>
+        <h2><?= $num ?> Answer</h2>
       </div>
       <hr>
       <div class="answer-description">
         <?php
-          $sql = "SELECT * FROM `answer` WHERE (question_ID = $question_id)";
-          $result = mysql_query($sql);
-          $num = mysql_num_rows($result);
-
-          for($i=0; $i<$num; $i++){
+          $i = 0;
+          while ($i<$num){
             $question_id = mysql_result($result, $i, "question_ID");
             $name = mysql_result($result, $i, "Nama");
             $email = mysql_result($result, $i, "Email");
@@ -78,8 +82,8 @@
           <div class="vote-answer-up" id-question="<?= $question_id ?>" id-answer="<?= $answer_id ?>"></div>
           <?php
             $sqlanswer = "SELECT `Vote` FROM `answer` WHERE (`question_ID` = '$question_id') AND (`ID` = '$answer_id')";
-            $result = mysql_query($sqlanswer);
-            $voteanswer = mysql_result($result, 0);
+            $num_count_ans = mysql_query($sqlanswer);
+            $voteanswer = mysql_result($num_count_ans, 0);
           ?>
           <div class="count-answer">
             <p id="count_answer<?= $answer_id ?>"><?= $voteanswer ?></p>
@@ -93,7 +97,7 @@
           </div>
           <hr>
         </div>
-        <?php } ?>
+        <?php $i++; } ?>
       </div>
       <center>
         <form class="answer-form" action="answer-input.php?id=<?= $question_id ?>" method="POST">
