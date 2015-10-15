@@ -52,13 +52,23 @@
 			$db = Connection::getInstance();
 			$sql = "INSERT INTO sse_thread (user_name,user_email,thread_topic,thread_content,thread_date) 
 							VALUES (:username,:email,:topic,:content,:dates)";
-							
+
 			$q = $db->prepare($sql);
 			$q->execute(array(':username' => $username,
                   			':email' => $email,
                   			':topic' => $topic,
                   			':content' => $content,
                   			':dates' => $dates));
+		}
+
+		public static function update($id, $username, $email, $topic, $content) {
+			$db = Connection::getInstance();
+			$sql = "UPDATE sse_thread
+							SET user_name=?, user_email=?, thread_topic=?, thread_content=?
+							WHERE thread_id=?";
+
+			$q = $db->prepare($sql);
+			$q->execute(array($username, $email, $topic, $content, $id));
 		}
 
 		public function getShrinkContent($string, $limit, $break = ".", $pad = "...") {
