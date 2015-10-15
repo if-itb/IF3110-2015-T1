@@ -14,9 +14,10 @@
 	$Name = $_POST["Name"];
 	$Email = $_POST["Email"];
 	$Content = $_POST["Content"];
+	$Date = $_POST["Date"];
 	$qid = $_GET["id"];
 	
-	$sql = "insert into answer(`QID`,`Name`,`Email`,`Content`) values ('$qid','$Name','$Email','$Content')";
+	$sql = "insert into answer(`QID`,`Name`,`Email`,`Content`,`Date`) values ('$qid','$Name','$Email','$Content',now())";
 	
 	if ($conn->query($sql) === TRUE ){
 		echo "New record created successfully";
