@@ -35,6 +35,11 @@ class QuestionController {
 				else {
 					$question->answers = 0;
 				}
+				$original_size = strlen($question->content);
+				$question->content = substr($question->content, 0, 120);
+				if (strlen($question->content) < $original_size) {
+					$question->content .= '...';
+				}
 			}
 
 			$view = new View('questions/card');

@@ -70,11 +70,13 @@ class BaseModel {
 		try {
 			$set = [];
 			foreach ($this as $key => $value) {
-				$tvalue = $value;
-				if (is_string($tvalue)) {
-					$tvalue = '\'' . $tvalue . '\'';
+				if (isset($value)) {
+					$tvalue = $value;
+					if (is_string($tvalue)) {
+						$tvalue = '\'' . $tvalue . '\'';
+					}
+					array_push($set, $key . '=' . $tvalue);
 				}
-				array_push($set, $key . '=' . $tvalue);
 			}
 			$set = implode(',', $set);
 			$q = 'update ' . static::$table . ' set ' . $set . ' where ' . $condition;
