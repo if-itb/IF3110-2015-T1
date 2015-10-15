@@ -57,7 +57,7 @@ Author: Irene Wiliudarsan (13513002) -->
       <div class="subtitle">
         What's your question?
       </div>
-      <form class="right" id="question-form" action="question-detail.php?id_question=<?php echo $id_question ?>&id_user=<?php echo $id_user ?>" method="post" onsubmit="return formValidation()">
+      <form class="right" id="question-form" action="question-detail.php?id_question=<?php echo $id_question ?>&id_user=<?php echo $id_user ?>" method="post" onsubmit="return answerFormValidation()">
         <input class="full-length" id="question-name" name="question-name" type="text" placeholder="Name" value="<?php echo $name ?>">
         <input class="full-length" id="question-email" name="question-email" type="text" placeholder="Email" value="<?php echo $email ?>">
         <input class="full-length" id="question-topic" name="question-topic" type="text" placeholder="Question Topic" value="<?php echo $topic ?>">

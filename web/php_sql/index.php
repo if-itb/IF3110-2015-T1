@@ -23,6 +23,14 @@ Author: Irene Wiliudarsan (13513002) -->
         die("Connection failed: " . $connection->connect_error);
       }
 
+      // Delete question from database
+      $isQuestionDeleted = FALSE;
+      if (isset($_GET["id_question"]) && !empty($_GET["id_question"]) && !$isQuestionDeleted) {
+        $id_question_deleted = $_GET["id_question"];
+        $query = "DELETE FROM question WHERE id_question = $id_question_deleted";
+        $isQuestionDeleted = $connection->query($query);
+      }
+
       // Execute query to take all questions in databases
       $query = "SELECT id_question, topic, content, vote_num, datetime, question.id_user, name FROM question, user WHERE question.id_user = user.id_user";
       $questions = $connection->query($query);
@@ -83,7 +91,15 @@ Author: Irene Wiliudarsan (13513002) -->
                     <?php echo $question["topic"] ?>
                   </div>
                   <div class="question-content">
-                    <?php echo $question["content"] ?>
+                    <?php
+                      $number_content_words = str_word_count($question["content"]);
+                      if ($number_content_words > 50) {
+                        // Cut question's content displayed
+                        echo implode(' ', array_slice(explode(' ', $question["content"]), 0, 50)) . "...";
+                      } else {
+                        echo $question["content"];
+                      }
+                    ?>
                   </div>
                 </a>
               </div>
@@ -96,7 +112,7 @@ Author: Irene Wiliudarsan (13513002) -->
                 edit
               </a>
               |
-              <a class="red" href="index.html" onclick="deleteConfirmation()">
+              <a class="red" href="index.php?id_question=<?php echo $id_question ?>" onclick="return confirm('Do you want to delete this post?')">
                 delete
               </a>
             </div>

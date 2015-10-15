@@ -63,6 +63,9 @@ a {
   width: auto;
   text-align: right;
 }
+.question-topic {
+  font-weight: bold;
+}
 .answer-question-detail {
   margin: 0 10px 10px;
   text-align: left;

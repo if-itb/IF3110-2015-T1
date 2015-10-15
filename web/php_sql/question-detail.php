@@ -10,6 +10,7 @@ Author: Irene Wiliudarsan (13513002) -->
     <meta charset="utf-8"/>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
   </head>
   <body>
     <?php
@@ -84,7 +85,7 @@ Author: Irene Wiliudarsan (13513002) -->
         }
       }
 
-      // Execute query to take question clicked by user
+      // Execute query to take question clicked by user at home page
       $query = "SELECT id_question, topic, content, vote_num, datetime, email FROM question, user WHERE question.id_user = user.id_user AND id_question = $id_question";
       $question = $connection->query($query);
       $question = $question->fetch_assoc();
@@ -96,17 +97,17 @@ Author: Irene Wiliudarsan (13513002) -->
         $new_user_email = $_POST["answer-email"];
 
         $query = "SELECT id_user FROM user WHERE name = '$new_user_name' AND email = '$new_user_email'";
-        $id_user = $connection->query($query);
-        if ($id_user->num_rows <= 0) {
+        $answer_id_user = $connection->query($query);
+        if ($answer_id_user->num_rows <= 0) {
           // User account haven't made before. New user made in database
           $query = "INSERT INTO user VALUES ('', '$new_user_name', '$new_user_email')";
           // Fetch new id user from database
           if ($connection->query($query) === TRUE) {
             $query = "SELECT id_user FROM user WHERE name = '$new_user_name' AND email = '$new_user_email'";
-            $id_user = $connection->query($query);
+            $answer_id_user = $connection->query($query);
           }
         }
-        $new_user_id = $id_user->fetch_assoc()["id_user"];
+        $new_user_id = $answer_id_user->fetch_assoc()["id_user"];
         $query = "INSERT INTO answer VALUES ('', '$new_answer_content', 0, NOW(), $new_user_id, $id_question)";
         $answer_inserted = $connection->query($query);
       }
@@ -166,7 +167,7 @@ Author: Irene Wiliudarsan (13513002) -->
               edit
             </a>
             |
-            <a class="red" href="index.html" onclick="deleteConfirmation()">
+            <a class="red" href="index.php?id_question=<?php echo $id_question ?>" onclick="return confirm('Do you want to delete this post?')">
               delete
             </a>
           </div>
@@ -226,7 +227,7 @@ Author: Irene Wiliudarsan (13513002) -->
         <div id="answer-form-title">
           Your Answer
         </div>
-        <form class="right" id="answer-form" action="question-detail.php?id_question=<?php echo $id_question ?>" method="post" onsubmit="return formValidation()">
+        <form class="right" id="answer-form" name="answer-form" action="question-detail.php?id_question=<?php echo $id_question ?>&id_user=<?php echo $id_user ?>" method="post" onsubmit="return questionFormValidation()">
           <input class="full-length" id="answer-name" name="answer-name" type="text" placeholder="Name">
           <input class="full-length" id="answer-email" name="answer-email" type="text" placeholder="Email">
           <textarea class="full-length" id="answer-content" name="answer-content" placeholder="Content" rows="10" cols="50"></textarea>
