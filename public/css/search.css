@@ -1,0 +1,37 @@
+.search-form {
+	display: inline-block;
+	width: 70%;
+	margin-bottom: 8px;
+}
+
+input[type=search] {
+	max-width: 70%;
+	margin: 5px;
+	width: 100%;
+
+	border: 1px solid #4585d9;
+	border-radius: 3px;
+
+	box-sizing: border-box;
+	padding: 5px;
+}
+
+input[type=search]:focus {
+	border: 2px solid #4585d9;
+	border-radius: 3px;
+
+	outline: none !important;
+	-moz-box-shadow: 0 0 #4585d9;
+	-webkit-box-shadow: 0 0 #4585d9;
+	box-shadow: 0 0 #4585d9;
+
+}
+
+.search-button {
+	width: 90px;
+	margin: 5px;
+}
+
+.search-not-found {
+	margin: 5px;
+}

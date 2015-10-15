@@ -1,0 +1,63 @@
+.card > h2 {
+	font-weight: 400;
+	margin: 0px;
+	margin-top: 24px;
+}
+
+.card {
+	text-align: left;
+	border-bottom: 2px solid #296ac7;
+	padding: 8px 10px 10px 10px;
+}
+
+.container {
+	display: -webkit-flex;
+	display: flex;
+	flex-flow: row nowrap;
+	-webkit-flex-direction: row wrap;
+
+	position: relative;
+	padding: 8px 10px 24px 10px;
+}
+.container > * {
+	padding: 8px;
+}
+
+.container > .statistic {
+	width: 48px;
+	font-size: 28px;
+	text-align: center;
+	vertical-align: middle;
+	flex: 0 0 auto;
+	-webkit-flex: 0 0 auto;
+}
+
+.container > .statistic > * {
+	display: block;
+}
+
+.container > .statistic > .unit {
+	font-size: 12px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+.container > .control {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.container > .question-detail {
+	text-align: left;
+
+	flex: 1 1 auto;
+	-webkit-flex: 1 1 auto;
+
+	min-width: 0px;
+	min-height: 0px;
+}
+
+.username {
+	color: #296ac7;
+}

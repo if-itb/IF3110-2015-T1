@@ -1,0 +1,36 @@
+.form-header {
+	text-align: left;
+}
+
+.form-header > h2 {
+	font-weight: 400;
+
+	margin: 0;
+	padding: 24px 10px 10px 10px;
+}
+
+.answer-form {
+}
+
+input[type=text], textarea {
+	display: block;
+	margin: auto;
+	margin-top: 8px;
+	margin-bottom: 8px;
+
+	border: 1px solid #4585d9;
+	border-radius: 3px;
+	padding: 5px;
+
+	width: 100%;
+	box-sizing: border-box;
+}
+
+input[type=text]:focus, textarea:focus {
+	border: 2px solid #4585d9;
+	border-radius: 3px;
+}
+
+textarea {
+	font-family: "Roboto", sans-serif;
+}

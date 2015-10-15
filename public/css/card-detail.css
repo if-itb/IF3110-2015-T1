@@ -1,0 +1,80 @@
+.card > h2 {
+	font-weight: 400;
+	margin: 0px;
+	margin-top: 24px;
+}
+
+.card {
+	text-align: left;
+	border-bottom: 2px solid #296ac7;
+}
+
+.container {
+	display: -webkit-flex;
+	display: flex;
+	flex-flow: row nowrap;
+	-webkit-flex-direction: row wrap;
+
+	padding: 8px 10px 24px 10px;
+	position: relative;
+}
+.container > * {
+	padding: 8px;
+}
+
+.container > .votecell {
+	width: 40px;
+	font-size: 24px;
+	text-align: center;
+	vertical-align: middle;
+	flex: 0 0 auto;
+	-webkit-flex: 0 0 auto;
+	display: flex;
+	flex-flow: column nowrap;
+	-webkit-flex-direction: column wrap;
+}
+
+.voteup {
+	width: 40px;
+	height: 30px;
+	background-image: url('http://cdn.sstatic.net/stackoverflow/img/sprites.svg?v=a7723f5f7e59'), none;
+	background-size: initial;
+	background-position: 0px -170px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.votedown {
+	width: 40px;
+	height: 30px;
+	background-image: url('http://cdn.sstatic.net/stackoverflow/img/sprites.svg?v=a7723f5f7e59'), none;
+	background-size: initial;
+	background-position: 0px -220px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.container > .voteup {
+}
+
+
+.container > .control {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.container > .question-detail {
+	text-align: left;
+
+	flex: 1 1 auto;
+	-webkit-flex: 1 1 auto;
+
+	min-width: 0px;
+	min-height: 0px;
+}
+
+.username {
+	color: #296ac7;
+}
+

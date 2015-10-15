@@ -1,0 +1,27 @@
+#title {
+	text-align: center;
+	color: #296ac7;
+	font-family: 'Tangerine', cursive;
+	font-weight: 400;
+	font-size: 100px;
+
+	margin: 5px;
+	padding: 0px;
+}
+
+body > div {
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+
+	width: 80%;
+	margin: auto;
+}
+
+a {
+	color: #296ac7;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #dc6914;
+}
