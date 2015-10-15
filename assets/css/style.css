@@ -1,0 +1,149 @@
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: blue;
+}
+#title, #search, .to-ask-here {
+  text-align: center;
+}
+#title {
+  font-family: sans-serif;
+}
+#search-text{
+  padding-left: 1%;  
+  padding-right: 1%;
+  width: 70%;
+  border: 2px solid #094785;
+  line-height: 2;
+}
+#search-button {
+  width: 5%;
+  border: 2px solid #094785;
+  line-height: 2;
+}
+#search-button:hover {
+  background-color: #94BBE3;
+  text-decoration: bold;
+}
+.line {
+  width: 80%;
+  margin: auto;
+  border: 1px solid black;
+}
+#ask-here {
+  font-weight: 300;
+  text-decoration: none;
+  color: orange;
+  text-decoration: bold;
+}
+#ask-here:hover, .footer .name:hover, .footer .edit:hover, .footer .delete:hover {
+  color: #A0FF00;
+}
+#recent-ask, h2 {
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-bottom: 0%;
+  word-wrap: break-word;
+}
+.item {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3%;
+  max-width: 80%;
+}
+.counter {
+  padding-top: 1%;
+  margin-left: 1%;
+  margin-right: 1%;
+  width: 7%;
+  float: left;
+}
+.item .question {
+  margin-left: 20%;
+  margin-right: 0%;
+}
+.question .topic {
+  font-size: large;
+  color: #024F69;
+  text-decoration: none;
+  word-wrap: break-word;
+}
+.question .topic:hover {
+  color: #02A9E0;
+}
+.question .desc {
+  word-wrap: break-word;
+}
+.counter .num, .counter .label {
+  text-align: center;
+}
+.footer {
+  margin: auto;
+  text-align: right;
+  word-wrap: break-word;
+}
+.footer .name {
+  color: blue;
+}
+.footer .edit {
+  color: orange;
+  text-decoration: none;
+}
+.footer .delete {
+  color: red;
+}
+#form {
+  padding-top: 1%;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 5%;
+}
+.form-text, .form-box {
+  display: block;
+  margin: auto;
+  margin-top: 1%;
+  border: 1px solid #094785;
+  padding: 3px 10px;
+  min-width: 97%;
+  line-height: 2;
+}
+.form-box {
+  padding-top: 10px;
+  resize: none;
+}
+.submit-button {
+  float: right;
+  width: 7%;
+  margin-top: 1%;
+  margin-right: 0.5%;
+  border: 2px solid #094785;
+  line-height: 2;
+}
+.submit-button:hover {
+  background-color: #94BBE3;
+  text-decoration: bold;
+}
+.arrow {
+  margin: auto;
+  width: 20px;
+  height: 20px;
+  float: top;
+}
+.vote {
+  margin-bottom: 5%;
+  margin-top: 5%;
+  font-size: x-large;
+  text-align: center;
+  color: grey;
+  float: top;
+}
+.desc {
+  margin-left: 9%;
+  float: top;
+  min-height: 50px;
+  word-wrap: break-word;
+}
+.brief {
+  word-wrap: break-word;
+}
