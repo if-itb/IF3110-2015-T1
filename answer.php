@@ -45,7 +45,7 @@
 						"<div id='question-content'>$row[Content]</div>".
 					 "</div>";
 				echo '<div class="question-info">'.
-				 		"asked by <span id='qname'>$row[Name]</span> at <span id='qdate'>$row[Date]</span> | ".
+				 		"asked by <span id='qname'>$row[Name] ($row[Email])</span> at <span id='qdate'>$row[Date]</span> | ".
 				 		"<a href='question.php?id=$row[ID]' id='edit'> edit </a> | ".
 				 		"<a href='delete.php?id=$row[ID]' onclick=\"return confirm('Are you sure you want to delete this question?')\" id='delete'>delete</a>".
 				 	 "</div>";
@@ -73,7 +73,7 @@
 						"<div id='answer-content'>$row_answerlist[Answer]</div>".
 					 "</div>";
 				echo '<div class="answer-info">'.
-				 		"answered by <span id='aname'>$row_answerlist[Name]</span> at <span id='adate'>$row_answerlist[Date]</span>".
+				 		"answered by <span id='aname'>$row_answerlist[Name] ($row_answerlist[Email])</span> at <span id='adate'>$row_answerlist[Date]</span>".
 				 	 "</div>";
 				echo "<div id='aline'><hr></div>";
 			}
