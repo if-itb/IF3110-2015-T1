@@ -24,7 +24,7 @@ Author: Irene Wiliudarsan (13513002) -->
       }
 
       // Execute query to take all questions in databases
-      $query = "SELECT id_question, topic, content, vote_num, datetime, name FROM question, user WHERE question.id_user = user.id_user";
+      $query = "SELECT id_question, topic, content, vote_num, datetime, question.id_user, name FROM question, user WHERE question.id_user = user.id_user";
       $questions = $connection->query($query);
     ?>
 
@@ -78,7 +78,7 @@ Author: Irene Wiliudarsan (13513002) -->
             <div class="right-position">
               <div class="answer-question-detail">
                 <!-- Question Topic & Content -->
-                <a href="question-detail.php?id_question=<?php echo $question['id_question'] ?>">
+                <a href="question-detail.php?id_question=<?php echo $question['id_question'] ?>&id_user=<?php echo $question['id_user'] ?>">
                   <div class="question-topic">
                     <?php echo $question["topic"] ?>
                   </div>
@@ -92,7 +92,7 @@ Author: Irene Wiliudarsan (13513002) -->
                 <?php echo $question["name"] ?>
               </span>
               |
-              <a class="yellow" href="ask-question.php">
+              <a class="yellow" href="ask-question.php?id_question=<?php echo $question['id_question'] ?>">
                 edit
               </a>
               |

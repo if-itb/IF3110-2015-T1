@@ -24,34 +24,66 @@ Author: Irene Wiliudarsan (13513002) -->
       }
 
       $id_question = $_GET["id_question"];
-      // Insert new question from ask-question.php to database
-      if ($id_question == "unknown" && isset($_POST["question-submit"]) && !empty($_POST["question-submit"])) {
+      $id_user = $_GET["id_user"];
+      if (isset($_POST["question-submit"]) && !empty($_POST["question-submit"])) {
         $name = $_POST["question-name"];
         $email = $_POST["question-email"];
         $topic = str_replace("'", "''", $_POST["question-topic"]);
         $content = str_replace("\n", "<br>", str_replace("'", "''", $_POST["question-content"]));
+        if ($id_question == "unknown" && $id_user == "unknown") {
+          // Insert new question from ask-question.php to database
+          // Search user ID
+          $query = "SELECT id_user FROM user WHERE name = '$name' AND email = '$email'";
+          $id_user = $connection->query($query);
+          if ($id_user->num_rows <= 0) {
+            // User account haven't made before. New user made in database
+            $query = "INSERT INTO user VALUES ('', '$name', '$email')";
+            // Fetch new id user from database
+            if ($connection->query($query) === TRUE) {
+              $query = "SELECT id_user FROM user WHERE name = '$name' AND email = '$email'";
+              $id_user = $connection->query($query);
+            }
+          }
+          $id_user = $id_user->fetch_assoc()["id_user"];
+          $query = "INSERT INTO question VALUES ('', '$topic', '$content', 0, NOW(), $id_user)";
+          $question_inserted = $connection->query($query);
 
-        // Search user ID
-        $query = "SELECT id_user FROM user WHERE name = '$name' AND email = '$email'";
-        $id_user = $connection->query($query);
-        if ($id_user->num_rows <= 0) {
-          // User account haven't made before. New user made in database
-          $query = "INSERT INTO user VALUES ('', '$name', '$email')";
-          // Fetch new id user from database
-          if ($connection->query($query) === TRUE) {
+          // Get question ID
+          $query = "SELECT id_question FROM question WHERE topic = '$topic' AND content = '$content' AND vote_num = 0 AND id_user = $id_user";
+          $id_question = $connection->query($query);
+          $id_question = $id_question->fetch_assoc()["id_question"];
+        } else {
+          // Update question edited from ask-question.php to database
+          // Update user name and email
+          $query = "SELECT name, email FROM user WHERE id_user = $id_user";
+          $user_data = $connection->query($query);
+          $user_data = $user_data->fetch_assoc();
+          if ($user_data["name"] != $name || $user_data["email"] != $email) {
+            // User name or email have been changed
             $query = "SELECT id_user FROM user WHERE name = '$name' AND email = '$email'";
             $id_user = $connection->query($query);
+            if ($id_user->num_rows > 0) {
+              $id_user = $id_user->fetch_assoc()["id_user"];
+            } else {
+              // No user in database
+              $query = "INSERT INTO user VALUES ('', '$name', '$email')";
+              if ($connection->query($query) === TRUE) {
+                $query = "SELECT id_user FROM user WHERE name = '$name' AND email = '$email'";
+                $id_user = $connection->query($query);
+                $id_user = $id_user->fetch_assoc()["id_user"];
+              }
+            }
+            // Update new id user to database
+            $query = "UPDATE question SET id_user = $id_user WHERE id_question = $id_question";
+            $isQuestionUpdated = $connection->query($query);
           }
-        }
-        $id_user = $id_user->fetch_assoc()["id_user"];
-        $query = "INSERT INTO question VALUES ('', '$topic', '$content', 0, NOW(), $id_user)";
-        $question_inserted = $connection->query($query);
 
-        // Get question ID
-        $query = "SELECT id_question FROM question WHERE topic = '$topic' AND content = '$content' AND vote_num = 0 AND id_user = $id_user";
-        $id_question = $connection->query($query);
-        $id_question = $id_question->fetch_assoc()["id_question"];
+          // Update question topic and content
+          $query = "UPDATE question SET topic = '$topic', content = '$content' WHERE id_question = $id_question";
+          $isQuestionUpdated = $connection->query($query);
+        }
       }
+
       // Execute query to take question clicked by user
       $query = "SELECT id_question, topic, content, vote_num, datetime, email FROM question, user WHERE question.id_user = user.id_user AND id_question = $id_question";
       $question = $connection->query($query);
@@ -130,7 +162,7 @@ Author: Irene Wiliudarsan (13513002) -->
             at
             <?php echo $question["datetime"] ?>
             |
-            <a class="yellow" href="">
+            <a class="yellow" href="ask-question.php?id_question=<?php echo $id_question ?>">
               edit
             </a>
             |
