@@ -19,6 +19,11 @@
 			
 			include "dbmgr.php";
 			$row=getQuestion($qid);
+			if ($row==NULL){
+				echo "QUESTION NOT FOUND";
+				http_response_code(404);
+				exit();
+			}
 		?>
 
 		<h1>Simple StackExchange</h1>
