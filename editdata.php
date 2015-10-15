@@ -11,10 +11,10 @@
 		die("Connection failed: " . $conn->connect_error);
 	} 
 	
-	$Name = $_POST["Name"];
-	$Email = $_POST["Email"];
-	$Topik = $_POST["Topik"];
-	$Content = $_POST["Content"];
+	$Name = mysqli_real_escape_string($conn,$_POST["Name"]);
+	$Email = mysqli_real_escape_string($conn,$_POST["Email"]);
+	$Topik = mysqli_real_escape_string($conn,$_POST["Topik"]);
+	$Content = mysqli_real_escape_string($conn,$_POST["Content"]);
 	$qid = $_GET["id"];
 	
 	$sql = "UPDATE question SET Name='$Name',Email='$Email',Topik='$Topik',Content='$Content' WHERE QID=$qid";

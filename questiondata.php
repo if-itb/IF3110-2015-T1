@@ -10,11 +10,11 @@
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	} 
-	
-	$Name = $_POST["Name"];
-	$Email = $_POST["Email"];
-	$Topik = $_POST["Topik"];
-	$Content = $_POST["Content"];
+
+	$Name = mysqli_real_escape_string($conn,$_POST["Name"]);
+	$Email = mysqli_real_escape_string($conn,$_POST["Email"]);
+	$Topik = mysqli_real_escape_string($conn,$_POST["Topik"]);
+	$Content = mysqli_real_escape_string($conn,$_POST["Content"]);
 	
 	$sql = "insert into question(`Name`,`Email`,`Topik`,`Content`,`Date`) values ('$Name','$Email','$Topik','$Content',now())";
 	
