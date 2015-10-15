@@ -17,8 +17,10 @@
 			</h1>
 		</div>
 		
-		<input class="form-textbox2" type="text" name="search">
-		<input class="form-submit" type="submit" name="submit" value="Search">
+		<form action="Page1.php" method="GET">
+			<input class="form-textbox2" type="text" name="search">
+			<input class="form-submit" type="submit" name="submit" value="Search">
+		</form>
 		
 		<p class="font20">
 			Cannot find what you are looking for ?
@@ -28,6 +30,7 @@
 		<h2 class="font20 text-left">
 			Recently Asked Question <br>
 		</h2>
+		
 		
 		<?php	
 
@@ -39,10 +42,24 @@
 			// create connection
 			$dbConn = new mysqli(dbHost, dbUser, dbPass, dbName);
 			
-			// execute querry
-			$query = "SELECT * FROM question ORDER BY QuestionID DESC";
+			if ((isset($_GET['search'])) && (!is_null($_GET['search'])))
+			{
+				$query = "SELECT * FROM question
+									WHERE
+									(
+										Topic LIKE '%$_GET[search]%'
+										OR Question LIKE '%$_GET[search]%'
+									)";
+			}
+			else
+			{
+				$query = "SELECT * FROM question ORDER BY QuestionID DESC";
+				
+			}
+			
+			// execute query
 			$result = mysqli_query($dbConn,$query);
-						
+			
 			if ($result->num_rows > 0)
 			{
 				while ($fetched = $result->fetch_assoc())
