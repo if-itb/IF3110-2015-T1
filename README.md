@@ -89,7 +89,12 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+**Validasi** dilakukan dengan menambahkan properti onclick pada input submit, memanggil fungsi pada formValidate.js
+
+**AJAX**:
+- Method: HTTP POST,
+- alur: HTML Link memanggil fungsi javascript -> request vote -> proses dengan php -> return jumlah vote terbaru -> javascript memperbarui laman,
+- format data respon: plain text (karena hanya satu variabel)
 
 ### Knowledge
 
