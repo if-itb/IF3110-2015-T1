@@ -47,7 +47,7 @@
 				<div class="thread">
 				  <div class="row">
 				    <div class="span-1">
-				      <h4 class="text-center">(Jumlah Votes)</h4>
+				      <h4 class="text-center">'.$row["Vote"].'</h4>
 					  <h4 class="text-center">Votes</h4>
 				    </div>
 				  <div class="span-1">';
