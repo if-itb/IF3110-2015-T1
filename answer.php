@@ -21,18 +21,23 @@
 	        alert("Konten belum terisi");
 	        return false;
     	}
-    	var x = b.split("");
-    	var benar = false;
-    	for (i=1;i<b.length;i++){
-    		if (x[i] == "@"){
-    			benar = true;
-    		}
-    	}
-    	if (benar == false) {
+    	var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    	if (re.test(b) == false){
     		alert("Format Email Salah");
     		return false;
     	}
 	}
+
+	function editVote(vote, poin, id) {
+  		var xmlhttp = new XMLHttpRequest();
+  		var str = "<?php echo 'A' ?>";
+
+  		xmlhttp.open("GET", "vote.php?vote="+vote+"&poin="+poin+"&id="+id, true);
+		document.getElementById("demo").innerHTML = str;
+  		xmlhttp.send();
+  		return true;
+	}
+
 	</script>
 </head>
 <body>
@@ -47,6 +52,7 @@
 		$password = "";
 		$dbname = "wbd";
 		$id = $_GET["ID"];
+		
 
 		// Create connection
 		$conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -59,20 +65,22 @@
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_assoc($result);
 
-		$sql2 = "SELECT Nama, EMail, Konten, Vote, Tanggal FROM jawaban WHERE Pertanyaan_ID = '$id'";
+		$sql2 = "SELECT ID, Nama, Email, Konten, Vote, Tanggal FROM jawaban WHERE Pertanyaan_ID = '$id'";
 		$result2 = mysqli_query($conn, $sql2);
+
+		$vote = $row["Vote"];
 	?>
 
 	<div class="question">
 		<div class="question-vote">
 			<div class="question-vote-up">
-				<p>&#9650;</p>
+				<p><a href="#" onclick="editVote('pertanyaan','1','<?php echo $id ?>')">&#9650;</a></p>
 			</div>
 			<div class="question-vote-number">
-				<p><?php echo $row["Vote"] ?></p>
+				<p id="demo"><?php echo $vote ?></p>
 			</div>
 			<div class="-question-vote-down">
-				<p>&#9660;</p>
+				<p><a href="#" onclick="editVote('pertanyaan','-1','<?php echo $id ?>')">&#9660;</a></p>
 			</div>
 		</div>
 		<div class="question-content">
@@ -90,28 +98,29 @@
 
 
 	<?php
-		if (mysqli_num_rows($result) > 0) {
-			while($row2 = mysqli_fetch_assoc($result2)){
+		if (mysqli_num_rows($result2) > 0) {
+			while($row = mysqli_fetch_assoc($result2)){
+				$aid = $row["ID"];
 			?>
 			<div class="answer">
 				<hr>
 				<div class="answer-vote">
 					<div class="answer-vote-up">
-						<p>&#9650;</p>
+						<p><a href="#" onclick="editVote('jawaban','1','<?php echo $aid ?>')">&#9650;</a></p>
 					</div>
 					<div class="answer-vote-number">
-						<p><?php echo $row2["Vote"] ?></p>
+						<p><?php echo $row["Vote"] ?></p>
 					</div>
 					<div class="answer-vote-down">
-						<p>&#9660;</p>
+						<p><a href="#" onclick="editVote('jawaban','-1','<?php echo $aid ?>')">&#9660;</a></p>
 					</div>
 				</div>
 				<div class="answer-content">
-					<?php echo $row2["Konten"];?>
+					<?php echo $row["Konten"];?>
 				</div>
 				<br>
 				<div class="answer-identity">
-					<p> answered by <?php echo $row2["Nama"] ?> at <?php echo $row2["Tanggal"] ?></p>
+					<p> answered by <?php echo $row["Nama"] ?> at <?php echo $row["Tanggal"] ?></p>
 				</div>
 			</div>
 			<?php
@@ -135,12 +144,6 @@
 	</div>
 	
 	<?php mysqli_close($conn); ?>
-
-	<script>
-		function konfirmasi() {
-    		confirm("Apakah anda ingin menghapusnya ?");
-    	}
-	</script>
 
 </body>
 </html>

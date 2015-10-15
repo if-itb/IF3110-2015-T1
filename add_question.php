@@ -10,7 +10,7 @@
 		$username = "root";
 		$password = "";
 		$dbname = "wbd";
-		$name = $_POST["nama"];
+		$name = $_GET["nama"];
 		$email = $_POST["email"];
 		$topic = $_POST["topik"];
 		$content = $_POST["konten"];

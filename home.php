@@ -63,12 +63,5 @@
 		}
 		mysqli_close($conn);
 	?>
-
-	<script>
-		function konfirmasi() {
-    		confirm("Apakah anda ingin menghapusnya ?");
-    	}
-	</script>
-
 </body>
 </html>

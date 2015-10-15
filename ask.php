@@ -26,14 +26,8 @@
 	        alert("Konten belum terisi");
 	        return false;
     	}
-    	var x = b.split("");
-    	var benar = false;
-    	for (i=1;i<b.length;i++){
-    		if (x[i] == "@"){
-    			benar = true;
-    		}
-    	}
-    	if (benar == false) {
+    	var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    	if (re.test(b) == false){
     		alert("Format Email Salah");
     		return false;
     	}

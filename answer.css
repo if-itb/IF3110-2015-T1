@@ -16,6 +16,11 @@ h2{
 	height:140px;
 }
 
+.question a{
+	text-decoration: none;
+	color : black;
+}
+
 .question-vote{
 	float:left;
 	margin-left: 1%;
@@ -43,6 +48,11 @@ h2{
 
 .answer{
 	height: 150px;
+}
+
+.answer a{
+	text-decoration: none;
+	color : black;
 }
 
 .answer-vote{
