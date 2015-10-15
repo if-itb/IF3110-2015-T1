@@ -181,7 +181,7 @@ $datetimequestion = $row["datetime"];
    <table width="700" border="0px">
        <tr>
            <td width="10">
-               <img src="arrowup.png" alt="upvote" style="width:25px;height:25px;" align="center">
+               <img src="arrowup.png" alt="upvote" style="width:25px;height:25px;" align="center" onclick="Upvoteanswer('.$answer_id[$count].')">
            </td>
            <td rowspan="3">
            '.$content[$count].'
@@ -190,15 +190,15 @@ $datetimequestion = $row["datetime"];
 
        <tr>
            <td>
-               <center>
+               <center><div id="voteanswer'.$answer_id[$count].'">
                    '.$vote[$count].'
-               </center>
+               </center></div>
            </td>
        </tr>
 
        <tr>
            <td>
-               <img src="arrowdown.png" alt="upvote" style="width:25px;height:25px;">
+               <img src="arrowdown.png" alt="upvote" style="width:25px;height:25px;" onclick="Downvoteanswer('.$answer_id[$count].')">
            </td>
        </tr>
 
@@ -218,6 +218,32 @@ $datetimequestion = $row["datetime"];
     }
 
     ?>
+
+    <script>
+        function Upvoteanswer(int) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    document.getElementById("voteanswer"+int).innerHTML = xhttp.responseText;
+                }
+            }
+            xhttp.open("GET", "upvoteanswer.php?answerID="+int, true);
+            xhttp.send();
+        }
+    </script>
+
+    <script>
+        function Downvoteanswer(int) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    document.getElementById("voteanswer"+int).innerHTML = xhttp.responseText;
+                }
+            }
+            xhttp.open("GET", "downvoteanswer.php?answerID="+int, true);
+            xhttp.send();
+        }
+    </script>
 
 
 
