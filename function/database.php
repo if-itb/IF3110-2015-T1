@@ -64,7 +64,6 @@
 	    		<span class=\"vote\"><img src=\"icon/arrow_up.png\" onclick = Update_Vote(1,1,".$q_id.") style=\"width: 80%; height: auto; margin-bottom: 5px;\"></img><div id=\"vote_question".$q_id."\">".$row["vote"]."</div><img src=\"icon/arrow_down.png\" onclick = Update_Vote(0,1,".$q_id.") style=\"width: 80%; height: auto; margin-top: 5px;\"></img></span>
 	    		<span id=\"question\">";
 	    		$content = $row["content"];
-	    		if(strlen($content)>330) $content=substr($content, 0, 327)."...";
 	    		echo "
 	    			<p id=\"question-content\">$content</p>
 	    		</span>
@@ -89,7 +88,6 @@
 	    		<span id=\"question\">";
 	    		if(isset($row["topic"])) echo "<p id=\"question-title\"><a href='question.php?q_id=$q_id'>".$row["topic"]."</a></p>";
 	    		$content = $row["content"];
-	    		if(strlen($content)>330) $content=substr($content, 0, 327)."...";
 	    		echo "
 	    			<p id=\"question-content\">$content</p>
 	    		</span>
