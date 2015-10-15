@@ -33,7 +33,7 @@ class Question extends Controller {
                 "name"     => $_POST['name'],
                 "email"    => $_POST['email'],
                 "topic"    => $_POST['topic'],
-                "content"  => $_POST['content']
+                "content"  => htmlspecialchars($_POST['content'])
             );
 
             $questionsModel = $this->model('Questions');
@@ -60,7 +60,7 @@ class Question extends Controller {
                 "name"          => $_POST['name'],
                 "email"         => $_POST['email'],
                 "topic"         => $_POST['topic'],
-                "content"       => $_POST['content']
+                "content"       => htmlspecialchars($_POST['content'])
             );
 
             $questionsModel = $this->model('Questions');

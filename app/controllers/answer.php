@@ -18,7 +18,7 @@ class Answer extends Controller {
                 "id_question"   => $_POST['id_question'],
                 "name"          => $_POST['name'],
                 "email"         => $_POST['email'],
-                "content"       => $_POST['content']
+                "content"       => htmlspecialchars($_POST['content'])
             );
 
             $answersModel = $this->model('Answers');
@@ -43,7 +43,7 @@ class Answer extends Controller {
                 "id_question"   => $_POST['id_question'],
                 "name"          => $_POST['name'],
                 "email"         => $_POST['email'],
-                "content"       => $_POST['content']
+                "content"       => htmlspecialchars($_POST['content'])
             );
 
             $answersModel = $this->model('Answers');
