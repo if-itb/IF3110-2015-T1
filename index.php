@@ -17,11 +17,11 @@
 <body>
     <h1>stackEXchange</h1>
     
-    <form id="searchbar" action="search.php" method="get">
-        <input type="search" name="key">
-        <input type="submit" name="submit" value="search">
+    <form action="search.php" method="get">
+        <input type="search" name="key" class="searchform">
+        <input type="submit" name="submit" value="search" class="submitbutton">
     </form>
-    <p>Cannot find what you are looking for? <a href="ask.php">Ask here</a></p>
+    <p id="keterangan">Cannot find what you are looking for? <a href="ask.php" class="yellowlink">Ask here</a></p>
     
     <h2>recently asked questions</h2>
     <?php 
@@ -37,10 +37,10 @@
         $curdate = date("Y-m-d H:i:s");
 
     if ($id == "NULL"){ // Buat post baru
-        $sql="INSERT INTO qlist (name, email, topic, content, datetime)  VALUES ('$name', '$email', '$topic', '$content', '$curdate')";
+        $sql="INSERT INTO q_list (name, email, topic, content, datetime)  VALUES ('$name', '$email', '$topic', '$content', '$curdate')";
     }
     else { // edit post yang ada
-        $sql="UPDATE qlist SET name='$name', email='$email', topic='$topic', content='$content', datetime='$curdate' WHERE id='$id'";
+        $sql="UPDATE q_list SET name='$name', email='$email', topic='$topic', content='$content', datetime='$curdate' WHERE qid='$id'";
     }
     $result=mysqli_query($link,$sql);
     }
@@ -52,7 +52,7 @@
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
     // Query untuk mengambil data dari MySQL 
-    $sql="SELECT content, email, topic, id, voteup, votedown, anscount FROM qlist ORDER BY datetime DESC";
+    $sql="SELECT content, email, topic, qid, voteup, votedown, anscount FROM q_list ORDER BY datetime DESC";
 
     // Hasil dari query yang sudah diambil
     $result=mysqli_query($link,$sql);
@@ -74,15 +74,16 @@
         </div>
         
         <div class="iquestion">
-            <div class="questiontopic"><a href="answers.php?id=<?php echo $row["id"];?>"><?php echo $row["topic"]; ?></a></div>
-            <div class="questioncontent"><p><?php echo $row["content"]; ?></p></div>
+            <div class="questiontopic"><a href="answers.php?id=<?php echo $row["qid"];?>"><?php echo $row["topic"]; ?></a></div>
+            <?php $contentcut=substr(strip_tags($row['content']),0,300)?>
+            <div class="questioncontent"><p>"  <?php echo $contentcut; ?>  "</p></div>
         </div>
         
-        <div class="questionfooter">Asked by: <?php echo $row["email"]; ?> | <form action="edit.php" method="post">            
-                <input type="hidden" name="idnya" value="<?php echo $row["id"] ?>">
+        <div class="questionfooter">asked by: <span class="namanya"><?php echo $row["email"]; ?></span> | <form action="edit.php" method="post" class="editnya">            
+                <input type="hidden" name="idnya" value="<?php echo $row["qid"] ?>">
                 <div class="buttonlink"><button type="submit">edit</button></div>
             </form>
-            |  <a href="delete.php?qid=<?php echo $row["id"];?>" onclick="hapusquestion()">delete</a>
+            |  <a href="delete.php?qid=<?php echo $row["qid"];?>" onclick="hapusquestion()" class="deletenya">delete</a>
         </div>
 
     </div>

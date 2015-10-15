@@ -30,3 +30,15 @@ function seredirect() {
         window.location.href = "index.php"
         
 }
+
+function validateEmail() {
+    var status = false;
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+     if (re.test(document.getElementById("emailask"))  == false) {
+        alert("Please enter a valid email address.");
+     }
+     else {
+        status = true;
+     }
+     return status;
+}
