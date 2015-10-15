@@ -22,48 +22,43 @@
 				} else {
 					$keyword = $_GET["s"];
 				
-				$result = search($keyword);
+					$result = search($keyword);
+					$result->bind_result($id, $name, $email, $topic, $content, $answers, $votes, $create_date, $update_date);
+					while ($result->fetch()) {
+						?>
+						<div class="question-item" id="question-<?php echo $id;?>">
+						<table>
+							<tr>
+								<td>
+								<?php echo $votes;?></br>
+								Votes
+								</td>
+								<td>
+								<?php echo countAnswers($id);?></br>
+								Answers
+								</td>
+								</td>
+								<td>
+								<?php echo "<a class=\"question-item-topic\" href=\"view.php?q=".$id."\"?><strong>".$topic."</strong></a></br>".$content;?>
+								<div class="question-item-tag">
+									<?php echo "Asked by <span class='question-item-name'>" . $name."</span>";
+										echo " | ";
+										echo "<a href='edit.php?q=" .$id. "'>edit</a>";
+										echo " | ";
+										echo "<a class=''><span onclick='delQuestion(".$id.")' class='question-item-delete'>delete</span></a>";
+									?>
+								</div>
+								</td>
+							</tr>
+						</table>
+						<hr>
+						</div>
+						<?php
+					}
 				?>
 				<div class="question-list">
 				<?php
-					if ($result->num_rows > 0){
-						while($row = $result->fetch_assoc()) {
-						$id = $row["id"];
-						?>
-							<div class="question-item" id="question-<?php echo $id;?>">
-							<table>
-								<tr>
-									<td>
-									<?php echo $row["votes"];?></br>
-									Votes
-									</td>
-									<td>
-									<?php echo $row["answers"];?></br>
-									Answers
-									</td>
-									</td>
-									<td>
-									<?php echo "<a class=\"question-item-topic\" href=\"view.php?q=".$row["id"]."\"?><strong>".$row["topic"]."</strong></a></br>".$row["content"];?>
-									<div class="question-item-tag">
-										<?php echo "Asked by <span class='question-item-name'>" . $row["name"]."</span>";
-											echo " | ";
-											echo "<a href='edit.php?q=" .$id. "'>edit</a>";
-											echo " | ";
-											echo "<a class=''><span onclick='delQuestion(".$id.")' class='question-item-delete'>delete</span></a>";
-										?>
-									</div>
-									</td>
-								</tr>
-							</table>
-							<hr>
-							<?php
-							?>
-							</div>
-						<?php
-						}
-					} else {
-						echo "No results";
-					}
+					
 				}
 				?>	
 				</div>
