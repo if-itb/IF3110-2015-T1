@@ -93,7 +93,7 @@ function confirmDelete(id) {
 			</div>
 			<div id="div5">
 				<p>
-					asked by <span id="idx_name"> <?php echo $question['Name'] ?> at <?php echo $question['Date'] ?> </span> | <span id="idx_edit"> <a id="a2" href="ask.php?q_id=<?php echo $question['Q_ID'] ?>"> edit </a> </span> | <span id="idx_edit"> <a id="a2" href="ask.php?q_id=<?php echo $question['Q_ID'] ?>"> edit </a> </span> | <span id="idx_delete"><a id="a4" href="javascript:confirmDelete(<?php echo $question['Q_ID'] ?> )" target="_parent" class="creator_delete"> delete </a> </span>
+					asked by <span id="idx_name"> <?php echo $question['Name'] ?> at <?php echo $question['Date'] ?> </span> | <span id="idx_edit"> <a id="a2" href="ask.php?q_id=<?php echo $question['Q_ID'] ?>"> edit </a> </span> | <span id="idx_delete"><a id="a4" href="javascript:confirmDelete(<?php echo $question['Q_ID'] ?> )" target="_parent" class="creator_delete"> delete </a> </span>
 				</p>
 			</div>
 			
