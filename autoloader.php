@@ -6,6 +6,6 @@ spl_autoload_register(function ($class) {
     $file = dirname(__FILE__) . DIRECTORY_SEPARATOR . $file . ".php";
 
     if (file_exists($file)) {
-        require($file);
+        require_once($file);
     }
 });

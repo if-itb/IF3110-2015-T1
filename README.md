@@ -89,7 +89,16 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+#### Tugas 1 IF3110 Pengembangan Aplikasi Berbasis Web Vincent Sebastian The / 13513057
+
+#### Validasi Client Side
+Validasi pada client side menggunakan fungsi javascript. Pertama-tama untuk setiap field input, dapatkan elemen DOM dari field-field tersebut (misal document.getElementById("emailInput") ), lalu cek apakah element.value.trim() merupakan string kosong atau tidak. Validasi email dilakukan dengan cara mendapatkan value dari input field (dilakukan sama dengan cara di atas), lalu melihat properti-properti email yang harus dimiliki pada string value (seperti karakter '@', karakter'.' setelah karakter '@', dll).
+
+#### AJAX
+Ajax dilakukan dengan cara menggunakan fungsi xmlHttpRequest pada javascript. Ketika user menekan tombol up / down, maka javascript akan mengirim AJAX request ke server. Bila server sudah mengirimkan response OK, maka angka baru akan berubah.
+
+#### Routing
+Pada tugas ini, routing dilakukan dengan membuat virtual host yang diarahkan pada folder /route. File-file pada folder tersebut bertugas untuk mengadakan routing, setiap file akan mem-bootstrap aplikasi (dengan me-require file bootstrap.php) dan akan memanggil controller yang sesuai.
 
 ### Knowledge
 
