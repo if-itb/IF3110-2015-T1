@@ -13,17 +13,12 @@
     	die("Connection failed: " . mysqli_connect_error());
 	}
 
+	$QID = $_GET["id"];
 	$Name = htmlspecialchars($_POST["name"]);
 	$Email = htmlspecialchars($_POST["email"]);
-	$Topic = htmlspecialchars($_POST["topic"]);
 	$Content = htmlspecialchars($_POST["content"]);
 
-	if ($_GET['id'] != 0) {
-		$sql = "UPDATE question SET Name = '$Name', Email = '$Email', Topic = '$Topic', Content = '$Content', Date = CURRENT_TIME WHERE ID = '$_GET[id]' ";
-	}
-	else {
-		$sql = "INSERT INTO question (`Name`, `Email`, `Topic`, `Content`) VALUES ('$Name','$Email', '$Topic','$Content')";
-	}
+	$sql = "INSERT INTO answer (`Que_ID`, `Name`, `Email`, `Answer`) VALUES ('$QID','$Name', '$Email','$Content')";
 
 	if (mysqli_query($conn, $sql)) {
 	    //echo "New record created successfully";
@@ -33,5 +28,5 @@
 
 	mysqli_close($conn);
 
-	header("Location: index.php");
+	header("Location: answer.php?id=".trim($QID));
 ?>

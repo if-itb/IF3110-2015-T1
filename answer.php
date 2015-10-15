@@ -79,7 +79,7 @@
 
 	<h3 id="your-answer">Your Answer</h3>
 	<div class="answer-form">
-		<form>
+		<form action="add_answer.php?id=<?php echo htmlspecialchars($_GET["id"]) ?>" method="post">
 			<div><input type="text" id="name" name="name" placeholder="Name"></div>
 			<div><input type="text" id="email" name="email" placeholder="Email"></div>
 			<div><textarea id="content" name="content" placeholder="Content" rows="5" cols="40"></textarea></div>

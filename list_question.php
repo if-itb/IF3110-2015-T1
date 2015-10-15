@@ -22,8 +22,13 @@
 					"<div id='vote-count'>$row[Vote]</div>".
 					"<div> Vote </div>".
 				 "</div>";
+
+			$sql_answercount = "SELECT count(*) AS SUM FROM answer WHERE Que_ID = '$row[ID]' ";
+			$answercount = mysqli_query($conn, $sql_answercount);
+			$row_answercount = mysqli_fetch_array($answercount);
+
 			echo "<div class='answer'>".
-					"<div id='answer-count'>0</div>".
+					"<div id='answer-count'>".$row_answercount["SUM"]."</div>".
 					"<div> Answer </div>".
 				 "</div>";
 			echo "<div class='question'>".
@@ -32,8 +37,8 @@
 				 "</div>";	
 			echo '<div class="question-info">'.
 			 		"asked by <span id='qname'>$row[Name]</span> | ".
-			 		"<a href='#' id='edit'> edit </a> | ".
-			 		"<a href='#' onclick=\"return confirm('Are you sure you want to delete this question?')\" id='delete'>delete</a>".
+			 		"<a href='question.php?id=$row[ID]' id='edit'> edit </a> | ".
+			 		"<a href='delete.php?id=$row[ID]' onclick=\"return confirm('Are you sure you want to delete this question?')\" id='delete'>delete</a>".
 			 	 "</div>";
 		echo "</div>";
 		echo "<div id='qline'><hr></div>";
