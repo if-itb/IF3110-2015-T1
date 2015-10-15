@@ -89,7 +89,14 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+### Validasi
+
+Untuk melakukan validasi, dilakukan pengecekan pada form jawaban dan form pertanyaan dimana setiap kolom isian pada form tidak diperbolehkan berisi nilai "NULL" atau kosong (""). Pengecekan pada form jawaban diatur oleh fungsi validateAnswerForm sedangkan pengecekan pada form pertanyaan diatur oleh fungsi validateAskForm.
+Validasi email dilakukan dengan test menggunakan sebuah variabel RegEx.
+
+### Vote dengan AJAX
+
+Saat user meng-klik tombol up/down untuk vote, akan dibuat sebuah objek xhttp bertipe XMLHttpRequest. Kemudian objek xhttp akan mengirim dengan metode POST ke vote.php ID dari pertanyaan atau jawaban yang di vote, tipe aksi yang dilakukan (vote up atau vote down), dan juga tipe elemen yang di vote (pertanyaan atau jawaban). Kemudian vote.php akan memproses data yang dikirim dari objek xhttp dengan meng-update tabel database yang sesuai, lalu elemen angka jumlah vote pada halaman web akan di-update dengan angka jumlah vote yang baru.
 
 ### Knowledge
 
