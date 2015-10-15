@@ -11,7 +11,7 @@
       return $query->fetchAll();
     }
     public function get($q_id, $id) {
-      $query = $this->database->prepare("SELECT * FROM answer WHERE question_id=$q_id, id=$id");
+      $query = $this->database->prepare("SELECT * FROM answer WHERE question_id=$q_id AND id=$id");
       $query->execute();
       $result = $query->setFetchMode(PDO::FETCH_ASSOC);
       return $query->fetchAll();
@@ -21,6 +21,20 @@
     }
     public function remove($id) {
       $this->database->exec("DELETE FROM answer WHERE question_id=$id");
+    }
+    public function vote($q_id, $id, $dvote) {
+      $query = $this->database->prepare("SELECT * FROM answer WHERE question_id=$q_id AND id=$id");
+      $query->execute();
+      $result = $query->setFetchMode(PDO::FETCH_ASSOC);
+      $result = $query->fetchAll();
+      if(count($result) > 0) {
+        $vote = $result[0]["vote"];
+        $vote += $dvote;
+        $this->database->exec("UPDATE answer SET vote=$vote WHERE question_id=$q_id AND id=$id");
+        return $vote;
+      }
+      else
+        return 0;
     }
   }
 ?>

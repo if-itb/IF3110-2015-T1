@@ -1,5 +1,4 @@
 <?php
-  echo "controller/submit_question.php<br>";
   require_once("model/question.php");
   $q_model = new Question();
   $id = $_POST["id"];
@@ -13,6 +12,6 @@
     else
       $q_model->add($name, $email, $topic, $content);
   }
-  header("Location : /");
+  header("Location: /");
   die();
 ?>

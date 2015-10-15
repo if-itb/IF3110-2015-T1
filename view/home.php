@@ -1,4 +1,3 @@
-<?php echo "view/home.php<br>"; ?>
 <!DOCTYPE html>
 <html> 
   <head>

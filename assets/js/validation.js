@@ -9,14 +9,13 @@ function validateForm() {
   for(var i = 0; i<len; i++) {
     var elm = form[i];
     var str = elm.value.trim();
+    elm.value = str;
+    elm.focus();
     if(str.length == 0) {
       var name = elm.name;
       alert(name.toUpperCase()+" must be filled out");
-      elm.value = "";
-      elm.focus();
       return false;
     }
-    elm.value = str;
     if(elm.name=="email") {
       if(!validateEmail(elm.value)) {
         alert("EMAIL doesn't valid");

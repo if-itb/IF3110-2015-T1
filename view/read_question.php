@@ -1,6 +1,3 @@
-<?php
-  echo "view/read_question.php<br>";
-?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -15,11 +12,11 @@
     <div class="item">
       <div class="counter">
         <div class="arrow"> 
-          <img src="assets/img/up.png" alt="Vote up" class="arrow">
+          <img src="assets/img/up.png" alt="Vote up" class="arrow" onclick="javascript:changeQuestionVote(<?=$question["id"]?>,1)">
         </div>
-        <p class="vote"><?=$question["vote"]?></p>
+        <p id = "vote" class="vote"><?=$question["vote"]?></p>
         <div class="arrow"> 
-          <img src="assets/img/down.png" alt="Vote down" class="arrow">
+          <img src="assets/img/down.png" alt="Vote down" class="arrow" onclick="changeQuestionVote(<?=$question["id"]?>,-1)">
         </div>
       </div>
         <p class="desc"><?=$question["content"]?></p>
@@ -40,11 +37,11 @@
       <div class="item">
         <div class="counter">
           <div class="arrow"> 
-            <img src="assets/img/up.png" alt="Vote up" class="arrow">
+            <img src="assets/img/up.png" alt="Vote up" class="arrow" onclick="changeAnswerVote(<?=$question["id"]?>,<?=$answer["id"]?>,1)">
           </div>
-          <p class="vote"><?= $answer["vote"] ?></p>
+          <p id="vote-<?=$answer["id"]?>"class="vote"><?= $answer["vote"] ?></p>
           <div class="arrow"> 
-            <img src="assets/img/down.png" alt="Vote down" class="arrow">
+            <img src="assets/img/down.png" alt="Vote down" class="arrow"onclick="changeAnswerVote(<?=$question["id"]?>,<?=$answer["id"]?>,-1)">
           </div>
         </div>
           <p class="desc">
@@ -71,5 +68,6 @@
       </table>
     </form>
     <script type="text/javascript" src="assets/js/validation.js"></script>
+    <script type="text/javascript" src="assets/js/vote.js"></script>
   </body>
 </html>

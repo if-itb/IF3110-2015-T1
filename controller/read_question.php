@@ -1,5 +1,4 @@
 <?php
-  echo "controller/read_question.php<br>";
   require_once("model/question.php");
   require_once("model/answer.php");
   $q_model = new Question();

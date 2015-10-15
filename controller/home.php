@@ -1,5 +1,4 @@
 <?php
-  echo "controller/home.php<br>";
   require_once("model/question.php");
   $q_model = new Question();
   $questions = $q_model->getAll();

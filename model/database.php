@@ -1,5 +1,9 @@
-<?php
-  echo "model/database.php<br>";
+<?php 
+  define("HOST_DB", "localhost");
+  define("USERNAME_DB", "root");
+  define("PASSWORD_DB", "");
+  define("NAME_DB", "stack_exchange");
+
   class Database {
     private static $instance = NULL;
     private function __construct() {}
@@ -13,7 +17,6 @@
         catch (PDOException $e) {
           echo "Connection failed : ".$e->getMessage()."<br>";
         }
-        echo "Connection succes<br>";
       }
       return self::$instance;
     }

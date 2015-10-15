@@ -1,4 +1,3 @@
-<?php echo "view/error.php<br>"; ?>
 <!DOCTYPE html>
 <html> 
   <head>

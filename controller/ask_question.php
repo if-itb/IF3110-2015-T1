@@ -1,5 +1,4 @@
 <?php
-  echo "controller/ask_question.php<br>";
   $question["id"] = -1;
   $question["name"] = "";
   $question["email"] = "";

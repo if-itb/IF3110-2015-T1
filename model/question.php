@@ -38,5 +38,19 @@
       $this->database->exec("DELETE FROM answer WHERE question_id=$id");
       $this->database->exec("DELETE FROM question WHERE id=$id");
     }
+    public function vote($id, $dvote) {
+      $query = $this->database->prepare("SELECT * FROM question WHERE id=$id");
+      $query->execute();
+      $result = $query->setFetchMode(PDO::FETCH_ASSOC);
+      $result = $query->fetchAll();
+      if(count($result) > 0) {
+        $vote = $result[0]["vote"];
+        $vote += $dvote;
+        $this->database->exec("UPDATE question SET vote=$vote WHERE id=$id");
+        return $vote;
+      }
+      else
+        return 0;
+    }
   }
 ?>

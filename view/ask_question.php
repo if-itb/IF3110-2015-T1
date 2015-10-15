@@ -1,6 +1,3 @@
-<?php
-  echo "view/ask_question.php<br>";
-?>
 <!DOCTYPE html>
 <html>
   <head>

@@ -1,5 +1,4 @@
 <?php
-  echo "router.php<br>";
   function go($action) {
     switch ($action) {
       case "default":
@@ -20,6 +19,13 @@
         break;
       case "answer":
         require_once("controller/answer_question.php");
+        break;
+      case "vote_question":
+        require_once("controller/vote_question.php");
+        break;
+      case "vote_answer":
+        require_once("controller/vote_answer.php");
+        break;
       default :
         require_once("view/error.php");
     }
