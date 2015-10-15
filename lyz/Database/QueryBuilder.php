@@ -13,14 +13,33 @@ class QueryBuilder {
 	}
 
 	public function where($column, $operator, $value) {
-		if (!isset($query['where'])) {
+		if (!isset($this->query['where'])) {
 			$this->query['where'] = ' where (';
 		}
 		else {
-			$this->query['where'] .= ' and ';
+			$this->query['where'] .= ' and (';
+		}
+
+		if (is_string($value)) {
+			$value = '\'' . $value . '\'';
 		}
 		$this->query['where'] .= $column . ' ' . $operator . ' ' . $value . ')';
 		return $this;
+	}
+
+	public function whereOr($column, $operator, $value) {
+		if (!isset($this->query['where'])) {
+			$this->query['where'] = ' where (';
+		}
+		else {
+			$this->query['where'] .= ' or (';
+		}
+		if (is_string($value)) {
+			$value = '\'' . $value . '\'';
+		}
+		$this->query['where'] .= $column . ' ' . $operator . ' ' . $value . ')';
+		return $this;
+
 	}
 
 	public function destroy() {

@@ -111,6 +111,55 @@ class QuestionController {
 		return Route::redirect();
 	}
 
+	public function getSearch() {
+		$input = Request::params(['params']);
+		$questions = Question::where('topic','LIKE','%'.$input['params'].'%')
+				->whereOr('content','LIKE','%'.$input['params'].'%')->get();
+
+		$search_content = new View('questions/search');
+		$content = null;
+		
+		$answers = Answer::all();
+		$ans_count = [];
+		if (!empty($answers)) {
+			foreach ($answers as $answer) {
+				$question_id = $answer->question_id;
+				if (isset($ans_count[$question_id])) {
+					$ans_count[$question_id]++;
+				}
+				else {
+					$ans_count[$question_id] = 1;
+				}
+			}
+		}
+
+		if (!empty($questions)) {
+			$content = '';
+			foreach ($questions as $question) {
+				if (isset($ans_count[$question->id])) {
+					$question->answers = $ans_count[$question->id];
+				}
+				else {
+					$question->answers = 0;
+				}
+			}
+
+			$view = new View('questions/card');
+			$view = $view->params(['questions' => $questions]);
+			$content .= (string)$view;
+		}
+
+		$view = new View('layout');
+		$view = $view->params([
+			'title' => 'Asklyz',
+			'search' => (string)$search_content,
+			'content' => (string)$content,
+			'headline' => 'Search Results'
+		])->styles(['layout', 'search', 'card'])->scripts(['layout']);
+		return $view;
+
+	}
+
 	public function postVotes() {
 		$input = Request::params(['id', 'up']);
 		$question = Question::where('id','=',$input['id'])->first();

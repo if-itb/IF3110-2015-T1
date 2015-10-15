@@ -18,3 +18,4 @@ Route::get('/questions/delete', 'QuestionController@getDelete');
 Route::post('/questions/votes', 'QuestionController@postVotes');
 Route::post('/answers/votes', 'AnswerController@postVotes');
 
+Route::get('/questions/search', 'QuestionController@getSearch');
