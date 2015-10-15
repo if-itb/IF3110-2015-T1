@@ -89,8 +89,11 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+1. Melakukan validasi pada client-side
+Untuk melakukan validasi pada client-side, dilakukan pengecekan pada browser web sebelum data dikirim ke server. Validasi yang dilakukan menggunakan javascript yang mengecek apakah semua input box sudah terisi dengan benar. Jika validasi lolos maka data dari input box akan dikirimkan ke server untuk diproses dan disimpan dalam database. Sebaliknya apabila tidak lolos validasi maka akan keluar alert sesuai dengan kesalahan yang dilakukan dan input box yang belum valid diwarnai merah.
 
+2. Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah.
+Vote up dan vote down dapat dilakukan untuk sebuah pertanyaan maupun jawaban dari pertanyaan. Saat pengguna menekan tombol vote, akan dipanggil fungsi vote dari javascript dan membuat sebuah objek XMLHTTPRequest() yang akan memanfaatkan AJAX untuk mengubah data pada database. Kemudian agar jumlah vote berubah tanpa merefresh page, dilakukan penulisan ulang pada page.
 ### Knowledge
 
 Untuk meringankan beban tugas ini, ada berberapa keyword yang bisa anda cari untuk menyelesaikan tugas ini.
