@@ -22,7 +22,7 @@
 	$data = $question_id != '' ? getQuestion($question_id) : array();
 	$data['name'] = !isset($data['name']) ? '' : $data['name'];
 	$data['email'] = !isset($data['email']) ? '' : $data['email'];
-	$data['title'] = !isset($data['title']) ? '' : $data['title'];
+	$data['topic'] = !isset($data['topic']) ? '' : $data['topic'];
 	$data['content'] = !isset($data['content']) ? '' : $data['content'];
 ?>
 
@@ -33,7 +33,7 @@
 <form action="index.php" method="POST" class="block">
 	<input type="text" placeholder="Name" name="name" value="<?php echo $data['name'] ?>" />
 	<input type="text" placeholder="Email" name="email" value="<?php echo $data['email'] ?>" />
-	<input type="text" placeholder="Question Topic" name="title" value="<?php echo $data['title'] ?>" />
+	<input type="text" placeholder="Question Topic" name="topic" value="<?php echo $data['topic'] ?>" />
 	<textarea name="content" placeholder="Content"><?php echo $data['content'] ?></textarea>
 	<input type="submit" value="Post" />
 	<input type="hidden" name="type" value="ask" />

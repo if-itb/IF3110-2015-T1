@@ -33,14 +33,14 @@ function postQuestion($data) {
 	global $dbc;
 	$q = NULL;
 	if ($data['question_id'] == '') {
-		$q = "INSERT INTO question (name, email, title, content, create_date)
-			VALUES ('$data[name]', '$data[email]', '$data[title]', '$data[content]', CURRENT_TIMESTAMP)";
+		$q = "INSERT INTO question (name, email, topic, content, create_date)
+			VALUES ('$data[name]', '$data[email]', '$data[topic]', '$data[content]', CURRENT_TIMESTAMP)";
 	} else {
 		$q = "UPDATE question
 			SET
 				name='$data[name]',
 				email='$data[email]',
-				title='$data[title]',
+				topic='$data[topic]',
 				content='$data[content]'
 			WHERE
 				question_id = $data[question_id]";

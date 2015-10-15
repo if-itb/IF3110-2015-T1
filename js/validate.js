@@ -2,12 +2,14 @@
 (function(w) {
 	var validateRequiredField = function(field, errorMessage) {
 		if (field.value == null || field.value == "") {
-			field.style.border = "1px solid red";
+			field.style.border = "2px solid red";
 			var er = document.getElementById('error');
 			if (er !== null) {
 				er.parentNode.removeChild(er);
 			}
 			field.parentNode.innerHTML = '<div id="error">' + errorMessage + '</div>' + field.parentNode.innerHTML;
+			alert(errorMessage);
+			field.focus();
 			return false;
 		} else {
 			field.style.border = "";
@@ -33,10 +35,10 @@
 	}
 
 	var validateQuestionForm = function(theForm) {
-		if (!validateRequiredField(theForm.name, "Please insert name.") ||
+		if (!validateRequiredField(theForm.name, "Please insert your name.") ||
 			!validateEmailAddress(theForm.email, "Please insert appropriate email address.") ||
 			!validateRequiredField(theForm.title, "Please insert question topic.") ||
-			!validateRequiredField(theForm.content, "Please elaborate on question content.")) {
+			!validateRequiredField(theForm.content, "Please explain your question.")) {
 				return false;
 			}
 	}
@@ -45,7 +47,7 @@
 	var validateAnswerForm = function(theForm) {
 		if (!validateRequiredField(theForm.name, "Please insert name.") ||
 			!validateEmailAddress(theForm.email, "Please insert appropriate email address.") ||
-			!validateRequiredField(theForm.content, "Please elaborate on question content.")) {
+			!validateRequiredField(theForm.content, "Please elaborate your answer.")) {
 				return false;
 			}
 	}

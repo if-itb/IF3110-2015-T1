@@ -36,7 +36,7 @@
 
 <div id= "question_page">
 	<div class="section">
-		<h2 class="underlined"> <?php echo $question['title'] ?> </h2>
+		<h2 class="underlined"> <?php echo $question['topic'] ?> </h2>
 		<div class="question" id="question-<?php echo $question['question_id'] ?>">
 			<div class="row">
 				<div class= "vote col">
@@ -67,11 +67,11 @@
 				<div class="row">
 					<div class="col vote">
 						<a href="javascript:voteUp(<?php echo $answer['answer_id'] ?>, 'answer')" id="increase-vote">
-							<img src="img/up.png" width="32" height="32">
+							<img src="img/upvote.png" width="35" height="35">
 						</a>
 						<span id="answer-vote-count-<?php echo $answer['answer_id'] ?>"><?php echo $answer['vote'] ?></span>
 						<a href="javascript:voteDown(<?php echo $answer['answer_id'] ?>, 'answer')" id="decrease-vote">
-							<img src="img/down.png" width="32" height="32">
+							<img src="img/downvote.png" width="35" height="35">
 						</a>
 					</div>
 					<div class="col content">
