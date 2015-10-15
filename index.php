@@ -20,7 +20,7 @@
       </div>
       <div class="text-center">
         <p>
-          Cannot find what you are looking for? <a href="question.php">Ask Here</a>
+          Cannot find what you are looking for? <a href="question.php" class="golden">Ask Here</a>
         </p>
       </div>
 	  <h2>Recently Asked Question</h2>
@@ -60,7 +60,7 @@
 				  </div>
 				  <div class="span-8">
 					<p><b>
-					  <a href="answer.php?id='.$row["QID"].'" class="Topik">'.$row["Topik"].'</a>
+					  <a href="answer.php?id='.$row["QID"].'" class="topik">'.$row["Topik"].'</a>
 					</b></p>
 					<br>';
 					  echo substr($row["Content"], 0, 40);
@@ -70,7 +70,7 @@
 					echo'
 					</br>
 					<p class="text-right footer">
-					  Asked by '.$row["Email"].' | <a href="edit.php?id='. $row["QID"].'">Edit</a> | <a href="deletedata.php?id='. $row["QID"].'" onclick="return confirmDelete()">Delete</a>
+					  asked by <blue>'.$row["Email"].'</blue> | <a href="edit.php?id='. $row["QID"].'" class="edit">edit</a> | <a href="deletedata.php?id='. $row["QID"].'" class="delete"onclick="return confirmDelete()">delete</a>
 					</p>
 				  </div>
 				</div>

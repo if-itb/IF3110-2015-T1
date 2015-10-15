@@ -51,7 +51,7 @@
 						  '.$row["Content"].'
 						</div>
 						<p class="text-right footer">
-						  Asked by '.$row["Email"].' at <datetime> | <a href="edit.php?id='.$qid.'">Edit</a> | <a href="deletedata.php?id='. $qid.'" onclick="return confirmDelete()">Delete</a>
+						  asked by <blue>'.$row["Email"].'</blue> at <datetime> | <a href="edit.php?id='.$qid.'" class="edit">edit</a> | <a href="deletedata.php?id='. $qid.'" class="delete" onclick="return confirmDelete()">delete</a>
 						</p>
 					  </div>
 					</div>
@@ -80,7 +80,7 @@
 						  '.$row["Content"].'
 						</div>
 						<p class="text-right footer">
-						  Answered by '.$row["Email"].' at <datetime>
+						  Answered by <blue>'.$row["Email"].'</blue> at <datetime>
 						</p>
 					  </div>
 					</div>
