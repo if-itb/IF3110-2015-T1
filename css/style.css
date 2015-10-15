@@ -92,18 +92,20 @@ hr {
 	font-weight: bold;
 }
 
+.answer {
+	width: 100px;
+	float: left;
+	text-align: center;
+	font-weight: bold;
+}
+
 .question {
-	margin-left: 102px;
+	margin-left: 204px;
 }
 
-.question
 
-.question-info {
-	text-align: right;
-	clear: left;
-}
-
-#qline {
+#qline, 
+#aline {
 	clear: left;
 }
 
@@ -117,13 +119,24 @@ hr {
 	color: #020202;
 }
 
-.question-info {
+.question-info,
+.answer-info {
+	text-align: right;
+	clear: left;
 	margin-top: 10px;
 	font-size: 14px;
 }
 
-#qname {
+#qname,
+#qdate,
+#aname,
+#adate {
 	color: blue;
+}
+
+#qvote {
+	margin: 2px auto;
+	font-size: 30px;
 }
 
 #edit {
@@ -137,4 +150,12 @@ hr {
 #your-answer {
 	margin-left: 30px;
 	color: #a9a9a9;
+}
+
+.question-prev,
+.answer-prev {
+	margin-top: 2px;
+	font-size: 14px;
+	color: #020202;
+	margin-left: 102px;
 }

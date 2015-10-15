@@ -22,12 +22,14 @@
 					"<div id='vote-count'>$row[Vote]</div>".
 					"<div> Vote </div>".
 				 "</div>";
-
+			echo "<div class='answer'>".
+					"<div id='answer-count'>0</div>".
+					"<div> Answer </div>".
+				 "</div>";
 			echo "<div class='question'>".
-					"<div id='question-topic'>$row[Topic]</div>".
-					"<div id='question-content'>$row[Content]</span>".
+					"<div id='question-topic'><a href='answer.php?id=$row[ID]'>$row[Topic]</a></div>".
+					"<div id='question-content'>$row[Content]</div>".
 				 "</div>";	
-
 			echo '<div class="question-info">'.
 			 		"asked by <span id='qname'>$row[Name]</span> | ".
 			 		"<a href='#' id='edit'> edit </a> | ".
