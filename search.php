@@ -22,9 +22,10 @@
 			die("Connection failed: " . $conn->connect_error);
 		} 
 		
-		$sql = "SELECT * FROM question";
+		$Search = $_POST["Search"];
+		$sql = "SELECT * FROM question WHERE `Topik` LIKE '%".$Search."%' "." OR `Content` LIKE '%".$Search."%'";
 		$result = $conn->query($sql);
-	 
+	
 			echo'
 			<form name="Searchquestion" action="search.php" onsubmit="return validateSearch()" method="Post">
 				<div class="row">
