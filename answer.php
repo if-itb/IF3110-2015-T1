@@ -40,11 +40,11 @@
 				  <div class="thread">
 					<div class="row">
 					  <div class="span-1">
-						<div class="arrow-up"></div>
+						<div class="arrow-up-question" data-id='.$row["QID"].'></div>
 						<div class="text-center">
-						  <h2>(Jumlah Votes)</h2>
+						  <h2>'.$row["Vote"].'</h2>
 						</div>
-						<div class="arrow-down"></div>
+						<div class="arrow-down-question" data-id='.$row["QID"].'></div>
 					  </div>
 					  <div class="span-9">
 						<div>
@@ -69,11 +69,11 @@
 				  <div class="thread">
 					<div class="row">
 					  <div class="span-1">
-						<div class="arrow-up"></div>
+						<div class="arrow-up-answer" data-id='.$row["AID"].'></div>
 						<div class="text-center">
-						  <h2>(Jumlah Votes)</h2>
+						  <h2>'.$row["Vote"].'</h2>
 						</div>
-						<div class="arrow-down"></div>
+						<div class="arrow-down-answer" data-id='.$row["AID"].'></div>
 					  </div>
 					  <div class="span-9">
 						<div>
@@ -105,5 +105,6 @@
 		';
 	  ?>
     </div>
+	<script type = "text/javascript" src="javascript/vote.js"> </script>
   </body>
 </html>

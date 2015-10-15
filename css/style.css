@@ -90,7 +90,7 @@ a.Topik{
   color: #999;
 }
 
-.arrow-up {
+.arrow-up-question, .arrow-up-answer {
   width: 0;
   height: 0;
   border-left: 20px solid transparent;
@@ -99,7 +99,7 @@ a.Topik{
   margin: 0 auto;
 }
 
-.arrow-down {
+.arrow-down-question, .arrow-down-answer {
   width: 0;
   height: 0;
   border-left: 20px solid transparent;

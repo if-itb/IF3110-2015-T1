@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2015 at 06:17 PM
+-- Generation Time: Oct 15, 2015 at 06:15 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -31,38 +31,9 @@ CREATE TABLE IF NOT EXISTS `answer` (
 `AID` int(11) NOT NULL,
   `Name` varchar(35) NOT NULL,
   `Email` varchar(35) NOT NULL,
-  `Content` longtext NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `answer`
---
-
-INSERT INTO `answer` (`QID`, `AID`, `Name`, `Email`, `Content`) VALUES
-(1, 1, 'Vincent', 'vincent@gmail.com', 'susah'),
-(2, 2, 'Vincent TC', 'vincent@gmail.com', 'susah banget');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `question`
---
-
-CREATE TABLE IF NOT EXISTS `question` (
-`QID` int(11) NOT NULL,
-  `Name` varchar(35) NOT NULL,
-  `Email` varchar(35) NOT NULL,
-  `Topik` text NOT NULL,
-  `Content` longtext NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `question`
---
-
-INSERT INTO `question` (`QID`, `Name`, `Email`, `Topik`, `Content`) VALUES
-(1, 'Vincent', 'vincent@gmail.com', 'WBD', 'WBD susah?'),
-(2, 'Vincent Theophilus', 'vincenttc@yahoo.com', 'MBD', 'MBD susah?');
+  `Content` longtext NOT NULL,
+  `Vote` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -75,12 +46,6 @@ ALTER TABLE `answer`
  ADD PRIMARY KEY (`AID`);
 
 --
--- Indexes for table `question`
---
-ALTER TABLE `question`
- ADD PRIMARY KEY (`QID`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -88,12 +53,7 @@ ALTER TABLE `question`
 -- AUTO_INCREMENT for table `answer`
 --
 ALTER TABLE `answer`
-MODIFY `AID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `question`
---
-ALTER TABLE `question`
-MODIFY `QID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `AID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
