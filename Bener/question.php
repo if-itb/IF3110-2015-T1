@@ -60,24 +60,40 @@
 	if (mysqli_num_rows($result) > 0) {
 	    // output data of each row
 	    while($row = mysqli_fetch_assoc($result)) {
-	    	$question_content_vote = "<div class='column-one'>" 
-	    		. $row['vote'] . "<br>" . " Votes" . "</div>";
-	    	$question_content_answers = "<div class=\"column-two\">" 
-	    		. $row['vote'] . "<br>" . " Answers" . "</div>";
-	    	$question_content_topic = "<div class='column-three'>" 
+	    	$question_content_vote = 
+	    		"<div class='block-question'>" . "<div class='bquestion-vote'>" 
+	    		. $row['vote'] . "<br>" . " Votes" . "</div>"
+	    		;
+	    	$question_content_answers = 
+	    		"<div class='bquestion-answer'>" 
+	    		. $row['vote'] . "<br>" . " Answers" . "</div>"
+	    		;
+	    	$question_content_topic = 
+	    		"<div class='bquestion-content'>" 
 	    		. "<a id='ask' href=# onclick='goToQuestion(" . $row['question_id'] . ")' " 
-	    		. "'>" . $row['topic'] ."</a>";
-	    	$question_content_content = "<br>" . $row['content'] . "</div>";
-	    	$question_content_email = "<div class='column-four'>" 
-	    		. "asked by " . $row['email'] . " at " . "7/10/1996 08.00" 
-	    		. " | " . "edit" . " | " . "delete" . "</div>";
-	    	$question_content_edit = "<a id='ask' href=# onclick='editconfirm(" . $row['question_id'] . ")' " 
-	    		. "'>edit</a>";
-	    	$question_content_delete = "<a id='ask' href=# onclick='deleteconfirm(" . $row['question_id'] . ")' " 
-	    		. "'>delete</a>";
-	    	$question_content_line = "<div class='line'> <hr> </div>";
-	    	
-	    	$question_content_all = $question_content_vote . $question_content_answers . $question_content_topic . $question_content_content . $question_content_email . $question_content_edit . $question_content_delete . $question_content_line;
+	    		. "'>" . $row['topic'] ."</a>"
+	    		;
+	    	$question_content_content = 
+	    		"<br>" . $row['content'] . "</div>"
+	    		;
+	    	$question_content_email = 
+	    		"<div class='bquestion-identity'>" 
+	    		. "asked by " . $row['email'] . " at " . "7/10/1996 08.00"
+	    		;
+	    	$question_content_edit = 
+	    		" | " . "<a id='ask' href=# onclick='editconfirm(" . $row['question_id'] . ")' " 
+	    		. "'>edit</a>"
+	    		;
+	    	$question_content_delete = 
+	    		" | " . "<a id='ask' href=# onclick='deleteconfirm(" . $row['question_id'] . ")' " 
+	    		. "'>delete</a>" . "</div>" . "</div>"
+	    		;
+	    	$question_content_line = 
+	    		"<div class='line'> <hr> </div>"
+	    		;
+	    	$question_content_all = 
+	    		$question_content_vote . $question_content_answers . $question_content_topic . $question_content_content . $question_content_email . $question_content_edit . $question_content_delete . $question_content_line
+	    		;
 
 	    	echo $question_content_all;
 	    }

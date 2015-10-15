@@ -32,12 +32,76 @@
 		background-color: #000000;
 		height: 3px;
 		font-family:calibri;
-		clear:left;
+		clear:both;
 	} 
 	#ask{
 		text-decoration: none;
 		color: rgb(255,215,0);
 	}
+	.block-question{
+		font-family:calibri;
+	}
+	.bquestion-vote{
+		margin-left:17.5%;
+		width: 7.5%;
+		color:black;
+		text-align: center;
+		float:left;
+	}
+	.bquestion-answer{
+		width: 7.5%;
+		color:black;
+		text-align: center;
+		float:left;
+	}
+	.bquestion-content{
+		margin-left:2.5%; 
+		width: 30%;
+		color:black;
+		text-align: left;
+		float:left;
+	}
+	.bquestion-identity{
+		margin-right: 17.5%;
+		width: 65%;
+		color:black;
+		text-align: right;
+		float:right;
+		clear:left;
+	}
+	.block-QA{
+		font-family: calibri;
+		color : green;
+	}
+	.bQA-vote{
+		margin-left:17.5%;
+		width: 10%;
+		color:black;
+		text-align: center;
+		float:left;
+		color:green;
+	}
+	.bQA-content{
+		margin-left:2.5%; 
+		width: 30%;
+		color:black;
+		text-align: left;
+		float:left;
+	}
+	.bQA-identity{
+		margin-right: 17.5%;
+		width: 65%;
+		color:black;
+		text-align: right;
+		float:right;
+		clear:left;
+	}
+
+
+
+
+
+
 	.column-one{
 		margin-left:17.5%;
 		width: 7.5%;

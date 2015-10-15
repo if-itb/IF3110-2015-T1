@@ -16,19 +16,28 @@ if($question_id>0){
 	SET name = '$name', email = '$email', topic = '$topic', content = '$content'
 	WHERE question_id = '$question_id'
 	";
+	if (mysqli_query($conn, $sql)) {
+		header('Location: answer.php?question_id=' . $question_id);
+	} else {
+	    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	}
+
 }
 else{
 	$sql = "INSERT INTO Question (name, email, topic, content)
 	VALUES ('$name', '$email', '$topic', '$content')";
+	if (mysqli_query($conn, $sql)) {
+		$last_id = mysqli_insert_id($conn);
+		header('Location: answer.php?question_id=' . $last_id);
+	} else {
+	    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	}
 }
 
-if (mysqli_query($conn, $sql)) {
-	header('Location: answer.php');
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
+
 
 ?>
+
 
 </body>
 </html>
