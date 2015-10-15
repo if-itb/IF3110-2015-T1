@@ -22,7 +22,7 @@
 			die("Connection failed: " . $conn->connect_error);
 		} 
 		
-		$sql = "SELECT * FROM question";
+		$sql = "SELECT * FROM question ORDER BY QID DESC";
 		$result = $conn->query($sql);
 	 
 			echo'

@@ -23,7 +23,7 @@
 		} 
 		
 		$Search = $_POST["Search"];
-		$sql = "SELECT * FROM question WHERE `Topik` LIKE '%".$Search."%' "." OR `Content` LIKE '%".$Search."%'";
+		$sql = "SELECT * FROM question WHERE `Topik` LIKE '%".$Search."%' "." OR `Content` LIKE '%".$Search."%' ORDER BY QID DESC";
 		$result = $conn->query($sql);
 	
 			echo'
