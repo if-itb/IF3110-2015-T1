@@ -10,8 +10,8 @@ function validateForm() {
 		if (element.getAttribute('name').toLowerCase() == 'email') {
 			var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 			if (re.test(element.value) === false) {
-				alert('You missed some form.');
-				return false;
+				var ret = window.confirm('Your email format seems off. Are you sure that\'s your email?');
+				if (ret === false) return ret;
 			}
 		}
 	}
