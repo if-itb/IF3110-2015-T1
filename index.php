@@ -40,7 +40,7 @@
          }
          
          $sql = 'SELECT name, topic, vote, num_ans, id FROM question ORDER BY ID DESC LIMIT 10';
-         mysql_select_db('tubeswbd');
+         mysql_select_db('tucilwbd');
          $retval = mysql_query( $sql, $conn );
          
          if(! $retval )
@@ -51,14 +51,13 @@
          while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
          {
             echo 
-                "<thead><th colspan =\"5\"> <a href=\"postAns.php\"> {$row['topic']} </a></th></thead> ".
+                "<thead><th colspan =\"5\"> <a href=\"showQA.php?id={$row['id']}\"> {$row['topic']} </a></th></thead> ".
                 " <tr> <td> Vote : {$row['vote']} </td> ".
                 " <td> Answer : {$row['num_ans']} </td>".
                 " <td> Asked by : {$row['name']} </td>".
-                " <td> <form method=\"GET\" target=\"showDataBase.php\">".
-                "   <input id=\"{$row['id']}\" type=\"submit\" value=\"edit\" </td>".
-                " <td> <form method=\"GET\" target=\"postQuestion.html\">".
-                "   <input id=\"{$row['id']}\" type=\"submit\"  value=\"delete\" </td>".
+                " <td> ".
+                "   <a href=\"showDataBase.php?id={$row['id']}\" > edit</a> </td>".
+                " <td> <a href=\"Delete.php?id={$row['id']}\">delete</a></td>".
                 "</tr>";
          }
          
