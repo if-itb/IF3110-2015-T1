@@ -89,7 +89,11 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+#### Melakukan validasi pada client-side
+Validasi form dilakukan dengan javascript. Ketika tombol submit pada form diklik maka fungsi `validateForm` akan dipanggil untuk memvalidasi form tersebut. Fungsi tersebut akan mengambil form dengan id `form`. Untuk setiap elemen pada form tersebut akan diambil value-nya dan menghapus space yang tidak diperlukan diawal maupun diakhir. Kemudian mengecek apakah value tersebut kosong atau tidak. Dan jika elemen tersebut memiliki id `email` maka akan dilakukan pengecekan apakah email tersebut valid atau tidak dengan menggunakan regex. Jika terdapat field yang kosong atau emailnya tidak valid maka akan dimunculkan alert dan fungsi tersebut mengeluarkan `false` sehingga form tersebut batal disubmit.
+
+#### Melakukan AJAX
+Ketika tombol vote diklik maka sebuah fungsi javascript akan dipanggil. Kemudian fungsi tersebut akan membuat objek XMLHttpRequest. Kemudian menyematkannya sebuah fungsi javascript untuk mengubah tampilan nilai vote pada browser yang nantinya akan dieksekusi ketika respon dari server siap. Kemudian mengirimkannya ke sebuah PHP pada server yang akan mengubah vote pada database dan mengirimkan kembali ke client hasil vote setelah diubah pada database. Dan fungsi yang sebelumnya disiapkan akan dieksekusi dan mengubah tampilan vote pada browser berdasarkan hasil vote yang telah diterima dari server.
 
 ### Knowledge
 

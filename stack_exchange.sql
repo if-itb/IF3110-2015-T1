@@ -3,12 +3,12 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 08, 2015 at 05:57 PM
+-- Generation Time: Oct 15, 2015 at 10:41 AM
 -- Server version: 5.5.39-MariaDB
 -- PHP Version: 5.5.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+SET time_zone = "+07:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `question` (
 -- Indexes for table `answer`
 --
 ALTER TABLE `answer`
-  ADD KEY `question_id` (`question_id`), ADD KEY `question_id_2` (`question_id`);
+  ADD PRIMARY KEY (`id`,`question_id`), ADD KEY `Question ID` (`question_id`);
 
 --
 -- Indexes for table `question`
@@ -72,6 +72,11 @@ ALTER TABLE `question`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `answer`
+--
+ALTER TABLE `answer`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `question`
 --
@@ -85,7 +90,7 @@ ALTER TABLE `question`
 -- Constraints for table `answer`
 --
 ALTER TABLE `answer`
-ADD CONSTRAINT `question_id` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`);
+ADD CONSTRAINT `Question ID` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
