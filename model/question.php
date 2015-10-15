@@ -10,6 +10,12 @@
       $result = $query->setFetchMode(PDO::FETCH_ASSOC);
       return $query->fetchAll();
     }
+    public function getSearch($keyword) {
+      $query = $this->database->prepare("SELECT * FROM question WHERE topic LIKE '%$keyword%' OR content LIKE '%$keyword%' ORDER BY time DESC");
+      $query->execute();
+      $result = $query->setFetchMode(PDO::FETCH_ASSOC);
+      return $query->fetchAll();
+    }
     public function countAnswer($id) {
       $query = $this->database->prepare("SELECT * FROM answer WHERE question_id=$id");
       $query->execute();

@@ -42,7 +42,9 @@ a:hover {
 }
 #recent-ask, h2 {
   padding-left: 10%;
+  padding-right: 10%;
   margin-bottom: 0%;
+  word-wrap: break-word;
 }
 .item {
   margin-left: auto;
@@ -108,6 +110,7 @@ a:hover {
 }
 .form-box {
   padding-top: 10px;
+  resize: none;
 }
 .submit-button {
   float: right;

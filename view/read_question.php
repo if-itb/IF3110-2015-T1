@@ -61,8 +61,8 @@
     <form id="form" method="POST" action="?action=answer" onsubmit="return validateForm()">
       <table>
       <input name="id" type="hidden" value="<?=$question["id"]?>"/>
-      <input class="form-text" type="text" name="name" placeholder="Name"/>
-      <input class="form-text" type="text" name="email" placeholder="Email"/>
+      <input class="form-text" type="text" name="name" placeholder="Name" maxlength="127" />
+      <input class="form-text" type="text" name="email" placeholder="Email" maxlength="127" />
       <textarea class="form-box" rows="10" name="content" placeholder="Content"></textarea>
       <input type="submit" class="submit-button" value="Post"/>
       </table>

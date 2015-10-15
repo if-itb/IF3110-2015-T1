@@ -4,6 +4,9 @@
       case "default":
         require_once("controller/home.php");
         break;
+      case "search":
+        require_once("controller/search.php");
+        break;
       case "read":
         require_once("controller/read_question.php");
         break;

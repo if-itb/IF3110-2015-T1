@@ -1,3 +1,13 @@
+<?php
+  function shorter($text, $size) {
+    $len = strlen($text);
+    $result = substr($text, 0, $size);
+    if($size < $len)  
+      $result .= "...";
+    return $result;
+  }
+?>
+
 <!DOCTYPE html>
 <html> 
   <head>
@@ -7,15 +17,20 @@
   <body>
     <h1 id="title"><a href="/">Simple StackExchange</a></h1>
     <div id="search">
-      <form>
-          <input id="search-text" type="search" name="search" placeholder="Searching Question?"/> </td>
+      <form action="/" method="GET">
+          <input type="hidden" name="action" value="search"/>
+          <input id="search-text" type="search" name="keyword" placeholder="Searching Question?"/> </td>
           <input id="search-button" type="submit" value="search" />
       </form>
     </div>
     <p class="to-ask-here">
       Cannot find what you are looking for? <a id="ask-here" href="?action=ask">Ask Here</a>
     </p>
+    <?php if(isset($keyword)) { ?>
+    <h2 id="recent-ask">Questions Related To "<?=shorter($keyword, 60)?>" :</h2>
+    <?php } else { ?>
     <h2 id="recent-ask">Recently Asked Question</h2>
+    <?php } ?>
     <hr class="line">
 
     <?php foreach($questions as $question): ?>
@@ -29,8 +44,8 @@
           <div class="label">Answers</div>
         </div>
         <div class="question">
-          <h4><a  class="topic" href="?action=read&amp;id=<?=$question["id"]?>"><?=$question["topic"]?></a></h4>
-          <p class="brief"><?=$question["content"]?></p>
+          <h4><a  class="topic" href="?action=read&amp;id=<?=$question["id"]?>"><?=shorter($question["topic"],139)?></a></h4>
+          <p class="brief"><?=shorter($question["content"], 600)?></p>
         </div>
         <div class="footer">
           <p>
