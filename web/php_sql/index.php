@@ -100,10 +100,15 @@ Author: Irene Wiliudarsan (13513002) -->
                       $number_content_words = str_word_count($question["content"]);
                       if ($number_content_words > 50) {
                         // Cut question's content displayed
-                        echo implode(' ', array_slice(explode(' ', $question["content"]), 0, 50)) . "...";
+                        $question_print = implode(' ', array_slice(explode(' ', $question["content"]), 0, 50)) . "...";
                       } else {
-                        echo $question["content"];
+                        $question_print = $question["content"];
                       }
+                      if (isset($_POST["search-submit"]) && !empty($_POST["search-submit"])) {
+                        echo str_replace($search_key, "<span class='bold'>".$search_key."</span>", $question_print);
+                      } else{
+                        echo $question_print;
+                      } 
                     ?>
                   </div>
                 </a>
