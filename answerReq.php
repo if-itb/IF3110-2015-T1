@@ -10,7 +10,7 @@
 
 	mysql_select_db("stackexchange", $db_con);
 
-	$sql_query = "SELECT * FROM answer_list " . $query . "WHERE qid=" . $_GET["qid"] . " ORDER BY aid DESC";
+	$sql_query = "SELECT * FROM answer_list " . $query . "WHERE qid=" . $_GET["qid"] . " ORDER BY vote DESC";
 	$result = mysql_query($sql_query);
 	if(mysql_num_rows($result) > 0) {
 		while($row = mysql_fetch_assoc($result)) {

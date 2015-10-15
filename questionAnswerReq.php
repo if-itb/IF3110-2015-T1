@@ -16,15 +16,8 @@
 	  {
 	  die('Error: ' . mysql_error());
 	  }
-
-	$query = "SELECT COUNT(*) AS total FROM answer_list WHERE qid = ". $qid;
-	$result = mysql_query($query, $db_con);
-	$countAns = "";
-	$row = mysql_fetch_assoc($result);
-	$countAns = $row["total"];
-	$countAns++;
-	
-	$sql = "UPDATE question_list SET answer='" . $countAns . "' WHERE qid=" . $qid;
+	$sql = "UPDATE question_list SET answer=answer+1 WHERE qid=".$qid;
+	mysql_query($sql);
 
 	echo "1 answer added";
 	mysql_close($db_con)

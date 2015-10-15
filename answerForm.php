@@ -1,7 +1,7 @@
 <?php
 	$answerForm = '<div class="answer-form">
 		<h1>Your Answer</h1>
-		<form action="questionAnswerReq.php?qid={qid}" method="POST">
+		<form onsubmit="validateForm()"action="questionAnswerReq.php?qid={qid}" method="POST">
 			<div class="form">
 				<input class="formContent" type="text" name="name" placeholder="Name" size="139px">
 			</div>
