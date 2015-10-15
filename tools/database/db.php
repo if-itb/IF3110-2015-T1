@@ -34,6 +34,11 @@
 		return $result;
 	}
 
+	function executeQuery($sql){
+		$conn = createConnection();
+		$sqlresult = $conn->query($sql);
+		closeConnection($conn);
+	}
 
 	function closeConnection($conn){
 		$conn->close();

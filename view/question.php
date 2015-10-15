@@ -47,7 +47,7 @@
 					<div class='col-8'>
 					<p><?php echo $answer["content"]?></p>
 						<p class='right'>
-						answered by <a href='#'><?php echo $answer["answerer"] ?></a> at <?php echo $answer["date"]?> | <a href='#'>edit</a> | <a href='#'>delete</a>
+						answered by <span class='name'><?php echo $answer["answerer"] ?></span> at <?php echo $answer["date"]?> | <a href='#'>edit</a> | <a href='#'>delete</a>
 						</p>
 					</div>
 				</div>
@@ -57,13 +57,13 @@
 		<hr>
 
 		<h1>Your Answer</h1>
-		<form>
-			<input type='text' id='author' class='formInput' placeholder='Name'>
-			<input type='text' id='email' class='formInput' placeholder='Email'>
-			<textarea id='content' class='formInput 'placeholder='Content'  rows='10'></textarea>
+		<form action="tools/answer/addanswer.php" method="post">
+			<input type="hidden" name="questionId" value="<?php echo $question[questionId];?>">
+			<input type='text' name='answerer' class='formInput' placeholder='Name'>
+			<input type='text' name='email' class='formInput' placeholder='Email'>
+			<textarea name='content' class='formInput' placeholder='Content' rows='10'></textarea>
+			<div class='right'><button type='submit'>Post</button></div>
 		</form>
-
-		<div class='right'><button>Post</button></div>
 	</div>
 </body>
 </html>

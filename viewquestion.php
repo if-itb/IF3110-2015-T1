@@ -6,7 +6,7 @@
 	$sql = "
 		SELECT *
 		FROM question
-		WHERE questionId = " . $questionid;
+		WHERE questionId = $questionid";
 
 	$question = getResult($sql);
 
@@ -16,7 +16,7 @@
 	$sql = "
 		SELECT votes, content, answerer, date 
 		FROM answer
-		WHERE answer.questionId =" . $questionid;
+		WHERE answer.questionId = $questionid";
 
 	$answers = getResult($sql);
 
