@@ -89,7 +89,76 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+melakukan validasi pada client side :
+	validasi dilakukan 3 kali yaitu pada saat
+		user memasukkan pertanyaan baru
+		user mengedit pertanyaan, dan
+		user menjawab pertanyaan
+	
+		validasi dilakukan dengan menggunakan javascript --> function checkscript()
+		validasi terjadi saat user menge-klik submit button (onclick="return checkscript()")
+		
+		fungsi checkscript pada awalnya mengakuisisi data dari form yang hendak di submit, berikut adalah pseucodenya  :
+			var namesubmitted = document.forms["newquestion"]["Name"].value;
+			var emailsubmitted = document.forms["newquestion"]["Email"].value;
+			var questiontopicsubmitted = document.forms["newquestion"]["QuestionTopic"].value;
+			var contentsubmitted = document.forms["newquestion"]["Content"].value;
+		
+		fungsi checkscript() melakukan penyeleksian kondisi, lalu mengeluarkan alert dan return false sehingga submittance tidak dapat terjadi
+		berikut pseudo code salah satu penyeleksian kondisi dan hasilnya
+			if (namesubmitted=="") {
+                // something i s wrong
+                alert("field nama tidak boleh kosong");
+                return false;
+            }
+			
+		setelah semua kondisi field tidak kosong terpenuhi, lalu fungsi akan melakukan pengecekan format email 
+		dengan menggunakan pseuidocode berikut
+			if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailsubmitted)){
+                return true;
+            }
+		pseudocode tersebut akan menyeleksi apakah sebelum dan sesudah @ terdapat karakter alphanumerical
+		dan juga apakah terdapat karakter titik  dan 2 atau 3 huruf setelahnya untuk pengecekan format domain email
+		
+	setelah isi form sudah memenuhi kondisi, maka halam baru akan berpindah dan memproses isi form
+
+
+Melakukan Voting dengan ajax	
+	ajax membuat kita dapat meminta input dari server tanpa harus merefresh page kembali
+	oleh karena itu, kita dapat memberikan vote pada pertanyaan dan jawaban dan melihat perubahan angka vote
+	tanpa harus melakukan refresh pada page
+
+	pada tugas ini, saya membuat 4 fungsi yang mengandung ajax, yaitu Upvote(), Downvote(), Upvoteanswer(), dan Downvoteanswer()
+	ada tiga langkah yang harus dilakukan pada saat penerapan ajax yang normal,. yaitu:
+			penetapan bagian page yang akan diubah
+			penetapan trigger yang menghudupkan fungsi
+			lalu membuat fungsi yang terdapat ajax didalamnya
+		
+			- penetapan bagian page dapat dilakukan dengan membuat tag div dan memberikan id, contohnya sbg berikut
+				<div id="votepoint">
+                       <?php
+                       echo $vote_point;
+                       ?>
+                   </div>
+				
+				pada pseudocode diatas, semua yang terdapat didalam tag div akan diupdate oleh konten yang baru
+			
+			- penetapan trigger ajax dapat dilakukan dengan atribut onclick yang diletakkan pada image cursor
+				<img src="arrowup.png" alt="upvote" style="width:40px;height:40px;" align="center" onclick="Upvote()">
+	
+			- pembuatan fungsi yang dapat melakukan ajax
+				+ pertama-tama yaitu membuat variable baru untuk menampung XMLHttpRequest()
+				+ lalu letakkan id div yang kita tentukan pada langkah pertama seperti berikut
+					xhttp.onreadystatechange = function() {
+						if (xhttp.readyState == 4 && xhttp.status == 200) {
+							document.getElementById("votepoint").innerHTML = xhttp.responseText;
+						}
+					}
+				+ lalu letakkan link halaman yang akan menggantikan tag div tersebut seperti berikut
+						xhttp.open("GET", "upvote.php?questionID="+<?php echo $questionID?>, true);
+						xhttp.send();
+					halaman upvote tersebut lalu akan juga mengambil informasi yang kita kirimkan melalui $_get
+					
 
 ### Knowledge
 

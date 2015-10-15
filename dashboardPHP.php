@@ -11,9 +11,23 @@
     <a href="dashboardPHP.php" id="dashboard">Simple StackExchange</a>
     <br><br>
 
-    <form action="demo_form.asp" >
+    <script>
+
+        function checkscript() {
+            var search = document.forms["searchbox"]["Search"].value;
+            if (search=="") {
+                // something i s wrong
+                alert("field search tidak boleh kosong");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+
+    <form name="searchbox" action="search.php" method="post">
         <input type="text" name="Search" value="">
-        <input type="submit" value="search"><br>
+        <input type="submit" value="search" onclick=" return checkscript()"><br>
     </form>
 
     <p>Cannot find what you are looking for?
@@ -26,7 +40,7 @@
 
     <?php
 
-    include 'QuestionLoop.php';
+        include 'QuestionLoop.php';
 
     ?>
 
