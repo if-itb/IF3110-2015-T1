@@ -7,10 +7,10 @@
 	else{
 		// add new question to database
 		$question_id = $_POST["QID"];
-		$name = $_POST["Name"];
-		$email = $_POST["Email"];
-		$topic = $_POST["QuestionTopic"];
-		$content = $_POST["Content"];
+		$name = mysqli_real_escape_string($link, $_POST["Name"]);
+		$email = mysqli_real_escape_string($link, $_POST["Email"]);
+		$topic = mysqli_real_escape_string($link, $_POST["QuestionTopic"]);
+		$content = mysqli_real_escape_string($link, $_POST["Content"]);
 		
 		$query = "UPDATE question SET name='".$name."',email='".$email."',topic='".$topic."',content='".$content."' WHERE question_id=".$question_id;
 		if(mysqli_query($link,$query)){

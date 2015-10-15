@@ -38,6 +38,11 @@
 				$query = "SELECT * FROM question ORDER by question_id DESC";
 				$query_result = mysqli_query($link, $query);
 				while($row = mysqli_fetch_row($query_result)){
+					//truncate question content
+					if(strlen($row[4]) > 60){
+						$row[4]= substr($row[4],0,60).'...';
+					}
+					// print question list
 					echo	'<div id="QuestionList">
 								<div id="votes">'.$row[5].'<br>Votes</div>
 								<div id="answers">'.$row[6].'<br>Answers</div>

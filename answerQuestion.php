@@ -6,11 +6,11 @@
 	}
 	else{
 		// add new answer for current question
-		$question_id = $_POST["QID"];
+		$question_id = mysqli_real_escape_string($link, $_POST["QID"]);
 		$answer_id = mysqli_fetch_assoc(mysqli_query($link,"SELECT MAX(answer_id) FROM answer"))['MAX(answer_id)'] + 1;
-		$name = $_POST["Name"];
-		$email = $_POST["Email"];
-		$content = $_POST["Content"];
+		$name = mysqli_real_escape_string($link, $_POST["Name"]);
+		$email = mysqli_real_escape_string($link, $_POST["Email"]);
+		$content = mysqli_real_escape_string($link, $_POST["Content"]);
 		$votes = 0;
 
 		$query = "INSERT INTO answer(answer_id,question_id,name,email,content,votes) VALUES ('".$answer_id."','".$question_id."','".$name."','".$email."','".$content."','".$votes."')";
