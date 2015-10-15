@@ -106,12 +106,12 @@ function postQuestion($type,$name,$email,$topic,$content,$id=NULL){
 		if(strcmp("insert",$type) == 0){//insert
 			$stmt = $con->prepare("INSERT INTO $tbl_question(name,email,topic,content,create_date,update_date) VALUES (?,?,?,?,NOW(),NOW())");
 			$stmt->bind_param('ssss',$name,$email,$topic,$content);
-			$stmt->execute();
+			if($stmt->execute()){$id = $stmt->insert_id;header("Location: view.php?q=".$id);}
 			$stmt->close();
 		} else if(strcmp("update",$type) == 0) {//update
 			$stmt = $con->prepare("UPDATE $tbl_question SET name=?,email=?,topic=?,content=?,update_date=NOW() WHERE id=?");
 			$stmt->bind_param('ssssd',$name,$email,$topic,$content,$id);
-			$stmt->execute();
+			if($stmt->execute()){header("Location: view.php?q=".$id);};
 			$stmt->close();
 		}
 	}
