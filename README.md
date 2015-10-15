@@ -89,7 +89,10 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+### 1. Cara melakukan validasi pada client-side
+Untuk melakukan validasi pada client-side, dilakukan pengecekan terhadap setiap input box yang ada pada form dan dipastikan setiap input box tidak kosong. Hal ini berlaku untuk form addQuestion maupun answer. Apabila input box masih kosong dan user melakukan Post (menekan tombol post untuk submit), maka akan muncul pop-up yang memberikan peringantan terhadap user untuk mengisi setiap input box yang ada. Untuk melakukan validasi kebenaran format E-mail, digunakan regular expression yang akan memastikan bahwa format E-mail masukan user merupakan format yang benar.
+### 2. Cara melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
+Ketika user melakukan klik pada tombol vote (baik vote up maupun down),  akan dipanggil fungsi voteUp yang memiliki parameter url dan success. Fungsi tersebut akan membuat objek XMLHttpRequest. Ketika objek tersebut sudah berada pada status ready, maka akan dipanggil fungsi success yang akan menerima jumlah vote saat ini melalui document.getElemetByID (untuk masing-masing ID upvotequestion dan downvotequestion) atau document.getElemetBy ClassName (untuk masing-masing kelas upvoteanswer dan downvoteanswer). Kemudian nilai vote tersebut akan ditambahkan atau dikurangi sesuai tombol yang di klik oleh user. Kemudian akan dilakukan AJAX ke URL yang sesuai (untuk masing-masing tombol vote memiliki URL yang berbeda-beda). URL tersebut akan melakukan update ke database sesuai dengan masukan dari user (baik vote up maupun down pada question maupun answer).
 
 ### Knowledge
 

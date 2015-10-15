@@ -1,0 +1,52 @@
+.container {
+  width: 1080px;
+  margin: 0 auto;
+}
+
+.form {
+  display: block;
+  margin: 5px 0;
+  border: 2px solid #ddd;
+  border-color: black;
+  width: 100%;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+hr{
+  border-color:black;
+  border-width:2px;
+}
+
+.text-link
+{
+  text-decoration: none;
+}
+
+.button {
+  background-color: white;
+  color: black;
+  padding: 4px 12px;
+  border: 2px solid black;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+black{
+  color: black;
+}
+
+.align-center{
+  text-align: center;
+}
+
+.align-right{
+  text-align: right;
+}
+
+.margin-bot{
+  margin-bottom: 50px;
+}
