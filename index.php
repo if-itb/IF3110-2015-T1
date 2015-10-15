@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Bukan StackExchange - Home</title>
+        <title>Bukan StackExchange</title>
         <script src="form_validation.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/style.css">
     </head>

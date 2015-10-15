@@ -7,7 +7,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Bukan StackExchange - Question</title>
+        <title>Question - Bukan StackExchange</title>
         <script src="./js/form_validation.js"></script>
         <script src="./ajax/vote.js"></script>        
         <link rel="stylesheet" type="text/css" href="./css/style.css">
@@ -33,7 +33,7 @@
                 
                     <div class="content" id="q_content"> <?php echo $question['content'] ?> </div>           
                 
-                    <div id="asked_q">
+                    <div id="asked">
                         asked by <span id="name"><?php echo $question['name'] ?> (<?php echo $question['email'] ?>)</span> 
                         at <?php echo $question['time'] ?> |
                         <a id="edit" href="edit.php?id=<?php echo $question['question_id'] ?>"> edit </a> | 

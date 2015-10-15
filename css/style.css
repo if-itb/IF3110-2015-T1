@@ -7,10 +7,6 @@ p {
     text-align: center;
 }
 
-#asked {
-    text-align: right;
-    float: right;
-}
 
 #ask {
     color: orange;
@@ -83,7 +79,7 @@ p {
     width: 80%;
 }
 
-#asked_q {
+#asked {
     margin-bottom: 2%;
     text-align: right;
     float: right;

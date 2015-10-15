@@ -13,7 +13,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Bukan StackExchange - Edit question</title>
+        <title>Edit question - Bukan StackExchange</title>
         <script src="./js/form_validation.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/style.css">
     </head>

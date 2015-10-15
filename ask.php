@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Bukan StackExchange - Ask</title>
+        <title>Ask a Question - Bukan StackExchange</title>
         <script src="./js/form_validation.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/style.css">
     </head>
