@@ -94,7 +94,7 @@ Berikut adalah penjelasan teknis dari fitur-fitur yang ada pada Asklyz:
 menerima event click, akan dilakukan pengecekan terhadap nilai kembalian dari fungsi validateForm (fungsi ini terdapat dalam
 file /public/js/form.js). Jika fungsi validateForm mengembalikan nlai true, maka validasi berhasil dan akan dilanjutkan dengan
 submisi form ke server.
--- Validasi input normal dilakukan dengan pengecekan panjang dan validasi e-mail dilakukan dengan menggunakan Regular Expression.
+	- Validasi input normal dilakukan dengan pengecekan panjang dan validasi e-mail dilakukan dengan menggunakan Regular Expression.
 - AJAX pada tombol vote diimplementasikan dengan menggunakan fitur `event listener` yang dimiliki JavaScript. Ketika dokumen
 mulai diload, fungsi callback akan mendaftarkan `event listener` untuk melakukan AJAX  pada setiap element yang memiliki class
 `voteup` atau `votedown` pada event `click`. Ketika element tersebut diclick, maka fungsi callback yang telah didaftarkan akan
