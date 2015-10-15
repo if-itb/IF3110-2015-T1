@@ -53,7 +53,7 @@ function confirmDelete(id) {
 	<body>
 		<h1><a id="a3" href="index.php">Simple StackExchange</a></h1>
 		<div id="div1">
-			<FORM>
+		<FORM action="index.php" method="GET">
 			<INPUT TYPE ="text" id="t1" name="search">
 			<INPUT TYPE ="Submit" VALUE="Search">
 		</FORM>
