@@ -20,7 +20,7 @@ and open the template in the editor.
         <?php
             if (isset($_POST['aa'])&&isset($_POST['id_q'])) {
                 if ($_POST['aa'] == 'new') {
-                    //echo "new";
+                    
                     addNewQuestion($_POST);}
                 else {editQuestion($_POST);
                 }

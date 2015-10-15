@@ -68,9 +68,20 @@ function addNewQuestion($q) {
     $ret1 = mysqli_fetch_array($result1,MYSQLI_ASSOC)['max'];
     $nid = $ret1 + 1;
     $sql2 = "INSERT INTO question (id_q,username,email,title,content,date,vote) VALUES ('$nid','$q[username]','$q[email]','$q[title]','$q[content]', CURRENT_TIMESTAMP,0)";
+    
     $result2 = mysqli_query($conn,$sql2);
     return $result2;
     
+}
+
+function addAnswer($q) {
+    global $conn;
+    $ida=$q['id_a'];
+    $idq=$q['q_id'];
+    $sql = "INSERT INTO `answer` (`id_a`, `q_id`, `content`, `date`, `vote`, `username`, `email`) VALUES ('$ida','$idq','$q[content]',CURRENT_TIMESTAMP,0,'$q[username]','$q[email]')";
+    
+    $result = mysqli_query($conn,$sql);
+    return $result;
 }
 
 function editQuestion($q) {

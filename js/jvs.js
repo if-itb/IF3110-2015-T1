@@ -21,6 +21,47 @@ function validateField(form) {
     }
 }
 
+function validateField(form) {
+    var name = document.getElementById("fname").value;
+    var title = document.getElementById("ftitle").value;
+    var content = document.getElementById("fcontent").value;    
+    if (name=== '' || title==='' || content=== ''  ) {
+        if (name==='') form.username.style.border = "2px solid red";
+        else  form.username.style.border = "2px solid blue";
+        if (title==='') form.title.style.border = "2px solid red";
+        else  form.title.style.border = "2px solid blue";
+        if (content==='') form.content.style.border = "2px solid red";
+        else  form.content.style.border = "2px solid blue";
+        document.getElementById("ermsg2").innerHTML = "* There is still empty field";
+        return false;
+    }
+    else {
+        form.username.style.border = "2px solid blue";
+        form.title.style.border = "2px solid blue";
+        form.content.style.border = "2px solid blue";
+        document.getElementById("ermsg2").innerHTML = "";
+        return true;
+    }
+}
+function validateField2(form) {
+    var name = document.getElementById("fname").value;
+   
+    var content = document.getElementById("fcontent").value;    
+    if (name=== '' || content=== ''  ) {
+        if (name==='') form.username.style.border = "2px solid red";
+        else  form.username.style.border = "2px solid blue";       
+        if (content==='') form.content.style.border = "2px solid red";
+        else  form.content.style.border = "2px solid blue";
+        document.getElementById("ermsg2").innerHTML = "* There is still empty field";
+        return false;
+    }
+    else {
+        form.username.style.border = "2px solid blue";        
+        form.content.style.border = "2px solid blue";
+        document.getElementById("ermsg2").innerHTML = "";
+        return true;
+    }
+}
 function validateEmail(form) {
    var email = document.getElementById("femail").value;
    var at="@";	var dot=".";var lstr=email.length;
@@ -34,6 +75,12 @@ function validateEmail(form) {
 }
 function formValidator(form) {
     var a =validateEmail(form),b=validateField(form);
+    if (!a||!b) return false ;
+    else  return true;
+}
+
+function answerValidator(form) {
+    var a =validateEmail(form),b=validateField2(form);
     if (!a||!b) return false ;
     else  return true;
 }
