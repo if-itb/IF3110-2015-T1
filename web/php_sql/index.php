@@ -33,13 +33,12 @@ Author: Irene Wiliudarsan (13513002) -->
       // Search question from search box
       if (isset($_POST["search-submit"]) && !empty($_POST["search-submit"])) {
         $search_key = $_POST["search-key"];
-        $query = "SELECT id_question, topic, content, vote_num, datetime, question.id_user, name FROM question, user WHERE question.id_user = user.id_user AND (topic LIKE '%$search_key%' OR content LIKE '%$search_key%')";
+        $query = "SELECT id_question, topic, content, vote_num, datetime, question.id_user, name FROM question, user WHERE question.id_user = user.id_user AND (topic LIKE '%$search_key%' OR content LIKE '%$search_key%') ORDER BY datetime DESC";
       } else {
         // Execute query to take all questions in databases
-        $query = "SELECT id_question, topic, content, vote_num, datetime, question.id_user, name FROM question, user WHERE question.id_user = user.id_user";
+        $query = "SELECT id_question, topic, content, vote_num, datetime, question.id_user, name FROM question, user WHERE question.id_user = user.id_user ORDER BY datetime DESC";
       }
       $questions = $connection->query($query);
-
     ?>
 
     <!-- Title -->
@@ -125,8 +124,9 @@ Author: Irene Wiliudarsan (13513002) -->
           </div>
           <?php
               } // End of while
+              mysqli_free_result($answer_num_result);
             } else {
-              echo "Sorry, there is still no questions in the database.";
+              echo "Sorry, no questions found.";
             } // End of if
           ?>
         </div>
@@ -137,9 +137,6 @@ Author: Irene Wiliudarsan (13513002) -->
     <script src="../js/script.js"></script>
     <?php
       mysqli_free_result($questions);
-      if ($answer_num_result->num_rows > 0) {
-        mysqli_free_result($answer_num_result);
-      }
     ?>
   </body>
 </html>
