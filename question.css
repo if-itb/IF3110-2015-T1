@@ -1,0 +1,204 @@
+a.header {
+	position: absolute;
+	font-size: 40px;
+	text-decoration: none;
+	color: #000000;
+	top: 50px;
+	left: 490px;
+}
+
+hr.garistopik {
+	position: absolute;
+	border-width:1px; 
+	border-color: #000000; 
+	top: 200px;
+	width: 700px; 
+	left: 333px; 
+}
+
+p.topic {
+	position: absolute;
+	font-size: 30px;
+	top: 140px;
+	left: 333px;
+	width: 700px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+p.votetopic {
+	position: absolute;
+	font-size: 27px;
+	color: #BFBFBF;
+	top: 220px;
+	left: 333px;
+	width: 55px;
+	text-align:center;
+}
+
+p.topiccontent {
+	position: absolute;
+	top: 205px;
+	left: 400px;
+	max-width: 634px;
+	height: 150px;
+	word-wrap: break-word;
+	overflow-x: hidden;
+}
+
+a.delete{
+	position: absolute;
+	right: 333px; 
+	top: 390px;
+	font-size: 15px; 
+	color: #FF0000;
+	text-decoration: none;
+}
+
+p.batasi{
+	position: absolute;
+	right: 372px;
+	top: 374px;
+	font-size: 15px;
+}
+
+a.edit{
+	position: absolute;
+	right: 378px; 
+	top: 390px;
+	font-size: 15px; 
+	color: #FFD700; 
+	text-decoration:none;
+}
+
+p.batasii{
+	position: absolute;
+	right: 402px; 
+	top: 374px;
+	font-size: 15px;
+}
+
+p.askedby{
+	position: absolute;
+	right: 407px; 
+	top: 375px;
+	font-size: 15px;
+}
+
+p.answers{
+	position: absolute;
+	top: 410px;
+	left: 333px;
+	font-size: 30px;
+}
+
+hr.garis{
+	position: absolute;
+	border-width:1px; 
+	border-color: #000000; 
+	top: 470px;
+	width: 700px; 
+	left: 333px; 
+}
+
+p.upvotetopic{
+	position: absolute;
+	font-size: 20px;
+	color: #CCCCCC;
+	top: 203px;
+	left: 350px;
+}
+
+p.downvotetopic{
+	position: absolute;
+	font-size: 20px;
+	color: #CCCCCC;
+	top: 255px;
+	left: 340px;
+}
+
+p.voteanswer {
+	position: absolute;
+	font-size: 27px;
+	color: #BFBFBF;
+	left: 333px;
+	width: 55px;
+	text-align:center;
+}
+
+p.upvoteanswer{
+	position: absolute;
+	font-size: 20px;
+	color: #CCCCCC;
+	left: 350px;
+}
+
+p.downvoteanswer{
+	position: absolute;
+	font-size: 20px;
+	color: #CCCCCC;
+	left: 340px;
+}
+
+p.answeredby{
+	position: absolute;
+	right: 370px; 
+	font-size: 15px;
+}
+
+p.answercontent{
+	position: absolute;
+	left: 400px;
+	max-width: 634px;
+	height: 150px;
+	word-wrap: break-word;
+	overflow-x: hidden;
+}
+
+hr.garisanswer{
+	position: absolute;
+	border-width:1px; 
+	border-color: #000000; 
+	width: 700px; 
+	left: 333px; 
+}
+
+p.answer{
+	position: absolute;
+	font-size:30px;
+	color: #BFBFBF;
+	left: 360px;
+}
+
+input#Name{
+	position: absolute;
+	left: 343px;
+	width: 678px;
+	padding: 5px;
+	border:1px solid #000000;
+}
+
+input#Email{
+	position: absolute;
+	left: 343px;
+	width: 678px;
+	padding: 5px;
+	border:1px solid #000000;
+}
+
+textarea#Content{
+	position: absolute;
+	left: 343px;
+	width: 678px;
+	padding: 5px;
+	border:1px solid #000000;
+}
+
+input[type="submit"] {
+	position: absolute;
+	left: 971px;
+	height: 30px;
+	width: 60px;
+	border:1px solid #000000;
+	background-color: #DCDCDC;
+}

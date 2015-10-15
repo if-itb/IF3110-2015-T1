@@ -1,0 +1,80 @@
+a {
+	position: absolute;
+	font-size: 40px;
+	text-decoration: none;
+	color: #000000;
+	top: 50px;
+	left: 490px;
+}
+
+hr {
+	position: absolute;
+	border-width: 1px;
+	border-color: #000000;
+	width: 600px;
+	top: 185px;
+	left: 383px;
+}
+
+p.what {
+	position: absolute;
+	font-size: 30px;
+	top: 125px;
+	left: 383px;
+}
+
+input#Name{
+	position: absolute;
+	top: 220px;
+	left: 393px;
+	width: 580px;
+	padding: 5px;
+	border:1px solid #000000;
+}
+
+input#Email{
+	position: absolute;
+	top: 255px;
+	left: 393px;
+	width: 580px;
+	padding: 5px;
+	border:1px solid #000000;
+}
+
+input#Topic{
+	position: absolute;
+	top: 290px;
+	left: 393px;
+	width: 580px;
+	padding: 5px;
+	border:1px solid #000000;
+}
+input#Content{
+	position: absolute;
+	top: 325px;
+	left: 393px;
+	width: 580px;
+	line-height: 12em;
+	margin-top: 5px;
+	padding: 5px;
+	overflow: hidden;
+}
+
+textarea#Content {
+	position: absolute;
+	top: 325px;
+	left: 393px;
+	width: 580px;
+	padding: 5px;
+	border:1px solid #000000;
+}
+
+input[type="submit"] {
+	position: absolute;
+	top: 530px;
+	left: 925px;
+	height: 30px;
+	width: 60px;
+	border:1px solid #000000;
+	background-color: #DCDCDC;
+}
