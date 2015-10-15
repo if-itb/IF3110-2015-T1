@@ -1,0 +1,78 @@
+@font-face {
+    font-family: "Cardo";
+    src: url(../fonts/Cardo/Cardo-Regular.ttf);
+}
+@font-face {
+    font-family: "Cardo";
+    src: url(../fonts/Cardo/Cardo-Bold.ttf);
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Cardo";
+    src: url(../fonts/Cardo/Cardo-Italic.ttf);
+    font-style: italic, oblique;
+}
+
+body{
+    padding: 30px 200px;
+    font-family: 'Cardo', serif;
+}
+header{
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.btn{
+    border: 2px solid #000;
+    text-decoration: none;
+    color: #000;
+    padding: 5px 10px;
+}
+
+/* Error Messages */
+#error-message{
+    color:#fff;
+    padding: 15px 10px;
+    font-weight: bold;
+    background-color: rgba(255,89,89,0.7);
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+/* Question Form */
+#ask hr{
+    border: 1px solid #000;
+    margin-bottom: 30px;
+}
+#ask #question-form input{
+    height: 20px;
+}
+#ask #question-form input, #ask #question-form textarea{
+    border: 2px solid #000;
+    width: 90%;
+    display: block;
+    margin: 10px auto;
+    padding: 5px 10px;
+}
+#ask #question-form textarea{
+    padding: 10px 10px;
+}
+#ask #question-form textarea{
+    resize:none;
+}
+#ask #question-form div:last-child{
+    width: 100%;
+    margin-top: 20px;
+}
+#ask #question-form div:last-child > div{
+    display: block;
+    margin: 10px auto;
+    width: 90%;
+    text-align: right;
+}
+#ask #question-form div .post-btn{
+    position: relative;
+    left:12px;
+}

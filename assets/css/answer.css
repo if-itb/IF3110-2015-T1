@@ -1,0 +1,217 @@
+@font-face {
+    font-family: "Cardo";
+    src: url(../fonts/Cardo/Cardo-Regular.ttf);
+}
+@font-face {
+    font-family: "Cardo";
+    src: url(../fonts/Cardo/Cardo-Bold.ttf);
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Cardo";
+    src: url(../fonts/Cardo/Cardo-Italic.ttf);
+    font-style: italic, oblique;
+}
+
+body{
+    padding: 30px 200px;
+    font-family: 'Cardo', serif;
+}
+header{
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+/* Anchor */
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+.btn{
+    border: 2px solid #000;
+    text-decoration: none;
+    color: #000;
+    padding: 5px 10px;
+}
+#answer-form input, #answer-form textarea{
+    border: 0.5px solid #000;
+}
+
+/* Questions Section */
+#question table{
+    width: 100%;
+    border-collapse: collapse;
+}
+#question table th{
+    text-align: left;
+}
+#question table th{
+    border-bottom: 1px solid #000;    
+}
+#question table tr td:first-child{
+    padding-top: 35px;
+    vertical-align: top;
+}
+#question table tr td{
+    padding: 15px 5px;
+}
+#question table .votes{
+    text-align: center;
+    font-weight: bold;
+}
+#question table .question-arrow-up, #question table .question-arrow-down {
+    margin: auto;
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+#question table .question-arrow-up:hover, #question table .question-arrow-down:hover{
+    cursor: pointer;
+}
+#question table .question-arrow-up:hover{
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 13px solid #000;
+}
+#question table .question-arrow-down:hover{
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-top: 13px solid #000;
+}
+#question table .question-arrow-up {
+    border-bottom: 10px solid #000;
+    margin-bottom: 7px;
+}
+#question table .question-arrow-down {
+    border-top: 10px solid #000;
+    margin-top: 5px;
+}
+#question table .action{
+    text-align: right;
+    margin-top: 50px;
+    font-weight: bold;
+}
+#question .edit{
+    color:#FFC14D;
+}
+#question .delete{
+    color:#ED3B53;
+}
+
+/* Error Messages */
+#error-message{
+    margin-top: 20px;
+    color:#fff;
+    padding: 15px 10px;
+    font-weight: bold;
+    background-color: rgba(255,89,89,0.7);
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+/* Answers Section */
+#answer table{
+    width: 100%;
+    border-collapse: collapse;
+}
+#answer table th{
+    text-align: left;
+}
+#answer table th, #answer table tr td{
+    border-bottom: 1px solid #000;
+}
+#answer table tr td:first-child{
+    padding-top: 35px;
+    vertical-align: top;
+}
+#answer table tr td{
+    padding: 15px 5px;
+}
+#answer table .votes{
+    text-align: center;
+    font-weight: bold;
+}
+#answer table .answer-arrow-up, #answer table .answer-arrow-down {
+    margin: auto;
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+#answer table .answer-arrow-up:hover, #answer table .answer-arrow-down:hover{
+    cursor: pointer;
+}
+#answer table .answer-arrow-up:hover{
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 13px solid #000;
+}
+#answer table .answer-arrow-down:hover{
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-top: 13px solid #000;
+}
+#answer table .answer-arrow-up {
+    border-bottom: 10px solid #000;
+    margin-bottom: 7px;
+}
+#answer table .answer-arrow-down {
+    border-top: 10px solid #000;
+    margin-top: 5px;
+}
+#answer table .action{
+    text-align: right;
+    margin-top: 50px;
+    font-weight: bold;
+}
+#answer .name{
+    color:#B496FF;
+}
+#answer .edit{
+    color:#FFC14D;
+}
+#answer .delete{
+    color:#ED3B53;
+}
+
+/* Answer Form */
+#your-answer .title{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#answer-form input{
+    height: 20px;
+}
+#answer-form input, #answer-form textarea{
+    border: 2px solid #000;
+    width: 90%;
+    display: block;
+    margin: 10px auto;
+    padding: 5px 10px;
+}
+#answer-form textarea{
+    padding: 10px 10px;
+}
+#answer-form textarea{
+    resize:none;
+}
+#answer-form div:last-child{
+    width: 100%;
+    margin-top: 20px;
+}
+#answer-form div:last-child > div{
+    display: block;
+    margin: 10px auto;
+    width: 90%;
+    text-align: right;
+}
+#answer-form div .post-btn{
+    position: relative;
+    left:12px;
+}
