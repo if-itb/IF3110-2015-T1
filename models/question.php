@@ -60,5 +60,24 @@
 			$stmt->execute(array('countvotes'=>$newcountvotes, 'qid'=>$qid));
 			return $newcountvotes;
 		}
+		
+		public static function edit($qid){
+			$db = Database::getInstance();			
+			$qid = intval($qid);
+			$stmt = $db->prepare('SELECT * FROM questions WHERE qid = :qid LIMIT 1');
+			
+			$stmt->execute(array('qid' => $qid));
+			$question = $stmt->fetch();
+			
+			return new Question($question['qid'], $question['authorname'],$question['authoremail'], $question['topic'], $question['content'], $question['datetime'], $question['countvotes'], $question['countanswers']);
+			
+		}
+		
+		public static function update(){
+			$db = Database::getInstance();
+			$stmt = $db->prepare('UPDATE questions SET authorname=:authorname, authoremail=:authoremail, topic=:topic, content=:content, datetime=:datetime WHERE qid=:qid');
+			
+			$stmt->execute(array('authorname'=>$this->authorname, 'authoremail'=>$this->authoremail, 'topic'=>$this->topic, 'content'=>$this->content, 'datetime'=>$this->datetime, 'qid'=>$this->qid));
+		}
 	}
 ?>

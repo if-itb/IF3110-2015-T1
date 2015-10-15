@@ -1,5 +1,8 @@
 <?php
-	$html_questionItem = '<div class="question-item-stats">
+	$html_questionItem = '
+	
+	<div class="question-item" id="[[qid]]">
+	<div class="question-item-stats">
 					<div class="vote-wrapper">
 
 						<div class="vote-buttons">
@@ -33,6 +36,7 @@
 							<span><a href="/">delete</a></span> |
 							[[datetime]]
 					</span>
+				</div>
 				</div>
 
 				<div class="clearfix"></div>';

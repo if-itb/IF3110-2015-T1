@@ -8,8 +8,8 @@
 					<div class="vote-wrapper">
 
 						<div class="vote-buttons">
-							<input title="Click to vote up" onclick="vote(this.value, [[qid]])" type="submit" value="1" class="vote-up-button"">a</input> 
-							<input title="Click to vote down" onclick="vote(this.value, [[qid]])" type="submit" value="-1" class="vote-down-button"> 
+							<input title="Click to vote up" onclick="vote(this.value, \'question\', [[qid]], \'\')" type="submit" value="1" class="vote-up-button"">a</input> 
+							<input title="Click to vote down" onclick="vote(this.value, \'question\', [[qid]], \'\')" type="submit" value="-1" class="vote-down-button"> 
 						</div>
 
 						<div class="vote">
@@ -32,9 +32,9 @@
 					</div>
 					<span class="question-item-metadata">
 							asked by
-							<span><a href="/">[[authorname]]</a></span> |
-							<span><a href="/">edit</a></span> |
-							<span><a href="/">delete</a></span> |
+							<span><a>[[authorname]]</a></span> |
+							<span><a href="?controller=questions&action=edit&qid=[[qid]]">edit</a></span> |
+							<span><a href="?controller=questions&action=delete&qid=[[qid]]">delete</a></span> |
 							[[datetime]]
 					</span>
 				</div>

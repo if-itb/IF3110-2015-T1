@@ -37,5 +37,18 @@
 			if($stmt->execute(array('authorname'=>$this->authorname, 'authoremail'=>$this->authoremail, 'qid'=>$this->qid, 'content'=>$this->content, 'datetime'=>$this->datetime)))
 				echo 'ok';
 		}
+		
+		public static function vote($vote, $qid, $aid){
+			$db = Database::getInstance();
+
+			$stmt = $db->prepare("SELECT countvotes FROM answers WHERE aid=:aid AND qid=:qid LIMIT 1");
+			$stmt->execute(array('aid'=>$aid, 'qid'=>$qid));
+			$row = $stmt->fetch();
+			$newcountvotes = intval($row['countvotes']) + $vote;
+			
+			$stmt = $db->prepare("UPDATE answers SET countvotes=:countvotes WHERE aid=:aid AND qid=:qid");
+			$stmt->execute(array('countvotes'=>$newcountvotes, 'aid'=>$aid, 'qid'=>$qid));
+			return $newcountvotes;
+		}
 	}
 ?>

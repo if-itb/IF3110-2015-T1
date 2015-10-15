@@ -1,4 +1,4 @@
-<form id='answerform' method='post' action='?controller=answers&action=insert&qid=<?php echo $_GET['qid'] ?>' >
+<form id='answerform' method='post' action='?controller=answers&action=insert&qid=<?php echo $_GET['qid'] ?>'>
 	<p>
 		Name						: <input type='text' name='authorname' />
 	</p>

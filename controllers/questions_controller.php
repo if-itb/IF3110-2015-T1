@@ -33,8 +33,7 @@
 			}
 			
 			require_once('views/questions/form.php');
-	
-		} 
+		}
 		
 		public function vote() {
 			
@@ -43,13 +42,41 @@
 			echo Question::vote($vote, $qid);
 			
 		}
+		
+		public function edit() {
+			$qid = $_GET['qid'];
+			$question = Question::get($qid);
+			require_once('views/questions/formedit.php');
+		}
+		
+		public function update() {
+			if(isset($_POST['authorname']) && isset($_POST['authoremail']) && $_POST['topic'] && $_POST['content'] && $_GET['qid']){
+				$authorname = $_POST['authorname'];
+				$authoremail = $_POST['authoremail'];
+				$topic = $_POST['topic'];
+				$content = $_POST['content'];	 
+				$datetime = date("Y-m-d H:i:s");
+				$qid = $_GET['qid'];
+				
+				$question = new Question($qid, $authorname, $authoremail, $topic, $content, $datetime, '', '');
+				$question->update();
+				
+			}
+				
+		}
+		
+		public function delete() {
+			
+		}
 	}
+
+
 	
 	if(isset($_GET['action'])){
 		if($_GET['action'] == 'vote'){
 				require_once('../connection.php');
 				require_once('../models/question.php');
-				QuestionsController::vote($_GET['vote'],$_GET['qid']);
+				QuestionsController::vote();
 		}
 	}
 
