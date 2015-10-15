@@ -47,7 +47,16 @@
       </div>
 
       <div id= "content">
-        <p class="content_title"><?php echo getAnswerCount($id); ?> Answers</p>
+        <p class="content_title">
+          <?php 
+              $unit = "Answer";
+              if (getAnswerCount($id) > 0){
+                echo getAnswerCount($id)." $unit"."s";
+              }
+              else
+                echo getAnswerCount($id)." $unit";
+          ?>
+        </p>
       <?php 
 
           foreach ($answers as $answer) {
@@ -61,7 +70,7 @@
 
             $mid = "<div class='mid-right'><p>" . $answer['content'] ."</p></div>";
 
-            $right = "<div class='right' style='float:right;''>
+            $right = "<div class='right'>
                           asked by ".$answer['name']. " at " .$answer['create_date']. 
                       "</div>";
             
