@@ -24,20 +24,10 @@
 
 		$sql = "INSERT INTO jawaban (Pertanyaan_ID, Nama, Email, Konten)
 		VALUES ('$qid', '$name', '$email', '$content')";
-
-		if (mysqli_query($conn, $sql)) {
-		    //"New record created successfully";
-		} else {
-		    //"Error: " . $sql . "<br>" . mysqli_error($conn);
-		}
+		mysqli_query($conn, $sql);
 
 		$addAnswer = "UPDATE pertanyaan SET Jmlh_Jawaban = Jmlh_Jawaban+1 WHERE ID = '$qid'";
-
-		if (mysqli_query($conn, $addAnswer)) {
-		    //"New record created successfully";
-		} else {
-		    //"Error: " . $sql . "<br>" . mysqli_error($conn);
-		}
+		mysqli_query($conn, $addAnswer);
 
 		mysqli_close($conn);
 	?>

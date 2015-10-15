@@ -20,21 +20,11 @@
 		}
 
 		$delete_question = "DELETE FROM pertanyaan WHERE ID='$id'";
-
-		if (mysqli_query($conn, $delete_question)) {
-		    //"New record created successfully";
-		} else {
-		    //"Error: " . $sql . "<br>" . mysqli_error($conn);
-		}
+		mysqli_query($conn, $delete_question);
 
 		$delete_answer = "DELETE FROM jawaban WHERE Pertanyaan_ID='$id'";
-
-		if (mysqli_query($conn, $delete_answer)) {
-		    //"New record created successfully";
-		} else {
-		    //"Error: " . $sql . "<br>" . mysqli_error($conn);
-		}
-
+		mysqli_query($conn, $delete_answer);
+		
 		mysqli_close($conn);
 	?>
 </body>

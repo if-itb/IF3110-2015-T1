@@ -3,42 +3,7 @@
 <head>
 	<title>Answer</title>
 	<link rel="stylesheet" href="answer.css">
-
-	<script>
-	function validateForm() {
-	    var a = document.forms["answer"]["nama"].value;
-	    var b = document.forms["answer"]["email"].value;
-	    var c = document.forms["answer"]["konten"].value;
-	    if (a == null || a == "") {
-	        alert("Nama belum terisi");
-	        return false;
-    	}
-    	if (b == null || b == "") {
-	        alert("Email belum terisi");
-	        return false;
-    	}
-    	if (c == null || c == "") {
-	        alert("Konten belum terisi");
-	        return false;
-    	}
-    	var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    	if (re.test(b) == false){
-    		alert("Format Email Salah");
-    		return false;
-    	}
-	}
-
-	function editVote(vote, poin, id) {
-  		var xmlhttp = new XMLHttpRequest();
-  		var str = "<?php echo 'A' ?>";
-
-  		xmlhttp.open("GET", "vote.php?vote="+vote+"&poin="+poin+"&id="+id, true);
-		document.getElementById("demo").innerHTML = str;
-  		xmlhttp.send();
-  		return true;
-	}
-
-	</script>
+	<script src="function.js"></script> 
 </head>
 <body>
 	<h1> Simple StackExchange</h1>
@@ -74,13 +39,13 @@
 	<div class="question">
 		<div class="question-vote">
 			<div class="question-vote-up">
-				<p><a href="#" onclick="editVote('pertanyaan','1','<?php echo $id ?>')">&#9650;</a></p>
+				<p><a onclick="editVote('pertanyaan','1','<?php echo $id ?>')">&#9650;</a></p>
 			</div>
 			<div class="question-vote-number">
-				<p id="demo"><?php echo $vote ?></p>
+				<p id="votePoinQ<?php echo $id ;?>"><?php echo $vote ?></p>
 			</div>
 			<div class="-question-vote-down">
-				<p><a href="#" onclick="editVote('pertanyaan','-1','<?php echo $id ?>')">&#9660;</a></p>
+				<p><a onclick="editVote('pertanyaan','-1','<?php echo $id ?>')">&#9660;</a></p>
 			</div>
 		</div>
 		<div class="question-content">
@@ -101,18 +66,19 @@
 		if (mysqli_num_rows($result2) > 0) {
 			while($row = mysqli_fetch_assoc($result2)){
 				$aid = $row["ID"];
+				$vote = $row["Vote"];
 			?>
 			<div class="answer">
 				<hr>
 				<div class="answer-vote">
 					<div class="answer-vote-up">
-						<p><a href="#" onclick="editVote('jawaban','1','<?php echo $aid ?>')">&#9650;</a></p>
+						<p><a onclick="editVote('jawaban','1','<?php echo $aid ?>')">&#9650;</a></p>
 					</div>
 					<div class="answer-vote-number">
-						<p><?php echo $row["Vote"] ?></p>
+						<p id="votePoinA<?php echo $aid ;?>"><?php echo $vote ?></p>
 					</div>
 					<div class="answer-vote-down">
-						<p><a href="#" onclick="editVote('jawaban','-1','<?php echo $aid ?>')">&#9660;</a></p>
+						<p><a onclick="editVote('jawaban','-1','<?php echo $aid ?>')">&#9660;</a></p>
 					</div>
 				</div>
 				<div class="answer-content">

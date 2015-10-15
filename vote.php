@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Vote</title>
-</head>
-<body>
 	<?php
 		$servername = "localhost";
 		$username = "root";
@@ -21,14 +15,13 @@
 		}
 
 		$addVote = "UPDATE $table SET Vote=Vote+'$poin' WHERE ID = '$id'";
+		$result = mysqli_query($conn, $addVote);
 
-		if (mysqli_query($conn, $addVote)) {
-		    //"New record created successfully";
-		} else {
-		    //"Error: " . $sql . "<br>" . mysqli_error($conn);
+		$output = "SELECT VOTE from $table WHERE ID = '$id'";
+		$result = mysqli_query($conn, $output);
+		while ($row = mysqli_fetch_assoc($result)){
+			echo $row["VOTE"];
 		}
 
 		mysqli_close($conn);
 	?>
-</body>
-</html>

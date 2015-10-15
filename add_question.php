@@ -31,12 +31,7 @@
 			WHERE ID = '$id'";
 		}
 
-		if (mysqli_query($conn, $sql)) {
-		    //"New record created successfully";
-		} else {
-		    //"Error: " . $sql . "<br>" . mysqli_error($conn);
-		}
-
+		mysqli_query($conn, $sql);
 		mysqli_close($conn);
 	?>
 </body>
