@@ -73,11 +73,21 @@
 			
 		}
 		
-		public static function update(){
+		public function update(){
 			$db = Database::getInstance();
 			$stmt = $db->prepare('UPDATE questions SET authorname=:authorname, authoremail=:authoremail, topic=:topic, content=:content, datetime=:datetime WHERE qid=:qid');
 			
 			$stmt->execute(array('authorname'=>$this->authorname, 'authoremail'=>$this->authoremail, 'topic'=>$this->topic, 'content'=>$this->content, 'datetime'=>$this->datetime, 'qid'=>$this->qid));
+		}
+		
+		public static function delete($qid){
+			$db = Database::getInstance();
+			$stmt = $db->prepare('DELETE FROM anwers WHERE qid=:qid');
+			$stmt->execute(array('qid'=>$qid));
+			
+			$stmt = $db->prepare('DELETE FROM questions WHERE qid=:qid');
+			$stmt->execute(array('qid'=>$qid));
+			
 		}
 	}
 ?>

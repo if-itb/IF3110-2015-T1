@@ -19,7 +19,7 @@
   }
 
 	$controllers = array('pages' => ['home', 'error'],
-                       'questions' => ['index', 'show', 'update', 'edit', 'delete', 'insert','vote'],
+                       'questions' => ['index', 'show', 'update', 'edit', 'delete', 'insert','vote', 'search'],
 											 'answers' => ['index', 'insert', 'vote']);
 	
 	if (array_key_exists($controller, $controllers)) {

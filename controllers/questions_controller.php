@@ -44,9 +44,11 @@
 		}
 		
 		public function edit() {
-			$qid = $_GET['qid'];
-			$question = Question::get($qid);
-			require_once('views/questions/formedit.php');
+			if(isset($_GET['qid'])){
+				$qid = $_GET['qid'];
+				$question = Question::get($qid);
+				require_once('views/questions/formedit.php');
+			}
 		}
 		
 		public function update() {
@@ -61,11 +63,26 @@
 				$question = new Question($qid, $authorname, $authoremail, $topic, $content, $datetime, '', '');
 				$question->update();
 				
-			}
+				$url= 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' ."{$_SERVER['HTTP_HOST']}".'/if3110-2015-t1/';
 				
+				header('Location: '.$url);
+				die();
+			}		
 		}
 		
 		public function delete() {
+			if(isset($_GET['qid'])){
+				$qid = $_GET['qid'];
+				Question::delete($qid);
+				
+				$url= 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' ."{$_SERVER['HTTP_HOST']}".'/if3110-2015-t1/';
+				
+				header('Location: '.$url);
+				die();
+			}
+		}
+		
+		public function search($qid){
 			
 		}
 	}
