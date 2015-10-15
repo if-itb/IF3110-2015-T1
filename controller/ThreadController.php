@@ -13,6 +13,12 @@ class ThreadController extends Controller
         $threadModel = new Thread();
         $threads = $threadModel->getAll();
 
+        foreach ($threads as &$thread) {
+            if (strlen($thread["content"]) > 30) {
+                $thread["content"] = substr($thread["content"], 0, 30) . "...";
+            }
+        }
+
         $this->render("home", ["threads" => $threads]);
     }
 

@@ -42,9 +42,12 @@
                             <h4 class="text-center">Answer</h4>
                         </div>
                         <div class="span-8">
-                            <p><b>
+                            <h3><b>
                                     <a href="/thread/view.php?id=<?= $thread["id"] ?>"><?= $thread["topic"] ?></a>
-                                </b></p>
+                                </b></h3>
+                            <p>
+                                <?= $thread["content"] ?>
+                            </p>
                             <p class="text-right footer">
                                 Asked by <?= $thread["author"] ?> | <a href="/thread/update.php?id=<?= $thread["id"] ?>">Edit</a> | <a onclick="deleteThread(<?= $thread["id"] ?>)">Delete</a>
                             </p>
