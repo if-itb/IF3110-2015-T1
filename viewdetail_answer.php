@@ -3,7 +3,7 @@
     $queryString = '<div class="board">
         <div class="votequestform">
             <div class="vote">
-                <div class="vote-up" id="answer_up{{no_answer}}" onClick="editVote(this.id)">
+                <div class="vote-up" id="answer_up{{no_answer}}" onClick="editVote(\'answer_up{{no_answer}}\')">
                 
                 </div>
                 
@@ -11,7 +11,7 @@
                     {{vote}}
                 </div>
                 
-                <div class="vote-down" id="answer_down{{no_answer}}" onClick="editVote(this.id)">
+                <div class="vote-down" id="answer_down{{no_answer}}" onClick="editVote(\'answer_down{{no_answer}}\')">
                 
                 </div>
             </div>

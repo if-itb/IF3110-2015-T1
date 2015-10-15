@@ -1,41 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Detail</title>
-	<link rel="stylesheet" href="style.css">
-	<script type="text/javascript" src="script.js"></script>
+	<head>
+		<title>Detail</title>
+		<link rel="stylesheet" href="style.css">
+		<script type="text/javascript" src="script.js"></script>
+	</head>
 
-   
-</head>
-<body>
-    <div class="board">
-        <a href="list.php"><h1>Simple StackExchange</h1></a>
-         <?php include "detailquestion_replace.php"; ?>
-    </div>
-    
-    <?php include "detailanswer_replace.php"; ?>
-    
-   
+	<body>
+	    <div class="board">
+	        <a href="list.php"><h1>Simple StackExchange</h1></a>
+	         <?php include "detailquestion_replace.php"; ?>
+	    </div>
+	    
+	    <?php include "detailanswer_replace.php"; ?>
 
-    
-    <div class="board">
-        Your Answer
-    <form action="answer_insert.php?no_question=<?php echo $no_question ?>" onsubmit="return validateAnswer()" method="post" name="form" >
-			<br>
-			<input type="text" placeholder="Name" name="name" class="box">
-			<br>
-			<br>
-			<input type="text" placeholder="Email" name="email" class="box">
-			<br>
-			<br>
-			<textarea placeholder="Content" name="content" class="box" rows="5" cols="22"></textarea>
-			<br>
-			<button type="submit" class="posisipost">Post </button>
-            
-		</form>
-        </div>
-    
-</body>
+	    <div class="board">
+	        Your Answer
+		    <form action="answer_insert.php?no_question=<?php echo $no_question ?>" onsubmit="return validateAnswer()" method="post" name="form" >
+					<br>
+					<input type="text" placeholder="Name" name="name" class="box">
+					<br>
+					<br>
+					<input type="text" placeholder="Email" name="email" class="box">
+					<br>
+					<br>
+					<textarea placeholder="Content" name="content" class="box" rows="5" cols="22"></textarea>
+					<br>
+					<button type="submit" class="posisipost">Post </button>
+		            
+			</form>
+	    </div>
+	</body>
 </html>
 
 

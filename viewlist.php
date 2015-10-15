@@ -22,11 +22,10 @@
         </div>
         
         <div class="listtopic">
-            <div>
+            <div class="topic">
                 <strong><a href="detail.php?no_question={{no_question}}">{{topic}}</a></strong>
             </div>
-            
-            <div>
+            <div class="content">
                 {{content}}
             </div>
         </div>

@@ -153,7 +153,8 @@ a:hover
 
 .listform
 {
-    border-top: 1px solid black;    
+    border-top: 1px solid black; 
+    height: 80px;   
 }
 
 .listform:after
@@ -176,6 +177,7 @@ a:hover
     width: 55%;
     text-align: center;
     margin-top: 5px;
+    height: 50px;
 }
 
 .listeditor
@@ -190,4 +192,16 @@ a:hover
 {
     margin-left: 20%;
     margin-right: 20%;
+}
+
+.topic
+{
+    font-size: 23px;
+    text-align: left;
+}
+
+.content
+{
+    text-align: left;
+    margin-bottom: 5px;
 }

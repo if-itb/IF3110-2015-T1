@@ -1,9 +1,9 @@
 <?php
     include ("viewdetail_question.php");
-$no_question = $_GET["no_question"];
+    $no_question = $_GET["no_question"];
     include ("viewdetail_answer.php");
     
-//$no_question = $_GET["no_question"];
+    //$no_question = $_GET["no_question"];
     $servername = "localhost";
 	$username = "root";
 	$password = "";
@@ -12,14 +12,12 @@ $no_question = $_GET["no_question"];
 	//Create Connection
 	$link = new mysqli($servername, $username, $password, $dbname);
 	// Check connection
-	if ($link->connect_error) {
+	if ($link->connect_error) 
+    {
 	    die("Connection failed: " . $link->connect_error);
 	}
 
-
     $query = "select * from answer where no_question=$no_question";
-
-
     $result = $link->query($query);
 	if($result->num_rows > 0)
     {
@@ -44,6 +42,6 @@ $no_question = $_GET["no_question"];
         }
 	}
 
-mysqli_close($link);
+    mysqli_close($link);
 
 ?>

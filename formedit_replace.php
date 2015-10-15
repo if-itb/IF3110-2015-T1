@@ -11,12 +11,13 @@ $no_question = $_GET["no_question"];
 	//Create Connection
 	$link = new mysqli($servername, $username, $password, $dbname);
 	// Check connection
-	if ($link->connect_error) {
+	if ($link->connect_error) 
+	{
 	    die("Connection failed: " . $link->connect_error);
 	}
 
-$query = "select * from question where no_question=".$no_question;
-$result = $link->query($query);
+	$query = "select * from question where no_question=".$no_question;
+	$result = $link->query($query);
 	if($result->num_rows > 0)
     {
 		while($row = $result->fetch_assoc())
@@ -40,6 +41,5 @@ $result = $link->query($query);
 		echo "<div>No Question</div>";
 	}
 
-mysqli_close($link);
-
+	mysqli_close($link);
 ?>

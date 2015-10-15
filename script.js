@@ -1,4 +1,4 @@
-function validateForm() {
+/*function validateForm() {
     var val_name = document.forms["form"]["name"].value;
     var val_email = document.forms["form"]["email"].value;
     var val_content = document.forms["form"]["content"].value;
@@ -23,7 +23,7 @@ function validateForm() {
              
     return true;
 
-}
+}*/
 
 function deleteConfirm(no_question) 
 {
@@ -115,35 +115,35 @@ function validateAnswer() {
 }
 
 
-function editVote(id) {
+function editVote(id) 
+{
   var xhttp;
 
     if (id.indexOf("question") > -1)
     {
-        kind = "question";
+        var kind = "question";
         id = id.replace("question_","");
     }
     else if (id.indexOf("answer") > -1)
     {
-        kind = "answer";
+        var kind = "answer";
         id = id.replace("answer_","");
     }
     
         
     if (id.indexOf("up") > -1)
     {
-        id.replace("up","");
+        id = id.replace("up","");
         var isUp = true;
     }
     else if (id.indexOf("down") > -1)
     {
-        id.replace("down","");
+        id = id.replace("down","");
         var isUp = false;
     }
     else
         var isUp = null;
-    
-          
+     
   xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() 
   {
@@ -158,14 +158,15 @@ function editVote(id) {
         {
             i = -1;
         }
-        
+        console.log(xhttp.responseText);
         if(xhttp.responseText == "yes")
         {
-            document.getElementById(kind+"Vote"+id).innerHTML = parseInt(document.getElementById(kind+"Vote"+id).innerHTML) + i;
+            document.getElementById(kind+id).innerHTML = parseInt(document.getElementById(kind+id).innerHTML) + i;
+           // document.getElementById(id).innerHTML = xmlhttp.responseText;
         }
         else
         {
-            //nothing
+            document.getElementById(kind+id).innerHTML = parseInt(document.getElementById(kind+id).innerHTML) + i;
         }
     }
   }

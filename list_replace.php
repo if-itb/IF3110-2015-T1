@@ -1,5 +1,5 @@
 <?php
-include ("viewlist.php");
+	include ("viewlist.php");
 
 
     $servername = "localhost";
@@ -10,19 +10,21 @@ include ("viewlist.php");
 	//Create Connection
 	$link = new mysqli($servername, $username, $password, $dbname);
 	// Check connection
-	if ($link->connect_error) {
+	if ($link->connect_error) 
+	{
 	    die("Connection failed: " . $link->connect_error);
 	}
-$query = "select * from question order by no_question desc;";
-$result = $link->query($query);
+
+	$query = "select * from question order by no_question desc;";
+	$result = $link->query($query);
+
 	if($result->num_rows > 0)
     {
-        
 		while($row = $result->fetch_assoc())
         {
-            if (strlen($row["content"]) > 100)
+            if (strlen($row["content"]) > 130)
             {
-                $row["content"] = substr($row["content"],0,100) . "...";
+                $row["content"] = substr($row["content"],0,130) . "...";
             }
 			$newquery = $queryString;
             $newquery = str_replace("{{name}}",$row["name"],$newquery);
@@ -42,6 +44,5 @@ $result = $link->query($query);
 	}
 
 
-mysqli_close($link);
-
+	mysqli_close($link);
 ?>
