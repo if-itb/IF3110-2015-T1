@@ -20,9 +20,21 @@
 			if (!$connection) {
 			    die("Connection failed: " . mysqli_connect_error());
 			}
+
+			// Memasukkan pertanyaan baru ke database 
+			if (isset($_POST["questionPostButton"])) {
+				$insertQuestionQuery = "insert into questions (questionname, questionemail, questiontopic, questioncontent, questionvotes, questiondatetime)
+										values ('".$_POST["questionName"]."', '".$_POST["questionEmail"]."', '".$_POST["questionTopic"]."', '".$_POST["questionContent"]."', 0, now())";
+				$insertQuestionResult = mysqli_query($connection, $insertQuestionQuery);
+			}
+
+			// Mengupdate pertanyaan yang sudah diedit ke database
+			if (isset($_POST["editPostButton"])) {
+
+			}
 		?>
 
-		<h1>Simple StackExchange</h1>
+		<h1><a href="index.php" style="color:black">Simple StackExchange</a></h1>
 		
 		<form class="center">
 			<input id="searchBox" type="text"></input>
@@ -30,7 +42,7 @@
 		</form>
 
 		<div class="center" style="margin-top:6px">
-			Cannot find what you are looking for? <a href="askQuestion.html" style="color:orange"><b>Ask here</b></a>
+			Cannot find what you are looking for? <a href="askQuestion.php" style="color:orange"><b>Ask here</b></a>
 		</div>
 
 		<?php
@@ -60,7 +72,7 @@
 					</p>
 
 					<p class='askedBy'>
-						asked by <b><span style='color:purple'>".$result["questionname"]."</span>|<span style='color:orange'>edit</span>|<span style='color:red'>delete</span></b>
+						asked by <b><span style='color:purple'>".$result["questionname"]."</span>|<a href='askQuestion.php?id=".$result["questionid"]."' name='edit' style='color:orange'>edit</a>|<span style='color:red'>delete</span></b>
 					</p>";
 				}
 			}

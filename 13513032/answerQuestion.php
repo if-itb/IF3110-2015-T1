@@ -7,7 +7,22 @@
 	</head>
 
 	<body>
-		<h1>Simple StackExchange</h1>
+		<?php
+			$servername = "localhost";
+			$username = "root";
+			$password = "";
+			$database = "database032";	// Nama database
+
+			// Membuat koneksi
+			$connection = mysqli_connect($servername, $username, $password, $database);
+
+			// Mengecek koneksi
+			if (!$connection) {
+			    die("Connection failed: " . mysqli_connect_error());
+			}
+		?>
+
+		<h1><a href="index.php" style="color:black">Simple StackExchange</a></h1>
 		<h2>The question topic goes here</h2>
 		<p class="questionBoundary"></p>
 
