@@ -77,7 +77,7 @@ for ($count=1;$count<=$num_of_questions;$count++) {
 
             <td rowspan="2" width="600">
 
-               <a href="Question.php?questionID='.$count.'" id="blacklink">'.$questiontopic[$count].'</a>
+               <a href="Question.php?questionID='.$questionID[$count].'" id="blacklink">'.$questiontopic[$count].'</a>
                <br>
                '.$content[$count].'
             </td>

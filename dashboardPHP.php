@@ -11,8 +11,10 @@
     <a href="dashboardPHP.php" id="dashboard">Simple StackExchange</a>
     <br><br>
 
-    <form action="demo_form.asp">
-        <input type="text" name="LastName" value=""><input type="submit" value="search"><br>
+    <form action="demo_form.asp" >
+        <input type="text" name="Search" value="">
+
+        <input type="submit" value="search"><br>
     </form>
 
     <p>Cannot find what you are looking for?

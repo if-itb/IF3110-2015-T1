@@ -35,7 +35,7 @@ $sql = "INSERT INTO `question`.`answer` (`question_id`, `answer_id`, `Content`, 
            VALUES ('$questionID','$answer_id', '$content', '$answered_by', '$email', '0', CURRENT_TIMESTAMP);";
 
 if (mysqli_query($conn, $sql)) {
-    $sql = "update questions set answers=answers+1 where question_id=$questionID";
+    $sql = "update questions set answers=answers+1 where question_id=$questionID;";
     if (mysqli_query($conn, $sql)) {
         include 'redirecting.php';
     } else {

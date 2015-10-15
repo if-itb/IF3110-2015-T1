@@ -24,10 +24,10 @@ $vote_point = $row["vote_point"];
 $nAnswerquestion = $row["answers"];
 $contentquestion = $row["content"];
 $datetimequestion = $row["datetime"];
-//Close Connection
-mysqli_close($conn);
 
 ?>
+
+
 
 <body>
 <Center>
@@ -46,7 +46,7 @@ mysqli_close($conn);
    <table width="700" border="0px">
        <tr>
            <td width="10">
-               <img src="arrowup.png" alt="upvote" style="width:40px;height:40px;" align="center">
+               <img src="arrowup.png" alt="upvote" style="width:40px;height:40px;" align="center" onclick="Upvote()">
            </td>
            <td rowspan="3">
                <?php
@@ -58,16 +58,19 @@ mysqli_close($conn);
        <tr>
            <td>
                <center>
-                   <?php
-                   echo $vote_point;
-                   ?>
+                   <div id="votepoint">
+                       <?php
+                       echo $vote_point;
+                       ?>
+                   </div>
+
                </center>
            </td>
        </tr>
 
        <tr>
            <td>
-               <img src="arrowdown.png" alt="upvote" style="width:40px;height:40px;">
+               <img src="arrowdown.png" alt="upvote" style="width:40px;height:40px;" align="center" onclick="Downvote()">
            </td>
        </tr>
 
@@ -91,6 +94,33 @@ mysqli_close($conn);
        </tr>
 
        </table>
+
+    <script>
+        function Upvote() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    document.getElementById("votepoint").innerHTML = xhttp.responseText;
+                }
+            }
+            xhttp.open("GET", "upvote.php?questionID="+<?php echo $questionID?>, true);
+            xhttp.send();
+        }
+    </script>
+
+    <script>
+        function Downvote() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    document.getElementById("votepoint").innerHTML = xhttp.responseText;
+                }
+            }
+            xhttp.open("GET", "downvote.php?questionID="+<?php echo $questionID?>, true);
+            xhttp.send();
+        }
+    </script>
+
 
 
     <br><br><br><br>
@@ -188,6 +218,9 @@ mysqli_close($conn);
     }
 
     ?>
+
+
+
 
     <hr width="770">
     <h4 class="relative3">
