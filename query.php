@@ -69,8 +69,10 @@ function countAnswer($q_id) {
   return $row['count'];
 }
 
-function updateVote() {
-
+function updateVote($table, $id, $addition) {
+  global $conn;
+  $query = "UPDATE $table SET vote=(vote+ $addition) WHERE ".$table[0]."_id=$id";
+  return mysqli_query($conn, $query);
 }
 
 function getVote($table, $id) {

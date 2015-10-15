@@ -93,3 +93,36 @@ function validateAnswer(){
   isValid= isNameValid && isEmailValid && isTopicValid && isContentValid;
   return isValid;
 }
+
+function vote(obj, id, vote) {
+  var http;
+  if(window.XMLHttpRequest){
+    http = new XMLHttpRequest();
+  } else {
+    http = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  if (obj=='question') {
+    var elmtID='questionVote';
+    if(vote=='up') {
+      var param = "&vote=up&obj=question&id="+id;
+    } else {
+      var param = "&vote=down&obj=question&id="+id;
+    }
+  } else {
+    var elmtID='answerVote-'+id;
+    if(vote=='up') {
+      var param = "&vote=up&obj=answer&id="+id;
+    } else {
+      var param = "&vote=down&obj=answer&id="+id;
+    }
+  }
+  http.onreadystatechange = function() {
+    if (http.readyState == 4 && http.status == 200) {
+        document.getElementById(elmtID).innerHTML = http.responseText;
+    }
+  }
+  http.open("POST", "vote.php", true);
+  http.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+  http.setRequestHeader("Content-length", param.length);
+  http.send(param);
+}

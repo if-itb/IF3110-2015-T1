@@ -46,10 +46,10 @@
 <h2><?php echo $question['topic']; ?></h2>
 <br>
 <div>
-  <img src="assets/up.png">
+  <img src="/assets/up.png" onclick="vote('question', <?php echo $q_id; ?>, 'up')">
   <br>
-<div><?php echo $question['vote']; ?></div>
-  <img src="assets/down.png">
+  <div id="questionVote"><?php echo $question['vote']; ?></div>
+  <img src="/assets/down.png" onclick="vote('question', <?php echo $q_id; ?>, 'down')">
 </div>
 <div>
   <p><?php echo $question['content']; ?></p>
@@ -72,10 +72,10 @@
     while($answer=mysqli_fetch_assoc($tabAnswer)){
 ?>
       <div>
-        <img src="assets/up.png">
+        <img src="/assets/up.png" onclick="vote('answer', <?php echo $answer['a_id']; ?>, 'up')">
         <br>
-      <div><?php echo $answer['vote']; ?></div>
-        <img src="assets/down.png">
+        <div id="answerVote-<?php echo $answer['a_id'];?>"><?php echo $answer['vote']; ?></div>
+        <img src="/assets/down.png" onclick="vote('answer', <?php echo $answer['a_id']; ?>, 'down')">
       </div>
       <div>
         <div>
