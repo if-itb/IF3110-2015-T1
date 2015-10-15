@@ -89,7 +89,19 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+**Validasi.**
+Untuk melakukan pengecekan pada form pertanyaan dan jawaban dilakukan pemanggilan fungsi javascript saat tombol submit di-click.
+- validateForm() untuk memastikan setiap form sudah terisi dan akan memberikan alert jika masih ada form yang kosong.
+- validateEmail(email) untuk mengecek apakah email dalam bentuk yang valid atau tidak setelah form email sudah terisi.
+
+
+**Vote.**
+Vote dengan ajax dilakukan dengan membuat objek XMLHttprequest dengan metode POST. Saat image vote up/down dikilk, fungsi javascript akan membuka page vote.php untuk mengolah basis data dan akan mengirimkan kembali hasil perubahan pada basis data tanpa melakukan pergantian pada page atau me-refresh page dan hanya akan mengubah page pada onreadystatechange. Fungsi-fungsi yang digunakan adalah sebagai berikut :
+- voteUpQuestion(id_q)
+- voteDownQuestion(id_q)
+- voteUpAnswer(id_q, id_a)
+- voteDownAnswer(id_q, id_a)
+*id_q adalah Question ID, dan id_a adalah Answer ID
 
 ### Knowledge
 

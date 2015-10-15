@@ -1,0 +1,162 @@
+/* @Author	: Ignatius Alriana Haryadi Moel
+ * File		: style.css
+ */
+
+/*Element tag style*/
+
+a{
+	text-decoration: none;
+}
+
+body{
+	color: #000000;
+	position: relative;
+	width: 600px;
+	margin: auto ;
+	padding: 0;
+}
+
+h1{
+	color: #000000;
+	text-align: center; 
+}
+
+h2{
+	margin-bottom: 1px;
+}
+
+h4{
+	margin-bottom: 2px;
+}
+
+h5{
+	font: normal 80% Arial, Helvetica, sans-serif;
+	text-align: center; 
+	margin-top: 5px;
+}
+
+hr{
+	width: 900px;
+	vertical-align: center;
+	border: 1.5px solid #000000;
+}
+
+textarea{
+	width: 600px;
+	height: 100px;
+}
+
+input{
+	vertical-align: center;
+}
+
+/*Id Style*/
+
+#link {
+	color : #AAFF00;
+	text-decoration: none;
+}
+
+
+/*Class Style*/
+
+.garis{
+	border: 1px solid #000000;
+	border-top-width: 25%;
+	margin-bottom: 10px;
+}
+
+.submit{
+	position: relative;
+}
+
+.name{
+	color: #0000FF;
+}
+
+.edit{
+	color: #00FF00;
+}
+
+.del{
+	color: #FF0000;
+}
+
+input.search{
+	width: 300px;
+	height: 20px;
+	border: 2px solid #000000;
+	border-radius: 5px;
+}
+
+input.form-field{
+	width: 600px;
+	height: 20px;
+	margin-bottom: 5px;
+	vertical-align: center;
+}
+
+input.button{
+	height: 28px;
+	border-radius: 5px;
+	border: 2px solid #000000;
+}
+
+table.question{
+	width: 600px;
+}
+
+td.number{
+	text-align: center;
+	width: 50px;
+	height: 30px;
+}
+
+td.Text{
+	text-align: center;
+	vertical-align: text-top;
+	font-weight: bold;
+	width: 50px;
+	height: 30px;
+}
+
+td.Topic{
+	font-size: 150%;
+	font-weight: bold;
+	text-align: left;
+	width: 300px;
+}
+
+td.Detail{
+	text-align: right;
+	vertical-align: bottom;
+	font-size: 85%;
+	height: 30px;
+}
+
+td.Content{
+	font-size: 90%;
+	vertical-align: text-top;
+	height: 30px;
+}
+
+td.dContent{
+	font-size: 90%;
+	vertical-align: top;
+	width: 500px;
+}
+
+td.Date{
+	text-align: right;
+	vertical-align: bottom;
+	font-size: 70%;
+	height: 30px;
+}
+
+td.vote{
+	text-align: center;
+	vertical-align: text-top;
+	width: 100px;;
+}
+
+/*Contextual Style*/
