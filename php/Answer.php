@@ -22,21 +22,24 @@
 						echo '</h2>
 						<div class = "question">
 							<div class = "small-box">
-								<p class = "middle" id = "votes">';
-								echo $row['Votes'];
-								echo '<br />
-								<img class = "small-button" src="../img/unlike.jpg" alt="Unlike">
+								<div class = "middle" id = "votes"><span id = "questions';
+									echo $ID;
+									echo '">';
+									echo $row['Votes'];
+								echo '</span></div><p>
+								<img class = "small-button" src="../img/unlike.jpg" alt="Unlike" onclick = \'like("questions",'.$ID.',-1)\'>
 								&nbsp;
-								<img class = "small-button" src="../img/like.jpg" alt="Like"></p>
+								<img class = "small-button" src="../img/like.jpg" alt="Like" onclick = \'like("questions",'.$ID.',1)\'></p>
 							</div>
-							<div class = "big-box">
-								';
+							<div class = "big-box">';
 								echo $row['Content'];
 								echo '
 							</div>
 							<div>
 								<p class = "right">asked by ';
 								echo $row['Name'];
+								echo ' ';
+								echo $row['Email'];
 								echo ' at ';
 								echo $row['Date'];
 								echo '<a class = "hl-orange" href = "Question.php?edit=';
@@ -53,21 +56,24 @@
 						while($row = mysqli_fetch_assoc($result)) {
 							echo '<div class = "question">
 								<div class = "small-box">
-									<p class = "middle" id = "votes">';
-									echo $row['Votes'];
-									echo '<br />
-									<img class = "small-button" src="../img/unlike.jpg" alt="Unlike">
+									<div class = "middle" id = "votes"><span id = "answers';
+										echo $row['ID'];
+										echo '">';
+										echo $row['Votes'];
+									echo '</span></div><p>
+									<img class = "small-button" src="../img/unlike.jpg" alt="Unlike" onclick = \'like("answers",'.$row['ID'].',-1)\'>
 									&nbsp;
-									<img class = "small-button" src="../img/like.jpg" alt="Like"></p>
+									<img class = "small-button" src="../img/like.jpg" alt="Like" onclick = \'like("answers",'.$row['ID'].',1)\'></p>
 								</div>
-								<div class = "big-box">
-									<p class = "top-left">';
+								<div class = "big-box">';
 									echo $row['Content'];
-									echo '</p>
+									echo '
 								</div>
 								<div>
 									<p class = "right">answered by ';
 									echo $row['Name'];
+									echo ' ';
+									echo $row['Email'];
 									echo ' at ';
 									echo $row['Date'];
 									echo '</p>
@@ -77,14 +83,14 @@
 			?>
 			<div class = "question"></div>
 			<h4>Your Answer</h4>
-			<form method = "post">
+			<form name = "answers" method = "post" onsubmit = "return aformValidation()">
 				<input type = "text" class = "full-form" placeholder = "Name" name = "name">
 				<br />
 				<input type = "text" class = "full-form" placeholder = "Email" name = "email">
 				<br />
 				<textarea class = "full-form" placeholder = "Content" name = "content" rows = "7" cols = "80"></textarea>
 				<br />
-				<input type = "submit" name = "post" value = "Post">
+				<input type = "submit" class = "post-button" name = "post" value = "Post">
 			</form>
 			<p id = "success"></p>
 		</div>
@@ -97,8 +103,7 @@
 
 				$result = mysqli_query($conn, "INSERT INTO answers(Name, Email, Content, Ans_ID) VALUES ('$name', '$email', '$content', '$ID')");
 				mysqli_close($conn);
-				header('Location: Answer.php?ID='.$ID);
-			}
+			} else
 			mysqli_close($conn);
 		?>
 	</body>

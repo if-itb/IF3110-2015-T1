@@ -16,7 +16,7 @@
 				<br>
 				<textarea class = "full-form" placeholder = "Content" name = "content" rows = "7"></textarea>
 				<br>
-				<input type = "submit" class = "right" name = "post" value = "Post">
+				<input type = "submit" class = "post-button" name = "post" value = "Post">
 			</form>
 			<?php
 				require 'functions.php';
