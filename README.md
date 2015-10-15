@@ -89,7 +89,13 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+#### Validasi
+
+Validasi terhadap form dilakukan pada client-side dengan menggunakan javascript.Pada button yang melakukan submit diberi atribut onsubmit yang nilainya merupakan pemanggilan fungsi yang melakukan validasi. Fungsi tersebut kemudian akan mengecek apakah setiap field terisi dan memiliki format alamat email yang benar. Pengecekan email dilakukan dengan mengecek apakah karakter '@'' merupakan karakter dengan indeks satu atau lebih dan apakah karakter '.' memiliki indeks minimal 2 karakter dari belankang. Apabila syarat satu atau lebih tidak terpenuhi, maka akan muncul alert yang mengingatkan user untuk mengisi atau memperbaiki isi field tersebut. Jika data yang dimasukkan telah valid, browser baru akan mengirimkan ke server untuk kemudian diproses atau disimpan ke dalam database.
+
+#### Melakukan AJAX
+
+Untuk dapat melakukan voting tanpa melakukan refresh pada halaman, pada implementasi voting digunakan AJAX. Elemen panah ke atas pada voting memiliki kelas arrow-up dan elemen panah ke bawah pada voting memiliki kelas arrow-down. Pada tiap panah diberikan event handling atribut onclick yang akan memamnggil fungsi javascript untuk voting. Contohnya pada arrow-up untuk voting pertanyaan akan dipanggil fungsi VoteQuestionUp(id). Pada fungsi tersebut akan dibuat objek XMLHttpRequest. Setelah itu, akan dikirim sebuah request ke server dengan menggunakan perintah open dan send pada objek XMLHttpRequest tersebut. Pada fungsi ini method yang digunakan adalah GET. Hasil request yang diperoleh kemudian dikirimkan ke url lokasi file. File yang diunakan file adalah PHP yang terhubung ke basis data. Setelah perintah pada file PHP ini dijalankan, nilai jumlah vote yang ditampilkan akan berubah.
 
 ### Knowledge
 
