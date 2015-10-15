@@ -194,14 +194,42 @@ mysqli_close($conn);
         Your Answer
     </h4>
 
+
+    <script>
+
+        function checkscript() {
+            var namesubmitted = document.forms["inputnewanswer"]["Name"].value;
+            var emailsubmitted = document.forms["inputnewanswer"]["Email"].value;
+            var contentsubmitted = document.forms["inputnewanswer"]["Content"].value;
+            if (namesubmitted=="") {
+                // something i s wrong
+                alert("field nama tidak boleh kosong");
+                return false;
+            }else if (emailsubmitted==""){
+                alert("field email tidak boleh kosong");
+                return false;
+            }else if (contentsubmitted==""){
+                alert("field content tidak boleh kosong");
+                return false;
+            }else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailsubmitted)){
+                return true;
+            }else{
+                alert("format penulisan email salah");
+                return false;
+            }
+        }
+    </script>
+
+
+
     <h4 class="relative2">
-        <form action="InputNewAnswer.php?questionID=<?php echo $questionID ?>" method="post">
+        <form name="inputnewanswer" action="InputNewAnswer.php?questionID=<?php echo $questionID ?>" method="post">
             <input type="text" name="Name" value="Name" size="100"><br>
-            <input type="text" name="Email" value="Email"size="100"><br>
+            <input type="text" name="Email" value="Email@example.com"size="100"><br>
             <textarea class="newanswer" cols="91" rows="4" type="text" name="Content">Content
             </textarea>
             <br>
-            <input class="textboxposquestion" type="submit" value="post">
+            <input class="textboxposquestion" type="submit" value="post" onclick="return checkscript()">
         </form>
     </h4>
 

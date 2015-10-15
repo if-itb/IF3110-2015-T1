@@ -48,14 +48,50 @@ mysqli_close($conn);
 
     <hr width="770">
 
-    <form action="editquestionpage.php?questionID=<?php echo $questionID?>" method="post" >
+    <script>
+
+        function checkscript() {
+            var namesubmitted = document.forms["editquestion"]["Name"].value;
+            var emailsubmitted = document.forms["editquestion"]["Email"].value;
+            var questiontopicsubmitted = document.forms["editquestion"]["QuestionTopic"].value;
+            var contentsubmitted = document.forms["editquestion"]["Content"].value;
+            if (namesubmitted=="") {
+                // something i s wrong
+                alert("field nama tidak boleh kosong");
+                return false;
+            }else if (emailsubmitted==""){
+                alert("field email tidak boleh kosong");
+                return false;
+            }else if (questiontopicsubmitted==""){
+                alert("field question topic tidak boleh kosong");
+                return false;
+            }else if (contentsubmitted==""){
+                alert("field content tidak boleh kosong");
+                return false;
+            }else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailsubmitted)){
+                return true;
+            }else{
+                alert("format penulisan email salah");
+                return false;
+            }
+
+
+            // If the script makes it to here, everything is OK,
+            // so you can submit the form
+            return true;
+        }
+    </script>
+
+
+
+    <form name="editquestion" action="editquestionpage.php?questionID=<?php echo $questionID?>" method="post" >
         <input type="text" name="Name" value="<?php echo $asked_by ?>" size="100"><br>
         <input type="text" name="Email" value="<?php echo $email ?>" size="100"><br>
         <input type="text" name="QuestionTopic" value="<?php echo $questiontopic ?>" size="100"><br>
         <textarea cols="91" rows="4" type="text" name="Content"><?php echo $contentquestion ?>
         </textarea>
         <br><br>
-        <input class="textboxposquestion" type="submit" value="post">
+        <input class="textboxposquestion" type="submit" value="post" onclick="return checkscript()">
     </form>
 
 

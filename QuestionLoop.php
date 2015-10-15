@@ -25,7 +25,6 @@
         $num_of_questions = $fetched["num_of_questions"];
     }
 
-
 //fetching data
     $sql =  "select question_id, asked_by, questiontopic , vote_point, answers, content
              from questions;";
@@ -49,7 +48,7 @@
     mysqli_close($conn);
 
 for ($count=1;$count<=$num_of_questions;$count++) {
-    if (strlen($content[$count]) > 77)
+        if (strlen($content[$count]) > 77)
         $content[$count] = substr($content[$count], 0, 77) . '...';
     echo '
     <hr width="770"; align="1";>

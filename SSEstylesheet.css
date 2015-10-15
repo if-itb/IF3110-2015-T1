@@ -4,6 +4,11 @@ body {
     background-color: white;
 }
 
+html {
+    /* OVERFLOW HIDDEN NOT ALLOWING JAVASCRIPT SCROLL */
+    overflow: scroll;
+}
+
 h1 {
     color: black;
     text-align: center;
