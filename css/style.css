@@ -72,6 +72,8 @@ p {
 a {
    color : orange;
    text-decoration: none;
+    font-style: italic;
+    font-weight: normal;
 }
 a:hover {
     color :red;
@@ -117,7 +119,7 @@ a:hover {
 }
 .vote {
     margin-left:14.5%;
-    margin-right: 10px;
+    margin-top: 15px;
    // border : 1px solid red;
     width :5%;
     text-align: center;
@@ -174,12 +176,14 @@ a1 {
     color:lawngreen;
 }
 
-bb {
+.bb {
     color : blue;
+    font-style: normal;
 }
-bb:hover {
+.bb:hover {
     color:orange;
     cursor:pointer;
+   
 }
 cc {
     color:red;
@@ -187,4 +191,46 @@ cc {
 cc:hover {
     color:orange;
     cursor: pointer;
+}
+
+#fname,#ftitle,#femail,#fcontent {
+    
+    margin-left: 15%;
+    margin-top:10px;
+    width:50%;
+    border : 1px solid black;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    heigth:25px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 100%;
+    border-radius: 4px;
+}
+
+#fname {
+    margin-top: 40px;
+}
+
+#ermsg,#ermsg2 {
+    color:red ;
+    margin-left:19%;
+    margin-top: 15px;
+    font-size: 80%;
+}
+
+#fsubmit {
+    margin-top: 25px;
+    width:8%;
+    margin-left:36%;
+    background-color: white;
+    border: 2px solid darkgreen ;
+    color:darkgreen;
+    font-weight: bold;
+    height:35px;
+    border-radius:4px;
+}
+
+#fsubmit:hover {
+    background-color:darkgreen;
+    color:white;
+    
 }

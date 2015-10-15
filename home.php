@@ -14,8 +14,19 @@ and open the template in the editor.
     <body>
         
         <?php require("php/database.php"); ?>
-        <?php  $questions = getAllQuestion();  ?>
-        
+        <?php  $questions = getAllQuestion(); 
+        //echo count($questions);
+             ?>
+        <?php
+            if (isset($_POST['aa'])&&isset($_POST['id_q'])) {
+                if ($_POST['aa'] == 'new') echo "new";
+                else echo"edit";
+                echo $_POST['id_q'];
+                
+                //addNewQuestion($_POST);
+			}
+           
+        ?>
         <div id="Title">
             <h1 class="t" href="home.php">Simple StackExchange</h1>
         </div>
@@ -23,7 +34,7 @@ and open the template in the editor.
              <input id="search" type="text" placeholder="  Type any keyword here . . . ">
              <input id="submit" type="submit" value="Search">
         </form>
-        <p>Cannot find what you are looking for ? <a href="">Ask here</a></p>        
+        <p>Cannot find what you are looking for ? <a href="askhere.php?id=0" >Ask here</a></p>        
         <div class="raq">Recently Asked Questions</div>
         <div class="separator"></div>
         
@@ -40,7 +51,7 @@ and open the template in the editor.
             </div>
             
             <div class="thread">
-                <div class="title"><?php echo $q['title']?></div>
+                <div class="title" href=""><?php echo $q['title']?></div>
                 <div class = "content">                     
                     <?php echo substr($q['content'],0,150) ?>
                     <?php if (strlen($q['content'])>150) echo ". . . . . . " ;?>
@@ -52,8 +63,8 @@ and open the template in the editor.
         <div class="utility">
             <aa>asked by : </aa>
             <a1><?php echo $q['username']?> </a1>|
-            <bb>edit </bb>|
-            <cc>delete</cc>
+            <a href="askhere.php?id=<?php echo $q['id_q'] ?>" ><span class="bb">edit</span></a> |
+            <cc href="">delete</cc>
         </div>
          <div class="uline"></div>
         

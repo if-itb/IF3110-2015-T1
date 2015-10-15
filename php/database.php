@@ -38,3 +38,26 @@ function countAnswer($id) {
     return $ret;
 }
 
+function getQuestion($id) {
+    global $conn;
+    
+   
+    $sql = "SELECT * FROM question WHERE id_q=$id";
+    
+    $result = mysqli_query($conn, $sql);
+    $ret = mysqli_fetch_array($result,MYSQLI_ASSOC);
+    
+    return $ret;
+}
+
+function addNewQuestion($q) {
+    global $conn;
+    $sql1 = "SELECT MAX(id_q) as max FROM question" ;
+    $result1 = mysqli_query($conn,$sql1);
+    $ret1 = mysqli_fetch_array($result1,MYSQLI_ASSOC)['max'];
+    $nid = $ret1 + 1;
+    $sql2 = "INSERT INTO question (id_q,username,email,title,content,date,vote) VALUES ('$nid','$q[username]','$q[email]','$q[title]','$q[content]', CURRENT_TIMESTAMP,0)";
+    $result2 = mysqli_query($conn,$sql2);
+    return $result2;
+    
+}

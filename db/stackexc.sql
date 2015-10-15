@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2015 at 08:47 AM
+-- Generation Time: Oct 10, 2015 at 08:20 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -65,9 +65,12 @@ CREATE TABLE IF NOT EXISTS `question` (
 --
 
 INSERT INTO `question` (`id_q`, `title`, `content`, `vote`, `date`, `username`, `email`) VALUES
-(1, 'First Question', 'Stack Exchange ????? Testt', 0, '2015-10-07 18:20:01', 'tamadamanik', 'tama.damanik@gmail.com'),
+(1, 'First Question', 'TESQ 11', 0, '2015-10-07 18:20:01', 'tamanugraha', 'tama.damanik@yahoo.co.id'),
 (2, 'Second Question', 'test', 1, '2015-10-07 23:08:58', 'tatama', 'tamadamanik@yahoo.co.id'),
-(3, 'Another Question', ' more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char', 2, '2015-10-10 13:47:19', 'tatamadamanik', 'tatamadamanik@gmail.com');
+(3, 'Another Question', ' more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char more than 100 char', 2, '2015-10-10 13:47:19', 'tatamadamanik', 'tatamadamanik@gmail.com'),
+(4, 'Try from ask here', 'Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here Try from ask here', 0, '2015-10-10 23:27:31', 'Tama', 'tama.damanik@yahoo.co.id'),
+(5, 'Second try', 'Second try Second try Second try Second try ', 0, '2015-10-11 01:03:43', 'tama_n', 'tamadamanik@yahoo.co.id'),
+(6, 'Third retry', 'Third', 0, '2015-10-11 01:19:25', 'tata', 'tata@yahoo.com');
 
 --
 -- Indexes for dumped tables
