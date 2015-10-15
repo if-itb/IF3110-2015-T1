@@ -89,7 +89,12 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+- Melakukan validasi pada client-side
+  Validasi pada client side dilakukan dengan cara melakukan pengecekan kelengkapan dan kebenaran format data saat pengisian form pertanyaan maupun jawaban. Validasi digunakan dengan memanfaatkan fungsi alert() pada javascript. fungsi alert() akan aktif ketika form pada halaman pertanyaan / jawaban tidak terisi (form harus terisi seluruhnya). Khusus untuk bagian email, terdapat verifikasi dengan menggunakan requler expression. kemudian dilakukan pencocokan string yang masuk dengan format reguler expression dengan fungsi test(). Jika format belum sesuai, akan muncul peringatan yang berasal dari fungsi alert().
+  
+
+- Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
+  Pada saat dilakukan klik pada icon vote, program akan langsung memanggil fungsi javascript bernama editVote(vote, poin, id) yang terdapat pada file function.js. fungsi editVote() sendiri mempunya 3 parameter yaitu vote, poin dan id. vote berisi jenis/bagian apa yang dikenai voting. vote bernilai "pertanyaan" jika kita menekan icon vote pada bagian pertanyaan dan akan bernilai "jawaban" jika kita menekan tombol vote pada bagian jawaban. poin bernilai 1/-1. 1 jika vote up dan -1 jika vote down. sedangakan id berisi question id / answer id yang di vote. Kemudian fungsi editVote() akan membuka file vote.php dengan memanfaatkan AJAX. editVote() juga mengirimkan nilai dari variabel vote, poin dan id dengan memanfaatkan fungsi GET. Pada file vote.php, dilakukan pemrosesan query database dimana query melakukan UPDATE pada "VOTE" sesuai dengan variabel yang dikirim melalui AJAX. vote akan menjadi nama tabel yang akan diedit, poin akan menentukan apakah nilai "VOTE" akan bertambah 1 atau berkurang 1. Sedangkan id menjadi parameter "ID" "VOTE" pertanyaan / jawaban yang akan dirubah.
 
 ### Knowledge
 

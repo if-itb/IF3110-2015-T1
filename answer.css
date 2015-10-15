@@ -38,6 +38,8 @@ h2{
 	margin-right: 5%;
 	height:70%;
 	text-align: center;
+	word-wrap:break-word;
+	overflow:hidden;
 }
 
 .question-identity{
@@ -72,6 +74,7 @@ h2{
 	margin-right: 5%;
 	text-align: center;
 	word-wrap:break-word;
+	overflow:hidden;
 }
 
 .answer-identity{
