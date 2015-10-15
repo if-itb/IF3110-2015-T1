@@ -24,7 +24,9 @@
 		// Check connection
 		if (!$conn) {
 			die("Connection failed: " . mysqli_connect_error());
-		}	
+		}
+		
+		$query = $_GET["search"];
 
 		$sql = "SELECT * FROM questions ORDER BY DateAndTime DESC";
 		$result = mysqli_query($conn, $sql);
@@ -32,6 +34,7 @@
 		if (mysqli_num_rows($result) > 0) {
 			// output data of each row
 			while($row = mysqli_fetch_assoc($result)) {
+				if ((strpos($row["Topic"],$query) !== false) || (strpos($row["Content"],$query) !== false)) {
 				$sql2 = "SELECT * FROM answers WHERE Question=".$row["Question_ID"];
 				$answer = mysqli_query($conn, $sql2);
 				echo '<hr class="garis" style="top:' . (230 + $i * 100) . 'px;">';
@@ -48,6 +51,7 @@
 				echo '<a class="topic" href="question.php?id=' . $row["Question_ID"].'" style="top:' . (250 + $i * 100) . 'px;">'. $row["Topic"].'</a>';
 				echo '<p class="content" style="top:' . (270 + $i * 100) . 'px;">'. $row["Content"].'</p>';
 				$i = $i + 1;
+				}
 			}
 		}
 

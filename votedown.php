@@ -5,21 +5,26 @@
 	$username = "root";
 	$password = "";
 	$dbname = "database_of_questions";
+
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	// Check connection
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	} 
-	$qid = $_GET["id"];
-	$sql = "DELETE FROM questions WHERE Question_ID=".$qid;
 	
+	$id = $_GET["id"];
+	
+	$voteval = "SELECT * FROM questions WHERE Question_ID =".$id;
+	$votev = $conn->query($voteval);
+	while($row = mysqli_fetch_assoc($votev))
+	$vote = $row["Votes"] - 1;
+	
+	$sql = "UPDATE questions SET Votes=".$vote." WHERE Question_ID=".$id;
+
 	if ($conn->query($sql) === TRUE) {
-		$sql2 = "DELETE FROM answers WHERE Question=".$qid;
-		if ($conn->query($sql2) === TRUE) {
-			header('Location: index.php');
-		}
 	}
+
 	$conn->close();
 ?>
 </body>

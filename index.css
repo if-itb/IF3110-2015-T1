@@ -7,7 +7,6 @@ a.header {
 	left: 490px;
 }
 
-
 input[type="search"]{
     position: absolute;
     top: 135px;
@@ -128,12 +127,14 @@ p.name{
 	color: #0000FF;
 }
 
-p.topic{
+a.topic{
 	position: absolute;
 	left: 530px; 
 	font-size: 20px; 
 	width: 300px; 
 	overflow: hidden;
+	text-decoration: none;
+	color: #000000;
 }
 
 p.content{
@@ -142,4 +143,5 @@ p.content{
 	font-size: 13px; 
 	width: 355px; 
 	overflow: hidden;
+	white-space: nowrap;
 }

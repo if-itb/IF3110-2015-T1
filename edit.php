@@ -5,7 +5,6 @@
 <link rel="stylesheet" type="text/css" href="ask.css">
 </head>
 <body>
-	<br>
 	<a href="index.php">Simple StackExchange</a>
 	<p class="what">What's your question?</p>
 	<hr>
@@ -13,7 +12,6 @@
 		<input type="text" name="Name" id="Name" onfocus="focusName()" onblur="blurName()" style="color: #000000;">
 		<input type="text" name="Email" id="Email" onfocus="focusEmail()" onblur="blurEmail()" style="color: #000000;">
 		<input type="text" name="Topic" id="Topic" onfocus="focusTopic()" onblur="blurTopic()" style="color: #000000;">
-		<!input type="textarea" name="Content" id="Content" onfocus="focusContent()" onblur="blurContent()" value = "Content" style="color: #808080;">
 		<input type="submit" value="Edit">
 		<input type="text" name="QID" id="QID" hidden>
 	</form>

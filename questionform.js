@@ -112,7 +112,129 @@ function validateForm() {
 	}
 }
 
+function validateAnswerForm() {
+	A = document.getElementById("Name").value
+	B = document.getElementById("Email").value
+	D = document.getElementById("Content").value
+	if ((Name == 0)||(A == "") || (Email == 0)||(B == "") || (Content == 0)||(D == "")) {
+		if ((Name == 0)||(A == "")) {
+			document.getElementById("Name").style.border = "1px solid #FF0000";
+			document.getElementById("Name").value = "Name";
+		}
+		if ((Email == 0)||(B == "")) {
+			document.getElementById("Email").style.border = "1px solid #FF0000";
+			document.getElementById("Email").value = "Email";
+		}
+		if ((Content == 0)||(D == "")) {
+			document.getElementById("Content").style.border = "1px solid #FF0000";
+			document.getElementById("Content").value = "Content";
+		}
+		return false;
+	}else if (!validateEmail(B)){
+		document.getElementById("Email").style.border = "1px solid #FF0000";
+		return false;
+	}
+}
+
 function validateEmail(email) {
     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     return re.test(email);
+}
+
+function voteUp(id)
+{
+	var xmlhttp;
+	var vote = parseInt(document.getElementById("Vote").innerHTML);
+	if (window.XMLHttpRequest)
+	{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else
+	{// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			document.getElementById("Vote").innerHTML = vote + 1;
+		}
+	}
+	xmlhttp.open("GET","voteup.php?id="+id,true);
+	//xmlhttp.setrequestheader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.send();
+}
+		
+function voteDown(id)
+{
+	var xmlhttp;
+	var vote = parseInt(document.getElementById("Vote").innerHTML);
+	if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else
+	{// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			document.getElementById("Vote").innerHTML = vote - 1;
+		}
+	}
+	xmlhttp.open("GET","votedown.php?id="+id,true);
+	//xmlhttp.setrequestheader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.send();
+}
+		
+function voteUpA(id)
+{
+	var xmlhttp;
+	var voteid = "VoteA" + id;
+	var vote = parseInt(document.getElementById(voteid).innerHTML);
+	if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else
+	{// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			document.getElementById(voteid).innerHTML = vote + 1;
+		}
+	}
+	xmlhttp.open("GET","voteupanswer.php?id="+id,true);
+	//xmlhttp.setrequestheader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.send();
+}
+
+function voteDownA(id)
+{
+	var xmlhttp;
+	var voteid = "VoteA" + id;
+	var vote = parseInt(document.getElementById(voteid).innerHTML);
+	if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else
+	{// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			document.getElementById(voteid).innerHTML = vote - 1;
+		}
+	}
+	xmlhttp.open("GET","votedownanswer.php?id="+id,true);
+	//xmlhttp.setrequestheader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.send();
 }
