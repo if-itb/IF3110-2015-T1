@@ -125,8 +125,7 @@
 	    					</a>
 	    				</span>
 	    				|
-	    				<span class="delete" onclick="ConfirmDelete();">
-	    					<a href="index.php?id=<?php echo intval($_GET['id']);?>" class="delete">
+	    				<span class="delete" onclick="ConfirmDelete(<?php echo intval($_GET['id']);?>)"> <a href="index.php" class="delete">
 	    					 delete 
 	    					</a>
 	    				</span>
@@ -291,6 +290,25 @@
 			xhttp.send();
 		}
 
+		function ConfirmDelete(id_question) {
+		del = confirm("Are you sure want to delete?");
+	    if (del == true) {
+	    	var xhttp = new XMLHttpRequest();
+	    	var id = id_question;
+			
+			xhttp.onreadystatechange = function () {
+				if (xhttp.readyState == 4) {
+				}
+			}
+
+			xhttp.open("GET","delete.php?id=" + id, true);
+			xhttp.send();
+	       
+	    }
+	    else {
+	    }
+	    
+	}
 	</script>
 
 </html>

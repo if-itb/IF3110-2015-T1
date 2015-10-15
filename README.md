@@ -89,7 +89,12 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+##Validasi Client-Side
+Validasi yang saya gunakan dalam tugas kali ini adalah validasi client-side. Validasi ini dilakukan di dalam browser. Sebelum data dikirimkan ke server, data diperiksa kebenarannya terlebih dahulu oleh web browser (cek email apakah valid menggunakan regex dan apakah bagian input masih ada yang kosong). Jika data yang dimasukkan valid, browser baru mengirimkan ke server untuk kemudian diproses atau disimpan ke dalam database.
+
+##Penggunaan AJaX pada voting
+Implementasi voting yang saya lakukan dalam tugas ini menggunakan AJaX (Asynchronous JavaScript and XMLHTTP). AJaX adalah suatu teknik pemrograman berbasis web untuk membuat web menjadi interaktif. AJaX pada voting yang saya implementasikan pada tugas ini dimulai dengan menciptakan elemen voteup, votedown dan numvote yang akan berubah jika kita mengklik voteup ataupun votedown. Elemen voteup dan votedown dibuat dengan memanfaatkan event handling pada javascipt yaitu onClick Event. Hal ini dikarenakan kita membutuhkan respons saat kita mengklik elemen voteup dan votedown.
+Lalu, di dalam fungsi yang menghandle onClick Event ini kita ciptakan suatu XMLHttpRequest baru. Setelah itu, kita kirim sebuah request ke server dengan menggunakan perintah open(method, url, async) dan send() pada objek XMLHttpRequest. Karena saya mengimplementasikan AJaX, async parameter di open harus diset true. Dalam tugas ini, saya menggunakan tipe request GET (mengingat kesederhanaan dan tingkat kecepatannya dibandingkan dengan POST). Hasil request yang diperoleh kemudian dikirimkan ke url (lokasi server/file). File yang saya gunakan disini adalah PHP yang terhubung ke basis data. Setelah perintah pada file PHP ini dijalankan dan respons yang diberikan sudah dalam keadaan ready, nilai dari elemen numvote diubah sesuai dengan update basis data yang dilakukan.
 
 ### Knowledge
 

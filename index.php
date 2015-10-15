@@ -31,6 +31,8 @@
 		$password = "";
 		$dbname = "stackexchange";
 
+		$check = false;
+
 		if ((!empty( $_POST['email'] ))&&(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))) {
 			?>
 			<script type="text/javascript">
@@ -142,30 +144,14 @@
 	    						</a>
 	    					</span>
 	    						|
-	    					<span class="delete">
-	    						<a href="index.php?id=<?php echo $row['id_question']; ?>" class="delete" onclick="ConfirmDelete();">
+	    					<span class="delete"onclick="ConfirmDelete(<?php echo $row['id_question'];?>)"> <a href="index.php" class="delete">
 	    						 delete 
 	    						</a>
 	    					</span>
 	    				</td>
 	  				</tr>
 		        </table>
-		        <hr>
-		        <script type="text/javascript">
-					function ConfirmDelete() {
-					    var r = confirm("Are you sure want to delete?");
-					    if (r == true) {
-					        <?php
-								if(isset($_GET['id'])) {
-									$sql = 'DELETE FROM question WHERE `id_question` =  '.intval($_GET['id']);
-									$conn->query($sql);
-									
-									Header('Location: index.php');
-								}
-							?>
-					    }
-					}
-				</script>   
+		        <hr> 
 		    <?php
 			}		    
 		}  else { ?>
@@ -191,6 +177,30 @@
 		}
 		xhttp.open("GET","numberans.php?id=" + id, true);
 		xhttp.send();
+	}
+
+	function ConfirmDelete(id_question) {
+		del = confirm("Are you sure want to delete?");
+	    if (del == true) {
+	    	var xhttp = new XMLHttpRequest();
+	    	var id = id_question;
+			
+			xhttp.onreadystatechange = function () {
+				if (xhttp.readyState == 4) {
+					// if ok, update
+					//document.getElementById("vote_ans"+ID_ans).innerHTML = xhttp.responseText;
+					// if not, show error
+				}
+			}
+
+			xhttp.open("GET","delete.php?id=" + id, true);
+			xhttp.send();
+	       
+	    }
+	    else {
+	    	//alert("hmmm");
+	    }
+	    
 	}
 </script>
 

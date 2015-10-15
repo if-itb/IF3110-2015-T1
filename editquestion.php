@@ -36,8 +36,7 @@
 		    	username : <?php echo $row["username"]; ?><br>
 		  		email    : <?php echo $row["email"]; ?><br>
 		  		topic    : <?php echo $row["topic"]; ?><br>
-		  		<textarea type="text" rows="7" name="content" placeholder="Content" class="content">
-		  		</textarea>
+		  		<textarea type="text" rows="7" name="content" placeholder="Content" class="content"></textarea>
 		  		<br>
 				<input type="submit" value="Post" class="post">
 			</form>
@@ -47,9 +46,16 @@
 	    echo "0 results";
 	}
 
-	if (!empty($_POST) ) {
+	if (!empty($_POST)) {
 		$content = $_POST['content'];
-		if ($cek == true) {
+		if ($content =="") {
+			?>
+			<script type="text/javascript">
+				window.alert("Error : Form incompleted!");
+			</script>
+			
+			<?php
+		} else if ($cek == true) {
 			$sql = 'UPDATE question SET content="'. $content.'" WHERE id_question='. $id;
 			if ($conn->query($sql) === TRUE) {
 			    echo "Record updated successfully";
@@ -60,7 +66,6 @@
 			}
 			$cek = false;
 		}
-
 	}
 ?>
 </body>

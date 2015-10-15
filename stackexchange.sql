@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 06, 2015 at 04:33 PM
+-- Generation Time: Oct 15, 2015 at 07:35 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -32,16 +32,18 @@ CREATE TABLE IF NOT EXISTS `answer` (
   `username` varchar(255) NOT NULL,
   `email` varchar(100) NOT NULL,
   `content` longtext NOT NULL,
-  `answer_date` datetime NOT NULL,
+  `answer_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `num_votes` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `answer`
 --
 
 INSERT INTO `answer` (`num_answer`, `id_question`, `username`, `email`, `content`, `answer_date`, `num_votes`) VALUES
-(1, 5, 'sdfsdf', 'fsdfs', 'fsdfsdf', '0000-00-00 00:00:00', 0);
+(24, 8, 'olivia', 'olivia@stei.itb.ac.id', '\r\n\r\nProblem solved... The first answer is to install the correct SQL Server drivers, which may force you to use an older version of PHP, XAMPP, and Apache Web Server...info can be found here;\r\n\r\nFor me it was necessary to install an older version of XAMPP, the most recent release for my system (WinXP, PHP 5.2.4) is XAMPP 1.6.4, which can be found here. Find the most compatible version of XAMPP for your system by checking out this article. Be sure you choose the most recent XAMPP release that is compatible with your version of PHP.\r\n\r\nThe next problem was the installation of SQL Server drivers. It turns out that the php configuration file(php.ini) can be found in two places in the XAMPP 1.6.4 installation directory. The first location is D:/xampp/php/php.ini, which is the file that the documentation and all forums suggest you modify in order to add the extensions...however, it was necessary to modify the php configuration file found in the Apache bin directory(D:/xamp/apache/bin/php.ini), from which XAMPP 1.6.4 is loading the php configuration file.\r\n\r\nThe topmost table of the phpInfo() page indicates the location of the loaded php configuration file. The table key is: Loaded Configuration File.\r\n', '2015-10-15 16:12:49', 2),
+(25, 27, 'olivia', 'olivia@stei.itb.ac.id', 'I don''t know...', '2015-10-15 21:13:03', 0),
+(26, 46, 'benita', 'benita@gmail.com', 'JavaScript is a programming language used to make web pages interactive. It runs on your visitor''s computer and doesn''t require constant downloads from your website. JavaScript is often used to create polls and quizzes.', '2015-10-15 23:55:34', 2);
 
 -- --------------------------------------------------------
 
@@ -57,17 +59,17 @@ CREATE TABLE IF NOT EXISTS `question` (
   `question_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `topic` varchar(100) NOT NULL,
   `num_vote` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `question`
 --
 
 INSERT INTO `question` (`id_question`, `username`, `email`, `content`, `question_date`, `topic`, `num_vote`) VALUES
-(3, 'devina_deph', 'devinaa@gmail.com', 'What is Stack Exchange?', '2015-10-05 22:33:53', 'Stack Exchange', 0),
-(4, 'irene', 'irene@gmail.com', 'How to use Stack Exchange?', '2015-10-05 22:36:36', 'Stack Exchange', 0),
-(5, 'candyolivia', 'candycandy@gmail.com', 'How to install PHP?', '2015-10-05 22:38:20', 'PHP', 0),
-(8, 'candy', '13513031@std.stei.itb.ac.id', 'How to connect SQL by using PHP?', '2015-10-06 20:15:26', 'PHP and SQL', 0);
+(8, 'candy', '13513031@std.stei.itb.ac.id', 'How to connect SQL by using PHP?', '2015-10-06 20:15:26', 'PHP and SQL', 1),
+(14, 'candy', 'candyoliviamawalim@gmail.com', 'I would like to create an HTML button that acts like a link. So, when you click the button, it redirects to a page. I would like it to be as accessible as possible.\r\n\r\nI would also like it so there aren''t any extra characters, or parameters in the URL.\r\n\r\nHow can I achieve this?', '2015-10-07 21:44:38', 'How to create an HTML button that acts like a link?', 0),
+(25, 'candy', 'candycandy@gmail.com', 'I know I will be voted down for this, but I need to ask. What does the code below mean? Specifically, I am confused by', '2015-10-08 11:55:03', 'What exactly does the PHP function â€œtest_input()â€ do?', 2),
+(46, 'olivia', 'olivia@stei.itb.ac.id', 'what is JavaScript?', '2015-10-15 23:54:41', 'JavaScript Definition', 1);
 
 --
 -- Indexes for dumped tables
@@ -93,12 +95,12 @@ ALTER TABLE `question`
 -- AUTO_INCREMENT for table `answer`
 --
 ALTER TABLE `answer`
-MODIFY `num_answer` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `num_answer` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-MODIFY `id_question` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
+MODIFY `id_question` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=51;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
