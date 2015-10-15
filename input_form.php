@@ -1,10 +1,10 @@
 <html>
 <body>
 <?php
-	$name=$_GET["name"];
-	$email=$_GET["email"];
-	$topic=$_GET["topic"];
-	$content=$_GET["content"];
+	$name=$_POST["name"];
+	$email=$_POST["email"];
+	$topic=$_POST["topic"];
+	$content=$_POST["content"];
 	//$conn= mysql_connect("127.0.0.1","root","");
 	//Koneksi Database
 	$my['host']	= "localhost";
