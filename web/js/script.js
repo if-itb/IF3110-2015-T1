@@ -3,6 +3,18 @@ Membuat website seperti Stack Exchange
 Author: Irene Wiliudarsan (13513002) */
 // File: script.js
 
+// Check whether search form is valid or not
+// A valid form can not contain empty field and containt a valid email address
+function searchFormValidation() {
+  var searchValue = document.forms["search-form"].elements["search-key"].value;
+  if (searchValue.length == 0 || searchValue == null) {
+    alert("Searh key is not valid.")
+    return false;
+  } else {
+    return true;
+  }
+}
+
 // Check whether question form is valid or not
 // A valid form can not contain empty field and contain a valid email address
 function questionFormValidation(){
@@ -12,7 +24,7 @@ function questionFormValidation(){
   var i = 0;
   // Check whether there is an empty field in the form
   do {
-    if (formValues.elements[i].value.length==0 || formValues.elements[i].value == null) {
+    if (formValues.elements[i].value.length == 0 || formValues.elements[i].value == null) {
       isFieldEmpty = true;
     } else {
       i++;
@@ -64,3 +76,28 @@ function answerFormValidation(){
     return true;
   }
 };
+
+// Update votes
+function updateVote(isQuestion, id, vote_factor) {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      if (isQuestion) {
+        //document.getElementsByClassName("big-number").innerHTML = xmlhttp.responseText;
+        document.getElementById("question-" + id).innerHTML = xmlhttp.responseText;
+      } else {
+        document.getElementById("answer-" + id).innerHTML = xmlhttp.responseText;
+      }
+      //alert(xmlhttp.responseText);
+    }
+  }
+  var url = "update-vote.php?";
+  if (isQuestion) {
+    url += "id_question=";
+  } else {
+    url += "id_answer=";
+  }
+  url += id + "&vote_factor=" + vote_factor;
+  xmlhttp.open("GET", url, true);
+  xmlhttp.send();
+}

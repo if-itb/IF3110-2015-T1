@@ -143,15 +143,11 @@ Author: Irene Wiliudarsan (13513002) -->
         <!-- Questions Content -->
         <div class="same-height-row border-bottom">
           <div class="vote-number">
-            <a href="">
-              <img class="small-icon" src="../img/up.png"/><br>
-            </a>
-            <div class="big-number">
+            <img class="small-icon" src="../img/up.png" onclick="updateVote(true, <?php echo $id_question ?>, 1)"/><br>
+            <div class="big-number" id="question-<?php echo $id_question ?>">
               <?php echo $question["vote_num"] ?>
             </div>
-            <a href="">
-              <img class="small-icon" src="../img/down.png"/><br>
-            </a>
+            <img class="small-icon" src="../img/down.png" onclick="updateVote(true, <?php echo $id_question ?>, -1)"/><br>
           </div>
           <div class="right-position">
             <div class="answer-question-detail">
@@ -188,15 +184,11 @@ Author: Irene Wiliudarsan (13513002) -->
         ?>
         <div class="same-height-row border-bottom">
           <div class="vote-number">
-            <a href="">
-              <img class="small-icon" src="../img/up.png"/><br>
-            </a>
-            <div class="big-number">
+            <img class="small-icon" src="../img/up.png" onclick="updateVote(false, <?php echo $answer['id_answer'] ?>, 1)"/><br>
+            <div class="big-number" id="answer-<?php echo $answer['id_answer'] ?>">
               <?php echo $answer["vote_num"] ?>
             </div>
-            <a href="">
-              <img class="small-icon" src="../img/down.png"/><br>
-            </a>
+            <img class="small-icon" src="../img/down.png" onclick="updateVote(false, <?php echo $answer['id_answer'] ?>, -1)"/><br>
           </div>
           <!-- Answers Content -->
           <div class="right-position">

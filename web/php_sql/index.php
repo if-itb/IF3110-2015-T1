@@ -24,16 +24,22 @@ Author: Irene Wiliudarsan (13513002) -->
       }
 
       // Delete question from database
-      $isQuestionDeleted = FALSE;
-      if (isset($_GET["id_question"]) && !empty($_GET["id_question"]) && !$isQuestionDeleted) {
+      if (isset($_GET["id_question"]) && !empty($_GET["id_question"])) {
         $id_question_deleted = $_GET["id_question"];
         $query = "DELETE FROM question WHERE id_question = $id_question_deleted";
         $isQuestionDeleted = $connection->query($query);
       }
 
-      // Execute query to take all questions in databases
-      $query = "SELECT id_question, topic, content, vote_num, datetime, question.id_user, name FROM question, user WHERE question.id_user = user.id_user";
+      // Search question from search box
+      if (isset($_POST["search-submit"]) && !empty($_POST["search-submit"])) {
+        $search_key = $_POST["search-key"];
+        $query = "SELECT id_question, topic, content, vote_num, datetime, question.id_user, name FROM question, user WHERE question.id_user = user.id_user AND (topic LIKE '%$search_key%' OR content LIKE '%$search_key%')";
+      } else {
+        // Execute query to take all questions in databases
+        $query = "SELECT id_question, topic, content, vote_num, datetime, question.id_user, name FROM question, user WHERE question.id_user = user.id_user";
+      }
       $questions = $connection->query($query);
+
     ?>
 
     <!-- Title -->
@@ -46,10 +52,10 @@ Author: Irene Wiliudarsan (13513002) -->
     <div class="content">
       <!-- Search Bar -->
       <div class="stacked" id="search-section">
-        <input id="search-box" name="search-box" type="text">
-        <button class="button" type="button">
-          Search
-        </button>
+        <form id="search-form" name="search-form" action="" method="post" onsubmit="return searchFormValidation()">
+          <input id="search-key" name="search-key" type="text">
+          <input class="button" name="search-submit" type="submit" value="Search">
+        </form>
         <br>
         Cannot find what you are looking for? 
         <a class="yellow" href="ask-question.php">
@@ -131,7 +137,9 @@ Author: Irene Wiliudarsan (13513002) -->
     <script src="../js/script.js"></script>
     <?php
       mysqli_free_result($questions);
-      mysqli_free_result($answer_num_result);
+      if ($answer_num_result->num_rows > 0) {
+        mysqli_free_result($answer_num_result);
+      }
     ?>
   </body>
 </html>
