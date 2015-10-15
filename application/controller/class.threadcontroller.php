@@ -42,6 +42,11 @@
 			header("Location: index.php");
 		}
 
+		public function delete($queryString) {
+			Thread::delete($queryString);
+			header("Location: index.php");
+		}
+
 		public function error() {
 			echo "ERROR";
 		}

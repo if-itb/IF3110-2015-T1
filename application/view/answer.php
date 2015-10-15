@@ -31,7 +31,7 @@
 </div>
 
 <div class="form" id="answer-form">
-	<form action="">
+	<form action="" method="POST">
 		<input type="text" name="user_name" id="user_name" placeholder="Name">
 		<input type="email" name="user_email" id="user_email" placeholder="Email">
 		<textarea name="thread_content" id="thread_content" rows="10" placeholder="Content"></textarea>

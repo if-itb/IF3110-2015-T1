@@ -41,7 +41,7 @@
 			<p>
 				asked by <span class="name" ><?php echo $thread->author; ?></span> | 
 				<a href="?controller=thread&action=formUpdate&query=<?php echo $thread->id; ?>">edit</a> | 
-				<a class="delete" href="#">delete</a>
+				<a class="delete" href="?controller=thread&action=delete&query=<?php echo $thread->id; ?>" onclick="return confirmToDelete()">delete</a>
 			</p>
 		</div>	
 	</div>

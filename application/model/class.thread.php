@@ -53,8 +53,8 @@
 			$sql = "INSERT INTO sse_thread (user_name,user_email,thread_topic,thread_content,thread_date) 
 							VALUES (:username,:email,:topic,:content,:dates)";
 
-			$q = $db->prepare($sql);
-			$q->execute(array(':username' => $username,
+			$statement = $db->prepare($sql);
+			$statement->execute(array(':username' => $username,
                   			':email' => $email,
                   			':topic' => $topic,
                   			':content' => $content,
@@ -67,8 +67,15 @@
 							SET user_name=?, user_email=?, thread_topic=?, thread_content=?
 							WHERE thread_id=?";
 
-			$q = $db->prepare($sql);
-			$q->execute(array($username, $email, $topic, $content, $id));
+			$statement = $db->prepare($sql);
+			$statement->execute(array($username, $email, $topic, $content, $id));
+		}
+
+		public static function delete($id) {
+			$db = Connection::getInstance();
+			$sql = "DELETE FROM sse_thread WHERE thread_id = :id";
+			$statement = $db->prepare($sql);
+			$statement->execute(array(':id' => $id));
 		}
 
 		public function getShrinkContent($string, $limit, $break = ".", $pad = "...") {
