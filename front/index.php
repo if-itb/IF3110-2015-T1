@@ -33,7 +33,7 @@
 				if (mysqli_connect_errno()){
 					echo "Failed to connect to MySQL: " . mysqli_connect_error();
 				}
-				$sql = "SELECT * FROM question";
+				$sql = "SELECT * FROM question ORDER BY QID DESC";
 				$result = $conn->query($sql);
 				if ($result->num_rows > 0) {
 					while($row = $result->fetch_assoc()) {
@@ -46,7 +46,7 @@
 									</div>
 									<div class="expanse10">
 						';
-						$sql2 = "SELECT * FROM answer where QID = '$row[QID]'";
+						$sql2 = "SELECT * FROM answer where QID = '$row[QID]'" ;
 						$result2 = $conn->query($sql2);
 						$sumAns = mysqli_num_rows($result2);
 						$subContent = substr($row["Content"],0,50);

@@ -34,7 +34,7 @@
 					echo "Failed to connect to MySQL: " . mysqli_connect_error();
 				}
 				$Search =  mysqli_real_escape_string($conn, $_POST["search"]);
-				$sql = "SELECT * FROM question WHERE `Topic` LIKE '%".$Search."%' "." OR `Content` LIKE '%".$Search."%'";;
+				$sql = "SELECT * FROM question WHERE `Topic` LIKE '%".$Search."%' "." OR `Content` LIKE '%".$Search."%' ORDER BY QID DESC";;
 				$result = $conn->query($sql);
 				if ($result->num_rows > 0) {
 					while($row = $result->fetch_assoc()) {
