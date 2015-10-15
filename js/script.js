@@ -90,7 +90,7 @@ function deleteConfirmation(q_id){
 };
 
 function voteQuestion(q_id,is_question,is_voteup){
-	var xhttp = new XMLHttpRequest();
+	initXMLHTTPRequest();
 	xhttp.onreadystatechange = function(){
 	    if (xhttp.readyState == 4 && xhttp.status == 200) {
 		   	document.getElementById("q_vote").innerHTML = xhttp.responseText;
