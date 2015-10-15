@@ -1,0 +1,176 @@
+title {
+	text-decoration: none;
+}
+h1 {
+	padding-top: 1%;
+	text-align: center;
+	padding-bottom: 10px;
+	font-size: 300%;
+	font-family: Arial black;
+
+}
+
+h2 {
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-top: 3%;
+	font-size: 180%;
+	font-family: Calibri;
+	margin: 0;
+}
+
+h3 {
+	text-align: center;
+	font-family: Calibri;
+	font-size: 130%;
+
+}
+
+h4 {
+	padding-left: 10%;
+	padding-right: 10%;
+	font-size: 180%;
+	color: #b2b2b2;
+	margin: 0;
+}
+
+div {
+	margin-right: 10%;
+	margin-left: 10%;
+}
+
+hr {
+	margin-left: 10%;
+	margin-right: 10%;
+	color: darkblue;
+}
+
+form {
+	margin-left: 10%;
+	margin-right: 10%;
+	font-size: 100%;
+}
+
+input {
+	margin-top: 5px;
+	height: 30px;
+	width: 99%;
+	font-family: Cambria;
+	font-size: 100%;
+	padding: 5px;
+}
+
+textarea{
+	margin-top: 5px;
+	padding: 5px;
+	width: 99%;
+	font-family: Cambria;
+	font-size: 100%;
+}
+
+.post{
+	font-size: 90%;
+	padding:1%;
+	font-weight: bold;
+	text-align: center;
+	margin-left: 90%;
+	vertical-align: center;
+	width: 10%;
+	height: 5%;
+}
+
+.search {
+	margin-left: 12%;
+	width: 70%;
+}
+
+.buttonsearch {
+	margin: 0;
+	font-size: 90%;
+	padding: 0.5%;
+	width: 12%;
+	text-align: center;
+
+}
+
+.ask {
+	color: orange;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+table {
+	margin-left: 10%;
+	margin-right: 10%;
+	width: 80%;
+	font-family: Arial black;
+}
+
+.vote {
+	width: 5%;
+	font-size: 30px;
+	text-align: center;
+}
+
+.topic {
+	padding-left: 1.8%;
+	width: 55%;
+	font-size: 24px;
+	color: black;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.askedby {
+	font-size: 18px;
+	text-align: right;
+	width: 35%;
+}
+
+.vote1 {
+	font-size: 16px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.user {
+	color: blue;
+}
+
+.time {
+	color: blue;
+}
+
+.edit {
+	color: orange;
+	text-decoration: none;
+}
+
+.delete {
+	color: red;
+	text-decoration: none;
+}
+
+.total {
+	width: 5%;
+	text-align: center;
+	font-size: 150%
+}
+
+.qacontent {
+	width: 90%;
+	font-size: 140%;
+}
+
+.answerresult {
+	padding-left: 2%;
+	margin-top: 5px;
+	font-size: 140%;
+}
+
+.arrow {
+	font-size: 180%;
+	text-align: center;
+	text-decoration: none;
+	cursor:pointer;
+}
