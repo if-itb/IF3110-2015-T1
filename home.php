@@ -14,19 +14,21 @@ and open the template in the editor.
     <body>
         
         <?php require("php/database.php"); ?>
-        <?php  $questions = getAllQuestion(); 
-        //echo count($questions);
-             ?>
+        
+       
+             
         <?php
             if (isset($_POST['aa'])&&isset($_POST['id_q'])) {
-                if ($_POST['aa'] == 'new') echo "new";
-                else echo"edit";
-                echo $_POST['id_q'];
-                
-                //addNewQuestion($_POST);
-			}
+                if ($_POST['aa'] == 'new') {
+                    //echo "new";
+                    addNewQuestion($_POST);}
+                else {editQuestion($_POST);
+                }
+                //echo "home id : ",$_POST['id_q'];  
+	}
            
         ?>
+             <?php  $questions = getAllQuestion(); ?>
         <div id="Title">
             <h1 class="t" href="home.php">Simple StackExchange</h1>
         </div>
@@ -64,7 +66,7 @@ and open the template in the editor.
             <aa>asked by : </aa>
             <a1><?php echo $q['username']?> </a1>|
             <a href="askhere.php?id=<?php echo $q['id_q'] ?>" ><span class="bb">edit</span></a> |
-            <cc href="">delete</cc>
+            <a href="javascript:deleteQuestion(<?php echo $q['id_q'] ?>)" ><span class="cc">delete</span></a>
         </div>
          <div class="uline"></div>
         

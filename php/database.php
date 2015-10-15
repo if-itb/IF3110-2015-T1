@@ -61,3 +61,12 @@ function addNewQuestion($q) {
     return $result2;
     
 }
+
+function editQuestion($q) {
+    global $conn;
+
+    $sql= "UPDATE question SET username='$q[username]',email='$q[email]',title='$q[title]',content='$q[content]' WHERE id_q =$q[id_q]";
+    //echo "enter edit : ",$q['id_q']," | ",$sql ;
+    $result = mysqli_query($conn, $sql);
+     return $result;
+}

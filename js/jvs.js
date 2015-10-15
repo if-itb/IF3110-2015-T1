@@ -24,7 +24,7 @@ function validateField(form) {
 function validateEmail(form) {
    var email = document.getElementById("femail").value;
    var at="@";	var dot=".";var lstr=email.length;
-   var lat=email.indexOf(at);var ldot=email.indexOf(dot);
+   var lat=email.indexOf(at);var ldot=email.lastIndexOf(dot);
    if (lat<1||lat===lstr||ldot<1||ldot===lstr||ldot-lat<2){
        document.getElementById("ermsg").innerHTML = "* Make sure that your email is valid";
        form.email.style.border = "2px solid red";
@@ -35,5 +35,25 @@ function validateEmail(form) {
 function formValidator(form) {
     var a =validateEmail(form),b=validateField(form);
     if (!a||!b) return false ;
-    else  return false;
+    else  return true;
 }
+
+function deleteQuestion(id_q) {
+    var c = confirm("Are you sure to delete this question ?");
+    var txt ;
+    if (c==true) { 
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {                
+               // alert(xmlhttp.responseText);
+               location.href="./home.php";
+            }
+            
+        }
+        
+        xmlhttp.open("POST","delete.php",true);
+        xmlhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+	xmlhttp.send("id_q="+id_q);
+
+    }
+ }

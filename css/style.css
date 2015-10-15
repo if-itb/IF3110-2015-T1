@@ -185,10 +185,11 @@ a1 {
     cursor:pointer;
    
 }
-cc {
+.cc {
     color:red;
+    font-style: normal;
 }
-cc:hover {
+.cc:hover {
     color:orange;
     cursor: pointer;
 }
