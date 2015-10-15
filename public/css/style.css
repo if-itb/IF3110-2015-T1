@@ -130,6 +130,18 @@ textarea {
   margin-top: 20px;
   margin-bottom: 10px; }
 
+.ask-here-link {
+  color: #D49515 !important; }
+
+.meta-name {
+  color: #0077CC; }
+
+.question-edit {
+  color: #D49515 !important; }
+
+.form-delete {
+  color: #F25858 !important; }
+
 .btn-submit {
   height: 37px;
   font-weight: 600;

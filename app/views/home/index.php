@@ -1,7 +1,11 @@
 
 <div class="row">
     <div class="secondary-title col-10 col-push-1">
-        <h2>Recently Asked Questions</h2>
+        <?php if (isset($_GET['s'])): ?>
+            <h2>Search Result for '<?= $_GET['s']; ?>'</h2>
+        <?php else: ?>
+            <h2>Recently Asked Questions</h2>
+        <?php endif; ?>
     </div>
 </div>
     
@@ -36,12 +40,12 @@
                             <h2 class="question-title">
                                 <a href="<?= ROOT_URL; ?>/question/<?= $question->id_question; ?>"><?= $question->topic; ?></a>
                             </h2>
-                            <p><?= $question->content; ?></p>
+                            <p><?= substr($question->content, 0, 150); ?></p>
                         </div>
                         <div class="question-meta">
                             <span>
                                 Asked by
-                                <?= $question->name; ?> |
+                                <span class="meta-name"><?= $question->email; ?></span> |
                                 <a href="<?= ROOT_URL; ?>/question/edit/<?= $question->id_question; ?>" class="question-edit">Edit</a> |
                                 <form id="deleteForm_<?= $question->id_question ?>" class="delete-form" action="<?= ROOT_URL; ?>/question/delete" method="POST">
                                     <input type="hidden" name="id_question" value="<?= $question->id_question; ?>">
@@ -56,7 +60,11 @@
         <?php endforeach; ?>
     <?php else: ?>
         <div class="inner-container">
-            <p>No question</p>
+            <?php if (isset($_GET['s'])): ?>
+                <p class="">Sorry, No result for '<?= $_GET['s']; ?>'</p>
+            <?php else: ?>
+                <p>No Questions</p>
+            <?php endif; ?>
         </div>
     <?php endif; ?>
 

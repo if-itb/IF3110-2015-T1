@@ -33,7 +33,7 @@
                 <div class="question-meta">
                     <span>
                         Asked by
-                        <?= $data['question']->email; ?> |
+                        <span class="meta-name"><?= $data['question']->email; ?></span> |
                         <a href="<?= ROOT_URL; ?>/question/edit/<?= $data['question']->id_question; ?>" class="question-edit">Edit</a> |
                         <form id="deleteForm_question_<?= $data['question']->id_question ?>" class="delete-form" action="<?= ROOT_URL; ?>/question/delete" method="POST">
                             <input type="hidden" name="id_question" value="<?= $data['question']->id_question; ?>">
@@ -86,7 +86,7 @@
                     <div class="answer-meta">
                         <span>
                             Answered by
-                            <?= $answer->email; ?> |
+                            <span class="meta-name"><?= $answer->email; ?></span> |
                             <a href="<?= ROOT_URL . '/answer/edit/' . $answer->id_answer; ?>" class="question-edit">Edit</a> |
                             <form id="deleteForm_answer_<?= $answer->id_answer ?>" class="delete-form" action="<?= ROOT_URL; ?>/answer/delete" method="POST">
                                 <input type="hidden" name="id_answer" value="<?= $answer->id_answer; ?>">

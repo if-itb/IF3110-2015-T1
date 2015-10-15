@@ -20,9 +20,9 @@
             <h1><a href="<?= ROOT_URL; ?>">Stack<span>Exchange</span></a></h1>
         </header>
 
-        <form action="" method="GET" id="searchForm">
-            <input type="text" placeholder="Search...">
+        <form action="<?= ROOT_URL; ?>" method="GET" id="searchForm">
+            <input type="text" name="s" placeholder="Search...">
             <input type="submit" class="btn-submit"value="Search">
         </form>
 
-        <p class="ask-here">Can't find what you are looking for? <a href="<?= ROOT_URL; ?>/question/add">Ask here</a></p>
+        <p class="ask-here">Can't find what you are looking for? <a href="<?= ROOT_URL; ?>/question/add" class="ask-here-link">Ask here</a></p>

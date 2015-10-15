@@ -72,6 +72,33 @@ class Questions {
         header('Location: ' . ROOT_URL);   
     }
 
+    public function search($str) {
+        $query = "SELECT 
+                    questions.id_question, 
+                    answercounts,
+                    questions.name,
+                    email,
+                    topic,
+                    votecounts,
+                    content,
+                    `timestamp`
+                  FROM 
+                    (SELECT 
+                        id_question, 
+                        COUNT(id_answer) answercounts 
+                        FROM 
+                            answers GROUP BY id_question
+                    ) 
+                    answer RIGHT JOIN questions on questions.id_question = answer.id_question
+                    WHERE topic LIKE " . "'%" . $str . "%'" . " OR CONTENT LIKE " . "'%" . $str . "%'" .
+                    "ORDER BY questions.id_question DESC";
+
+        if ($question = $this->db->query($query)) {
+            return $question->fetchAll(PDO::FETCH_OBJ);
+        }
+
+    }
+
     public function voteUp($id) {
         $query = "UPDATE questions SET votecounts = votecounts + 1 WHERE id_question = {$id}";
         $this->db->query($query);
