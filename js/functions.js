@@ -1,19 +1,20 @@
 <!--
 function confirmPop(x) {
-	var t;
     if (confirm("Are you sure?") == true) {
     	switch (x) {
     		case 1:
-    			t = "Question posted!";
+    			alert("Question posted!");
     			break;
     		case 2:
-    			t = "Answer posted!";
+    			alert("Answer posted!");
+    			break;
+    		case 3:
+    			alert("Deleted succesfully");
     			break;
     		default:
-    			t = "Database updated!";
+    			alert("Database updated!");
     			break;
     	}
-    	document.getElementById("success").innerHTML = t;
         return true;
     } else {
         return false;
@@ -26,6 +27,11 @@ function like(table,id,x) {
 	xhttp.open("GET", "vote.php?table="+table+"&ID="+id+"&x="+x, true);
 	xhttp.send();
 	document.getElementById(table+id).innerHTML = parseInt(document.getElementById(table+id).innerHTML) + x;
+}
+
+function deleteRow(id) {
+	if (confirmPop(3))
+		document.location = "deleterow.php?table=questions&row="+id;
 }
 
 function qformValidation() {
@@ -43,12 +49,12 @@ function qformValidation() {
 	}
 	
 	var result = pattern.test(temp);
-	if (result == null) {
+	if (!result) {
 		alert("Email incorrect");
 		return false;
 	}
 
-	temp = document.forms["questions"]["topic"].value;
+	temp = document.forms["questions"]["qtopic"].value;
 	if ((temp == null) || (temp == "")) {
 		alert("Topic must be filled");
 		return false;
@@ -77,7 +83,7 @@ function aformValidation() {
 	}
 	
 	var result = pattern.test(temp);
-	if (result == null) {
+	if (!result) {
 		alert("Email incorrect");
 		return false;
 	}
