@@ -85,12 +85,27 @@ Validasi **wajib** dilakukan pada *client-side*, dengan menggunakan **javascript
 
 ### Bonus
 
-Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi pertanyaan`.
+Bonus yang dikerjakan yaitu pengguna dapat mencari ke judul pertanyaan
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+1. Validasi untuk mengecek apakah form question / form answer sudah diisi sesuai dengan format yang ditentukan
+	Untuk memvalidasi form question digunakan :
+	formValidator(form) : form adalah lokasi form yang akan dicek ke-valid-an datanya
+	fungsi ini nanti akan memanggil validateEmail(form) dan validateField(form). validateEmail(form) akan memvalidasi format email
+	yang diisi dan validateField(form) akan memvalidasi field lain selain field email
 
+	Untuk memvalidasi form answer digunakan :
+	answerValidator(form) : form adalah lokasi form yang akan dicek ke-valid-an datanya
+	fungsi ini nanti akan memanggil validateEmail(form) dan validateField2(form)
+
+2. Validasi deleteQuestion(id_q) : id_q adalah id question yang akan dihapus dari database . Fungsi ini akan memanggil file delete.php
+	dengan mem-passing variabel id_q .
+
+3. VoteUp(sr,id) dan VoteDown(sr,id) : sr adalah keterangan apakah yang di vote answer atau question . id adalah ud answer/question
+	yang diberikan vote. Fungsi ini nanti akan memanggil vote.php dengan mem-passing variabel sr dan id .  Selain itu juga akan
+	di-passing satu variabel lain, yaitu variabel num (jumlah vote +1 / -1).
+	
 ### Knowledge
 
 Untuk meringankan beban tugas ini, ada berberapa keyword yang bisa anda cari untuk menyelesaikan tugas ini.

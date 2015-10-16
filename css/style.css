@@ -1,0 +1,342 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 7, 2015, 6:53:47 PM
+    Author     : user
+*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+   
+    font-weight: normal;
+    font-size:250%;
+    color : forestgreen;
+    padding-top: 15px;
+}
+#searchbox
+{
+   // background-color:lightgray;
+   
+       
+    width: 50%;
+    height: 35px;
+    padding: 5px;
+    margin-top: 3em;
+    margin:auto;
+    overflow: hidden; /* Clear floats */
+}
+
+#search {
+    width : 83%;
+    border: 2px solid ;
+    border-color: seagreen;
+    height:75%;
+    margin:auto;   
+}
+
+#submit{
+    height:95%;
+    margin-left: 5px;
+    width:13%;
+   color : seagreen;
+    background-color:white;
+    font-weight: bold;
+    border : 2px solid seagreen;
+    
+}
+
+#submit:hover {       
+    background-color: #95d788;
+    color:white;
+    
+}   
+
+#submit:active {       
+    background: #95d788;
+    outline: none;
+         
+}
+
+p {
+    margin-top : 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-weight:bold;
+}
+
+as {
+    color:orange;
+    font-weight: lighter;
+    font-style: italic;
+    text-decoration: none;
+}
+as:hover {
+    color:red;
+}
+a {
+  text-decoration: none;  
+}
+
+a:hover {
+    cursor : pointer;
+    color :red;
+}
+
+.separator {
+    height: 1px;
+    background:#717171;
+    width:75%;
+   
+    margin-left:12.5%;
+    border-bottom: 1px solid black;
+}
+
+.separator2 {
+    height: 1px;
+    background:#717171;
+    width:75%;
+   margin-top:10px;
+    margin-left:12.5%;
+    border-bottom: 1px solid black;
+}
+
+.raq {
+    margin-left: 12.5%;
+    margin-top: 10px;
+    font-size: 150%;
+}
+
+
+.list_q {
+    
+}
+.q_title{
+    font-size: 500%;
+}
+
+.uline {
+    height: 1px;
+    
+    width:75%;
+    margin-top : 8px;
+    margin-left:12.5%;
+    border-bottom: 2px solid black;
+}
+.vote, .answers,.thread {
+    display: inline-block;
+    margin-top:10px;
+}
+.vote {
+    margin-left:14.5%;
+    margin-top: 15px;
+   // border : 1px solid red;
+    width :5%;
+    text-align: center;
+}
+
+.answers {
+    text-align: center;
+}
+.vnum {
+    color:blue;
+    margin-left:3%;
+    font-size: 300%;
+    font-family: Impact, Charcoal, sans-serif;
+}
+
+.vname {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top:2px;
+    margin-right:3px;
+}
+
+.thread {
+    margin-left: 4%;
+    width:54%; 
+    position: absolute;
+}
+
+.title {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    margin-left:5%;
+    color:black;
+    text-align: left;
+    font-size:125%;
+    margin-bottom: 10px;
+}
+
+.title:hover {
+    color:activecaption;
+    text-decoration:none ;
+    cursor:pointer;
+}
+.content {
+    font-weight: 100;
+    text-align: justify;
+}
+
+.utility {
+    margin-top:10px;
+    text-align: right;
+    margin-right: 14%;
+    font-size: 85%;
+    font-weight: lighter;
+}
+
+a1 {
+    color:lawngreen;
+}
+
+.bb {
+    color : blue;
+    font-style: normal;
+}
+.bb:hover {
+    color:orange;
+    cursor:pointer;
+   
+}
+.cc {
+    color:red;
+    font-style: normal;
+}
+.cc:hover {
+    color:orange;
+    cursor: pointer;
+}
+
+#fname,#ftitle,#femail,#fcontent {
+    
+    margin-left: 15%;
+    margin-top:10px;
+    width:50%;
+    border : 1px solid black;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    heigth:25px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 100%;
+    border-radius: 4px;
+}
+
+#fname {
+    margin-top: 20px;
+}
+textarea {
+    height : 150px;
+}
+#ermsg,#ermsg2 {
+    color:red ;
+    margin-left:19%;
+    margin-top: 15px;
+    font-size: 80%;
+}
+
+#fsubmit {
+    margin-top: 25px;
+    width:8%;
+    margin-left:36%;
+    background-color: white;
+    border: 2px solid darkgreen ;
+    color:darkgreen;
+    font-weight: bold;
+    height:35px;
+    border-radius:4px;
+}
+
+#fsubmit:hover {
+    background-color:darkgreen;
+    color:white;
+    
+}
+
+#wrap {
+    width:75%;
+    margin-left: 12.5%;
+}
+
+#main {
+    margin-top: 20px;
+    font-weight:normal;
+    margin-right: 20px;
+    
+    float:right ;
+    text-align:justify;
+    width:80%;
+}
+
+#sidebar {
+    float : left;
+    width:14%;
+    text-align: center;
+    margin-left: 1%;
+}
+#vdown,#vup {
+    display:inline;
+    transition: 0.5s ease;
+    white-space: nowrap;
+}
+#vup {
+    text-decoration: none;
+    transition: 0.5s ease;
+    white-space: nowrap;    
+    margin-right: 12px;
+}
+
+
+#vup:hover {
+    opacity: 0.5;
+   
+    
+}
+#vdown {
+    text-decoration: none;      
+    transition: 0.5s ease;
+    white-space: nowrap;
+    
+}
+#vdown:hover {
+    opacity: 0.5;
+     
+}
+#vnum {
+    color:blue;
+    font-size:600%;
+    margin-top : 15px;
+    font-family: "Times New Roman", Times, serif;
+}
+#footer {    
+    clear:both;   
+}
+
+#qinfo {
+    font-size: 85%;
+    text-align:right;
+    margin-top:10px;
+    margin-right:10px;
+}
+
+aa {
+    color:lawngreen;
+}
+
+#qans {
+    margin-top:25px;
+    font-size : 170%;
+    margin-left:12.5%;
+}
+
+#yans {
+    font-size:160%;
+    margin-left:15%;
+    margin-top:20px;
+    color: #6cbb6b;
+}
