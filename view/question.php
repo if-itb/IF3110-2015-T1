@@ -29,7 +29,9 @@
 				<div class='col-8'>
 					<p><?php echo $question['content']?></p>
 					<p class='right'>
-					asked by <span class='name'><?php echo $question["asker"]?></span> at <?php echo $question["date"]?> | <a href='#'>edit</a> | <a href='#'>delete</a>
+						asked by <span class='name'><?php echo $question["asker"]?></span> at <?php echo $question["date"]?> | 
+						<a href='#' onclick="editQuestion(<?php echo $question["questionId"];?>)">edit</a> | 
+						<a href='#' onclick="deleteQuestion(<?php echo $question["questionId"]; ?>)">delete</a>
 					</p>
 				</div>
 			</div>
@@ -47,7 +49,7 @@
 					<div class='col-8'>
 					<p><?php echo $answer["content"]?></p>
 						<p class='right'>
-						answered by <span class='name'><?php echo $answer["answerer"] ?></span> at <?php echo $answer["date"]?> | <a href='#'>edit</a> | <a href='#'>delete</a>
+						answered by <span class='name'><?php echo $answer["answerer"] ?></span> at <?php echo $answer["date"]?>
 						</p>
 					</div>
 				</div>
@@ -59,7 +61,7 @@
 		<h1>Your Answer</h1>
 		<form name='answerForm' action="tools/answer/addanswer.php" 
 		  method="post" onsubmit="return validateAnswerForm()">
-			<input type="hidden" name="questionId" value="<?php echo $question[questionId];?>">
+			<input type="hidden" name="questionId" value="<?php echo $questionId;?>">
 			<input type='text' name='answerer' class='formInput' placeholder='Name'>
 			<input type='text' name='email' class='formInput' placeholder='Email'>
 			<textarea name='content' class='formInput' placeholder='Content' rows='10'></textarea>
@@ -67,5 +69,6 @@
 		</form>
 	</div>
 	<script type='text/javascript' src='/assets/js/validate.js'></script>
+	<script type='text/javascript' src='/assets/js/question.js'></script>
 </body>
 </html>

@@ -37,12 +37,15 @@
 						</a>
 					</p>
 					<p class='right'>
-					asked by <span class="name"><?php echo $question["asker"]; ?></span> | <a href='#'>edit</a> | <a href='#'>delete</a>
+					asked by <span class="name"><?php echo $question["asker"]; ?></span> | 
+					<a href='#'>edit</a> | 
+					<a href='#'onclick = "deleteQuestion(<?php echo $question["questionId"]; ?>)" >delete</a>
 					</p>
 				</div>
 			</div>
 			</div>
 		<?php endforeach; ?>
 	</div>
+	<script type='text/javascript' src='/assets/js/question.js'></script>
 </body>
 </html>

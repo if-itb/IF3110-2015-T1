@@ -18,7 +18,7 @@
 			<input type='text' name='asker' class='formInput' placeholder='Name'>
 			<input type='text' name='email' class='formInput' placeholder='Email'>
 			<input type='text' name='topic' class='formInput' placeholder='Question Topic'>
-			<textarea name='content' class='formInput 'placeholder='Content'  rows='10'></textarea>
+			<textarea name='content' class='formInput' placeholder='Content' rows='10'></textarea>
 			<div class='right'><button type='submit'>Post</button></div>
 		</form>
 	</div>
