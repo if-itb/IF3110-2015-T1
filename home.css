@@ -1,0 +1,119 @@
+body{
+	padding-left: 20%;
+	padding-right: 20%;
+}
+
+h1{
+	text-align: center;
+	margin-top: 60px;
+}
+
+hr {
+	border: 2px solid black;
+}
+
+form .search{
+	margin-left: 5%;
+	height:40px;
+}
+
+input.search-bar{
+	width: 79%;
+	height:80%; 
+	border: 3px solid navy;
+}
+
+input.submit-button{
+	margin-left:1%;
+	width: 10%;	
+	height:100%; 
+	border:3px solid navy;
+}
+
+p.state1{
+	text-align: center;
+}
+
+p.state1 a{
+	text-decoration: none;
+	color: orange;
+}
+
+.question{
+	height:160px;
+}
+
+.vote{
+	width:10%;
+	float:left;	
+	text-align: center;
+	margin-top: 50px;
+}
+
+.answer-number{
+	width:10%;
+	float: left;
+	text-align: center;
+	margin-top: 50px;
+}
+
+.question-topic{
+	width:70%;
+	margin-left: 5%;
+	float:left;
+	text-align: center;
+	height: 25px;
+}
+
+.question-topic a{
+	font-size: 25px;
+	color:#00008B;
+	text-decoration: none;
+}
+
+.question-topic p{
+	margin-top: 0px;
+}
+
+.question-content{
+	width:70%;
+	margin-left: 5%;
+	float:left;
+	text-align: center;
+	height: 80px;
+	word-wrap:break-word;
+}
+
+.question-content p{
+	margin-bottom:0px;
+	margin-top:10px;
+}
+
+.question-id{
+	width:100%;
+	float:left;
+	text-align: right;
+	height: 20px;
+	margin-top: 10px;
+}
+
+.question-id p{
+	margin-bottom:0px;
+	margin-top: 5px;
+}
+
+.question-id a{
+	text-decoration: none;
+}
+
+.name{
+	color:blue;
+}
+
+.edit a{
+	color:orange;
+}
+
+.delete a{
+	color:red;
+}
