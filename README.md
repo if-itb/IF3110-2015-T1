@@ -89,7 +89,17 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+**1. Validasi pada client side :**
+Setiap form pada question maupun answer page memiliki fungsi javascript yang bertujuan untuk mengecek apakah
+input pada suatu form sudah valid atau belum. Input berupa nama, content, topic, dan email. Untuk nama, content, dan
+topic form tidak boleh kosong. Sedangkan untuk email form harus diisi dengan format email yang sesuai seperti example@example.com
+Validasi dilakukan dengan menggunakan regular expression.
+
+**2. Melakukan AJAX :**
+Vote untuk answer dan question dibuat dengan menggunakan AJAX di mana saat vote up maupun vote down ditekan maka nilai dari vote
+tersebut akan bertambah pada page maupun pada database. Saat vote up ditekan maka javascript akan memanggil fungsi voteUpQuestion
+atau voteUpAnswer dan saat vote down ditekan maka javascript akan memanggil fungsi voteDownQuestion atau voteDownAnswer. Fungsi tersebut
+yang men-trigger perubahan yang terjadi di page answer.php.
 
 ### Knowledge
 

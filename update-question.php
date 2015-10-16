@@ -29,7 +29,7 @@
           $content = mysql_result($result, 0, "Content");
       ?>
       <center>
-        <form class="question-form"  action="update.php?id=<?= $question_id ?>" method="POST">
+        <form name="form" class="question-form"  onsubmit="return validasi_inputQuestion()" action="update.php?id=<?= $question_id ?>" method="POST">
           <input type="text" value="<?= $name; ?>" name="Name"><br>
           <input type="text" value="<?= $email; ?>" name="Email"><br>
           <input type="text" value="<?= $topic; ?>" name="Question-topic"><br>
@@ -40,6 +40,7 @@
     </div>
     <?php mysql_close(); ?>
   </div>
+  <script type="text/javascript" src="vote.js" ></script>
 </body>
 
 </html>

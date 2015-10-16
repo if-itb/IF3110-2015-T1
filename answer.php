@@ -99,8 +99,9 @@
         </div>
         <?php $i++; } ?>
       </div>
+      <h2 class="answer-h2"> <span style="color: #888888">&nbsp;&nbsp;Your Answer</span></h2>
       <center>
-        <form class="answer-form" action="answer-input.php?id=<?= $question_id ?>" method="POST">
+        <form class="answer-form" name="form" onsubmit="return validasi_inputAnswer()" action="answer-input.php?id=<?= $question_id ?>" method="POST">
           <input type="text" placeholder="  Name" name="Name"><br>
           <input type="text" placeholder="  Email" name="Email"><br>
           <textarea type="text" placeholder=" Content" name="Content"></textarea>

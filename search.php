@@ -30,10 +30,10 @@
 						$username = "root";
 						$password = "";
 						$dbname = "stackexchange";
-
+						$search =$_POST["search-box"];
 						$connection = mysql_connect($servername, $username, $password) or die(mysql_error());
 						@mysql_select_db('stackexchange') or die(mysql_error());
-						$sql = "SELECT * FROM `question`";
+						$sql = "SELECT  * FROM question WHERE `content` LIKE '%".$search."%' "." OR `Topic` LIKE '%".$search."%'" ;
 						$result = mysql_query($sql);
 						$num = mysql_num_rows($result);
 

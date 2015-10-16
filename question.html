@@ -14,7 +14,7 @@
     <div class="question-form">
       <h2>What's your question?</h2><hr><br>
       <center>
-        <form class="question-form" action="question-input.php" method="POST">
+        <form name="form" class="question-form" onsubmit="return validasi_inputQuestion()" action="question-input.php" method="POST">
           <input type="text" placeholder="  Name" name="Name"><br>
           <input type="text" placeholder="  Email" name="Email"><br>
           <input type="text" placeholder="  Question Topic" name="Question-topic"><br>
@@ -24,6 +24,7 @@
       </center>
     </div>
   </div>
+  <script type="text/javascript" src="vote.js" ></script>
 </body>
 
 </html>

@@ -17,7 +17,8 @@
 	$topic = $_POST["Question-topic"];
 	$content = $_POST["Content"];
 	$question_id = $_GET["id"];
-	$sql = "UPDATE question SET `Nama` = '$name', `Email` = '$email', `Topic`='$topic', `Content`='$content' WHERE (ID = '$question_id')";
+	$update_content = mysql_real_escape_string($content);
+	$sql = "UPDATE question SET `Nama` = '$name', `Email` = '$email', `Topic`='$topic', `Content`='$update_content' WHERE (ID = '$question_id')";
 	//echo $sql;
 	if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
