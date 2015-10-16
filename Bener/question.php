@@ -15,8 +15,8 @@
 <br><br><br><br>
 
 <form>
-  <input type="text" name="search" size='120%'>
-  <input type="submit" value="Search">
+  <input class='form-search' type="text" name="search" size='120%'>
+  <button class='button-search' type='submit'> Search </button>
 </form>
 
 
@@ -26,7 +26,7 @@
 
 <div class="smalltitle-left"> Recently Asked Questions </div>
 
-<div class="line"> <hr> </div>
+<hr class='line'>
 
 
 
@@ -68,7 +68,7 @@
 	    		. "'>delete</a>" . "</div>" . "</div>"
 	    		;
 	    	$question_content_line = 
-	    		"<div class='line'> <hr> </div>"
+	    		"<hr class='line'>"
 	    		;
 	    	$question_content_all = 
 	    		$question_content_vote . $question_content_answers . $question_content_topic . $question_content_content . $question_content_email . $question_content_edit . $question_content_delete . $question_content_line

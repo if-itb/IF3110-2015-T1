@@ -23,7 +23,7 @@
 
 <?php
 		$border = 
-			"<div class='line'> <hr> </div>"
+			"<hr class='line'>"
 			;
 	if (isset($_GET['question_id'])){
 		//for the question
@@ -113,12 +113,12 @@
 			"<div class='subtitle'>" . "<a id='color-grey'>" . "Your Answer" . "</a>" . "</div>"
 			;
 		$form = 
-		"<form name='askForm' action='anspost.php' method='post'>
+		"<form name='answerForm' action='anspost.php' onsubmit='return validateAnswer()' method='post'>
 			<input type='hidden' name='question_id' value=' " . $question_id ."'>
-			<input type='text' name='name' placeholder='Name' size='130%'><br>
-			<input type='text' name='email' placeholder='Email' size='130%'><br>
-			<textarea name='content' rows='5' cols='128%' placeholder='Content'></textarea><br>
-			<input type='submit' value='Post'>
+			<input type='text' class='form-text' name='name' placeholder='Name'><br>
+			<input type='text' class='form-text' name='email' placeholder='Email'><br>
+			<textarea class='form-textarea' name='content' placeholder='Content'></textarea><br>
+			<button class='button-post' type='submit'> Post </button>
 		</form>";
 		echo $YA . $form;
 

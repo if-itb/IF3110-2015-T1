@@ -29,12 +29,32 @@
 	.line { 
 	    margin-left:17.5%;
 	    margin-right: 17.5%;
-	    color: #000000;
-		background-color: #000000;
+	    color: solid black;
+		background-color: black;
 		height: 3px;
 		font-family:calibri;
 		clear:both;
 	} 
+	.button-post{
+		margin-left: 60%;
+	  	border: 2px solid black;
+	  	background-color: grey;
+	  	cursor: pointer;
+	  	margin-top: 10px;
+	   	height: 30px;
+	   	width: 80px;
+	   	clear:both;
+	}
+	.button-search{
+		margin-left: 0.5%;
+	  	border: 2px solid black;
+	  	background-color: grey;
+	  	cursor: pointer;
+	  	margin-top: 10px;
+	   	height: 30px;
+	   	width: 80px;
+	   	clear:right;
+	}
 	#color-orange{
 		text-decoration: none;
 		color: orange;
@@ -129,6 +149,26 @@
 	  	border-top: 20px solid gray;
 	  	cursor: pointer;
 	}
+	.form-text{
+	  	width: 65%;
+	  	border: 2px solid black;
+	  	margin-top: 0.5%;
+	  	background-color: white;
+	  	height: 25px;
+	}
+	.form-textarea{
+	  	width: 65%;
+	  	margin-top: 0.5%;
+	  	border: 2px solid black;
+	  	background-color: white;
+	  	height: 200px;  		
+	}
+	.form-search{
+	  	margin-left: 2%;
+	  	width: 57.5%;
+	   	height: 30px;
+	  	border: 2px solid black;
+	  	margin-bottom: 10px;
+	}
 
-	
-	
+
