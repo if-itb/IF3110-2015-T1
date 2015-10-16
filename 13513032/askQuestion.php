@@ -48,9 +48,9 @@
 			}
 		?>
 
-		<form <?php echo "action='".$action."'"; ?> method="post" name="questionForm" onsubmit="return !!(validateQuestionForm('questionForm', 'questionName', 'questionTopic', 'questionContent') & validateEmail('questionEmail'))">
+		<form <?php echo "action='".$action."'"; ?> method="post" name="questionForm" onsubmit="return validateQuestionForm('questionForm', 'questionName', 'questionEmail', 'questionTopic', 'questionContent')">
 			<input class="askQuestionData" name="questionName" placeholder="Name" type="text" <?php echo "value='".$nameValue."'"; ?>></input>
-			<input class="askQuestionData" name="questionEmail" placeholder="Email" type="text" <?php echo "value='".$emailValue."'"; ?>></input>
+			<input class="askQuestionData" id="questionEmail" name="questionEmail" placeholder="Email" type="text" <?php echo "value='".$emailValue."'"; ?>></input>
 			<input class="askQuestionData" name="questionTopic" placeholder="Question Topic" type="text" <?php echo "value='".$topicValue."'"; ?>></input>
 			<textarea name="questionContent" placeholder="Content" rows="9"><?php echo $contentValue; ?></textarea>
 			<input id="postButton" name='questionPostButton' type="submit" value="Post"></input>

@@ -44,7 +44,7 @@
 			$questionResult = mysqli_fetch_assoc($questionResults);
 
 			// Mengambil data jawaban-jawaban dari database, berdasarkan id pertanyaannya
-			$answerQuery = "select answeremail, answercontent, answervotes, answerdatetime
+			$answerQuery = "select answerid, answeremail, answercontent, answervotes, answerdatetime
 							from answers
 							where questionid = ".$_GET["id"]."
 							order by answerdatetime desc";
@@ -56,7 +56,7 @@
 		<p class="questionBoundary"></p>
 
 		<p style="margin-top:0px">
-			<voteupdown style="color:lightgray">&#9650 <span style="color:gray"><?php echo $questionResult["questionvotes"] ?></span> &#9660</voteupdown>
+			<voteupdown><a style="color:lightgray" <?php echo "href='javascript:voteQuestionUp(".$questionResult["questionid"].")'" ?>>&#9650</a> <span id="questionVote" style="color:gray"><?php echo $questionResult["questionvotes"] ?></span> <a <?php echo "href='javascript:voteQuestionDown(".$questionResult["questionid"].")'" ?> style="color:lightgray">&#9660</a></voteupdown>
 			<content><?php echo $questionResult["questioncontent"] ?></content>
 		</p>
 
@@ -70,7 +70,7 @@
 			while ($answerResult = mysqli_fetch_assoc($answerResults)) {
 				echo "<p class='questionBoundary'></p>
 				<p style='margin-top:0px'>
-					<voteupdown style='color:lightgray'>&#9650 <span style='color:gray'>".$answerResult["answervotes"]."</span> &#9660</voteupdown>
+					<voteupdown><a href='javascript:voteAnswerUp(".$answerResult["answerid"].")' style='color:lightgray'>&#9650</a> <span id='answerVote' style='color:gray'>".$answerResult["answervotes"]."</span> <a href='javascript:voteAnswerDown(".$answerResult["answerid"].")' style='color:lightgray'>&#9660</a></voteupdown>
 					<content>".$answerResult["answercontent"]."</content>
 				</p>
 
@@ -82,9 +82,9 @@
 		<p class="questionBoundary"></p>
 		<h2 style="margin-top:15px"><span style="color:gray">Your Answer</span></h2>
 
-		<form <?php echo "action='answerQuestion.php?id=".$questionResult["questionid"]."'" ?> method="post" name="answerForm" onsubmit="return !!(validateAnswerForm('answerForm', 'answerName', 'answerContent') & (validateEmail('answerEmail')))" style="margin-top:-7px">
+		<form <?php echo "action='answerQuestion.php?id=".$questionResult["questionid"]."'" ?> method="post" name="answerForm" onsubmit="return validateAnswerForm('answerForm', 'answerName', 'answerEmail', 'answerContent')" style="margin-top:-7px">
 			<input class="askQuestionData" name="answerName" placeholder="Name" type="text"></input>
-			<input class="askQuestionData" name="answerEmail" placeholder="Email" type="text"></input>
+			<input class="askQuestionData" id="answerEmail" name="answerEmail" placeholder="Email" type="text"></input>
 			<textarea name="answerContent" placeholder="Content" rows="9"></textarea>
 			<input id="postButton" name="answerPostButton" type="submit" value="Post"></input>
 		</form>

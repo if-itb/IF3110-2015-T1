@@ -89,7 +89,15 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+Cara melakukan validasi pada client-side:
+1. Menggunakan kemampuan javascript form validation.
+2. Untuk nama, topic, dan content, diambil nama dari ketiga input tersebut dan nama form, sedangkan untuk email diambil id nya.
+3. Kemudian memanfaatkan document.forms untuk mengambil value dari nama, topic, dan content.
+4. Dengan value tersebut, maka bisa diperiksa apakah valuenya kosong atau tidak.
+5. Sedangkan untuk pemeriksaan email, memanfaatkan regex untuk memeriksa kevalidan email.
+
+Cara melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah):
+1. 
 
 ### Knowledge
 
