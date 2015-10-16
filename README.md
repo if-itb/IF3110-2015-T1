@@ -95,7 +95,7 @@ Validasi input pada client side terjadi ketika sebuah form akan disubmit, browse
 
 #### Vote Up - Vote Down AJAX
 
-Vote up dan vote down melakukan pemanggilan ajax ke server ke url `index.php/answers/vote/\[id\]/\[count\]` atau `index.php/questions/vote/\[id\]/\[count\]`. Kemudian server akan merespons apakah berhasil atau tidak. Jika berhasil, server akan mengembalikan berapa jumlah vote pada pertanyaan atau jawaban tersebut. Hasil jumlah vote digunakan untuk mengupdate tampilan angka vote dengan DOM. 
+Vote up dan vote down melakukan pemanggilan ajax ke server ke url `index.php/answers/vote/[id]/[count]` atau `index.php/questions/vote/[id]/[count]`. Kemudian server akan merespons apakah berhasil atau tidak. Jika berhasil, server akan mengembalikan berapa jumlah vote pada pertanyaan atau jawaban tersebut. Hasil jumlah vote digunakan untuk mengupdate tampilan angka vote dengan DOM. 
 
 ### Knowledge
 
