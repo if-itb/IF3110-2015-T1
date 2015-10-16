@@ -5,7 +5,7 @@
  * Date: 10/15/2015
  * Time: 2:17 AM
 */
-$questionID=$_GET["questionID"];
+$question_id=$_GET["questionID"];
 //commencing database access
 $servername = "localhost";
 $username = "root";
@@ -25,11 +25,11 @@ $sql = "update questions
             email = '$email',
             questiontopic = '$topic',
             content = '$content'
-        where question_id= '$questionID';
+        where question_id= '$question_id';
 ";
 
     if (mysqli_query($conn, $sql)) {
-        include 'redirecting.php';
+        include 'redirecttoquestion.php';
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }

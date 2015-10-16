@@ -25,16 +25,23 @@
         $num_of_questions = $fetched["num_of_questions"];
     }
 
+    $display_question=$num_of_questions;
+    if ($display_question>5){
+        $display_question=5;
+    }
+
 //fetching data
     $sql =  "select question_id, asked_by, questiontopic , vote_point, answers, content
              from questions;";
     $result = mysqli_query($conn,$sql);
+    //membuat array untuk menampung database
         $asked_by = array();
         $questiontopic = array();
         $vote_point = array();
         $nAnswer = array();
         $content = array();
 
+//memasukkan data ke array
     for ($nQuestion = 1;$nQuestion<=$num_of_questions;$nQuestion++){
         $row=mysqli_fetch_assoc($result);
         $questionID[$nQuestion] = $row["question_id"];
@@ -47,10 +54,20 @@
     //Close Connection
     mysqli_close($conn);
 
-for ($count=1;$count<=$num_of_questions;$count++) {
+    echo '
+    <center>
+        <h4 class="relativeshowingof">
+            showing '.$display_question.' of '.$num_of_questions.'
+        </h4>
+    </center>
+    ';
+
+for ($count=1;$count<=$display_question;$count++) {
+    //membatasi kontent hanya untuk 77 karakter, lalu membuat '...'
         if (strlen($content[$count]) > 77)
         $content[$count] = substr($content[$count], 0, 77) . '...';
     echo '
+
     <hr width="770"; align="1";>
     <head>
         <style>
@@ -76,12 +93,14 @@ for ($count=1;$count<=$num_of_questions;$count++) {
             </td>
 
             <td rowspan="2" width="600">
-
+                <!--
+                    jika Question Topic diklik, maka akan menuju ke page question tersebut,
+                    pemindahan data menggunakan $_GET yang hanya memberikan questionID
+                -->
                <a href="Question.php?questionID='.$questionID[$count].'" id="blacklink">'.$questiontopic[$count].'</a>
                <br>
-               '.$content[$count].'
+                     '.$content[$count].'
             </td>
-
         </tr>
 
         <tr>

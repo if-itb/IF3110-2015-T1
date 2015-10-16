@@ -16,10 +16,11 @@ $basisdata= "question";
 $conn = mysqli_connect($servername, $username, $password, $basisdata);
 //fetching data
 
+//system akan meningkatkan jumlah vote di database
 $sql = "update questions set vote_point=vote_point+1 where question_id=$questionID;";
 $result = mysqli_query($conn,$sql);
 
-
+//pengaksesan kembali terhadap jumlah vote pada database, sehingga tidak sembarang +1 pada ajax
 $sql = "select vote_point from questions where question_id=$questionID;";
 $result = mysqli_fetch_assoc(mysqli_query($conn,$sql));
 $vote_point = $result["vote_point"];

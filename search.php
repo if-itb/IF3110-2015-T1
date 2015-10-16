@@ -19,7 +19,7 @@
     ?>
 
     <br>
-    <a href="dashboardPHP.php" id="dashboard">Simple StackExchange</a>
+    <a href="Homepage.php" id="dashboard">Simple StackExchange</a>
     <br><br>
 
 
@@ -42,6 +42,7 @@
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, $basisdata);
     //Count questions
+    //berikut merupakan query untuk menampilkan jumlah pertanyaan yang berhubungan dengan search key
     $sql = "select count(Question_ID)
             as num_of_questions
             from questions
@@ -64,6 +65,7 @@
     echo $num_of_questions." questions related";
 
     //fetching data
+    //berikut merupakan query untuk menampilkan data radi row yang berhubungan dengan search key
     $sql =  "select question_id, asked_by, questiontopic , vote_point, answers, content
              from questions
              where content like '$search%' OR
@@ -80,6 +82,7 @@
     $nAnswer = array();
     $content = array();
 
+    //melakukan akuisisi pada sql query untuk ditampilkan
     for ($nQuestion = 1;$nQuestion<=$num_of_questions;$nQuestion++){
         $row=mysqli_fetch_assoc($result);
         $questionID[$nQuestion] = $row["question_id"];
@@ -92,7 +95,14 @@
     //Close Connection
     mysqli_close($conn);
 
-    for ($count=1;$count<=$num_of_questions;$count++) {
+    //pembatasan jumlah view
+    $display_question=$num_of_questions;
+    if ($display_question>5){
+        $display_question=5;
+    }
+
+    //melakukan looping sesuai jumlah yang ditemukan
+    for ($count=1;$count<=$display_question;$count++) {
         if (strlen($content[$count]) > 77)
             $content[$count] = substr($content[$count], 0, 77) . '...';
         echo '

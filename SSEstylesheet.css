@@ -21,6 +21,16 @@ h4.relative1 {
     font-family: "Century Gothic";
     left: -250px;
 }
+
+h4.relativeshowingof {
+    position: relative;
+    color: black;
+    font-family: "Century Gothic";
+    left: -290px;
+    font-size: medium;
+
+}
+
 h4.relative2 {
     position: relative;
     color: black;

@@ -8,7 +8,7 @@
 
 <body>
 <center>
-    <a href="dashboardPHP.php" id="dashboard">Simple StackExchange</a>
+    <a href="Homepage.php" id="dashboard">Simple StackExchange</a>
 
     <h4 class="relative1">
         What's your question?

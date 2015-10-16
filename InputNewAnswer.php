@@ -5,7 +5,7 @@
  * Date: 10/14/2015
  * Time: 5:07 PM
  */
-$questionID=$_GET["questionID"];
+$question_id=$_GET["questionID"];
 
 $servername = "localhost";
 $username = "root";
@@ -32,12 +32,12 @@ else{
 $answer_id=$lastid+1;
 
 $sql = "INSERT INTO `question`.`answer` (`question_id`, `answer_id`, `Content`, `answered_by`, `Email`, `Vote`, `datetime`)
-           VALUES ('$questionID','$answer_id', '$content', '$answered_by', '$email', '0', CURRENT_TIMESTAMP);";
+           VALUES ('$question_id','$answer_id', '$content', '$answered_by', '$email', '0', CURRENT_TIMESTAMP);";
 
 if (mysqli_query($conn, $sql)) {
-    $sql = "update questions set answers=answers+1 where question_id=$questionID;";
+    $sql = "update questions set answers=answers+1 where question_id=$question_id;";
     if (mysqli_query($conn, $sql)) {
-        include 'redirecting.php';
+        include 'redirecttoquestion.php';
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }

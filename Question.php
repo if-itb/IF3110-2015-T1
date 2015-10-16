@@ -32,7 +32,7 @@ $datetimequestion = $row["datetime"];
 <body>
 <Center>
     <br>
-    <a href="dashboardPHP.php" id="dashboard">Simple StackExchange</a>
+    <a href="Homepage.php" id="dashboard">Simple StackExchange</a>
     <br><br>
 
     <h4 class="relative5">
@@ -149,7 +149,10 @@ $datetimequestion = $row["datetime"];
             '.$num_of_answers.' Answers
         </h4>';
 
-
+    $displayanswer=$num_of_answers;
+    if ($displayanswer>2){
+        $displayanswer=2;
+    }
     //fetching data
     $sql =  "select answer_id, answered_by, vote, content, datetime, email
          from answer
@@ -174,7 +177,14 @@ $datetimequestion = $row["datetime"];
     //Close Connection
     mysqli_close($conn);
 
-    for ($count=1;$count<=$num_of_answers;$count++) {
+    echo '
+    <center>
+        <h4 class="relativeshowingof">
+            showing '.$displayanswer.' of '.$num_of_answers.'
+        </h4>
+    </center>
+    ';
+    for ($count=1;$count<=$displayanswer;$count++) {
         echo '
      <hr width="770">
 

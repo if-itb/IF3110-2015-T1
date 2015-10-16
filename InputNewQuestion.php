@@ -35,7 +35,7 @@
            VALUES ('$question_id', '$content', '$asked_by', '$email', '0', '0', CURRENT_TIMESTAMP, '$topic');";
 
     if (mysqli_query($conn, $sql)) {
-        include 'redirecting.php';
+        include 'redirecttoquestion.php';
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
