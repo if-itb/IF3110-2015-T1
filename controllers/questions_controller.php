@@ -57,7 +57,6 @@
 				$authoremail = $_POST['authoremail'];
 				$topic = $_POST['topic'];
 				$content = $_POST['content'];
-				date_default_timezone_set('Asia/Jakarta');
 				$datetime = date("Y-m-d H:i:s");
 				$qid = $_GET['qid'];
 				
@@ -106,4 +105,26 @@
 		}
 	}
 
+	if(isset($_GET['query']) && isset($_GET['field'])){
+		require_once('../connection.php');
+		require_once('../models/question.php');
+		$value = $_GET['query'];
+		$formfield = $_GET['field'];
+		
+		if (($formfield == "authorname") || ($formfield == "topic") || ($formfield == "content")) {
+			if (strlen($value) <= 0) {
+				echo "Tidak boleh kosong!";
+			} else {
+				echo "OK";
+			}
+		}
+		
+		if ($formfield == "authoremail") {
+			if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $value)) {
+				echo "Invalid email";
+			} else {
+				echo "Valid";
+			}
+		}	
+	}
 ?>

@@ -25,8 +25,8 @@
 
 				<div class="question-item-metadata">
 					asked by <span><a class="a-blue" href="/">[[authorname]]</a></span> at [[datetime]] |
-					<span><a class="a-orange"href="/">edit</a></span> |
-					<span><a class="a-red" href="/">delete</a></span>
+					<span><a class="a-orange"href="?controller=questions&action=edit&qid=[[qid]]">edit</a></span> |
+					<span><a class="a-red" href="?controller=questions&action=delete&qid=[[qid]]">delete</a></span>
 				</div>
 				
 				<div class="clearfix"></div>

@@ -45,7 +45,7 @@
 			$db = Database::getInstance();
 			$stmt = $db->prepare('INSERT INTO questions(authorname, authoremail, topic, content, datetime) VALUES (:authorname, :authoremail, :topic, :content, :datetime)');
 			if($stmt->execute(array('authorname'=>$this->authorname, 'authoremail'=>$this->authoremail, 'topic'=>$this->topic, 'content'=>$this->content, 'datetime'=>$this->datetime)))
-				echo 'ok';
+				echo 'Your question has been posted!';
 		}
 		
 		public static function vote($vote, $qid){

@@ -112,7 +112,7 @@ h2 {
 	width: 96%;
 }
 
-.form input[type="submit"] {
+.form input[type="button"] {
 	cursor: pointer;
 	width: 20%;
 	float: right;
@@ -198,6 +198,7 @@ h2 {
 
 .vote-up-button, .vote-down-button {
 	text-indent: 9999px;
+	cursor: pointer;
 }
 
 .vote-count-data {

@@ -22,3 +22,47 @@ function vote(val, type, qid, aid) {
 	}
 	xmlhttp.send();
 }
+
+function checkForm(type) {
+	var authorname = document.getElementById("authorname").value;
+	var authoremail = document.getElementById("authoremail").value;
+	if(type != 'answer'){
+		var topic = document.getElementById("topic").value;
+	}
+	var content = document.getElementById("content").value;
+
+	if (authorname == '' || authoremail == '' || (topic == '' &&  type != 'answer')|| content == '') {
+		alert("Tidak boleh kosong!");
+	} else {
+
+		var authornamecheck = document.getElementById("authornamecheck");
+		var authoremailcheck = document.getElementById("authoremailcheck");
+		if(type != 'answer'){
+			var topiccheck = document.getElementById("topiccheck");
+		}
+		var contentcheck = document.getElementById("contentcheck");
+		
+		if (authornamecheck.innerHTML == 'Tidak boleh kosong!' || contentcheck.innerHTML == 'Tidak boleh kosong!' || authoremailcheck.innerHTML == 'Invalid email') {
+			alert("Isikan dengan data yang valid");
+		} else {
+			
+			document.getElementById("qform").submit();
+		}
+	}
+}
+
+function validate(field, query) {
+	var xmlhttp;
+	if (window.XMLHttpRequest) { // for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	} else { // for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById(field+"check").innerHTML = xmlhttp.responseText;
+		}
+	}
+	xmlhttp.open("GET", "controllers/questions_controller.php/?field=" + field + "&query=" + query, false);
+	xmlhttp.send();
+}
