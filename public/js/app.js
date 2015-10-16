@@ -28,12 +28,12 @@ document.addEventListener('DOMContentLoaded', function() {
             xhr.send(qry); 
 
 
-            // Update votecounts;
-            var voteContainer = document.getElementById('question-vote-' + questionId);
-            if (vote === 'up') {
-                voteContainer.innerHTML = parseInt(voteContainer.innerHTML) + 1;
-            } else {
-                voteContainer.innerHTML = parseInt(voteContainer.innerHTML) - 1;
+            // Update vote counts
+            xhr.onreadystatechange = function() {
+                var voteContainer = document.getElementById('question-vote-' + questionId);    
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    voteContainer.innerHTML = xhr.responseText;
+                }
             }
 
         });

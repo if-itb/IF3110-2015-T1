@@ -91,26 +91,16 @@ class Question extends Controller {
     }
 
     public function vote() {
+        $questionsModel = $this->model('Questions');
+        
         if (isset($_POST['id_question']) && isset($_POST['vote'])) {
-
-            $questionsModel = $this->model('Questions');
-            if ($_POST['vote'] == 'up') {
-                $questionsModel->voteUp($_POST['id_question']);
-            } else {
-                $questionsModel->voteDown($_POST['id_question']);
-            }
+            $result = $questionsModel->voteQuestion($_POST['id_question'], $_POST['vote']);
         }
 
         if (isset($_POST['id_answer']) && isset($_POST['vote'])) {
-
-            $questionsModel = $this->model('Questions');
-            if ($_POST['vote'] == 'up') {
-                $questionsModel->voteUpAnswer($_POST['id_answer']);
-            } else {
-                $questionsModel->voteDownAnswer($_POST['id_answer']);
-            }
+            $result = $questionsModel->voteAnswer($_POST['id_question'], $_POST['vote']);
         }
 
-
+        echo $result->votecounts;
     }
 }

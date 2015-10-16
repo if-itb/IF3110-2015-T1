@@ -99,25 +99,24 @@ class Questions {
 
     }
 
-    public function voteUp($id) {
-        $query = "UPDATE questions SET votecounts = votecounts + 1 WHERE id_question = {$id}";
+    public function voteQuestion($id, $state) {
+        $i = $state == 'up' ? 1 : -1;
+
+        $query = "UPDATE questions SET votecounts = votecounts + {$i} WHERE id_question = {$id}";
         $this->db->query($query);
+
+        $result = $this->db->query("SELECT votecounts FROM questions WHERE id_question = {$id}");
+        return $result->fetch(PDO::FETCH_OBJ);
  
     }
 
-    public function voteDown($id) {
-        $query = "UPDATE questions SET votecounts = votecounts - 1 WHERE id_question = {$id}";
-        $this->db->query($query);   
-    }
+    public function voteAnswer($id, $state) {
+        $i = $state == 'up' ? 1 : -1;
 
-    public function voteUpAnswer($id) {
-        $query = "UPDATE answers SET votecounts = votecounts + 1 WHERE id_answer = {$id}";
-        $this->db->query($query);  
-    }
+        $query = "UPDATE answers SET votecounts = votecounts + {$i} WHERE id_answer = {$id}";
+        $this->db->query($query);
 
-    public function voteDownAnswer($id) {
-        $query = "UPDATE answers SET votecounts = votecounts - 1 WHERE id_answer = {$id}";
-
-        $this->db->query($query);   
+        $result = $this->db->query("SELECT votecounts FROM answers WHERE id_answer = {$id}");
+        return $result->fetch(PDO::FETCH_OBJ);
     }
 }
