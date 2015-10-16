@@ -16,7 +16,7 @@
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($result);
             if (mysqli_num_rows($result) > 0)
-                echo $row[4];
+                echo $row['vote'];
             exit;
 
 ?>
