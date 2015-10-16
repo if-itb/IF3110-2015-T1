@@ -9,8 +9,8 @@
 		include "koneksi.php";
 		$search = $_POST["search"];
 		echo "Showing result from";
-		$sql = "SELECT * FROM question WHERE name LIKE '%$submit%' "; //query to get the search result
-		$data = mysql_query($sql);
+		$sql = "SELECT * FROM question WHERE name LIKE '%$search%' "; //query to get the search result
+		$result = mysql_query($sql);
 		echo "<center>";
 		echo "<h2> Hasil Searching </h2>";
 		echo "<table border='1' cellpadding='5' cellspacing='8'>";
