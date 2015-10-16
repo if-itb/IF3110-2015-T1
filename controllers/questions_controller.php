@@ -56,7 +56,8 @@
 				$authorname = $_POST['authorname'];
 				$authoremail = $_POST['authoremail'];
 				$topic = $_POST['topic'];
-				$content = $_POST['content'];	 
+				$content = $_POST['content'];
+				date_default_timezone_set('Asia/Jakarta');
 				$datetime = date("Y-m-d H:i:s");
 				$qid = $_GET['qid'];
 				

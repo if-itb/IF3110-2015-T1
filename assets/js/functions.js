@@ -1,4 +1,4 @@
-function vote(val, type, qid, aid, directurl) {
+function vote(val, type, qid, aid) {
 	if (window.XMLHttpRequest) {
 			// code for IE7+, Firefox, Chrome, Opera, Safari
 			xmlhttp = new XMLHttpRequest();
@@ -9,9 +9,9 @@ function vote(val, type, qid, aid, directurl) {
 	xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				if (type == "question") {
-					document.getElementById(qid).getElementsByClassName("vote")[0].getElementsByClassName("vote-count")[0].innerHTML = xmlhttp.responseText;
+					document.getElementById("q-"+qid).getElementsByClassName("vote")[0].innerHTML = xmlhttp.responseText;
 				} else if (type == "answer") {
-					document.getElementById(aid).getElementsByClassName("vote")[0].getElementsByClassName("vote-count")[0].innerHTML = xmlhttp.responseText;
+					document.getElementById("a-"+aid).getElementsByClassName("vote")[0].innerHTML = xmlhttp.responseText;
 				}
 			}
 	}
@@ -21,7 +21,4 @@ function vote(val, type, qid, aid, directurl) {
 		xmlhttp.open("GET","controllers/answers_controller.php/?action=vote&vote="+val+"&qid="+qid+"&aid="+aid,true);
 	}
 	xmlhttp.send();
-	if(directurl){
-		window.location.href = directurl;
-	}
 }

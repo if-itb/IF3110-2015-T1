@@ -1,19 +1,10 @@
-<form id='questionform' method='post' action='?controller=questions&action=update&qid=<?php echo $question->qid ?>' >
-	<p>
-		Name						: <input type='text' name='authorname' value='<?php echo $question->authorname?>'/>
-	</p>
-	<p>
-		Email						: <input type='text' name='authoremail' value='<?php echo $question->authoremail ?>'/>
-	</p>
-	<p>
-		Question topic	: <input type='text' name='topic' value='<?php echo $question->topic ?>'/>
-	</p>
-
-	<p>
-		Question:<br/>
-	 <textarea name="content" rows="7" cols="30"><?php echo $question->content?></textarea>
-	</p>
-	 <p>
-	 <input type='submit' value='UPDATE'/>
-	 </p>
+<h1>
+	Edit your question
+</h1>
+<form class='form' method='post' action='?controller=questions&action=update&qid=<?php echo $question->qid ?>' >
+	<input type='text' name='authorname' placeholder="Name"  value='<?php echo $question->authorname?>'/>
+	<input type='text' name='authoremail' placeholder="Email" value='<?php echo $question->authoremail ?>'/>
+	<input type='text' name='topic' placeholder="Question topic" value='<?php echo $question->topic ?>'/>
+	<textarea name="content" rows="7" cols="30" placeholder="Content"><?php echo $question->content?></textarea>
+	<input type='submit' value='Post'/>
 </form>

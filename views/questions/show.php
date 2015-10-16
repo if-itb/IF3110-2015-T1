@@ -1,45 +1,47 @@
 <?php
 	$html_questionItem = '
 	
-	<div class="question-item" id="[[qid]]">
-	<div class="question-item-stats">
-					<div class="vote-wrapper">
-
-						<div class="vote-buttons">
-							<input title="Click to vote up" onclick="vote(this.value, \'question\', [[qid]])" type="submit" value="1" class="vote-up-button"">a</input> 
-							<input title="Click to vote down" onclick="vote(this.value, \'question\', [[qid]])" type="submit" value="-1" class="vote-down-button"> 
-						</div>
-
-						<div class="vote">
-								<span class="vote-count">[[countvotes]]</span>
-								<span> votes</span>
-						</div>
-
-						<div class="vote-clear"></div>
+	<div class="question-item" id="q-[[qid]]">
+		<h1>
+			<a href="?controller=questions&action=show&qid=[[qid]]">[[topic]]</a>		
+		</h1>
+		<div class="question-item-wrapper">
+			<div class="question-item-stats">
+				<div class="vote-buttons">
+					<input onclick="vote(this.value, \'question\', [[qid]])" type="submit" value="1" class="vote-up-button"">
+					<div class="vote">
+						[[countvotes]]
 					</div>
-
-					<div class="answer-count">
-						<span class="countanswers">[[countanswers]]</span>
-						<span> answers</span>
-					</div>
+					<input onclick="vote(this.value, \'question\', [[qid]])" type="submit" value="-1" class="vote-down-button"> 
 				</div>
 
-				<div class="question-item-main">
-					<div class="question-item-title">
-						<a href="?controller=questions&action=show&qid=[[qid]]">[[topic]]</a>		
-					</div>
+				<div class="clearfix"></div>
+			</div>
+			
+			<div class="question-item-main">
+				<div class="question-item-content">
 					[[content]]
-					<span class="question-item-metadata">
-							asked by
-							<span><a href="/">[[authorname]]</a></span> |
-							<span><a href="/">edit</a></span> |
-							<span><a href="/">delete</a></span> |
-							[[datetime]]
-					</span>
 				</div>
+
+				<div class="question-item-metadata">
+					asked by <span><a class="a-blue" href="/">[[authorname]]</a></span> at [[datetime]] |
+					<span><a class="a-orange"href="/">edit</a></span> |
+					<span><a class="a-red" href="/">delete</a></span>
 				</div>
+				
+				<div class="clearfix"></div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		
+		<h1>
+			[[countanswers]] Answer
+		</h1>
+		
+	</div>
 
 				<div class="clearfix"></div>';
+
 	$strMask = array("[[qid]]", "[[authorname]]", "[[content]]", "[[topic]]", "[[datetime]]", "[[countvotes]]", "[[countanswers]]");
 	$strTarget = array($question->qid, $question->authorname, $question->content, $question->topic, $question->datetime, $question->countvotes, $question->countanswers);
 	echo str_replace($strMask, $strTarget, $html_questionItem);

@@ -1,16 +1,9 @@
-<form id='answerform' method='post' action='?controller=answers&action=insert&qid=<?php echo $_GET['qid'] ?>'>
-	<p>
-		Name						: <input type='text' name='authorname' />
-	</p>
-	<p>
-		Email						: <input type='text' name='authoremail' />
-	</p>
-
-	<p>
-		Answer:<br/>
-	 <textarea name="content" rows="7" cols="30"></textarea>
-	</p>
-	 <p>
-	 <input type='submit'/>
-	 </p>
+<h2>
+	Your Answer
+</h2>
+<form class='form' method='post' action='?controller=answers&action=insert&qid=<?php echo $_GET['qid'] ?>'>
+	<input type='text' name='authorname' placeholder="Name"/>
+	<input type='text' name='authoremail' placeholder="Email"/>
+	<textarea name="content" rows="7" cols="30" placeholder="Content"></textarea>
+	<input type='submit' value='Post'/>
 </form>

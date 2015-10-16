@@ -2,27 +2,18 @@
 
 <?php
 	$html_listQuestionItem = '
-			<div class="question-list-item" id="[[qid]]">
+			<div class="question-list-item" id="q-[[qid]]">
 
 				<div class="question-item-stats">
 					<div class="vote-wrapper">
-
-						<div class="vote-buttons">
-							<input title="Click to vote up" onclick="vote(this.value, \'question\', [[qid]], \'\')" type="submit" value="1" class="vote-up-button"">a</input> 
-							<input title="Click to vote down" onclick="vote(this.value, \'question\', [[qid]], \'\')" type="submit" value="-1" class="vote-down-button"> 
-						</div>
-
-						<div class="vote">
-								<span class="vote-count">[[countvotes]]</span>
-								<span> votes</span>
-						</div>
-
+						<div>[[countvotes]]</div>
+						<div> votes</div>
 						<div class="vote-clear"></div>
 					</div>
 
 					<div class="answer-count">
-						<span class="countanswers">[[countanswers]]</span>
-						<span> answers</span>
+						<div>[[countanswers]]</div>
+						<div> answers</div>
 					</div>
 				</div>
 
@@ -32,10 +23,9 @@
 					</div>
 					<span class="question-item-metadata">
 							asked by
-							<span><a>[[authorname]]</a></span> |
-							<span><a href="?controller=questions&action=edit&qid=[[qid]]">edit</a></span> |
-							<span><a href="?controller=questions&action=delete&qid=[[qid]]">delete</a></span> |
-							[[datetime]]
+							<span><a class="a-blue" >[[authorname]]</a></span> |
+							<span><a class="a-orange" href="?controller=questions&action=edit&qid=[[qid]]">edit</a></span> |
+							<span><a class="a-red" href="?controller=questions&action=delete&qid=[[qid]]">delete</a></span>
 					</span>
 				</div>
 
