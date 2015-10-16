@@ -35,38 +35,38 @@
 	      echo "<input type=text class=style_text disabled autocomplete=off name='email' placeholder='E-mail' value='$email'><br>";
 	      echo "<input type=text class=style_text autocomplete=off name='subject' placeholder='Question Topic' value='$subject'><br>";
 	      echo "<textarea name='question_text' autocomplete=off placeholder='Content' wrap='soft'>$question_text</textarea><br>";
-		  echo "<input type=text class=style_text autocomplete=off name='q_id' value='$question_id' hidden><br>";
+		    echo "<input type=text class=style_text autocomplete=off name='q_id' value='$question_id' hidden><br>";
 	      echo "<p align=right><input type='submit' value='Post'></p>";
 		?>
 		<script>
 		  function validateForm() {
-			var is_valid = true;
-			var msg_alert = "";
-            var x = document.forms["question"]["user"].value;
-            if (x == null || x == "") {
-			  msg_alert+="Name must be filled out!\n";
-            }
-			var x = document.forms["question"]["email"].value;
-			var re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-            if (x == null || x == "") {
-              msg_alert+="Email must be filled out!\n";
-            } else if (!re.test(x)) {
-			  msg_alert+="Email must be in correct format!\n";
-			}
-			var x = document.forms["question"]["subject"].value;
-            if (x == null || x == "") {
-              msg_alert+="Subject must be filled out!\n";
-            }
-			var x = document.forms["question"]["question_text"].value;
-            if (x == null || x == "") {
-              msg_alert+="Content must be filled out!\n";
-            }
-			if (msg_alert!="") {
-			  is_valid = false;
-			  alert(msg_alert);
-			  }
-			return is_valid;
-          }
+        var is_valid = true;
+        var msg_alert = [];
+        var x = document.forms["question"]["user"].value;
+        if (!x) {
+          msg_alert.push("Name must be filled out!");
+        }
+        var x = document.forms["question"]["email"].value;
+        var re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        if (!x) {
+          msg_alert.push("Email must be filled out!");
+        } else if (!re.test(x)) {
+          msg_alert.push("Email must be in correct format!");
+        }
+        var x = document.forms["question"]["subject"].value;
+        if (!x) {
+          msg_alert.push("Subject must be filled out!");
+        }
+        var x = document.forms["question"]["question_text"].value;
+        if (!x) {
+          msg_alert.push("Content must be filled out!");
+        }
+        if (msg_alert.length) {
+          is_valid = false;
+          alert(msg_alert.join('\n'));
+        }
+        return is_valid;
+      }
 		</script>
 	  </form>
 	</div>
