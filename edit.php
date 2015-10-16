@@ -1,7 +1,7 @@
 <?php 
     include 'index.php';
-    $get = $_GET['id'];
-    $id = (int) base64_decode($get);
+    if (isset($_POST["id"])) $get = $_POST["id"];
+    $id = $get;
     $sql = "SELECT id,topic,content,user,user_email FROM question WHERE id=$id";
     $result = $con->query($sql);
     if ($result->num_rows>0) {
@@ -20,14 +20,16 @@
     </head>
     <body>
         <div class="container">
-            <div class="title">Simple StackExchange</div>
+            <div class="title"><a href="list.php">Simple StackExchange</a></div>
             <div class="subq black">What's your question?</div>
-            <form class="formsearch createquestion" method="post" action="update.php?choice=1&id=<?php echo $get?>">
-                <input type="text" id="createname" name="createname" value="<?php echo $row["user"]?>" />
-                <input type="text" id="createemail" name="createemail" value="<?php echo $row["user_email"]?>" />
-                <input type="text" id="createtopic" name="createtopic" value="<?php echo $row["topic"]?>" />
-                <textarea type="text" id="createcontent" name="createcontent"><?php echo $row["content"]?></textarea>
-                    <button type="submit" name="submit">Post</button>
+            <form class="formsearch createquestion" method="post" action="update.php">
+                <input type="text" id="createname" name="createname" value="<?php echo $row["user"];?>" />
+                <input type="text" id="createemail" name="createemail" value="<?php echo $row["user_email"];?>" />
+                <input type="text" id="createtopic" name="createtopic" value="<?php echo $row["topic"];?>" />
+                <textarea type="text" id="createcontent" name="createcontent"><?php echo $row["content"];?></textarea>
+                <input type="hidden" id="choice" name="choice" value="1"/>
+                <input type="hidden" id="id" name="id" value="<?php echo $id;?>"/>
+                <button type="submit" name="submit">Post</button>
             </form>
         </div>
         <?php }}?>

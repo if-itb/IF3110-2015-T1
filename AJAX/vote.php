@@ -4,8 +4,8 @@
         {
             die("ERROR! Tidak dapat terhubung ".mysqli_connect_error());
         }
-    if (isset($_POST['action']) && isset($_POST['id']) && isset($_POST['type'])) {
-        if($_POST['action'] == 'up')
+    if (isset($_POST['result']) && isset($_POST['id']) && isset($_POST['type'])) {
+        if($_POST['result'] == 'up')
             $count = 1;
         else
             $count = -1;

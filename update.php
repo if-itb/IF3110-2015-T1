@@ -1,8 +1,8 @@
 <?php 
     include 'index.php';
-    $get = $_GET['id'];
-    $id = (int) base64_decode($get);
-    $choice = $_GET['choice'];
+    $get = $_POST['id'];
+    $id = $get;
+    $choice = $_POST['choice'];
     if (($choice==1) && (isset($_POST["submit"])))
     {
         $user = mysqli_real_escape_string($con, $_POST['createname']);

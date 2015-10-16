@@ -1,7 +1,5 @@
 <?php 
     include 'index.php';
-    $sql= "SELECT q.id AS id,q.topic,q.content,q.user,q.create_time,q.vote AS qvote, count(a.id) as anumber FROM question q LEFT JOIN answer a on q.id = a.question_id GROUP BY q.id ORDER BY q.create_time DESC";
-    $result = $con->query($sql);
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -12,14 +10,33 @@
         <link href='https://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Dosis:500' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script>
+            function confirmationDelete(id,choice) 
+            {
+                if (confirm("Are you sure to delete this question?") == true) 
+                {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() 
+                    {
+                        if (xhttp.readyState == 4 && xhttp.status == 200) 
+                        {
+                          location.href = "list.php";
+                        }
+                    }
+                xhttp.open("POST", "update.php", true);
+                xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                xhttp.send("id=" + id + "&choice=" + choice);
+                }
+            }
+        </script>
         <title>Simple Stack Exchange</title>
     </head>
     <body>
         <div class="container">
-            <div class="title">Simple StackExchange</div>
+            <div class="title"><a href="list.php">Simple StackExchange</a></div>
             <div class="containersearch">
-                <form class="formwrap formsearch">
-                    <input type="text" id="search" placeholder="Search Questions..." />
+                <form action = "list.php" class="formwrap formsearch" method="GET">
+                    <input type="text" id="search" name="search" placeholder="Search Questions..." />
                     <button type="submit">Search</button>
                 </form>
             </div>
@@ -28,6 +45,12 @@
             </div>
             <p class="raqtext">Recently Asked Questions</p>
             <?php
+                if (isset($_GET['search']) && !is_null($_GET['search'])) {
+			$sql = "SELECT q.id AS id,q.topic,q.content,q.user,q.create_time,q.vote AS qvote, count(a.id) as anumber FROM question q LEFT JOIN answer a ON q.id = a.question_id WHERE q.topic LIKE '%$_GET[search]%' OR q.content LIKE '%$_GET[search]%' GROUP BY q.id ORDER BY q.create_time DESC";
+		}
+		else
+                $sql= "SELECT q.id AS id,q.topic,q.content,q.user,q.create_time,q.vote AS qvote, count(a.id) as anumber FROM question q LEFT JOIN answer a ON q.id = a.question_id GROUP BY q.id ORDER BY q.create_time DESC";
+    $result = $con->query($sql);
                 if ($result->num_rows > 0)
                 {
                     while ($row = $result->fetch_assoc())
@@ -53,25 +76,18 @@
                 <div class="labelunder">
                     <p class="ab">asked by </p>
                     <a href="#" class="name"><?php echo $row["user"]?></a>
-                    <?php echo '<a class="edit" href="edit.php?id='.base64_encode($row["id"]).'">';?>edit</a>
-                    <a class="delete" href="#popup1">delete</a>
-                </div>
-            </div>
-            <div id="popup1" class="overlay">
-                <div class="popup">
-                    <h2>Are you sure you want to delete?</h2>
-                    <a class="close" href="#">x</a>
-                    <div class="content">
-                         <?php echo '<a class ="yes" href="update.php?id='.base64_encode($row["id"]).'&choice=2">';?>YES</a>
-                        <a class="no" href="#">NO</a>
-                    </div>
+                    <form action="edit.php" method="post" class="hiddenform">
+                        <input type="hidden" id="id" name="id" value="<?php echo $row["id"];?>"/>
+                        <input class="edit" type="submit" value="edit">                        
+                    </form>
+                     <a href="javascript:confirmationDelete(<?php echo $row['id'] ?>,'2')" class="delete">delete</a>
                 </div>
             </div>
             <?php }
                 }
                     else
                         echo "0 results";
-            ?>
+            ?>        
         </div>
     </body>
 </html>

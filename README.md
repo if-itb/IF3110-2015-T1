@@ -89,7 +89,15 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+#Melakukan AJAX pada voting
+AJAX adalah Asynchronous JavaScript and XML, teknik untuk membuat halaman situs yang cepat dan dinamis. Pada peramban, ketika even muncul, ajax akan membuat sebuah objek `XMLHttpRequest` (pada program ini bernama `xhttp`) dan mengirimkan HttpRequest (pada program ini menggunakan metode `POST`). Kemudian pada server akan memproses HTTPRequest tersebut dan akan membuat sebuah respons dan mengirim data kembali ke peramban (pada program ini dikirim ke `vote.php` yang terdapat dalam folder AJAX beserta beberapa parameter). Sehingga ketika kembali lagi ke peramban, peramban akan memproses data yang dikembalikan menggunakan `JavaScript` dan kemudian akan memperbarui konten halaman. Berikut adalah parameter yang telah dijelaskan sebelumnya.
+- `id`      : parameter ini bisa berisi question id atau answer id yang dimiliki oleh basis data.
+- `result`  : parameter ini bisa berisi `up` atau `down` (vote up atau vote down). Sehingga dapat digunakan untuk menambah atau mengurangi jumlah vote yang ada.
+- `type`    : parameter ini bisa berisi `question` atau `answer` tergantung pada bagian vote mana yang sedang dipilih oleh pengguna.
+
+
+#Melakukan validasi pada client-side
+Ketika pengguna sedang berada pada Question Form atau Answer Form, program akan melakukan validasi dengan menggunakan `JavaScript` yang terdapat pada berkas bernama `validate.js` yang terdapat dalam folder js. Program akan mengecek apakah setiap input pada form yang dimasukkan oleh pengguna bernilai NULL atau tidak, kosong atau tidak, input emailnya sesuai dengan format yang telah ditetapkan atau tidak (menggunakan regex). Fungsi `validateQuestionForm` akan digunakan ketika program akan melakukan validasi pada form pertanyaan dan fungsi `validateAnswerForm` akan digunakan ketika program akan melakukan validasi pada form jawaban.    
 
 ### Knowledge
 
