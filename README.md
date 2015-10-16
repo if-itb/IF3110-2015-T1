@@ -88,8 +88,11 @@ Validasi **wajib** dilakukan pada *client-side*, dengan menggunakan **javascript
 Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi pertanyaan`.
 
 ### Penjelasan Teknis
+-	Melakukan validasi pada client-side :
+	Proses validasi isi form pada client-side dilakukan dengan menggunakan Javascript. Terdapat fungsi validateForm() pada halaman ask.php, edit.php, dan question.php yang akan dipanggil ketika tombol 'Post' ditekan. Fungsi tersebut bekerja dengan cara mengambil nilai dari input pada form, lalu mengecek apakah nilainya kosong atau tidak. Jika nilai salah satu dari input pada form kosong, maka akan ditampilkan pop-up box dan form tidak akan diproses lebih lanjut. Namun jika form telah lengkap, maka akan dilakukan validasi alamat email dengan menggunakan filter yang mengecek apakah format email telah sesuai, yaitu berupa karakter alfanumerik, '.', '_', atau '-' , simbol '@', lalu karakter alfanumerik atau '-', karakter '.', dan diakhiri dengan karakter alfanumerik. Jika format email tidak sesuai, maka akan ditampilkan pesan kesalahan dan form tidak akan diproses lebih lanjut. Namun jika format email telah sesuai, maka form akan diproses lebih lanjut.
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+-	Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah) :
+	Ketika pengguna melakukan klik pada tombol vote, maka akan dipanggil fungsi updateVote(vote,qid,aid). Fungsi ini akan membuat objek XMLHttpRequest, lalu mengeksekusi fungsi jika server sudah siap. Permintaan akan dikirimkan ke server dan nilai parameter diberikan dengan metode GET pada vote.php. Pada vote.php, parameter pada URL akan disimpan sebagai variabel dan dilakukan koneksi dengan server MySQL. Selanjutnya dilakukan pengecekan apakah voting dilakukan untuk pertanyaan atau jawaban. Basis data untuk masing-masing kasus kemudian diakses dan dilakukan UPDATE pada nilai vote untuk pertanyaan/jawaban tersebut. Nilai vote yang baru kemudian dikirimkan kembali untuk diletakan pada elemen yang dituju pada halaman, yaitu disesuaikan dengan ID dari answer, atau 0 untuk pertanyaan.
 
 ### Knowledge
 
