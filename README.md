@@ -89,7 +89,22 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+**1.Validasi pada client side**
+
+Setiap form memiliki fungsi javascript yang bertujuan untuk mengecek apakah setiap input
+pada sebuah form sudah valid. Input yang berupa nama, topik, konten tidak boleh kosong, sedangkan
+input berupa email harus sesuai dengan format alamat email yang berlaku. Pemeriksaan dilakukan
+dengan regular expression. Jika ada field dari input yang tidak valid, maka akan dimunculkan pesan kesalahan
+kepada pengguna melalui alert().
+
+**2. Melakukan AJAX**
+
+Setiap tombol vote memiliki atribut berupa: class upvote/downvote, data-type question/answer, dan data-id (question_id / answe_id).
+Ketika script di load, script akan mencari semua elemen HTML yang termasuk ke dalam class upvote/downvote.
+Kemudian akan ditambahkan event listener berupa .onclick untuk setiap elemen HTML tersebut.
+Ketika salah satu tombol vote diklik, maka script akan memanggil fungsi yang bertujuan untuk melakukan
+update terhadap jumlah votes pada record yang bersesuaian di database. Tanpa page direload, jumlah vote yang ditampilkan
+akan langsung berubah sesuai button vote yang diklik.
 
 ### Knowledge
 
