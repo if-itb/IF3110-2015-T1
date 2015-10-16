@@ -89,13 +89,13 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-- Melakukan validasi pada client-side
-Validasi dilakukan menggunakan Javascript. Tiap field diperiksa isinya dan jika kosong akan ditampilkan pemberitahuan.
-Field email dicocokkan dengan regex.
+##### Melakukan validasi pada client-side
+- Validasi dilakukan menggunakan Javascript. Tiap field diperiksa isinya dan jika kosong akan ditampilkan pemberitahuan.
+- Field email dicocokkan dengan regex.
 Regex didapatkan dari http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
-- Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
-Vote diubah oleh Javascript melalui php yang akan menjalankan query untuk mengubah nilai votes di database.
-Javascript tersebut kemudian mengubah tulisan pada halaman tersebut.
+##### Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
+- Vote diubah oleh Javascript melalui php yang akan menjalankan query untuk mengubah nilai votes di database.
+- Javascript tersebut kemudian mengubah tulisan pada halaman tersebut.
 
 ### Knowledge
 
