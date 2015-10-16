@@ -89,7 +89,36 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+Validasi client side 
+Validasi dilakukan pada setiap data yang dimasukkan (sebagai input) ke dalam sistem. 
+Dalam tugas ini, validasi tersebut dilakukan ketika melakukan input question pada data 
+nama, email, topic dan content dimana keempat data tersebut tidak boleh kosong dan untuk
+email divalidasi juga format email harus benar. Dalam tugas kali ini, saya menggunakan 
+fungsi javascript dengan nama fungsi ValidasiInput() yang didalamnya menggunakan fungsi 
+validateEmail() (email yang dimasukkan pengguna harus dengan format email yang benar). 
+Fungsi tersebut akan memastikan bahwa form yang diisi tidak kosong (variable=== “”). 
+Jika ternyata ditemukan kasus demikian, maka akan ada pesan alert dan kembalian false
+ yang mengharuskan pengguna melengkapinya kembali. Jika semua syarat telah dilengkapi 
+maka kembalian akan return true dan pertanyaan akan terupdate dan masuk ke database.
+ 
+Melakukan AJAX 
+Proses saat merubah angka vote baik pada pertanyaan maupun jawaban, pertama saya
+menggunakan fungsi vote(parameter) dimana ketika pengguna meng-klik tombol arrow-up atau
+arrow-down fungsi akan menerima ID berupa rangkaian char dimana huruf pertama menandakan 
+panah yang diklik pada question atau answer (Q atau A) lalu rangkaian selanjutnya 
+menandakan yang di klik arrow up atau arrow down(U atau D) dan untuk mengenali ID dari 
+answer dan question maka dikenali dengan ID dibelakangnya setelah char tersebut. 
+Cara verifikasinya adalah dengan mem-parse masing-masing dari bagian jika sudaj ter- 
+verifikasi akan di replace untuk mengecek karakter char selanjutnya. Setelah selesai 
+proses parsing tersebut, maka hasilnya akan dikirim ke file PHP dengan 
+xmlhttp.open("GET", "vote.php?id ="+idButton+"&Q="+quest+"&U="+Up, true); dan 
+ xmlhttp.send();. Selanjutnya akan dilakukan pemeriksaan di file PHP tersebut
+ apakah question atau answer yang akan mengeksekusi terhadap penambahan ataupun 
+pengurangan pada jumlah vote. Pada hal ini juga akan melakukan update terhadap 
+database dan file PHP akan mengeluarkan nilai baru yang akan diterima oleh fungsi
+ vote melalui xmlhttp.responsetext dan tampilan akan terupdate. 
+
+
 
 ### Knowledge
 
