@@ -1,0 +1,45 @@
+body {
+    font-family: "Calibri", sans-serif;
+}
+
+h1 {
+    font-family: "Century Gothic", sans-serif;
+    text-align: center;
+}
+
+hr {
+    border : 2px solid black;
+}
+
+.title {
+    margin-left: 500px;
+    margin-right: 550px;
+}
+
+form {
+    margin-left: 510px;
+    margin-right: 560px;
+    width: 500px;
+}
+
+input[type="text"], textarea {
+    margin-top: 10px;
+    width: 830px;
+    height : 30px;
+    padding-left: 10px;
+    font-family: "Calibri", sans-serif;
+    font-size: 12pt;
+}
+
+textarea {
+    height : 120px;
+}
+
+input[type="submit"] {
+    margin-right: 560px;
+    margin-left: 775px;
+    margin-top: 10px;
+    height: 30px;
+    width: 60px;
+    border: 1px solid black;
+}
