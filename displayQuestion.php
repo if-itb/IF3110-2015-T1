@@ -36,7 +36,7 @@
 		</div>
 		<div class="postdiv">
 		<p><?php echo $row["Content"]?></p>
-		<div class = "footer qfooter"> asked by <?php echo $row["Email"];?> at <?php echo $row["created_at"] ?> | <a href="editQuestion.php?qid=<?php echo $qid ?>" class= "editlink">edit</a> | <a href="deleteQuestion.php?qid=<?php echo $qid ?>" class= "deletelink">delete</a></div>
+		<div class = "footer qfooter"> asked by <?php echo $row["Email"];?> at <?php echo $row["created_at"] ?> | <a href="editQuestion.php?qid=<?php echo $qid ?>" class= "editlink">edit</a> | <a href="deleteQuestion.php?qid=<?php echo $qid ?>" class= "deletelink" onclick="return confirm('Are you sure?')">delete</a></div>
 		</div>
 		</div>
 		<div class = "answerpart">
@@ -54,7 +54,7 @@
 
 					<div class='postdiv'>
 					<p>".$answers[$i]["Content"]."</p>
-					<div class = 'footer afooter'> answered by ".$answers[$i]["Email"]." at ".$answers[$i]["created_at"]."| <a href='editAnswer.php?qid=$qid&aid=$aid' class= 'editlink'>edit</a> | <a href='deleteAnswer.php?qid=$qid&aid=$aid' class= 'deletelink'>delete</a></div>
+					<div class = 'footer afooter'> answered by ".$answers[$i]["Email"]." at ".$answers[$i]["created_at"]."| <a href='editAnswer.php?qid=$qid&aid=$aid' class= 'editlink'>edit</a> | <a href='deleteAnswer.php?qid=$qid&aid=$aid' class= 'deletelink' onclick=\"return confirm('Are you sure?')\">delete</a></div>
 					</div>
 					</div>
 				";

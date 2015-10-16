@@ -19,6 +19,12 @@
 		include 'dbmgr.php';
 
 		function qToHtml($q){
+			$maxdispcontentlength=300;
+			if (strlen($q['Content'])>$maxdispcontentlength){
+				$dispcontent=substr($q['Content'],0,$maxdispcontentlength)."...";
+			}else{
+				$dispcontent=$q['Content'];
+			}
 			return "
 			<div class='questionContainer'>
 				<div class='votediv'>
@@ -31,7 +37,8 @@
 				</div>
 					<div class='postdiv'>
 						<p><a href=displayQuestion.php?qid=".$q["qid"]." class='questionLink'>".$q["QuestionTopic"]."</a></p>
-						<div class = 'footer afooter'> asked by <span class='authornamedisp'>".$q['AuthorName']."</span> | <a href='editQuestion.php?qid=".$q['qid']."' class= 'editlink'>edit</a> | <a href='deleteQuestion.php?qid=".$q['qid']."' class= 'deletelink'>delete</a></div>
+						<p>$dispcontent</p>
+						<div class = 'footer afooter'> asked by <span class='authornamedisp'>".$q['AuthorName']."</span> | <a href='editQuestion.php?qid=".$q['qid']."' class= 'editlink'>edit</a> | <a href='deleteQuestion.php?qid=".$q['qid']."' class= 'deletelink' onclick=\"return confirm('Are you sure?')\">delete</a></div>
 						</div>
 					</div>
 			</div>
@@ -46,12 +53,15 @@
 
 		echo "<h2>Recently Asked Questions</h2>";
 		
-
+		echo "<ul class='questionlist'>";
 		if ($displayedQuestions!=NULL)
 		for ($i=0;$i<count($displayedQuestions);$i++){
+			echo "<li>";
 			echo qToHtml($displayedQuestions[$i]);
+			echo "</li>";
 		}
 		else echo "no questions";
+		echo "</ul>";
 	?>
 </body>	
 

@@ -163,3 +163,12 @@ input[type="submit"]{
 	color: yellow;
 	text-decoration: none;
 }
+
+.authornamedisp {
+	color: blue;
+}
+
+ul{
+	list-style-type:none;
+	padding-left: 0;
+}
