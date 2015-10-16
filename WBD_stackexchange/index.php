@@ -5,6 +5,17 @@
 * Time: 8:50 PM
 -->
 
+
+<?php
+    $search = '';
+    if($_SERVER['REQUEST_METHOD']=='GET'){
+    if(isset($_GET['search'])){
+        $search =$_GET['search'];
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,12 +27,11 @@
     <div id = "container">
         <div id = "header">
             <span id="Judul">Simple StackExchange</span>
-            <div id="search">
-                <input id="bar" type="text"/>
+            <form id="search" action ="index.php" method="get">
+                <input name = 'search' id="bar" type="text"/>
                 <input id="submitButton" type="submit" value="Search"/>
-            </div>
-            <p align="center">Cannot find what you are looking for? <a style="color:red" href="addQuestion.php">Ask here</a>
         </div>
+        <p align="center">Cannot find what you are looking for? <a style="color:red" href="addQuestion.php">Ask here</a>
         <div id ="body">
             <h3>Recently Asked Questions</h3>
             <?php
@@ -30,8 +40,14 @@
 
                 // Select database
                 mysql_select_db("WBD1") or die(mysql_error());
+
                 // SQL query
-                $strSQL = "SELECT * FROM Questions";
+                if($search=='') {
+                    $strSQL = "SELECT * FROM Questions";
+                }
+                else{
+                    $strSQL = "SELECT * FROM Questions WHERE title LIKE '%{$search}%' OR content LIKE '%{$search}%'";
+                }
 
                 // Execute the query (the recordset $rs contains the result)
                 $rs = mysql_query($strSQL);
