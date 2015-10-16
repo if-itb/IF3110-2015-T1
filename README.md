@@ -89,9 +89,9 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-# Validasi client side
+#### Validasi client side
    cara yang dilakukan untuk validasi client side adalah pada saat on submit maka dipanggil fungsi javasctipt validateQuestion. validateQuestion ini akan mengecek syarat-syarat form yang sesuai, yaitu tidak ada field yang kosong dan email sesuai dengan format email. Jika terjadi kesalahan, maka fungsi akan mengembalikan nilai false beserta alert.
-# Vote dengan ajax
+#### Vote dengan ajax
    Saat tombol vote diklik (onClick), maka dipanggil fungsi getVote dengan parameter kategori vote (q/a), id konten yang divote dan nilai 1 atau -1 (1 vote up, -1 vote down). Fungsi ini akan memanggil vote.php dan mengirimkan parameter tersebut dengan menggunakan GET. Di vote.php, nilai vote di database akan diupdate lalu vote.php akan melakukan echo nilai vote saat ini. Nilai vote ini dengan xmlhttp request akan dituliskan kembali di tampilan.
 
 ### Knowledge
