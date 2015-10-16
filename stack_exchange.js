@@ -102,7 +102,7 @@ function upvote(type,id){
 	var numVotes = parseInt(document.getElementById(type+id).innerHTML);
 	xmlhttp.onreadystatechange = function(){
 		if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-			document.getElementById(type+id).innerHTML = numVotes + 1;
+			document.getElementById(type+id).innerHTML = xmlhttp.responseText;
 		}
 	}
 	xmlhttp.open("GET","upvote.php?type=" + type + "&id=" + id, true);
@@ -115,7 +115,7 @@ function downvote(type,id){
 	var numVotes = parseInt(document.getElementById(type+id).innerHTML);
 	xmlhttp.onreadystatechange = function(){
 		if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-			document.getElementById(type+id).innerHTML = numVotes - 1;
+			document.getElementById(type+id).innerHTML = xmlhttp.responseText;
 		}
 	}
 	xmlhttp.open("GET","downvote.php?type=" + type + "&id=" + id, true);
