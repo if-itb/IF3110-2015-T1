@@ -9,6 +9,7 @@
 	$connect = mysql_connect("localhost","root","") or die ("Connection Error");
 	$selectdb = mysql_select_db("stackexchange", $connect);
 ?>
+
 </head>
 <body>
 	<a href="index.php"><h1> Simple StackExchange </h1></a>
@@ -22,10 +23,11 @@
 
 	<div id="container">
     	<div class="container-title">
-			Recently Asked Questions
+			Search Result
         </div>
         <?php
-		$query = 'SELECT * FROM `question` ORDER BY `timestamp` DESC limit 10';
+		$key = $_GET["q"];
+		$query = "SELECT * FROM `question` where `topic` like '%$key%' or `question_content` like '%$key%'";
 		$data = mysql_query($query,$connect);
 		if ($data){
 		while($row = mysql_fetch_array($data)){

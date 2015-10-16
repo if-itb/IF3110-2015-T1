@@ -61,7 +61,7 @@ $topic = $_POST['topic'];
 $question = $_POST['content'];
 
 
-mysql_query ("UPDATE `question` SET `name`='$name', `email`='$email', `topic`='$topic', `question_content`='$question' WHERE `id_question`='$qid'",$connect);
+mysql_query ("UPDATE `question` SET `timestamp`=`timestamp`,`name`='$name', `email`='$email', `topic`='$topic', `question_content`='$question' WHERE `id_question`='$qid'",$connect);
 
 $id = mysql_insert_id();
 

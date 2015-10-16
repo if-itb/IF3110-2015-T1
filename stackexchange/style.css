@@ -271,7 +271,7 @@ span.delete {
 	border-bottom:#666 solid 1px;
 }
 
-#triangle-up {
+.triangle-up {
 	width: 0;
 	height: 0;
 	border-left: 8px solid transparent;
@@ -281,7 +281,7 @@ span.delete {
 	cursor:pointer;
 }
 
-#triangle-down {
+.triangle-down {
 	width: 0;
 	height: 0;
 	border-left: 8px solid transparent;
@@ -291,7 +291,7 @@ span.delete {
 	cursor:pointer;
 }
 
-#votes {
+.score{
 	font-size : 28px;
 	color : #C9C9C9;
 	margin: 2px auto;

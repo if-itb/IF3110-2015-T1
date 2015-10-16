@@ -7,7 +7,7 @@
 <title>Simple StackExchange</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
 <script>
-function getVoteUp(qid,aid) {
+function updateVote(vote,qid,aid) {
 	if (window.XMLHttpRequest) {
     // code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();
@@ -17,30 +17,13 @@ function getVoteUp(qid,aid) {
 	}
 	xmlhttp.onreadystatechange=function() {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-      document.getElementById("votes").innerHTML=xmlhttp.responseText;
+      document.getElementById(aid).innerHTML=xmlhttp.responseText;
     }
   }
-  xmlhttp.open("GET","vote.php?vote=1&qid="+qid+"&aid="+aid,true);
+  xmlhttp.open("GET","vote.php?vote="+vote+"&qid="+qid+"&aid="+aid,true);
   xmlhttp.send();
 }
 
-
-function getVoteDown(qid,aid) {
-	if (window.XMLHttpRequest) {
-    // code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp=new XMLHttpRequest();
-	}
-	else {  // code for IE6, IE5
-		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange=function() {
-    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-      document.getElementById("votes").innerHTML=xmlhttp.responseText;
-    }
-  }
-  xmlhttp.open("GET","vote.php?vote=-1&qid="+qid+"&aid="+aid,true);
-  xmlhttp.send();
-}
 </script>
 </head>
 
@@ -70,9 +53,9 @@ function getVoteDown(qid,aid) {
 		<table class ="question">
 			<tr>
 				<td rowspan = 2 class="td-vote-answer">
-					<div id="triangle-up" onclick="getVoteUp('.$qid.',0)"></div>
-					<div id="votes">'.$question[6].'</div>
-					<div id="triangle-down" onclick="getVoteDown('.$qid.',0)"></div></td>
+					<div class="triangle-up" onclick="updateVote(1,'.$qid.',0)"></div>
+					<div class="score" id="0">'.$question[6].'</div>
+					<div class="triangle-down" onclick="updateVote(-1,'.$qid.',0)"></div></td>
 				<td class="td-content">'.nl2br($question[5]).'<p></p></td>
 			</tr>
 			<tr>
@@ -93,9 +76,9 @@ function getVoteDown(qid,aid) {
 			echo '<table class=answer>';
 				echo '<tr>';
 					echo '<td rowspan="3" class="td-vote-answer">';
-						echo '<div id="triangle-up" onclick="getVoteUp('.$qid.','.$row[1].'")></div>';
-						echo '<div id="votes">'.$row[6].'</div>';
-						echo '<div id="triangle-down" onclick="getVoteDown('.$qid.','.$row[1].'")></div>';
+						echo '<div class="triangle-up" onclick="updateVote(1,'.$qid.','.$row[1].')"></div>';
+						echo '<div class="score" id="'.$row[1].'">'.$row[6].'</div>';
+						echo '<div class="triangle-down" onclick="updateVote(-1,'.$qid.','.$row[1].')"></div>';
 					echo '</td>';
 					echo '<td class="td-content">';
 						echo nl2br($row[5]).'<p></p>';
