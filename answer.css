@@ -12,6 +12,18 @@ h2{
 	margin: 0px;
 }
 
+hr {
+	border: 2px solid black;
+}
+
+input {
+	border: 2px solid navy;
+}
+
+textarea {
+	border: 2px solid navy;	
+}
+
 .vote{
 	width:10%;
 	float:left;	

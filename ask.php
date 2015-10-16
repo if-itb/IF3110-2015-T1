@@ -3,8 +3,7 @@
 <head>
 	<title>Ask</title>
 	<link rel="stylesheet" href="ask.css">
-	<script src="function.js"></script>
-	
+	<script src="function.js"></script>	
 </head>
 <body>
 
