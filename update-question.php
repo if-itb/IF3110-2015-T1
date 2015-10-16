@@ -13,5 +13,5 @@
 	$sql = "UPDATE `question` SET `name`='$name', `email`='$email', `topic`='$topic', `content`='$content' WHERE (question_id = $quest_id)";
 	mysql_query($sql);
 	mysql_close();
-	header("Location: /Tubes1/index.php");
+	header("Location: /tugasWBD/index.php");
 ?>

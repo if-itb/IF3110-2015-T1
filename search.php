@@ -21,10 +21,11 @@
 				$username = "root";
 				$password = "";
 				$database = "stackexchange";
+				$search =$_POST["search"];
 				$connection = mysql_connect($servername, $username, $password) or die(mysql_error());
 				@mysql_select_db('stackexchange') or die(mysql_error());
-				$query = "SELECT * FROM `question`";
-				$result = mysql_query($query);
+				$sql = "SELECT  * FROM question WHERE `content` LIKE '%".$search."%' "." OR `topic` LIKE '%".$search."%'" ;
+				$result = mysql_query($sql);
 				$num = mysql_num_rows($result);
 			?>
 			<?php		
@@ -38,7 +39,6 @@
 					$vote_question = mysql_result($result, $i, "vote_question");
 			?>
 			<div class="question-description">
-				<!--div class="votes-answers"-->
 				<div class="votes">
 					<div class="counts">
 						<h3><?= $vote_question ?></h3>
@@ -56,7 +56,6 @@
 					</div>	
 					<h3>Answers</h3>
 				</div>
-				<!--/div-->
 				<div class="question-topic">
 					<a href="/tugasWBD/answer.php?id=<?= $question_id ?>">
 					<h3><?php echo $topic; ?><br>

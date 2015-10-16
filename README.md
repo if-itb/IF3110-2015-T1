@@ -89,7 +89,15 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+### Validasi
+Validasi pada client side dilakukan dengan menggunakan javascript. 
+Validasi yang dilakukan menggunakan regex untuk melakukan pengecekkan apakah masukan sudah valid atau tidak. 
+Validasi pada form pertanyaan dikatakan valid apabila semua form terisi dan pengecekan dilihat dari input dari pengguna.
+Sedangkan untuk validasi pada email menggunakan regex /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, apabila input tidak sesuai regex fungsi validasi akan mengembalikan sebuah peringatan bahwa input email tidak valid.
+
+### Vote
+Pada saat user menekan tombol vote, maka fungsi ajax akan berjalan dan akan menambah nilai vote yang sudah ada tanpa melakukan refresh. s
+Setelah itu, akan dilakukan update pada database dan akan menampilkan jumlah vote yang sesuai dengan database.
 
 ### Knowledge
 

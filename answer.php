@@ -36,7 +36,6 @@
 				$email = mysql_result($result, 0, "email");
 				$topic = mysql_result($result, 0, "topic");
 				$content = mysql_result($result, 0, "content");
-				$vote_question = mysql_result($result, 0, "vote_question");
 				$date_question = mysql_result($result, 0, "date_question");
 			?>
 			<div class="QA-content">
@@ -45,10 +44,10 @@
 				</h3>
 				<div class="ask-description">	
 					<h3>asked by <span style="color: #502fc8"><?php echo $name; ?></span> at <?= $date_question ?> | 
-					<a href="/Tubes1/edit-question.php?id=<?= $quest_id ?>">
+					<a href="/tugasWBD/edit-question.php?id=<?= $quest_id ?>">
 						<span style= "color: #ffcb55">edit</span> 
 					</a> | 
-					<a href="/Tubes1/delete-question.php?id=<?= $quest_id ?>" onclick= "return confirm('Do you want to delete this question ?');">
+					<a href="/tugasWBD/delete-question.php?id=<?= $quest_id ?>" onclick= "return confirm('Do you want to delete this question ?');">
 						<span style= "color: #fd294a">delete</span></h3>
 					</a>
 				</div>
@@ -87,7 +86,7 @@
 			<div class="QA-content">
 				<h3><?= $content ?></h3>
 				<div class="ask-description">	
-					<h3>asked by <span style="color: #502fc8"><?= $name ?></span> at <?= $date_answer ?></h3>
+					<h3>asked by <span style="color: #502fc8"><?= $email ?></span> at <?= $date_answer ?></h3>
 				</div>
 			</div>
 		</div>

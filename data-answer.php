@@ -13,5 +13,5 @@
 	$sql = "INSERT INTO answer (`question_id`, `name`, `email`, `content`) VALUES('$question_id', '$name', '$email','$content')";
 	mysql_query($sql);
 	mysql_close();
-	header("Location: /Tubes1/answer.php?id=$question_id");
+	header("Location: /tugasWBD/answer.php?id=$question_id");
 ?>

@@ -40,7 +40,7 @@ function voteUp_Question(id_question) {
 			document.getElementById('count_vote_question').innerHTML = count+1;
 		}
 	}
-	xmlhttp.open("GET", "/Tubes1/vote-up-question.php?id=" + id_question, true);
+	xmlhttp.open("GET", "/tugasWBD/vote-up-question.php?id=" + id_question, true);
 	xmlhttp.send();
 }
 /* Vote Down Question */
@@ -52,7 +52,7 @@ function voteDown_Question(id_question) {
 			document.getElementById('count_vote_question').innerHTML = count-1;
 		}
 	}
-	xmlhttp.open("GET", "/Tubes1/vote-down-question.php?id=" + id_question, true);
+	xmlhttp.open("GET", "/tugasWBD/vote-down-question.php?id=" + id_question, true);
 	xmlhttp.send();
 }
 
@@ -67,7 +67,7 @@ function voteUp_Answer(id_question, id_answer) {
 			document.getElementById('count_vote_answer' + id_answer).innerHTML = count+1;
 		}
 	}
-	xmlhttp.open("GET", "/Tubes1/vote-up-answer.php?id=" + id_question + "&id-ans=" + id_answer, true);
+	xmlhttp.open("GET", "/tugasWBD/vote-up-answer.php?id=" + id_question + "&id-ans=" + id_answer, true);
 	xmlhttp.send();
 }
 /* Vote Down Answer */
@@ -79,7 +79,7 @@ function voteDown_Answer(id_question, id_answer) {
 			document.getElementById('count_vote_answer' + id_answer).innerHTML = count-1;
 		}
 	}
-	xmlhttp.open("GET", "/Tubes1/vote-down-answer.php?id=" + id_question + "&id-ans=" + id_answer, true);
+	xmlhttp.open("GET", "/tugasWBD/vote-down-answer.php?id=" + id_question + "&id-ans=" + id_answer, true);
 	xmlhttp.send();
 }
 
@@ -91,9 +91,11 @@ function validasi_input() {
 	var input_topic = document.forms["question_form"]["topic"].value;
 	var input_content = document.forms["question_form"]["content"].value;
 	var input_email = document.forms["question_form"]["email"].value;
+	/*** Regex name, content, topic ***/
+	var inputRegex = /\s/;
 	/*** Regex Email ***/
 	var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    if ((input_name == null  || input_name == "") || (input_topic == null  || input_topic == "") || (input_content== null  || input_content== "")) {
+    if ((input_name == null  || input_name == "") || (input_topic == null  || input_topic == "") || (input_content == null  || input_content== "")) {
         alert("Every field must be filled out");
         return false;
     }
@@ -108,9 +110,11 @@ function validasi_inputAnswer() {
 	var input_name = document.forms["question_form"]["name"].value;
 	var input_content = document.forms["question_form"]["content"].value;
 	var input_email = document.forms["question_form"]["email"].value;
+	/*** Regex name, content, topic ***/
+	var inputRegex = /\s/;
 	/*** Regex Email ***/
 	var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    if ((input_name == null  || input_name == "") ||  (input_content== null  || input_content== "")) {
+    if ((input_name == null  || input_name == "") || (input_content == null  || input_content== "")) {
         alert("Every field must be filled out");
         return false;
     }

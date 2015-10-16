@@ -11,5 +11,5 @@
 	$sql2 = "DELETE FROM `answer` WHERE (question_id = $quest_id)";
 	mysql_query($sql2);
 	mysql_close();
-	header("Location: /Tubes1/index.php");
+	header("Location: /tugasWBD/index.php");
 ?>
