@@ -83,6 +83,13 @@ form{
 	font-family : arial;
 }
 
+#searchresult{
+	margin-left : 20%;
+	margin-right : 20%;
+	font-size : 16px;
+	font-family : arial;
+}
+
 .td1{
 	width : 100px;
 	height : 100px;
