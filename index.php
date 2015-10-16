@@ -19,7 +19,7 @@
         <hr>
         <?php
             include 'connect.php';
-            $sql = "SELECT q_votes, q_answers, q_id, q_topic, q_name FROM questions ORDER BY q_date DESC";
+            $sql = "SELECT * FROM questions ORDER BY q_date DESC";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -29,8 +29,12 @@
                     <div class="question-block">
                         <div class="q-votes"><?php echo $row["q_votes"];?><br>Votes</div>
                         <div class="q-answers"><?php echo $row["q_answers"];?><br>Answers</div>
-                        <div class="q-topic"><a href="view.php?id=<?php echo $row["q_id"];?>"><?php echo $row["q_topic"];?></a></div>
-                        <div class="details">asked by <?php echo $row["q_name"];?> | <a href="edit.php?id=<?php echo $row["q_id"];?>">edit</a> | <a href="delete.php?id=<?php echo $row["q_id"]?>" onclick="return confirm('Are you sure you want delete this question?')">delete</a></div>    
+                        <div class="q-topic-content">
+                            <div class="q-topic"><a href="view.php?id=<?php echo $row["q_id"];?>"><?php echo $row["q_topic"];?></a></div>
+                            <?php $content = $row["q_content"]; $content = (strlen($content) > 178) ? substr($content,0,175).'...' : $content;?>
+                            <div class="q-content"><?php echo $content; ?></div>
+                        </div>
+                        <div class="details">asked by <?php echo $row["q_name"];?> (<?php echo $row["q_email"];?>) | <a href="edit.php?id=<?php echo $row["q_id"];?>">edit</a> | <a href="delete.php?id=<?php echo $row["q_id"]?>" onclick="return confirm('Are you sure you want delete this question?')">delete</a></div>    
                     </div>
                     <hr>
                 <?php }
