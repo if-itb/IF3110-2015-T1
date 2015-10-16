@@ -1,5 +1,5 @@
 <?php
-	include("edit_question.php");
+	include("initform.php");
 ?>
 
 <!DOCTYPE html>
@@ -12,18 +12,21 @@
 <body>
 
 <div class="container">
+
+	<!-- the title header -->
 	<div id="header">
 		<a href="index.php"><h1>Simple StackExchange</h1></a>
 	</div>
 
+	<!-- main section question form -->
 	<div class="main">
 		<div class="wrapper" id="question-form">
 			<div class="content-header">
 				<h2>What's your question?</h2>
 			</div>
 			<div class="child-content">
-				<form role="form" onsubmit="return validateQuestionForm()" action="add_question.php?target=<?php echo $target; ?>" method="post" id="the-form">
-					<?php if ($target == 'update') : ?>
+				<form role="form" onsubmit="return validateQuestionForm()" action="add_question.php" method="post" id="the-form">
+					<?php if (isset($_GET['id'])) : ?>
 						<input type="hidden" name="id" value="<?php echo $id; ?>">
 					<?php endif; ?>
 					

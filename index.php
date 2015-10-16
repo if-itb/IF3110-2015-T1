@@ -48,7 +48,7 @@ include("setup_post.php");
 					<div class="content-footer">asked by 
 						<span class="user-question">
 							<?php echo $question['q_name'] ?>
-						</span> | <a href="ask.php?req=edit&id=<?php echo $question['q_id']; ?>" class="edit-question">edit</a> | <a href="delete_question.php?id=<?php echo $question['q_id']; ?>" class="delete-question" onclick="return confirm('Delete this question?')">delete</a>
+						</span> | <a href="ask.php?id=<?php echo $question['q_id']; ?>" class="edit-question">edit</a> | <a href="delete_question.php?id=<?php echo $question['q_id']; ?>" class="delete-question" onclick="return confirm('Delete this question?')">delete</a>
 					</div>
 				</div>
 			</div>

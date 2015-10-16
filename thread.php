@@ -28,7 +28,7 @@ include("init_thread.php")
 				<div class="sidebar">
 					<div class="voteup" onclick="voteThread(<?php echo $question['q_id']; ?>, 'questions', 1)">
 					</div>
-					<div id="questions-vote"><?php echo $question['q_vote']; ?></div>
+					<div id="questions-vote-<?php echo $question['q_id']; ?>"><?php echo $question['q_vote']; ?></div>
 					<div class="votedown" onclick="voteThread(<?php echo $question['q_id']; ?>, 'questions', -1)">
 					</div>
 				</div>

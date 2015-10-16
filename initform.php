@@ -2,14 +2,15 @@
 
 include("database/conn.php");
 
+// initialize the variables with empty string
 $name = "";
 $email = "";
 $topic = "";
 $content = "";
-$target = "new";
 
-if ($_GET['req'] == "edit") {
-	$qid = $_GET['id'];
+// if the id is sent as parameter, then it is an edit request
+if (isset($_GET['id'])) {
+	$qid = mysqli_real_escape_string($dbcon, $_GET['id']);
 	$query = "SELECT * FROM questions WHERE q_id=".$qid.";";
 
 	$result = mysqli_query($dbcon, $query);
@@ -20,10 +21,6 @@ if ($_GET['req'] == "edit") {
 	$email = $question['q_email'];
 	$topic = $question['q_topic'];
 	$content = $question['q_content'];
-	$target = "update";
-
-} else if ($_GET['req'] == "new") {
-
 }
 
 ?>

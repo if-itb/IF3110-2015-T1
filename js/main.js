@@ -10,7 +10,7 @@ function validateName() {
 
 function validateEmail() {
 	var email = document.getElementById('email').value;
-	var pattern = "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$"; 
+	var pattern = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i; 
 	if (!email.match(pattern)) {
 		alert("Please correct your email!");
 		return false;
@@ -69,9 +69,9 @@ function voteThread(id, table, value) {
 	    xmlhttp.onreadystatechange = function() {
 	        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	        	if (table == "questions")
-	            	document.getElementById("questions-vote").innerHTML = parseInt(document.getElementById("questions-vote").innerHTML) + value;
+	            	document.getElementById("questions-vote-"+id).innerHTML = xmlhttp.responseText;
 	            else
-	            	document.getElementById("answers-vote-"+id).innerHTML = parseInt(document.getElementById("answers-vote-"+id).innerHTML) + value;
+	            	document.getElementById("answers-vote-"+id).innerHTML = xmlhttp.responseText;
 	        }
 	    }
 
