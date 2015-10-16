@@ -43,3 +43,89 @@ function postAnswer(id) {
     xmlhttp.open("POST","backend/post-answer.php",true);
 	xmlhttp.send(formdata);
 }
+
+function upvoteQuestion(id){
+    var xmlhttp;
+    if (!xmlhttp)
+        xmlhttp = getXmlHttpRequest();
+    if (!xmlhttp)
+        return;
+    var formdata = new FormData();
+    formdata.set('id', id);
+    formdata.set('vote', 1);
+    xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            document.getElementById("votes").innerHTML=xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("POST","backend/ajax-vote-question.php",true);
+    xmlhttp.send(formdata);
+}
+function upvoteAnswer(id){
+    var xmlhttp;
+    if (!xmlhttp)
+        xmlhttp = getXmlHttpRequest();
+    if (!xmlhttp)
+        return;
+    var formdata = new FormData();
+    formdata.set('id', id);
+    formdata.set('vote', 1);
+    var elementID = "vote" + id;
+    xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            document.getElementById(elementID).innerHTML=xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("POST","backend/ajax-vote-answer.php",true);
+    xmlhttp.send(formdata);
+}
+function downvoteQuestion(id){
+    var xmlhttp;
+    if (!xmlhttp)
+        xmlhttp = getXmlHttpRequest();
+    if (!xmlhttp)
+        return;
+    var formdata = new FormData();
+    formdata.set('id', id);
+    formdata.set('vote', -1);
+    xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            document.getElementById("votes").innerHTML=xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("POST","backend/ajax-vote-question.php",true);
+    xmlhttp.send(formdata);
+}
+function downvoteAnswer(id){
+    var xmlhttp;
+    if (!xmlhttp)
+        xmlhttp = getXmlHttpRequest();
+    if (!xmlhttp)
+        return;
+    var formdata = new FormData();
+    formdata.set('id', id);
+    formdata.set('vote', -1);
+    var elementID = "vote" + id;
+    xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            document.getElementById(elementID).innerHTML=xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("POST","backend/ajax-vote-answer.php",true);
+    xmlhttp.send(formdata);
+}
+
+function countAnswer(id){
+    var xmlhttp;
+    if (!xmlhttp)
+        xmlhttp = getXmlHttpRequest();
+    if (!xmlhttp)
+        return;
+    xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            document.getElementById("count").innerHTML=xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("GET","backend/ajax-count-answer.php",true);
+    xmlhttp.send();
+}
