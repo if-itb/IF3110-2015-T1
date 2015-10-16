@@ -1,61 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-  <?php
-    require("connect_mysql.php");
-  ?>
-
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
   <title>Simple StackExchange</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <?php require("backend/question-all.php"); ?>
 </head>
 
 <body>
-  <div class="title">
-    <h1>Simple StackExchange</h1>
-  </div>
-
+  <h1>Simple StackExchange</h1>
+  
   <div class="center">
-    <div class="search">
-      <form method="get" action="">
+      <form method="get" action="search.php">
         <input type="search" name="search" placeholder="Search...">
         <input type="submit" value="Search">
       </form>
-    </div>
     <p>Cannot find what you are looking for? <a href="add-question.php" class="orange">Ask here</a></p>
   </div>
 
   <h3>Recently Asked  Question</h3>
-  
-  <ul>    
-    <?php
-			$result = mysql_query("SELECT * FROM questions");
-			while($question = mysql_fetch_array($result)) 
-			{
-        if ($question['id'] == 1) echo "<hr>\n";
-        
-        echo "
-        <table class='stats'>
-          <tr class='stat-number'>
-            <td>" . $question['votes'] . "</td>
-            <td>" . $question['answers'] . "</td>
-          </tr>
-          <tr>
-            <td>Votes</td>
-            <td>Answers</td>
-          </tr>
-        </table>
-        ";
+  <div class="divider"></div>
+	
+  <?php while($question = mysqli_fetch_array($result)){ ?>
+    <table class="stats">
+      <tr class="stat-number">
+        <td> <?php echo $question['votes']; ?> </td>
+        <td> <?php echo $question['votes']; ?> </td>
+      </tr>
+      <tr>
+        <td>Votes</td>
+        <td>Answers</td>
+      </tr>
+    </table>
 
-        echo "<p class='question-topic'><a href='question.php?id='" .$question['id']. ">" . $question['topic'] . "</a></p>\n";
-        $detail = substr($question['content'], 0, 60);
-        echo "<p class='question-detail'>" . $detail . "...</p>\n";
-        echo "<p class='pull-right'><b>asked by <span class='purple'>" . $question['name'] . "</span> | <a href='edit-question.php?id=" . $question['id'] . "' class='orange'>edit</a> | <a href='delete-question.php?id=" . $question['id'] . "' class='red' >delete</a></b></p>\n";
-        echo "<hr>\n";
-			}
-    ?>
+    <p class="question-topic"><a href="question.php?id=<?php echo $question['id']; ?>"> <?php echo $question['topic']; ?> </a></p>
+    <p class="question-detail"> <?php echo substr($question['content'], 0, 60); ?> ...</p>
+    <p class="pull-right"><b>asked by <span class="purple"> <?php echo $question['name'] ?> </span> | <a href="edit-question.php?id=<?php echo $question['id']; ?>" class="orange">edit</a> | <a href="backend/delete-question.php?id=<?php echo $question['id']; ?>" class="red">delete</a></b></p>
+    <div class="divider"> </div>
+	<?php } ?>
 
-  </ul>
 
 </body>
 </html>
