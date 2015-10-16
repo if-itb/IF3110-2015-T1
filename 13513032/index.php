@@ -50,7 +50,7 @@
 		<?php
 			$query = "	select questionid, questionname, questiontopic, questioncontent, questionvotes, questiondatetime
 						from questions
-						order by questiondatetime asc";
+						order by questiondatetime desc";
 			$results = mysqli_query($connection, $query);
 			
 			if (mysqli_num_rows($results) > 0) {	// Database pertanyaan tidak kosong

@@ -29,6 +29,13 @@
 				$editQuestionResult = mysqli_query($connection, $editQuestionQuery);
 			}
 
+			// Memasukkan jawaban pertanyaan ke database
+			if (isset($_POST["answerPostButton"])) {
+				$insertAnswerQuery = "	insert into answers (questionid, answername, answeremail, answercontent, answervotes, answerdatetime)
+										values (".$_GET["id"].", '".$_POST["answerName"]."', '".$_POST["answerEmail"]."', '".$_POST["answerContent"]."', 0, now())";
+				$insertAnswerResult = mysqli_query($connection, $insertAnswerQuery);
+			}
+
 			// Mengambil data pertanyaan dari database, berdasarkan id nya
 			$questionQuery = "	select questionid, questionemail, questiontopic, questioncontent, questionvotes, questiondatetime
 								from questions
@@ -39,7 +46,8 @@
 			// Mengambil data jawaban-jawaban dari database, berdasarkan id pertanyaannya
 			$answerQuery = "select answeremail, answercontent, answervotes, answerdatetime
 							from answers
-							where questionid = ".$_GET["id"];
+							where questionid = ".$_GET["id"]."
+							order by answerdatetime desc";
 			$answerResults = mysqli_query($connection, $answerQuery);
 		?>
 
@@ -74,11 +82,11 @@
 		<p class="questionBoundary"></p>
 		<h2 style="margin-top:15px"><span style="color:grey">Your Answer</span></h2>
 
-		<form style="margin-top:-7px">
-			<input class="askQuestionData" placeholder="Name" type="text"></input>
-			<input class="askQuestionData" placeholder="Email" type="text"></input>
-			<textarea placeholder="Content" rows="9"></textarea>
-			<input id="postButton" type="button" value="Post"></input>
+		<form <?php echo "action='answerQuestion.php?id=".$questionResult["questionid"]."'" ?> method="post" style="margin-top:-7px">
+			<input class="askQuestionData" name="answerName" placeholder="Name" type="text"></input>
+			<input class="askQuestionData" name="answerEmail" placeholder="Email" type="text"></input>
+			<textarea name="answerContent" placeholder="Content" rows="9"></textarea>
+			<input id="postButton" name="answerPostButton" type="submit" value="Post"></input>
 		</form>
 
 		<?php
