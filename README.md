@@ -89,7 +89,12 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+- Melakukan validasi pada client-side
+Dibuat file javascript yang berisi beberapa fungsi. Fungsi tersebut terhubung dengan pemproses ketika post pertanyaan atau jawaban akan "dikirim".
+Pada fungsi satu, didaftarkan apa saja bagian form; jika kosong, mengeluarkan alert.
+Fungsi lain, memvalidasi email dengan regex.
+- Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah)
+Di file javascript (masing-masing untuk post dan comment), terdapat fungsi yang memproses dengan xmlhttp. Terhubung dengan php yang "mengatur" db.
 
 ### Knowledge
 
