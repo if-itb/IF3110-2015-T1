@@ -1,0 +1,77 @@
+h1 {
+    text-align: center;
+    font-family: Calibri;
+    font-size: 50px;
+}
+
+h2 {
+    text-align: center;
+    font-family: Calibri;
+    font-size: 18px;
+    margin-top: 0px;
+}
+
+h3 {
+    font-family: Calibri;
+    font-size: 24px;
+    margin-bottom: 0px;
+}
+
+input {
+   border: 2px solid #000; 
+}
+
+body {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+hr {
+    border: 1px solid #000;
+    width: 100%;
+}
+
+table {
+    font-family: Calibri;
+    font-size: 20px;
+    margin-top: 10px;
+    table-layout: fixed;
+    width: 100%;
+}
+
+td.number {
+    width: 50px;
+    text-align: center;
+    vertical-align: top;
+}
+
+td.topic {
+    width: 310px;
+}
+
+td.edit {  
+    text-align: center;
+}
+
+td.delete {
+    border-style: solid;
+    padding-left: 1%;
+    border-top-style: none;
+    border-bottom-style: none;
+    border-right-style: none;
+    text-align: center;
+}
+
+td.content {
+    font-size: 16px;
+}
+
+td.attribute {
+    font-size: 18px;
+}
+
+p {
+    text-align: center;
+    font-family: Calibri;
+    font-size: 18px;
+}

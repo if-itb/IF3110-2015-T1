@@ -89,7 +89,10 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+-  Melakukan validasi pada client-side
+Validasi pada client-side dilakukan dengan menggunakan javascript. Untuk melakukan hal ini, nilai dari setiap text box pada form html di pass kepada javascript dengan menggunakan fungsi document.form[namaform][namatextbox].value. Setelah itu dilakukan pengecekan apakah nilai dari setiap text box kosong atau null. Jika kosong atau null, maka akan ditampilkan pesan bahwa terdapat text box yang belum terisi dengan menggunakan fungsi alert pada javascript. Untuk validasi e-mail dapat digunakan regular expression/ regex.
+-  Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
+Ketika pengguna melakukan klik pada tombol vote, id question atau answer akan di pass dari php ke fungsi javascript. Fungsi javascript tersebut kemudian akan memembuat sebuah objek XMLHttpRequest dan dibuat juga sebuah fungsi yang akan dieksekusi ketika server telah siap. Fungsi ini akan mengubah angka vote yang ditampilkan pada layar. Setelah itu akan dikirim request kepada sebuah file php pada server. File php yang menerima request akan mengubah nilai jumlah vote pada database.
 
 ### Knowledge
 

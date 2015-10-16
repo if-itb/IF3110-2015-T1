@@ -1,0 +1,47 @@
+body {
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+h1 {
+    text-align: center;
+    font-family: Calibri;
+    font-size: 50px;
+}
+
+h2 {
+    font-family: Calibri;
+    font-size: 40px;
+    margin-bottom: 0px;
+}
+
+body {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+hr {
+    border: 1px solid #000;
+    width: 100%;
+}
+
+input {
+    border: 1px solid #000; 
+    font-size: 16px;
+}
+
+input.text {
+   width: 100%;
+   font-family: arial;
+}
+
+input.button {
+    margin-left: 96.7%;
+}
+
+textarea {
+    width: 99.7%;
+    border: 1px solid #000;
+    font-family: arial;
+    font-size: 16px;
+}
