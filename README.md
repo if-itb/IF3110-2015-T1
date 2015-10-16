@@ -91,16 +91,16 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 1. Validasi melalui client-side dilakukan dengan membuat fungsi-fungsi javascript. Fungsi yang dibuat adalah sebagai berikut:
 
-	1.1 function validateEmail(). Yaitu memvalidasi apakah email yang dimasukkan sesuai format email yang seharusnya atau tidak dengan memanfaatkan regular expression.
-	1.2 function validateQuestionInput(). Fungsi ini memvalidasi pertanyaan baru yang akan disubmit atau diupdate. Fungsi ini mengecek apakah semua field telah diisi dan mengecek apakah masukan email telah sesuai format.
-	1.3 function validateAnswerInput(). Fungsi ini memvalidasi jawaban baru yang akan disubmit atau diupdate. Fungsi ini mengecek apakah semua field telah diisi dan mengecek apakah masukan email telah sesuai format.
+	1.1 'function validateEmail()'. Yaitu memvalidasi apakah email yang dimasukkan sesuai format email yang seharusnya atau tidak dengan memanfaatkan regular expression.
+	1.2 'function validateQuestionInput()'. Fungsi ini memvalidasi pertanyaan baru yang akan disubmit atau diupdate. Fungsi ini mengecek apakah semua field telah diisi dan mengecek apakah masukan email telah sesuai format.
+	1.3 'function validateAnswerInput()'. Fungsi ini memvalidasi jawaban baru yang akan disubmit atau diupdate. Fungsi ini mengecek apakah semua field telah diisi dan mengecek apakah masukan email telah sesuai format.
 
 2. Proses AJAX yang diimplementasikan pada web ini adalah sebagai berikut:
 	
 	- Pada halaman yang menampilkan answer, user menekan tombol vote (misalkan up).
-	- Saat ditekan, program akan menjalankan "function getVote(id, type, action)" dalam javascript dan menjalankan xmlHttpRequest. ID adalah id dari question/answer; type adalah jenis dari konteksnya (pertanyaan atau jawaban); action adalah jenis aksi yang dilakukan (Up vote atau Down vote).
+	- Saat ditekan, program akan menjalankan 'function getVote(id, type, action)' dalam javascript dan menjalankan xmlHttpRequest. ID adalah id dari question/answer; type adalah jenis dari konteksnya (pertanyaan atau jawaban); action adalah jenis aksi yang dilakukan (Up vote atau Down vote).
 	- Fungsi getVote mengubah nilai jumlah vote dari elemen dengan id yang dimaksud menggunakan innerHTML (pengubahan di client-side).
-	- Fungsi getVote tadi menjalankan poll_vote.php yaitu file yang mengupdate vote pada database (pengubahan di server-side).
+	- Fungsi getVote tadi menjalankan 'poll_vote.php' yaitu file yang mengupdate vote pada database (pengubahan di server-side).
 
 ### Knowledge
 
