@@ -42,13 +42,6 @@
             return false;
         }
     }
-
-
-
-
-
-
-
     function addAnswerVote(s) {
         var xhttp = new XMLHttpRequest();
         if (window.XMLHttpRequest) {
@@ -85,6 +78,7 @@
         xhttp.open("GET", "subtractansvote.php?answer_id=" + s, true);
         xhttp.send();
     }
+
 
     function addQuestionVote(s) {
         var xhttp = new XMLHttpRequest();

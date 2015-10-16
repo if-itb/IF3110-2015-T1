@@ -51,7 +51,7 @@
         <input value=\"" . $name . "\" type=\"text\" name=\"name\" placeholder=\"Name\" size=\"130%\"><br>
         <input value=\"" . $email . "\" type=\"text\" name=\"email\" placeholder=\"Email\" size=\"130%\"><br>
         <input value=\"" . $topic . "\" type=\"text\" name=\"topic\" placeholder=\"Question Topic\" size=\"130%\"><br>
-        <textarea value=\"" . $content . "\" name=\"content\" rows=\"5\" cols=\"128%\" placeholder=\"Content\"></textarea><br>
+        <textarea name=\"content\" rows=\"5\" cols=\"128%\" placeholder=\"Content\">" . $content ."</textarea><br>
         <input type=\"submit\" value=\"Post\">
         </form>";
     

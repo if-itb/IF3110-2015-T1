@@ -82,15 +82,17 @@
 		    // output data of each row
 		    while($row = mysqli_fetch_assoc($result)) {
 		    	$button_up =
-		    		"<div class='block-QA'>" . "<div class='bQA-vote'>" . "<button type='button' onclick='addAnswerVote(" . $row['answer_id'] . ")'>Change Content</button>"
-		    		;
+		    		"<div class='block-QA'>" . "<div class='bQA-vote'>" . 
+					"<div class='vote-up' onclick='addAnswerVote(" . $row['answer_id'] . ")''>" . "</div>"
+					;
 		    	$question_content_vote = 
 		    		"<br>"
 		    		. "<a id='answer_vote" . $row['answer_id'] . "'>" .$row['vote'] . "</a>" . "<br>"
 		    		;
 		    	$button_down =
-		    		"<button type='button' onclick='subtractAnswerVote(" . $row['answer_id'] . ")'>Change Content</button>" . "</div>"
-		    		;
+		    		"<a onclick='subtractAnswerVote(" . $row['answer_id'] . ")'>" . 
+  					"<div class='vote-down' onclick='subtractAnswerVote(" . $row['answer_id'] . ")''>" . "</div>"
+					;
 		    	$question_content_content = 
 		    		"<div class='bQA-content'>" . $row['content'] . "</div>"
 		    		;
