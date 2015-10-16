@@ -33,6 +33,11 @@ function validate_question_form() {
 
 }
 
+function confirm_delete_question() {
+	var x = confirm("Are you sure want to delete this question ?");
+	return x;
+}
+
 function validate_answer_form() {
     var x = document.forms["answer_form"]["name"].value;
     if (x == null || x == "") {
@@ -55,14 +60,8 @@ function validate_answer_form() {
     }
 
 }
-function confirmDelete() {
-	var delete = confirm("Are you sure want to delete this question ?");
-	if (! delete) {
-		return false;
-	}
-}
 
-function add_question_vote(id) {
+function vote_up_question(id) {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4) {
@@ -71,11 +70,11 @@ function add_question_vote(id) {
 			}
 		}
 	}
-	xhttp.open("POST", "add_question_vote.php?id=" + id, true);
+	xhttp.open("POST", "vote_up_question.php?id=" + id, true);
 	xhttp.send();
 }
 
-function substract_question_vote(id) {
+function vote_down_question(id) {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4) {
@@ -84,32 +83,32 @@ function substract_question_vote(id) {
 			}
 		}
 	}
-	xhttp.open("POST", "delete_question_vote.php?id=" + id, true);
+	xhttp.open("POST", "vote_down_question.php?id="+id, true);
 	xhttp.send();
 }
 
-function add_answer_vote(id) {
+function vote_up_answer(id) {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4) {
 			if(xhttp.status == 200) {
-				document.getElementById("total_votes3" + id).innerHTML = xhttp.responseText;
+				document.getElementById("total_votes3"+id).innerHTML = xhttp.responseText;
 			}
 		}
 	}
-	xhttp.open("POST", "add_answer_vote.php?id=" + id, true);
+	xhttp.open("POST", "vote_up_answer.php?id="+id, true);
 	xhttp.send();
 }
 
-function substractAnswerVote(id) {
+function vote_down_answer(id) {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4) {
 			if(xhttp.status == 200) {
-				document.getElementById("total_votes3" + id).innerHTML = xhttp.responseText;
+				document.getElementById("total_votes3"+id).innerHTML = xhttp.responseText;
 			}
 		}
 	}
-	xhttp.open("POST", "substract_answer_vote.php?id=" + id, true);
+	xhttp.open("POST", "vote_down_answer.php?id="+1, true);
 	xhttp.send();
 }
