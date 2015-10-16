@@ -1,0 +1,33 @@
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 800px;
+	text-align: center;
+	padding: 0px;
+}
+
+.question {
+	width : 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.heading {
+	border-bottom: 5px;
+	border-color: black;
+	text-align: center;
+}
+
+.textbox {
+	padding-top : 5px;
+	padding-bottom :5px;
+	text-align: center;
+}
+
+.post-button {
+	text-align: center;
+}
+
+.recent {
+	text-align: left;
+}
