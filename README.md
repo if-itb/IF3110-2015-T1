@@ -102,7 +102,7 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 		c. Fungsi validasi penghapusan "question" yaitu "deleteConfirmation(q_id)"
 				Fungsi ini digunakan untuk memvalidasi apakah suatu question dengan id = q_id akan dihapus atau tidak. Jika user memilih tombol cancel maka question tidak akan dihapus. Jika ya, maka fungsi ini akan mengubah value "href" pada tag html question yang akan dihapus dan question tersebut akan dihapus.  
 
- 2. Penjelasan Teknis AJAX
+  2. Penjelasan Teknis AJAX
  		Pada tiap jumlah vote di answer yang ditampilkan, saya memasang attribute answer id pada tiap answer dan kemudian saya memasang link untuk menjalankan fungsi javascript "voteAnswer(q_id,a_id,is_question,is_voteup)"
  		dengan parameter:
  			a. q_id untuk mengetahui answer ini ada pada question id ke berapa
@@ -118,7 +118,6 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
  Best Regards,
  Lie Albert Tri Adrian / 13513076
-
 `
 
 ### Knowledge
