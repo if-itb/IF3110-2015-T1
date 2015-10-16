@@ -35,14 +35,13 @@
         $content = $_POST["content"];
         $id = $_POST["id"];
         $curdate = date("Y-m-d H:i:s");
-
-    if ($id == "NULL"){ // Buat post baru
-        $sql="INSERT INTO q_list (name, email, topic, content, datetime)  VALUES ('$name', '$email', '$topic', '$content', '$curdate')";
-    }
-    else { // edit post yang ada
-        $sql="UPDATE q_list SET name='$name', email='$email', topic='$topic', content='$content', datetime='$curdate' WHERE qid='$id'";
-    }
-    $result=mysqli_query($link,$sql);
+        if ($id == "NULL"){ // Buat post baru
+            $sql="INSERT INTO q_list (name, email, topic, content, datetime)  VALUES ('$name', '$email', '$topic', '$content', '$curdate')";
+        }
+        else { // edit post yang ada
+            $sql="UPDATE q_list SET name='$name', email='$email', topic='$topic', content='$content', datetime='$curdate' WHERE q_list.qid='$id'";
+        }
+        $result=mysqli_query($link,$sql);
     }
 
     
@@ -64,7 +63,7 @@
     <div class="questionlist">
         <div class="angka">
             <div class="vote">
-                <div class="jlhvote"><?php echo $row["voteup"] + $row["votedown"]; ?></div>
+                <div class="jlhvote"><?php echo $row["voteup"] - $row["votedown"]; ?></div>
                 <div class="ketvote">Votes</div>
             </div>
             <div class="answers">

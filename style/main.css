@@ -1,6 +1,6 @@
 body {
-    margin-left:10%;   
-    margin-right: 10%;
+    margin-left:20%;   
+    margin-right: 20%;
 }
 
 h1 {
@@ -11,7 +11,7 @@ h1 {
 
 h2 {
     text-align: left;
-    margin-left: 13%;
+    margin-left: 3%;
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -29,10 +29,10 @@ button {
 }
 
 .searchform {
-    width: 65%;
+    width: 89%;
     border: 3px solid #000;
     border-radius: 3px;
-    margin-left: 15%;
+    margin-left: 0%;
     margin-bottom: 5px;
     height: 40px;
     font-family: 'Dosis', sans-serif;
@@ -46,6 +46,40 @@ button {
     background-color: white;
     width: 10%;
 }
+
+#asksubmit {
+    display: inline;
+    height: 40px;
+    border: 2px solid #000;
+    border-radius: 3px;
+    background-color: dimgrey;
+    width: 10%;
+    margin-left: 81%;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
+}
+
+#asksubmit:hover {
+    display: inline;
+    height: 40px;
+    border: 2px solid #777e63;
+    border-radius: 3px;
+    background-color: limegreen;
+    color:white;
+    width: 10%;
+    margin-left: 81%;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+}
+.submitbutton:hover {
+    background-color: #52b441;
+    color: antiquewhite;
+    cursor: pointer;
+    border-radius: 0px;
+
+}
+
 
 .yellowlink {
     color:#ea850f;
@@ -86,13 +120,47 @@ button {
 
 .content {
     display: inline;
-    width: 50%;
-    
+    margin-left: 5%;
 }
 
 #asknama {
-    border-top: 3px solid #000;
+    border: 2px solid #000;
+    margin-bottom: 3px;
+    height: 25px;
+    font-family: Ubuntu;
+    font-size: 15px;
+    padding: 2px 2px 2px 2px;
 }
+
+#emailask{
+    border: 2px solid #000;
+    margin-bottom: 3px;
+    height: 25px;
+    font-family: Ubuntu;
+    font-size: 15px;
+    padding: 2px 2px 2px 2px;
+
+}
+
+.inputask{
+    border: 2px solid #000;
+    margin-bottom: 3px;
+    font-family: Ubuntu;
+    font-size: 15px;
+    padding: 2px 2px 2px 2px;
+}
+
+
+#asktopic{
+    border: 2px solid #000;
+    margin-bottom: 3px;
+    height: 25px;
+    font-family: Ubuntu;
+    font-size: 15px;
+    padding: 2px 2px 2px 2px;
+
+}
+
 #contentpost {
     height: 150px;
 }
@@ -110,10 +178,17 @@ p {
 #keterangan {
     text-align: center;
 }
+
 #askbar {
     text-align: center;
     margin-bottom: 20px;
-    margin-top: 10px;
+    padding-top: 5px;
+}
+
+#asktitle {
+    border-bottom: 2px solid #000;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .questionlist {
@@ -130,15 +205,56 @@ p {
 
 .votecount {
     display: inline;
-    margin-right: 15px;
 }
 
+#votecountans {
+font-family: Dinpro;
+    font-size: 25px;
+    margin-left: 6%;
+    display: grid;
+}
+.votebuttup {
+    display: inline-block;
+    font-size: 30px;
+    cursor:pointer;
+    text-align: center;
+    margin-left: 5%;
+}
+
+.votebuttdown {
+    display: inline-block;
+    font-size: 30px;
+    cursor:pointer;
+    text-align: center;
+    margin-left: 5%;
+
+}
+
+.votecount #votecountnum {
+    font-family: Dinpro;
+    font-size: 25px;
+    margin-left: 6%;
+    display: grid;
+    
+}
 .questiontopic {
 	z-index: 100;
 	background: #fff;  
     display: block;
-    font-size: 25px;
+    font-size: 22px;
     color: #723b3b;
+    text-decoration: none!important;
+    font-family: 'Dinpro', sans-serif;
+    text-align: left;
+}
+
+.questiontopic a:visited {
+	z-index: 100;
+	background: #fff;  
+    display: block;
+    font-size: 22px;
+    color: #1cef75!important;
+    text-decoration: none!important;
     font-family: 'Dinpro', sans-serif;
     text-align: left;
 }
@@ -198,30 +314,82 @@ p {
 }
 
 .answersp {
-    padding-bottom: 5px;
+    padding-bottom: 30px;
+    padding-top: 20px;
     margin-bottom: 5px;
-    margin-top: 5px;
+    margin-top: 25px;
     display: block;
-    border-bottom: 1px solid #b5abab;
+    border-bottom: 1px solid #000;
 }
 
 
 .titlep {
     padding-bottom: 5px;
-    margin-bottom: 5px;
     margin-top: 5px;
     display: block;
-    border-bottom: 1px solid #b5abab;
 }
 
 .isipertanyaan {
     display: inline-block;
-    width:90%;
-    margin-top: 15px;
+    width:80%;
+    font-family: Ubuntu;
+    margin-top: -5%;
 }
 
 .footerpertanyaan {
     display: inline-block;
-    margin-left: 60%;
+    float:right;
+    margin-right: 0px;
     margin-top: 25px;
+    margin-bottom: 20px;
+    font-family: Dinpro;
+    font-size: 15px;
+}
+
+
+.isijawaban {
+    display: inline-block;
+    width:80%;
+    font-family: Ubuntu;
+    margin-bottom: 30px;
+}
+
+.footerjawaban {
+    display: inline-block;
+    float:right;
+    font-family: Dinpro;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+
+}
+
+#submitans {
+    display: block;
+    background-color: grey;
+    margin-left: 84%;
+    height: 40px;
+    border: 2px solid #000;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 2px;
+}
+
+#submitans:hover {
+    display: block;
+    background-color: limegreen;
+    margin-left: 84%;
+    height: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: 2px solid #000;
+    cursor: pointer;
+    border-radius: 2px;
+
+}
+
+#namapenjawab {
+    
+    color: dodgerblue;
+    
 }

@@ -29,15 +29,17 @@
     <h2 class="anstitle"><?php echo $row["topic"]; ?></h2>
     <div class="titlep">
             <div class="votecount">
-                <a onclick="votingup(<?php echo $id;?>, 1)">▲</a>
-                <div id="votecountnum"><?php echo $row["voteup"] - $row["votedown"]; ?></div><a onclick="votingup(<?php echo $id;?>, 2)">▼</a>
+                <div class="votebuttup"><a onclick="votingup(<?php echo $id;?>, 1)">▲</a></div>
+                <div id="votecountnum"><?php echo $row["voteup"] - $row["votedown"]; ?></div>
+                <div class="votebuttdown"><a onclick="votingup(<?php echo $id;?>, 2)">▼</a></div>
             </div>
             <div class="content">
                 <div class="isipertanyaan"><?php echo $row["content"]; ?></div>
-                <div class="footerpertanyaan">Asked by: <?php echo $row["email"];?> at <?php echo $row["datetime"];?> | <form action="edit.php" method="post">            
+                <div class="footerpertanyaan">asked by: <a href="mailto:<?php echo $row["email"]; ?>"><span class="namanya"><?php echo $row["email"]; ?></span></a> at <?php echo $row["datetime"];?> | <form action="edit.php" method="post" class="editnya">            
                 <input type="hidden" name="idnya" value="<?php echo $row["qid"] ?>">
-                <div class="buttonlink"><button type="submit">edit</button></div>
-            </form> |  <a href="delete.php?qid=<?php echo $row["qid"];?>" onclick="hapusquestion()">delete</a>
+                <span class="buttonlink"><button type="submit">edit</button></span>
+            </form>
+            |  <a href="delete.php?qid=<?php echo $row["qid"];?>" onclick="hapusquestion()" class="deletenya">delete</a>
                 </div>
             </div>
     </div>
@@ -68,15 +70,13 @@
     ?>
     <div class="answersp">
         <div class ="votecount">
-            <a onclick="votingans(<?php echo $ans_row["ansid"];?>, 3)">▲</a>
+            <div class="votebuttup"><a onclick="votingans(<?php echo $ans_row["ansid"];?>, 3)">▲</a></div>
             <div id="votecountans"><?php echo $ans_row["voteup"] - $ans_row["votedown"]; ?></div>
-            <a onclick="votingans(<?php echo $ans_row["ansid"];?>, 4)">▼</a>
+            <div class="votebuttdown"><a onclick="votingans(<?php echo $ans_row["ansid"];?>, 4)">▼</a></div>
         </div>
         <div class="content">
-            <div class="isipertanyaan">
-                <?php echo $ans_row["content"]; ?>
-            </div>
-            <div class="footerpertanyaan">Answered by: <?php echo $ans_row["name"];?> at <?php echo $ans_row["datetime"];?></div>
+            <div class="isijawaban"><?php echo $ans_row["content"]; ?></div>
+            <div class="footerjawaban">Answered by: <span id="namapenjawab"><?php echo $ans_row["name"];?></span> at <?php echo $ans_row["datetime"];?></div>
         </div>
     </div>
     <?php
@@ -85,11 +85,11 @@
     ?> 
     <h2 class="anstitle">Let's Answer This Question?</h2>
         <div id="askbar">
-            <form method="post" action="answers.php?id=<?php echo $id; ?>">
+            <form method="post" action="answers.php?id=<?php echo $id; ?>" name="form2" onsubmit="return validateForm()">
                 <input type="text" name="Name" placeholder="nama" class="inputask" id="asknama">
                 <input type="email" name="email" placeholder="email" class="inputask">
                 <textarea rows="4" columns="30" type="text" name="content" placeholder="content" class="inputask" id="contentpost"></textarea>
-                <input type="submit" name="submit" value="Post">
+                <input type="submit" name="submit" value="Post" id="submitans">
             </form>
         </div>
 </body>
