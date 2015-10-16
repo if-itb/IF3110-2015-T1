@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Simple StackExchange</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <div class="StackExchange">
+    <center>
+      <h1>Simple StackExchange</h1><br><br>
+    </center>
+
+    <div class="question-form">
+      <h2>What's your question?</h2><hr><br>
+      <center>
+        <form name="form" class="question-form" onsubmit="return validasi_inputQuestion()" action="question-input.php" method="POST">
+          <input type="text" placeholder="  Name" name="Name"><br>
+          <input type="text" placeholder="  Email" name="Email"><br>
+          <input type="text" placeholder="  Question Topic" name="Question-topic"><br>
+          <textarea type="text" placeholder=" Content" name="Content"> </textarea>
+          <button type="submit" value="Submit">Post</button>
+        </form>
+      </center>
+    </div>
+  </div>
+  <script type="text/javascript" src="vote.js" ></script>
+</body>
+
+</html>
