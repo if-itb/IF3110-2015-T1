@@ -41,9 +41,12 @@
 			}
 		?>
 		
-		<h1>Simple StackExchange</h1>
+		<div class="container">
+			<h1 class="title">Simple StackExchange</h1>
+			<h2>What's your question?</h2>
+		</div>
 		
-		<h2>What's your question?</h3>
+		
 		<br>
 		
 		<script>
@@ -95,7 +98,7 @@
 			}
 		</script>
 		
-		<form name="ask" action="createQuestion.php" method="post" onsubmit="return validateInput()">
+		<form class="askform" action="createQuestion.php" method="post" onsubmit="return validateInput()">
 			<div class="left">
 				<input name="id" type="hidden" value="<?php echo $id; ?>">
 				<input name="name" class="textBox" type="text" placeholder="Name" value="<?php echo $name; ?>">
