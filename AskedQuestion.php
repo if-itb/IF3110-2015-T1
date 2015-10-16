@@ -37,8 +37,10 @@ function listQuestion($key){
 					echo "Answer<br>";
 					
 				echo "</div>";
-				echo '<div class= "question">';
-					echo '<a href="Answer.php? id=' . $row["ID_Question"] . '" id=link-question>' . $row["Topic"]."<br>";
+				
+				echo '<div class= "container-question">';
+				echo '<div class= "resAnswer">';
+					echo '<h3><a href="Answer.php? id=' . $row["ID_Question"] . '" id=link-question>' . $row["Topic"]."</h3><br>";
 					if(strlen($row["Content"] )>100){
 						$text = substr($row["Content"], 0, 70) . "...";
 					}		
@@ -47,9 +49,12 @@ function listQuestion($key){
 					}
 					echo   $text . "</a>";
 				echo "</div>";			
-				echo '<div class= "modif-question">';
-					echo "asked by $row[Author] | <a href='AskHere.php?id=$row[ID_Question]' id='y'> edit </a> | <a id='r' href='javascript:deletePost(\"delete_question.php?id=$row[ID_Question]\")'>delete</a>";
+				echo '<div class= "infoQuestion">';
+					echo "asked by<span id=blue> $row[Author] </span>| <a href='AskHere.php?id=$row[ID_Question]' id='y'> edit </a> | <a id='r' href='javascript:deletePost(\"delete_question.php?id=$row[ID_Question]\")'>delete</a>";
 				echo "</div>";	
+				echo "</div>";	
+				
+				
 			echo "</div>";
 
 		}

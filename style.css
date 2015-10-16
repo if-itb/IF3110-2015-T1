@@ -27,9 +27,9 @@ input.button{
 }
 .container {
     margin: auto;
-    width: 60%;
+    width: 80%;
     padding: 5%;
-	border: 2px solid ;
+	
 	overflow:auto;
 }
 #q{ 
@@ -94,8 +94,14 @@ form.search-box > input[type="submit"]{
 	float:left;
 	padding: 4% 2%;
 }
+.container-question{
+	width: 65%;
+	float:left;
+	padding: 2% 2%;
+}
 .infoQuestion{
 	margin-top:5%;
+	
 	text-align: right;
 }
 .infoAnswer{
@@ -184,4 +190,7 @@ a:active {
 }
 #r{
 	color:red;
+}
+#blue{
+	color:blue;
 }

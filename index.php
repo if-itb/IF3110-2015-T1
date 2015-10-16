@@ -18,7 +18,7 @@
 		</div>
 		<br>
 		<br>
-		<div class="sub-title">Recently Asked Questions</div>
+		<h2><div class="sub-title">Recently Asked Questions</div></h2>
 		<?php
 		include('AskedQuestion.php');
 		if(isset($_POST['submit'])){
