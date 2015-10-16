@@ -138,13 +138,12 @@
 		</table>
 		<table class="tableform">
 			<!-- <table> -->
-				<tr><td colspan="2"><h2>Your Answer</h2></td></tr>
+				<tr><td><h2>Your Answer</h2></td></tr>
 				<form name="AnswerForm" action="answer-submit.php?id=<?php echo $_GET["id"]; ?>" onsubmit="return validateAnswerForm()" method="post">
-					<tr><td class="label">Name</td><td><input type="text" name="name" class="textbox" /></td></tr>
-					<tr><td class="label">Email</td><td><input type="text" name="email" class="textbox" /></td></tr>
-					<tr><td class="label">Content</td><td><textarea name="content" rows="5" class="textareascroll"></textarea></td></tr>
-					<!-- <input type="hidden" name="parent_id" value="<?php echo $_GET["id"]; ?>" /> -->
-					<tr><td colspan="2" align="right"><input type="submit" value="Post" /></td></tr>
+					<tr><td><input type="text" name="name" class="textbox" value="Name" onfocus="inputFocus(this)" onblur="inputBlur(this)" /></td></tr>
+					<tr><td><input type="text" name="email" class="textbox" value="Email" onfocus="inputFocus(this)" onblur="inputBlur(this)" /></td></tr>
+					<tr><td><textarea name="content" rows="5" class="textareascroll" placeholder="Content"></textarea></td></tr>
+					<tr><td align="right"><input type="submit" value="Post" /></td></tr>
 				</form>
 			<!-- </table> -->
 		<?php	

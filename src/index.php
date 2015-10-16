@@ -38,15 +38,25 @@
 		<table>
 			<tr>
 				<td colspan="3">
-					<h2 class="nameleft">Recently Asked Questions<hr /></h2>
+					<h2 class="nameleft">
+						<?php
+							if ($_GET) {
+								echo 'Search Results';
+							}
+							else {
+								echo 'Recently Asked Questions';
+							}
+						?>
+						<hr />
+					</h2>
 				</td>
 			</tr>
 			<?php
 				if ($_GET) {
-					$sql = "SELECT id, topic, content, votes, answers, name FROM " . $tablename . ' WHERE (topic LIKE "' . $_GET['search'] . '") OR (content LIKE "' . $_GET['search'] . '")';
+					$sql = "SELECT * FROM " . $tablename . " WHERE (topic LIKE '%" . $_GET['search'] . "%') OR (content LIKE '%" . $_GET['search'] . "%')";
 				}
 				else {
-					$sql = "SELECT id, topic, votes, answers, name FROM " . $tablename;
+					$sql = "SELECT * FROM " . $tablename;
 				}
 				
 				$result = mysqli_query($link, $sql);
@@ -63,13 +73,14 @@
 							echo "<td><center>";
 								echo $row["answers"];
 							echo "</center></td>";
-							echo '<td rowspan="2" width="80%">';
+							echo '<td width="80%">';
 								$substring = substr($row["topic"], 0, 50);
 								if (strlen($row["topic"]) > 50) {
 									$substring .= '...';
 								}
 								echo '<a href="question-detail.php?id=' . $row["id"] . '">' . $substring . '</a>';
 							echo "</td>";
+							
 						echo "</tr>";
 						echo "<tr>";
 							echo '<td align="center">';
@@ -78,12 +89,19 @@
 							echo '<td align="center">';
 								echo "Answers";
 							echo "</td>";
-							echo '<tr><td colspan="3" align="right">';
-								$delete_hyperlink = 'href="question-delete.php?id=' . $row["id"] . '" onclick="return confirmDelete()">';
-								$edit_hyperlink = 'href="question-edit.php?id=' . $row["id"] . '">';
-								echo 'asked by <b><font color="purple">' . $row["name"] . '</font></b> | <a ' . $edit_hyperlink . '<font color="orange"><b>edit</b></font></a> | <a ' . $delete_hyperlink . '<font color="red"><b>delete</b></font></a>';
-							echo "</td></tr>";
+							echo '<td width="80%">';
+								$substring = substr($row["content"], 0, 50);
+								if (strlen($row["content"]) > 50) {
+									$substring .= '...';
+								}
+								echo '<a href="question-detail.php?id=' . $row["id"] . '"><font color="darkorange"><i>' . $substring . '</i></font></a>';
+							echo "</td>";
 						echo "</tr>";
+						echo '<tr><td colspan="3" align="right">';
+							$delete_hyperlink = 'href="question-delete.php?id=' . $row["id"] . '" onclick="return confirmDelete()">';
+							$edit_hyperlink = 'href="question-edit.php?id=' . $row["id"] . '">';
+							echo 'asked by <b><font color="purple">' . $row["email"] . '</font></b> | <a ' . $edit_hyperlink . '<font color="orange"><b>edit</b></font></a> | <a ' . $delete_hyperlink . '<font color="red"><b>delete</b></font></a>';
+						echo "</td></tr>";
 						echo '<tr><td colspan="3"><hr /></td></tr>';
 					}
 					// echo "</table>";

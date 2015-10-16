@@ -17,20 +17,20 @@
 		<table class="tableform">
 			<form name="QuestionForm" action="question-submit.php" onsubmit="return validateQuestionForm()" method="post">
 				<tr>
-					<td class="label">Name</td>
-					<td><input type="text" name="name" class="textbox"/></td>
+					
+					<td><input type="text" name="name" class="textbox" value="Name" onfocus="inputFocus(this)" onblur="inputBlur(this)"/></td>
 				</tr>
 				<tr>
-					<td class="label">Email</td>
-					<td><input type="text" name="email" class="textbox"/></td>
+					
+					<td><input type="text" name="email" class="textbox" value="Email" onfocus="inputFocus(this)" onblur="inputBlur(this)"/></td>
 				</tr>
 				<tr>
-					<td class="label">Question Topic</td>
-					<td><input type="text" name="topic" class="textbox"/></td>
+					
+					<td><input type="text" name="topic" class="textbox" value="Question Topic" onfocus="inputFocus(this)" onblur="inputBlur(this)"/></td>
 				</tr>
 				<tr>
-					<td class="label">Content</td>
-					<td><textarea name="content" rows="5" class="textareascroll"></textarea></td>
+					
+					<td><textarea name="content" rows="5" class="textareascroll" placeholder="Content" onfocus="inputFocus(this)" onblur="inputBlur(this)"></textarea></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="right"><input type="submit" value="Post" /></td>

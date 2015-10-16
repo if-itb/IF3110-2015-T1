@@ -35,18 +35,22 @@
 			<tr><td colspan="2"><h3>You are currently editing question with ID <i><?php echo $_GET["id"] ?></i>.<hr /></h3></td></tr>
 			<tr><td colspan="2"><p><em><font color="darkred">N.B. Name and email address cannot be modified.</font></em></p><br><br></td></tr>
 			<form name="QuestionForm" action="question-change.php?id=<?php echo $_GET["id"]; ?>" onsubmit="return validateQuestionForm()" method="post">
-				<tr><td class="label">Name</td>
-				<td><input type="text" name="namex" value="<?php echo $row["name"]; ?>" disabled="disabled" class="textbox" /></td></tr>
+				<tr>
+					<td><input type="text" name="namex" value="<?php echo $row["name"]; ?>" disabled="disabled" class="textbox" /></td>
+				</tr>
 				
-				<tr><td class="label">Email</td>
-				<td><input type="text" name="emailx" value="<?php echo $row["email"]; ?>" disabled="disabled" class="textbox" /></td></tr>
+				<tr>
+					<td><input type="text" name="emailx" value="<?php echo $row["email"]; ?>" disabled="disabled" class="textbox" /></td>
+				</tr>
 				
 				
-				<tr><td class="label">Question Topic</td>
-				<td><input type="text" name="topic" value="<?php echo $row["topic"]; ?>" class="textbox" /></td></tr>
+				<tr>
+					<td><input type="text" name="topic" value="<?php echo $row["topic"]; ?>" class="textbox" /></td>
+				</tr>
 				
-				<tr><td class="label">Content</td>
-				<td><textarea name="content" rows="5" class="textareascroll"><?php echo $row["content"]; ?></textarea></td></tr>
+				<tr>
+					<td><textarea name="content" rows="5" class="textareascroll"><?php echo $row["content"]; ?></textarea></td>
+				</tr>
 				
 				<tr><td colspan="2" align="right"><input type="submit" value="Change" /></td></tr>
 				
