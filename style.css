@@ -1,0 +1,196 @@
+h1 {
+	text-align: center;
+}
+h2{
+	margin: 0;
+}
+hr {
+	width: 100%;
+	margin:0;
+	
+	border: 1px solid ;
+}
+input {
+	padding:1% 4%;
+	float: left;
+	width: 93%;
+	border: 2px solid ;
+	margin: 2px;
+}
+.resAnswer{
+	min-height: 60px;
+}
+input.button{
+	float:right;
+	width: 15%;
+	margin: 0;
+}
+.container {
+    margin: auto;
+    width: 80%;
+    padding: 5%;
+	
+	overflow:auto;
+}
+#q{ 
+	border: none;
+}
+.questionform{
+	margin: 20px 8px;
+}
+textarea{
+	margin: 0 2px;
+	padding:1% 4%;
+	border: 2px solid ;
+	overflow: auto;
+	height: 10em;
+	width: 93%;
+	resize :none;
+}
+.SubTitle{
+	width:100%;
+	border-bottom: 2px solid;
+}
+.sub-title{
+	width:85%;
+	margin:auto;
+	border-bottom: 2px solid;
+}
+
+.answerform{
+	padding-top: 5%;
+}
+form.search-box{
+	width:80%;
+	margin:auto;
+	text-align:center;
+}
+form.search-box > input[type="text"]{
+	width:70%;
+	float:none;
+}
+form.search-box > input[type="submit"]{
+	width:15%;
+	float:none;
+}
+.center{
+	text-align:center;
+}
+.asked-question{
+	width:85%;
+	overflow:auto;
+	margin:auto;
+	border-bottom: 2px solid;
+}
+.kotak{
+	padding: 4% 2%;
+	text-align:center;
+	width:10%;
+
+	float:left;
+}
+.container-answer{
+	width: 80%;
+	float:left;
+	padding: 4% 2%;
+}
+.container-question{
+	width: 65%;
+	float:left;
+	padding: 2% 2%;
+}
+.infoQuestion{
+	margin-top:5%;
+	
+	text-align: right;
+}
+.infoAnswer{
+	margin-top:5%;
+	text-align: right;
+}
+.question-box{
+	width:80%;
+	float: left;
+	padding: 2%;
+	overflow:auto;
+}
+/*
+.vote-question{
+	padding:10px;
+	text-align:center;
+	width:10%;
+	float: none;
+}
+.answer-question{
+	width:10%;
+	padding:10px;
+	text-align:center;
+	float: none;
+}*/
+.box1{
+	overflow:auto;
+}
+.box2{
+	overflow:auto;
+	border-bottom: 2px solid;
+
+}
+.content{
+	overflow:auto;
+	border-bottom: 2px solid;
+}
+.question{
+	padding:15px;
+	width:35%;
+	float: left;
+}
+.modif-question{
+	padding-top:7%;
+	padding-bottom:1%;
+	
+	/*padding:5px;*/
+	width:29%;
+	float: right;
+}
+a {
+		text-decoration:none;
+
+}
+a:link {
+    color: black;
+}
+
+/* visited link */
+a:visited {
+    color: black;
+}
+
+/* mouse over link */
+a:hover {
+    color: black;
+}
+.arrow:hover{
+	cursor:pointer;
+}
+/* selected link */
+a:active {
+    color: black;
+}
+
+.arrow {
+	width:24px;
+	height:20px;'
+	
+}
+#down {
+	transform: rotate(180deg);
+}
+#y{
+	color:orange;
+}
+#r{
+	color:red;
+}
+#blue{
+	color:blue;
+}

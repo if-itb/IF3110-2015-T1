@@ -89,7 +89,36 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+ Validasi
+	Untuk validasi form dilakukan ketika user menekan tombol submit. Nantinya javascript akan dipanggil sebagai action
+	dari form input, jika berhasil lolos validasi maka akan diteruskan ke file php yang sesuai.
+	-Form 
+		validasi form pada tugas ini dilakukan untuk cek terhadap nilai input yang NULL. Saya menggunkan fungsi alert, 
+		apabila input form kosong maka akan keluar pesan galat error sesuai input yang kosong. Fungsi ini berupa fungsi javascript
+		validateForm() berisi kondisi-kondisi untuk cek pada elemen yang diambil dari document sesuai dengan input formnya.
+	-Email
+		validasi form berupa validasi terhadap input form email, jika email tidak kosong maka fungsi validateEmail() akan dipanggil 
+		untuk cek terhadap format email. Pada fungsi ini digunakan fungsi regex untuk cek terhadap karakter '@', '.', dan beberapa
+		elemen lainnya. fungsi ini berupa alert jika tidak memenuhi.
+	-DELETE
+		validasi delete merupakan fungsi yang muncul ketika user memilih tulisan delete. fungsi ini dipanggil dengan menggunakan href ke delete.js.
+		delete.js merupakan file javascript yang nantinya menerima id dari pertanyaan yang akan dihapus. fungsi ini akan melakukan delete pada database
+		answer dengan is question yg ingin dihapus. Kemudian menghapus question yang dipilih. Bentuk validasi delete memanfaatkan fungsi confirm, dimana
+		user akan memilih untuk confirm (menghapus) atau cancel (batal hapus)
+		
+ Vote
+	Untuk fungsi vote pada tugas ini digunakan AJAX, dimana fungsi AJAX digunakan untuk mengubah nilai vote dari question atau answer yang
+	bersangkutan. Dengan AJAX kita bisa mengubah XML tanpa perlu eksekusi file html. Terdapat segitiga atas dan bawah, icon tersebut menandakan 
+	vote up untuk segitiga atas, dan vote down untuk segitiga bawah. Cara kerja vote yakni dengan click pada salah satu segitiga, maka akan dieruskan 
+	pemanggilan javascript onclick. Pada fungsi vote, saya membedakan menjadi 2 fungsi, yakni vote untuk answer dan question. Secara garis besar keduanya
+	memiliki fungsi yang sama. Keduanya sama sama menangani kondisi untuk vote up dan vote down. yang membedakan hanya variabel yang dikirim ke PHP
+	sebagai pembeda vote terhadap answer maupun vote terhadap question. Method yang digunakan untuk send Request berupa method Post. Untuk membedakan 
+	antara vote up dan vote down, digunakan counter 0 untuk up, dan 1 untuk down.
+	Urutan perubahan vote yaitu, berdasarkan id question atau answer, nanti java script akan melakukan pengambilan elemen dengan getElementById. 
+	Setelah XMLHttpRequest() berhasil, fungsi membuka file vote.php yang akan meng-eksekusi perubahan pada database. nantinya AJAX akan send request berdasarkan
+	kondisi up atau down. File vote.php yang tadi dibuka nantinya akan melakukan eksekusi update atribut vote pada tabel, setelah file berhasil di update, php 
+	akan melakukan select vote dari database yang sudah di-update. Setelah hasil vote di ambil, nantinya akan langsung dicetak pada element yang sudah di seleksi
+	sebelumnya.
 
 ### Knowledge
 
@@ -99,7 +128,7 @@ Untuk meringankan beban tugas ini, ada berberapa keyword yang bisa anda cari unt
 - PHP: mysqli_connect, mysql_query, $_GET, $_POST, var_dump, print_r, echo, require, fungsi header.
 - SQL query: SELECT, INSERT, UPDATE, DELETE, WHERE, operator LIKE.
 
-Jika ada pertanyaan silakan tanyakan lewat milis.
+Jika ada pertanyaan silakan tanyakan lewat mil
 
 ### About
 
