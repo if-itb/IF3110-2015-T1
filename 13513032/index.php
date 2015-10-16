@@ -63,7 +63,7 @@
 									where questionid = ".$result["questionid"];
 					$answerResults = mysqli_query($connection, $answerQuery);
 
-					echo "<questionTopic>".$result["questiontopic"]."</questionTopic>
+					echo "<questionTopic><a href='answerQuestion.php?id=".$result["questionid"]."' style='color:black'>".$result["questiontopic"]."</a></questionTopic>
 
 					<p style='margin-top:0px'>
 						<votes>".$result["questionvotes"]." Votes</votes>
@@ -72,7 +72,7 @@
 					</p>
 
 					<p class='askedBy'>
-						asked by <b><span style='color:purple'>".$result["questionname"]."</span>|<a href='askQuestion.php?id=".$result["questionid"]."' name='edit' style='color:orange'>edit</a>|<span style='color:red'>delete</span></b>
+						asked by <b><span style='color:purple'>".$result["questionname"]."</span>|<a href='askQuestion.php?id=".$result["questionid"]."' style='color:orange'>edit</a>|<span style='color:red'>delete</span></b>
 					</p>";
 				}
 			}

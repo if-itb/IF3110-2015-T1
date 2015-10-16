@@ -39,14 +39,12 @@
 				$emailValue = $editQuestionResult["questionemail"];
 				$topicValue = $editQuestionResult["questiontopic"];
 				$contentValue = $editQuestionResult["questioncontent"];
-				$postName = "editPostButton";
 			} else {
 				$action = "index.php";
 				$nameValue = "";
 				$emailValue = "";
 				$topicValue = "";
 				$contentValue = "";
-				$postName = "questionPostButton";
 			}
 		?>
 
@@ -55,7 +53,7 @@
 			<input class="askQuestionData" name="questionEmail" placeholder="Email" type="text" <?php echo "value='".$emailValue."'"; ?>></input>
 			<input class="askQuestionData" name="questionTopic" placeholder="Question Topic" type="text" <?php echo "value='".$topicValue."'"; ?>></input>
 			<textarea name="questionContent" placeholder="Content" rows="9"><?php echo $contentValue; ?></textarea>
-			<input id="postButton" <?php echo "name='".$postName."'"; ?> type="submit" value="Post"></input>
+			<input id="postButton" name='questionPostButton' type="submit" value="Post"></input>
 		</form>
 	</body>
 </html>
