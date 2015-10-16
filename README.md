@@ -89,7 +89,11 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+Validasi pada client side dilakukan dengan javascript yaitu mengecek masing-masing textbox pada form dan menggunakan
+Regex untuk memeriksa input email.
+AJAX digunakan pada vote pada gambar vote up dan vote down, lalu fungsi javascript vote(id, type, result)
+akan mengirim melewati POST ke vote.php. Vote.php akan mengubah database menggunakan query, dan akhirnya akan echo $count
+yang berarti dikirim kembali ke page awal yang menggunakan AJAX, sehingga di page awal, vote count akan berubah.
 
 ### Knowledge
 
