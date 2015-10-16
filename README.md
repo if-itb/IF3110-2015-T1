@@ -89,7 +89,36 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+`1. Penjelasan Teknis Validasi Client-Side
+		Pada Tugas pertama Web Based Developmenyt ini, saya melakukan validasi client-side dengan membuat suatu fungsi pada file javascript "script.js" pada folder js, yang nantinya fungsi ini yang akan dipanggil untuk melakukan validasi pada client-side. 
+
+		Secara garis besar, saya membuat 3 macam validasi pada "script.js" 
+		a. Fungsi validasi untuk pengecekan email "validateEmail(email)"
+				Fungsi ini digunakan untuk mengecek apakah email yang menjadi parameter fungsi ini sudah dalam format email yang benar (format yang benar misalnya : albert@gmail.com). Saya menggunakan regex untuk mengecek format email sudah valid atau belum. Jika salah akan dikeluarkan pesan kesalahan.
+
+		b. Fugnsi validasi form "validateQuestionForm()" dan "validateAnswerForm()"
+				Fungsi ini digunakan untuk mengecek apakah data yang dimasukkan pada form ansswer maupun form question sudah lengkap atau belum. Jika belum, akan dikeluarkan pesan kesalahan. Form answer dan question saya juga menggunakan validasi format email. Jadi, sebelum data pada field dikirim, form akan diperiksa apakah semua inputan sudah lengkap dan dalam format yang benar. 
+
+		c. Fungsi validasi penghapusan "question" yaitu "deleteConfirmation(q_id)"
+				Fungsi ini digunakan untuk memvalidasi apakah suatu question dengan id = q_id akan dihapus atau tidak. Jika user memilih tombol cancel maka question tidak akan dihapus. Jika ya, maka fungsi ini akan mengubah value "href" pada tag html question yang akan dihapus dan question tersebut akan dihapus.  
+
+  2. Penjelasan Teknis AJAX
+ 		Pada tiap jumlah vote di answer yang ditampilkan, saya memasang attribute answer id pada tiap answer dan kemudian saya memasang link untuk menjalankan fungsi javascript "voteAnswer(q_id,a_id,is_question,is_voteup)"
+ 		dengan parameter:
+ 			a. q_id untuk mengetahui answer ini ada pada question id ke berapa
+ 			b. a_id yang merupakan nomor id tiap answer
+ 			c. is_question untuk membedakan apakah ini vote untuk question atau bukan
+ 			d. is_voteup untuk membedakan vote up atau vote down
+
+ 		Ketika link pada panah atas/ panah bawah di klik, Fungsi voteAnswer ini akan tertrigger dan menuju file vote.php lewat XMLHttpRequest. ketika fungsi voteAnswer dijalankan , akan dibuat sebuah objek XMLHttpReuest(). Kemudian ketika ready state = 4 dan status =200. Fungsi ini akan menjalankan selector elemen dengan id yang sesuai (yaitu a_vote + a_id) dan mengganti isi di dalamnya dengan "response text" yang didapat dari menjalalankan file vote.php (yaitu berupa jumlah vote setelah di voteup maupun votedown)
+
+ 		File vote.php saya akan mengambil parameter parameter yang dikirimkan lewat XMLHttpRequest sepeerti q_id, a_id untuk menentukan answer id ke berapa yang akan diubah jumlah votenya dan menentukan jumlah vote mana yang akan diupdate pada database sendiri.
+
+ Demikianlah penjelasan teknis validasi pada client-side dan AJAX. Terima kasih. 
+
+ Best Regards,
+ Lie Albert Tri Adrian / 13513076
+`
 
 ### Knowledge
 

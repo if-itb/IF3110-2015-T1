@@ -1,0 +1,240 @@
+
+
+div.left > span{
+	margin-right: 2px;
+	text-align: center;
+}
+
+div.mid-right > p{
+	display: block;
+	max-width: 1000px;
+}
+
+div.question_detail > .right{
+	float:right;
+	position: relative;
+	top: 100px;
+	right: 0;
+	width: 50%;
+}
+
+span.vote > div > p{
+	text-align: center;
+	font-size: 160%;
+    margin: 8 0;
+    color: #787878;	
+}
+
+form#question ,form#answer{
+	margin-left: 10%;
+	height: 300px;
+	margin-right: 10%;
+}
+
+/* It means that input is the first child of form with id = question */
+form#question > input[type="submit"] , form#answer > input[type="submit"]{
+	border-width: thin;
+	display: block;
+	margin-top: 10px;
+	float: right;
+}	
+
+form#question > input[type="text"], form#answer > input[type="text"]{
+	display: block;
+	width: 100%;
+	height: 15px;
+	margin-top: 4px;
+	padding-left: 2px;
+	border: solid black thin;
+	font-weight: bold;
+	font-color: black;
+}	
+
+form#question > textarea, form#answer > textarea{
+    display:block;
+    width: 100%;
+    height: 120px;
+    margin-top: 4px;
+    padding-left: 2px;
+	border: solid black thin;
+	font-weight: bold;
+	font-color: black;
+}	
+
+img#vote_up , img#vote_down{
+	height: 40px; 
+	width: 40px;
+}
+
+#container{
+	text-align : center;
+}
+
+#logo{
+    font-family: 'Segoe UI',Tahoma, sans-serif;
+    font-size: 170%;
+}
+
+#recently{
+	font-size: 100%;
+	margin-top: 30px;
+	padding-left: 7px;
+}
+/* Span is inline (margin only horizontal)
+	Div is block (margin vertical and horizontal)
+
+	inline block : inline can work as well as block;
+*/
+#search{
+	display: inline-block;
+	margin-top: 30px;
+	width : 100%;
+}
+
+#search input{
+	border-style: solid;
+	border-width: medium;
+}
+
+/* ID Vote_icon using class .left attribute*/
+#vote_icon{		
+	display: inline-block;
+	text-align: left;
+	width: 10%;
+    font-family: 'Segoe UI',Tahoma, sans-serif;
+    margin-top: 4%;
+    float: left;
+    margin-left: 2%;
+}
+
+#vote_up, #vote_down{
+	display: block;
+}
+
+.answer_title{
+    font-family: 'Segoe UI',Tahoma, sans-serif;
+    font-size: 170%;
+    text-align: left;
+    margin-left: 11%;
+    margin-right: 11%;
+    margin-bottom: 2px;
+    margin-top: 2%;	
+}
+
+.answer, .vote{
+	display: inline-block;
+	margin-left: 7%;
+}
+
+.blue_link{
+	text-decoration: none;
+	color: blue;
+}
+
+.content_title {
+    font-family: 'Segoe UI',Tahoma, sans-serif;
+    font-size: 160%;
+    text-align: left;
+    margin-left: 11%;
+    margin-right: 11%;
+    border-bottom: 2px solid black;
+    margin-top: 7%;
+    margin-bottom: 10px;
+}
+
+.left{
+	display: inline-block;
+	text-align: left;
+	width: 30%;
+    font-family: 'Segoe UI',Tahoma, sans-serif;
+    margin-left: 3%;
+    margin-top: 4%;
+}
+
+.middle{
+	display: inline-block;
+	width: 30%;
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.mid-right{
+	display: inline-block;
+	width: 85%;
+	text-align: left;
+}
+
+.orange_link{
+	text-decoration: none;
+	color: orange;
+}
+
+.question, .question_last {
+	font-size: 15px;
+	margin-left: 11%;
+	margin-right: 11%;
+	padding-right: 10px;
+	height: 100px;
+}
+
+.question{
+	border-bottom: 2px solid black;	
+}
+
+.question_detail{
+	/*font-size: 15px;
+	margin-left: 11%;
+	margin-right: 11%;
+	padding-right: 10px;
+	height: 100px;	*/
+    margin: 0 auto;
+    width: 80%;
+    height: 20%;
+    max-height: 50%
+    word-wrap: break-word;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.red_link{
+	text-decoration: none;
+	color: red;
+}
+
+.right{
+	display: inline-block;
+	text-align: right;
+	width: 30%;
+	padding-right: 30px;
+}
+
+.searchBar{
+	width: 80%;
+	max-width: 380px;
+	height: 20px;
+}
+
+
+.submitButton{
+	border-color: black;
+	background-color: whitesmoke;
+	margin-left: 3.5px;
+	height: 27.5px;
+	width: 70px;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #505050 ;
+    opacity: 20%;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    black;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    black;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    black;
+}
