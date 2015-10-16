@@ -14,25 +14,27 @@
 <?php
 	$connect = mysql_connect("localhost","root","") or die ("Connection Error");
 	$selectdb = mysql_select_db("stackexchange", $connect);
+	$qid = $_GET["id"];
+	$query = mysql_query("SELECT * FROM `question` where `id_question`='$qid'",$connect);
+	$question = mysql_fetch_array($query);
 ?>
+
 <a href="index.php"><h1> Simple StackExchange </h1></a>
 
 <div id="container">
 <div class="container-title">
 <h2> What's your question? </h2>
 </div>
-<form name ="ask" class="form-wrapper" action="" method="post" onsubmit="return validateForm()">
-	<input type="text" name="name" placeholder="Name">
-	<input type="text" name="email" placeholder="Email">
-    <input type="text" name="topic" placeholder="Question Topic">
-    <textarea name="content" placeholder="Content"></textarea>
-	<button type="submit" name="submit"> Post </button>
+<form name="ask" class="form-wrapper" action="" method="post"  onsubmit="return validateForm()">
+	<input type="text" name="name" placeholder="Name" value=<?php echo '"'.$question[2].'"' ?>>
+	<input type="text" name="email" placeholder="Email" value=<?php echo '"'.$question[3].'"' ?>>
+    <input type="text" name="topic" placeholder="Question Topic" value=<?php echo '"'.$question[4].'"' ?>>
+    <textarea name="content" placeholder="Content"><?php echo $question[5] ?></textarea>
+	<button type="submit" name="submit"> Update </button>
 </form>
 
 </div>
-
 <script type="text/javascript">
-
 function validateForm() {
     var name = document.forms["ask"]["name"].value;
 	var email = document.forms["ask"]["email"].value;
@@ -49,7 +51,6 @@ function validateForm() {
     	return false;
 	}
 }
-
 </script>
 
 <?php
@@ -59,16 +60,12 @@ $email = $_POST['email'];
 $topic = $_POST['topic'];
 $question = $_POST['content'];
 
-if (empty($name) || empty($email) || empty($topic) || empty($question)){
-echo"<script type='text/javascript'>", "empty_alert();", "</script>";
-}
-else {
-mysql_query ("INSERT INTO `question`(`name`, `email`, `topic`, `question_content`, `votes`) VALUES ('$name','$email','$topic','$question','0')",$connect);
+
+mysql_query ("UPDATE `question` SET `name`='$name', `email`='$email', `topic`='$topic', `question_content`='$question' WHERE `id_question`='$qid'",$connect);
 
 $id = mysql_insert_id();
 
-header("Location: question.php?id=".$id);
-}
+header("Location: question.php?id=".$qid);
 }
 mysql_close($connect);
 

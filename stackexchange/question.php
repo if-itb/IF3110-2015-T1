@@ -6,9 +6,53 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Simple StackExchange</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
+<script>
+function getVoteUp(qid,aid) {
+	if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else {  // code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("votes").innerHTML=xmlhttp.responseText;
+    }
+  }
+  xmlhttp.open("GET","vote.php?vote=1&qid="+qid+"&aid="+aid,true);
+  xmlhttp.send();
+}
+
+
+function getVoteDown(qid,aid) {
+	if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else {  // code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("votes").innerHTML=xmlhttp.responseText;
+    }
+  }
+  xmlhttp.open("GET","vote.php?vote=-1&qid="+qid+"&aid="+aid,true);
+  xmlhttp.send();
+}
+</script>
 </head>
 
 <body>
+<script type='text/javascript'>
+	function ConfirmDelete(id){
+    	var x = confirm("Are you sure you want to delete?");
+      	if(x){
+      	
+      }
+	}
+</script> 
 <?php
 	$connect = mysql_connect("localhost","root","") or die ("Connection Error");
 	$selectdb = mysql_select_db("stackexchange", $connect);
@@ -25,24 +69,33 @@
 		
 		<table class ="question">
 			<tr>
-				<td rowspan = 2 class="td-vote-answer"> votes </td>
+				<td rowspan = 2 class="td-vote-answer">
+					<div id="triangle-up" onclick="getVoteUp('.$qid.',0)"></div>
+					<div id="votes">'.$question[6].'</div>
+					<div id="triangle-down" onclick="getVoteDown('.$qid.',0)"></div></td>
 				<td class="td-content">'.nl2br($question[5]).'<p></p></td>
 			</tr>
 			<tr>
-				<td class="td-detail">asked by <span class="username">'.$question[3].'</span></td>
+				<td class="td-detail">asked by <span class="username">'.$question[3].'</span> at '.$question[1].' | <a href="edit.php?id='.$qid.'"><span class="edit"> Edit </span></a> | <a onclick="return ConfirmDelete();" href="delete.php?id='.$qid.'"><span class="delete"> Delete </span></a></td>
 			</tr>
 		</table>
 	';
 
 	$answers = mysql_query("SELECT * FROM `answer` WHERE `id_question`='$qid' ORDER BY `votes` DESC",$connect);
 	$countanswer = mysql_num_rows($answers);
-	echo '<div class="container-title"><h2>'.$countanswer.' Answer</h2></div>';
-	if ($answers){
+	echo '<div class="container-title"><h2>'.$countanswer.' Answer';
+	if ($countanswer > 1){
+		echo 's';
+	}
+	echo'</h2></div>';
+	if ($countanswer != 0){
 		while($row = mysql_fetch_array($answers)){
 			echo '<table class=answer>';
 				echo '<tr>';
 					echo '<td rowspan="3" class="td-vote-answer">';
-						echo ('<b>'.$row[6].'</b><br>Votes');
+						echo '<div id="triangle-up" onclick="getVoteUp('.$qid.','.$row[1].'")></div>';
+						echo '<div id="votes">'.$row[6].'</div>';
+						echo '<div id="triangle-down" onclick="getVoteDown('.$qid.','.$row[1].'")></div>';
 					echo '</td>';
 					echo '<td class="td-content">';
 						echo nl2br($row[5]).'<p></p>';
@@ -51,41 +104,61 @@
 					
 					echo '<tr>';
 					echo '<td class="td-detail">';
-						echo ('answered by <span class="username">'.$row[3].'</span>');
+						echo ('answered by <span class="username">'.$row[4].'</span> at '.$row[2]);
 					echo '</td>';
 					echo '</tr>';
 				echo '</table>';
 		}
+		echo '<div class="container-title"></div>';
 	}
+	
 ?>
 
-    <div class="container-title"></div>
-    <form class="form-wrapper" action="" method="post">
+   
+    <form class="form-wrapper" action="" method="post" name="answer" onsubmit="return validateForm()">
     <p class="your-answer">Your Answer</p>
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="text" name="email" placeholder="Email" required>
-        <textarea name="content" placeholder="Content" required="required"></textarea>
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="email" placeholder="Email">
+        <textarea name="content" placeholder="Content"></textarea>
         <button type="submit" name="submit"> Post </button>
     </form>
 	</div>
-</body>
+    
+<script type="text/javascript">
+
+function validateForm() {
+    var name = document.forms["answer"]["name"].value;
+	var email = document.forms["answer"]["email"].value;
+	var content = document.forms["answer"]["content"].value;
+	var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	
+    if (name == null || name == "" || email == null || email == "" || content == null || content == "") {
+        alert("All fields are required. Please complete the form.");
+        return false;
+    }
+	else if (!filter.test(email)) {
+    	alert('Please provide a valid email address');
+    	return false;
+	}
+}
+</script>
 
 <?php
 if (array_key_exists('submit',$_POST)){
 $name = $_POST['name'];
 $email = $_POST['email'];
 $topic = $_POST['topic'];
-$question = $_POST['content'];
+$newanswer = $_POST['content'];
 $countanswer++;
 
-mysql_query ("INSERT INTO `answer`(`id_question`,`id_answer`,`name`, `email`, `answer_content`, `votes`) VALUES ('$qid','$countanswer','$name','$email','$question','0')",$connect);
+mysql_query ("INSERT INTO `answer`(`id_question`,`id_answer`,`name`, `email`, `answer_content`, `votes`) VALUES ('$qid','$countanswer','$name','$email','$newanswer','0')",$connect);
 
 header("Location: question.php?id=".$qid);
 }
 mysql_close($connect);
 
 ?>
-
+</body>
 </html>
 
 

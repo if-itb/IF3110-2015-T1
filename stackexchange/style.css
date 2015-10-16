@@ -50,12 +50,26 @@ span.delete {
 #container {
 	background : transparent;
 	width:650px;
-	min-height:250px;
+	height : 480px;
 	padding: 20px;
-	margin: 20px auto 0px auto;
-	font-size:18px;
+	margin: 20px auto 20px auto;
 	text-align:left;
 }
+
+#credit {
+	background : transparent;
+	width:650px;
+	height : 150px;
+	margin: auto;
+	padding: 125px auto 0px auto;
+	border-top:2px;
+	text-align:center;
+}
+
+#credit-td {
+	margin: 150px auto 0px auto;
+}
+
 
 /*** Search Box ***/
 #search-box {
@@ -138,6 +152,8 @@ span.delete {
 	width : 70px;
 	text-align:center;
 	font-size:14px;
+	vertical-align:top;
+	padding-top:10px;
 }
 	
 .td-topic {
@@ -150,7 +166,7 @@ span.delete {
 
 .td-content {
 	width: 510px;
-	height : 40px;
+	min-height : 40px;
 	padding: 3px 0px 0px 8px;
 	text-align:justify;
 	vertical-align:top;
@@ -245,12 +261,39 @@ span.delete {
 .question {
 	width:650px;
 	min-height:150px;
-	margin: 0px auto auto 5px;
+	margin: 8px auto auto 5px;
 }
 
 .answer {
 	width:655px;
 	min-height:100px;
-	margin: 0px;
+	margin: 8px 0px 0px 0px;
 	border-bottom:#666 solid 1px;
+}
+
+#triangle-up {
+	width: 0;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 16px solid #E1E1E1;
+	margin:auto;
+	cursor:pointer;
+}
+
+#triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right:8px solid transparent;
+	border-top: 16px solid #E1E1E1;
+	margin:auto;
+	cursor:pointer;
+}
+
+#votes {
+	font-size : 28px;
+	color : #C9C9C9;
+	margin: 2px auto;
+	font-weight:bold;
 }

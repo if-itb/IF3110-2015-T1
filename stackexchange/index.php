@@ -4,13 +4,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Simple StackExchange</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
-</head>
 
 <?php
 	$connect = mysql_connect("localhost","root","") or die ("Connection Error");
 	$selectdb = mysql_select_db("stackexchange", $connect);
 ?>
-
+<script type='text/javascript'>
+	function ConfirmDelete(id){
+    	var x = confirm("Are you sure you want to delete?");
+      	if(x){
+      	
+      }
+	}
+</script> 
+</head>
 <body>
 	<a href="index.php"><h1> Simple StackExchange </h1></a>
 	<div id="search-box"> 
@@ -36,7 +43,10 @@
                     echo ('<b>'.$row[6].'</b><br>Votes');
                 echo '</td>';
                 echo '<td rowspan="3" class="td-vote-answer">';
-                    echo '<b>0</b><br>Answers';
+					$answers = mysql_query("SELECT * FROM `answer` WHERE `id_question`='$row[0]' ORDER BY `votes` DESC",$connect);
+					$countanswer = mysql_num_rows($answers);
+                    echo ('<b>'.$countanswer.'</b><br>Answers');
+					
                 echo '</td>';
                 echo '<td class="td-topic">';
                     echo '<a href="question.php?id='.$row[0].'">';
@@ -59,7 +69,7 @@
 				
                 echo '<tr>';
                 echo '<td class="td-detail">';
-                    echo ('asked by <span class="username">'.$row[2].'</span>');
+                    echo ('asked by <span class="username">'.$row[2].'</span> | <a href="edit.php?id='.$row[0].'"><span class="edit"> Edit </span></a> | <a onclick="return ConfirmDelete();" href="delete.php?id='.$row[0].'"><span class="delete"> Delete </span></a>');
                 echo '</td>';
                 echo '</tr>';
             echo '</table>';
@@ -68,6 +78,9 @@
         ?>
 
 </div>    
-</body>
+<table id="credit"><tr><td id="credit-td">Copyright 2015 by Jessica Handayani - 13513069</td></tr></table>
 
+
+
+</body>
 </html>
