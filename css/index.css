@@ -1,0 +1,125 @@
+
+/*global styling*/
+*{
+	font-family:Arial;
+}
+
+/*specific styling*/
+#TopDiv{
+	text-align:center;
+}
+
+#AskHere{
+	text-decoration: none;
+	color:#FFCC00;
+}
+
+#SearchInput{
+	margin-left:90px;
+	width:600px;
+	height:25px;
+	border-color:black;
+	border-width: 3px;
+	font-size:15px;
+}
+
+#SearchButton{
+	margin-left:10px;
+	width:80px;
+	height:33px;
+	font-size:15px;
+	background-color:white;
+	border-color: black;
+	border-width: 3px;
+}
+
+#BottomDiv{
+	padding-left:100px;
+	padding-right:100px;
+}
+
+#QuestionList{
+	margin-left:100px;
+	margin-right:100px;
+	margin-top:15px;
+	font-size:17px;
+}
+
+#votes{
+	padding-left:25px;
+	float:left;
+	text-align:center;
+	margin-top:15px;
+}
+
+#answers{
+	padding-left:25px;
+	float:left;
+	text-align:center;
+	margin-top:15px;
+}
+
+#SubDiv{
+	float:left;
+	padding-left:25px;
+	color:black;
+}
+
+#topic{
+	text-decoration:none;
+	color:black;
+	font-size:120%;
+}
+
+#askedby{
+	float:right;
+	margin-right:5px;
+	margin-top:50px;
+}
+
+#name{
+	float:right;
+	margin-right:5px;	
+	margin-top:50px;
+	color:#9900CC;
+}
+
+#edit{
+	float:right;
+	margin-right:5px;
+	margin-top:50px;
+	color:#FFCC00;
+	text-decoration: none;
+}
+
+#delete{
+	float:right;
+	margin-top:50px;
+	color:#FF0000;
+	text-decoration: none;
+}
+
+.char{
+	float:right;
+	margin-top:50px;
+	margin-right:5px;
+}
+
+#separator{
+	margin-left:100px;
+	margin-right:100px;
+	margin-top:70px;
+}
+
+/* for search only */
+#noresult{
+	margin-left:100px;
+	margin-right:100px;
+}
+
+hr{
+	background-color:black;
+	height:3px;
+	border-width:0;
+	margin-top:30px;
+}
