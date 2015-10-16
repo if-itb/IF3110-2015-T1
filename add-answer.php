@@ -17,7 +17,7 @@
 	VALUES ('$id', '$name', '$email', '$content')";
 
 	if ($con->query($sql) === TRUE) {
-	    header('Location: http://127.0.0.1:8080/stack_exchange/show-answer.php?id='. $id);
+	    header('Location: show-answer.php?id='. $id);
 		exit;
 	} else {
 	    echo "Error: " . $sql . "<br>" . $con->error;

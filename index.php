@@ -9,10 +9,10 @@
 	if(isset($_GET['delete_id'])) 	{
 		$sql="DELETE FROM question WHERE id_question=".$_GET['delete_id'];
 		if ($con->query($sql) === TRUE) {
-		    header("Location: http://127.0.0.1:8080/stack_exchange/index.php");
+		    header("Location: index.php");
 		    $sql="DELETE FROM answer WHERE id_question=".$_GET['delete_id'];
 			if ($con->query($sql) === TRUE) {
-			    header("Location: http://127.0.0.1:8080/stack_exchange/index.php");
+			    header("Location: index.php");
 				exit;
 			} else {
 			    echo "Error deleting record: " . $con->error;
@@ -33,7 +33,7 @@
 	<script type="text/javascript">
 		function delete_id(id) {
 		     if(confirm('Are you sure to delete this question?')) {
-		        window.location.href='http://127.0.0.1:8080/stack_exchange/index.php?delete_id='+id;
+		        window.location.href='index.php?delete_id='+id;
 		     }
 		}
 		function validateForm() {

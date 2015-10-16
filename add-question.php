@@ -17,7 +17,7 @@
 	VALUES ('$name', '$email', '$topic', '$content')";
 
 	if ($con->query($sql) === TRUE) {
-	    header("Location: http://127.0.0.1:8080/stack_exchange/index.php");
+	    header("Location: index.php");
 		exit;
 	} else {
 	    echo "Error: " . $sql . "<br>" . $con->error;
