@@ -89,7 +89,17 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+- Melakukan validasi pada client-side
+Form melakukan perintah onsubmit yang memanggil fungsi validateForm dalam javascript. Fungsi ini akan melakukan pengecekan
+terhadap [document][name].value ,dll. tidak boleh = null atau ="". Setelah itu fungsi akan mengecek email dengan menggunakan regular
+expressiong berupa anystring@anystring.anystring Bila benar maka validasi akan dilanjutkan ke server side (php validation)
+Apabila validasi pertama gagal akan ditampilkan pesan bahwa masih ada bagian kosong. Apabila kesalahan terletak pada fungsi validasiEmail
+maka akan ditampilkan Invalid email 
+- Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
+Pertama buat sebuah button yang bila diklik akan memanggil sebuah fungsi javascript yang membuat sebuah XMLHTTPRequest untuk sebuah request
+ke vote.php yang bertugas melakukan penambahan vote pada ID question yang sesuai. Untuk downvote maka akan diakses downVote.php Sementara untuk
+melakukan vote up answer ke voteAnswer.php dan downVoteAnswer.php. XMLHTTPRequest akan menerima hasil dari php berupa sebuah text file. Kemudian
+akan dicari dalam document sebuah div yang bernama num_vote_question dan mengganti nilainya dengan nilai baru yang telah ditambah/dikurangi.
 
 ### Knowledge
 

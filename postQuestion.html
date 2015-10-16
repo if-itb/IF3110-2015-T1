@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ask Question</title>
+	<meta charset ="utf-8">
+	<link rel = "stylesheet" type = "text/css" href = "styles.css" />
+	<script type="text/javascript">
+		function validateEmail(email){
+			var re = /\S+@\S+\.\S+/;
+			return re.test(email);
+		}
+		function validateForm() {
+		    //Check if empty
+		    if (document.forms["Question"]["name"].value == null || document.forms["Question"]["name"].value == "" ||
+		        document.forms["Question"]["email"].value == null || document.forms["Question"]["email"].value == "" ||
+		        document.forms["Question"]["topic"].value == null || document.forms["Question"]["topic"].value == "" ||
+		        document.forms["Question"]["content"].value == null || document.forms["Question"]["content"].value == "") {
+		        alert("There is an Empty Field");
+		        return false;
+		    }
+		    //Check email
+		    else if(!validateEmail(document.forms["Question"]["email"].value)){
+		        alert("Incorrect email address");
+		        return false;
+		    }
+		}
+	</script>
+
+</head>
+<body>
+	<div id = "header">
+		<h1>SIMPLE STACK EXCHANGE</h1>
+	</div>
+	
+<div align ="center">
+	<h1>What is your Question?</h1>
+	<fieldset style="width:60%" ><legend>Question Form</legend> 
+	
+	<form method="POST" onsubmit="return validateForm()" action="postQuestion.php" name="Question" >
+	<table border="0" align ="left" width="100%">  
+		<tr> 
+			<td> <input type="text" name="name" placeholder="Name" style="width:90%"></td> 
+		</tr> 
+		<tr>  
+			<td><input type="text" name="email" placeholder="E-mail" style="width:90%"></td> 
+		</tr> 
+		<tr> 
+			<td><input type="text" name="topic" placeholder="Question Topic" style="width:90%"></td>
+		</tr> 
+		<tr>  
+			<td>
+				<textarea name="content" placeholder="Content" rows="5" cols="30" style="width:90%;font-size:20px"></textarea>
+			</td> 
+		</tr> 
+		<tr> 
+			<td align ="right"><input id="button" type="submit" name="submit" value="Post" style="width:10%" ></td> 
+		</tr> 
+	</table> 
+	</form> 
+	</fieldset>
+
+</div>
+
+</body>	
+</html>
