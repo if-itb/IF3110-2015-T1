@@ -47,8 +47,8 @@ if (!$result = $db -> query($query)) {
 	die ('Error query	 [' . $db->error . ']');
 }
 while ($row = $result->fetch_assoc()) {
-	if (strlen($row['Question']) > 50) {
-		$qcontent = substr($row['Question'], 0, 50) . '...';
+	if (strlen($row['Question']) > 20) {
+		$qcontent = substr($row['Question'], 0, 20) . '...';
 	}
 	else {
 		$qcontent = $row['Question'];

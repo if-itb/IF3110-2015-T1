@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 </head>
 <body>
 <div class = "maindiv">
-<h1>Simple StackExchange</h1>
+<h1><a href="index.php" id = "title">Simple StackExchange</a></h1>
 <br>
 <h2 class = "left">What's your question?</h2>
 <hr>
@@ -66,7 +66,7 @@ echo '<input type = "text" placeholder = " Email" name = "email" style = "width 
 echo '<input type = "text" placeholder = " Topic" name = "topic" style = "width : 100%" value = "' . $topic . '"><br><br>';
 echo '<textarea rows = "4" style = "width : 100%;" placeholder = " Content" name = "question">' . $question . '</textarea><br><br>';
 echo '<input type = "hidden" name = "askid" value = "' . $id . '">';
-echo '<div class = "right"><input type = "submit" style = "background-color : silver !important; width : 10%;" value = "Post"></div>';
+echo '<div class = "right"><input type = "submit" class = "submitpost" value = "Post"></div>';
 echo '</form>';
 
 $db->close();

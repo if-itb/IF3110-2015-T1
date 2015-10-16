@@ -58,6 +58,10 @@ tr:nth-last-child(2) td {
 	border-style : solid none solid none;
 }
 
+a {
+	text-decoration : none;
+}
+
 a.yellow {
 	color : #FFA000;
 }
@@ -100,4 +104,17 @@ textarea {
 	border : 2px solid black;
 	background-color : white;
 	font-size : 10pt;
+}
+
+img.vote {
+	cursor : pointer;
+}
+
+a#title {
+	color : black;
+}
+
+submit.submitpost {
+	background-color : silver !important;
+	width : 10%;
 }
