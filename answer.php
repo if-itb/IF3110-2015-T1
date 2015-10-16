@@ -45,7 +45,7 @@
 			<div class="question-vote-number">
 				<p id="votePoinQ<?php echo $id ;?>"><?php echo $vote ?></p>
 			</div>
-			<div class="-question-vote-down">
+			<div class="question-vote-down">
 				<p><a onclick="editVote('pertanyaan','-1','<?php echo $id ?>')">&#9660;</a></p>
 			</div>
 		</div>

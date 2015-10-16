@@ -46,6 +46,14 @@ textarea {
 	width:3%;
 }
 
+.question-vote-up {
+	cursor: pointer;
+}
+
+.question-vote-down{
+	cursor: pointer;
+}
+
 .question-vote p{
 	text-align: center;
 }
@@ -84,6 +92,14 @@ textarea {
 	margin-left: 1%;
 	width:3%;
 	text-align: center;
+}
+
+.answer-vote-up {
+	cursor: pointer;
+}
+
+.answer-vote-down{
+	cursor: pointer;
 }
 
 .answer-content{
