@@ -6,18 +6,14 @@ and open the template in the editor.
 -->
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <title>Home - Simple Stack Exchange</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-	<script type="text/javascript" src="js/jvs.js"></script>
-    </head>
-    <body>
-        
-        <?php require("php/database.php"); ?>
+         <?php require("php/database.php"); ?>
         
        
              
         <?php
+         $judul = '';
+            $search_q='';
+            $hh='';
             if (isset($_POST['aa'])&&isset($_POST['id_q'])) {
                 if ($_POST['aa'] == 'new') {
                     
@@ -27,17 +23,36 @@ and open the template in the editor.
                 //echo "home id : ",$_POST['id_q'];  
 	}
            
+            if(isset($_GET['search_q'])&&$_GET['search_q']!='') {
+                $search_q = $_GET['search_q'];
+                $questions = searchQuestion($search_q);
+                $judul="Search Result - '".$search_q."'";
+                $hh="Search Results";
+            } else {
+                $questions = getAllQuestion(); 
+                 $judul="Home - Simple Stack Exchange";
+                 $hh = "Recently Asked Questions";
+            } 
+        
         ?>
-             <?php  $questions = getAllQuestion(); ?>
+            
+        <meta charset="UTF-8">
+        <title><?php echo $judul ?></title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jvs.js"></script>
+    </head>
+    <body>
+        
+       
          <div id="Title">
             <a href="home.php"><h1 class="t">Simple StackExchange</h1></a>
         </div>
-        <form id="searchbox" action="">
-             <input id="search" type="text" placeholder="  Type any keyword here . . . ">
+        <form id="searchbox" method="GET" action="home.php?search_q=<?php echo $search_q ?>">
+             <input id="search" type="text" name="search_q" value="<?php echo $search_q ?>" placeholder="  Type any keyword here . . . ">
              <input id="submit" type="submit" value="Search">
         </form>
         <p>Cannot find what you are looking for ? <a href="askhere.php?id=0" ><as>Ask here</as></a></p>        
-        <div class="raq">Recently Asked Questions</div>
+        <div class="raq"><?php echo $hh ?></div>
         <div class="separator"></div>
         
        <?php foreach ($questions as $q) : ?>

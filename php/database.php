@@ -29,6 +29,20 @@ function getAllQuestion() {
     return $ret;
 }
 
+function searchQuestion($search_q) {
+     
+    global $conn;
+    
+    $sql = "SELECT * FROM question WHERE title LIKE '%$search_q%'; ";
+    $result = mysqli_query($conn, $sql);    
+    $ret = array();
+    while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+        $row['countans'] = countAnswer($row['id_q']) ;
+        $ret[] = $row;
+    }
+   
+    return $ret;
+}
 function countAnswer($id) {
     global $conn;
     
@@ -108,7 +122,7 @@ function getVote($src,$id) {
 
 function changeVote($src,$id,$num) {
     global $conn ;
-    echo $src,$id,$num;
+    
      if ($src=='q') {
        $sql="UPDATE question SET vote=(vote+$num) WHERE id_q=$id";
    }
@@ -116,5 +130,7 @@ function changeVote($src,$id,$num) {
        $sql="UPDATE answer SET vote=(vote+$num) WHERE id_a=$id";
    }
    $result=  mysqli_query($conn, $sql);
+   $num_v = getVote($src,$id);
+   echo $num_v;
    return $result;
 }

@@ -109,8 +109,8 @@ function voteUp(sr,id) {
     var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {                
-                location.reload();
-               
+                //window.location = window.location.href;
+				document.getElementById(id).innerHTML = xmlhttp.responseText;
             } 
         }
      xmlhttp.open("POST","vote.php",true);
@@ -123,13 +123,14 @@ function voteDown(sr,id) {
     var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {                
-               location.reload();
-               
+               //window.location = window.location.href;
+               document.getElementById(id).innerHTML = xmlhttp.responseText;
             } 
         }
      xmlhttp.open("POST","vote.php",true);
     xmlhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("num=-1&sr="+sr+"&id="+id);
+
  }
  
 

@@ -6,4 +6,6 @@
         changeVote($_POST['sr'],$_POST['id'],$_POST['num']);
         
     }
+	
+	
 ?>

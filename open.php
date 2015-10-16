@@ -39,8 +39,9 @@ and open the template in the editor.
             <div id="main">         
                <?php echo $q['content'] ;?>
             </div>
-            <div id="sidebar">         
-                <div id="vnum"><?php echo $q['vote'] ;?> </div> 
+            <div id="sidebar">
+			
+                <div id="vnum"><div id="<?php echo $q['id_q'] ?>"> <?php echo $q['vote'] ;?> </div> </div> 
                 <div id="vup">
                     <a href="javascript:voteUp('q',<?php echo $q['id_q'] ?>)" >
                     <img src="img/up.png" alt="Vote Up" style="width: 32px;height:32px">
@@ -67,7 +68,7 @@ and open the template in the editor.
                <?php echo $a['content'] ;?>
             </div>
             <div id="sidebar">         
-                <div id="vnum"><?php echo $a['vote'] ;?> </div> 
+                <div id="vnum"><div id="<?php echo $a['id_a'] ?>"> <?php echo $a['vote'] ;?> </div></div> 
                 <div id="vup"><a href="javascript:voteUp('a',<?php echo $a['id_a'] ?>)" >
                         <img src="img/up.png" alt="Vote Up" style="width: 32px;height:32px"></a>
                 </div>
