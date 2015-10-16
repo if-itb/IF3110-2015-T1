@@ -89,7 +89,22 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+**Validasi pada client side**
+Validasi pada client side dilakukan menggunakan javascript
+Pertama, saat user mengklik tombol post, fungsi validateQuestion() atau validateAnswer() akan dipanggil.
+Fungsi validateQuestion() atau validateAnswer() digunakan untuk melakukan validasi masukan.
+Akan mengembalikan true jika masukan valid, mengeluarkan alert jika tidak.
+Fungsi validateQuestion() atau validateAnswer() pertama akan mengecek apakah ada field yang kosong, jika ada maka masukan tidak valid.
+Kemudian fungsi tersebut akan memanggil fungsi validateEmail() yang bertugas untuk validasi format email menggunakan regex.
+
+**Menggunakan AJAX untuk menambah dan mengurangi vote**
+Saat pengguna mengklik tombol tambah atau kurang vote, fungsi 
+	addQuestionVote(s), subtractQuestionVote(s), addAnswerVote(s), atau subtractAnswerVote(s)
+akan dipanggil.
+Fungsi tersebut akan melakukan sebuah request.
+Kemudian sebuah php akan dijalankan untuk mengubah data vote di database.
+Kemudian fungsi tersebut akan menerima hasil request, yaitu data vote yang sudah diubah.
+Kemudian fungsi akan mengubah nilai elemen yang berisi vote pada view file, dengan nilai vote yang sudah diubah.
 
 ### Knowledge
 
