@@ -19,8 +19,6 @@
 			Cannot find what you are looking for? <a href='../askquestion.php' class='yellow'>Ask here</a>
 		</p>
 
-		<h2>Recently Asked Questions</h2>
-
 		<?php foreach($questions as $question): ?>
 			<div class='question'>
 			<div class='row'>
