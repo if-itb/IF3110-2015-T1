@@ -38,32 +38,34 @@
                     }
                     $row = mysqli_fetch_row($result);
                     $answer = $row[4];
+                    ?>
+                        <tr>
+                            <th colspan='2'><p id='title3'><?php echo $row[1]; ?></p></th>
+                        </tr>
 
-                        echo "<tr>";
-                            echo "<th colspan='2'><p id='title3'>".$row[1]."</p></th>";
-                        echo "</tr>";
+                        <tr>
 
-                        echo "<tr>";
+                        <td class='statistic2'>
+                            <img src='images/up.png' onclick='vote_up_question(<?php echo $id; ?> )' id='up_button_question'>
+                            <p id='total_votes2'><?php echo $row[3]; ?></p>
+                            <img src='images/down.png' onclick='vote_down_question(<?php echo $id; ?> )' id='down_button_question' >
+                        </td>
 
-                        echo "<td class='statistic2'>";
-                            echo "<img id='up_button_question' src='images/up.png' onclick='add_question_vote(". $id .")' >";
-                            echo "<p id='total_votes2'>".$row[3]."</p>";
-                            echo "<img id='down_button_question' src='images/down.png' onclick='substract_question_vote(". $id .")' >";
-                        echo "</td>";
+                        <td>
+                            <p id='question_content'><?php echo $row[2]; ?></p>
+                            <p id='username'>asked by <span id='name'><?php echo $row[0]; ?>
+                                </span> at <?php echo $row[5]; ?> | <a id='edit' href="edit_question.php?id=<?php echo $id; ?>" >edit</a> | 
+                                <a id= "delete"  onclick='confirm_delete_question()' href="delete_question.php?id=<?php echo $id; ?>">delete</a>
+                                </p>
+                        </td>
 
-                        echo "<td>";
-                            echo "<p id='question_content'>".$row[2]."</p>";
-                            echo "<p id='username'>asked by <span id='name'>".$row[0].
-                                 "</span> | <a id='edit' href=edit_question.php?id=".$id.">edit</a> | ".
-                                 '<a id= "delete" href=delete_question.php?id='.$id.' onclick="return confirmDelete()">delete</a>'.
-                                 "</p>";
-                        echo "</td>";
+                        </tr> 
 
-                        echo "</tr>"; 
+                        <tr>
+                            <th colspan='2'></th>
+                        </tr>
 
-                        echo "<tr>";
-                            echo "<th colspan='2'></th>";
-                        echo "</tr>";
+                    <?php
 
                 if ($answer > 0) {    
                     $query2 =  "SELECT email, content, vote, date, answerID FROM answer WHERE questionID = '$id'";
@@ -74,31 +76,37 @@
                         die('Gagal ambil data: '.mysql_error());
                     }
 
-                        echo "<tr>";
-                            echo "<th colspan='2'><p id='title3'>".$answer." Answer"."</p></th>";
-                        echo "</tr>";
+                    ?>
+
+                        <tr>
+                            <th colspan='2'><p id='title3'><?php echo $answer; ?> Answer</p></th>
+                        </tr>
+
+                    <?php
 
                     while($row = mysqli_fetch_row($result)) {
-                        
+                        ?>
 
-                        echo "<tr>";
+                        <tr>
 
-                        echo "<td class='statistic2'>";
-                            echo "<img id='up_button_answer' src='images/up.png' onclick='add_answer_vote(". $row[4] .") >";
-                            echo "<p id='total_votes3".$row[4]."'>".$row[2]."</p>";
-                            echo "<img id='down_button_answer' src='images/down.png' onclick='substract_answer_vote(". $row[4] .")' >";
-                        echo "</td>";
+                        <td class='statistic2'>
+                            <img src='images/up.png' onclick='vote_up_answer(<?php echo $row[4]; ?>)' id='up_button_answer' >
+                            <p id='total_votes3<?php echo $row[4]; ?>'><?php echo $row[2]; ?></p>
+                            <img src='images/down.png' onclick='vote_down_answer(<?php echo $row[4]; ?>)' id='down_button_answer'>
+                        </td>
 
-                        echo "<td>";
-                            echo "<p id='question_content'>".$row[1]."</p>";
-                            echo "<p id='username'>answered by <span id='name'>".$row[0]."</span>"." at ".$row[3]."</p>";
-                        echo "</td>";
+                        <td>
+                            <p id='question_content'><?php echo $row[1]; ?></p>
+                            <p id='username'>answered by <span id='name'> <?php echo $row[0]; ?></span> at <?php echo $row[3]; ?></p>
+                        </td>
 
-                        echo "</tr>"; 
+                        </tr> 
 
-                        echo "<tr>";
-                            echo "<th colspan='2'></th>";
-                        echo "</tr>";
+                        <tr>
+                            <th colspan='2'></th>
+                        </tr>
+
+                        <?php
                     }
                 }
                            
@@ -108,7 +116,7 @@
 
     	<div class="answer_question">
             <p id="title">Your Answer</p>
-    		  <form name= "answer_form" id="form" method="POST" onsubmit="return validate_answer_form()">
+    		  <form name= "answer_form" id="form" method="POST" onsubmit="return validate_answer_form()"/>
     		      <input type="text" name="name" placeholder ="   Name "id="name" />
     		      <input type="text" name="email" placeholder="   Email" id="email" />
     		      <textarea name="content" placeholder="   Content" id="content"></textarea> 
