@@ -81,9 +81,15 @@
 		if (mysqli_num_rows($result) > 0) {
 		    // output data of each row
 		    while($row = mysqli_fetch_assoc($result)) {
+		    	$button_up =
+		    		"<div class='block-QA'>" . "<div class='bQA-vote'>" . "<button type='button' onclick='loadDoc()'>Change Content</button>"
+		    		;
 		    	$question_content_vote = 
-		    		"<div class='block-QA'>" . "<div class='bQA-vote'>" 
-		    		. $row['vote'] . "<br>" . " Votes" . "</div>"
+		    		"<br>"
+		    		. $row['vote'] . "<br>"
+		    		;
+		    	$button_down =
+		    		"<button type='button' onclick='loadDoc()'>Change Content</button>" . "</div>"
 		    		;
 		    	$question_content_content = 
 		    		"<div class='bQA-content'>" . $row['content'] . "</div>"
@@ -92,7 +98,7 @@
 		    		"<div class='bQA-identity'>" 
 		    		. "answered by " . $row['email'] . " at " . "08.00 7/10/1996" . "</div>" . "</div>"
 		    		;
-		    	$question_content_all = $question_content_vote . $question_content_content . $question_content_email . $border;
+		    	$question_content_all = $button_up . $button_down . $question_content_vote . $question_content_content . $question_content_email . $border;
 
 		    	echo $question_content_all;
 		    }
