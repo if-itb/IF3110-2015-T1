@@ -6,9 +6,9 @@
 </head>
 <body>
 <h1>Simple Stack Exchange</h1>
- <form name="SearchQuestion">
-	<input id="SearchBox" type="text" placeholder="Search..." required">
-	<input id="SubmitButton "type="button" value="Search"><br>
+ <form name="SearchQuestion" action="search.php" method="post">
+	<input id="SearchBox" type="text" name= "SearchBox" placeholder="Search..." required">
+	<input id="SubmitButton" type="submit" value="Search"><br>
 </form>
 	<p id="p1">Cannot find what you are looking for?
 	<a href="wbd2.php" style="color:yellow">Ask here</a></p>
