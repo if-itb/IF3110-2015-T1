@@ -37,9 +37,9 @@
                 <div class="isipertanyaan"><?php echo $row["content"]; ?></div>
                 <div class="footerpertanyaan">asked by: <a href="mailto:<?php echo $row["email"]; ?>"><span class="namanya"><?php echo $row["email"]; ?></span></a> at <?php echo $row["datetime"];?> | <form action="edit.php" method="post" class="editnya">            
                 <input type="hidden" name="idnya" value="<?php echo $row["qid"] ?>">
-                <span class="buttonlink"><button type="submit">edit</button></span>
+                <div class="buttonlink"><button type="submit">edit</button></div>
             </form>
-            |  <a href="delete.php?qid=<?php echo $row["qid"];?>" onclick="hapusquestion()" class="deletenya">delete</a>
+            |  <a href="delete.php?qid=<?php echo $row["qid"];?>" onclick="return confirm('Yakin mau didelete?')" class="deletenya">delete</a>
                 </div>
             </div>
     </div>
@@ -85,7 +85,7 @@
     ?> 
     <h2 class="anstitle">Let's Answer This Question?</h2>
         <div id="askbar">
-            <form method="post" action="answers.php?id=<?php echo $id; ?>" name="form2" onsubmit="return validateForm()">
+            <form method="post" action="answers.php?id=<?php echo $id; ?>" name="form2" onsubmit="return validateAnsForm()">
                 <input type="text" name="Name" placeholder="nama" class="inputask" id="asknama">
                 <input type="email" name="email" placeholder="email" class="inputask">
                 <textarea rows="4" columns="30" type="text" name="content" placeholder="content" class="inputask" id="contentpost"></textarea>

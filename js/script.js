@@ -21,10 +21,6 @@ function votingans(qid, idnya) {
         xmlhttp.send();
 }
 
-function hapusquestion() {
-    confirm("Yakin mau didelete?");
-}
-
 function seredirect() {
         window.location.href = "index.php"
         

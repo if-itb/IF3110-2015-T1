@@ -204,7 +204,9 @@ p {
 }
 
 .votecount {
-    display: inline;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 15px;
 }
 
 #votecountans {
@@ -212,6 +214,7 @@ font-family: Dinpro;
     font-size: 25px;
     margin-left: 6%;
     display: grid;
+    text-align: center;
 }
 .votebuttup {
     display: inline-block;
@@ -235,7 +238,7 @@ font-family: Dinpro;
     font-size: 25px;
     margin-left: 6%;
     display: grid;
-    
+    text-align: center;
 }
 .questiontopic {
 	z-index: 100;
@@ -269,10 +272,6 @@ font-family: Dinpro;
 
 .anstitle {
     border-bottom: 1px solid #000;
-    right: 10%;
-    position: relative;
-    margin-left: 10%;
-    margin-right: -10%;
 }
 
 .angka {
@@ -333,7 +332,6 @@ font-family: Dinpro;
     display: inline-block;
     width:80%;
     font-family: Ubuntu;
-    margin-top: -5%;
 }
 
 .footerpertanyaan {

@@ -82,7 +82,7 @@
                 <input type="hidden" name="idnya" value="<?php echo $row["qid"] ?>">
                 <div class="buttonlink"><button type="submit">edit</button></div>
             </form>
-            |  <a href="delete.php?qid=<?php echo $row["qid"];?>" onclick="hapusquestion()" class="deletenya">delete</a>
+            |  <a href="delete.php?qid=<?php echo $row["qid"];?>" onclick="return confirm('Yakin mau didelete?')" class="deletenya">delete</a>
         </div>
 
     </div>
