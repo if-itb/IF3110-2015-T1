@@ -21,7 +21,7 @@
 
 	// Need for validation 
 	$controllers = array('thread' => ['home', 'detail', 'form', 'post', 'formUpdate', 'update', 'upvote', 'downvote', 'delete', 'error'],
-											 'answer' => ['upvote', 'downvote']);
+											 'answer' => ['upvote', 'downvote', 'post']);
 
 	if (array_key_exists($controller, $controllers)) {
 		if (in_array($action, $controllers[$controller])) {

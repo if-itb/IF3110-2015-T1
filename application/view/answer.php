@@ -31,10 +31,10 @@
 </div>
 
 <div class="form" id="answer-form">
-	<form action="" method="POST">
+	<form action="?controller=answer&action=post&query=<?php echo $answer->thread_id; ?>" method="POST">
 		<input type="text" name="user_name" id="user_name" placeholder="Name">
 		<input type="email" name="user_email" id="user_email" placeholder="Email">
-		<textarea name="thread_content" id="thread_content" rows="10" placeholder="Content"></textarea>
+		<textarea name="answer_content" id="answer_content" rows="10" placeholder="Content"></textarea>
 		<input type="submit" id="submit" value="Post">
 	</form>
 </div>
