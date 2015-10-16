@@ -89,7 +89,11 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+- Validasi
+Validasi pada client-side menggunakan fungsi javascript yaitu validateQuestion() yang digunakan saat menambah/mengedit pertanyaan dan validateAnswer() yang digunakan saat menambah jawaban. Validasi dilakukan dengan mengecek isi tiap bagian input pada form. Untuk input type text, isi dari form diambil menggunakan document.forms["namaform"]["namainput"].value, sedangkan untuk textarea diambil isinya menggunakan document.getElementById("id-textarea").value. Jika ada salah satu bagian yang kosong (valuenya bernilai empty string atau null), fungsi akan memberikan alert kepada user untuk mengisi bagian tersebut lalu return false sehingga data form tidak jadi dikirimkan. 
+Apabila seluruh bagian telah diisi, dilakukan validasi bagian email menggunakan regular expression berikut /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/ untuk memastikan bahwa email yang dimasukkan berupa bentuk email yang valid.
+- AJAX
+Saat pengguna klik tombol vote, akan dipanggil fungsi vote pada javascript dengan parameter id, vote (-1 untuk downvote dan 1 untuk upvote), dan db ("questions"/"answers"). Dalam fungsi tersebut, dibuat sebuah objek XMLHttpRequest yang membuka koneksi ke "vote.php" dengan passing parameter id, vote, dan db secara "GET". File PHP tersebut akan mengubah q_votes atau a_votes pada database sesuai dengan id, jenis vote, dan jenis database yang didapatkan di URL, lalu mengembalikan nilai votesnya setelah diupdate. Hasil ini akan menggantikan isi elemen (angka vote) yang sesuai pada HTML.
 
 ### Knowledge
 
