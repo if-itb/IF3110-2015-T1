@@ -4,11 +4,12 @@
 	$questionId = $_POST["questionId"];
 	$answerer = $_POST["answerer"];
 	$content = $_POST["content"];
+	$email = $_POST["email"];
 
 	//Well, seems like this is prone to SQL injection
 	$sql = "
-		INSERT INTO answer(questionId, content, answerer, date)
-		VALUES ($questionId, \"$content\", \"$answerer\", CURDATE())
+		INSERT INTO answer(questionId, content, answerer, email)
+		VALUES ($questionId, \"$content\", \"$answerer\", \"$email\")
 	";
 
 	//Insert answer

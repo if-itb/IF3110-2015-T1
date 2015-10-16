@@ -14,7 +14,7 @@
 	$question = $question[0];
 
 	$sql = "
-		SELECT answerId, votes, content, answerer, date 
+		SELECT answerId, votes, content, answerer, email, time 
 		FROM answer
 		WHERE answer.questionId = $questionId";
 

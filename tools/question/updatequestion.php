@@ -5,11 +5,12 @@
 	$asker = $_POST["asker"];
 	$topic = $_POST["topic"];
 	$content = $_POST["content"];
+	$email = $_POST["email"];
 
 	//Well, seems like this is prone to SQL injection
 	$sql = "
 		UPDATE question
-		SET topic=\"$topic\", content=\"$content\", asker=\"$asker\"
+		SET topic=\"$topic\", content=\"$content\", asker=\"$asker\", email=\"$email\"
 		WHERE questionId = $questionId
 	";
 

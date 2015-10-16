@@ -29,7 +29,7 @@
 				<div class='col-8'>
 					<p><?php echo $question['content']?></p>
 					<p class='right'>
-						asked by <span class='name'><?php echo $question["asker"]?></span> at <?php echo $question["date"]?> | 
+						asked by <span class='name'><?php echo $question["email"]?></span> at <?php echo $question["time"]?> | 
 						<a href='#' onclick="editQuestion(<?php echo $questionId; ?>)">edit</a> | 
 						<a href='#' onclick="deleteQuestion(<?php echo $questionId; ?>)">delete</a>
 					</p>
@@ -49,7 +49,7 @@
 					<div class='col-8'>
 					<p><?php echo $answer["content"]?></p>
 						<p class='right'>
-						answered by <span class='name'><?php echo $answer["answerer"] ?></span> at <?php echo $answer["date"]?>
+						answered by <span class='name'><?php echo $answer["email"] ?></span> at <?php echo $answer["time"]?>
 						</p>
 					</div>
 				</div>

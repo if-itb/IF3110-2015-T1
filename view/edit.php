@@ -12,7 +12,6 @@
 		<div>&nbsp;</div>
 		<h1>What's your question?</h1>
 		<hr>
-
 		<form name='askForm' action='tools/question/updatequestion.php' 
 		  method = 'post' onsubmit="return validateAskForm()">
 		  	<input type="hidden" name="questionId" value="<?php echo $question["questionId"];?>">
