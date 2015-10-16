@@ -62,6 +62,13 @@
 			else{
 				$answer = "Answer";
 			}
+			if(strlen($row['content']) <=300){
+				$content = $row['content'];
+			}
+			else{
+				$content = substr($row['content'], 0, 300)."...";
+			}
+
 			echo
 	    		"<div class='block-question'>"
 	    			."<div class='bquestion-vote'>" 
@@ -79,7 +86,7 @@
 	    					.$row['topic']
 	    				."</a>"
 	    				."<br>"
-	    				.$row['content']
+	    				. $content
 	    				."<br><br>"
 	    			."</div>"
 	    			."<div class='bquestion-identity'>" 

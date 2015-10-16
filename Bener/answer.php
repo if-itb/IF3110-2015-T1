@@ -28,7 +28,7 @@
 	if (isset($_GET['question_id'])){
 		//for the question
 		$question_id = mysqli_real_escape_string($conn, $_GET["question_id"]);
-		$sql = "SELECT question_id, vote, topic, content, email FROM Question WHERE question_id = $question_id";
+		$sql = "SELECT question_id, vote, topic, content, email, time FROM Question WHERE question_id = $question_id";
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_assoc($result);
 		echo 
@@ -56,7 +56,7 @@
 					."asked by "
 					.$row['email']
 					." at "
-					."08.00 7/10/1996" 
+					.$row['time'] 
 					." | "
 					."<a id='color-orange' href=# onclick='editconfirm(".$row['question_id'].")'" ."'>"
 					."edit"
@@ -88,7 +88,7 @@
 			;
 		echo $answer_count . $border;
 		//for the answer
-		$sql = "SELECT answer_id, vote, content, email FROM Answer
+		$sql = "SELECT answer_id, vote, content, email, time FROM Answer
 		WHERE question_id = $question_id";
 		$result = mysqli_query($conn, $sql);
 
@@ -112,7 +112,10 @@
 							."<br><br>"
 						."</div>"
 		    			."<div class='bQA-identity'>" 
-		    				."answered by " . $row['email'] . " at " . "08.00 7/10/1996"
+		    				."answered by "
+		    				.$row['email']
+		    				." at "
+		    				.$row['time']
 		    			."</div>"
 		    		."</div>"
 		    		."<hr class='line'>"
