@@ -16,6 +16,18 @@
 	width:500px;
 }
 
+.yellow, .red{
+	text-decoration: none;
+}
+
+.yellow{
+	color: #CDD40F;
+}
+
+.red{
+	color: #F71505;
+}
+
 .question, .answer{
 	border-top: solid 2px;
 }

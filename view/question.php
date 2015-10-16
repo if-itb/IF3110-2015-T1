@@ -30,8 +30,8 @@
 					<p><?php echo $question['content']?></p>
 					<p class='right'>
 						asked by <span class='name'><?php echo $question["email"]?></span> at <?php echo $question["time"]?> | 
-						<a href='#' onclick="editQuestion(<?php echo $questionId; ?>)">edit</a> | 
-						<a href='#' onclick="deleteQuestion(<?php echo $questionId; ?>)">delete</a>
+						<a href='#' class='yellow' onclick="editQuestion(<?php echo $questionId; ?>)">edit</a> | 
+						<a href='#' class='red' onclick="deleteQuestion(<?php echo $questionId; ?>)">delete</a>
 					</p>
 				</div>
 			</div>

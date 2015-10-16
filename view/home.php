@@ -14,7 +14,7 @@
 		</div>
 
 		<p class='center'>
-			Cannot find what you are looking for? <a href='../askquestion.php'>Ask here</a>
+			Cannot find what you are looking for? <a href='../askquestion.php' class='yellow'>Ask here</a>
 		</p>
 
 		<h2>Recently Asked Questions</h2>
@@ -38,8 +38,8 @@
 					</p>
 					<p class='right'>
 					asked by <span class="name"><?php echo $question["asker"]; ?></span> | 
-					<a href='#' onclick = "editQuestion(<?php echo $question["questionId"]; ?>)">edit</a> | 
-					<a href='#' onclick = "deleteQuestion(<?php echo $question["questionId"]; ?>)" >delete</a>
+					<a href='#' class='yellow' onclick = "editQuestion(<?php echo $question["questionId"]; ?>)">edit</a> | 
+					<a href='#' class='red' onclick = "deleteQuestion(<?php echo $question["questionId"]; ?>)" >delete</a>
 					</p>
 				</div>
 			</div>
