@@ -19,9 +19,9 @@
   </div>
   <div id = "content">
     <center>
-      <form action="showDataBase.php">
-        <input type ="textbox" id="searchbox">
-        <button>Search</button> 
+      <form action="search.php" method="GET">
+        <input type ="textbox" id="searchbox" name="search">
+        <button type="submit">Search</button> 
       </form>
       <h2>Have Question? <a href="postQuestion.html">Ask Here</a></h2>
     </center>
