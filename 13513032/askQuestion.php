@@ -48,7 +48,7 @@
 			}
 		?>
 
-		<form <?php echo "action='".$action."'"; ?> method="post">
+		<form <?php echo "action='".$action."'"; ?> method="post" name="questionForm" onsubmit="return !!(validateQuestionForm('questionForm', 'questionName', 'questionTopic', 'questionContent') & validateEmail('questionEmail'))">
 			<input class="askQuestionData" name="questionName" placeholder="Name" type="text" <?php echo "value='".$nameValue."'"; ?>></input>
 			<input class="askQuestionData" name="questionEmail" placeholder="Email" type="text" <?php echo "value='".$emailValue."'"; ?>></input>
 			<input class="askQuestionData" name="questionTopic" placeholder="Question Topic" type="text" <?php echo "value='".$topicValue."'"; ?>></input>
@@ -60,5 +60,6 @@
 			mysqli_close($connection);
 		?>
 
+		<script src="script.js"></script>
 	</body>
 </html>

@@ -38,9 +38,9 @@
 
 		<h1><a href="index.php" style="color:black">Simple StackExchange</a></h1>
 		
-		<form class="center">
-			<input id="searchBox" type="text"></input>
-			<input id="searchButton" type="button" value="Search"></input>
+		<form class="center" name="searchForm" onsubmit="return validateSearchForm('searchForm', 'searchBox')">
+			<input id="searchBox" name="searchBox" type="text"></input>
+			<input id="searchButton" type="submit" value="Search"></input>
 		</form>
 
 		<div class="center" style="margin-top:6px">

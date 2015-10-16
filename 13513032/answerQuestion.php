@@ -56,7 +56,7 @@
 		<p class="questionBoundary"></p>
 
 		<p style="margin-top:0px">
-			<voteupdown>&#9650 <?php echo $questionResult["questionvotes"] ?> &#9660</voteupdown>
+			<voteupdown style="color:lightgray">&#9650 <span style="color:gray"><?php echo $questionResult["questionvotes"] ?></span> &#9660</voteupdown>
 			<content><?php echo $questionResult["questioncontent"] ?></content>
 		</p>
 
@@ -70,7 +70,7 @@
 			while ($answerResult = mysqli_fetch_assoc($answerResults)) {
 				echo "<p class='questionBoundary'></p>
 				<p style='margin-top:0px'>
-					<voteupdown>&#9650 ".$answerResult["answervotes"]." &#9660</voteupdown>
+					<voteupdown style='color:lightgray'>&#9650 <span style='color:gray'>".$answerResult["answervotes"]."</span> &#9660</voteupdown>
 					<content>".$answerResult["answercontent"]."</content>
 				</p>
 
@@ -80,9 +80,9 @@
 		?>
 		
 		<p class="questionBoundary"></p>
-		<h2 style="margin-top:15px"><span style="color:grey">Your Answer</span></h2>
+		<h2 style="margin-top:15px"><span style="color:gray">Your Answer</span></h2>
 
-		<form <?php echo "action='answerQuestion.php?id=".$questionResult["questionid"]."'" ?> method="post" style="margin-top:-7px">
+		<form <?php echo "action='answerQuestion.php?id=".$questionResult["questionid"]."'" ?> method="post" name="answerForm" onsubmit="return !!(validateAnswerForm('answerForm', 'answerName', 'answerContent') & (validateEmail('answerEmail')))" style="margin-top:-7px">
 			<input class="askQuestionData" name="answerName" placeholder="Name" type="text"></input>
 			<input class="askQuestionData" name="answerEmail" placeholder="Email" type="text"></input>
 			<textarea name="answerContent" placeholder="Content" rows="9"></textarea>
