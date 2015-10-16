@@ -88,9 +88,18 @@ Validasi **wajib** dilakukan pada *client-side*, dengan menggunakan **javascript
 Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi pertanyaan`.
 
 ### Penjelasan Teknis
-
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
-
+   - Melakukan validasi pada client-side
+		Validasi form dilakukan dengan membuat fungsi javascript yang akan digunakan pada file php. 
+		Fungsi - fungsi yag dibuat untuk validasi form adalah ValidasiForm, ValidasiFormJawaban, ValidateEmail. 
+		Tag form dalam php menjalankan fungsi ValidasiForm untuk form pada ask.php dan ValidasiFormJawaban untuk form pada showanswer.php ValidateEmail akan dijalankan pada kedua fungsi tersebut untuk mengecek apakah input yang dimasukkan pengguna pada email sesuai atau tidak.
+		Pada fungsi validasi form, pertama kita mengecek apakah input nama sudah diisi atau belum, jika belum funsi tersebut akan alert. sebaliknya jika tidak dilanjutkan dengan mengecek input email dan seterusnya.
+   - Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
+		pada saat pengguna menekan tombol vote. funsi vote javascript akan dijalankan. 
+		selanjutnya, fungsi vote tersebut menerima 4 parameter, parameter pertama str1 berisi id berupa No pertanyaan, parameter kedua str2 berisi type berupa apakah vote tersebut dari vote pertanyaan atau jawaban, parameter 3 str3 berisi arah berupa arah tombol yang di klik, parameter4 str4 berisi idjawaban berupa nomor jawaban.
+		no jawaban akan berisi 0 jika bote dari pertanyaan dan berisi nomor jawaban jika vote dari jawaban.
+		setelah itu, fungsi tersebut akan membuka vote.php dengan beberapa GET dari parameter - parameter yang diterima fungsi tersebut.
+		vote.php akan menentukan query yang sesuai untuk menambahkan atribut jumlah dari tabel question atau answer.
+		
 ### Knowledge
 
 Untuk meringankan beban tugas ini, ada berberapa keyword yang bisa anda cari untuk menyelesaikan tugas ini.
