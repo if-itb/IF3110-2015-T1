@@ -1,0 +1,174 @@
+body {
+	text-align: left;
+	margin-right: 150px;
+	margin-left: 150px;
+}
+
+h1 {
+	text-align: center;
+	padding-bottom: 3%;
+}
+
+h2 {
+	border-bottom-style: solid;
+	padding-bottom: 5px;
+}
+
+p {
+
+}
+
+textarea:focus + label {
+	display:none;
+}
+
+input {
+	display: block;
+	padding-left: 4px;
+	margin-bottom: 5px;
+}
+
+input[type="text"]{
+	width: 100%;
+}
+
+textarea {
+	display: block;
+	padding-left: 4px;
+	width: 100%;
+	height: 4em;
+	margin-bottom:5px;
+}
+
+input[type="submit"]{
+	float: right;
+}
+
+.votediv,.postdiv{
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+}
+
+.votediv,.anscountdiv,.postdiv{
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+}
+
+.votediv{
+	width: 50px;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 50%;
+}
+
+.votediv p{
+	line-height: 40%
+}
+
+.vote-up-off{
+	display: block;
+	color: transparent;
+	width: 40px;
+	height: 25px;
+	padding-bottom: 5px;
+	background: url("images/upvote.svg") no-repeat top;
+}
+.vote-down-off{
+	display: block;
+	color: transparent;
+	width: 40px;
+	height: 25px;
+	padding-top: 5px;
+	background: url("images/downvote.svg") no-repeat bottom;
+}
+
+.anscountdiv{
+	width: 42px;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 50%;
+}
+
+.anscountdiv p{
+	line-height: 40%
+}
+
+.postdiv{
+	
+}
+
+.footer{
+	text-align: right;
+}
+
+.answerContainer{
+	border-bottom-style: solid;
+	margin-bottom:5px;
+	padding-bottom: 5px;
+}
+
+.questionContainer{
+	border-bottom-style: solid;
+	margin-bottom:5px;
+	padding-bottom: 5px;
+}
+
+
+.questionContainer .postdiv p a{
+	text-decoration: none;
+	color: black;
+}
+
+.answerFormContainer h2 {
+	color: DarkGray;
+	border-bottom-style: none;
+}
+
+.editlink {
+	color: yellow;
+	text-decoration: none;
+}
+
+.deletelink {
+	color: red;
+	text-decoration: none;
+}
+
+.search-container{
+	text-align: center;
+	display: block;
+	width: 100%;
+}
+
+.search-container input[name="searchquery"]{
+	text-align: center;
+	display: inline-block;
+	width: 85%;
+}
+
+.search-container input[type="submit"]{
+	float: none;
+	text-align: center;
+	display: inline-block;
+	width: 50px;
+}
+
+.cannotfindthenask-container{
+	text-align: center;
+}
+
+.cannotfindthenask-container a{
+	color: yellow;
+	text-decoration: none;
+}
+
+.authornamedisp {
+	color: blue;
+}
+
+ul{
+	list-style-type:none;
+	padding-left: 0;
+}
