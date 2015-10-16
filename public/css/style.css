@@ -148,6 +148,7 @@ table {
 .upvote > img {
 	width: 20px;
 	height: 20px;
+	cursor: pointer;
 }
 
 .votes {
@@ -160,6 +161,7 @@ table {
 .downvote > img {
 	width: 20px;
 	height: 20px;
+	cursor: pointer;
 }
 
 #title {
@@ -185,6 +187,7 @@ table {
 	border-width: 3px;
 	background: none;
 	border-radius: 5px;
+	cursor: pointer;
 }
 
 #search {

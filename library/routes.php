@@ -19,9 +19,9 @@
 			$controller->{ $action }($query);
 	}
 
-	// Need for validation (belum lengkap)
-	$controllers = array('thread' => ['home', 'detail', 'form', 'post', 'formUpdate', 'update', 'delete', 'error'],
-											 'answer' => ['show']);
+	// Need for validation 
+	$controllers = array('thread' => ['home', 'detail', 'form', 'post', 'formUpdate', 'update', 'upvote', 'downvote', 'delete', 'error'],
+											 'answer' => ['upvote', 'downvote']);
 
 	if (array_key_exists($controller, $controllers)) {
 		if (in_array($action, $controllers[$controller])) {

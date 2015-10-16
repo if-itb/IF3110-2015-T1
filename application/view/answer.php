@@ -9,9 +9,9 @@
 		<table>
 			<tr>
 				<td class="vote">
-					<div class="upvote"><img src="<?php echo URL; ?>/public/img/upvote.png" alt="up"></div>
-					<div class="votes"><?php echo $answer->n_vote; ?></div>
-					<div class="downvote"><img src="<?php echo URL; ?>/public/img/downvote.png" alt="down"></div>
+					<div class="upvote" onclick="answerVoteUp(<?php echo URL; ?>,<?php echo $answer->id; ?>)"><img src="<?php echo URL; ?>/public/img/upvote.png" alt="up"></div>
+					<div class="votes" id="<?php echo answer . $answer->id; ?>" ><?php echo $answer->n_vote; ?></div>
+					<div class="downvote" onclick="answerVoteDown(<?php echo URL; ?>,<?php echo $answer->id; ?>)"><img src="<?php echo URL; ?>/public/img/downvote.png" alt="down"></div>
 				</td>
 				<td class="answer-content">
 					<?php echo $answer->content; ?> 

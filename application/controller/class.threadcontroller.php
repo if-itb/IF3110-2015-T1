@@ -42,6 +42,16 @@
 			header("Location: index.php");
 		}
 
+		public function upvote() {
+			$id = $_POST['params'];
+			Thread::upvote($id);
+		}
+
+		public function downvote() {
+			$id = $_POST['params'];
+			Thread::downvote($id);
+		}
+
 		public function delete($queryString) {
 			Thread::delete($queryString);
 			header("Location: index.php");

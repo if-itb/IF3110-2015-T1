@@ -7,9 +7,9 @@
 	<table>
 		<tr>
 			<td class="vote">
-				<div class="upvote"><img src="<?php echo URL; ?>/public/img/upvote.png" alt="up"></div>
-				<div class="votes"><?php echo $thread->n_vote; ?></div>
-				<div class="downvote"><img src="<?php echo URL; ?>/public/img/downvote.png" alt="down"></div>
+				<div class="upvote" onclick="threadVoteUp(<?php echo URL; ?>,<?php echo $thread->id; ?>)"><img src="<?php echo URL; ?>/public/img/upvote.png" alt="up"></div>
+				<div class="votes" id="votes"><?php echo $thread->n_vote; ?></div>
+				<div class="downvote" onclick="threadVoteDown(<?php echo URL; ?>,<?php echo $thread->id; ?>)"><img src="<?php echo URL; ?>/public/img/downvote.png" alt="down"></div>
 			</td>
 			<td id="question-content">
 				<?php echo $thread->content; ?> 

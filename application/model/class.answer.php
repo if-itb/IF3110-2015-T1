@@ -27,5 +27,25 @@
 
 			return $list;
 		}
+
+		public static function upvote($id) {
+			$db = Connection::getInstance();
+			$sql = "UPDATE sse_answer
+							SET n_vote = n_vote + 1
+							WHERE answer_id=?";
+
+			$statement = $db->prepare($sql);
+			$statement->execute(array($id));
+		}
+
+		public static function downvote($id) {
+			$db = Connection::getInstance();
+			$sql = "UPDATE sse_answer
+							SET n_vote = n_vote - 1
+							WHERE answer_id=?";
+
+			$statement = $db->prepare($sql);
+			$statement->execute(array($id));
+		}
 	}
 ?>

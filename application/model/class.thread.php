@@ -71,6 +71,26 @@
 			$statement->execute(array($username, $email, $topic, $content, $id));
 		}
 
+		public static function upvote($id) {
+			$db = Connection::getInstance();
+			$sql = "UPDATE sse_thread
+							SET n_vote = n_vote + 1
+							WHERE thread_id=?";
+
+			$statement = $db->prepare($sql);
+			$statement->execute(array($id));
+		}
+
+		public static function downvote($id) {
+			$db = Connection::getInstance();
+			$sql = "UPDATE sse_thread
+							SET n_vote = n_vote - 1
+							WHERE thread_id=?";
+
+			$statement = $db->prepare($sql);
+			$statement->execute(array($id));
+		}
+
 		public static function delete($id) {
 			$db = Connection::getInstance();
 			$sql = "DELETE FROM sse_thread WHERE thread_id = :id";
