@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Submitting Question </title>
+		<title> Submitting Answer </title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
@@ -20,7 +20,12 @@
 				die('Could not connect: ' . mysql_error());
 			}
 			
-			$sql1 = "SELECT MAX(ID) from `questions`";
+			$name = $_POST['name'];
+			$email = $_POST['email'];
+			$questionID = $_POST['id'];
+			$content = $_POST['content'];			
+			
+			$sql1 = "SELECT MAX(ID) from `answers`";
 			
 			$result = mysqli_query($conn, $sql1);
 			if ($row = $result->fetch_assoc()) {
@@ -29,14 +34,8 @@
 				echo "Error: " . $sql1 . "<br>" . mysqli_error($conn);
 			}
 			
-			$name = $_POST['name'];
-			$email = $_POST['email'];
-			$topic = $_POST['topic'];
-			$content = $_POST['content'];			
-			
-			$sql = "INSERT INTO `question_answers`.`questions` (`ID`, `Name`, `Email`, `Topic`, `Content`, `Date`, `Vote`) 
-			VALUES (" . $ID . ", '" . $name . "', '" . $email . "', '" . $topic . "', '" . $content . "', CURRENT_TIMESTAMP, '0');";
-			
+			$sql = "INSERT INTO `question_answers`.`answers` (`ID`, `QuestionID`, `Name`, `Email`, `Content`, `Date`, `Vote`) 
+			VALUES ('" . $ID . "', '" . $questionID . "', '" . $name . "', '" . $email . "', '" . $content . "', CURRENT_TIMESTAMP, '0')";
 			
 			if (mysqli_query($conn, $sql)) {
 				$alert = 'window.alert("New record created successfully");';
@@ -46,7 +45,7 @@
 				echo '<script language="javascript">' . $alert . '</script>';
 			}
 			
-			header("Refresh: 1; url=index.php");
+			header("Refresh: 1; url=detail.php?id=$questionID");
 			die();
 			
 			mysqli_close($conn);
@@ -56,6 +55,7 @@
 		
 	</body>
 </html>
+
 
 
 

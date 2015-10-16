@@ -45,7 +45,7 @@
 						$rowCount = mysqli_num_rows($innerResult);
 					}
 					echo 'Answers: ' . $rowCount . '<br>';
-					echo 'Topic: ' . $row["Topic"]. '<br>';
+					echo 'Topic: <a href="detail.php?id=' . $row["ID"] . '">' . $row["Topic"] . '</a>' . '<br>';
 					echo 'Name: ' . $row["Name"]. '<br>';
 					echo 'Date: ' . $row["Date"]. '<br>';
 					echo '<br>';
