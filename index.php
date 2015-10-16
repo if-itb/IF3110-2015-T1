@@ -7,7 +7,7 @@
 </head>
 <body>
   <?php
-    include 'query.php';
+    require 'query.php';
   ?>
   <?php
     function test_input($data) {
@@ -33,7 +33,7 @@
   <h1>Simple Stack Exchange</h1><br>
   <form id="search">
     <input type="text" name="search">
-    <input type="submit" value="search">
+    <input type="submit" value="Search">
   </form>
   <div class="ask-here">
     <div>Cannot find what are you looking for?</div>
@@ -48,7 +48,8 @@
     } else{
       while($question= mysqli_fetch_assoc($tabQuestion)){
   ?>
-        <div class="row">
+          <div class="title"><a href="question.php?q_id=<?php echo $question['q_id']?>"><?php echo $question['topic']; ?></a></div>
+          <div class="row">
           <div class="vote-col">
             <div><?php echo $question['vote']; ?></div><br>
             <div>Votes</div>
@@ -58,9 +59,9 @@
             <div>Answer</div>
           </div>
           <div class="content-col">
-            <div><a href="question.php?q_id=<?php echo $question['q_id']?>"><?php echo $question['topic']; ?></a></div><br>
-            <p> <?php echo $question['content']; ?> </p>
-          </div><br>
+            <p> <?php echo substr($question['content'],0, 270); ?> </p>
+          </div>
+          <br>
           <div class="other">
             <div>asked by</div>
             <div class="name"><?php echo $question['name']; ?></div><div>&nbsp|</div>
@@ -77,6 +78,8 @@
   </div>
 
   <script src="/script/master.js"></script>
-  </script>
+  <?php
+    mysqli_close($conn);
+   ?>
   </body>
  </html>

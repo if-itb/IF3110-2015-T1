@@ -40,9 +40,8 @@ a {
   color: red;
 }
 
-
 input[type=text], textarea {
-  height:17px;
+  height:20px;
   width: 98%;
   margin-bottom: 2px;
   padding-top: 2px;
@@ -52,6 +51,7 @@ input[type=text], textarea {
   font-size: 13px;
   border-style: solid;
   border-color: black;
+  border-radius: 4px;
 }
 
 textarea {
@@ -59,10 +59,12 @@ textarea {
 }
 
 input[type=submit] {
+  height: 30px;
   float:right;
   margin-right: -0.25%;
   border-style: solid;
   border-color: black;
+  border-radius: 4px;
 }
 
 input[name=search] {
@@ -89,24 +91,33 @@ input[name=search] {
   display: inline-table;
 }
 
-.question-row {
+.row{
   padding-bottom: 20px;
 }
+
+.title {
+  text-align: center;
+}
+
 .vote-col, .answer-col {
   text-align: center;
   width: 10%;
 }
 
-.content-col {
+.content-col, .title{
   text-align: center;
-  width: 60%;
+  width: 78.4%;
+  word-wrap: break-word;
+}
+
+.title, #title{
+  width: 100%;
   word-wrap: break-word;
 }
 
 .content-col p {
-  text-align: left;
+  text-align: justify;
 }
-
 
 .other {
   display: inline-block;
@@ -123,10 +134,8 @@ img {
   text-align: center;
 }
 
-.content-col-1 {
-  text-align: left;
-  width: 75%;
-  word-wrap: break-word;
+.vote-col-1 div{
+  display: block;
 }
 
 h3{

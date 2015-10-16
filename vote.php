@@ -1,6 +1,6 @@
 <?php
 
-include 'query.php';
+require 'query.php';
 
 $vote = $_POST['vote'];
 $obj = $_POST['obj'];
@@ -16,3 +16,7 @@ updateVote($obj, $id, $addition);
 
 echo getVote($obj, $id);
 ?>
+
+<?php
+  mysqli_close($conn);
+ ?>

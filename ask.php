@@ -7,7 +7,7 @@
 </head>
  <body>
    <?php
-    include 'query.php';
+    require 'query.php';
    ?>
    <?php
     $name=$email=$topic=$content=$q_id='';
@@ -43,5 +43,8 @@
    </div>
  </div>
    <script src="/script/master.js"></script>
+   <?php
+     mysqli_close($conn);
+    ?>
  </body>
  </html>

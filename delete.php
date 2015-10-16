@@ -1,5 +1,5 @@
 <?php
-  include 'query.php';
+  require 'query.php';
  ?>
 
 <?php
@@ -10,3 +10,7 @@
   $q_id=$_GET['q_id'];
   delQuestion($q_id);
  ?>
+
+ <?php
+   mysqli_close($conn);
+  ?>
