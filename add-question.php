@@ -12,10 +12,10 @@
   <hr>
 
   <form method="post" action="backend/insert-db.php">
-    <input type="text" name="name" placeholder="Name">
-    <input type="text" name="email" placeholder="Email">
-    <input type="text" name="topic" placeholder="Question Topic">
-    <textarea type="text" name="content" placeholder="Content"> </textarea>
+    <input type="text" name="name" placeholder="Name"> </br>
+    <input type="text" name="email" placeholder="Email"> </br>
+    <input type="text" name="topic" placeholder="Question Topic"> </br>
+    <textarea type="text" name="content" placeholder="Content"></textarea> </br>
     <input type="submit" value="Post">
   </form>
 
