@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta content="text/html; charset=utf-8">
+	<link REL="SHORTCUT ICON" HREF="assets/img/icon.ico"/>
 	<title>Simple StackExchange</title>
 
 	<!-- CSS -->
