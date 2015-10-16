@@ -1,0 +1,86 @@
+body {
+	font-family: 'PT Sans', sans-serif;
+	margin: 0px;
+}
+
+.header {
+	height:80px;
+    background: #fff;
+  	width: 100%;
+    margin:0px 0px auto 0px;
+}
+
+h1 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	font-size: 40px;
+}
+
+h2 {
+	font-family: 'PT Sans',sans-serif;
+	font-weight: 300;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1 a {
+	color: #000;
+}
+
+.content {
+	margin: 0px 100px 100px 100px;
+}
+
+.vote, .answer {
+	display: inline-block;
+	width: 10%;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#question {
+	display: inline-block;
+	width: 78%;
+	vertical-align: middle;
+	text-align: justify;
+}
+
+.question {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#question_form {
+	margin-left: 100px;
+	margin-right: 100px;
+}
+
+.identity {
+	text-align: right;
+}
+
+#name {
+	color: #0000FF;
+}
+
+#edit {
+	color: #FF8000;
+}
+
+#delete {
+	color: #FF0000;
+}
+
+#question_form input[type=text], textarea {
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	float: center;
+}
+
+#answer-form {
+	color: #808080;
+	font-size: 30px;
+}

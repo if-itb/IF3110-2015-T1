@@ -89,7 +89,10 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+- Melakukan validasi pada client-side
+	Validasi dilakukan dengan menggunakan javascript. Saat button submit atau post sebuah form diklik, submission tersebut akan memanggil fungsi javascript untuk pengecekan kelengkapan form dan format email. Jika field dari form kosong, fungsi javascript akan melakukan alert dan mengembalikan nilai false sehingga form tidak akan tersubmit. Begitu juga dengan validasi email. Dengan pengecekan regex menggunakan test, jika valid, return true dan jika salah return false sehingga form tidak akan tersubmit. 
+- Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
+	Fungsi javascript akan ditrigger dengan menggunakan fungsi onclick yang terdapat pada gambar panah vote. Saat pengguna melakukan klik pada icon panah atas maupun bawah, fungsi javascript yang ter-trigger akan melakukan hal sebagai berikut. Pertama, fungsi javascript akan membuat objek XMLHTTPRequest, mendefinisikan id mana yang akan berpengaruh, dan memanggil fungsi php untuk melakukan tugas SELECT dan UPDATE pada database serta memunculkan (echo) nilai vote baru dengan melakukan passing variable menggunakan GET.
 
 ### Knowledge
 
