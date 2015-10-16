@@ -91,3 +91,50 @@ function answerVoteDown(path, answerId) {
 
 	xhttp.send(params);
 }
+
+// Email Validation
+function validateEmail(email) {
+	var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return regex.test(email);
+}
+
+// Submit Validation
+function fieldFilled(id) {
+	var element = document.getElementById(id);
+
+	return element.value.trim() !== "";
+}
+
+var threadField = ["user_name", "user_email", "thread_topic", "thread_content"];
+var answerField = ["user_name", "user_email", "answer_content"];
+
+function fieldValidation(fields) {
+	for (var i = 0; i < fields.length; i++) {
+    if (!fieldFilled(fields[i])) {
+      alert("You must fill all field.");
+      return false;
+    }
+  }
+
+  var email = document.getElementById("user_email").value;
+  if (validateEmail(email)) {
+    return true;
+  } else {
+    alert("Email is not valid");
+    return false;
+  }
+}
+
+// Submit Thread Validation
+function submitAnswer() {
+	if (fieldValidation(answerField))
+		return true;
+	return false;
+}
+
+// Submit Answer Validation
+function submitThread() {
+	if (fieldValidation(threadField))
+		return true;
+	return false;
+}
