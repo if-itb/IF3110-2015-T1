@@ -89,7 +89,8 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+Pengerjaan tugas menggunakan pendekatan MVC untuk mempermudah pengoperasian setiap task.
+Question dan answer dijadikan sebagai model yang nantinya memiliki controller masing-masing.
 
 ### Knowledge
 
