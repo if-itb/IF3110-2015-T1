@@ -1,9 +1,7 @@
-/*body{
-	font-family: "Calibri",Arial,Helvetica,sans-serif; 
-}*/
+
 div {
 	font-family: Arial,Helvetica,sans-serif; 
-	color: black; 
+	/*color: black; */
 }
 
 #header { 
@@ -241,8 +239,6 @@ div {
  
 	width: 180px;
 	float: left; 
-	/*min-height: 80px; 
-	max-height: 150px; */
 
 }
 
@@ -250,6 +246,7 @@ div {
 	float:left;
 	margin-left: 30px;
 	margin-bottom: 20px; 
+	clear:both;
 
 }
 
@@ -312,6 +309,7 @@ div {
 	margin-bottom: 20px; 
 	margin-right: 20px; 
 	margin-left: 25px; 
+
 }
 
 .arrow-down { 
@@ -323,4 +321,23 @@ div {
 	margin-bottom: 10px; 
 	margin-right: 20px; 
 	margin-left: 25px; 
+	clear: both;
+}
+
+.colorname { 
+	color: blue; 
+	font-weight: none; 
+}
+
+#main4 {
+	padding-bottom: 2px; 
+	margin-bottom: 15px; 
+	font-size: 30px; 
+	/* Buat bikin tabel */
+	border-top: 0px; 
+	border-left: 0px; 
+	border-right: 0px; 
+	border-radius: 	2px; 
+	color: gray;
+	
 }

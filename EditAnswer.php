@@ -5,8 +5,6 @@
 		exit(); 
 	}
 
-	//include('dataBase.php'); 
-
 	if(isset($_POST['answer'])) { 
 		date_default_timezone_set("Asia/Bangkok");
 		$Name    	= ($_POST["name"]); 

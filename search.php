@@ -12,7 +12,6 @@
 <div  id="header" > <a class="link1" href="home.php"> Simple StackExchange </div> </a>
 <div class="header2" id="main2">What's your question?</div>
 
-<!--<h1>Simple StackExchange</h1>-->
 
 <div>
 	<form name="ask" onsubmit="return ValidasiInput()" action="InsertQuestion.php" method="post">
@@ -35,14 +34,12 @@
 		
 			<textarea type="text" name="content" placeholder="Content" class="header3" id="content"></textarea> 
 		
-			<!--<input type="hidden" name="id">-->
 	
 			<button id="button"  type="submit"> Post </button>
-		<!--<input type="submit" value="Post" id="button">-->
+		
 	
 	</form>
-	<!--<input type="submit" value="Post" id="button">-->
-	<!--a href="#"><div id="button">Post</div></a>-->
+	
 </div>
 
 </div>

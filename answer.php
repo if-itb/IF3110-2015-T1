@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="questionStyle.css"/>
+		<script type="text/javascript" src="ValidasiInputAnswer.js"></script>
 		<title>Answer</title>
 	</head>
 
@@ -20,26 +21,16 @@
 
 		include("EditAnswer.php");
 
-		/* 
-					echo "<div class= vote> <span class= vote-counts>".$row["Vote"]."</span> <div class=vote-title>Vote</div>
-					</div> ";
-					echo "<div class=answer> <div class=answer-counts>0</div> <div class=answer-title>Answer</div>
-					</div>"; 
-
-					echo "<div class=vote> <class=vote-counts> <a  href=answer.php?id=".$row["ID"]. "  class=link3 >".$row["Topic"]. "</a>  </div> <br> <div class=contents>".$row["Content"]."</div>";
-					//echo "<div> <span class=contents>".$row["Content"]." </span></div>";
-					//echo "<div class=content><span>".$row["Content"]. "</span> </div> ";
-					echo "<div class=asked> asked by " .$row["Name"]."| <a href=edit.php?id=".$row["ID"]. " class=link > edit </a> | <a onclick=\"return confirm('Are you sure want to delete this question?')\" href=DeleteQuestion.php?id=".$row["ID"]. " class=link2> delete <a> </div>";
-					echo "<div class=garis> </div>"; */
+		
 
 		echo "<script type = \"text/javascript\" src = \"vote.js\"> </script>";
 		if(mysqli_num_rows($question) > 0 ) { 
 			while ($row = mysqli_fetch_assoc($question)){
 				
 				echo "<div> <div class=header2 id=main3> ".$row["Topic"]."</div> ";
-				echo "<div class = arrow-up id = QU".$row["ID"]." name=vote onclick = vote(this.id)> </div> ";
+				echo "<span> <div class = arrow-up id = QU".$row["ID"]." name=vote onclick = vote(this.id)> </div>  ";
 				echo "<div  class = votes > <div id=Q".$row["ID"]." class=votes-counts>".$row["Vote"]."</div> "; 
-				echo" <div class=content1> <div class=content2>" .$row["Content"]."</div> </div>  	 ";
+				echo" <div class=content1> <div class=content2>" .$row["Content"]."</div> </div> </span>  	 ";
 				echo "<div class = arrow-down id = QD".$row["ID"]." name=vote onclick = vote(this.id)> </div> "; 
 				echo "<div class=asked1> asked by " .$row["Name"]." at " .$row["Date_Create"]." | <a href=edit.php?id=".$row["ID"]. " class=link > edit </a> | <a onclick=\"return confirm('Are you sure want to delete this question?')\" href=DeleteQuestion.php?id=".$row["ID"]. " class=link2> delete <a> </div>";
 				
@@ -67,8 +58,8 @@
 		 
 
 		}
-		echo " <div class=header2 id=main3> Your Answer </div>
-		<form name=ask onsubmit= \"return ValidasiInput()\" action=answer.php?id=" .$ID." method=post>
+		echo " <div  id=main4> Your Answer </div>
+		<form name=ask onsubmit= \"return ValidasiInputAnswer()\" action=answer.php?id=" .$ID." method=post>
 	
 		
 			<input type=text name=name placeholder=Name class=header3 > 
