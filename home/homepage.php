@@ -25,7 +25,7 @@
 			  <div class=\"div4\">
 				<span>".$row['vote']."</span>
 				<span>Vote</span>";	
-			echo "</div>";
+		echo "</div>";
 			echo "<div class=\"div5\">";
 				$sql2 = "SELECT COUNT(*) AS SHIT FROM answers WHERE question_no=".$row['no'];
 				$ans2 = mysqli_query($conn, $sql2);
@@ -35,7 +35,9 @@
 			echo "</div>";
 		echo "</div>";
 		echo "<div class=\"div3\">";
-			echo "<div class=\"div6\"> <a href=\"../answers/answers.php?id=".$row['no']."\">".$row['question']."</a></div>";
+			$content = strlen($row['content'])>150 ? (substr($row['content'], 0 , 150)."...") : ($row['content']);
+			echo "<div class=\"div6\"> <a href=\"../answers/answers.php?id=".$row['no']."\">".$row['question']."</a></div>
+			<div class=\"div65\">".$content."</div>";
 			echo "<div class=\"div7\">Asked by ".$row['name']." at ".$row['time']." | <a href=\"../questions/editquestions.php?id=".$row['no']."\">edit</a> | <a href=\"../questions/deletequestions.php?id=".$row['no']."\">delete</a></div>";
 		echo "</div>";
 	echo "</div>";

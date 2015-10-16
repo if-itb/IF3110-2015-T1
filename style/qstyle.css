@@ -168,7 +168,11 @@ a:hover {
 .div6 {
 	text-align: left;
 	margin-bottom: 3%;
-	min-height: 100px;
+}
+
+.div65 {
+	min-height: 80px;
+
 }
 
 .div7 {
