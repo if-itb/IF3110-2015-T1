@@ -89,7 +89,12 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+#### Validasi pada client-side
+Cara Untuk melakukan validasi pada client side adalah dengan pertama mengecek apakah seluruh field sudah diisi. Langkah kedua adalah mengecek apakah email valid atau tidak dengan menggunakan regexp \w+@\w+\.\w+, yang artinya email harus dalam format xxx@yyy.zzz
+
+#### Melakukan AJAX
+Cara untuk melakukan AJAX adalah dengan menambahkan onclick function di button arrow up atau arrow down. Function ini menerima parameter id (kalau question akan mendapatkan questionid dan kalau answer akan mendapatkan answerid).  
+Setelah itu, Id tersebut akan dikirimkan ke server menggunaan AJAX dengan memanggil fungsi xmlHTTPRequest(). Jika server telah mengirimkan respons balik berupa status=200 (OK), maka berarti vote di database sudah dirubah, dan kita tinggal mengubah tampilan di client-side menggunakan DOM manipulation. (`getElementById()` atau `getElementByClass()`)
 
 ### Knowledge
 
