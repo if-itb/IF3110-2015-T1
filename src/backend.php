@@ -12,6 +12,14 @@ if (!$link){
 }
 
 mysqli_close($link);
+
+function display(){
+	// memilih semua child dari parent
+
+	if ($ParentCategoryID == ''){
+		$Result = mysql_query('SELECT * FROM categories');
+	}
+}
 ?>
 
 </body>
