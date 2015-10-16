@@ -1,0 +1,30 @@
+@font-face
+{
+	font-family: ubuntu;
+	src: url('Ubuntu-L.ttf');
+}
+html {font-family:ubuntu;}
+
+input {font-family:ubuntu; margin-top:15px;}
+p {padding-left:3%; padding-right:3%;}
+textarea {font-family:ubuntu; margin-top:15px; width:95%; height:150px; resize:none;}
+
+.p_table {padding-left:3%; padding-right:3%;}
+.top_logo {font-family:ubuntu; font-size:48px; color:#000; text-decoration:none; text-decoration:bold;}
+.yellow_font {color:#FB0; text-decoration:none;}
+.blue_font {color:#00C; text-decoration:none;}
+.red_font {color:#C00; text-decoration:none;}
+.quest_font {color:#000; text-decoration:none;}
+.quest_list {padding-left:3%; padding-right:3%;}
+.div_front {margin-left:15%; margin-right:15%;}
+.style_text {font-family:ubuntu; margin-top:15px; width:95%; height:25px;}
+.vote_font {text-decoration:bold; font-family: ubuntu; font-size:28px;}
+
+#first_line { 
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 2px;
+	color: black;
+}

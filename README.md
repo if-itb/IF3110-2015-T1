@@ -89,7 +89,58 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+Untuk melakukan validasi pada client side menggunakan javascript, digunakan sebuah variabel untuk pengecekan, yaitu `document.forms[<nama form>][<nama input textbox/textarea>].value`. Variabel tersebut menampung masukan dari pengguna. Untuk mengecek apakah field kosong atau tidak, dilakukan pengecekan dengan membandingkan dengan `null` atau `""`.
+Contoh code untuk mengecek field nama pada form question:
+```
+function validateForm() {
+	var is_valid = true;
+	var msg_alert = [];
+    var x = document.forms["question"]["user"].value;
+    if (!x) {
+		  msg_alert.push("Name must be filled out!");
+    }
+	if (msg_alert.length) {
+		is_valid = false;
+		alert(msg_alert.join('\n'));
+	}
+	return is_valid;
+}
+```
+
+Untuk validasi email, digunakan regular expression. Berikut adalah potongan codenya
+```
+var x = document.forms["question"]["email"].value;
+var re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+if (!x) {
+  msg_alert.push("Email must be filled out!");
+} else if (!re.test(x)) {
+	msg_alert.push("Email must be in correct format!");
+}
+```
+
+Untuk proses vote dimulai dari user mengklik panah atas atau bawah. Kemudian dikirimkan ke `vote.php` untuk diproses dengan basis data. Pada file `vote.php`, setelah data dipudate, tampilan diupdate sesuai masukan.
+```
+function voteUpdate(id,isQuestion,n) {
+  var xhttp = new XMLHttpRequest();
+  var site = "vote.php";
+  var sendVote = "id="+id.toString()+"&isQuestion="+isQuestion.toString()+"&n="+n.toString();
+  xhttp.open("POST",site,true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(sendVote);
+  xhttp.onreadystatechange = function() {
+    if(xhttp.readyState == 4) {
+      switch(xhttp.status){
+        case 200:
+          var elem = document.getElementById([isQuestion ? 'Q' : 'A',id].join(""));
+          elem.textContent = xhttp.responseText;
+          break;
+        default:
+          alert(xhttp.responseText);
+      }
+    }
+  }
+}
+```
 
 ### Knowledge
 
