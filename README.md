@@ -89,7 +89,14 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+1. Validasi Input Form
+Untuk melakukan validasi input pada client side, digunakan fungsi Javascript, yaitu `validateQuestionForm()` yang digunakan untuk validasi form pertanyaan baru, dan `validateAnswerForm()` yang digunakan untuk validasi form jawaban untuk pertanyaan. Kedua fungsi tersebut akan melakukan cek isi pada setiap elemen form dengan menjalankan fungsi validasi masing-masing, yaitu `validateName()` untuk validasi nama, `validateEmail()` untuk validasi e-mail, `validateTopic()` untuk validasi topik post khusus form pertanyaan, dan `validateContent()` untuk validasi konten posting. Semua fungsi tersebut akan mengembalikan nilai `false` dan mengeluarkan pesan kepada pengguna menggunakan fungsi `alert()` apabila value di dalamnya berupa string kosong "" atau `null`. Khusus untuk validasi email, value akan di-cek menggunakan pattern Regular Expression: `/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i` . Jika tidak sesuai, maka mengembalikan false.
+Proses validasi dijalankan ketika user akan melakukan posting dari form pertanyaan/jawaban menggunakan tombol submit "Post" pada form. Ketika tombol diklik, maka halaman akan menjalankan fungsi validasi yang di-attach pada tag input dengan atribut `onclick`.
+
+2. AJAX
+Proses voting dilakukan menggunakan Javascript dan PHP. Pertama, ketika tombol vote ditekan, fungsi akan menjalankan fungsi Javascript `voteThread()`. Parameter yang di-pass adalah `id` dari question/answer tersebut, `table` yang berisi tipe dari post (question atau answer), dan `value` yang menyatakan nilai vote tersebut (jika vote up +1, vote down -1). Fungsi tersebut memiliki sebuah objek bertipe `XMLHttpRequest`, yang menyediakan proses AJAX.
+Objek tersebut akan melakukan koneksi dengan PHP yang menyediakan fungsi vote `vote.php` dengan parameter yang sama.
+Pada script PHP vote, akan dilakukan update pada basis data sesuai dengan parameter yang telah di-pass oleh objek XMLHttpRequest. Kemudian untuk menampilkan secara langsung hasil vote tersebut, script PHP vote akan mengambil nilai vote pada basis data, dan nilai tersebut di-`echo`, yang akan ditampilkan langusng pada halaman web dengan XMLHttpRequest.responseText.
 
 ### Knowledge
 

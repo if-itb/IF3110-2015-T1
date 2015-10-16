@@ -1,0 +1,166 @@
+body {
+	font-family: Verdana;
+}
+
+.container {
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+}
+
+.main {
+	margin-left: 15vw;
+	margin-right: 15vw;
+}
+
+.content-header {
+	text-align: left;
+	padding-top: 10px;
+	position: relative;
+}
+
+.content-footer {
+	padding-top: 10px;
+	font-size: 10px;
+	position: relative;
+	text-align: right;
+}
+
+#answer-form h2 {
+	color: gray;
+}
+
+.content-header > h2 {
+	margin-bottom: 0;
+}
+
+.child-content {
+	border-top: solid #000000;
+	clear: both;
+}
+
+.child-content form {
+	margin-top: 10px;
+	margin-bottom: 100px;
+}
+
+.sidebar {
+	float: left;
+	width: 20%;
+	height: 100%;
+	position: relative;
+}
+
+.wrapper {
+	clear: both;
+	padding: 0 0 0 0;
+}
+
+#votes, #answers {
+	display: inline-block;
+	width: 30%;
+}
+
+div {
+	margin: 8px 8px 8px 8px;
+	/*border: solid 1px;*/
+}
+
+.thread-content {
+	text-align: left;
+	position: relative;
+}
+
+.question-title, .question-preview {
+	position: relative;
+	text-align: left;
+}
+
+.question-preview {
+	font-size: 12px;
+}
+
+.list-content {
+	float: right;
+	width: 74%;
+}
+
+input, textarea {
+	width: 100%;
+	height: 20px;
+	margin-top: 10px;
+	padding: 5px 5px 5px 5px;
+	font-family: Verdana;
+	border: solid 1px;
+}
+
+textarea {
+	height: 100px;
+	resize: none;
+}
+
+#post {
+	height: 30px;
+	width: 70px;
+	float: right;
+}
+
+.main-header {
+	text-align: left;
+}
+
+#searchbox, #searchbutton {
+	/*float: right;*/
+	width: 20%;
+	display: inline-block;
+	height: 100%
+}
+
+#searchbox {
+	width: 75%;
+}
+
+.user-question {
+	color: blue;
+}
+
+.edit-question {
+	color: green;
+}
+
+.delete-question {
+	color: red;
+}
+
+#the-question .sidebar,
+#the-answers .sidebar {
+	width: 8%;
+	font-size: 25px;
+}
+
+#the-question .list-content,
+#the-answers .list-content {
+	width: 86%;
+}
+
+.voteup {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #ddd;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.votedown {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #ddd;
+  margin: 0 auto;
+  cursor: pointer;
+}
