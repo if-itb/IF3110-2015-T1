@@ -118,7 +118,6 @@
 		}
 		$sql = "SELECT * FROM Questions where qContent LIKE '%$string%' OR qTopic LIKE '%$string%';";
 		$result = mysqli_query($conn,$sql);
-		echo 'Pew';
 		return $result;
 		mysqli_close($conn);
 	}
