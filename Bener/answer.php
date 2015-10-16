@@ -31,31 +31,43 @@
 		$sql = "SELECT question_id, vote, topic, content, email FROM Question WHERE question_id = $question_id";
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_assoc($result);
-
-		$question_topic = 
-			"<div class='subtitle'>" . $row['topic'] . "</div>"
-			;
-		$question_vote = 
-			"<div class='block-QA'>" . "<div class='bQA-vote'>" . $row['vote'] . "<br>" . " Votes" . "</div>"
-			;
-		$question_content = 
-			"<div class='bQA-content'>" . $row['content'] . "</div>"
-			;
-		$question_username = 
-			"<div class='bQA-identity'>" . "asked by " . $row['email'] . " at " . "08.00 7/10/1996" 
-			;
-		$question_edit = 
-	    		" | " . "<a id='color-orange' href=# onclick='editconfirm(" . $row['question_id'] . ")' " 
-	    		. "'>edit</a>"
-	    	;
-	    $question_delete = 
-	    	" | " . "<a id='color-red' href=# onclick='deleteconfirm(" . $row['question_id'] . ")' " 
-	    	. "'>delete</a>" . "</div>" . "</div>"
-	    	;
-		$question_all = $question_topic . $border . $question_vote . $question_content . $question_username . $question_edit . $question_delete;
-		
-		echo $question_all;
-		echo "<br><br><br><br>";
+		echo 
+			"<div class='subtitle'>"
+				.$row['topic']
+			."</div>"
+			."<hr class='line'>"
+			."<div class='block-QA'>"
+				."<div class='bQA-vote'>"
+					."<div class='vote-up' onclick='addQuestionVote(".$row['question_id'].")''>"
+		    		."</div>"
+					."<br>"
+					."<a id='question_vote".$row['question_id']."'>".$row['vote']
+					."</a>"
+					."<br>"
+					."<div class='vote-down' onclick='subtractQuestionVote(".$row['question_id'].")''>"
+					."</div>"
+				."</div>"
+				."<div class='bQA-content'>"
+					.$row['content']
+				."</div>"
+				."<div class='bQA-identity'>"
+					."asked by "
+					.$row['email']
+					." at "
+					."08.00 7/10/1996" 
+					." | "
+					."<a id='color-orange' href=# onclick='editconfirm(".$row['question_id'].")'" ."'>"
+					."edit"
+	    			."</a>"
+	    			." | "
+	    			."<a id='color-red' href=# onclick='deleteconfirm(".$row['question_id'].")'"."'>"
+	    			."delete"
+	    			."</a>"
+	    		."</div>"
+	    	."</div>"
+		;
+			
+		echo "<br><br><br><br><br>";
 
 		//for the answer count
 		$sql = "SELECT count(*) AS answer_count FROM Answer
@@ -81,28 +93,27 @@
 		if (mysqli_num_rows($result) > 0) {
 		    // output data of each row
 		    while($row = mysqli_fetch_assoc($result)) {
-		    	$button_up =
-		    		"<div class='block-QA'>" . "<div class='bQA-vote'>" . 
-					"<div class='vote-up' onclick='addAnswerVote(" . $row['answer_id'] . ")''>" . "</div>"
-					;
-		    	$question_content_vote = 
-		    		"<br>"
-		    		. "<a id='answer_vote" . $row['answer_id'] . "'>" .$row['vote'] . "</a>" . "<br>"
-		    		;
-		    	$button_down =
-		    		"<a onclick='subtractAnswerVote(" . $row['answer_id'] . ")'>" . 
-  					"<div class='vote-down' onclick='subtractAnswerVote(" . $row['answer_id'] . ")''>" . "</div>"
-					;
-		    	$question_content_content = 
-		    		"<div class='bQA-content'>" . $row['content'] . "</div>"
-		    		;
-		    	$question_content_email = 
-		    		"<div class='bQA-identity'>" 
-		    		. "answered by " . $row['email'] . " at " . "08.00 7/10/1996" . "</div>" . "</div>"
-		    		;
-		    	$question_content_all = $button_up . $button_down . $question_content_vote . $question_content_content . $question_content_email . $border;
-
-		    	echo $question_content_all;
+		    	echo 
+		    		"<div class='block-QA'>"
+		    			."<div class='bQA-vote'>"
+		    				."<div class='vote-up' onclick='addAnswerVote(".$row['answer_id'] . ")''>"
+		    				."</div>"
+							."<br>"
+		    				."<a id='answer_vote" . $row['answer_id'] . "'>" .$row['vote']
+		    				."</a>"
+		    				."<br>"
+							."<div class='vote-down' onclick='subtractAnswerVote(" . $row['answer_id'] . ")''>"
+							."</div>"
+						."</div>"
+						."<div class='bQA-content'>"
+							.$row['content']
+						."</div>"
+		    			."<div class='bQA-identity'>" 
+		    				."answered by " . $row['email'] . " at " . "08.00 7/10/1996"
+		    			."</div>"
+		    		."</div>"
+		    		."<hr class='line'>"
+		    	;
 		    }
 		}
 

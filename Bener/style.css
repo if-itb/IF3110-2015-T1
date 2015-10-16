@@ -136,18 +136,22 @@
 		height: 0; 
 		border-left: 20px solid transparent;
 		border-right: 20px solid transparent;
-		border-bottom: 20px solid gray;
-		margin-left:10%;
+		border-bottom: 20px solid grey;
+		margin-left:32.5%;
+		float:left;
 		cursor: pointer;
+		clear:none;
 	}
 	.vote-down{
 	  	width: 0; 
 	  	height: 0; 
 	  	border-left: 20px solid transparent;
 	  	border-right: 20px solid transparent;
-	  	margin-left:10%;
-	  	border-top: 20px solid gray;
+	  	margin-left:32.5%;
+	  	border-top: 20px solid grey;
+	  	float:center;
 	  	cursor: pointer;
+	  	clear:none;
 	}
 	.form-text{
 	  	width: 65%;

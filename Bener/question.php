@@ -43,9 +43,26 @@
 	    		"<div class='block-question'>" . "<div class='bquestion-vote'>" 
 	    		. $row['vote'] . "<br>" . " Votes" . "</div>"
 	    		;
+	    		//for the answer count
+				$sql = "SELECT count(*) AS answer_count FROM Answer
+				WHERE question_id = $row[question_id]";
+				$result2 = mysqli_query($conn, $sql);
+
+				$row2 = mysqli_fetch_assoc($result2);
+				if ($row2['answer_count'] > 1){
+					$answer = "Answers";
+				}
+				else{
+					$answer = "Answer";
+				}
+
+				$answer_count =
+					"<div class='subtitle'>" . $row2['answer_count'] . $answer . "</div>"
+					;
+
 	    	$question_content_answers = 
 	    		"<div class='bquestion-answer'>" 
-	    		. $row['vote'] . "<br>" . " Answers" . "</div>"
+	    		. $row2['answer_count'] . "<br>" . $answer . "</div>"
 	    		;
 	    	$question_content_topic = 
 	    		"<div class='bquestion-content'>" 
