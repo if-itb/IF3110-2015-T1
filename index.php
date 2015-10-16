@@ -21,14 +21,14 @@
   <hr>
 	
   <?php while($question = mysqli_fetch_array($result)){ ?>
-    <table class="stats">
-      <tr class="stat-number">
-        <td> <?php echo $question['votes']; ?> </td>
-        <td> <?php echo $question['votes']; ?> </td>
+    <table>
+      <tr>
+        <td align="center" valign="middle"> <?php echo $question['votes']; ?> </td>
+        <td align="center" valign="middle"> <?php echo $question['votes']; ?> </td>
       </tr>
       <tr>
-        <td>Votes</td>
-        <td>Answers</td>
+        <td align="center" valign="middle">Votes</td>
+        <td align="center" valign="middle">Answers</td>
       </tr>
     </table>
 
