@@ -58,3 +58,34 @@ function validateEmail(email) {
 	var regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     return regex.test(email);
 }
+
+function vote(id, vType, conType){
+	/*if (id == "" || id == null || type == "" || type == null) {
+		return;
+	} else {
+		*/ if (window.XMLHttpRequest)  {
+			// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			// code for IE6, IE5
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			var i = 0;
+			if (vType == "vUp") {
+				i = 1;
+			} else if (vType == "vDown") {
+				i = -1;
+			}
+	    if (conType == "question") {
+	    	document.getElementById("voteCount_q").innerHTML = xmlhttp.responseText;
+	    } else if (conType = "answer") {
+	    	document.getElementById("voteCount_a"+id).innerHTML = xmlhttp.responseText;
+	    }	
+	    }
+
+	  }
+	  xmlhttp.open("GET", "vote.php?id=" + id + "&vType=" + vType + "&conType=" + conType, true);
+	  xmlhttp.send();
+}

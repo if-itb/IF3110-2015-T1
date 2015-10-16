@@ -171,7 +171,7 @@ body {
 	border: 1px solid rgba(81, 203, 238, 1);
 }
 
-.votesFunc {
+.voteFunc {
 	width: 15%;
 	font-size: 18px;
 }
@@ -231,4 +231,26 @@ body {
 
 .singleQuestion {
 	min-height: 100px;
+}
+
+.votes-up {
+	width: 32px;
+	height: 20px;
+	margin: 0 auto;	
+	background: url(../img/arrow-up.png) no-repeat;
+}
+
+.votes-up:hover {
+	cursor: pointer;
+}
+
+.votes-down {
+	width: 32px;
+	height: 20px;
+	margin: 0 auto;	
+	background: url(../img/arrow-down.png) no-repeat;	
+}
+
+.votes-down {
+	cursor: pointer;
 }

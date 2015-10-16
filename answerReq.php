@@ -15,7 +15,7 @@
 	if(mysql_num_rows($result) > 0) {
 		while($row = mysql_fetch_assoc($result)) {
 			$echoAnswer = $answerDiv;
-			$echoAnswer = str_replace("{id}", $row["aid"], $echoAnswer);
+			$echoAnswer = str_replace("aid", $row["aid"], $echoAnswer);
 			$echoAnswer = str_replace("{name}", $row["name"], $echoAnswer);
 			$echoAnswer = str_replace("{answerContent}", $row["content"], $echoAnswer);
 			$echoAnswer = str_replace("{votes}", $row["vote"], $echoAnswer);

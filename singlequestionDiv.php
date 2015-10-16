@@ -2,15 +2,15 @@
 	$singlequestionDiv = '<h1>{topic}</h1>
 	<div class="bottom-line"></div>
 	<div class="singleQuestion">
-		<div class="votesFunc col text-center">
+		<div class="voteFunc col text-center">
 			<div>
-				<span class="votes-up">Up</span>
+				<div class="votes-up" onclick="vote(qid, \'vUp\', \'question\')"></div>
 			</div>
-			<div>
+			<div id="voteCount_q">
 				{votes}
 			</div>
 			<div>
-				<span class="votes-down">Down</span>
+				<div class="votes-down" onclick="vote(qid, \'vDown\', \'question\')"></div>
 			</div>
 		</div>
 		<div class="sinquestionContent col">

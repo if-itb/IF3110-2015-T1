@@ -13,7 +13,7 @@
 	if(mysql_num_rows($result) > 0) {
 		while($row = mysql_fetch_assoc($result)) {
 			$echoQuestion = $singlequestionDiv;
-			$echoQuestion = str_replace("{qid}", $row["qid"], $echoQuestion);
+			$echoQuestion = str_replace("qid", $row["qid"], $echoQuestion);
 			$echoQuestion = str_replace("{name}", $row["name"], $echoQuestion);
 			$echoQuestion = str_replace("{topic}", $row["topic"], $echoQuestion);
 			$echoQuestion = str_replace("{content}", $row["question"], $echoQuestion);
