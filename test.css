@@ -1,0 +1,18 @@
+#searchbox
+{
+	max-width: 1000px;
+}
+
+#question
+{
+	padding-top: 25px;
+	padding-right: 50px;
+	padding-left: 50px;
+	padding-right: 25;
+}
+
+#iframe
+{
+	height: 300px;
+	width: 500px;
+}

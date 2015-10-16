@@ -89,7 +89,7 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+Validasi form dilakukan dengan cara menggunakan fungsi validateForm yang mengecek isi form apakah sudah sesuai ketentuan atau belum. Untuk form kosong dibandingkan dengan string "". Sedangkan dengan format email digunakan regular expression.
 
 ### Knowledge
 
