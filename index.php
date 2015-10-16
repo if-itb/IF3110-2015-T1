@@ -14,7 +14,7 @@
 
 
         <?php
-            $dbname = "stackexchange";
+        	$dbname = "stackexchange";
             $host = "localhost";
             $username = "root";
             $password = "810f810m";
@@ -65,7 +65,7 @@
                             echo "</p>";
                     		echo '<p id="username">asked by <span id="name">'.$row[1].'</span> | ';
                             echo '<a id= "edit" href=edit_question.php?id='.$row[0].'>'."edit".'</a> | '.
-                                 '<a id= "delete" href=delete_question.php?id='.$row[0].' onclick="return confirmDelete()">delete</a>'.
+                                 '<a id= "delete" href=delete_question.php?id='.$row[0].' onclick="confirm_delete_question()">delete</a>'.
                                  "</p>";
                     	echo "</td>";
 
