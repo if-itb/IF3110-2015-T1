@@ -88,9 +88,15 @@ Validasi **wajib** dilakukan pada *client-side*, dengan menggunakan **javascript
 Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi pertanyaan`.
 
 ### Penjelasan Teknis
-
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
-
+   - Melakukan validasi pada client-side
+   validasi dilakukan melalui javascript, dengan mengecek masing2 konten pada form (name, email, topic, content)
+   email di validasi dengan regex yang sesuai dengan format email standar. selain itu dicek apakah konten dari masing2 form tidak kosong
+   validasi ini dilakukan secara terpisah pada direktori script/validation.js
+   - Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
+   pada saat user mengklik tombol up/down vote, akan dijalankan fungsi vote() pada js yang memanggil XMLHttpRequest() dengan melakukan pengecekan window.XMLHttpRequest terlebih dahulu
+   lalu pada saat(xmlhttp.readyState==4 && xmlhttp.status==200) akan dpanggil elemen vote melalui document.getElementById(), yang akan memperbarui nilai vote sesuai pilihan user <up/down>
+   terakhir, akan dikirim link dengan method GET ke vote.php yang akan mengupdate nilai vote ke database
+		
 ### Knowledge
 
 Untuk meringankan beban tugas ini, ada berberapa keyword yang bisa anda cari untuk menyelesaikan tugas ini.

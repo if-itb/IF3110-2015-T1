@@ -1,0 +1,208 @@
+div {
+	font-family: Courier;
+	color: black;
+}
+
+#big {
+	font-size: 47px;
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 4%;
+}
+
+.medium {
+	width:60%;
+	margin: 0 auto;
+	font-size: 18px;
+	margin-top: 10px;
+	width: 800px;
+	border: 2px solid;
+	border-radius: 5px;
+	padding : 10px 10px 10px 10px;
+}
+
+#m1 {
+	padding-bottom: 2px;
+	margin-bottom: 20px;
+	margin-top: 4%;
+	font-size: 32px;
+	border-bottom: 3px solid black;
+	border-radius: 0%;
+}
+
+#m2 {
+	border : none;
+	font-size: 32px;
+}
+
+#m3 {
+	width:55%;
+}
+
+#m4 {
+	padding-top: 0.5%;
+	text-align: center;
+	margin-bottom: 2%;
+}
+
+.medtab {	
+	border: 0px solid;
+	left:50%;
+	margin-left: 250px;
+	margin-top: 25px;
+	width: 63%;
+}
+
+#medtab2 {
+	border: none;	
+	font-family: Courier;
+}
+
+
+#content {
+	height: 100px;
+}
+
+#button {
+	position: relative;
+	left: 50%; 
+	margin-top: 20px;
+	margin-left: 370px; 
+	text-align: center;
+	width: 50px;
+	border: 2px solid;
+	border-radius: 5px;
+	padding : 7px 7px 7px 7px;
+}
+
+table table {
+	border: 0px solid;
+	font-size: 27px;
+	text-align: center;
+}
+
+#num {
+	width:8%;
+	float:left;
+	padding-left: 3%;
+}
+
+#anscontent {
+	width:85%;
+	float:left;
+}
+
+#asker {
+	text-align: right;
+	padding-bottom: 4%;
+}
+
+a {
+   color: #1E7EC8;
+   text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.mediumbaru {
+	width:60%;
+	margin: 0 auto;
+}
+
+
+.input1 {
+	width:88%;
+	display: inline-block;
+}
+
+.input2 {
+	width:10%;
+	display: inline-block;
+	float:right;
+}
+
+.div1 {
+	display: inline-block;
+	width:100%;
+	border:none;
+	margin-bottom: 3%;
+	border-bottom: 2px solid black;
+	font-weight: bold;
+}
+
+.div2 {
+	width:17%;
+	display:inline-block;
+	font-size: 20px;
+	padding-bottom: 2%;
+}
+
+.div3 {
+	width:78%;
+	display: inline-block;
+	font-size: 17px;
+}
+
+.div4{
+	text-align: center;
+	width:30%;
+	display:inline-block;
+	margin-right:13%;
+}
+ 
+.div4 span:last-child,.div5 span:last-child {
+	font-size: 15px;
+} 
+.div5 {
+	text-align: center;
+	width:40%;
+	display:inline-block;
+	margin-left:2%;	
+}
+.div5 span {
+	display: inline-block;
+}
+
+.div6 {
+	text-align: left;
+	margin-bottom: 3%;
+}
+
+.div65 {
+	min-height: 80px;
+
+}
+
+.div7 {
+	text-align: right;
+	margin-top: 4%;
+}
+
+#voting span {
+	font-size: 20px;	
+}
+
+
+.ans2 {
+	float:left;
+}
+
+#voting span {
+	width:13%;
+}
+
+.ans3 {
+	width: 87%;
+	float:right;
+	margin-bottom: 1%
+}
+
+.ans4 {
+	margin:0 auto;
+	width: 3%;
+	font-size: 13%;
+	margin-bottom: 20%;
+}
+
