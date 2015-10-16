@@ -1,0 +1,162 @@
+/* Index CSS */
+h1 {
+	font-size: 45px;
+}
+hr {
+	border: 2px solid;
+	margin-top: -13px;
+}
+h2{
+	margin-left: 16px;
+}
+.number-votes h2 {
+	color: #888888;
+	margin: 2px 5px 5px 23px;
+}
+.answer-h2 {
+	font-size: 33px;
+	margin-left: 0px;
+}
+.search-form {
+	margin: 0px 0px -7px 40px;
+}
+.stackExchange {
+	margin-left: 195px;
+	margin-right: 199px;
+}
+.search-bar {
+	width: 790px;
+	height: 28px;
+	border: 3px solid black;
+}
+.search-button {
+	width: 83px;
+	height: 34px;
+	border: 3px solid black;
+	background-color: white;
+}
+.question-list {
+	display: inline-block;
+	margin-bottom: 50px;
+}
+.question-description {
+	display: inline-block;
+	padding: 2px 5px 2px 0px;
+	border-bottom: 4px solid black;
+	float: left;
+}
+.votes-answers {
+	float: left;
+	margin-right: 54px;
+}
+.votes {
+	display: inline-block;
+	text-align: center;
+	margin-right: 5px;
+	padding: 5px 20px 5px 20px;
+	float: left;
+}
+.answers {
+	display: inline-block;
+	text-align: center;
+	margin-right: 50px;
+	padding: 5px 20px 5px 20px;
+	float: left;
+}
+.question-topic {
+	display: inline-block;
+	float: left;
+	width: 648px;
+	padding: 8px 12px 8px 25px;
+}
+.question-topic h3 {
+	margin: 17px 0px 11px 0px;
+}
+.question-content {
+	display: inline-block;
+	text-align: center;
+	margin-right: 5px;
+	padding: 5px 30px 5px 40px;
+}
+.ask-description {
+	line-height: 0px;
+	float: right;
+}
+
+/* Question CSS */
+.question-form {
+	margin: 40px 4px 20px 5px;
+}
+.question-container label {
+	display: block;
+	margin-bottom: 7px;
+}
+.question-container input {
+	width: 100%;
+	height: 37px;
+	border: 1px solid black;
+}
+.question-container textarea {
+	width: 99.5%;
+	height: 150px;
+	border: 1px solid black;
+}
+.post-button {
+	float: right;
+	width: 75px;
+	height: 40px;
+	margin-bottom: 50px;
+	border: 1px solid black;
+}
+/* Answer CSS */
+.vote-up-question {
+	width: 0px;
+	height: 0px;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 16px solid #dbdbdb;
+	margin: 20px 5px 5px 20px;
+}
+.vote-down-question {
+	width: 0px;
+	height: 0px;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 16px solid #dbdbdb;
+	margin: 7px 5px 5px 20px;
+}
+.vote-up-answer {
+	width: 0px;
+	height: 0px;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 16px solid #dbdbdb;
+	margin: 20px 5px 5px 20px;
+}
+.vote-down-answer {
+	width: 0px;
+	height: 0px;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 16px solid #dbdbdb;
+	margin: 7px 5px 5px 20px;
+}
+.number {
+	float: left;
+	margin-right: 30px;
+}
+.QA-content {
+	display: inline-block;
+	float: left;
+	width: 849px;
+	padding: 8px 5px 8px 5px;
+}
+.question {
+	display: inline-block;
+	margin-bottom: -5px;
+}
+.answer {
+	display: inline-block;
+	padding: 0px 0px 2px 0px;
+	border-bottom: 4px solid black;
+}
