@@ -265,22 +265,13 @@ a{
 }
 .voteup{
     margin-bottom: 5px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 16px solid grey;
-    cursor: pointer;
+    width: 16px;
+    height: 16px;
 }
-
 .votedown{
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 16px solid grey;
     margin-top: 5px;
-    cursor: pointer;
+    width: 16px;
+    height: 16px;
 }
 .medium{
     font-size: 12pt !important;

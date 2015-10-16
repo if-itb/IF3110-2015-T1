@@ -3,7 +3,7 @@
     $get = $_GET['topic'];
     $id = (int) base64_decode($get);
     $sql1 = "SELECT q.id,q.topic,q.content,q.user, q.create_time, q.vote, count(a.id) AS anumber FROM question q LEFT JOIN answer a ON q.id = a.question_id WHERE q.id=$id";
-    $sql2= "SELECT q.id AS qid,q.topic,q.content,q.user,q.create_time,q.vote AS qvote, a.vote AS avote,a.user AS auser, a.create_time as atime, a.content as acontent  FROM question q LEFT JOIN answer a ON q.id = a.question_id WHERE q.id= $id ORDER BY avote DESC ";
+    $sql2= "SELECT q.id AS qid,q.topic,q.content,q.user,q.create_time,q.vote AS qvote, a.vote AS avote,a.user AS auser, a.create_time as atime, a.content as acontent, a.id AS aid  FROM question q LEFT JOIN answer a ON q.id = a.question_id WHERE q.id= $id ORDER BY avote DESC ";
     $result = $con->query($sql1);
     if ($result->num_rows>0) {
         while ($row = $result->fetch_assoc()){
@@ -27,11 +27,30 @@
             <div class="title">Simple StackExchange</div>
             <div class="subq black"><?php echo '<a href="detail.php?topic='.base64_encode($row["id"]).'">';?>
             <?php echo $row["topic"];?></a></div>
+        <script type="text/javascript">
+            function vote(id,type,result)
+            {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() 
+                {
+                    if (xhttp.readyState == 4 && xhttp.status == 200) 
+                    {
+				        if(type == 'question')
+					       document.getElementById("questionvotenumber").innerHTML = xhttp.responseText;
+				        else
+					       document.getElementById("answervotenumber"+id).innerHTML = xhttp.responseText;
+                    }
+                }
+                xhttp.open("POST", "./AJAX/vote.php", true);
+                xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                xhttp.send("action=" +result+ "&id=" + id + "&type=" + type);
+            }
+            </script>
             <div class="question">
-                <div class="votepart" id="votebutton<?php echo $row['id'];?>">
-                    <div class="voteup"><a href='javascript:;'></a></div>
-                    <div class="votenumber"><?php echo $row["vote"];?></div>
-                    <div class="votedown"><a href='javascript:;'></a></div>
+                <div class="votepart" id="votebutton">
+                    <div><a href="javascript:vote(<?php echo $row['id']?>,'question','up')"><img class="voteup" src="img/voteup.png"></a></div>
+                    <div id ="questionvotenumber" class="votenumber"><?php echo $row["vote"];?></div>
+                    <div class="votedown"><a href="javascript:vote(<?php echo $row['id']?>,'question','down')"><img class="votedown" src="img/votedown.png"></a></div>
                 </div>
                 <div class="questionpart partmedium">
                     <div class="qcontent medium"><?php echo $row["content"];?>
@@ -69,9 +88,9 @@
                         if ($anumber>0){?>
             <div class="raq">
                 <div class="votepart">
-                    <div class="voteup"><a href='javascript:;'></a></div>
-                    <div class="votenumber"><?php echo $row["avote"];?></div>
-                    <div class="votedown"><a href='javascript:;'></a></div>
+                    <div><a href="javascript:vote(<?php echo $row['aid']?>,'answer','up')"><img class="voteup" src="img/voteup.png"></a></div>
+                    <div id="answervotenumber<?php echo $row['aid']?>" class="votenumber"><?php echo $row["avote"];?></div>
+                    <div><a href="javascript:vote(<?php echo $row['aid']?>,'answer','down'"><img class="votedown" src="img/votedown.png"></a></div>
                 </div>
                 <div class="questionpart partmedium">
                     <div class="qcontent medium">

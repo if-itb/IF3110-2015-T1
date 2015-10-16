@@ -1,18 +1,15 @@
 <?php
-include("index.php"); //config.php is added to get access to database connection
-function getAllVotes($id,$tablename)
- {
- /**
- Returns an array whose first element is votes_up and the second one is votes_down
- **/
- $votes = array();
- $q = "SELECT * FROM $tablename WHERE id = $id";
- $r = mysql_query($q);
- if(mysql_num_rows($r)==1)//id found in the table
-  {
-  $row = mysql_fetch_assoc($r);
-  $votes[0] = $row['vote'];
-  }
- return $votes;
- }
+    include 'index.php';
+if (isset($_POST['action']) && isset($_POST['id']) && isset($_POST['type'])) {
+    if($_POST['action'] == 'up')
+        $count = 1;
+    else
+        $count = -1;
+    $q = "UPDATE $_POST[type] SET vote = vote + $count WHERE id = $_POST[id]";
+	$rq = mysqli_query($con, $q);
+    $q = "SELECT vote FROM $_POST[type] WHERE id = $_POST[id]";
+	$rq = mysqli_query($con, $q);
+    $count = mysqli_fetch_array($rq, MYSQLI_ASSOC)['vote'];
+    echo $count;
+}
 ?>
