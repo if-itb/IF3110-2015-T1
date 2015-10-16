@@ -48,11 +48,28 @@
 					echo 'Topic: <a href="detail.php?id=' . $row["ID"] . '">' . $row["Topic"] . '</a>' . '<br>';
 					echo 'Name: ' . $row["Name"]. '<br>';
 					echo 'Date: ' . $row["Date"]. '<br>';
+					echo '<form method="post" action="ask.php">';
+					echo '<input name="id" type="hidden" value=' . $row["ID"] . '>';
+					echo '<button value=' . $row["ID"] . '>Edit</button>';
+					echo '</form>'; 
+					echo '<form method="post" action="delete.php">';
+					echo '<button name="id" type="submit" value=' . $row["ID"] . ' onclick="confirmDelete()">Delete</button>';
+					echo '</form>'; 
 					echo '<br>';
 				}
 				
 				mysqli_close($conn);
 			?>
+			
+			<script>
+				function confirmDelete() {
+				  var x = confirm("Are you sure you want to delete?");
+				  if (x)
+					  return true;
+				  else
+					return false;
+				}
+			</script>
 			
 		</div>
 	</body>

@@ -74,8 +74,19 @@ div {
 	text-align: center;
 }
 
-question {
-
+button, button:focus, button:active{
+	background: none;
+	border: none;
+	display: inline;
+	font: inherit;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	outline-offset: 0;
+	/* Additional styles to look like a link */
+	color: blue;
+	cursor: pointer;
+	text-decoration: underline;
 }
 
 .justify {
