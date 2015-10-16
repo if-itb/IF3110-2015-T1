@@ -1,0 +1,108 @@
+.h1style{
+	position:relative;
+	left:15%;
+	margin-bottom:1px;
+	width: 50%;
+	
+}
+hr{
+	border-top: 2px solid black; 
+	margin-top: 1px;
+	margin-bottom :1px;
+	width:70%
+}
+
+h2 ,h3{
+	position:relative;
+	left:15%;
+	margin-bottom:1px;
+	width: 50%;
+	font-family:"batang";
+}
+.titlefont{
+	font-family:"batang";
+}
+.formpos{
+	position: relative;
+	left : 15%;
+}
+.search{
+	position:relative;
+	left :25%;
+	width : 70%;
+	margin:0;
+}
+.searchstyle{
+	float:right;
+	position: relative;
+	right:30%;
+}
+.compactbox{
+	display: inline-block;
+	margin-right: 10px;
+	vertical-align:top;
+}
+
+.voteansweridxstyle{
+	width: 150px;
+	height: 175px;
+}
+.votestyle{
+	width: 150px;
+	height:175px;
+}
+.topicidxstyle{
+	width: 650px;
+	height: 125px;
+
+}
+.topicstyle{
+	width :800px;
+	height:125px;
+}
+.choicebox{
+	position:relative;
+	clear:left;
+	left:60%;
+	width:50%;
+}
+
+.collection{
+	position:relative;
+	left:15%;
+	width: 75%;
+}
+input.form-textfield{
+	width: 70%;
+	border: 2px solid black;
+	margin : 5px;
+}
+
+textarea.form-textarea{
+	width:70%;
+	height: 200px;
+	border : 2px solid black;
+	margin: 5px;
+}
+
+.textcentering{
+	text-align:center;
+}
+
+a:link{
+	text-decoration:none;
+}
+
+#orange{
+	color:orange;
+}
+#red{
+	color:red;
+}
+#black{
+	color:black;
+}
+#blue{
+	color:blue;
+}
+
