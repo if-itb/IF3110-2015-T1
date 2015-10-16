@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+	  <title>Simple StackExchange</title>
+</head>
+
+<body>
 
 <?php include 'connect.php';?>
 	

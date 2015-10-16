@@ -1,49 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  	<title>Question</title>
   	<meta charset="UTF-8">
-
-<script>
-    function deleteconfirm(s){
-
-    var del=confirm("Are you sure you want to delete this record?");
-    if (del==true){
-    	document.location =  "delete_question.php?question_id=" + s;
-    }
-    return del;
-    }
-
-    function editconfirm(s){
-
-    var edit=confirm("Are you sure you want to edit this record?");
-    if (edit==true){
-    	document.location =  "ask.php?question_id=" + s;
-    }
-    return edit;
-    }
-
-    function goToQuestion(s){
-
-    document.location =  "answer.php?question_id=" + s;
-    return true;
-    }
-
-
-</script>
-
-	<link rel="stylesheet" type="text/css" href='style.css'/>
+  	<link rel="stylesheet" type="text/css" href='style.css'/>
+  	<script type="text/javascript" src="script.js"></script>
+  	<title>Simple StackExchange</title>
 </head>
+
 <body>
 
 <div class="title">Simple StackExchange</div>
 
+<br><br><br><br>
+
 <form>
-  <input type="text" name="search">
+  <input type="text" name="search" size='120%'>
   <input type="submit" value="Search">
 </form>
 
+
+
 <div class="smalltitle-center">Cannot find what you are looking for? <a id = "color-orange" href="ask.php" >Ask here</a></div>
+<br>
 
 <div class="smalltitle-left"> Recently Asked Questions </div>
 

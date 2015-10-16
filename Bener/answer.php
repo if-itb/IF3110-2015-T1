@@ -1,29 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  	<title>Create</title>
   	<meta charset="UTF-8">
-<script>
-    function deleteconfirm(s){
-    var del=confirm("Are you sure you want to delete this record?");
-    if (del==true){
-    	document.location =  "delete_question.php?question_id=" + s;
-    }
-    return del;
-    }
-
-    function editconfirm(s){
-    var edit=confirm("Are you sure you want to edit this record?");
-    if (edit==true){
-    	document.location =  "ask.php?question_id=" + s;
-    }
-    return edit;
-    }
-</script>
-
   	<link rel="stylesheet" type="text/css" href='style.css'/>
-
+  	<script type="text/javascript" src="script.js"></script>
+  	<title>Simple StackExchange</title>
 </head>
+
 <body>
 
 <?php include 'connect.php';?>
@@ -102,21 +86,13 @@
 		    		. $row['vote'] . "<br>" . " Votes" . "</div>"
 		    		;
 		    	$question_content_content = 
-		    		"<div class='bQA-content'>" . "<br>" . $row['content'] . "</div>"
+		    		"<div class='bQA-content'>" . $row['content'] . "</div>"
 		    		;
 		    	$question_content_email = 
 		    		"<div class='bQA-identity'>" 
-		    		. "answered by " . $row['email'] . " at " . "08.00 7/10/1996" 
+		    		. "answered by " . $row['email'] . " at " . "08.00 7/10/1996" . "</div>" . "</div>"
 		    		;
-		    	$question_content_edit = 
-		    		" | " . "<a id='color-orange' href=# onclick='editconfirm(" . $row['answer_id'] . ")' " 
-		    		. "'>edit</a>"
-		    		;
-		    	$question_content_delete = 
-		    		" | " . "<a id='color-red' href=# onclick='deleteconfirm(" . $row['answer_id'] . ")' " 
-		    		. "'>delete</a>" . "</div>" . "</div>"
-		    		;
-		    	$question_content_all = $question_content_vote . $question_content_content . $question_content_email . $question_content_edit . $question_content_delete . $border;
+		    	$question_content_all = $question_content_vote . $question_content_content . $question_content_email . $border;
 
 		    	echo $question_content_all;
 		    }
