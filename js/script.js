@@ -1,10 +1,15 @@
+/* Nama file 	: script.js */
+/* Nama/NIM		: Ahmad Darmawan (13513096) */
+/* Deskripsi	: File ini berisi kumpulan script seperti validasi input dan inisialisasi ajax */
+
 function validateEmail(email) {
+	/* Fungsi validasi apakah masukan email sesuai format */
     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     return re.test(email);
 }
 
-function validateQuestionInput()
-{
+function validateQuestionInput() {
+	/* Fungsi validasi apakah setiap field pada form question telah diisi atau tidak serta memvalidasi masukan email */
 	var Name = 	document.forms["fquestion"]["name"].value;
 	var Email = document.forms["fquestion"]["email"].value;
 	var Topic = document.forms["fquestion"]["topic"].value;
@@ -24,6 +29,7 @@ function validateQuestionInput()
 }
 
 function validateAnswerInput() {
+	/* Fungsi validasi apakah setiap field pada form answer telah diisi atau tidak serta memvalidasi masukan email */
 	var Name = 	document.forms["fanswer"]["name"].value;
 	var Email = document.forms["fanswer"]["email"].value;
 	var Content = document.forms["fanswer"]["content"].value;

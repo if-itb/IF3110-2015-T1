@@ -1,5 +1,9 @@
 <?php 
 	
+	/* Nama file 	: list_question.php */
+	/* Nama/NIM		: Ahmad Darmawan (13513096) */
+	/* Deskripsi	: File ini berfungsi untuk mengambil semua pertanyaan dari database dan menampilkan ke halaman utama. */
+
 	$servername = "localhost";
 	$username = "root";
 	$password = "";

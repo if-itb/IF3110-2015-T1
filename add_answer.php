@@ -1,5 +1,9 @@
 <?php
 
+	/* Nama file 	: add_answer.php */
+	/* Nama/NIM		: Ahmad Darmawan (13513096) */
+	/* Deskripsi	: File ini berfungsi untuk menambahkan jawaban ke dalam database */
+
 	$servername = "localhost";
 	$username = "root";
 	$password = "";

@@ -1,5 +1,9 @@
 <?php
 
+	/* Nama file 	: add_question.php */
+	/* Nama/NIM		: Ahmad Darmawan (13513096) */
+	/* Deskripsi	: File ini berfungsi untuk menambahkan atau mengedit pertanyaan ke dalam database */
+
 	$servername = "localhost";
 	$username = "root";
 	$password = "";

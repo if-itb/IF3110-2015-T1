@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!-- Nama File 		: answer.php
+	 Nama/NIM		: Ahmad Darmawan (13513096) 
+	 Deskripsi		: File ini adalah halaman yang menampilkan satu pertanyaan beserta berbagai jawabannya serta form untuk menambah jawaban -->
+
 <html>
 <head>
 	<title>Answer - Simple StackExchange</title>

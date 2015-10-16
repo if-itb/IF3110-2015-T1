@@ -1,5 +1,9 @@
 <?php
 
+	/* Nama file 	: edit_question.php */
+	/* Nama/NIM		: Ahmad Darmawan (13513096) */
+	/* Deskripsi	: File ini berfungsi untuk memvalidasi apakah ketika masuk ke question.php proses yang dilakukan adalah ingin menambahkan atau mengedit pertanyaan */
+
 	if(isset($_GET['id']))
 	{
 		$servername = "localhost";

@@ -1,5 +1,9 @@
 <?php 
 	
+	/* Nama file 	: poll_vote.php */
+	/* Nama/NIM		: Ahmad Darmawan (13513096) */
+	/* Deskripsi	: File ini berfungsi untuk mengupdate jumlah vote dalam database */
+
 	$servername = "localhost";
 	$username = "root";
 	$password = "";

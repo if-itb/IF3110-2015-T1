@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 
+<!-- Nama File 		: question.php
+	 Nama/NIM		: Ahmad Darmawan (13513096) 
+	 Deskripsi		: File ini adalah halaman yang menampilkan form untuk menambah pertanyaan -->
+
 <html>
 <head>
 	<title>Question - Simple StackExchange</title>

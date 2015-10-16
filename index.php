@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 
+<!-- Nama File 		: index.php
+	 Nama/NIM		: Ahmad Darmawan (13513096) 
+	 Deskripsi		: File ini adalah halaman utama yang menampilkan berbagai pertanyaan yang ada -->
+
 <html>
 
 <head>
