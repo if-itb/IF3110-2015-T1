@@ -27,36 +27,10 @@
 		}	
 	}
 	else { ?>
-	<script type="text/javascript">
-	function validateForm() {
-		//check name
-		var input = document.forms["editQuestion"]["name"].value;
-		if(input==null || input=="") {
-			alert("Name must be filled out");
-			return false;
-		}
-    	//check topic 
-    	input = document.forms["editQuestion"]["question"].value;
-    	if(input==null || input=="") {
-			alert("Topic must be filled out");
-			return false;
-		}
-		//check content
-    	input = document.forms["editQuestion"]["content"].value;
-		if(input==null || input=="") {
-			alert("Content must be filled out");
-			return false;
-		}
-		//check email
-		input = document.forms["editQuestion"]["email"].value;
-    	var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    	return re.test(input);
-	}
-	</script>
 	<div id="big">Simple StackExchange</div>
 	<div class="mediumbaru">
 	<div id="m1">Edit your question</div>
-	<form method="post"  name="editQuestion" action="<?php $_PHP_SELF?>" onsubmit="return validateForm()">
+	<form method="post"  name="editQuestion" action="<?php $_PHP_SELF?>" onsubmit="return validateFormQuestion(this);">
 	<?php $conn = new mysqli("localhost","root","","stackoverflow");
 	if($conn->connect_error)
 		die("Connection failed : ".$conn->connect_error);
@@ -72,4 +46,5 @@
 	</form>
 	</div>
 </body>
+	<script src="../script/validation.js"></script>
 </html>

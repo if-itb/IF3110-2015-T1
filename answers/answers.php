@@ -17,9 +17,9 @@
 			<div class=\"div1\">
 				<div class=\"ans2\" id=\"voting\">
 					<div class=\"ans4\">
-					<span>▲</span>
-					<span>".$row['vote']."</span>
-					<span>▼</span>
+					<span onclick=\"vote('question',".$row['no'].",0,'up')\">▲</span>
+					<span id=\"qvote\">".$row['vote']."</span>
+					<span onclick=\"vote('question',".$row['no'].",0,'down')\")>▼</span>
 					</div>
 				</div>
 				<div class=\"ans3\">
@@ -42,9 +42,9 @@
 			<div class=\"div1\">
 				<div class=\"ans2\" id=\"voting\">
 					<div class=\"ans4\">
-					<span>▲</span>
-					<span>".$row['vote']."</span>
-					<span>▼</span>
+					<span onclick=\"vote('answer',".$row['question_no'].",".$row['no'].",'up')\">▲</span>
+					<span id=\"avote".$row['no']."\">".$row['vote']."</span>
+					<span onclick=\"vote('answer',".$row['question_no'].",".$row['no'].",'down')\">▼</span>
 					</div>
 				</div>
 				<div class=\"ans3\">
@@ -60,27 +60,7 @@
 	$conn -> close(); ?>
 	</div> 
 	<div id="m2">Your Answer</div>
-	<script type="text/javascript">
-	function validateForm() {
-		//check name
-		var input = document.forms["makequestion"]["name"].value;
-		if(input==null || input=="") {
-			alert("Name must be filled out");
-			return false;
-		}
-		//check content
-    	input = document.forms["makequestion"]["content"].value;
-		if(input==null || input=="") {
-			alert("Content must be filled out");
-			return false;
-		}
-		//check email
-		input = document.forms["makequestion"]["email"].value;
-    	var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    	return re.test(input);
-	}
-	</script>
-	<form name="makequestion" method="post" action="sendanswers.php" onsubmit="return validateForm()">
+	<form name="makeanswer" method="post" action="sendanswers.php" onsubmit="return validateFormAnswer(this);">
 		 <input type="text" name="name" placeholder="Name" class="medium">
 		 <input type="email" name="email" placeholder="Email" class="medium">
 		 <textarea type="text" name="content" placeholder="Content" class="medium" id="content"></textarea> 
@@ -89,4 +69,5 @@
 	 </form>
 	 </div>
 </body>
+	<script src="../script/validation.js"></script>
 </html>
