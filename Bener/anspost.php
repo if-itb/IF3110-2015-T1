@@ -28,7 +28,6 @@ $content = $_POST["content"];
 	VALUES ('$question_id', '$name', '$email', '$content')";
 	if (mysqli_query($conn, $sql)) {
 		echo $question_id;
-		//$last_id = mysqli_insert_id($conn);
 		header('Location: answer.php?question_id=' . $question_id);
 	} else {
 	    echo "Error: " . $sql . "<br>" . mysqli_error($conn);

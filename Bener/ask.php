@@ -35,6 +35,10 @@ function validateForm() {
 <body>
 
 <div class="title">Simple StackExchange</div>
+<br>
+<br>
+<br>
+<br>
 <div class="subtitle">What's your question?</div>
 <div class="line"> <hr> </div>
 <br>
@@ -72,7 +76,7 @@ function validateForm() {
         <input value=\"" . $email . "\" type=\"text\" name=\"email\" placeholder=\"Email\" size=\"130%\"><br>
         <input value=\"" . $topic . "\" type=\"text\" name=\"topic\" placeholder=\"Question Topic\" size=\"130%\"><br>
         <textarea value=\"" . $content . "\" name=\"content\" rows=\"5\" cols=\"128%\" placeholder=\"Content\"></textarea><br>
-        <input type=\"submit\" value=\"Submit\">
+        <input type=\"submit\" value=\"Post\">
         </form>";
     
 

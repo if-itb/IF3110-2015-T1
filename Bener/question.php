@@ -39,11 +39,11 @@
 <div class="title">Simple StackExchange</div>
 
 <form>
-  <input type="text" name="question">
+  <input type="text" name="search">
   <input type="submit" value="Search">
 </form>
 
-<div class="smalltitle-center">Cannot find what you are looking for? <a id = "ask" href="ask.php" >Ask here</a></div>
+<div class="smalltitle-center">Cannot find what you are looking for? <a id = "color-orange" href="ask.php" >Ask here</a></div>
 
 <div class="smalltitle-left"> Recently Asked Questions </div>
 
@@ -54,7 +54,7 @@
 <?php include 'connect.php';?>
 
 <?php
-	$sql = "SELECT question_id, vote, topic, content, email FROM Question";
+	$sql = "SELECT question_id, vote, topic, content, name FROM Question";
 	$result = mysqli_query($conn, $sql);
 
 	if (mysqli_num_rows($result) > 0) {
@@ -70,7 +70,7 @@
 	    		;
 	    	$question_content_topic = 
 	    		"<div class='bquestion-content'>" 
-	    		. "<a id='ask' href=# onclick='goToQuestion(" . $row['question_id'] . ")' " 
+	    		. "<a id='color-black' href=# onclick='goToQuestion(" . $row['question_id'] . ")' " 
 	    		. "'>" . $row['topic'] ."</a>"
 	    		;
 	    	$question_content_content = 
@@ -78,14 +78,14 @@
 	    		;
 	    	$question_content_email = 
 	    		"<div class='bquestion-identity'>" 
-	    		. "asked by " . $row['email'] . " at " . "7/10/1996 08.00"
+	    		. "asked by " . "<a id='color-blue'>" . $row['name'] . "</a>"
 	    		;
 	    	$question_content_edit = 
-	    		" | " . "<a id='ask' href=# onclick='editconfirm(" . $row['question_id'] . ")' " 
+	    		" | " . "<a id='color-orange' href=# onclick='editconfirm(" . $row['question_id'] . ")' " 
 	    		. "'>edit</a>"
 	    		;
 	    	$question_content_delete = 
-	    		" | " . "<a id='ask' href=# onclick='deleteconfirm(" . $row['question_id'] . ")' " 
+	    		" | " . "<a id='color-red' href=# onclick='deleteconfirm(" . $row['question_id'] . ")' " 
 	    		. "'>delete</a>" . "</div>" . "</div>"
 	    		;
 	    	$question_content_line = 

@@ -8,6 +8,7 @@
 		text-align: left;
 	    font-size: 250%;
 	    font-family:calibri;
+	    clear:left;
 	}
 	.smalltitle-center{
 		text-align: center;
@@ -34,9 +35,25 @@
 		font-family:calibri;
 		clear:both;
 	} 
-	#ask{
+	#color-orange{
 		text-decoration: none;
-		color: rgb(255,215,0);
+		color: orange;
+	}
+	#color-blue{
+		text-decoration: none;
+		color: blue;
+	}
+	#color-red{
+		text-decoration: none;
+		color: red;
+	}
+	#color-black{
+		text-decoration: none;
+		color: black;
+	}
+	#color-grey{
+		text-decoration: none;
+		color: grey;
 	}
 	.block-question{
 		font-family:calibri;
@@ -71,7 +88,6 @@
 	}
 	.block-QA{
 		font-family: calibri;
-		color : green;
 	}
 	.bQA-vote{
 		margin-left:17.5%;
@@ -79,7 +95,6 @@
 		color:black;
 		text-align: center;
 		float:left;
-		color:green;
 	}
 	.bQA-content{
 		margin-left:2.5%; 
