@@ -31,7 +31,7 @@
                     <div class="post-content">
                     <?php echo $row["q_content"]; ?>
                     </div>
-                    <div class="details">asked by <?php echo $row["q_name"];?> at <?php echo $row["q_date"] ;?> | <a href="edit.php?id=<?php echo $q_id ;?>">edit</a> | <a href="delete.php?id=<?php echo $q_id;?>" onclick="return confirm('Are you sure you want delete this question?')">delete</a></div>
+                    <div class="details">asked by <?php echo $row["q_name"];?> (<?php echo $row["q_email"];?>) at <?php echo $row["q_date"] ;?> | <a href="edit.php?id=<?php echo $q_id ;?>">edit</a> | <a href="delete.php?id=<?php echo $q_id;?>" onclick="return confirm('Are you sure you want delete this question?')">delete</a></div>
                 </div>
             
             <?php
@@ -56,7 +56,7 @@
                         <div class="post-content">
                         <?php echo $row["a_content"];?>
                         </div>
-                        <div class="details">answered by <?php echo $row["a_name"];?> at <?php echo $row["a_date"];?></div>
+                        <div class="details">answered by <?php echo $row["a_name"];?> (<?php echo $row["a_email"];?>) at <?php echo $row["a_date"];?></div>
                     </div>
                     <hr>
                 <?php }
