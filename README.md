@@ -89,7 +89,11 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+- Melakukan AJAX
+	1. Ketika pengguna memencet tombol vote, sebuah fungsi javascript akan dipanggil untuk melakukan ajax.
+	2. Sebuah formdata berisi id dari pertanyaan / jawaban beserta nilai vote. Jika upvote, maka nilai vote yang dikirim adalah 1, sebaliknya jika downvote, nilai vote yang dikirim adalah -1.
+	3. Selanjutnya backend akan memproses voting dengan melakukan penambahan / pengurangan di basis data.
+	4. Kemudian response berupa nilai vote hasil perubahan dikirim ke elemen html terkait yang sebelumya telah diberi id.
 
 ### Knowledge
 
