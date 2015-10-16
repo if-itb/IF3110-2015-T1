@@ -5,6 +5,7 @@
     <title>Simple StackExchange</title>
 
     <link href="css/style.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
 
 </head>
 <body>

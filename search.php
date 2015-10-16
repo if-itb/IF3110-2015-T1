@@ -5,6 +5,7 @@
     <title>Simple StackExchange</title>
 
     <link href="css/style.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -13,14 +14,15 @@
         <form action="search.php">
         <input type="search" name="s" id="forum-search"><button type="submit">Search</button><br></form>
         <div class="text-center">Cannot find what you're looking for? <a href="ask.php">Ask here</a></div>
-        <h3>Questions containing <?php $searchquery = mysql_real_escape_string($_GET["s"]); echo $searchquery;?></h3>
         
-        <hr>
         <?php
             include 'connect.php';
+            $searchquery = mysql_real_escape_string($_GET["s"]); 
             $sql = "SELECT q_votes, q_answers, q_id, q_topic, q_name FROM questions WHERE q_topic LIKE '%" .$searchquery. "%' OR q_content LIKE '%" .$searchquery. "%'";
-            
             $result = $conn->query($sql);
+            ?>
+            <h3><?php echo $result->num_rows;?> Results</h3><hr>
+            <?php
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {?>
                     <div class="question-block">
@@ -31,8 +33,6 @@
                     </div>
                     <hr>
                 <?php }
-            } else {
-                echo "0 results for " .$searchquery;
             }
         ?>
         <a href="index.php">Back to forum</a>
