@@ -6,10 +6,10 @@
 	function addQuestion($question) {
 		global $conn;
 
-		$name = $question["name"];
+		$name = mysqli_real_escape_string($conn, $question["name"]);
 		$email = $question["email"];
-		$topic = $question["topic"];
-		$content = $question["content"];
+		$topic = mysqli_real_escape_string($conn, $question["topic"]);
+		$content = mysqli_real_escape_string($conn, $question["content"]);
 		$date_created = date("Y-m-d H:i:s") ;
 		// Insert new question to database
 		$sql = "INSERT INTO question (name, email, topic, content, vote, answer, date_created) 

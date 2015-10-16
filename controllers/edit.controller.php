@@ -6,10 +6,10 @@
 		global $conn;
 
 		$id = $question["id"];
-		$name = $question["name"];
+		$name = mysqli_real_escape_string($conn, $question["name"]);
 		$email = $question["email"];
-		$topic = $question["topic"];
-		$content = $question["content"];
+		$topic = mysqli_real_escape_string($conn, $question["topic"]);
+		$content = mysqli_real_escape_string($conn, $question["content"]);
 		$date_edited = date("Y-m-d H:i:s") ;
 		// Insert new question to database
 		$sql = "UPDATE question SET name='$name', email='$email',

@@ -7,9 +7,9 @@
 		global $conn;
 
 		$q_id = $answer["q_id"];
-		$name = $answer["name"];
+		$name =  mysqli_real_escape_string($conn, $answer["name"]);
 		$email = $answer["email"];
-		$content = $answer["content"];
+		$content = mysqli_real_escape_string($conn, $answer["content"]);
 		$date_created = date("Y-m-d H:i:s");
 
 		// Insert new answer to database
