@@ -15,7 +15,9 @@
 				<input type="text" id="name" name="name" placeholder="Name"><br>
 				<input type="text" id="email" name="email" placeholder="Email"><br>
 				<textarea id="content" name="content" placeholder="Content" ></textarea><br>
-				<input type="submit" value="Post">
+				<div class="div-right-button">
+					<input type="submit" class="right-button" value="Post">
+				</div>
 			</form>
 		</div>
 	</div>

@@ -12,7 +12,7 @@
 		echo "<span id=\"question-content\">";
 		echo nl2br($question["content"]) . "<br><br><br>";
 		echo "<span class=\"question-info\">asked by <span class=\"author\">" . $question["email"] .
-			"</span> at " . $question["date_created"] . " ";
+			"</span> at " . $question["date_created"] . " | ";
 		if ($question["date_edited"]!=null) {
 			echo " edited at " . $question["date_edited"] . " ";
 		}

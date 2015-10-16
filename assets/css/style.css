@@ -1,10 +1,25 @@
+@font-face {
+    font-family: ConcursoItalian;
+    src: url("../font/concursoitalian-btn-wide.woff");
+}
+
+@font-face {
+    font-family: BuxtonSkt;
+    src: url("../font/BuxtonSketch.woff");
+}
+
+@font-face {
+    font-family: Dss;
+    src: url("../font/Dosis-Light.woff");
+}
+
 body {
 	margin: 0;
 	padding: 0;
 	height:100%;
 	width:100%;
 	background-color: #FFFFFA;
-	font-family: Dosis;
+	font-family: Dss;
 }
 
 header {
@@ -28,20 +43,11 @@ hr {
 	border-top: 1px dashed #B4E7BD;
 }
 
-@font-face {
-    font-family: ConcursoItalian;
-    src: url("../font/concursoitalian-btn-wide.woff");
-}
-
-@font-face {
-    font-family: BuxtonSkt;
-    src: url("../font/BuxtonSketch.woff");
-}
-
 a:link, 
 a:visited,
 a:active {
     color: #FFA398;
+    text-decoration: none;
 }
 
 a:hover {
@@ -59,7 +65,7 @@ a.delete-question:link,
 a.delete-question:visited,
 a.delete-question:active {
     color: #FF0000;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 #title {
@@ -261,7 +267,7 @@ input[type="search"]::-webkit-search-decoration {
     max-width: 80%;
     background: #EFFFDE;
     padding: 25px 15px 25px 10px;
-    font: 12px Dosis, Dosis, Dosis, Dosis;
+    font: 12px Dss, Dss, Dss, Dss;
     color: #888;
     text-shadow: 1px 1px 1px #FFF;
     border:1px solid #E4E4E4;
@@ -309,7 +315,7 @@ input[type="search"]::-webkit-search-decoration {
 .basic-grey textarea{
     padding: 5px 3px 3px 5px;
     resize: none;
-    font-family: Dosis;
+    font-family: Dss;
 }
 .basic-grey select {
     background: #FFF url('down-arrow.png') no-repeat right;
@@ -368,3 +374,12 @@ input[type="search"]::-webkit-search-decoration {
 .basic-grey input[type="search"]::-webkit-input-placeholder { color: #42454e; }
 .basic-grey input[type="search"]:-moz-placeholder { color: #42454e; }
 .basic-grey input[type="search"]:-ms-input-placeholder { color: #42454e; }
+
+.div-right-button {
+	width: 70%;
+	display: inline-block;
+}
+
+.right-button {
+	float: right;
+}

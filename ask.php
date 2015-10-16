@@ -12,7 +12,9 @@
 				<input type="text" id="email" name="email" placeholder="Email"><br>
 				<input type="text" id="topic" name="topic" placeholder="Question Topic"><br>
 				<textarea id="content" name="content" placeholder="Content"></textarea><br>
-				<input type="submit" value="Post">
+				<div class="div-right-button">
+					<input type="submit" class="right-button" value="Post">
+				</div>
 			</form>
 		</div>
 	</div>

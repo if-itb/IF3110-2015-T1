@@ -17,7 +17,9 @@
 				<input type="text" id="email" name="email" value="<?php echo $questionInfo["email"] ?>" ><br>
 				<input type="text" id="topic" name="topic" value="<?php echo $questionInfo["topic"] ?>"><br>
 				<textarea id="content" name="content" required><?php echo $questionInfo["content"] ?></textarea><br>
-				<input type="submit" value="Edit">
+				<div class="div-right-button">
+					<input type="submit" class="right-button" value="Edit">
+				</div>
 			</form>
 		</div>
 	</div>
