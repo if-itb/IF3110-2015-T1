@@ -216,28 +216,6 @@ span.delete {
 	outline:none;
 }
 
-/*	
-.form-wrapper textarea::-webkit-input-placeholder {
-    color: #000;
-	font-weight: bold;
-}
-
-	
-.form-wrapper input::-webkit-input-placeholder {
-    color: #000;
-    font-weight: bold;
-}
-    
-.form-wrapper input:-moz-placeholder {
-	color: #000;
-    font-weight: bold;
-}
-    
-.form-wrapper input:-ms-input-placeholder {
-	color: #000;
-    font-weight: bold;
-} 
-*/	
 .form-wrapper button {
 	font : bold 15px 'Lucida sans', Arial, Helvetica;
 	color : #000;

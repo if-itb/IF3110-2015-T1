@@ -56,7 +56,7 @@ function updateVote(vote,qid,aid) {
 					<div class="triangle-up" onclick="updateVote(1,'.$qid.',0)"></div>
 					<div class="score" id="0">'.$question[6].'</div>
 					<div class="triangle-down" onclick="updateVote(-1,'.$qid.',0)"></div></td>
-				<td class="td-content">'.nl2br($question[5]).'<p></p></td>
+				<td class="td-content">'.nl2br(addslashes($question[5])).'<p></p></td>
 			</tr>
 			<tr>
 				<td class="td-detail">asked by <span class="username">'.$question[3].'</span> at '.$question[1].' | <a href="edit.php?id='.$qid.'"><span class="edit"> Edit </span></a> | <a onclick="return ConfirmDelete();" href="delete.php?id='.$qid.'"><span class="delete"> Delete </span></a></td>
@@ -81,7 +81,7 @@ function updateVote(vote,qid,aid) {
 						echo '<div class="triangle-down" onclick="updateVote(-1,'.$qid.','.$row[1].')"></div>';
 					echo '</td>';
 					echo '<td class="td-content">';
-						echo nl2br($row[5]).'<p></p>';
+						echo nl2br(addslashes($row[5])).'<p></p>';
 					echo '</td>';
 					echo '</tr>';
 					

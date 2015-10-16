@@ -57,7 +57,7 @@
 					else {
 						$content = substr($row[5],0);
 					}
-                    echo $content;
+                    echo str_ireplace("$key","<b>".$key."</b>",$content);
                 echo '</td>';
                 echo '</tr>';
 				
