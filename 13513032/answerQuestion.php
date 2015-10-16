@@ -30,7 +30,7 @@
 			}
 
 			// Mengambil data pertanyaan dari database, berdasarkan id nya
-			$questionQuery = "	select questionemail, questiontopic, questioncontent, questionvotes, questiondatetime
+			$questionQuery = "	select questionid, questionemail, questiontopic, questioncontent, questionvotes, questiondatetime
 								from questions
 								where questionid = ".$_GET["id"];
 			$questionResults = mysqli_query($connection, $questionQuery);
@@ -53,7 +53,7 @@
 		</p>
 
 		<p class="askedAnsweredBy">
-			asked by <?php echo $questionResult["questionemail"] ?> at <?php echo $questionResult["questiondatetime"] ?>|<b><a <?php echo "href='askQuestion.php?id=".$_GET["id"]."'" ?> style="color:orange">edit</a>|<span style="color:red">delete</span></b>
+			asked by <?php echo $questionResult["questionemail"] ?> at <?php echo $questionResult["questiondatetime"] ?>|<b><a <?php echo "href='askQuestion.php?id=".$_GET["id"]."'" ?> style="color:orange">edit</a>|<a <?php echo "href='javascript:confirmDeletion(".$questionResult["questionid"].")'" ?> style='color:red'>delete</a></b>
 		</p>
 
 		<h2><?php echo mysqli_num_rows($answerResults) ?> Answer</h2>
@@ -80,5 +80,11 @@
 			<textarea placeholder="Content" rows="9"></textarea>
 			<input id="postButton" type="button" value="Post"></input>
 		</form>
+
+		<?php
+			mysqli_close($connection);
+		?>
+
+		<script src="script.js"></script>
 	</body>
 </html>

@@ -28,9 +28,11 @@
 				$insertQuestionResult = mysqli_query($connection, $insertQuestionQuery);
 			}
 
-			// Mengupdate pertanyaan yang sudah diedit ke database
-			if (isset($_POST["editPostButton"])) {
-
+			// Menghapus pertanyaan berdasarkan id nya
+			if (isset($_GET["id"])) {
+				$deleteQuestionQuery = "delete from questions
+										where questionid = ".$_GET["id"];
+				$deleteQuestionResult = mysqli_query($connection, $deleteQuestionQuery);	
 			}
 		?>
 
@@ -72,7 +74,7 @@
 					</p>
 
 					<p class='askedBy'>
-						asked by <b><span style='color:purple'>".$result["questionname"]."</span>|<a href='askQuestion.php?id=".$result["questionid"]."' style='color:orange'>edit</a>|<span style='color:red'>delete</span></b>
+						asked by <b><span style='color:purple'>".$result["questionname"]."</span>|<a href='askQuestion.php?id=".$result["questionid"]."' style='color:orange'>edit</a>|<a href='javascript:confirmDeletion(".$result["questionid"].")' style='color:red'>delete</a></b>
 					</p>";
 				}
 			}
@@ -81,5 +83,7 @@
 		<?php
 			mysqli_close($connection);
 		?>
+
+		<script src="script.js"></script>
 	</body>
 </html>

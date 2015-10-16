@@ -55,5 +55,10 @@
 			<textarea name="questionContent" placeholder="Content" rows="9"><?php echo $contentValue; ?></textarea>
 			<input id="postButton" name='questionPostButton' type="submit" value="Post"></input>
 		</form>
+
+		<?php
+			mysqli_close($connection);
+		?>
+
 	</body>
 </html>
