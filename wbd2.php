@@ -41,7 +41,7 @@ function validateField() {
 </div>
 <br>
 <?php if(!isset($_GET["id"])){
-	echo "<form name='AskQ' action = 'wbd.php?' method='post' onsubmit='return validateField()'>";
+	echo "<form name='AskQ' action = 'wbd.php' method='post' onsubmit='return validateField()'>";
 		echo "<input id='name' type='text' name='name' class='widthask' placeholder='Name'><br>";
 		echo "<input id='email' type='text' name='email' class='widthask' placeholder='Email'><br>";
 		echo "<input id='questiontopic' type='text' name='questiontopic' class='widthask' placeholder='Question Topic'><br>";
