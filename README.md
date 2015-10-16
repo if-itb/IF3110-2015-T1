@@ -89,7 +89,17 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+### Validasi Form
+
+Validasi terhadap field form dan email dilakukan pada client-side menggunakan javascript. Pada setiap input submit yang berfungsi melakukan posting, baik posting pertanyaan ataupun jawaban, ditambahkan atribut onsubmit yang mengacu pada fungsi yang terdapat pada javascript. Saat user melakukan submission, fungsi validateFormQuestion() dan validateFormAnswer() pada validation.js akan dipanggil. Kedua fungsi tersebut melakukan pengecekan dengan tahap pertama mengecek apakah ada elemen form yang bernilai kosong (null atau ""), jika ada maka akan dikirim alert yang meminta pengguna melengkapi form yang belum terisi lalu kembalikan nilai false yang berarti form tidak valid. Jika tidak ada elemen yang bernila, maka cek apakah ada elemen form yang bernama email", apabila ada maka cek apakah sesuai dengan format email dengan menggunakan regex 3 yaitu  yaitu terdapat karakter "@" dan karakter "." dengan indeks minimal dua karakter dari belakang. Jika tidak sesuai maka akan dikirimkan alert yang meminta pengguna untuk melengkapi field email dengan format yang sesuai. Apabila seluruh elemen valid, maka 'return true'
+
+### Melakukan AJAX
+Untuk dapat melakukan voting up dan voting down pada pertanyaan dan jawaban tanpa melakukan refresh terhadap page, dapat gunakan AJAX XMLHTTPRequest. Adapun mekanisme yang dilakukan fungsi voteUpdating() yang terdapat dalam file validation.js adalah sebagai berikut:
+- Pada saat vote tombol up/down di klik, maka fungsi 'voteUpdating()' akan berjalan dimana fungsi tersebut mengirimkan parameter id, table type, dan value. Table type diisi dengan "question" jika yang di-vote merupakan pertanyaan atau "answer" jika yang di-vote merupakan jawaban. Value akan diisi jika yang diklik adalah voteup dan nilai -1 untuk votedown
+- Dalam fungsi vote dibuat objek XMLHttpRequest yang mengirimkan request ke page vote.php melalui xmlhttp.open() dan xmlhttp.send()
+- Dalam vote.php dilakukan perubahan nilai vote dalam database dengan menggunakan variabel GET yang membaca id, table type(question atau answer), value (1 atau -1), kemudian perubahan vote di echo di page
+- Echo hasil perubahan nilai vote masuk sebagai respons dalam innerHTML ke elemen dengan id yg sudah ditentukan
+- Respons masuk dan output echo akan ditampilkan sehingga nilai vote berubah ke nilai terbaru
 
 ### Knowledge
 
