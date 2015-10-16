@@ -89,7 +89,21 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+### Melakukan validasi pada client-side
+Validasi pada client side dilakukan dengan menggunakan JavaScript yang di include ke dalam PHP-nya. Pada form yang terdapat field yang perlu diisi, field-field tersebut akan divalidasi dengan menggunakan fungsi validateField(). Fungsi validateField() akan mengecek apakah field Nama, Email, QuestionTopic, dan Content-nya sudah terisi atau belum. Fungsi yang mirip digunakan juga pada form Answer dengan nama validateAnswerField().
+
+### Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
+	
+Menggunakan objek XMLHTTPRequest, pada tugas ini saya menggunakan metode GET. Lalu perintah atau kode yang diinginkan diassign ke xmlhttp.onreadystatechange. Perintah yang dimaksud dalam tugas ini adalah melakukan penggantian angka pada innerhtml suatu id dengan menulis perintah document.getElementById("jumlahvote").innerhtml = xmlhttp.responseText dimana responseText adalah output dari file yang di-open, dengan paramater yang dikirimkan sebagai berikut :
+
+    action (up/down) : menambah (up) atau mengurangkan (down) voting
+    jumlahvote : paragraf ID yang isinya adalah jumlah vote sekarang
+    db(answer/question) : database yang dikenai aksi
+	
+Untuk menambahkan Vote pada Question menggunakan fungsi upVoteQ(int) sedangkan untuk menurunkan Vote menggunakan fungsi downVoteQ(int) dimana int adalah id dari Question yang akan ditambahkan/dikurangi nilai votenya.
+
+Untuk menambahkan Vote pada Answer menggunakan fungsi upVoteAns(int) sedangkan untuk menurunkan Vote menggunakan fungsi downVoteAns(int) dimana int adalah id dari Answer yang akan ditambahkan/dikurangi nilai votenya.
+
 
 ### Knowledge
 
