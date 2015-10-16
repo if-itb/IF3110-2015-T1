@@ -97,7 +97,11 @@ Cara melakukan validasi pada client-side:
 5. Sedangkan untuk pemeriksaan email, memanfaatkan regex untuk memeriksa kevalidan email.
 
 Cara melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah):
-1. 
+1. Saat pengguna mengklik tombol vote, akan dijalankan fungsi javascript yang akan membangkitkan xmlhttprequest.
+2. Xmlhttprequest akan mengirimkan request pada server. Request bisa berupa POST atau GET. Dalam tugas ini, saya menggunakan POST.
+3. Setelah mengirimkan request, maka server akan mengolah apa yang diminta oleh Xmlhttprequest. Dalam tugas ini, saya mengirimkan id question atau answer yang akan divote. Kemudian php akan mengupdate nilai vote question atau answer tersebut pada database.
+4. Setelah server selesai menjalankan tugasnya, server akan memberikan keluaran yang akan ditangkap oleh xmlhttprequest sebagai responseText atau responseXML. Dalam tugas ini, saya menggunakan responseText.
+5. Dengan responseText inilah, javascript akan mengubah nilai vote pada tampilan tanpa perlu melakukan refresh.
 
 ### Knowledge
 
