@@ -18,7 +18,7 @@
         <?php
             include 'connect.php';
             $searchquery = mysql_real_escape_string($_GET["s"]); 
-            $sql = "SELECT q_votes, q_answers, q_id, q_topic, q_name FROM questions WHERE q_topic LIKE '%" .$searchquery. "%' OR q_content LIKE '%" .$searchquery. "%'";
+            $sql = "SELECT q_votes, q_answers, q_id, q_topic, q_name, q_content FROM questions WHERE q_topic LIKE '%" .$searchquery. "%' OR q_content LIKE '%" .$searchquery. "%'";
             $result = $conn->query($sql);
             ?>
             <h3><?php echo $result->num_rows;?> Results</h3><hr>
