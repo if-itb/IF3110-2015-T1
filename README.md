@@ -89,7 +89,14 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+
+-Melakukan validasi pada client-side
+  Validasi pada client-side menggunakan javascript. Pengecekan dilakukan pada saat submit menggunakan atribut onSubmit. Jika ada field pada form yang kosong, maka placeholder dari setiap field akan diganti dengan text yang berisi pesan bahwa field tersebut harus diisi. selain itu border setiap field akan berubah warna menjadi merah. validasi email pada javascript menggunakan ekspresi regular untuk alamat email yang valid. Jika email tidak valid, javascript akan mengeluarkan alert "Email Invalid" dan warna border juga berubah menjadi merah, akan tetapi teks yang sudah diisikan tidak akan dirubah/dihilangkan.
+
+-Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
+  Ajax untuk voting menggunakan fungsi vote. element HTML yang dirubah diberi element id 'questionVote' untuk data berjenis question dan 'answerVote-id' untuk data berjenis answer.
+  Ketika gambar vote-up atau vote-down diklik, akan dipanggil fungsi vote dengan parameter jenis data yang divote(answer atau question), id dari data, dan jenis voting (up atau down). fungsi vote menggunakan XMLHTTPRequest. fungsi vote memanfaatkan method POST untuk mengirimkan parameter ke server. pada server, diterima parameter yang dikirimkan oleh fungsi vote. di server mengecek jenis vote, kemudian melakukan penambahan atau pengurangan jumlah vote pada tabel di database sesuai jenis data(answer atau question) dan id data yang diterima. Server akan mengirimkan response berupa jumlah vote terbaru yang  didapat dari database. response diterima oleh fungsi vote di client-side dan digunakan sebagai text baru dari element pada HTML sesuai dengan id element yang dibuat di awal.
+
 
 ### Knowledge
 
@@ -108,13 +115,3 @@ Asisten IF 3110 2015
 Fahziar | Gilang | Lingga | Reza | Sudib | Tito | Willy K2 | Yafi
 
 Dosen : Yudistira Dwi Wardhana | Riza Satria Perdana
-
-
-
-### Penjelasan Teknis
--Melakukan validasi pada client-side
-  Validasi pada client-side menggunakan javascript. Pengecekan dilakukan pada saat submit menggunakan atribut onSubmit. Jika ada field pada form yang kosong, maka placeholder dari setiap field akan diganti dengan text yang berisi pesan bahwa field tersebut harus diisi. selain itu border setiap field akan berubah warna menjadi merah. validasi email pada javascript menggunakan ekspresi regular untuk alamat email yang valid. Jika email tidak valid, javascript akan mengeluarkan alert "Email Invalid" dan warna border juga berubah menjadi merah, akan tetapi teks yang sudah diisikan tidak akan dirubah/dihilangkan.
-
--Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
-  Ajax untuk voting menggunakan fungsi vote. element HTML yang dirubah diberi element id 'questionVote' untuk data berjenis question dan 'answerVote-id' untuk data berjenis answer.
-  Ketika gambar vote-up atau vote-down diklik, akan dipanggil fungsi vote dengan parameter jenis data yang divote(answer atau question), id dari data, dan jenis voting (up atau down). fungsi vote menggunakan XMLHTTPRequest. fungsi vote memanfaatkan method POST untuk mengirimkan parameter ke server. pada server, diterima parameter yang dikirimkan oleh fungsi vote. di server mengecek jenis vote, kemudian melakukan penambahan atau pengurangan jumlah vote pada tabel di database sesuai jenis data(answer atau question) dan id data yang diterima. Server akan mengirimkan response berupa jumlah vote terbaru yang  didapat dari database. response diterima oleh fungsi vote di client-side dan digunakan sebagai text baru dari element pada HTML sesuai dengan id element yang dibuat di awal.
