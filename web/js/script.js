@@ -1,7 +1,7 @@
 /* Tugas 1 IF3110 Pengembangan Aplikasi Berbasis Web
 Membuat website seperti Stack Exchange
-Author: Irene Wiliudarsan (13513002) */
-// File: script.js
+Author  : Irene Wiliudarsan (13513002)
+File    : script.js */
 
 // Check whether search form is valid or not
 // A valid form can not contain empty field and containt a valid email address
@@ -77,18 +77,16 @@ function answerFormValidation(){
   }
 };
 
-// Update votes
-function updateVote(isQuestion, id, vote_factor) {
+// Update votes using AJAX
+function updateVote(isQuestion, id, voteFactor) {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
       if (isQuestion) {
-        //document.getElementsByClassName("big-number").innerHTML = xmlhttp.responseText;
         document.getElementById("question-" + id).innerHTML = xmlhttp.responseText;
       } else {
         document.getElementById("answer-" + id).innerHTML = xmlhttp.responseText;
       }
-      //alert(xmlhttp.responseText);
     }
   }
   var url = "update-vote.php?";
@@ -97,7 +95,7 @@ function updateVote(isQuestion, id, vote_factor) {
   } else {
     url += "id_answer=";
   }
-  url += id + "&vote_factor=" + vote_factor;
+  url += id + "&vote_factor=" + voteFactor;
   xmlhttp.open("GET", url, true);
   xmlhttp.send();
 }

@@ -1,3 +1,8 @@
+<!-- Tugas 1 IF3110 Pengembangan Aplikasi Berbasis Web
+Membuat website seperti Stack Exchange
+Author  : Irene Wiliudarsan (13513002) -->
+<!-- File: script.js -->
+
 <?php
   // Create connection to database
   $servername = "localhost";

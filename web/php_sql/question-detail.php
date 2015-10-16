@@ -1,7 +1,7 @@
 <!-- Tugas 1 IF3110 Pengembangan Aplikasi Berbasis Web
 Membuat website seperti Stack Exchange
 Author: Irene Wiliudarsan (13513002) -->
-<!-- File: answer-question-detail.php  -->
+<!-- File: question-detail.php  -->
 
 <!DOCTYPE html>
 <html>

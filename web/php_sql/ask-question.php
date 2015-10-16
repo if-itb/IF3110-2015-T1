@@ -1,7 +1,7 @@
 <!-- Tugas 1 IF3110 Pengembangan Aplikasi Berbasis Web
 Membuat website seperti Stack Exchange
 Author: Irene Wiliudarsan (13513002) -->
-<!-- File: ask-question.html  -->
+<!-- File: ask-question.php  -->
 
 <!DOCTYPE html>
 <html>
@@ -66,7 +66,6 @@ Author: Irene Wiliudarsan (13513002) -->
       </form>
     </div>
 
-    <!-- Hidden div for question detail -->
     <!-- JavaScript -->
     <script src="../js/script.js"></script>
   </body>
