@@ -1,0 +1,138 @@
+.middle {
+	margin: auto;
+	text-align: center;
+}
+
+.top-left {
+	float: left;
+}
+
+.post-button {
+	float: right;
+	clear: both;
+}
+
+.right {
+	text-align: right;
+}
+
+.left {
+	text-align: left;
+}
+
+.middle-box {
+	width: 1200px;
+	padding: 10px;
+	margin: auto;
+}
+
+.small-box {
+	display: inline-block;
+	height: 100%;
+	width: 9%;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.big-box {
+	display: inline-block;
+	height: 90%;
+	width: 80%;
+	text-align: left;
+	word-wrap: break-word;
+	vertical-align: middle;
+}
+
+.full-form {
+	margin-top: 2px;
+	text-align: left;
+	width: 100%;
+	resize: none;
+}
+
+.hl-black-medium {
+	font-size: 30px;
+	color: black;
+	text-decoration: none;
+}
+
+.hl-black {
+	color: black;
+	text-decoration: none;
+}
+
+.hl-orange {
+	color: orange;
+	text-decoration: none;
+}
+
+.hl-blue {
+	color: blue;
+	text-decoration: none;
+}
+
+.hl-red {
+	color: red;
+	text-decoration: none;
+}
+
+.question {
+	border-top-style: solid;
+	border-top-color: black;
+	border-top-width: 2px;
+}
+
+.small-button {
+	width: 17.075px;
+	height: 21.8px;
+	vertical-align: text-top;
+}
+
+h1 {
+	text-align: center;
+}
+
+h2 {
+	text-align: left;
+	margin-bottom: 0px;
+}
+
+h3 {
+	margin: 0px;
+}
+
+h4 {
+	margin: 0px;
+	margin-top: 20px;
+	margin-left:5%;
+	font-size: 30px;
+	color: grey;
+}
+
+p {
+	
+}
+
+body {
+	font-family: Arial;
+}
+
+#boxed {
+	border-width: 2px;
+	border-radius: 5px;
+	border-style: solid;
+	border-color: black;
+	width: 80%;
+}
+
+#votes {
+	font-size: 40px;
+	color: grey;
+}
+
+#lined-under {
+	border-bottom-style: solid;
+	border-bottom-color: black;
+	border-bottom-width: 2px;
+	margin-bottom: 5px;
+}
