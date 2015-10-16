@@ -10,18 +10,11 @@
     <link rel=stylesheet type=text/css href='style.css'>
 	<title>
 	  <?php
-	    $question_id = $_GET['q_id'];
-		$query = "select * from questions where question_id=$question_id";
+	    $id = $_GET['q_id'];
+		$query = "select * from questions where question_id=$id";
         $hasil = mysql_query($query);
 		while ($data=mysql_fetch_array($hasil)) {
-			$user = $data['user'];
-		    $email = $data['email'];
 		    $subject = nl2br($data['subject']);
-			$question_text = nl2br($data['question_text']);
-			$date = $data['ask_date'];
-			$n_upvote = $data['n_upvote'];
-			$n_downvote = $data['n_downvote'];
-			$n_answer = $data['n_answer'];
 		}
 		echo "$subject";
 	  ?>
@@ -32,6 +25,28 @@
 	<br>
 	<div class=div_front>	  
 	  <?php
+	    if (isset($_POST['user']) && isset($_POST['email']) && isset($_POST['answer_text'])) {
+		  $user = $_POST['user'];
+		  $email = $_POST['email'];
+		  $answer_text = $_POST['answer_text'];
+		  date_default_timezone_set('Asia/Jakarta');
+		  $date = date('Y-m-d H:i:s');
+          $query = "insert into answers (answer_text,user,answer_date,email,question_id,n_upvote,n_downvote) values ('$answer_text','$user',('$date'),'$email',$id,0,0);";
+          $hasil = mysql_query($query);
+		  $query = "update questions set n_answer=n_answer+1 where question_id=$id;";
+          $hasil = mysql_query($query);
+        };
+		$query = "select * from questions where question_id=$id";
+        $hasil = mysql_query($query);
+		while ($data=mysql_fetch_array($hasil)) {
+			$user = $data['user'];
+		    $email = $data['email'];
+			$question_text = nl2br($data['question_text']);
+			$date = $data['ask_date'];
+			$n_upvote = $data['n_upvote'];
+			$n_downvote = $data['n_downvote'];
+			$n_answer = $data['n_answer'];
+		}
 	    $vote = $n_upvote-$n_downvote;
 		echo "<span class=p_table>";
 	    echo "<p align=left><font size=5>$subject</font></p>";
@@ -41,9 +56,22 @@
 	    echo "<td align=center valign=top><br><img src=up_arrow.png><br><br><font class=vote_font>$vote</font><br><br><img src=down_arrow.png><br></td>";
 	    echo "<td valign=top><p>$question_text</p></td>";
 	    echo "</tr></table>";
-		echo "<p class=p_table align=right>asked by <font class=blue_font>$user</font> (<font class=blue_font>$email</font>) at <font class=blue_font>$date</font> | <a href=\"edit.php?q_id=$question_id\" class=yellow_font>edit</a> | <a href='#' onclick=delete() class=red_font>delete</a></p>";
+		echo "<p class=p_table align=right>asked by <font class=blue_font>$user</font> (<font class=blue_font>$email</font>) at <font class=blue_font>$date</font> | <a href=\"edit.php?q_id=$id\" class=yellow_font>edit</a> | <a href=\"\" onclick=\"deleteQuest($id);\" class=red_font>delete</a></p>";
 	    echo "</span>";
+	  
       ?>
+	  <script type='text/javascript'>
+		  function deleteQuest(n) {
+			var is_del_q = confirm("Do you want to delete this question?");
+			if (is_del_q) {
+			  var xhttp = new XMLHttpRequest();
+			  var site = "del.php?q_id=" + n.toString();
+			  xhttp.open("GET",site,true);
+			  xhttp.send();
+			  return false;
+			}
+		  }
+		</script>
 	  </div>
 	</div>
 	<br>
@@ -54,18 +82,18 @@
 	  <hr id=first_line>
 	  <div class=quest_list>
 	    <?php
-          $query = "select * from answers where question_id=$question_id order by answer_date asc";
+          $query = "select * from answers where question_id=$id order by answer_date asc";
           $hasil = mysql_query($query);
 		  if (mysql_num_rows($hasil)==0) { // check empty result
             echo "There are currently no answers to this question.";
           } else {
 			while ($data=mysql_fetch_array($hasil)) {
-			  $id = $data['answer_id'];
+			  $a_id = $data['answer_id'];
 			  $vote = $data['n_upvote']-$data['n_downvote'];
 			  $a_text = nl2br($data['answer_text']);
 			  echo "<span class=p_table>";
 			  echo "<table><col width=130><col width=999><tr>";
-			  echo "<td valign=top align=center><br><font class=vote_font>$vote</font><br>Votes</td>";
+			  echo "<td valign=top align=center><br><img src=up_arrow.png><br><br><font class=vote_font>$vote</font><br><br><img src=down_arrow.png><br></td>";
 			  echo "<td valign=top><p>$a_text</p></td>";
 			  echo "</tr></table>";
 			  echo "<p class=p_table align=right>answered by <font class=blue_font>$data[user]</font> (<font class=blue_font>$data[email]</font>) at <font class=blue_font>$data[answer_date]</font></p>";
@@ -78,7 +106,7 @@
 	<div class=div_front>
 	  <p align=left><font size=5>Your Answer</font></p>
 	  <?php
-	  echo "<form align=center name='answer' action='question.php?q_id=$question_id' onsubmit='return validateForm()' method=post>";
+	  echo "<form align=center name='answer' action='question.php?q_id=$id' onsubmit='return validateForm()' method=post>";
 	  ?>
 	    <input type=text class=style_text autocomplete=off name='user' placeholder='Name'><br>
 	    <input type=text class=style_text autocomplete=off name='email' placeholder='E-mail'><br>
@@ -111,20 +139,6 @@
           }
 		</script>
 	  </form>
-	  <?php
-	    if (isset($_POST['user']) && isset($_POST['email']) && isset($_POST['answer_text'])) {
-		  $user = $_POST['user'];
-		  $email = $_POST['email'];
-		  $answer_text = $_POST['answer_text'];
-		  date_default_timezone_set('Asia/Jakarta');
-		  $date = date('Y-m-d H:i:s');
-          $query = "insert into answers (answer_text,user,answer_date,email,question_id,n_upvote,n_downvote) values ('$answer_text','$user',('$date'),'$email',$question_id,0,0);";
-          $hasil = mysql_query($query);
-		  $query = "update questions set n_answer=n_answer+1;";
-          $hasil = mysql_query($query);
-		  
-        };
-	  ?>
 	  </div>
 	</div>
     <p align=center><a href='index.php' class=yellow_font>Go back to index</a><br></p>	
