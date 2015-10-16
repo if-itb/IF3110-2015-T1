@@ -89,7 +89,11 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+1. Melakukan validasi pada client-side
+validasi pada clientside dilakukan dengan menggunakan javascript. Pada web yang saya buat terdapat file javascript validatorInputQuestionAnswer yang akan melakukan validasi terhadap inputan dari user. Pada saat tombol post ditekan, akan dipangggil fungsi validateEmail untuk memvalidasi email masukan user(dicek dengan regex) serta dipanngil fungsi validateFormQuestion untuk mengecek apakah inputan nama, questionTopic, dan questionContent benar (terisi). Apabila terjadi kesalahan maka akan muncul sebuah alert dengan informasi-informasi yang berkaitan dengan error.
+
+2. Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
+Pada kasus vote ini, ketika tombol up atau down ditekan, maka akan dikirimkan 3 parameter, yakni answer/question, $answerid, dan up/down. 3 parameter tersebut akan dilempar ke fungsi yang bersesuaian sesuai dengan nilai parameternya. Selain itu, saya juga membuat XMLHttpRequest yang menggunakan ready state=4 dan status=200. Tujuannya adalah mengatur agar nilai votenumber berubah setelah update di database berhasil. Setelah request selesai diproses, saya mengganti nilai vote yang ada pada page dengan memanfaatkan innerHTML dari document.
 
 ### Knowledge
 
