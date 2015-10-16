@@ -90,11 +90,13 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 ### Penjelasan Teknis
 
  - Validasi pada *client-side*
+
 Validasi dilakukan dengan mendefinisikan fungsi `searchFormValidation()` (untuk mevalidasi input kunci pencarian post), `questionFormValidation()` (untuk mevalidasi form pembuatan ataupun pengeditan pertanyaan), dan `answerFormValidation()` (untuk mevalidasi form pembuatan jawaban baru).
 Fungsi-fungsi javascript tersebut akan dijalankan saat pengguna melakukan submit form. Validasi kunci pencarian dilakukan dengan mendeteksi panjang input tidak sama dengan nol dan input tidak `null`. Apabila input memenuhi aturan tersebut, fungsi akan mengembalikan nilai `true` dan dilakukan pencarian input pada basisdata. Apabila input ternyata tidak memenuhi aturan, akan ditampilkan pesan kesalahan *"Searh key is not valid."* dan fungsi mengembalikan nilai `false`, yang menyebabkan pencarian tidak dilakukan.
 Validasi form pertanyaan dan jawaban juga dilakukan dengan metode yang sama untuk setiap input pada form, tetapi terdapat tambahan validasi input email. Validasi email dilakukan dengan menggunakan *regex pattern*. Apabila terdapat input yang kosong, fungsi akan mengeluarkan pesan kesalahan *"There are empty fields. Please complete this form."* Apabila input email tidak sesuai format email, fungsi akan mengeluarkan pesan kesalahan *"Email is not valid."* Jika kedua syarat tersebut terpenuhi, fungsi akan mengembalikan nilai `true` dan form akan disubmit untuk kemudian disimpan ke dalam basisdata.
 
  - AJAX untuk proses pengubahan vote
+
 AJAX digunakan untuk memungkinkan halaman web melakukan proses update terhadap bagian tertentu tanpa perlu melakukan reload seluruh halaman web. Proses pengubahan vote dimulai dengan pengguna menekan tombol vote up atau vote down. Klik pengguna akan memicu fungsi javascript, yaitu `updateVote(isQuestion, id, vote_factor)`. Fungsi tersebut akan menciptakan objek *XMLHttpRequest* yang akan digunakan untuk bertukar data dengan server. Lalu, akan dikirimkan request ke server yang dalam hal ini lokasi server berupa file php. File tersebut berisi kode untuk mengambil jumlah vote saat ini, menambahkan atau mengurangi jumlah vote sesuai tombol yang ditekan pengguna, dan menyimpan jumlah vote kembali ke basisdata. Fungsi javascript akan secara otomatis mendeteksi status *XMLHttpRequest* berubah. Ketika request telah selesai dilaksanakan dan status *"OK"*, fungsi akan mengubah jumlah vote pada HTML menjadi jumlah vote yang ada pada basisdata.
 
 ### Knowledge
