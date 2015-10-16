@@ -87,9 +87,25 @@ Validasi **wajib** dilakukan pada *client-side*, dengan menggunakan **javascript
 
 Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi pertanyaan`.
 
-### Penjelasan Teknis
+### Penjelasan Teknis - Rahman Adianto 13513006
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+- Melakukan validasi pada client-side
+
+Validasi dilakukan dengan menggunakan javascript. Proses validasi dengan javascript adalah mendefinisikan elemen DOM untuk
+setiap field, didefinisikan sebagai **var answerField** dan **var threadField**. Kemudian memilih **getElementById** dan 
+melakukan pengecekan apabila field kosong dengan fungsi **trim()**. Untuk memakukan validasi pada email string, proses yang 
+dilakukan adalah  memanfaatkan regular ekpresi yang akan memastikan bahwa email string memiliki format 
+<something>@<something>.<something> dengan <something> adalah karakter alphabet dan bilangan. Bila input tidak valid akan 
+memberikan **alert**.
+
+- AJAX (Voting).
+
+Fitur voting **UPVOTE** dan **DOWNVOTE** pada thread dan answer diimplementasikan dengan AJAX. Proses yang dilakukan adalah
+ketika terjadi event **onclick** pada icon upvote atau downvote maka akan **XMLHttpRequest** akan diinstansiasi. 
+Objek XMLHttpRequest ini akan melakukan koneksi ke server, request, memanfaatkan PHP. 
+Jika terjadi perubahan state pada server maka perubahan tersebut akan diterima pada **onreadystatechange**. 
+Setelah terjadi perubahan state pada server makan javascript akan melakukan manipulasi **innerHTML** pada elemen votes.
+Setelah manipulasi dilakukan maka angka vote berubah, bertambah atau berkurang. 
 
 ### Knowledge
 
