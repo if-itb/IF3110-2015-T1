@@ -56,22 +56,22 @@
 	display: inline;
 }
 
+.arrow-up, .arrow-down {
+	width:0;
+	height:0;
+	cursor:pointer;
+}
+
 .arrow-up {
-	margin: 10px auto;
-	width: 0; 
-	height: 0; 
+	margin: 10px auto; 
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
-	
 	border-bottom: 10px solid black;
 }
 
 .arrow-down {
 	margin: 0 auto;
-	width: 0; 
-	height: 0; 
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
-	
 	border-top: 10px solid black;
 }

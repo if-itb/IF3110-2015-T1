@@ -1,17 +1,8 @@
-function deleteQuestion(questionId){
-	if (confirm("Are you sure you want to delete this question?"))
-		window.location.href="/tools/question/deletequestion.php?id=" + questionId;
-}
-
-function editQuestion(questionId){
-	window.location.href="/editquestion.php?id=" + questionId;
-}
-
-function upVoteQuestion(questionId){
+function upVoteAnswer(answerId){
 	//Taken from http://stackoverflow.com/questions/9713058/sending-post-data-with-a-xmlhttprequest
 	var http = new XMLHttpRequest();
-	var url = "/tools/question/upvotequestion.php";
-	var param = "id=" + questionId;
+	var url = "/tools/answer/upvoteanswer.php";
+	var param = "id=" + answerId;
 	http.open("POST", url, true);
 
 	//Send the proper header information along with the request
@@ -21,7 +12,7 @@ function upVoteQuestion(questionId){
 
 	http.onreadystatechange = function() {
 		if (http.readyState == 4 && http.status == 200) {
-			var id = "question"+questionId;
+			var id = "answer"+answerId;
 			var element = document.getElementById(id);
 			var value = parseInt(element.innerHTML);
 			element.innerHTML = "" + (value+1);
@@ -30,11 +21,11 @@ function upVoteQuestion(questionId){
 	http.send(param);
 }
 
-function downVoteQuestion(questionId){
+function downVoteAnswer(answerId){
 	//Taken from http://stackoverflow.com/questions/9713058/sending-post-data-with-a-xmlhttprequest
 	var http = new XMLHttpRequest();
-	var url = "/tools/question/downvotequestion.php";
-	var param = "id=" + questionId;
+	var url = "/tools/answer/downvoteanswer.php";
+	var param = "id=" + answerId;
 	http.open("POST", url, true);
 
 	//Send the proper header information along with the request
@@ -44,7 +35,7 @@ function downVoteQuestion(questionId){
 
 	http.onreadystatechange = function() {
 		if (http.readyState == 4 && http.status == 200) {
-			var id = "question"+questionId;
+			var id = "answer"+answerId;
 			var element = document.getElementById(id);
 			var value = parseInt(element.innerHTML);
 			element.innerHTML = "" + (value-1);

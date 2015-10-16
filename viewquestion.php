@@ -1,12 +1,12 @@
 <?php
 	require_once 'tools/database/db.php';
 
-	$questionid = $_GET['id'];
+	$questionId = $_GET['id'];
 
 	$sql = "
 		SELECT *
 		FROM question
-		WHERE questionId = $questionid";
+		WHERE questionId = $questionId";
 
 	$question = getResult($sql);
 
@@ -14,9 +14,9 @@
 	$question = $question[0];
 
 	$sql = "
-		SELECT votes, content, answerer, date 
+		SELECT answerId, votes, content, answerer, date 
 		FROM answer
-		WHERE answer.questionId = $questionid";
+		WHERE answer.questionId = $questionId";
 
 	$answers = getResult($sql);
 

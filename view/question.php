@@ -21,17 +21,17 @@
 			<div class='question'>
 			<div class='row'>
 				<div class='col-1'>
-					<div class='arrow-up'></div>
-					<p class='center'><b><?php echo $question["votes"]?></b></p>
-					<div class='arrow-down'></div>
+					<div class='arrow-up' onclick="upVoteQuestion(<?php echo $questionId; ?>)"></div>
+					<b><p class='center' id='question<?php echo $questionId; ?>'><?php echo $question["votes"]?></p></b>
+					<div class='arrow-down' onclick="downVoteQuestion(<?php echo $questionId; ?>)"></div>
 				</div>
 				
 				<div class='col-8'>
 					<p><?php echo $question['content']?></p>
 					<p class='right'>
 						asked by <span class='name'><?php echo $question["asker"]?></span> at <?php echo $question["date"]?> | 
-						<a href='#' onclick="editQuestion(<?php echo $question["questionId"];?>)">edit</a> | 
-						<a href='#' onclick="deleteQuestion(<?php echo $question["questionId"]; ?>)">delete</a>
+						<a href='#' onclick="editQuestion(<?php echo $questionId; ?>)">edit</a> | 
+						<a href='#' onclick="deleteQuestion(<?php echo $questionId; ?>)">delete</a>
 					</p>
 				</div>
 			</div>
@@ -42,9 +42,9 @@
 			<div class='answer'>
 				<div class='row'>
 					<div class='col-1'>
-						<div class='arrow-up'></div>
-						<p class='center'><b><?php echo $answer["votes"]?></b></p>
-						<div class='arrow-down'></div>
+						<div class='arrow-up' onclick="upVoteAnswer(<?php echo $answer["answerId"]; ?>)"></div>
+						<b><p class='center' id='answer<?php echo $answer["answerId"]; ?>'><?php echo $answer["votes"]?></p></b>
+						<div class='arrow-down' onclick="downVoteAnswer(<?php echo $answer["answerId"]; ?>)"></div>
 					</div>
 					<div class='col-8'>
 					<p><?php echo $answer["content"]?></p>
@@ -70,5 +70,6 @@
 	</div>
 	<script type='text/javascript' src='/assets/js/validate.js'></script>
 	<script type='text/javascript' src='/assets/js/question.js'></script>
+	<script type='text/javascript' src='/assets/js/answer.js'></script>
 </body>
 </html>

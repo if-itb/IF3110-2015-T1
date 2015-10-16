@@ -38,8 +38,8 @@
 					</p>
 					<p class='right'>
 					asked by <span class="name"><?php echo $question["asker"]; ?></span> | 
-					<a href='#'>edit</a> | 
-					<a href='#'onclick = "deleteQuestion(<?php echo $question["questionId"]; ?>)" >delete</a>
+					<a href='#' onclick = "editQuestion(<?php echo $question["questionId"]; ?>)">edit</a> | 
+					<a href='#' onclick = "deleteQuestion(<?php echo $question["questionId"]; ?>)" >delete</a>
 					</p>
 				</div>
 			</div>

@@ -1,7 +1,7 @@
 <?php
 	require_once 'tools/database/db.php';
 
-	$questionid = $_GET['id'];
+	$questionId = $_GET['id'];
 
 	$sql = "
 		SELECT *
