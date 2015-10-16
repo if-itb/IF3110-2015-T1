@@ -6,12 +6,26 @@
 </head>
 
 <body>
+	<script>
+		function validateForm() {
+		    var search = document.getElementById("search").value;
+		    if (search == "") {
+		        alert("You don't type anything");
+		        return false;
+		    }
+		}
+	</script>
 	<div align="center">
-		<form id="searchbox" action="">
+		<form id="searchbox" onsubmit="return validateForm()">
     		<input id="search" type="text" placeholder="Type here">
     		<input id="submit" type="submit" value="Search">
 		</form>
 		Cant' find what you're looking for? <a href="question.html">Ask here</a>
+	</div>
+	<div>
+		<h1>Recently Asked Questions</h1>
+		<hr>
+		<iframe src="searchhome.php" id="iframe" class="iframe" scrolling="yes"> </iframe>;
 	</div>
 </body>
 

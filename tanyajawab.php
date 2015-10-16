@@ -8,46 +8,27 @@
 	<h1>The questions goes here</h1>
 	<hr>
 	<?php
-		// $name=$_GET["name"];
-		// $email=$_GET["email"];
-		// $topic=$_GET["topic"];
-		// $content=$_GET["content"];
-		$my['host']	= "localhost";
-		$my['user']	= "root";
-		$my['pass']	= "";
-		$my['dbs']	= "stackexchange";
-
-		$koneksi = mysql_connect($my['host'], $my['user'], $my['pass']);
-		if (!$koneksi) {
-			echo "Gagal koneksi ke database!";
-			mysql_error();
-		}
-		//mysql_select_db($my['dbs'])
-		//	or die ("Database tidak ditemukan!".mysql_error());
-
+		include "koneksi.php";
 		if ($koneksi) {
-			mysql_select_db("stackexchange");
-			$pertanyaan= "SELECT content FROM 'question";
+			//mysql_select_db("stackexchange");
+			echo "Berhasil koneksi";
+			$pertanyaan= "SELECT * FROM question";
 			$hasil=mysql_query($koneksi, $pertanyaan);
 			$row=mysql_fetch_row($hasil);
-			//echo $row;
 			if ($row) {
-					echo "berhasil";
-					do {
-						list($votes, $name, $email, $topic, $content)=$row;
-						echo "Votes:", $votes;
-						echo "</br>";
-						echo "Content:", $content;
-						echo "Timestamp:", $timestamp;
-					} while ($row= mysql_fetch_row($hasil) );
+				echo "berhasil";
+				do {
+					list($votes, $name, $email, $topic, $content)=$row;
+					echo "Votes:", $votes;
+					echo "</br>";
+					echo "Content:", $content;
+					echo "Timestamp:", $timestamp;
+				} while ($row= mysql_fetch_row($hasil) );
 			mysql_close($koneksi);
 			} else {
-				//echo $content;
 				echo "Tidak ada";
 				echo "</br>";
 			}
-		//} else { 
-		//	echo "Server not found";
 		}
 	?>
 	<h1>The Answer goes here</h1>
@@ -70,8 +51,6 @@
 		    	return true;
 		    }
 		}
-
-
 		</script>
 		<form id="question" action="home.html" onsubmit="return validateForm()" method="post">
 			Nama <input id="name" type="text" name="name"></br>

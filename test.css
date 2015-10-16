@@ -11,7 +11,8 @@
 	padding-right: 25;
 }
 
-#question
+#iframe
 {
-	height: 200px;
+	height: 300px;
+	width: 500px;
 }
