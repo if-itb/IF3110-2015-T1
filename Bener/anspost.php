@@ -11,7 +11,7 @@
 	
 <?php
 $question_id = $_POST['question_id'];
-$name = $_POST["name"];
+$name = mysqli_real_escape_string ($conn, $_POST["name"]);
 $email = $_POST["email"];
 $content = mysqli_real_escape_string ($conn, $_POST["content"]);
 

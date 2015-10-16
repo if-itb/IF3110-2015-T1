@@ -11,9 +11,9 @@
 	
 <?php
 	$question_id = $_POST["question_id"];
-	$name = $_POST["name"];
+	$name = mysqli_real_escape_string ($conn, $_POST["name"]);
 	$email = $_POST["email"];
-	$topic = $_POST["topic"];
+	$topic = mysqli_real_escape_string ($conn, $_POST["topic"]);
 	$content = mysqli_real_escape_string ($conn, $_POST["content"]);
 
 if($question_id>0){

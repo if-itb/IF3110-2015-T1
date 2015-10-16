@@ -13,7 +13,7 @@
 <?php include 'connect.php';?>
 
 
-<div class="title">Simple StackExchange</div>
+<div class="link-normalizer"><a class='title' href="question.php">Simple StackExchange</a></div>
 <br>
 <br>
 <br>

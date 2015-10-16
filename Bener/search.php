@@ -6,8 +6,11 @@
 </head>
 
 <body>
+
+<?php include 'connect.php';?>	
 <?php
-	$search_key = $_POST['search_key'];
+	$search_key = mysqli_real_escape_string ($conn, $_POST["search_key"]);
+
 	header('Location: question.php?search_key='.$search_key);
 ?>
 

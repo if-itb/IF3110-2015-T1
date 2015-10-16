@@ -1,7 +1,14 @@
+	.link-normalizer{
+		text-align: center;
+	    text-decoration: none;
+	    color:black;
+	}
 	.title {
 	    text-align: center;
 	    font-size: 350%;
 	    font-family:calibri;
+	    text-decoration: none;
+	    color:black;
 	}
 	.subtitle {
 		margin-left:17.5%;
@@ -189,4 +196,5 @@
 		text-align: center;
 		float:center;
 	}
+
 
