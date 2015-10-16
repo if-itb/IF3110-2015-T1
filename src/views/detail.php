@@ -9,7 +9,7 @@
 	</div>
 
 	<div id="content"><pre><?=$question['content']?></pre></div>
-	<div id="footer">Asked by <?=$question['name']?> at <?=$question['timestamp']?> | <a href='/index.php/questions/edit/<?=$question['id']?>'>edit</a> | <a href='/index.php/questions/delete/<?=$question['id']?>'>delete</a> </div>
+	<div id="footer">Asked by <?=$question['name']?> at <?=$question['timestamp']?> | <a href='/index.php/questions/edit/<?=$question['id']?>'>edit</a> | <a href="javascript:deleteQuestion(<?=$question['id']?>)">delete</a> </div>
 </div>
 
 <h2><?=$question['answers']?> Answers</h2>
@@ -77,5 +77,11 @@
 		});
 
 	});
+
+	function deleteQuestion(id) {
+		if (confirm("Apakah Anda yakin?")){
+			window.location.href = "/index.php/questions/delete/" + id;
+		}
+	}
 
 </script>

@@ -25,7 +25,7 @@
 		echo("<tr>");
 			echo("<td width='7%'>Voters</td>");
 			echo("<td width='7%'>Answers</td>");
-			echo("<td width='30%'>Asked by {$questions['name']} | <a href='/index.php/questions/edit/{$questions['id']}'>edit</a> | <a href='/index.php/questions/delete/{$questions['id']}'>delete</a> </td>");
+			echo("<td width='30%'>Asked by {$questions['name']} | <a href='/index.php/questions/edit/{$questions['id']}'>edit</a> | <a href='javascript:deleteQuestion({$questions['id']})'>delete</a> </td>");
 		echo("</tr>");
 
 		//var_dump($questions);
@@ -33,3 +33,14 @@
 		echo("</div>");
 	}
 ?>
+
+
+<script type="text/javascript">
+	
+	function deleteQuestion(id) {
+		if (confirm("Apakah Anda yakin?")){
+			window.location.href = "/index.php/questions/delete/" + id;
+		}
+	}
+
+</script>
