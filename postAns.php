@@ -21,8 +21,8 @@ function SubmitAnswer($qid) {
     $data2 = mysql_query ($query2)or die(mysql_error());
     if($data&&$data2)
     {
-     echo "<script type='text/javascript'>alert('We have noted your question. Thank you and hope you get your answer') 
-        window.location.href='index.php';</script>";
+     echo "<script type='text/javascript'>alert('We have noted your answer. Thank you') 
+        window.location.href='showQA.php?id=$qid';</script>";
     } 
 } 
 
@@ -37,6 +37,6 @@ function CheckSubmission($qid) {
     } 
 } 
 
-if(isset($_POST['submit'])) { $qid = $_POST['qID']; echo $qid; CheckSubmission($qid); }
+if(isset($_POST['submit'])) { $qid = $_POST['qID']; CheckSubmission($qid); }
 
 ?>

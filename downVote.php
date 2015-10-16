@@ -8,7 +8,7 @@ $db = mysql_select_db(DB_NAME,$con) or die("Failed to connect to MySQL: " . mysq
 
 function upVoteQuestion($idq) { 
 	//Insert data to question table
-	$query = "UPDATE question SET vote=vote+1 WHERE id='$idq'";
+	$query = "UPDATE question SET vote=vote-1 WHERE id='$idq'";
 	//select vote from question table
 	$retquery ="SELECT vote FROM question WHERE id='$idq' ";
 	$data = mysql_query ($query)or die(mysql_error());

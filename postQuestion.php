@@ -37,5 +37,5 @@ function CheckSubmission() {
 } 
 
 if(isset($_POST['submit'])) { CheckSubmission(); }
-
+//if(isset($_POST['submit'])) { SubmitQuestion(); }
 ?>

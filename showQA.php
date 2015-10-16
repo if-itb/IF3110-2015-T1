@@ -5,6 +5,26 @@
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" type="text/css" href="styles.css" />
 <script type="text/javascript" src="startpagescript.js"></script>
+	<script type="text/javascript">
+		function validateEmail(email){
+			var re = /\S+@\S+\.\S+/;
+			return re.test(email);
+		}
+		function validateAnswer() {
+		    //Check if empty
+		    if (document.forms["AnsForm"]["name"].value == null || document.forms["AnsForm"]["name"].value == "" ||
+		        document.forms["AnsForm"]["email"].value == null || document.forms["AnsForm"]["email"].value == "" ||
+		        document.forms["AnsForm"]["content"].value == null || document.forms["AnsForm"]["content"].value == "") {
+		        alert("There is an Empty Field");
+		        return false;
+		    }
+		    //Check email
+		    else if(!validateEmail(document.forms["AnsForm"]["email"].value)){
+		        alert("Incorrect email address");
+		        return false;
+		    }
+		}
+	</script>
 </head>
 <body>
 <div id="container">
@@ -52,10 +72,10 @@
 
          echo 
                 "<thead><th colspan =\"5\">  {$row['topic']} </th></thead> ".
-                " <tr> <td style=\"width:20%\"> Up </td> ".
+                " <tr> <td style=\"width:20%\"> <button onclick=\"voteQuestion($idquestion)\">Up</button> </td> ".
                 " <td rowspan=\"2\" style=\"width:80%\"> Content : {$row['content']} </td> </tr>".
-                " <tr> <td style=\"width:20%\"> Vote : {$row['vote']} </td> </tr>".
-                " <tr> <td style=\"width:20%\"> Down </td> ".
+                " <tr> <td style=\"width:20%\"> Vote : <div id=\"num_question_vote\">{$row['vote']} </div></td> </tr>".
+                " <tr> <td style=\"width:20%\"> <button onclick=\"downVoteQuestion($idquestion)\">Down</button> </td> ".
                 " <td> Asked by : {$row['name']} ".
                 "   <a href=\"showDataBase.php?id=$idquestion\" > edit</a> ".
                 "   <a href=\"Delete.php?id=$idquestion\">delete</a></td></tr>";
@@ -63,7 +83,7 @@
                 
 
          //Select and print answer
-         $sqlans = "SELECT name, vote, timeans, content FROM answer where IDquestion='$idquestion' ";
+         $sqlans = "SELECT name, vote, timeans, content,idans FROM answer where IDquestion='$idquestion' ";
          mysql_select_db('tucilwbd');       
          $retvalans = mysql_query( $sqlans, $conn );
          
@@ -75,18 +95,17 @@
          while($row = mysql_fetch_array($retvalans, MYSQL_ASSOC))
          {
              echo 
-                " <tr> <td style=\"width:20%\"> <button onclick=\"votequestion('$idquestion')\" Up </td> ".
-                " <td rowspan=\"2\" style=\"width:80%\"> Content : {$row['content']} </td> </tr>".
-                " <tr> <td style=\"width:20%\"> Vote : {$row['vote']} </td> </tr>".
-                " <tr> <td style=\"width:20%\"> Down </td> ".
+                " <tr> <td style=\"width:20%\"> <button onclick=\"voteAns({$row['idans']})\">Up</button>  </td> ".
+                " <td rowspan=\"2\" style=\"width:80%\"> Content : {$row['content']}</td> </tr>".
+                " <tr> <td style=\"width:20%\"> Vote : <div id=\"num_ans_vote_{$row['idans']}\">{$row['vote']} </div></td> </tr>".
+                " <tr> <td style=\"width:20%\"> <button onclick=\"downVoteAns({$row['idans']})\">Down</button> </td> ".
                 " <td> Asked by : {$row['name']} ".
                 "   at {$row['timeans']}</td></tr>".
-                " <tr style=\"height:40px\"></tr>  ";
+                " <tr style=\"height:40px\"></tr>";
          }
 		//Create the answer form
         echo 
-        "<fieldset style=\"width:100%\" ><legend>Answer Form</legend> 
-		<form method=\"POST\" action=\"postAns.php\">
+        "<form method=\"POST\" action=\"postAns.php\" onsubmit=\"return validateAnswer()\" name=\"AnsForm\">
 		<input type=\"hidden\" name=\"qID\" value=\"$idquestion\">
 		<table border=\"0\" align =\"left\" width=\"100%\">  
 			<tr> 
@@ -101,11 +120,10 @@
 				</td> 
 			</tr> 
 			<tr> 
-				<td align =\"right\"><input id=\"button\" type=\"submit\" name=\"submit\" value=\"Post\" style=\"width:10%\"></td> 
+				<td align =\"right\"><input id=\"button\" type=\"submit\" name=\"submit\" value=\"Post\" style=\"width:10%\"onclick=\"validateEmail()\"></td> 
 			</tr> 
 		</table> 
-		</form> 
-		</fieldset>";
+		</form> ";
 
          
          mysql_close($conn);
