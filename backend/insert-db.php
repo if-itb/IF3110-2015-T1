@@ -5,7 +5,8 @@
 	$topic = $_POST["topic"];
 	$content = $_POST["content"];
 
-	$result = mysqli_query($con,"INSERT INTO questions (name, email, topic, content) VALUES ('$name', '$email', '$topic', '$content')");
+	$query = "INSERT INTO questions (name, email, topic, content) VALUES ('$name', '$email', '$topic', '$content')";
+	$result = mysqli_query($con, $query);
 	if(! $result ){
 		die('Could not insert data: ' . mysql_error());
 	}

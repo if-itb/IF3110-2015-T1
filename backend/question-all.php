@@ -1,6 +1,7 @@
 <?php 
 	include('connect-mysql.php');
-	$result = mysqli_query($con,"SELECT * FROM questions ORDER BY id DESC");
+	$query = "SELECT * FROM questions ORDER BY id DESC";
+	$result = mysqli_query($con, $query);
 	if(! $result ) {
 		die('Could not delete data: ' . mysql_error());
 	}
