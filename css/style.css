@@ -1,0 +1,181 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+body {
+	color: #011627;
+	background-color: #FDFFFC;
+	font-family: "Segoe UI", Georgia, "Helvetica Neue", serif;
+}
+
+h1, h2, h3, h4 {
+	font-weight: bold;
+	padding: 5px 0;
+}
+
+
+p {
+	margin: 5px 0;
+}
+
+a {
+	color: #468499;
+	text-decoration: none;
+}
+
+a:hover, .link.edit > a:hover, .link.delete > a:hover {
+	color: #05146b;
+}
+
+button, input[type="text"], input[type="submit"] {
+	padding: 8px 10px;
+	font-size: 1em;
+}
+
+input[type="submit"] {
+	background-color: #468499;
+	border: 1px solid #468499;
+	color: #FDFFFC;
+	cursor: pointer;
+	transition: 0.2s color ease-out;
+	transition: 0.2s background-color ease-in;
+}
+input[type="submit"]:hover {
+	background-color: #FDFFFC;
+	color: #468499;
+}
+
+button {
+	background-color: #FDFFFC;
+	border: 0 solid #FDFFFC;
+	color: #999;
+	cursor: pointer;
+	transition: 0.2s color ease-out;
+	transition: 0.2s background-color ease-in;
+}
+
+button:hover {
+	background-color: #cccccc;
+	color: #FDFFFC;
+}
+
+.center {
+	text-align: center;
+}
+
+.div {
+	display: block;
+}
+
+.row {
+	display: block;
+	clear: both;
+	margin: 0 10px;
+}
+
+.row:before, .row:after {
+	clear: both;
+	display: table;
+	content: " ";
+}
+
+.col {
+	float: left;
+	width: 50%;
+	padding: 0 5px;
+}
+
+#wrapper {
+	margin: 0 auto;
+	max-width: 800px;
+}
+
+#main-search #search-bar {
+	width: 80%;
+}
+
+.vote, .answers {
+	position: relative;
+	top: 5px;
+	text-align: center;
+	width: 10%;
+}
+
+.col.content {
+	width: 90%;
+}
+
+#main-page .questions > h3 {
+	margin-bottom: 0;
+}
+
+#main-page .question {
+	padding: 10px 0;
+	border-top: 1px solid #ccc;
+}
+
+
+#main-page .question:hover {
+	background: #FAFAFA;
+}
+
+.link.edit > a {
+	color: #06b200;
+}
+
+.link.delete > a {
+	color: #ee0000;
+}
+
+span.name {
+	color: #0024ff;
+}
+
+span.page-title {
+	color: #999;
+}
+form.block input[type="text"], form.block textarea {
+	display: block;
+	margin: 10px 0;
+	width: 100%;
+}
+
+textarea {
+	font-family: inherit;
+	font-size: inherit;
+	height: 200px;
+	padding: 8px 10px;
+}
+
+
+form.block input[type="submit"] {
+	float: left;
+	margin-bottom : 10px;
+}
+
+#form-answer > h2 {
+	color: #999;
+	margin-bottom: 0;
+}
+
+#answers > h2 {
+	color: #999;
+	margin-bottom: 0;
+}
+
+.answer {
+	padding: 10px 0;
+}
+
+.answer .info, .question .info {
+	text-align: right;
+}
+
+#view-question-page h2 {
+	border-bottom: 2px solid #ccc;
+}
+
+.number-vote {
+	font-size : 1.3em;
+	color : #888;
+}
