@@ -40,15 +40,17 @@
 				."<div class='bQA-vote'>"
 					."<div class='vote-up' onclick='addQuestionVote(".$row['question_id'].")''>"
 		    		."</div>"
-					."<br>"
-					."<a id='question_vote".$row['question_id']."'>".$row['vote']
+		    		."<br>"
+					."<a class='vote-value' id='question_vote".$row['question_id']."'>"
+					.$row['vote']
 					."</a>"
-					."<br>"
+					."<br><br>"
 					."<div class='vote-down' onclick='subtractQuestionVote(".$row['question_id'].")''>"
 					."</div>"
 				."</div>"
 				."<div class='bQA-content'>"
 					.$row['content']
+					."<br><br>"
 				."</div>"
 				."<div class='bQA-identity'>"
 					."asked by "
@@ -99,14 +101,15 @@
 		    				."<div class='vote-up' onclick='addAnswerVote(".$row['answer_id'] . ")''>"
 		    				."</div>"
 							."<br>"
-		    				."<a id='answer_vote" . $row['answer_id'] . "'>" .$row['vote']
+		    				."<a class='vote-value' id='answer_vote" . $row['answer_id'] . "'>" .$row['vote']
 		    				."</a>"
-		    				."<br>"
+		    				."<br><br>"
 							."<div class='vote-down' onclick='subtractAnswerVote(" . $row['answer_id'] . ")''>"
 							."</div>"
 						."</div>"
 						."<div class='bQA-content'>"
 							.$row['content']
+							."<br><br>"
 						."</div>"
 		    			."<div class='bQA-identity'>" 
 		    				."answered by " . $row['email'] . " at " . "08.00 7/10/1996"

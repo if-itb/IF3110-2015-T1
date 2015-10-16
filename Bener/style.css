@@ -88,12 +88,12 @@
 	.bquestion-answer{
 		width: 7.5%;
 		color:black;
-		text-align: center;
 		float:left;
+		text-align: center
 	}
 	.bquestion-content{
 		margin-left:2.5%; 
-		width: 30%;
+		width: 47.5%;
 		color:black;
 		text-align: left;
 		float:left;
@@ -118,7 +118,7 @@
 	}
 	.bQA-content{
 		margin-left:2.5%; 
-		width: 30%;
+		width: 47.5%;
 		color:black;
 		text-align: left;
 		float:left;
@@ -137,22 +137,28 @@
 		border-left: 20px solid transparent;
 		border-right: 20px solid transparent;
 		border-bottom: 20px solid grey;
-		margin-left:32.5%;
-		float:left;
+		margin-left:35%;
+		float:center;
 		cursor: pointer;
 		clear:none;
 	}
+	.vote-value{
+		float: center;
+		clear: none;
+		font-size: 200%;
+		color: grey;
+	}
+
 	.vote-down{
 	  	width: 0; 
 	  	height: 0; 
 	  	border-left: 20px solid transparent;
 	  	border-right: 20px solid transparent;
-	  	margin-left:32.5%;
+	  	margin-left:35%;
 	  	border-top: 20px solid grey;
 	  	float:center;
 	  	cursor: pointer;
-	  	clear:none;
-	}
+	  	clear:none;	}
 	.form-text{
 	  	width: 65%;
 	  	border: 2px solid black;
@@ -174,5 +180,13 @@
 	  	border: 2px solid black;
 	  	margin-bottom: 10px;
 	}
-
+	.result-zero{
+		margin-left:17.5%;
+		width: 65%;
+		color:black;
+		font-family: calibri;
+		font-size: 100%;
+		text-align: center;
+		float:center;
+	}
 

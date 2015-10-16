@@ -13,7 +13,8 @@
 $question_id = $_POST['question_id'];
 $name = $_POST["name"];
 $email = $_POST["email"];
-$content = $_POST["content"];
+$content = mysqli_real_escape_string ($conn, $_POST["content"]);
+
 
 	$sql = "INSERT INTO Answer (question_id, name, email, content)
 	VALUES ('$question_id', '$name', '$email', '$content')";

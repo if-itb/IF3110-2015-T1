@@ -14,7 +14,7 @@
 	$name = $_POST["name"];
 	$email = $_POST["email"];
 	$topic = $_POST["topic"];
-	$content = $_POST["content"];
+	$content = mysqli_real_escape_string ($conn, $_POST["content"]);
 
 if($question_id>0){
 	$sql = "UPDATE Question
