@@ -12,5 +12,5 @@
 		}
 	}
 	mysqli_close($con);
-	header('Location: ajax_answer.php?id='.$id);
+	header('Location: ajax-answer.php?id='.$id);
 ?>

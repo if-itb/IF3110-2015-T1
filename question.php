@@ -19,7 +19,7 @@
         <tr> <td align="center" valign="middle"> <a href="javascript:downvoteQuestion(<?php echo $question['id'];?>)"><span class="big">&#709;</span></a></td> </tr>
       </table>
       <p class="content"><?php echo $question['content']; ?></p>
-      <p class="pull-right"><b>asked by <?php echo $question['name']; ?> at <?php echo $question['created_at']; ?>| <a href="edit-question.php?id=<?php echo $question['id']; ?>" class="orange">edit</a> | <a href="backend/delete-question.php?id=<?php echo $question['id']; ?>" class="red">delete</a></b></p>
+      <p class="pull-right"><b>asked by <?php echo $question['name']; ?> at <?php echo $question['created_at']; ?>| <a href="edit-question.php?id=<?php echo $question['id']; ?>" class="orange">edit</a> | <a href="javascript:confirmDelete(<?php echo $question['id']; ?>)" class="red">delete</a></b></p>
   </div>
 
   <br>
@@ -49,4 +49,5 @@
   </form>
   
 </body>
+<script src="js/confirm-delete.js"></script>
 </html>
