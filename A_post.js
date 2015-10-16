@@ -3,14 +3,16 @@ function addPost(id){
 	var nama = document.getElementById('nama').value;
 	var email = document.getElementById('email').value;
 	var judul = document.getElementById('judul').value;
+	//var tanggal = document.getElementById('tanggal').value; //
 	var konten = document.getElementById('konten').value;
 	
-	if (nama != "" && emailValidation(email) && komen != ""){
+	if (nama != "" && emailValidation(email) && konten != ""){
 		var url = "A_new_post_process.php";
 		url = url + "?post_id=" + id;
 		url = url + "&nama=" + nama;
 		url = url + "&email=" + email;
 		url = url + "&judul=" + judul;
+		//url = url + "&tanggal=" + tanggal;
 		url = url + "&konten=" + konten;
 	
 	
@@ -21,6 +23,7 @@ function addPost(id){
 			document.getElementById('nama').value = "";
 			document.getElementById('email').value = "";
 			document.getElementById('judul').value = "";
+			//document.getElementById('tanggal').value = "";
 			document.getElementById('konten').value = "";
 			loadComment(id);
 		}
@@ -42,6 +45,22 @@ function emailValidation(email){
  }
  else{return false;}
 }
+
+function votepost(){
+	var xmlHttp = new XMLHttpRequest();
+	var url = "votepost.php"; //GANTI JADI url ajax votepost.php
+	xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("votes").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+	
+	//echo votes; di ajax uppost.php
+}
+
+
 
 function loadPost(id){
 	var xmlHttp = new XMLHttpRequest();

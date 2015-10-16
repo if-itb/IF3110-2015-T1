@@ -44,7 +44,7 @@
                 <form method="post" action="A_new_post_process.php">
 				
 				
-				<form onsubmit="addPost('<?php echo $id; ?>'); return false;"> <!--!!!!!!!!-->
+				<!--<form onsubmit="addPost('TANDAKURANGDARI?php echo $id; ?>'); return false;">--> <!--!!!!!!!!-->
 				
 				
 					<label for="nama">Name</label> <!--DO MAKE LABEL INSIDE INPUT AREA-->
@@ -57,7 +57,7 @@
                     <input type="text" name="judul" id="judul">
 
                     <!--<label for="tanggal">Tanggal:</label>
-                    <input type="text" name="tanggal" id="tanggal">-->
+                    <input type="text" name="tanggal" id="tanggal"> <!--HAPUS-->
                     
                     <label for="konten">Content</label><br>
                     <textarea name="konten" rows="20" cols="20" id="konten"></textarea>
