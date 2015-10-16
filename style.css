@@ -1,0 +1,120 @@
+html * {
+	font-family : Microsoft Sans Serif;
+}
+
+div.maindiv {
+	width : 60%;
+	margin : auto;
+	text-align : center;
+}
+
+h1 {
+	font-size : 48px;
+	font-weight : normal;
+}
+
+h2 {
+	font-size : 24px;
+	font-weight : normal;
+	margin : 0;
+}
+
+h2.left {
+	text-align : left;
+}
+
+table {
+	border-collapse : collapse;
+	text-align : center;
+	width : 100%;
+}
+
+td {
+	border-style : solid none none none;
+	border-width : 2px;
+	border-color : black;
+	padding : 10px;
+}
+
+td.votes {
+	width : 10%;
+}
+
+td.answers {
+	width : 10%;
+}
+
+td.content {
+	width : 45%;
+	vertical-align : top;
+}
+
+td.asked {
+	width : 25%;
+	text-align : right;
+}
+
+tr:nth-last-child(2) td {
+	border-style : solid none solid none;
+}
+
+a {
+	text-decoration : none;
+}
+
+a.yellow {
+	color : #FFA000;
+}
+
+a.blue {
+	color : #5500FF;
+}
+
+a.red {
+	color : #FF0000;
+}
+
+input[type="text"] {
+	border : 2px solid black;
+	background-color : white;
+	height : 30px;
+}
+
+input[type="submit"] {
+	border : 2px solid black;
+	background-color : white;
+	color : black;
+	height : 36px;
+}
+
+div.searchdiv input[type="text"] {
+	width : 85%;
+}
+
+div.searchdiv input[type="submit"] {
+	width : 13%;
+}
+
+div.right {
+	text-align : right;
+	width : 100%;
+}
+
+textarea {
+	border : 2px solid black;
+	background-color : white;
+	font-size : 10pt;
+}
+
+img.vote {
+	cursor : pointer;
+}
+
+a#title {
+	color : black;
+}
+
+submit.submitpost {
+	background-color : silver !important;
+	width : 10%;
+}
