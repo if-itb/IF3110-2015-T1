@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -29,17 +33,25 @@
             echo "There are currently no question asked.";
           } else {
 			while ($data=mysql_fetch_array($hasil)) {
+			  $id = $data['question_id'];
 			  $vote = $data['n_upvote']-$data['n_downvote'];
+			  $subject = nl2br($data['subject']);
+			  $q_text = nl2br($data['question_text']);
 			  echo "<span class=p_table>";
-			  echo "<table><col width=90><col width=90><col width=999><tr>";
-			  echo "<td align=center>$vote<br>Votes</td><td align=center>$data[n_answer]<br>Answers</td>";
-			  echo "<td valign=top><p><b>$data[subject]</b><br></p></td>";
+			  echo "<table><col width=110><col width=110><col width=999><tr>";
+			  echo "<td valign=top align=center><br><font class=vote_font>$vote</font><br>Votes</td><td valign=top align=center><br><font class=vote_font>$data[n_answer]</font><br>Answers</td>";echo "<td valign=top><a class=quest_font href=\"question.php?q_id=$id\"><p><b>$subject</b><br><br>$q_text</p></a></td>";
 			  echo "</tr></table>";
-			  echo "<p class=p_table align=right>asked by <font class=blue_font>$data[user]</font> | <font class=yellow_font>edit</font> | <font class=red_font>delete</font></p>";
+			  echo "<p class=p_table align=right>asked by <font class=blue_font>$data[user]</font> | <a href=\"edit.php?q_id=$id\" class=yellow_font>edit</a> | <a href='#' onclick=delete() class=red_font>delete</a></p>";
 			  echo "<hr></span>";
             };
           };
         ?>
+		<script type='text/javascript'>
+		  function delete() {
+			alert("tes dulu lah");
+			return true;
+		  }
+		</script>
 	  </div>
 	</div>
   </body>

@@ -89,7 +89,30 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+Untuk melakukan validasi pada client side menggunakan javascript, digunakan sebuah variabel untuk pengecekan, yaitu `document.forms[<nama form>][<nama input textbox/textarea>].value`. Variabel tersebut menampung masukan dari pengguna. Untuk mengecek apakah field kosong atau tidak, dilakukan pengecekan dengan membandingkan dengan `null` atau `""`.
+Contoh code untuk mengecek field nama pada form question:
+`function validateForm() {
+	var is_valid = true;
+	var msg_alert = "";
+    var x = document.forms["question"]["user"].value;
+    if (x == null || x == "") {
+		msg_alert+="Name must be filled out!\n";
+    }
+	if (msg_alert!="") {
+		is_valid = false;
+		alert(msg_alert);
+	}
+	return is_valid;
+}`
+
+Untuk validasi email, digunakan regular expression. Berikut adalah potongan codenya
+`var x = document.forms["question"]["email"].value;
+var re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+if (x == null || x == "") {
+    msg_alert+="Email must be filled out!\n";
+} else if (!re.test(x)) {
+	msg_alert+="Email must be in correct format!\n";
+}`
 
 ### Knowledge
 
