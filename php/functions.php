@@ -88,11 +88,17 @@
         };
   }
 
-  function printQList() {
+  function printQList($ID) {
       $conn = get_connectqa();
 
-      // Select all
-      $result = mysqli_query($conn,"SELECT * FROM questions LEFT JOIN (SELECT COUNT(answers.ID) AS Ans, Ans_ID AS Q_ID FROM questions JOIN answers WHERE questions.ID = answers.Ans_ID GROUP BY questions.ID ) AS temp ON questions.ID = temp.Q_ID ORDER BY Date DESC");
+      if ($ID == 0) {
+        // Select all
+        $result = mysqli_query($conn,"SELECT * FROM questions LEFT JOIN (SELECT COUNT(answers.ID) AS Ans, Ans_ID AS Q_ID FROM questions JOIN answers WHERE questions.ID = answers.Ans_ID GROUP BY questions.ID ) AS temp ON questions.ID = temp.Q_ID ORDER BY Date DESC");
+      } else {
+        // Search
+        $search = $_GET['search'];
+        $result = mysqli_query($conn,'SELECT * FROM questions LEFT JOIN (SELECT COUNT(answers.ID) AS Ans, Ans_ID AS Q_ID FROM questions JOIN answers WHERE questions.ID = answers.Ans_ID GROUP BY questions.ID ) AS temp ON questions.ID = temp.Q_ID WHERE Topic LIKE "%'.$search.'%" OR Content LIKE "%'.$search.'%" ');
+      }
 
       while($row = mysqli_fetch_assoc($result)) {
         echo '<div class = "middle-box">

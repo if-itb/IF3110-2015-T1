@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<div class = "middle-box">
-			<h1>Simple StackExchange</h1>
+			<a href = "Home.php" class = "hl-black"><h1>Simple StackExchange</h1></a>
 			<?php
 				require 'functions.php';
 

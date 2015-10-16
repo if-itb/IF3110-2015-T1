@@ -19,17 +19,14 @@
 			<h3>Recently Asked Questions</h2>
 		</div>
 		<?php
+			require 'functions.php';
 
+			printQList(1);
 			if(isset($_POST['post'])) {
 				$search = $_POST['search'];
 
 				header('Location: search.php?search='.$search);
 			}
-
-			require 'functions.php';
-
-			printQList(0);
-			
 		?>
 	</body>
 </html>	

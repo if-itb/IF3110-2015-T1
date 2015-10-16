@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<div name = "questions" class = "middle-box">
-			<h1>Simple StackExchange</h1>
+			<a href = "Home.php" class = "hl-black"><h1>Simple StackExchange</h1></a>
 			<h2 id = "lined-under">What's your question?</h2>
 			<?php
 				require 'functions.php';
