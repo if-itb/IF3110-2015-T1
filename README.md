@@ -11,7 +11,7 @@ Tugas dikerjakan secara individu.
 ## Petunjuk Pengerjaan
 
 1. Fork pada repository ini dengan akun github anda.
-2. Silakan commit pada repository anda (hasil fork). Lakukan berberapa commit dengan pesan yang bermakna, contoh: `fix css`, `create post done`, jangan seperti `final`, `benerin dikit`. Disarankan untuk tidak melakukan commit dengan perubahan yang besar karena akan mempengaruhi penilaian (contoh: hanya melakukan satu commit kemudian dikumpulkan). 
+2. Silakan commit pada repository anda (hasil fork). Lakukan berberapa commit dengan pesan yang bermakna, contoh: `fix css`, `create post done`, jangan seperti `final`, `benerin dikit`. Disarankan untuk tidak melakukan commit dengan perubahan yang besar karena akan mempengaruhi penilaian (contoh: hanya melakukan satu commit kemudian dikumpulkan).
 3. Ubah **Penjelasan Teknis** pada bagian bawah readme.md ini dengan menjelaskan bagaimana cara anda:
    - Melakukan validasi pada client-side
    - Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
@@ -74,7 +74,7 @@ Jawaban pertanyaan berisi email, nama, dan konten jawabannya. Gunakan HTTP POST 
 
 ### Vote (vote up, vote down)
 
-Pengguna dapat melakukan vote up atau vote down ke suatu pertanyaan. Ketika pengguna menekan tombol vote, halaman tidak boleh refresh tapi jumlah vote akan berubah dan tersimpan ke basis data. Jumlah vote yang akan berubah sesuai dengan banyaknya vote yang ada di basis data (jadi tidak asal nambah satu saja). 
+Pengguna dapat melakukan vote up atau vote down ke suatu pertanyaan. Ketika pengguna menekan tombol vote, halaman tidak boleh refresh tapi jumlah vote akan berubah dan tersimpan ke basis data. Jumlah vote yang akan berubah sesuai dengan banyaknya vote yang ada di basis data (jadi tidak asal nambah satu saja).
 
 
 ### Validasi
@@ -108,3 +108,13 @@ Asisten IF 3110 2015
 Fahziar | Gilang | Lingga | Reza | Sudib | Tito | Willy K2 | Yafi
 
 Dosen : Yudistira Dwi Wardhana | Riza Satria Perdana
+
+
+
+### Penjelasan Teknis
+-Melakukan validasi pada client-side
+  Validasi pada client-side menggunakan javascript. Pengecekan dilakukan pada saat submit menggunakan atribut onSubmit. Jika ada field pada form yang kosong, maka placeholder dari setiap field akan diganti dengan text yang berisi pesan bahwa field tersebut harus diisi. selain itu border setiap field akan berubah warna menjadi merah. validasi email pada javascript menggunakan ekspresi regular untuk alamat email yang valid. Jika email tidak valid, javascript akan mengeluarkan alert "Email Invalid" dan warna border juga berubah menjadi merah, akan tetapi teks yang sudah diisikan tidak akan dirubah/dihilangkan.
+
+-Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
+  Ajax untuk voting menggunakan fungsi vote. element HTML yang dirubah diberi element id 'questionVote' untuk data berjenis question dan 'answerVote-id' untuk data berjenis answer.
+  Ketika gambar vote-up atau vote-down diklik, akan dipanggil fungsi vote dengan parameter jenis data yang divote(answer atau question), id dari data, dan jenis voting (up atau down). fungsi vote menggunakan XMLHTTPRequest. fungsi vote memanfaatkan method POST untuk mengirimkan parameter ke server. pada server, diterima parameter yang dikirimkan oleh fungsi vote. di server mengecek jenis vote, kemudian melakukan penambahan atau pengurangan jumlah vote pada tabel di database sesuai jenis data(answer atau question) dan id data yang diterima. Server akan mengirimkan response berupa jumlah vote terbaru yang  didapat dari database. response diterima oleh fungsi vote di client-side dan digunakan sebagai text baru dari element pada HTML sesuai dengan id element yang dibuat di awal.
