@@ -10,8 +10,8 @@
 		echo "<span id=\"questvote\" class=\"question-number\">" . $question["vote"] . "</span><br><br>";
 		echo "<div onclick=\"vote(". $id . ",'question','down')\"  class=\"arrow-down\"></div><br></span>";
 		echo "<span id=\"question-content\">";
-		echo $question["content"] . "<br><br><br>";
-		echo "<span class=\"question-info\">asked by <span class=\"author\">" . $question["name"] .
+		echo nl2br($question["content"]) . "<br><br><br>";
+		echo "<span class=\"question-info\">asked by <span class=\"author\">" . $question["email"] .
 			"</span> at " . $question["date_created"] . " ";
 		if ($question["date_edited"]!=null) {
 			echo " edited at " . $question["date_edited"] . " ";
@@ -34,8 +34,8 @@
 			echo "<span id=\"ansvote-" . $answerList[$i]["id"] . "\"class=\"question-number\">" . $answerList[$i]["vote"] . "</span><br><br>";
 			echo "<div onclick=\"vote(". $answerList[$i]["id"] . ",'answer','down')\" class=\"arrow-down\"></div><br></span>";
 			echo "<span id=\"question-content\">";
-			echo $answerList[$i]["content"] . "<br><br><br>";
-			echo "<span class=\"question-info\">answered by <span class=\"author\">" . $answerList[$i]["name"] .
+			echo nl2br($answerList[$i]["content"]) . "<br><br><br>";
+			echo "<span class=\"question-info\">answered by <span class=\"author\">" . $answerList[$i]["email"] .
 			"</span> at " . $answerList[$i]["date_created"] . " </span>";
 			echo "</span><br><br>";
 			echo "<hr>";
