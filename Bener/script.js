@@ -49,13 +49,76 @@
 
 
 
-    function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (xhttp.readyState == 4 && xhttp.status == 200) {
-     document.getElementById("demo").innerHTML = xhttp.responseText;
+    function addAnswerVote(s) {
+        var xhttp = new XMLHttpRequest();
+        if (window.XMLHttpRequest) {
+           // code for modern browsers
+           xhttp = new XMLHttpRequest();
+        } 
+        else {
+           // code for IE6, IE5
+           xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                document.getElementById("answer_vote" + s).innerHTML = xhttp.responseText;
+            }
+        }
+        xhttp.open("GET", "addansvote.php?answer_id=" + s, true);
+        xhttp.send();
     }
-  }
-  xhttp.open("GET", "ajax_info.txt", true);
-  xhttp.send();
-}
+    function subtractAnswerVote(s) {
+        var xhttp = new XMLHttpRequest();
+        if (window.XMLHttpRequest) {
+           // code for modern browsers
+           xhttp = new XMLHttpRequest();
+        } 
+        else {
+           // code for IE6, IE5
+           xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                document.getElementById("answer_vote" + s).innerHTML = xhttp.responseText;
+            }
+        }
+        xhttp.open("GET", "subtractansvote.php?answer_id=" + s, true);
+        xhttp.send();
+    }
+
+    function addQuestionVote(s) {
+        var xhttp = new XMLHttpRequest();
+        if (window.XMLHttpRequest) {
+           // code for modern browsers
+           xhttp = new XMLHttpRequest();
+        } 
+        else {
+           // code for IE6, IE5
+           xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                document.getElementById("question_vote" + s).innerHTML = xhttp.responseText;
+            }
+        }
+        xhttp.open("GET", "addquestionvote.php?question_id=" + s, true);
+        xhttp.send();
+    }
+    function subtractQuestionVote(s) {
+        var xhttp = new XMLHttpRequest();
+        if (window.XMLHttpRequest) {
+           // code for modern browsers
+           xhttp = new XMLHttpRequest();
+        } 
+        else {
+           // code for IE6, IE5
+           xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                document.getElementById("question_vote" + s).innerHTML = xhttp.responseText;
+            }
+        }
+        xhttp.open("GET", "subtractquestionvote.php?question_id=" + s, true);
+        xhttp.send();
+    }
