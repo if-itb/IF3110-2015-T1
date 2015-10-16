@@ -89,7 +89,25 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+#### Validasi pada client-side
+
+Validasi untuk beberapa form yang kami ingin lakukan adalah dengan menggunakan javascript. Pada tugas kali ini digunakan 3 fungsi javascript untuk membantu pengerjaan, yaitu validateEmail(), validateForm(), dan validateAnsForm(). 
+
+Fungsi validateEmail() berisi verifikasi secara *regular expression* untuk mengecek apakah email benar atau tidak. 
+
+Fungsi validateForm() bertujuan untuk menvalidasi agar setiap form yang ada di bagian edit maupun ask tidak melenceng dari ketentuan (ada form kosong atau email tidak sesuai format). Di dalam fungsi ini, diambil *value* dari setiap kolom yang ada. Kemudian, jika form *topic*, *content* dan nama dari form kosong akan mengembalikan nilai *false*. Khusus untuk *email*, fungsi validateEmail() dipanggil, dan akan mengembalikan *false* jika tidak sesuai format email. 
+
+Fungsi validateAnsForm() bertujuan untuk menvalidasi agar setiap form yang ada di bagian answer tidak melenceng dari ketentuan (ada form kosong atau email tidak sesuai format). Di dalam fungsi ini, diambil *value* dari setiap kolom yang ada. Kemudian, jika form *content* dan nama dari form kosong fungsi akan mengembalikan nilai *false*. Khusus untuk *email*, fungsi validateEmail() dipanggil, dan akan mengembalikan *false* jika tidak sesuai format email. 
+
+#### AJAX pada vote
+
+Untuk voting, berikut cara untuk melakukan AJAX. Digunakan 2 fungsi, yaitu `votingup` dan `votingans`. Fungsi `votingup` berfungsi untuk melakukan vote di bagian pertanyaan, sedangkan `votingans` berfungsi untuk melakukan vote di bagian jawaban. 
+
+1. Untuk bagian pertanyaan, diberikan onclick `votingup(qid, idnya)` dengan parameter qid diambil dari URL dengan metode GET serta *idnya* diset untuk menentukan apakah vote tersebut up atau down.  
+2. Secara *asynchronous*, bagian angka dari vote diubah. Angka tersebut diubah dengan melakukan getElementbyID pada fungsi `votingup`. Yang dijalankan di `votingup` adalah membuka `voting.php`
+3. `voting.php` merupakan suatu *file* PHP yang mengambil *question id* dari parameter URL. Pada PHP ini, dijalankan *SQL query* yang menambahkan voteup maupun menambahkan votedown tergantung dari *idnya* yang diberikan melalui parameter URL juga. 
+4. Hal yang sama juga dilakukan pada bagian jawaban. Hanya saja, di bagian jawaban fungsi `votingans` yang dipanggil. File PHP yang digunakan juga adalah `voting.php` yang sama dengan bagian pertanyaan. Yang membedakan adalah hanya variabel *idnya*. 
+
 
 ### Knowledge
 
