@@ -89,7 +89,13 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+#### Validasi client-side
+
+Validasi input pada client side terjadi ketika sebuah form akan disubmit, browser akan melakukan onsubmit sebelum data dikirim. Pada dasarnya karena sifat javascript yang asyncronous, fungsi yg dilakukan pada onsubmit mengembalikan nilai false agar form tidak terkirim, dan memualai fungsi validasi. Ketika beberapa masukan masih salah, script validator akan menambahkan border merah. Ketika semua masukan sudah benar, script akan melakukan form submit.
+
+#### Vote Up - Vote Down AJAX
+
+Vote up dan vote down melakukan pemanggilan ajax ke server ke url `index.php/answers/vote/\[id\]/\[count\]` atau `index.php/questions/vote/\[id\]/\[count\]`. Kemudian server akan merespons apakah berhasil atau tidak. Jika berhasil, server akan mengembalikan berapa jumlah vote pada pertanyaan atau jawaban tersebut. Hasil jumlah vote digunakan untuk mengupdate tampilan angka vote dengan DOM. 
 
 ### Knowledge
 
