@@ -1,0 +1,152 @@
+html{
+	font-size: 20px;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+form{
+	text-align: center;
+}
+body{
+	margin-left: 100px;
+	margin-right: 100px;
+}
+h1{
+	margin-top: 30px;
+	text-align: center;
+	font-size: 40px;
+}
+.search{
+	text-align: center;
+}
+.yellow{
+	display: inline-block;
+	color: #E68416;
+}
+.name{
+	display: inline-block;
+	color: #12107E;
+}
+.delete{
+	display: inline-block;
+	color: #FF1515;
+}
+.search_form{
+	padding: 4px;
+	margin: auto;
+	width: 50%;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #000000;
+	border-radius: 5px;
+}
+.button{
+	padding: 4px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #000000;
+	border-radius: 5px;
+}
+.list{
+	margin-left: 50px;
+}
+ul{
+	list-style-type: none;
+	margin-left: 0px;
+}
+.title{
+	font-size: 25px;
+}
+hr {
+  	display: inline-block;
+   	position: relative;
+   	padding: 0;
+  	margin: 8px auto;
+   	height: 0;
+   	width: 100%;
+   	max-height: 0;
+   	font-size: 1px;
+   	line-height: 0;
+   	clear: both;
+   	border: none;
+   	border-top: 1px solid #aaaaaa;
+   	border-bottom: 1px solid #ffffff;
+}
+.votes{
+	display: inline-block;
+    width: 50px;
+    padding: 0px;
+    border: none;
+    margin: 25px;
+    text-align: center;
+}
+.count{
+	display: inline-block;
+    width: 50px;
+    padding: 0px;
+    border: none;
+    margin: 25px;
+    text-align: center;
+}
+.content{
+	display: inline-block;
+    width: 300px;
+    padding: 0px;
+    border: none;
+    text-align: center;
+}
+.credential{
+	position: absolute;
+	right: 100px;
+	font-size: 20px;
+}
+.votes-count{
+	display: inline-block;
+}
+.vote-up{
+	height: 30px;
+	text-indent: -9999em;
+	font-size: 1px;
+	display: block;
+	margin: 0px 2px;
+	width: 40px;
+	background-image: url("http://cdn.sstatic.net/stackoverflow/img/sprites.svg?v=a7723f5f7e59"), none;
+	background-size: initial;
+	background-repeat: no-repeat;
+	background-position: 0px -170px;
+	overflow: hidden;
+}
+.vote{
+	height: 30px;
+	display: block;
+	margin: 0px 2px;
+	width: 40px;
+	text-align: center;
+}
+.vote-down{
+	height: 30px;
+	text-indent: -9999em;
+	font-size: 1px;
+	display: block;
+	margin: 0px 2px;
+	width: 40px;
+	background-image: url("http://cdn.sstatic.net/stackoverflow/img/sprites.svg?v=a7723f5f7e59"), none;
+	background-size: initial;
+	background-repeat: no-repeat;
+	background-position: 0px -220px;
+	overflow: hidden;
+}
+.inputform{
+	text-align: center;
+	padding: 4px;
+	margin: auto;
+	width: 50%;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #000000;
+	border-radius: 5px;
+}
+.new-answer{
+	margin: auto;
+}
