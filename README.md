@@ -108,3 +108,92 @@ Asisten IF 3110 2015
 Fahziar | Gilang | Lingga | Reza | Sudib | Tito | Willy K2 | Yafi
 
 Dosen : Yudistira Dwi Wardhana | Riza Satria Perdana
+
+
+Melakukan validasi pada client-side
+Untuk melakukan validasi pada client side, baik untuk validasi question maupun answer, 
+digunakan fungsi javascript yang dipanggil pada form
+	onsubmit="return chkValidityQuestion();" //untuk validasi question, baik post question maupun edit question
+	onsubmit="return chkValidityAnswer();" //untuk validasi answer
+
+Kedua fungsi tersebut akan menghasilkan true (jika semua input benar) atau false (jika salah satu atau lebih input salah)
+Jika fungsi menghasilkan false, maka submit tidak dapat dilakukan.
+
+Validasi pada client-side hanya dapat berjalan jika browser mendukung javascript dan di-enabled.
+Jika browser tidak mendukung javascript atau javascript di disabled oleh pengguna, perlu dilakukan validasi pada server-side
+
+Melakukan AJAX (mulai dari pengguna melakukan klik pada tombol vote sampai angka vote berubah).
+
+Untuk dapat melakukan vote, pada tombol up/down, ditambahkan tag onclick, yang akan memanggil sebuah fungsi javascript bernama
+	vote('[up/down]','[q/a]',[id]);
+Pada program yang saya buat:
+Parameter pertama menyatakan vote up atau down
+Parameter kedua menyatakan question atau answer
+Parameter ketiga menyatakan id dari question atau answer
+
+
+
+	var xmlhttp;
+	if (window.XMLHttpRequest){
+		xmlhttp=new XMLHttpRequest();
+	} else {
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	if(type == 'q'){	
+		xmlhttp.onreadystatechange = function()
+		{
+			if(xmlhttp.readyState == 4)
+			{
+				document.getElementById("q-"+id).innerHTML=xmlhttp.responseText;
+			}
+		}
+		if(upDown == 'up'){
+			xmlhttp.open("POST","functions.php?f=voteQuestionUp&id=" + id,true);
+		} else {
+			xmlhttp.open("POST","functions.php?f=voteQuestionDown&id=" + id,true);
+		}
+		xmlhttp.send();
+	} else { //answer
+		xmlhttp.onreadystatechange = function()
+		{
+			if(xmlhttp.readyState == 4)
+			{
+				document.getElementById("a-"+id).innerHTML=xmlhttp.responseText;
+			}
+		}
+		if(upDown == 'up'){
+			xmlhttp.open("POST","functions.php?f=voteAnswerUp&id=" + id,true);
+		} else {
+			xmlhttp.open("POST","functions.php?f=voteAnswerDown&id=" + id,true);
+		}
+		xmlhttp.send();
+	}
+	
+Pada fungsi vote, digunakan XMLHttpRequest, yang merupakan sebuah objek javascript yang dapat mengambil data dari suatu URL tanpa mereload halaman secara keseluruhan
+
+Kemudian dilakukan seleksi apakah yang akan di vote question ('q') atau answer ('a') serta vote up ('up') atau vote down ('down')
+
+Kemudian xmlhttp.open dengan method post memanggil functions.php dengan parameter GET 'f' yang menyatakan apa yang akan divote (question/answer) dan jenis vote(up/down) serta parameter ID yang berisi ID dari question/answer yang akan divote
+
+Di functions.php, terdapat
+	if(isset($_GET['f']))
+yang akan jalan jika dilakukan pemanggilan functions php dengan parameter f diisi.
+Di dalam if(isset($_GET['f'])), akan dipanggil fungsi vote dengan parameter ($type,$n,$id)
+$type = question/answer
+$n = jumlah vote (1 untuk up, -1 untuk down)
+$id = id question/answer
+
+Selanjutnya, dilakukan pengupdatean data pada database
+Fungsi vote juga akan meng-echo jumlah vote yang baru (setelah diupdate) dengan memanggil getVoteNumber()
+
+Kembali ke javascript, bagian
+	if(xmlhttp.readyState == 4)
+akan terpenuhi setelah fungsi vote selesai menjalankan tugasnya dan meng-echo jumlah vote yang baru
+
+Di dalamnya,
+	document.getElementById([id elemen yang menyatakan jumlah vote question/answer]).innerHTML=xmlhttp.responseText;
+akan mengupdate elemen dengan hasil responseText dari php.
+
+
+

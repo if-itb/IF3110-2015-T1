@@ -1,0 +1,134 @@
+body{
+	font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif; 
+}
+.site-title{
+	margin: 20px 0 50px 0;
+	font-size: 40pt;
+}
+.site-title a, .site-title a:hover{
+	color:#000000;
+}
+.container{
+	width:70%;
+	margin:auto;
+}
+.content{
+	width:80%;
+	margin:auto;
+}
+a{
+	color: #ffae00;
+	text-decoration: none;
+}
+a:hover{
+	color: #ff0000;
+}
+hr{
+	height: 2px;
+	background-color: #000;
+}
+#search{
+	padding:0 2% 0 2%;
+}
+#search-box, #search-submit{
+	
+}
+#search-box{
+	width:70%;
+	height:30px;
+	border: solid 3px;
+}
+#search-submit, #ask-submit{
+	background:none;
+	border:solid 3px;
+	height:38px;
+	padding:0 10px 0 10px;
+}
+#search-desc{
+	margin-top: 10px;
+}
+#recent-title{
+	margin: 30px 0 10px 0;
+	font-size: 20pt;
+}
+
+/* form ask */
+#form-ask{
+	width:100%;
+	margin:auto;
+}
+#form-ask input, #form-ask textarea{
+	width:100%;
+	margin: 3px 0 3px 0;
+	padding: 5px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+#form-ask textarea{
+	font-family: Arial;
+	padding-top:10px;
+}
+#form-ask input{
+	height:30px;
+}
+#form-ask input#ask-submit{
+	width:70px;
+	background:none;
+	background-color:#e0e0e0;
+	border:solid 2px;
+	color:black;
+	float:right;
+}
+#content{
+	resize: none;
+}
+
+/*question list*/
+.question-item table{
+width:100%;
+}
+.question-item table tr td:nth-child(1), .question-item table tr td:nth-child(2){
+	width:70px;
+	text-align:center;
+}
+.question-item-tag{
+	text-align:right;
+}
+.question-item-name{
+	color: #6648d5;
+}
+.question-item-delete{
+	color: #e5565f;
+}
+.question-item-topic{
+	color: #000000;
+}
+.question-asked, .answer-answered{
+	text-align:right;
+}
+.error{
+	color:#ff0000;
+}
+#form-ask{
+	width:100%;
+}
+
+#whats-question, #edit-question, #question-topic, #answers-number{
+	font-size: 30pt;
+}
+table{
+
+	width:100%;
+}
+
+.question-item-delete, .vote{
+	cursor: pointer; cursor: hand;
+}
+
+@media only screen and (max-width: 768px){
+	.content, .container{
+		width:100%;
+		margin:auto;
+	}
+}
