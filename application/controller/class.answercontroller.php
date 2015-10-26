@@ -20,6 +20,8 @@
 			$user_email = $_POST['user_email'];
 			$answer_content = $_POST['answer_content'];
 			Answer::post($user_name, $user_email, $answer_content, $thread_id);
+			require_once(ROOT . DS . 'application' . DS . 'model'. DS . 'class.thread.php');
+			Thread::addAnswer($thread_id);
 			header("Location: index.php?controller=thread&action=detail&query=$thread_id");
 		}
 	}
