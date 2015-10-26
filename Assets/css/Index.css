@@ -1,0 +1,156 @@
+#header{
+    text-align: center;
+    margin-bottom: 40px;
+}
+#content{
+    margin:auto;
+    padding:20px 20px 60px 0px;
+    max-width:1050px;
+}
+#logo{
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: xx-large;
+    display:block;
+    margin: 20px 0px 30px 0px;
+}
+#search{
+}
+.searchbar{
+    border : 2px solid;
+    max-width: 475px;
+    width: 100%;
+    height: 25px;
+}
+.button{
+    margin-left: 2px;
+    border : 2px solid black;
+    padding : 5px 20px !important;
+    background-color: whitesmoke;
+}
+.button:hover{
+    cursor: pointer;
+}
+#button_post{
+    float: right;
+}
+.y_link{
+    text-decoration: none;
+    color:#ffd200;
+}
+.r_link{
+    text-decoration: none;
+    color: #df0000;
+}
+.b_link{
+    text-decoration: none;
+    color:#0000bb;
+}
+p{
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+h1{
+    font-family: "Lucida Grande", "Trebuchet MS", sans-serif;
+    color:darkgrey;
+}
+h2,h3{
+    font-family: "Lucida Grande", "Trebuchet MS", sans-serif;
+    border-bottom: 2px solid #000000;
+}
+
+input[type="text"]{
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+    margin: 2px 0 2px 0;
+    width : 100%;
+    height: 20px;
+}
+textarea{
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+    margin: 2px 0 2px 0;
+    overflow: scroll;
+    width: 100%;
+    height: 100px;
+}
+.q_or_a{
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    padding: 20px 0px 30px;
+    border-bottom: 1px solid #000000;
+    width: 100%;
+}
+.left{
+    width:25%;
+    display: inline-block;
+}
+.a_left{
+    flex: 1 15%;
+}
+.mid{
+    width:auto;
+    display: inline-block;
+    text-align: center;
+}
+.a_mid{
+    flex: 1 85%;
+}
+.only_q{
+    align-items: center;
+    display: flex;
+    height:100%;
+    margin-bottom: 30px;
+}
+.vote_buttons{
+    top:50%;
+}
+.vote{
+    display: inline-block;
+    font-size: larger;
+    text-align: center;
+    padding : 5px 2px 2px 0px;
+    margin-left: 20px;
+}
+.answer{
+    display: inline-block;
+    font-size: larger;
+    padding : 2px 5px 2px 5px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.details{
+    margin-top:-20px;
+    text-align: right;
+    font-size: small;
+}
+.a_content{
+    text-align: justify;
+    text-justify: inter-word;
+    max-width: 600px;
+    font-size: small;
+}
+.q_content{
+    margin: 0 auto;
+    width: 500px;
+    word-wrap: break-word;
+    text-align: justify;
+    text-justify: inter-word;
+}
+.topic{
+    text-decoration: none;
+    font-size: larger;
+    margin:0 auto;
+}
+.q_details{
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 20px 0px 20px;
+    width: 100%;
+}
+.up_button, .down_button{
+    width: 20px;
+    padding : 10px 5px 2px 10px;
+    margin-left: 5px;
+}
+.up_button , .down_button:hover{
+    cursor: pointer;
+}

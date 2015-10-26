@@ -89,7 +89,24 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+Penjelasan mengenai validasi:
+    Validasi dilakukan pada client side dengan menggunakan fungsi yang saya buat dalam javascript.
+    Satu fungsi untuk melakukan pengecekan email, dan yang satu lagi melakukan pengecekan kelengkapan data pada form.
+    Pada form saya beri sebuah trigger yang dapat dipicu ketika tombol submit ditekan.
+    Sebelum data dikirim, data-data pada field diperiksa kelengkapannya, dan khusus email dicek kebenaran formatnya.
+    Saya menggunakan regex untuk mengecek kebenaran email.
+    Apabila terjadi kesalahan maka akan muncul sebuah alert dengan informasi-informasi yang berkaitan dengan error.
+
+Penjelasan mengenai AJAX:
+    Pada tiap button saya beri atribut id, dan saya pasangkan fungsi yang berkaitan.
+    Misalkan, tombol up saya kaitkan dengan fungsi voteup pada file javascript saya dan sebaliknya.
+    Ketika tombol ditekan, fungsi akan menerima dua parameter untuk memastikan id dan apakah id tersebut dimiliki oleh question ataukah answer.
+    Kemudian, saya membuat sebuah objek XMLHttpRequest()
+    Saya menggunakan readystate=4 dan status=200, yaitu hanya akan melakukan perubahan ketika request telah selesai diproses dan responsenya adalah "OK".
+    Kemudian saya mengirimkan request kepada sebuah page lain yaitu getVote.php.
+    Pada file tersebut saya melakukan pembacaan dan update nilai vote dari item answer atau question, tergantung tombol mana yang diklik.
+    nilai yang telah diupdate kemudian saya kirimkan sebagai response dengan memanfaatkan 'echo' milik php.
+    Setelah request selesai diproses, saya mengganti nilai vote yang ada pada page dengan memanfaatkan innerHTML dari document.
 
 ### Knowledge
 
