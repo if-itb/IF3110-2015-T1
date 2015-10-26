@@ -63,5 +63,12 @@
                   			':dates' => $dates,
                   			':threadId' => $threadId));
 		}
+		
+		public static function delete($id) {
+			$db = Connection::getInstance();
+			$sql = "DELETE FROM sse_answer WHERE thread_id = :id";
+			$statement = $db->prepare($sql);
+			$statement->execute(array(':id' => $id));
+		}
 	}
 ?>
