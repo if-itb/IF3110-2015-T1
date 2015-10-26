@@ -103,6 +103,11 @@
 
 		public static function delete($id) {
 			$db = Connection::getInstance();
+			// delete answer
+			require_once(ROOT . DS . 'application' . DS . 'model'. DS . 'class.answer.php');
+			Answer::delete($id);
+
+			// delete thread
 			$sql = "DELETE FROM sse_thread WHERE thread_id = :id";
 			$statement = $db->prepare($sql);
 			$statement->execute(array(':id' => $id));
