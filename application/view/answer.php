@@ -31,7 +31,7 @@
 </div>
 
 <div class="form" id="answer-form">
-	<form method="POST" onsubmit="submitAnswer()" action="?controller=answer&action=post&query=<?php echo $answer->thread_id; ?>">
+	<form method="POST" onsubmit="submitAnswer()" action="?controller=answer&action=post&query=<?php echo $threadID; ?>">
 		<input type="text" name="user_name" id="user_name" placeholder="Name">
 		<input type="text" name="user_email" id="user_email" placeholder="Email">
 		<textarea name="answer_content" id="answer_content" rows="10" placeholder="Content"></textarea>
