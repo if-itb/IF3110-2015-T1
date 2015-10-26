@@ -70,6 +70,16 @@
 			$statement = $db->prepare($sql);
 			$statement->execute(array($username, $email, $topic, $content, $id));
 		}
+		
+		public static function addAnswer($id) {
+			$db = Connection::getInstance();
+			$sql = "UPDATE sse_thread
+							SET n_answer = n_answer + 1
+							WHERE thread_id=?";
+
+			$statement = $db->prepare($sql);
+			$statement->execute(array($id));
+		}
 
 		public static function upvote($id) {
 			$db = Connection::getInstance();
