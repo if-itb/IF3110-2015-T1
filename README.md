@@ -89,7 +89,8 @@ Pengguna dapat mencari pertanyaan dengan melakukan search ke `judul` maupun `isi
 
 ### Penjelasan Teknis
 
-`Silakan isi bagian ini dengan penjelasan anda, sesuai Petunjuk Pengerjaan di atas.`
+Validasi form question dan answer keduanya menggunakan function javascript yang melakukan pengecekan apakah kolom form terisi dan cek alamat email apakah valid atau tidak, jika ada yang kosong atau tidak valid maka akan muncul box peringatan.
+Vote up dan vote down menggunakan AJAX. Saat icon vote di click pada script akan membuat objek XMLHttpRequest yang mengambil nilai id dari question atau answer yang sedang di vote. Function akan mengambil meng-update nilai vote pada database dan mengambil nilai vote yang baru dari database kemudian mengubah nilai vote yang ditampilkan (sesuai nilai pada database) tanpa reload page. Function vote up dan down untuk question dan answer dipisahkan dan file phpnya juga terpisah untuk mempermudah pengerjaan.
 
 ### Knowledge
 
