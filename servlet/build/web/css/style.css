@@ -1,0 +1,186 @@
+body {
+	font-family: Helvetica;
+}
+
+a {
+	text-decoration: none;
+	color: #4c4ed8;
+}
+
+#container {
+	margin-left: 20vw;
+	margin-right: 20vw;
+}
+
+#container > h1 {
+
+}
+
+.question,
+.qview,
+.aview {
+	padding: 10px;
+	float: left;
+  	width: 100%;
+  	border-bottom: 1px #DDD solid;
+	color: #222;
+	box-sizing: border-box;
+}
+
+.question.negative,
+.qview.negative,
+.aview.negative {
+	background-color: #FFD0D0;
+}
+
+.question:hover,
+.qview:hover,
+.aview:hover {
+	background-color: #EEE;
+}
+
+.question > .votes,
+.qview > .votes,
+.aview > .votes {
+	padding: 5px;
+	position: relative;
+	text-align: center;
+	float: left;
+	width: 50px;
+}
+
+.name {
+	color: blue;
+}
+
+.edit, .ask {
+	color: orange;
+}
+
+.delete {
+	color: red;
+}
+
+.up_vote {
+	position: relative;
+	float: left;
+	background-image: url('../img/up.png');
+	-webkit-filter: opacity(35%);
+	filter: opacity(35%);
+	background-position: -10px -20px;
+	width: 100%;
+	height: 35px;
+	cursor: pointer;
+}
+
+.vote_count {
+	position: relative;
+	float: left;
+	width: 100%;
+	text-align: center;
+	font-weight: 700;
+	font-size: 20px;
+}
+
+.down_vote {
+	position: relative;
+	float: left;	
+	background-image: url('../img/down.png');
+	-webkit-filter: opacity(35%);
+	filter: opacity(35%);
+	background-position: -10px -20px;
+	width: 100%;
+	height: 35px;
+	cursor: pointer;
+}
+
+.question > .answers,
+.qview > .answers,
+.aview > .answers {
+	padding: 5px;
+	position: relative;
+	text-align: center;
+	float: left;
+	width: 10%;
+}
+
+.question > .data {
+	padding: 5px;
+	padding-left: 15px;
+	position: relative;
+	float: left;
+	width: 75%;
+}
+
+.qview > .data,
+.aview > .data {
+	padding: 5px;
+	padding-left: 15px;
+	position: relative;
+	float: left;
+	width: 85%;	
+}
+
+.data > .topic {
+	font-weight: 700;
+}
+
+.qview > .data > .content,
+.aview > .data > .content {
+	min-height: 100px;
+}
+
+.data > .control {
+	text-align: right;
+	margin-top: 10px;
+	font-size: 13px;
+}
+
+.little-text {
+	font-size: 13px;
+}
+
+#form {
+	width: 100%;
+}
+
+.title {
+	font-size: 25px;
+	width: 100%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 25px;
+	color: #555;
+	border-bottom: 1px #555 solid;
+	float: left;
+}
+
+#form > .content {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	text-align: center;
+}
+
+#form > .content input,
+#form > .content textarea {
+	position: relative;
+	margin-top: 10px;
+	border: 1px #888 solid;
+	font-family: Verdana;
+	padding-left: 5px;
+	width: 95%;
+}
+
+#form > .content input {
+	height: 25px;
+}
+
+#form > .content input#search {
+	width: 70%;
+}
+
+button {
+	height: 30px;
+	min-width: 100px;
+	margin: 5px;
+}
