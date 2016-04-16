@@ -1,0 +1,214 @@
+@font-face {
+  font-family: 'hammer-thin'; /*a name to be used later*/
+  src: url('/assets/HammerThin.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'avant-garde'; /*a name to be used later*/
+  src: url('/assets/AvantGarde.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'open-sans-bold'; /*a name to be used later*/
+  src: url('/assets/open-sans/OpenSans-Bold.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'open-sans-bolditalic'; /*a name to be used later*/
+  src: url('/assets/open-sans/OpenSans-BoldItalic.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'open-sans-extrabold'; /*a name to be used later*/
+  src: url('/assets/open-sans/OpenSans-ExtraBold.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'open-sans-extrabolditalic'; /*a name to be used later*/
+  src: url('/assets/open-sans/OpenSans-ExtraBoldItalic.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'open-sans-italic'; /*a name to be used later*/
+  src: url('/assets/open-sans/OpenSans-Italic.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'open-sans-light'; /*a name to be used later*/
+  src: url('/assets/open-sans/OpenSans-Light.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'open-sans-lightitalic'; /*a name to be used later*/
+  src: url('/assets/open-sans/OpenSans-LightItalic.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'open-sans'; /*a name to be used later*/
+  src: url('/assets/open-sans/OpenSans-Regular.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'open-sans-semibold'; /*a name to be used later*/
+  src: url('/assets/open-sans/OpenSans-Semibold.ttf'); /*URL to font*/
+}
+@font-face {
+  font-family: 'open-sans-semibolditalic'; /*a name to be used later*/
+  src: url('/assets/open-sans/OpenSans-SemiboldItalic.ttf'); /*URL to font*/
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.form {
+  display: block;
+  margin: 0px 0;
+  border: 1px solid pink;
+  width: 100%;
+  padding: 3px 10px;
+  line-height: 3;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: open-sans-light;
+}
+
+.box {
+  display: block;
+  margin: 0px;
+  border: 1px solid pink;
+  width: 100%;
+  padding: 3px 10px;
+  line-height: 2;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: open-sans-light;
+}
+
+.button {
+  background-color: red;
+  color: white;
+  border: 1px solid white;
+  padding: 6px 12px;
+  height: 60px;
+  font-size: 24px;
+  font-family: open-sans;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: pink;
+}
+
+p {
+  margin: 5px;
+  font-size: 15px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h1:link, h1:visited, h1:active {
+  text-decoration: none;
+  background-color: red;
+  border: 1px solid white;
+  color: white;
+  font-size: 300%;
+  font-weight: 900;
+  height: 100px;
+  width: 900px;
+  font-family: avant-garde;
+  display: table-cell;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+h1:hover {
+  text-decoration: none;
+  background-color: pink;
+}
+
+h2 {
+  font-size: 30px;
+  margin: 0px;
+  font-family: open-sans-light;
+  color: red;
+}
+
+h3 {
+  font-size: 24px;
+  margin: 0px;
+  font-family: open-sans;
+  color: red;
+}
+
+h4 {
+  font-family: open-sans-light;
+  font-size: 16px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.link {
+  color: red;
+}
+
+.link:hover {
+  color: black;
+}
+
+.arrow {
+  font-size: 24px;
+  margin: 0px;
+  padding: 0px;
+  cursor: pointer;
+}
+
+.item {
+  width: 100%;
+  display: inline-block;
+}
+
+.vote {
+  width: 10%;
+}
+
+.answer {
+  width: 10%;
+}
+
+.text {
+  width: 80%;
+}
+
+.text-long {
+  width: 90%;
+  height: 400%;
+}
+
+.line {
+  border: 1px solid pink;
+}
+
+.vote, .answer, .text, .text-long {
+  float: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: 900px;
+  margin: 0 auto;
+  font-family: open-sans-light;
+}
+
+.footer {
+  font-size: 12px;
+  margin: 0 auto;
+  font-family: open-sans-light;
+  text-align: center;
+}
+
+.votes {
+  margin: 0px;
+  padding: 0px;
+  font-size: 20px;
+}
